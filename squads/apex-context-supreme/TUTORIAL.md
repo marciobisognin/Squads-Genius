@@ -4,7 +4,7 @@ Seja bem-vindo à Supremacia. Este guia ensinará como ativar e utilizar o poten
 
 ## ⚡ Ativação Rápida
 
-Se você estiver usando o Olympus Forge ou qualquer CLI compatível, ative o squad com:
+Ative o squad com:
 
 ```bash
 /apex-context-supreme
