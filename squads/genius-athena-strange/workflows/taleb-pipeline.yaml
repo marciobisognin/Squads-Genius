@@ -1,0 +1,73 @@
+# Workflow: taleb_pipeline (sequential pipeline pattern)
+# Pipeline de análise de antifragilidade inspirado em Nassim Nicholas Taleb
+
+workflow_name: taleb_pipeline
+description: "Pipeline sequencial de 5 fases — da detecção de Cisnes Negros ao relatório executivo de antifragilidade"
+
+agent_sequence:
+  - cygnus-vidente
+  - hydra-arquiteta
+  - seneca-estrategista
+  - medusa-auditora
+  - hermes-orquestrador
+
+key_commands:
+  - "*run-taleb-pipeline"
+  - "*map-black-swans"
+  - "*design-antifragile"
+  - "*apply-barbell"
+  - "*audit-fragility"
+  - "*synthesize-report"
+
+trigger_threshold: 1
+typical_duration: "25-40 minutes"
+
+success_indicators:
+  - "Mapa de Cisnes Negros gerado com classificação Mediocristão/Extremistão"
+  - "Blueprint antifrágil completo com Tríade e Via Negativa"
+  - "Estratégia Barbell aplicada com exposições mapeadas"
+  - "Auditoria de fragilidade PASSED em 6 critérios"
+  - "Relatório executivo gerado com plano de ação"
+
+transitions:
+  black_swans_mapped:
+    trigger: "cisnes-negros-mapa.md generated with classifications"
+    confidence: 0.90
+    greeting_message: "🦢 Cisnes Negros mapeados. Iniciando design antifrágil."
+    next_steps:
+      - command: "*design-antifragile"
+        description: "Projetar sistema antifrágil a partir do mapa"
+        priority: 1
+
+  antifragile_designed:
+    trigger: "antifragile-blueprint.md generated with Triad classification"
+    confidence: 0.90
+    greeting_message: "🐉 Design antifrágil completo. Aplicando estratégia Barbell."
+    next_steps:
+      - command: "*apply-barbell"
+        description: "Aplicar estratégia barbell e mapear exposições"
+        priority: 1
+
+  barbell_applied:
+    trigger: "barbell-strategy.md and exposure-map.md generated"
+    confidence: 0.88
+    greeting_message: "⚖️ Barbell aplicado. Iniciando auditoria de fragilidade."
+    next_steps:
+      - command: "*audit-fragility"
+        description: "Auditar contra 6 critérios de fragilidade"
+        priority: 1
+
+  audit_complete:
+    trigger: "validation-report.md shows PASSED for all 6 criteria"
+    confidence: 0.95
+    greeting_message: "🔱 Auditoria completa. Sintetizando relatório executivo."
+    next_steps:
+      - command: "*synthesize-report"
+        description: "Gerar relatório executivo final"
+        priority: 1
+
+  pipeline_complete:
+    trigger: "relatorio-executivo-antifragil.md generated"
+    confidence: 0.95
+    greeting_message: "⚡ Pipeline Taleb completo. Relatório executivo pronto."
+    next_steps: []
