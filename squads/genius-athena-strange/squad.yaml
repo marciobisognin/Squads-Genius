@@ -1,8 +1,4 @@
-# Squad: Genius Athena-Strange
-# Framework de Antifragilidade, Análise de Cisne Negro & Tomada de Decisão sob Incerteza
-# Inspirado nos frameworks de Nassim Nicholas Taleb
-
-name: Genius Athena-Strange
+name: genius-athena-strange
 version: 1.0.0
 description: "Squad de análise de risco, antifragilidade e tomada de decisão sob incerteza radical. Emula os frameworks de Nassim Nicholas Taleb — Cisne Negro, Antifragilidade, Estratégia Barbell, Via Negativa e Opcionalidade — para avaliar sistemas, projetos e decisões."
 author: marciobisognin
@@ -11,36 +7,36 @@ slashPrefix: gas
 
 aios:
   minVersion: "2.1.0"
+  type: squad
   compatibility: full
 
 components:
   agents:
-    - agents/cygnus-vidente.md
-    - agents/hydra-arquiteta.md
-    - agents/seneca-estrategista.md
-    - agents/medusa-auditora.md
-    - agents/hermes-orquestrador.md
+    - cygnus-vidente.md
+    - hydra-arquiteta.md
+    - seneca-estrategista.md
+    - medusa-auditora.md
+    - hermes-orquestrador.md
   tasks:
-    - tasks/mapear-cisnes-negros.md
-    - tasks/projetar-antifragilidade.md
-    - tasks/aplicar-barbell.md
-    - tasks/auditar-fragilidade.md
-    - tasks/sintetizar-relatorio.md
+    - mapear-cisnes-negros.md
+    - projetar-antifragilidade.md
+    - aplicar-barbell.md
+    - auditar-fragilidade.md
+    - sintetizar-relatorio.md
   workflows:
-    - workflows/taleb-pipeline.yaml
-  config:
-    - config/coding-standards.md
-    - config/tech-stack.md
-    - config/source-tree.md
+    - taleb-pipeline.yaml
   checklists:
-    - checklists/fragility-gate.md
+    - fragility-gate.md
   templates:
-    - templates/barbell-template.md
+    - barbell-template.md
 
 config:
-  inherit: true
+  extends: none
   language: pt-BR
   naming: kebab-case
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
 
 tags:
   - risk-analysis
