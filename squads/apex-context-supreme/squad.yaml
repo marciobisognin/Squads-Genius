@@ -1,0 +1,50 @@
+name: apex-context-supreme
+version: 1.1.0
+description: "Squad supremo de Context Engineering, Enriquecimento e Otimização de Janela de Contexto."
+author: "Olympus Forge"
+license: MIT
+slashPrefix: apex
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  agents:
+    - apex-orquestrista.md
+    - maven-arquiteta.md
+    - spark-alquimista.md
+    - trim-escultor.md
+    - vigil-validadora.md
+  tasks:
+    - arquitetar-apex.md
+    - enriquecer-apex.md
+    - otimizar-apex.md
+    - validar-apex.md
+  workflows:
+    - apex-pipeline.yaml
+  checklists:
+    - apex-quality-gate.md
+  templates:
+    - context-rule.template.md
+  tools: []
+  scripts: []
+
+config:
+  extends: none
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  squads: []
+
+tags:
+  - context-engineering
+  - context-window-optimization
+  - aios
+  - multi-agent
+  - claude-code
+  - pipeline
+  - automation

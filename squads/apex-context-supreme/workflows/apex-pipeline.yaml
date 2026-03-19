@@ -1,0 +1,61 @@
+# Workflow: apex_context_pipeline (sequential pipeline pattern)
+# Pipeline supremo de Context Engineering em 4 fases — Da análise técnica à validação final.
+
+workflow_name: apex_context_pipeline
+description: "Pipeline supremo de Context Engineering em 4 fases — De Dados Brutos a Sabedoria Atômica Multiplataforma."
+
+agent_sequence:
+  - maven-arquiteta
+  - spark-alquimista
+  - trim-escultor
+  - vigil-validadora
+
+key_commands:
+  - "*iniciar-pipeline"
+  - "*run-apex"
+
+trigger_threshold: 1
+typical_duration: "10-15 minutes"
+
+success_indicators:
+  - "Blueprint técnico e inventário de ativos gerados"
+  - "Regras de contexto densas criadas para Claude, Gemini e Codex"
+  - "Poda de tokens realizada com sucesso (redução de ruído)"
+  - "Relatório de conformidade sem bloqueadores"
+
+transitions:
+  diagnosis_complete:
+    trigger: "technical inventory and blueprint.yaml generated"
+    confidence: 0.90
+    greeting_message: "Diagnóstico completo. Iniciando o enriquecimento de sabedoria."
+    next_steps:
+      - command: "*enriquecer-contexto"
+        description: "Generate dense semantic rules from technical blueprint"
+        priority: 1
+
+  wisdom_enriched:
+    trigger: "raw rule files (.md) generated for all target platforms"
+    confidence: 0.90
+    greeting_message: "Enriquecimento concluído. Iniciando a escultura de tokens para otimização."
+    next_steps:
+      - command: "*otimizar-contexto"
+        description: "Compress tokens and remove cross-platform redundancies"
+        priority: 1
+
+  context_optimized:
+    trigger: "token-optimized rules generated, noise reduced"
+    confidence: 0.85
+    greeting_message: "Otimização concluída. Iniciando a validação final de qualidade."
+    next_steps:
+      - command: "*validar-contexto"
+        description: "Run final quality gate and compliance checks"
+        priority: 1
+
+  validation_passed:
+    trigger: "validation report shows no blockers and 100% compliance"
+    confidence: 0.95
+    greeting_message: "Validação aprovada. O squad atingiu o estado de Supremacia de Contexto."
+    next_steps:
+      - command: "*status-apex"
+        description: "Show final context health report"
+        priority: 1
