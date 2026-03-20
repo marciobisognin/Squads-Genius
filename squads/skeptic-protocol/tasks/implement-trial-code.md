@@ -1,25 +1,28 @@
 ---
 task: implementTrialCode()
-responsavel: SolutionImplementer
+responsavel: "SolutionImplementer"
 responsavel_type: Agente
 atomic_layer: Organism
+
 Entrada:
-  - campo: "failingTestSuite"
+  - campo: failingTestSuite
     tipo: "Test Suite File"
-    origem: "writeFailingTests()"
+    origen: "writeFailingTests() output — failingTestSuite"
     obrigatorio: true
+
 Saida:
-  - campo: "productiveSourceCode"
+  - campo: productiveSourceCode
     tipo: "Source Code File"
-    destino: "executeAppeal()"
+    destino: "executeAppeal() task — input para revisão adversarial"
     persistido: true
+
 Checklist:
-  pre_condicoes:
-    - "Existe uma suíte de testes falhando que cobre as acusações iniciais."
-  post_condicoes:
-    - "A suíte de testes da Fase 2 agora PASSA integralmente."
-    - "O código implementado segue os padrões de tecnologia definidos no squad."
-    - "Nenhum código extra (over-engineering) foi adicionado além do necessário para passar nos testes."
+  pre-conditions:
+    - "[ ] Existe uma suíte de testes falhando que cobre as acusações iniciais."
+  post-conditions:
+    - "[ ] A suíte de testes da Fase 2 agora PASSA integralmente."
+    - "[ ] O código implementado segue os padrões de tecnologia definidos no squad."
+    - "[ ] Nenhum código extra (over-engineering) foi adicionado além do necessário para passar nos testes."
 ---
 
 ## Pipeline Diagram

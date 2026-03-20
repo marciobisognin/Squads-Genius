@@ -1,24 +1,27 @@
 ---
 task: generateVerdictReport()
-responsavel: SkepticOrchestrator
+responsavel: "SkepticOrchestrator"
 responsavel_type: Agente
 atomic_layer: Molecule
+
 Entrada:
-  - campo: "appealResult"
+  - campo: appealResult
     tipo: "Boolean"
-    origem: "executeAppeal()"
+    origen: "executeAppeal() output — appealResult"
     obrigatorio: true
+
 Saida:
-  - campo: "skepticReport"
+  - campo: skepticReport
     tipo: "Markdown Document"
     destino: "End User / Repository"
     persistido: true
+
 Checklist:
-  pre_condicoes:
-    - "O ciclo SKEPTIC (Fases 1 a 4) foi concluído."
-  post_condicoes:
-    - "O veredito final reflete se a solução é robusta o suficiente para produção."
-    - "O relatório resume: Acusações, Testes, Implementação e Resultado do Red Team."
+  pre-conditions:
+    - "[ ] O ciclo SKEPTIC (Fases 1 a 4) foi concluído."
+  post-conditions:
+    - "[ ] O veredito final reflete se a solução é robusta o suficiente para produção."
+    - "[ ] O relatório resume: Acusações, Testes, Implementação e Resultado do Red Team."
 ---
 
 ## Pipeline Diagram

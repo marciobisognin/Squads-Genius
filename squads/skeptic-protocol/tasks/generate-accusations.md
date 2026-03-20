@@ -1,28 +1,31 @@
 ---
 task: generateAccusations()
-responsavel: FailurePredictor
+responsavel: "FailurePredictor"
 responsavel_type: Agente
 atomic_layer: Organism
+
 Entrada:
-  - campo: "projectRequirements"
+  - campo: projectRequirements
     tipo: "Markdown Text"
-    origem: "User / Orchestrator"
+    origen: "User / Orchestrator"
     obrigatorio: true
-  - campo: "appealFeedback"
+  - campo: appealFeedback
     tipo: "Markdown Text"
-    origem: "executeAppeal()"
+    origen: "executeAppeal() output — appealFeedback"
     obrigatorio: false
+
 Saida:
-  - campo: "accusationsList"
+  - campo: accusationsList
     tipo: "Markdown Document"
-    destino: "writeFailingTests()"
+    destino: "writeFailingTests() task — input para criação de testes"
     persistido: true
+
 Checklist:
-  pre_condicoes:
-    - "Requisitos ou objetivos base do sistema foram fornecidos."
-  post_condicoes:
-    - "Zero linhas de código de implementação (linguagens de programação) foram geradas."
-    - "Todas as acusações contêm: Título, Descrição, Severidade, Probabilidade."
+  pre-conditions:
+    - "[ ] Requisitos ou objetivos base do sistema foram fornecidos."
+  post-conditions:
+    - "[ ] Zero linhas de código de implementação (linguagens de programação) foram geradas."
+    - "[ ] Todas as acusações contêm: Título, Descrição, Severidade, Probabilidade."
 ---
 
 ## Pipeline Diagram

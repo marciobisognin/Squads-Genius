@@ -1,29 +1,32 @@
 ---
 task: executeAppeal()
-responsavel: RedTeamer
+responsavel: "RedTeamer"
 responsavel_type: Agente
 atomic_layer: Molecule
+
 Entrada:
-  - campo: "productiveSourceCode"
+  - campo: productiveSourceCode
     tipo: "Source Code File"
-    origem: "implementTrialCode()"
+    origen: "implementTrialCode() output — productiveSourceCode"
     obrigatorio: true
+
 Saida:
-  - campo: "appealResult"
+  - campo: appealResult
     tipo: "Boolean"
-    destino: "skeptic-orchestrator"
+    destino: "generateVerdictReport() task — input para relatório final"
     persistido: true
-  - campo: "appealFeedback"
+  - campo: appealFeedback
     tipo: "Markdown Text"
-    destino: "generateAccusations()"
+    destino: "generateAccusations() task — feedback para novas acusações"
     persistido: false
+
 Checklist:
-  pre_condicoes:
-    - "O código da solução passou em todos os testes da Fase 2."
-  post_condicoes:
-    - "Tentativas de quebra de código (edge cases, overflow, injeção) foram realizadas."
-    - "Se o código quebrar, appealResult é FALSE e feedback é enviado para a Fase 1."
-    - "Se o código resistir, appealResult é TRUE."
+  pre-conditions:
+    - "[ ] O código da solução passou em todos os testes da Fase 2."
+  post-conditions:
+    - "[ ] Tentativas de quebra de código (edge cases, overflow, injeção) foram realizadas."
+    - "[ ] Se o código quebrar, appealResult é FALSE e feedback é enviado para a Fase 1."
+    - "[ ] Se o código resistir, appealResult é TRUE."
 ---
 
 ## Pipeline Diagram

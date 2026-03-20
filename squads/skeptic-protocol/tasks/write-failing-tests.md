@@ -1,25 +1,28 @@
 ---
 task: writeFailingTests()
-responsavel: TestEngineer
+responsavel: "TestEngineer"
 responsavel_type: Agente
 atomic_layer: Organism
+
 Entrada:
-  - campo: "accusationsList"
+  - campo: accusationsList
     tipo: "Markdown Document"
-    origem: "generateAccusations()"
+    origen: "generateAccusations() output — accusationsList"
     obrigatorio: true
+
 Saida:
-  - campo: "failingTestSuite"
+  - campo: failingTestSuite
     tipo: "Test Suite File (e.g., .test.js, .test.py)"
-    destino: "implementTrialCode()"
+    destino: "implementTrialCode() task — input para implementação"
     persistido: true
+
 Checklist:
-  pre_condicoes:
-    - "Lista de acusações (Fase 1) foi devidamente entregue."
-  post_condicoes:
-    - "Testes gerados DEVEM FALHAR quando executados sem o código da Fase 3."
-    - "Cada acusação da Fase 1 possui pelo menos um teste correspondente."
-    - "A suíte de testes deve compilar/ser sintaticamente válida."
+  pre-conditions:
+    - "[ ] Lista de acusações (Fase 1) foi devidamente entregue."
+  post-conditions:
+    - "[ ] Testes gerados DEVEM FALHAR quando executados sem o código da Fase 3."
+    - "[ ] Cada acusação da Fase 1 possui pelo menos um teste correspondente."
+    - "[ ] A suíte de testes deve compilar/ser sintaticamente válida."
 ---
 
 ## Pipeline Diagram
