@@ -1,0 +1,36 @@
+name: skeptic-protocol
+version: 1.0.0
+description: "Implementação do SKEPTIC Protocol (Ceticismo Construtivo) em 5 fases rigorosas para engenharia de software preventiva."
+author: "Marcio Bisognin"
+license: MIT
+aios:
+  minVersion: 1.0.0
+  type: squad
+slashPrefix: sk
+components:
+  agents:
+    - failure-predictor.md
+    - test-engineer.md
+    - solution-implementer.md
+    - red-teamer.md
+    - skeptic-orchestrator.md
+  tasks:
+    - generate-accusations.md
+    - write-failing-tests.md
+    - implement-trial-code.md
+    - execute-appeal.md
+    - generate-verdict-report.md
+  workflows:
+    - skeptic-pipeline-execution.yaml
+    - red-team-feedback-loop.yaml
+config:
+  - coding-standards.md
+  - tech-stack.md
+  - source-tree.md
+tags:
+  - tdd
+  - red-team
+  - skeptic
+  - pipeline
+  - code-quality
+  - testing
