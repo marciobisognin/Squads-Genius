@@ -5,27 +5,27 @@ responsavel_type: Agente
 atomic_layer: Organism
 
 Entrada:
-  - campo: projectRequirements
-    tipo: "Markdown Text"
-    origen: "User / Orchestrator"
+  - nome: projectRequirements
+    tipo: string
     obrigatorio: true
-  - campo: appealFeedback
-    tipo: "Markdown Text"
-    origen: "executeAppeal() output — appealFeedback"
+    descricao: "Requisitos ou objetivos base do sistema fornecidos pelo usuário ou orquestrador."
+  - nome: appealFeedback
+    tipo: string
     obrigatorio: false
+    descricao: "Feedback adversarial da Fase 4 (executeAppeal) para refinamento de acusações."
 
 Saida:
-  - campo: accusationsList
-    tipo: "Markdown Document"
-    destino: "writeFailingTests() task — input para criação de testes"
-    persistido: true
+  - nome: accusationsList
+    tipo: file
+    obrigatorio: true
+    descricao: "Lista documentada de vulnerabilidades e falhas lógicas (destino: writeFailingTests())."
 
 Checklist:
   pre-conditions:
     - "[ ] Requisitos ou objetivos base do sistema foram fornecidos."
   post-conditions:
-    - "[ ] Zero linhas de código de implementação (linguagens de programação) foram geradas."
-    - "[ ] Todas as acusações contêm: Título, Descrição, Severidade, Probabilidade."
+    - "[ ] Zero linhas de código de implementação foram geradas."
+    - "[ ] Todas as acusações contêm: Título, Descrição, Severidade e Probabilidade."
 ---
 
 ## Pipeline Diagram

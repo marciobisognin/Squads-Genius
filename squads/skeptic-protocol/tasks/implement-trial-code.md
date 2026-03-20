@@ -5,16 +5,16 @@ responsavel_type: Agente
 atomic_layer: Organism
 
 Entrada:
-  - campo: failingTestSuite
-    tipo: "Test Suite File"
-    origen: "writeFailingTests() output — failingTestSuite"
+  - nome: failingTestSuite
+    tipo: file
     obrigatorio: true
+    descricao: "Suíte de testes que falham, definindo os requisitos técnicos (origen: writeFailingTests())."
 
 Saida:
-  - campo: productiveSourceCode
-    tipo: "Source Code File"
-    destino: "executeAppeal() task — input para revisão adversarial"
-    persistido: true
+  - nome: productiveSourceCode
+    tipo: file
+    obrigatorio: true
+    descricao: "Código-fonte da solução que satisfaz os testes (destino: executeAppeal())."
 
 Checklist:
   pre-conditions:
@@ -22,7 +22,7 @@ Checklist:
   post-conditions:
     - "[ ] A suíte de testes da Fase 2 agora PASSA integralmente."
     - "[ ] O código implementado segue os padrões de tecnologia definidos no squad."
-    - "[ ] Nenhum código extra (over-engineering) foi adicionado além do necessário para passar nos testes."
+    - "[ ] Nenhum código extra foi adicionado além do necessário para passar nos testes."
 ---
 
 ## Pipeline Diagram

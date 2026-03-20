@@ -5,16 +5,16 @@ responsavel_type: Agente
 atomic_layer: Organism
 
 Entrada:
-  - campo: accusationsList
-    tipo: "Markdown Document"
-    origen: "generateAccusations() output — accusationsList"
+  - nome: accusationsList
+    tipo: file
     obrigatorio: true
+    descricao: "Lista de acusações gerada na Fase 1 (generateAccusations())."
 
 Saida:
-  - campo: failingTestSuite
-    tipo: "Test Suite File (e.g., .test.js, .test.py)"
-    destino: "implementTrialCode() task — input para implementação"
-    persistido: true
+  - nome: failingTestSuite
+    tipo: file
+    obrigatorio: true
+    descricao: "Suíte de testes automatizados que falham (destino: implementTrialCode())."
 
 Checklist:
   pre-conditions:

@@ -5,20 +5,20 @@ responsavel_type: Agente
 atomic_layer: Molecule
 
 Entrada:
-  - campo: productiveSourceCode
-    tipo: "Source Code File"
-    origen: "implementTrialCode() output — productiveSourceCode"
+  - nome: productiveSourceCode
+    tipo: file
     obrigatorio: true
+    descricao: "Código-fonte implementado na Fase 3 (implementTrialCode())."
 
 Saida:
-  - campo: appealResult
-    tipo: "Boolean"
-    destino: "generateVerdictReport() task — input para relatório final"
-    persistido: true
-  - campo: appealFeedback
-    tipo: "Markdown Text"
-    destino: "generateAccusations() task — feedback para novas acusações"
-    persistido: false
+  - nome: appealResult
+    tipo: boolean
+    obrigatorio: true
+    descricao: "Resultado da validação adversarial (true = aprovado, false = quebrado)."
+  - nome: appealFeedback
+    tipo: string
+    obrigatorio: false
+    descricao: "Detalhes técnicos da falha encontrada, se houver (destino: generateAccusations())."
 
 Checklist:
   pre-conditions:

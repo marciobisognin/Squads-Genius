@@ -5,16 +5,16 @@ responsavel_type: Agente
 atomic_layer: Molecule
 
 Entrada:
-  - campo: appealResult
-    tipo: "Boolean"
-    origen: "executeAppeal() output — appealResult"
+  - nome: appealResult
+    tipo: boolean
     obrigatorio: true
+    descricao: "Resultado final da fase adversarial (origen: executeAppeal())."
 
 Saida:
-  - campo: skepticReport
-    tipo: "Markdown Document"
-    destino: "End User / Repository"
-    persistido: true
+  - nome: skepticReport
+    tipo: file
+    obrigatorio: true
+    descricao: "Relatório de integridade final e veredito do protocolo (destino: end-user)."
 
 Checklist:
   pre-conditions:
