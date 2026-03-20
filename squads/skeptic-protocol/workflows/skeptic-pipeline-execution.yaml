@@ -1,34 +1,33 @@
-workflow:
-  name: skeptic_pipeline_execution
-  description: "Pipeline principal do SKEPTIC Protocol, orquestrando as fases 1 a 5 sequencialmente."
-  pattern: Pipeline
-  agents:
-    - failure-predictor
-    - test-engineer
-    - solution-implementer
-    - red-teamer
-    - skeptic-orchestrator
-  triggers:
-    - type: event
-      event: "skeptic.cycle.start"
-  success_indicator:
-    - type: file_generated
-      path: "SKEPTIC_REPORT.md"
-  transitions:
-    - from: start
-      to: failure-predictor
-    - from: failure-predictor
-      to: test-engineer
-      condition: "accusationsList gerado"
-    - from: test-engineer
-      to: solution-implementer
-      condition: "failingTestSuite compilou e falha intencionalmente"
-    - from: solution-implementer
-      to: red-teamer
-      condition: "productiveSourceCode faz a suíte passar"
-    - from: red-teamer
-      to: skeptic-orchestrator
-      condition: "Nenhum edge-case catastrófico faltante encontrado (appealResult == true)"
-    - from: skeptic-orchestrator
-      to: end
-      condition: "SKEPTIC_REPORT.md gerado com sucesso"
+workflow_name: skeptic_pipeline_execution
+description: "Pipeline principal do SKEPTIC Protocol, orquestrando as fases 1 a 5 sequencialmente."
+pattern: Pipeline
+agent_sequence:
+  - failure-predictor
+  - test-engineer
+  - solution-implementer
+  - red-teamer
+  - skeptic-orchestrator
+triggers:
+  - type: event
+    event: "skeptic.cycle.start"
+success_indicators:
+  - type: file_generated
+    path: "SKEPTIC_REPORT.md"
+transitions:
+  - from: start
+    to: failure-predictor
+  - from: failure-predictor
+    to: test-engineer
+    condition: "accusationsList gerado"
+  - from: test-engineer
+    to: solution-implementer
+    condition: "failingTestSuite compilou e falha intencionalmente"
+  - from: solution-implementer
+    to: red-teamer
+    condition: "productiveSourceCode faz a suíte passar"
+  - from: red-teamer
+    to: skeptic-orchestrator
+    condition: "Nenhum edge-case catastrófico faltante encontrado (appealResult == true)"
+  - from: skeptic-orchestrator
+    to: end
+    condition: "SKEPTIC_REPORT.md gerado com sucesso"

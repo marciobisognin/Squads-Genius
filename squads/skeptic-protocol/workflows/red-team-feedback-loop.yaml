@@ -1,26 +1,25 @@
-workflow:
-  name: red_team_feedback_loop
-  description: "Loop adversarial disparado pela Fase 4 (Appeal) quando o Red Teamer quebra a solução."
-  pattern: Evaluator-Optimizer
-  agents:
-    - red-teamer
-    - failure-predictor
-    - solution-implementer
-  triggers:
-    - type: task_output
-      task: executeAppeal
-      condition: "appealResult == false"
-  success_indicator:
-    - type: task_output
-      task: executeAppeal
-      condition: "appealResult == true"
-  transitions:
-    - from: red-teamer
-      to: failure-predictor
-      condition: "Nova falha extrema encontrada que requer documentação (appealFeedback emitido)"
-    - from: red-teamer
-      to: solution-implementer
-      condition: "Brecha menor encontrada que requer apenas refatoração e novos testes pontuais"
-    - from: failure-predictor
-      to: test-engineer
-      condition: "Acusação atualizada adicionada ao sistema"
+workflow_name: red_team_feedback_loop
+description: "Loop adversarial disparado pela Fase 4 (Appeal) quando o Red Teamer quebra a solução."
+pattern: Evaluator-Optimizer
+agent_sequence:
+  - red-teamer
+  - failure-predictor
+  - solution-implementer
+triggers:
+  - type: task_output
+    task: executeAppeal
+    condition: "appealResult == false"
+success_indicators:
+  - type: task_output
+    task: executeAppeal
+    condition: "appealResult == true"
+transitions:
+  - from: red-teamer
+    to: failure-predictor
+    condition: "Nova falha extrema encontrada que requer documentação (appealFeedback emitido)"
+  - from: red-teamer
+    to: solution-implementer
+    condition: "Brecha menor encontrada que requer apenas refatoração e novos testes pontuais"
+  - from: failure-predictor
+    to: test-engineer
+    condition: "Acusação atualizada adicionada ao sistema"
