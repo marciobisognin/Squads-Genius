@@ -1,0 +1,89 @@
+workflow_name: daily_practice_cycle
+description: "Ciclo diário de prática contemplativa em 6 passos — zazen, lembrança, ética, observação, arrependimento e compaixão — coordenado pelo PracticeWeaver"
+
+agent_sequence:
+  - practice-weaver
+  - zazen-guide
+  - path-navigator
+  - precept-keeper
+  - mirror-observer
+  - compassion-catalyst
+
+key_commands:
+  - "*orchestrate-daily-cycle"
+  - "*weekly-rhythm"
+
+trigger_threshold: 1
+typical_duration: "5-60 minutes"
+
+success_indicators:
+  - "Pelo menos o Passo 1 (zazen) foi executado"
+  - "Passos adaptados ao tempo disponível do praticante"
+  - "Log do ciclo diário registrado"
+  - "Praticante recebeu orientação para o dia"
+
+transitions:
+  cycle_initiated:
+    trigger: "Praticante solicitou ciclo diário ou rotina"
+    confidence: 0.90
+    greeting_message: "🔄 Ciclo diário iniciado. Vamos ao Passo 1: Assentar-se."
+    next_steps:
+      - command: "*guide-meditation"
+        args_template: "--duration={time} --level={level}"
+        description: "Passo 1: Sessão de zazen guiada pelo ZazenGuide"
+        priority: 1
+
+  zazen_complete:
+    trigger: "Sessão de zazen concluída e registrada"
+    confidence: 0.85
+    greeting_message: "🧘 Zazen concluído. Passo 2: Lembrar-se — impermanência e interdependência."
+    next_steps:
+      - command: "*teach-impermanence"
+        description: "Passo 2: Reflexão sobre impermanência pelo PathNavigator"
+        priority: 1
+
+  remembrance_complete:
+    trigger: "Reflexão sobre impermanência oferecida"
+    confidence: 0.85
+    greeting_message: "🧭 Lembrança feita. Passo 3: Escolher agir eticamente."
+    next_steps:
+      - command: "*apply-precepts"
+        args_template: "--precept={precept_number}"
+        description: "Passo 3: Seleção de preceitos pelo PreceptKeeper"
+        priority: 1
+
+  precepts_selected:
+    trigger: "Preceitos do dia selecionados e contextualizados"
+    confidence: 0.85
+    greeting_message: "⚖️ Preceitos definidos. Passo 4: Observar os botões ao longo do dia."
+    next_steps:
+      - command: "*observe-emotions"
+        description: "Passo 4: Início da auto-observação pelo MirrorObserver"
+        priority: 1
+
+  observation_active:
+    trigger: "Prática de observação iniciada ou relatada"
+    confidence: 0.80
+    greeting_message: "🪞 Observação ativada. Passo 5: Arrependimento e recomeço."
+    next_steps:
+      - command: "*perform-repentance"
+        description: "Passo 5: Ritual de arrependimento pelo PracticeWeaver"
+        priority: 1
+
+  repentance_complete:
+    trigger: "Ritual de arrependimento realizado"
+    confidence: 0.90
+    greeting_message: "🔄 Recomeço feito. Passo 6: Serviço e ternura."
+    next_steps:
+      - command: "*activate-compassion"
+        description: "Passo 6: Sugestão de ação compassiva pelo CompassionCatalyst"
+        priority: 1
+
+  cycle_complete:
+    trigger: "Todos os passos executados ou tempo esgotado"
+    confidence: 0.95
+    greeting_message: "💚 Ciclo diário completo. Que seu dia seja de presença e compaixão."
+    next_steps:
+      - command: "*track-progress"
+        description: "Registrar ciclo no histórico de progressão"
+        priority: 1

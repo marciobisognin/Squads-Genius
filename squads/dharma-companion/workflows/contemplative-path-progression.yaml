@@ -1,0 +1,65 @@
+workflow_name: contemplative_path_progression
+description: "Pipeline de progressão contemplativa em 5 estágios — da inquietação à devolução ao mundo — monitorado pelo PathNavigator com ajuste de profundidade para todos os agentes"
+
+agent_sequence:
+  - path-navigator
+  - zazen-guide
+  - precept-keeper
+  - mirror-observer
+  - practice-weaver
+  - compassion-catalyst
+
+key_commands:
+  - "*assess-stage"
+  - "*track-progress"
+
+trigger_threshold: 2
+typical_duration: "10-30 minutes"
+
+success_indicators:
+  - "Estágio atual do praticante identificado (1-5)"
+  - "Profundidade de prática ajustada ao estágio"
+  - "Sugestões de próximos passos fornecidas"
+  - "Progressão registrada no histórico"
+
+transitions:
+  assessment_requested:
+    trigger: "Praticante solicita avaliação de estágio ou relata mudança significativa"
+    confidence: 0.85
+    greeting_message: "🧭 Avaliando seu estágio no caminho contemplativo..."
+    next_steps:
+      - command: "*assess-stage"
+        args_template: "--context={practitioner_context}"
+        description: "PathNavigator avalia estágio atual com base no contexto"
+        priority: 1
+
+  stage_identified:
+    trigger: "Estágio atual identificado e justificado"
+    confidence: 0.90
+    greeting_message: "🧭 Estágio identificado. Ajustando profundidade da prática."
+    next_steps:
+      - command: "*guide-meditation"
+        args_template: "--level={adapted_level}"
+        description: "ZazenGuide adapta instrução ao estágio"
+        priority: 1
+      - command: "*apply-precepts"
+        description: "PreceptKeeper adapta camada dos preceitos ao estágio"
+        priority: 2
+
+  practice_adapted:
+    trigger: "Todos os agentes receberam o estágio atualizado"
+    confidence: 0.85
+    greeting_message: "✅ Prática adaptada ao seu estágio. Caminho atualizado."
+    next_steps:
+      - command: "*track-progress"
+        description: "Registrar avaliação no histórico de progressão"
+        priority: 1
+
+  milestone_reached:
+    trigger: "Indicadores sugerem transição para próximo estágio"
+    confidence: 0.75
+    greeting_message: "🌟 Parabéns! Indicadores sugerem amadurecimento. Vamos reavaliar?"
+    next_steps:
+      - command: "*assess-stage"
+        description: "Reavaliação de estágio após indicadores de transição"
+        priority: 1

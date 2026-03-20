@@ -1,0 +1,57 @@
+name: dharma-companion
+version: 1.0.0
+description: "Sistema contemplativo Zen-budista de transformação pessoal — zazen, preceitos éticos, auto-observação e compaixão em ação"
+author: "Marcio Bisognin"
+license: MIT
+slashPrefix: dc
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  agents:
+    - zazen-guide.md
+    - precept-keeper.md
+    - mirror-observer.md
+    - practice-weaver.md
+    - path-navigator.md
+    - compassion-catalyst.md
+  tasks:
+    - guide-meditation.md
+    - apply-precepts.md
+    - observe-emotions.md
+    - orchestrate-daily-cycle.md
+    - assess-stage.md
+    - activate-compassion.md
+    - perform-repentance.md
+    - track-progress.md
+  workflows:
+    - daily-practice-cycle.yaml
+    - contemplative-path-progression.yaml
+  checklists: []
+  templates: []
+  tools: []
+  scripts: []
+
+config:
+  extends: none
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  squads: []
+
+tags:
+  - zen
+  - zazen
+  - meditation
+  - contemplative
+  - buddhism
+  - ethics
+  - compassion
+  - mindfulness
+  - self-observation
+  - personal-transformation
