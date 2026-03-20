@@ -3,23 +3,23 @@ task: writeFailingTests()
 responsavel: TestEngineer
 responsavel_type: Agente
 atomic_layer: Organism
-contrato:
-  Entrada:
-    - campo: "accusationsList"
-      tipo: "Markdown Document"
-      origem: "generateAccusations()"
-      obrigatorio: true
-  Saida:
-    - campo: "failingTestSuite"
-      tipo: "Source Code"
-      destino: "implementTrialCode()"
-      persistido: true
-  Checklist:
-    pre_condicoes:
-      - "Lista de acusações estruturada deve estar disponível."
-    post_condicoes:
-      - "Todos os testes gerados falham contra a codebase atual (vazia ou vulnerável)."
-      - "Cada acusação grave mapeia para no mínimo um teste específico."
+Entrada:
+  - campo: "accusationsList"
+    tipo: "Markdown Document"
+    origem: "generateAccusations()"
+    obrigatorio: true
+Saida:
+  - campo: "failingTestSuite"
+    tipo: "Test Suite File (e.g., .test.js, .test.py)"
+    destino: "implementTrialCode()"
+    persistido: true
+Checklist:
+  pre_condicoes:
+    - "Lista de acusações (Fase 1) foi devidamente entregue."
+  post_condicoes:
+    - "Testes gerados DEVEM FALHAR quando executados sem o código da Fase 3."
+    - "Cada acusação da Fase 1 possui pelo menos um teste correspondente."
+    - "A suíte de testes deve compilar/ser sintaticamente válida."
 ---
 
 ## Pipeline Diagram
@@ -30,4 +30,4 @@ contrato:
 
 ## Descrição da Tarefa
 
-Na Fase 2 do SKEPTIC (Defense), o TestEngineer deve decodificar as "Acusações" concebidas na fase anterior para código-fonte de teste automatizado (Unitário, Integração ou E2E, dependendo da plataforma-alvo). O objetivo é garantir que as vulnerabilidades previstas não sejam apenas teóricas; a suíte deve estar vermelha (failing) antes de qualquer implementação ser feita.
+A tarefa técnica da Fase 2. O agente traduz as acusações abstratas da Fase 1 em testes automatizados concretos. O objetivo é criar a "Red Phase" do TDD. Os testes servem como a especificação executável que o código da Fase 3 deve satisfazer. Se um teste passar antes da Fase 3, ele é considerado inválido e deve ser ajustado para provar a falha prevista.

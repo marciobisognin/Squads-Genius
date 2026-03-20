@@ -3,23 +3,23 @@ task: implementTrialCode()
 responsavel: SolutionImplementer
 responsavel_type: Agente
 atomic_layer: Organism
-contrato:
-  Entrada:
-    - campo: "failingTestSuite"
-      tipo: "Source Code"
-      origem: "writeFailingTests()"
-      obrigatorio: true
-  Saida:
-    - campo: "productiveSourceCode"
-      tipo: "Source Code"
-      destino: "executeAppeal()"
-      persistido: true
-  Checklist:
-    pre_condicoes:
-      - "Suíte de testes de defesa deve estar pronta e (atualmente) falhando."
-    post_condicoes:
-      - "O código não introduz novas dependências ou lógicas arbitrárias não cobertas pelos testes."
-      - "O código compilado faz toda a suíte de testes passar."
+Entrada:
+  - campo: "failingTestSuite"
+    tipo: "Test Suite File"
+    origem: "writeFailingTests()"
+    obrigatorio: true
+Saida:
+  - campo: "productiveSourceCode"
+    tipo: "Source Code File"
+    destino: "executeAppeal()"
+    persistido: true
+Checklist:
+  pre_condicoes:
+    - "Existe uma suíte de testes falhando que cobre as acusações iniciais."
+  post_condicoes:
+    - "A suíte de testes da Fase 2 agora PASSA integralmente."
+    - "O código implementado segue os padrões de tecnologia definidos no squad."
+    - "Nenhum código extra (over-engineering) foi adicionado além do necessário para passar nos testes."
 ---
 
 ## Pipeline Diagram
@@ -30,4 +30,4 @@ contrato:
 
 ## Descrição da Tarefa
 
-A Fase 3 do SKEPTIC (Trial). Ocorrendo estritamente de fora para dentro, baseando-se no comportamento imposto pela suíte construída anteriormente. O SolutionImplementer tem um único norte: refatorar, escrever e orquestrar código de domínio o suficiente para esverdear (pass) a bateria de defesas e mitigações imposta pelas acusações, sem exceder o escopo dos testes de forma perigosa.
+O "Julgamento" (Fase 3). O agente recebe a suíte de testes que falha e escreve o código de implementação necessário para fazê-la passar. É a fase produtiva onde a solução ganha vida. O sucesso é binário: o código ou satisfaz a "Acusação" (passando nos testes da Fase 2) ou o julgamento continua.

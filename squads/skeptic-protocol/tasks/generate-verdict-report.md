@@ -3,35 +3,30 @@ task: generateVerdictReport()
 responsavel: SkepticOrchestrator
 responsavel_type: Agente
 atomic_layer: Molecule
-contrato:
-  Entrada:
-    - campo: "appealResult"
-      tipo: "Boolean"
-      origem: "executeAppeal()"
-      obrigatorio: true
-    - campo: "accusationsList"
-      tipo: "Markdown Document"
-      origem: "generateAccusations()"
-      obrigatorio: true
-  Saida:
-    - campo: "skepticReport"
-      tipo: "Markdown Document"
-      destino: "User / System"
-      persistido: true
-  Checklist:
-    pre_condicoes:
-      - "O resultado da Fase de Apelação (Appeal) deve ser positivo (True)."
-    post_condicoes:
-      - "Documento SKEPTIC_REPORT.md gerado, sumarizando as acusações superadas."
-      - "Limitações incorrigíveis ou pontuais catalogadas na seção Oficial do Veredito."
+Entrada:
+  - campo: "appealResult"
+    tipo: "Boolean"
+    origem: "executeAppeal()"
+    obrigatorio: true
+Saida:
+  - campo: "skepticReport"
+    tipo: "Markdown Document"
+    destino: "End User / Repository"
+    persistido: true
+Checklist:
+  pre_condicoes:
+    - "O ciclo SKEPTIC (Fases 1 a 4) foi concluído."
+  post_condicoes:
+    - "O veredito final reflete se a solução é robusta o suficiente para produção."
+    - "O relatório resume: Acusações, Testes, Implementação e Resultado do Red Team."
 ---
 
 ## Pipeline Diagram
 
 ```
-[executeAppeal()] ──appealResult──> [generateVerdictReport()] ──skepticReport──> [User]
+[executeAppeal()] ──appealResult──> [generateVerdictReport()] ──skepticReport──> [Final Artifact]
 ```
 
 ## Descrição da Tarefa
 
-A última etapa (Verdict) encerra o workflow SKEPTIC Protocol. O Orchestrator exige que a prova de robustez do sistema esteja contínua. Ele contabiliza quantas acusações da Fase 1 foram convertidas em Red Tests (Fase 2) e resolvidas pelo código produtivo (Fase 3), chanceladas pelo Apelo (Fase 4). O produto final é um documento chamado SKEPTIC_REPORT.md contendo todo o compliance alcançado.
+O "Veredito" (Fase 5). O orquestrador compila os logs de todas as fases anteriores em um relatório de integridade final. Ele atesta que o protocolo foi seguido, documenta as vitórias do Red Team e as defesas do Implementador, servindo como a certificação de qualidade do SKEPTIC Protocol.
