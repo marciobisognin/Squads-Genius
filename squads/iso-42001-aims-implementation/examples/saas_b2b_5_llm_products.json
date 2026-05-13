@@ -1,0 +1,47 @@
+{
+  "organization": "SaaS B2B Demonstração",
+  "capability": "gap_analysis_only",
+  "context": "Empresa com 5 produtos baseados em LLM e RFP de cliente enterprise exigindo governança de IA.",
+  "ai_systems": [
+    {
+      "name": "LLM Support Bot",
+      "area": "CX",
+      "decision": "respostas assistidas a clientes",
+      "data": "tickets e mensagens",
+      "vendor": "API LLM externa",
+      "criticality": "medium"
+    },
+    {
+      "name": "Sales Lead Scorer",
+      "area": "Comercial",
+      "decision": "priorização de leads",
+      "data": "CRM e interações",
+      "vendor": "modelo interno",
+      "criticality": "medium"
+    },
+    {
+      "name": "Contract Clause Analyzer",
+      "area": "Jurídico",
+      "decision": "sugestão de riscos contratuais",
+      "data": "contratos",
+      "vendor": "API LLM externa",
+      "criticality": "high"
+    },
+    {
+      "name": "HR Screening Assistant",
+      "area": "RH",
+      "decision": "pré-triagem de currículos",
+      "data": "currículos",
+      "vendor": "ferramenta SaaS",
+      "criticality": "high"
+    },
+    {
+      "name": "Code Copilot",
+      "area": "Engenharia",
+      "decision": "sugestão de código",
+      "data": "repositórios",
+      "vendor": "assistente de código",
+      "criticality": "medium"
+    }
+  ]
+}

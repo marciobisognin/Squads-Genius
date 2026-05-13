@@ -1,0 +1,15 @@
+extensions:
+  nirvana-compliance-lgpd:
+    new_task: map-ai-data-processing
+    purpose: privacy em pipelines de IA
+  security-audit:
+    new_workflow: ai-specific-security-audit
+    scope:
+      - adversarial attacks
+      - prompt injection
+      - model poisoning
+  nirvana-juridico-total:
+    new_tasks:
+      - pl-2338-compliance-analysis
+      - eu-ai-act-mapping
+      - ai-service-agreement-draft

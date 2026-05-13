@@ -1,0 +1,3 @@
+Fonte conceitual: solicitação do usuário sobre Feller's Capture-Recapture Problem.
+Tema: método de captura-recaptura, amostragens sequenciais e distribuição hipergeométrica para estimar população fechada.
+Exemplo usado: peixes marcados em um lago fechado.

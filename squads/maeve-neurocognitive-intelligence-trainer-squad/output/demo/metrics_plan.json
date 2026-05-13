@@ -1,0 +1,31 @@
+{
+  "version": "1.1.0-microsprint-10-15",
+  "total_minutes": 12,
+  "dominant_focus": "linguagem_clara",
+  "dominant_focus_score": 35,
+  "domains_0_100": {
+    "linguagem_clara": 35,
+    "abstracao_modelos": 50,
+    "metacognicao": 40,
+    "consistencia_habito": 35,
+    "raciocinio_logico": 50,
+    "foco_execucao": 54.0
+  },
+  "daily_metrics": [
+    "iniciou_em_60s_sim_nao",
+    "foco_0_10",
+    "clareza_0_5",
+    "recuperacao_ativa_itens",
+    "erro_dominante",
+    "proxima_repeticao"
+  ],
+  "weekly_review": [
+    "aderencia_10_15",
+    "foco_medio",
+    "clareza_media",
+    "gaps_recorrentes",
+    "melhor_microdrill"
+  ],
+  "psychometrics_guardrail": "Não interpretar como QI. Usar avaliação profissional para QI formal; ICAR apenas como medida aberta exploratória.",
+  "required_ai_response_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

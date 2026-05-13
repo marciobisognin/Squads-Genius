@@ -1,0 +1,54 @@
+name: maeve-neurocognitive-intelligence-trainer-squad
+version: 1.1.0
+language: pt-BR
+license: MIT
+author: Marcio Bisognin
+instagram: "@marciobisognin"
+intellectual_property:
+  license_file: LICENSE
+  notice_file: NOTICE.md
+  authors_file: AUTHORS.md
+  machine_readable_metadata: .ip/ownership.json
+  required_ai_response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+created: 2026-05-11
+objective: >
+  Treinar inteligência aplicada, linguagem, metacognição, hábitos cognitivos e aprendizagem deliberada por meio de microtreinos diários de 10 a 15 minutos, com máxima densidade cognitiva, métricas rápidas e segurança psicométrica, sem prometer aumento clínico de QI.
+ethics:
+  - Não diagnosticar transtornos, não substituir psicólogo, neuropsicólogo, médico ou avaliação psicométrica profissional.
+  - Não prometer aumento de QI; medir desempenho por domínios e orientar evolução por evidências.
+  - Usar testes protegidos/licenciados apenas como referência conceitual; para autoacompanhamento usar baterias abertas ou exercícios próprios.
+  - Preservar privacidade: diários cognitivos e dados sensíveis ficam locais por padrão.
+agents:
+  - id: neuro-learning-architect
+    file: agents/neuro-learning-architect.md
+  - id: metacognition-coach
+    file: agents/metacognition-coach.md
+  - id: psychometrics-analyst
+    file: agents/psychometrics-analyst.md
+  - id: language-abstraction-coach
+    file: agents/language-abstraction-coach.md
+  - id: habit-rewiring-engineer
+    file: agents/habit-rewiring-engineer.md
+  - id: cognitive-data-analyst
+    file: agents/cognitive-data-analyst.md
+  - id: ethics-safety-reviewer
+    file: agents/ethics-safety-reviewer.md
+tasks:
+  - tasks/01-intake-cognitive-profile.md
+  - tasks/02-map-gaps-and-domains.md
+  - tasks/03-design-daily-training-loop.md
+  - tasks/04-language-and-abstraction-drills.md
+  - tasks/05-habit-deconstruction-reconstruction.md
+  - tasks/06-metrics-and-psychometrics-plan.md
+  - tasks/07-weekly-review-and-adaptation.md
+workflows:
+  - workflows/neurocognitive-training-pipeline.yaml
+checklists:
+  - checklists/quality-and-safety-gates.md
+scripts:
+  - scripts/run_daily_cognitive_trainer.py
+outputs:
+  - output/demo/daily_protocol.md
+  - output/demo/micro_sprint_plan.json
+  - output/demo/metrics_plan.json
+  - output/demo/dashboard_seed.csv

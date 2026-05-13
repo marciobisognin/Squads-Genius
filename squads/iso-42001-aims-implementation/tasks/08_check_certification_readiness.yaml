@@ -1,0 +1,14 @@
+id: 08_check_certification_readiness
+title: "Checar prontidão de certificação"
+owner: certification-readiness-checker
+inputs:
+  - intake organizacional
+  - inventário ou evidências existentes
+  - objetivo: full_implementation | gap_analysis_only | audit_readiness_sprint
+outputs:
+  - artefato markdown em generated/<case>/
+  - recomendações com dono, prazo e evidência
+quality_gate:
+  - Deve citar fonte da evidência ou marcar como lacuna.
+  - Deve terminar artefato com rodapé de licença/autoria.
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

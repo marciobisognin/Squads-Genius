@@ -1,0 +1,15 @@
+auto_routes:
+  - match: ["ISO 42001", "SGIA", "AIMS", "governança de IA"]
+    route_to: cc-ai-governance-head
+  - match: ["AI impact", "AIIA", "impact assessment"]
+    route_to: cc-aiia-coordinator
+  - match: ["risco de IA", "risk register", "NIST AI RMF"]
+    route_to: cc-ai-risk-specialist
+  - match: ["ética", "viés", "fairness", "explicabilidade"]
+    route_to: cc-ai-ethics-auditor
+  - match: ["PL 2338", "EU AI Act", "LGPD"]
+    route_to: cc-ai-regulatory-counsel
+  - match: ["auditoria", "certificação", "SoA"]
+    route_to: cc-iso-lead-auditor
+  - match: ["RFP", "due diligence", "contrato"]
+    route_to: cc-cco

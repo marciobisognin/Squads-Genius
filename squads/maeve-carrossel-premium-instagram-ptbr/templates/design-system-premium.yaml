@@ -1,0 +1,7 @@
+canvas:
+  width: 1080
+  height: 1350
+style:
+  typography: "elegante, editorial, alto contraste"
+  components: ["cards infográficos", "molduras ASCII", "pixel grid", "badges", "setas", "barras de progresso"]
+  mood: "premium, moderno, didático"

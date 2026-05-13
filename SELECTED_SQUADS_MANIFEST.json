@@ -1,0 +1,71 @@
+{
+  "updated_at": "2026-05-12 23:14:16",
+  "squads": [
+    {
+      "no": 1,
+      "slug": "iso-42001-aims-implementation",
+      "name": "iso-42001-aims-implementation",
+      "display": "ISO 42001 AIMS Implementation Squad",
+      "version": "5.0.0",
+      "agents": 8,
+      "tasks": 8,
+      "workflows": 3,
+      "files": 66
+    },
+    {
+      "no": 3,
+      "slug": "maeve-neurocognitive-intelligence-trainer-squad",
+      "name": "maeve-neurocognitive-intelligence-trainer-squad",
+      "display": "maeve-neurocognitive-intelligence-trainer-squad",
+      "version": "1.1.0",
+      "agents": 7,
+      "tasks": 7,
+      "workflows": 1,
+      "files": 33
+    },
+    {
+      "no": 4,
+      "slug": "maeve-carrossel-premium-instagram-ptbr",
+      "name": "Maeve Carrossel Premium Instagram PT-BR",
+      "display": "Maeve Carrossel Premium Instagram PT-BR",
+      "version": "1.1.0",
+      "agents": 6,
+      "tasks": 8,
+      "workflows": 1,
+      "files": 582
+    },
+    {
+      "no": 5,
+      "slug": "instagram-carrossel-visual-pro",
+      "name": "instagram-carrossel-visual-pro",
+      "display": "instagram-carrossel-visual-pro",
+      "version": "1.0.0",
+      "agents": 8,
+      "tasks": 8,
+      "workflows": 2,
+      "files": 40
+    },
+    {
+      "no": 14,
+      "slug": "pearson-specter-nova-legal-squad",
+      "name": "pearson-specter-nova-legal-squad",
+      "display": "pearson-specter-nova-legal-squad",
+      "version": "1.0.0",
+      "agents": 6,
+      "tasks": 7,
+      "workflows": 1,
+      "files": 20
+    },
+    {
+      "no": 15,
+      "slug": "ai-business-builder-squad",
+      "name": "ai-business-builder-squad",
+      "display": "ai-business-builder-squad",
+      "version": "1.0.0",
+      "agents": 8,
+      "tasks": 6,
+      "workflows": 2,
+      "files": 34
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+data: "YYYY-MM-DD"
+sono_horas: 7
+energia_0_10: 6
+humor_0_10: 6
+tempo_disponivel_min: 12
+objetivo_do_dia: "melhorar linguagem e raciocínio"
+dificuldade_percebida: "procrastino quando o problema é abstrato"
+diario_curto: "Hoje quero treinar clareza verbal, analogias e disciplina de repetição."
+ultimo_resultado:
+  acertos_0_100: 70
+  esforco_0_10: 7
+  foco_0_10: 6

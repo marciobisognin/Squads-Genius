@@ -1,0 +1,40 @@
+name: neurocognitive-training-pipeline
+version: 1.0.0
+steps:
+  - id: intake
+    agent: metacognition-coach
+    task: tasks/01-intake-cognitive-profile.md
+    output: cognitive_profile.json
+  - id: gap-map
+    agent: neuro-learning-architect
+    task: tasks/02-map-gaps-and-domains.md
+    depends_on: [intake]
+    output: gap_map.md
+  - id: daily-loop
+    agent: neuro-learning-architect
+    task: tasks/03-design-daily-training-loop.md
+    depends_on: [gap-map]
+    output: daily_protocol.md
+  - id: language-drills
+    agent: language-abstraction-coach
+    task: tasks/04-language-and-abstraction-drills.md
+    depends_on: [gap-map]
+    output: language_drills.md
+  - id: habit-rewire
+    agent: habit-rewiring-engineer
+    task: tasks/05-habit-deconstruction-reconstruction.md
+    depends_on: [gap-map]
+    output: habit_protocol.md
+  - id: metrics
+    agent: psychometrics-analyst
+    task: tasks/06-metrics-and-psychometrics-plan.md
+    output: metrics_plan.json
+  - id: review
+    agent: cognitive-data-analyst
+    task: tasks/07-weekly-review-and-adaptation.md
+    depends_on: [daily-loop, language-drills, habit-rewire, metrics]
+    output: weekly_review.md
+  - id: safety
+    agent: ethics-safety-reviewer
+    depends_on: [review]
+    output: safety_review.md

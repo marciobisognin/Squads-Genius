@@ -1,0 +1,36 @@
+name: full_implementation_9_12_months
+capability: full_implementation
+duration: "9–12 meses"
+phases:
+  - 01_intake
+  - 02_context
+  - 03_ai_inventory
+  - 04_classification
+  - 05_gap_mapping
+  - 06_legal_regulatory_mapping
+  - 07_risk_identification
+  - 08_risk_analysis
+  - 09_aiia
+  - 10_controls_design
+  - 11_soa
+  - 12_policy_pack
+  - 13_evidence_collection
+  - 14_internal_audit
+  - 15_management_review
+  - 16_certification_readiness
+
+entrypoint_agent: ai-inventory-mapper
+final_reviewer: certification-readiness-checker
+antagonist_review:
+  - auditor_redteam: "usar certification-readiness-checker como gate crítico"
+  - ethics_review: "testar se riscos éticos foram minimizados indevidamente"
+deliverables:
+  - ai_inventory.md
+  - gap_analysis.md
+  - risk_register.md
+  - ai_impact_assessment.md
+  - statement_of_applicability.md
+  - policy_pack.md
+  - evidence_index.md
+  - certification_readiness_report.md
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

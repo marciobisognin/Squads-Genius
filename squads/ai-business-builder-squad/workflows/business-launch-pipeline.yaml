@@ -1,0 +1,79 @@
+workflow_name: business_launch_pipeline
+description: "End-to-end workflow from initial idea to market launch, covering validation, branding, product design, and funnel setup."
+agent_sequence:
+  - business-strategist
+  - market-analyst
+  - product-architect
+  - brand-architect
+  - copywriter-ai
+  - funnel-engineer
+  - content-strategist
+  - strategic-mentor
+key_commands:
+  - "*launch-business"
+  - "*start-pipeline"
+trigger_threshold: 1
+typical_duration: "2-4 hours"
+success_indicators:
+  - "Business model validated"
+  - "Brand identity established"
+  - "Product architecture defined"
+  - "Marketing funnel operational"
+  - "Launch content ready"
+transitions:
+  strategy_defined:
+    trigger: "business concept documented"
+    confidence: 0.9
+    greeting_message: "Strategy defined. Moving to market validation."
+    next_steps:
+      - command: "*analyze-market"
+        description: "Validate the business idea against current market trends"
+        priority: 1
+  validation_complete:
+    trigger: "market research report generated"
+    confidence: 0.85
+    greeting_message: "Market validated. Designing the product architecture."
+    next_steps:
+      - command: "*design-product"
+        description: "Create the product framework and MVP specs"
+        priority: 1
+  product_ready:
+    trigger: "product architecture finalized"
+    confidence: 0.9
+    greeting_message: "Product designed. Building brand identity."
+    next_steps:
+      - command: "*create-brand"
+        description: "Develop visual identity and brand voice"
+        priority: 1
+  brand_established:
+    trigger: "brand guidelines created"
+    confidence: 0.9
+    greeting_message: "Brand ready. Generating sales copy."
+    next_steps:
+      - command: "*write-copy"
+        description: "Draft sales pages and marketing materials"
+        priority: 1
+  copy_finalized:
+    trigger: "marketing copy approved"
+    confidence: 0.8
+    greeting_message: "Copy ready. Engineering the sales funnel."
+    next_steps:
+      - command: "*build-funnel"
+        description: "Map out the customer journey and automation"
+        priority: 1
+  funnel_mapped:
+    trigger: "funnel architecture complete"
+    confidence: 0.85
+    greeting_message: "Funnel ready. Planning launch content."
+    next_steps:
+      - command: "*plan-content"
+        description: "Create social media and email sequences"
+        priority: 1
+  content_planned:
+    trigger: "content calendar finalized"
+    confidence: 0.9
+    greeting_message: "Content ready. Final strategic review."
+    next_steps:
+      - command: "*mentor-review"
+        description: "Get final strategic feedback before launch"
+        priority: 1

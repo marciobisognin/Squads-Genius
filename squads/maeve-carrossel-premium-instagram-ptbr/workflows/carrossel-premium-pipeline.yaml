@@ -1,0 +1,36 @@
+name: carrossel-premium-pipeline
+version: "1.0.0"
+language: pt-BR
+objective: "Criar carrossel premium para Instagram com HTML, PNG, legenda e hashtags"
+steps:
+  - id: interpretar
+    agent: briefing-strategist
+    task: tasks/01-interpretar-solicitacao.md
+  - id: narrativa
+    agent: briefing-strategist
+    task: tasks/02-planejar-narrativa.md
+  - id: copy
+    agent: copywriter-ptbr
+    task: tasks/03-criar-copy-slides.md
+  - id: visual
+    agent: visual-director
+    task: tasks/04-definir-direcao-visual.md
+  - id: render
+    agent: html-renderer
+    task: tasks/05-gerar-html-e-png.md
+  - id: legenda-hashtags
+    agent: copywriter-ptbr
+    task: tasks/06-criar-legenda-hashtags.md
+  - id: video-francisca
+    agent: video-director-francisca
+    task: tasks/08-criar-video-francisca-manim.md
+  - id: qa
+    agent: qa-publisher
+    task: tasks/07-validar-entrega.md
+acceptance:
+  - "Todo material está em pt-BR"
+  - "Cada slide possui HTML e PNG"
+  - "A pasta final contém legenda.txt e hashtags.txt"
+  - "Os PNGs têm 1080x1350"
+  - "Há elementos infográficos, pixel/ASCII e tipografia premium"
+  - "Vídeo vertical final com voz Francisca ou fallback documentado"

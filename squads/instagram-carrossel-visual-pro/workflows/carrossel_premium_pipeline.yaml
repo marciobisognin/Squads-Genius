@@ -1,0 +1,44 @@
+name: carrossel_premium_pipeline
+description: Pipeline completo para carrossel Instagram premium com PPT e Manim.
+
+steps:
+  - id: step_01
+    agent: carousel-orchestrator
+    task: collect-briefing
+  - id: step_02
+    agent: carousel-strategist
+    task: design-narrative-arc
+  - id: step_03
+    agent: typography-color-engineer
+    task: build-visual-system
+  - id: step_04
+    agent: visual-director
+    task: produce-slide-assets
+  - id: step_05
+    agent: carousel-copywriter
+    task: write-carousel-copy
+  - id: step_06
+    agent: ppt-producer
+    task: build-ppt-deliverable
+  - id: step_07
+    agent: manim-video-producer
+    task: build-manim-video
+  - id: step_08
+    agent: instagram-publisher
+    task: assemble-publish-package
+
+transitions:
+  - from: step_01
+    to: step_02
+  - from: step_02
+    to: step_03
+  - from: step_03
+    to: step_04
+  - from: step_04
+    to: step_05
+  - from: step_05
+    to: step_06
+  - from: step_06
+    to: step_07
+  - from: step_07
+    to: step_08

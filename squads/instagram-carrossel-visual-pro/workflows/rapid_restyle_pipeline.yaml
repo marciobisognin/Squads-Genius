@@ -1,0 +1,13 @@
+name: rapid_restyle_pipeline
+description: Reestiliza rapidamente um carrossel existente mantendo conteúdo.
+
+steps:
+  - id: r1
+    agent: visual-director
+    task: produce-slide-assets
+  - id: r2
+    agent: typography-color-engineer
+    task: build-visual-system
+  - id: r3
+    agent: ppt-producer
+    task: build-ppt-deliverable

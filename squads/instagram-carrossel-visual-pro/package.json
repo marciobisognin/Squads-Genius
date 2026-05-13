@@ -1,0 +1,25 @@
+{
+  "name": "instagram-carrossel-visual-pro",
+  "version": "1.0.0",
+  "description": "AIOS squad para carrosséis Instagram premium com PPT e Manim",
+  "type": "commonjs",
+  "bin": {
+    "icv-build-deliverables": "scripts/build-deliverables.cjs",
+    "icv-validate-package": "scripts/validate-package.cjs"
+  },
+  "files": [
+    "README.md",
+    "squad.yaml",
+    "agents",
+    "tasks",
+    "workflows",
+    "checklists",
+    "templates",
+    "references",
+    "scripts"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

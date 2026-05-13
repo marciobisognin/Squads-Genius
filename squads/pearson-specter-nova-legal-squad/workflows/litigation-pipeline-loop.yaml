@@ -1,0 +1,80 @@
+workflow_name: litigation_pipeline
+description: "Pipeline principal para intake, pesquisa jurídica, auditoria financeira, alinhamento macro, estratégia final e compilação de caso."
+
+agent_sequence:
+  - legal-orchestrator
+  - donna
+  - mike
+  - louis
+  - jessica
+  - harvey
+  - legal-orchestrator
+
+key_commands:
+  - "*start-litigation-pipeline"
+  - "*run-litigation-pipeline"
+
+trigger_threshold: 2
+typical_duration: "30-120 minutes"
+
+success_indicators:
+  - "Caso definido e intake realizado"
+  - "Pesquisa legal profunda concluída"
+  - "Auditoria financeira e tributária finalizada"
+  - "Macro alinhamento regulatório estabelecido"
+  - "Estratégia final de litígio construída"
+  - "Relatório final compilado e entregue"
+
+transitions:
+  case_defined:
+    trigger: "case parameters defined"
+    confidence: 0.95
+    greeting_message: "Caso definido. Iniciando intake e jurimetria."
+    next_steps:
+      - command: "*intake-oracle"
+        description: "Realizar ingestão, perfilamento de juiz e background check"
+        priority: 1
+  oracle_complete:
+    trigger: "judge profile and background collected"
+    confidence: 0.90
+    greeting_message: "Perfilamento concluído. Iniciando pesquisa profunda."
+    next_steps:
+      - command: "*deep-research"
+        description: "Pesquisa de precedentes e construção de tese jurídica"
+        priority: 1
+  research_complete:
+    trigger: "legal research findings ready"
+    confidence: 0.88
+    greeting_message: "Pesquisa concluída. Iniciando auditoria financeira."
+    next_steps:
+      - command: "*financial-audit"
+        description: "Auditoria financeira e tributária"
+        priority: 1
+  audit_complete:
+    trigger: "financial audit completed"
+    confidence: 0.88
+    greeting_message: "Auditoria concluída. Iniciando macro alinhamento."
+    next_steps:
+      - command: "*macro-alignment"
+        description: "Análise antitruste e compliance"
+        priority: 1
+  macro_complete:
+    trigger: "macro alignment strategy ready"
+    confidence: 0.85
+    greeting_message: "Análise macro concluída. Criando estratégia final."
+    next_steps:
+      - command: "*craft-strategy"
+        description: "Elaborar estratégia agressiva de litígio e negociação"
+        priority: 1
+  strategy_ready:
+    trigger: "final strategy plan ready"
+    confidence: 0.90
+    greeting_message: "Estratégia final pronta. Compilando relatório."
+    next_steps:
+      - command: "*compile-case-report"
+        description: "Compilar relatório final do caso"
+        priority: 1
+  report_compiled:
+    trigger: "final case report compiled"
+    confidence: 0.90
+    greeting_message: "Relatório final compilado. Pipeline encerrado."

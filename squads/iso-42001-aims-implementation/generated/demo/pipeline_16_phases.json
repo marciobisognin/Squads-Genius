@@ -1,0 +1,71 @@
+{
+  "organization": "SaaS B2B Demonstração",
+  "mode": "gap_analysis_only",
+  "phases": [
+    [
+      "01",
+      "intake"
+    ],
+    [
+      "02",
+      "context"
+    ],
+    [
+      "03",
+      "ai_inventory"
+    ],
+    [
+      "04",
+      "classification"
+    ],
+    [
+      "05",
+      "gap_mapping"
+    ],
+    [
+      "06",
+      "legal_regulatory_mapping"
+    ],
+    [
+      "07",
+      "risk_identification"
+    ],
+    [
+      "08",
+      "risk_analysis"
+    ],
+    [
+      "09",
+      "aiia"
+    ],
+    [
+      "10",
+      "controls_design"
+    ],
+    [
+      "11",
+      "soa"
+    ],
+    [
+      "12",
+      "policy_pack"
+    ],
+    [
+      "13",
+      "evidence_collection"
+    ],
+    [
+      "14",
+      "internal_audit"
+    ],
+    [
+      "15",
+      "management_review"
+    ],
+    [
+      "16",
+      "certification_readiness"
+    ]
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

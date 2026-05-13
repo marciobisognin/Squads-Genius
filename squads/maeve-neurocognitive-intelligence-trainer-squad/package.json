@@ -1,0 +1,29 @@
+{
+  "name": "maeve-neurocognitive-intelligence-trainer-squad",
+  "version": "1.1.0",
+  "description": "Squad neurocognitivo para microtreinos diários de 10 a 15 minutos com máxima performance, linguagem, metacognição e hábitos.",
+  "type": "commonjs",
+  "bin": {
+    "neurocog-trainer": "scripts/run_daily_cognitive_trainer.py"
+  },
+  "files": [
+    "agents",
+    "tasks",
+    "workflows",
+    "checklists",
+    "templates",
+    "scripts",
+    "examples",
+    "docs",
+    "references",
+    "README.md",
+    "squad.yaml",
+    "LICENSE",
+    "NOTICE.md",
+    "AUTHORS.md",
+    ".ip"
+  ],
+  "license": "MIT",
+  "author": "Marcio Bisognin (@marciobisognin)",
+  "copyright": "Copyright (c) 2026 Marcio Bisognin"
+}

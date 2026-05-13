@@ -1,0 +1,45 @@
+workflow_name: content_to_conversion_flow
+description: "Automated loop for content creation, social media posting, and lead conversion."
+agent_sequence:
+  - content-strategist
+  - copywriter-ai
+  - brand-architect
+  - funnel-engineer
+key_commands:
+  - "*start-content-loop"
+  - "*generate-campaign"
+trigger_threshold: 1
+typical_duration: "45-60 minutes"
+success_indicators:
+  - "Content calendar generated"
+  - "Copy assets finalized"
+  - "Conversion tracking links integrated"
+  - "Social media posts scheduled"
+transitions:
+  strategy_ready:
+    trigger: "content strategy finalized"
+    confidence: 0.9
+    greeting_message: "Strategy is ready. Moving to copywriting."
+    next_steps:
+      - command: "*write-copy"
+        args_template: "{strategy_doc}"
+        description: "Generate copy based on strategy"
+        priority: 1
+  copy_ready:
+    trigger: "copy assets generated"
+    confidence: 0.9
+    greeting_message: "Copy is ready. Reviewing brand alignment."
+    next_steps:
+      - command: "*review-brand"
+        args_template: "{copy_assets}"
+        description: "Check brand consistency"
+        priority: 2
+  brand_approved:
+    trigger: "brand alignment confirmed"
+    confidence: 0.95
+    greeting_message: "Brand alignment confirmed. Engineering conversion funnel."
+    next_steps:
+      - command: "*engineer-funnel"
+        args_template: "{final_copy}"
+        description: "Integrate conversion links and tracking"
+        priority: 3

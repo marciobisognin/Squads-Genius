@@ -1,0 +1,20 @@
+name: compliance-citadel-extended
+employee_count: 17
+dimensions:
+  - compliance_core
+  - privacy_lgpd
+  - security
+  - legal_regulatory
+  - quality_audit
+  - ai_governance
+ai_governance_scope:
+  - ISO/IEC 42001
+  - PL 2338
+  - EU AI Act
+  - NIST AI RMF
+produces:
+  - SGIA/AIMS roadmap
+  - AI risk register
+  - AI impact assessment
+  - audit evidence pack
+  - RFP/due diligence answers

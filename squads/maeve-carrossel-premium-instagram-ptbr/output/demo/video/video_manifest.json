@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "generated_at": "2026-04-25T18:38:34.782276",
+  "language": "pt-BR",
+  "voice_requested": "pt-BR-FranciscaNeural",
+  "tts_status": "Falha edge-tts:   transp, proto = await self._wrap_create_connection(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<7 lines>...\n    )\n    ^\n  File \"/data/data/com.termux/files/usr/lib/python3.13/site-packages/aiohttp/connector.py\", line 1333, in _wrap_create_connection\n    raise client_error(req.connection_key, exc) from exc\naiohttp.client_exceptions.ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x784c298730> [Connection reset by peer]\n",
+  "render_mode": "fallback_pillow_ffmpeg",
+  "manim_status": "Manim pulado por --force-fallback",
+  "format": "vertical 9:16 Instagram",
+  "final": "output/demo/video/final_francisca.mp4",
+  "preview": "output/demo/video/preview.png",
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "duration": "2.000000"
+  }
+}

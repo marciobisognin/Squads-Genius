@@ -1,0 +1,16 @@
+nodes:
+  - cc-cco
+  - cc-qa
+  - cc-ai-governance-head
+  - cc-aiia-coordinator
+  - cc-ai-risk-specialist
+  - cc-ai-ethics-auditor
+  - cc-ai-regulatory-counsel
+  - cc-iso-lead-auditor
+antagonists:
+  - reviewer: cc-qa
+    challenges: cc-cco
+  - reviewer: cc-ai-ethics-auditor
+    challenges:
+      - cc-ai-governance-head
+      - cc-ai-risk-specialist

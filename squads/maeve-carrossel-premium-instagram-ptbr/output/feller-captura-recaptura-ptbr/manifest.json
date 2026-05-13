@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-04-25T19:54:25.124102",
+  "language": "pt-BR",
+  "topic": "Problema de captura-recaptura de Feller",
+  "slides": [
+    {
+      "num": 1,
+      "title": "O lago invisível",
+      "body": "Como estimar quantos peixes existem se não dá para contar um por um? A estatística resolve olhando uma parte bem escolhida.",
+      "html": "slides/slide-01.html",
+      "png": "slides/slide-01.png",
+      "jpg": "slides/slide-01-premium.jpg"
+    },
+    {
+      "num": 2,
+      "title": "A ideia de Feller",
+      "body": "Capture alguns peixes, marque, solte de volta e espere eles se misturarem. Depois capture outra amostra.",
+      "html": "slides/slide-02.html",
+      "png": "slides/slide-02.png",
+      "jpg": "slides/slide-02-premium.jpg"
+    },
+    {
+      "num": 3,
+      "title": "O segredo está na proporção",
+      "body": "Se muitos marcados reaparecem, o lago provavelmente é menor. Se poucos reaparecem, o lago provavelmente é maior.",
+      "html": "slides/slide-03.html",
+      "png": "slides/slide-03.png",
+      "jpg": "slides/slide-03-premium.jpg"
+    },
+    {
+      "num": 4,
+      "title": "Primeira amostra: M",
+      "body": "M é a quantidade de peixes marcados na primeira captura. Eles viram “sinalizadores” dentro do lago.",
+      "html": "slides/slide-04.html",
+      "png": "slides/slide-04.png",
+      "jpg": "slides/slide-04-premium.jpg"
+    },
+    {
+      "num": 5,
+      "title": "Segunda amostra: n",
+      "body": "Depois da mistura, capturamos n peixes. Alguns terão a marca; outros não. Essa mistura carrega informação.",
+      "html": "slides/slide-05.html",
+      "png": "slides/slide-05.png",
+      "jpg": "slides/slide-05-premium.jpg"
+    },
+    {
+      "num": 6,
+      "title": "Recapturados: R",
+      "body": "R é a quantidade de peixes marcados encontrados na segunda amostra. Ele é o número-chave da estimativa.",
+      "html": "slides/slide-06.html",
+      "png": "slides/slide-06.png",
+      "jpg": "slides/slide-06-premium.jpg"
+    },
+    {
+      "num": 7,
+      "title": "Estimativa intuitiva",
+      "body": "A fração de marcados na amostra deve parecer a fração de marcados no lago: M/N ≈ R/n.",
+      "html": "slides/slide-07.html",
+      "png": "slides/slide-07.png",
+      "jpg": "slides/slide-07-premium.jpg"
+    },
+    {
+      "num": 8,
+      "title": "A fórmula prática",
+      "body": "Reorganizando a proporção, obtemos N ≈ M × n / R. É uma regra simples para estimar o total oculto.",
+      "html": "slides/slide-08.html",
+      "png": "slides/slide-08.png",
+      "jpg": "slides/slide-08-premium.jpg"
+    },
+    {
+      "num": 9,
+      "title": "Onde entra a hipergeométrica?",
+      "body": "A distribuição hipergeométrica calcula a chance de recapturar R marcados quando retiramos n peixes de uma população finita sem reposição.",
+      "html": "slides/slide-09.html",
+      "png": "slides/slide-09.png",
+      "jpg": "slides/slide-09-premium.jpg"
+    },
+    {
+      "num": 10,
+      "title": "Exemplo numérico",
+      "body": "Se marquei 100, recapturei 80 e encontrei 20 marcados, a estimativa é 100×80/20 = 400 peixes.",
+      "html": "slides/slide-10.html",
+      "png": "slides/slide-10.png",
+      "jpg": "slides/slide-10-premium.jpg"
+    },
+    {
+      "num": 11,
+      "title": "Condições importantes",
+      "body": "O lago precisa ser fechado, as marcas não podem desaparecer, e os peixes marcados devem se misturar como os outros.",
+      "html": "slides/slide-11.html",
+      "png": "slides/slide-11.png",
+      "jpg": "slides/slide-11-premium.jpg"
+    },
+    {
+      "num": 12,
+      "title": "O poder do método",
+      "body": "A captura-recaptura mostra como uma pequena amostra pode revelar uma população inteira — quando o modelo é bem usado.",
+      "html": "slides/slide-12.html",
+      "png": "slides/slide-12.png",
+      "jpg": "slides/slide-12-premium.jpg"
+    }
+  ],
+  "size": "1080x1350"
+}

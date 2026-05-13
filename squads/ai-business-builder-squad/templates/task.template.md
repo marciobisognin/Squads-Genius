@@ -1,0 +1,4 @@
+---
+task:
+  name: Template
+---

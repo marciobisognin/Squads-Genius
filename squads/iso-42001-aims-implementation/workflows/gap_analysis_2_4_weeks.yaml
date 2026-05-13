@@ -1,0 +1,28 @@
+name: gap_analysis_2_4_weeks
+capability: gap_analysis_only
+duration: "2–4 semanas"
+phases:
+  - 01_intake
+  - 02_context
+  - 03_ai_inventory
+  - 05_gap_mapping
+  - 06_legal_regulatory_mapping
+  - 07_risk_identification
+  - 08_risk_analysis
+  - 16_certification_readiness
+
+entrypoint_agent: ai-inventory-mapper
+final_reviewer: certification-readiness-checker
+antagonist_review:
+  - auditor_redteam: "usar certification-readiness-checker como gate crítico"
+  - ethics_review: "testar se riscos éticos foram minimizados indevidamente"
+deliverables:
+  - ai_inventory.md
+  - gap_analysis.md
+  - risk_register.md
+  - ai_impact_assessment.md
+  - statement_of_applicability.md
+  - policy_pack.md
+  - evidence_index.md
+  - certification_readiness_report.md
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

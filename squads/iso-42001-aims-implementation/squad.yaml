@@ -1,0 +1,90 @@
+name: iso-42001-aims-implementation
+display_name: ISO 42001 AIMS Implementation Squad
+protocol: v5.0
+version: 5.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+source_problem:
+  linkedin_post: "https://pt.linkedin.com/posts/zzleal_o-seu-concorrente-est%C3%A1-usando-a-iso-42001-activity-7460017567865192449-NkBK"
+  thesis: "ISO/IEC 42001 deixa de ser assunto técnico e vira barreira comercial em contratos, compras e parcerias."
+capabilities:
+  full_implementation:
+    duration: "9–12 meses"
+    objective: "Implantar SGIA/AIMS completo com governança, controles, evidências e melhoria contínua."
+  gap_analysis_only:
+    duration: "2–4 semanas"
+    objective: "Gerar diagnóstico de lacunas, mapa de riscos e roadmap executivo."
+  audit_readiness_sprint:
+    duration: "4–6 semanas"
+    objective: "Organizar evidências, SoA, políticas e simulação de auditoria."
+agents:
+  - id: ai-inventory-mapper
+    file: agents/ai-inventory-mapper.md
+  - id: gap-analyzer
+    file: agents/gap-analyzer.md
+  - id: aiia-executor
+    file: agents/aiia-executor.md
+  - id: risk-register-builder
+    file: agents/risk-register-builder.md
+  - id: soa-architect
+    file: agents/soa-architect.md
+  - id: policy-template-writer
+    file: agents/policy-template-writer.md
+  - id: audit-evidence-collector
+    file: agents/audit-evidence-collector.md
+  - id: certification-readiness-checker
+    file: agents/certification-readiness-checker.md
+
+workflows:
+  - workflows/full_implementation_9_12_months.yaml
+  - workflows/gap_analysis_2_4_weeks.yaml
+  - workflows/audit_readiness_4_6_weeks.yaml
+tasks:
+  - tasks/01_map_ai_inventory.yaml
+  - tasks/02_analyze_iso42001_gaps.yaml
+  - tasks/03_execute_aiia.yaml
+  - tasks/04_build_risk_register.yaml
+  - tasks/05_architect_soa.yaml
+  - tasks/06_write_policy_templates.yaml
+  - tasks/07_collect_audit_evidence.yaml
+  - tasks/08_check_certification_readiness.yaml
+pipeline_16_phases:
+  - id: 01_intake
+    description: "Definir escopo, modo de operação e patrocinadores"
+  - id: 02_context
+    description: "Entender organização, partes interessadas, contratos e obrigações"
+  - id: 03_ai_inventory
+    description: "Inventariar usos, sistemas, modelos, dados, vendors e owners"
+  - id: 04_classification
+    description: "Classificar criticidade e tipo de uso de IA"
+  - id: 05_gap_mapping
+    description: "Mapear lacunas contra ISO/IEC 42001 e controles relacionados"
+  - id: 06_legal_regulatory_mapping
+    description: "Relacionar LGPD, PL 2338, EU AI Act, NIST AI RMF e requisitos setoriais"
+  - id: 07_risk_identification
+    description: "Identificar riscos de IA"
+  - id: 08_risk_analysis
+    description: "Analisar probabilidade, impacto, severidade e risco residual"
+  - id: 09_aiia
+    description: "Executar avaliação de impacto de IA"
+  - id: 10_controls_design
+    description: "Definir controles, políticas, processos e RACI"
+  - id: 11_soa
+    description: "Construir Statement of Applicability"
+  - id: 12_policy_pack
+    description: "Gerar políticas, procedimentos e templates"
+  - id: 13_evidence_collection
+    description: "Coletar e indexar evidências auditáveis"
+  - id: 14_internal_audit
+    description: "Simular auditoria interna e red team"
+  - id: 15_management_review
+    description: "Preparar análise crítica da direção"
+  - id: 16_certification_readiness
+    description: "Checar prontidão, NCs e roadmap final"
+
+integrations:
+  compliance_citadel: integrations/compliance-citadel/
+  cross_squads: integrations/cross-squads/

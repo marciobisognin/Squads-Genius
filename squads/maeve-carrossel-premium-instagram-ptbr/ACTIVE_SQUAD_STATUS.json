@@ -1,0 +1,20 @@
+{
+  "active": true,
+  "activated_at": "2026-04-25T19:33:42.979360",
+  "squad": "Maeve Carrossel Premium Instagram PT-BR",
+  "version": "1.1.0",
+  "mode": "aguardando_solicitacao_do_usuario",
+  "language": "pt-BR",
+  "expected_input": "tema, notícia, artigo, ideia ou pedido visual para gerar carrossel premium e vídeo Instagram",
+  "workspace": "/data/data/com.termux/files/home/squad-factory/workspaces/maeve-carrossel-premium-instagram-ptbr",
+  "android_folder": "/storage/emulated/0/Download/Material herme/maeve-carrossel-premium-instagram-ptbr",
+  "pipeline": [
+    "briefing",
+    "copy",
+    "visual",
+    "html_png",
+    "legenda_hashtags",
+    "video_francisca",
+    "qa"
+  ]
+}
