@@ -1,0 +1,48 @@
+name: maeve-fundamentos-roi-compass
+version: 0.2.0
+description: "Squad Maeve baseado nos áudios de Marcio Bisognin para reduzir hype, atalhos, compras impulsivas e uso de IA sem contexto por meio de fundamentos, questionamento, prática e decisão de ROI."
+slashPrefix: mae
+author: "Marcio Bisognin"
+license: MIT
+aios:
+  minVersion: "2.1.0"
+  type: squad
+components:
+  agents:
+    - orchestrator.md
+    - researcher.md
+    - builder.md
+    - validator.md
+  tasks:
+    - analyze-requirements.md
+    - build-artifacts.md
+    - validate-release.md
+    - publish-package.md
+  workflows:
+    - main.yaml
+  checklists:
+    - release-checklist.md
+    - premium-squad-quality-gate.md
+  templates:
+    - artifact.template.md
+    - decision-canvas.template.md
+    - context-brief.template.md
+  references:
+    - audio1-marcio-transcript.txt
+    - audio2-marcio-transcript.txt
+    - audio-analysis-marcio.md
+  tools: []
+  scripts:
+    - fundamentos-roi-compass.cjs
+    - smoke-test.cjs
+    - premium-architect-gate.cjs
+config:
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+metadata:
+  target: maeve
+  profile: marcio
+  source: "Dois áudios de Marcio Bisognin"
+  generated_by: nirvana-squad-create@1.4.0
+  response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

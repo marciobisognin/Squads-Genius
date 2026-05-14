@@ -1,0 +1,1 @@
+Crie um entregável usando o squad maeve-fundamentos-roi-compass para: Transformar explicações sobre fundamentos, questionamento, prática, ROI, engenharia de contexto e uso consciente de IA em um sistema/squad que reduz distração, hype, compra impulsiva de fórmulas prontas e aceleração do caos.

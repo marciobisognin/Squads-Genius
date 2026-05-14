@@ -1,0 +1,33 @@
+name: fundamentos-roi-compass-main
+version: 0.2.0
+description: "Fluxo para decidir se um recurso acelera clareza ou caos a partir de fundamentos, prática, contexto e ROI."
+trigger: manual
+inputs:
+  objetivo: "O que o usuário quer alcançar"
+  recurso: "Curso, ferramenta, mentoria, IA, contratação ou execução própria"
+  basico: "Nível atual do básico: ausente, parcial ou consistente"
+  lacunas: "Conhecimentos/habilidades que o usuário ainda não domina"
+phases:
+  - id: diagnostico
+    name: Mapear objetivo, fundamentos e lacunas
+    agent: researcher
+    task: analyze-requirements.md
+  - id: decisao
+    name: Construir decisão e context brief
+    agent: builder
+    task: build-artifacts.md
+  - id: validacao
+    name: Validar ROI e risco de hype
+    agent: validator
+    task: validate-release.md
+  - id: entrega
+    name: Consolidar recomendação final
+    agent: orchestrator
+    task: publish-package.md
+quality_gates:
+  - objetivo_claro
+  - basico_avaliado
+  - recurso_proporcional
+  - pratica_definida
+  - roi_com_compromisso
+  - risco_de_caos_avaliado
