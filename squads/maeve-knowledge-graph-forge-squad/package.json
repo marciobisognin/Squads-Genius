@@ -1,0 +1,12 @@
+{
+  "name": "maeve-knowledge-graph-forge-squad",
+  "version": "1.0.0",
+  "description": "Transforma bases documentais em grafo de conhecimento e ações práticas.",
+  "license": "MIT",
+  "author": "Marcio Bisognin <@marciobisognin>",
+  "scripts": {
+    "demo": "python scripts/run_demo.py",
+    "validate": "python scripts/validate_squad.py --root .",
+    "package": "python scripts/package_squad.py --root . --output ../../exports/maeve-knowledge-graph-forge-squad-v1.0.0.zip"
+  }
+}

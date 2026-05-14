@@ -1,0 +1,14 @@
+id: 03_extract_text_units
+owner: ocr-and-text-extraction-agent
+inputs:
+  - knowledge_base_path
+  - user_goal
+outputs:
+  - structured_artifact
+  - evidence
+  - next_action
+acceptance_criteria:
+  - conexoes_com_evidencia
+  - conceitos_relevantes
+  - proximo_passo_claro
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

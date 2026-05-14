@@ -1,0 +1,30 @@
+{
+  "id": "build_from_knowledge_pipeline",
+  "steps": [
+    {
+      "order": 1,
+      "name": "mapa"
+    },
+    {
+      "order": 2,
+      "name": "oportunidades"
+    },
+    {
+      "order": 3,
+      "name": "escolha"
+    },
+    {
+      "order": 4,
+      "name": "prd"
+    },
+    {
+      "order": 5,
+      "name": "arquitetura"
+    },
+    {
+      "order": 6,
+      "name": "squad_ou_app"
+    }
+  ],
+  "human_in_loop": true
+}

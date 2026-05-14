@@ -1,0 +1,26 @@
+{
+  "id": "learning_mode_pipeline",
+  "steps": [
+    {
+      "order": 1,
+      "name": "mapa"
+    },
+    {
+      "order": 2,
+      "name": "lacunas"
+    },
+    {
+      "order": 3,
+      "name": "ordem_estudo"
+    },
+    {
+      "order": 4,
+      "name": "revisao"
+    },
+    {
+      "order": 5,
+      "name": "plano_7_dias"
+    }
+  ],
+  "human_in_loop": true
+}

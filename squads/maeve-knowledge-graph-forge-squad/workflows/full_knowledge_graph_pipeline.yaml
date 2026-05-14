@@ -1,0 +1,50 @@
+{
+  "id": "full_knowledge_graph_pipeline",
+  "steps": [
+    {
+      "order": 1,
+      "name": "intake"
+    },
+    {
+      "order": 2,
+      "name": "inventario"
+    },
+    {
+      "order": 3,
+      "name": "extracao"
+    },
+    {
+      "order": 4,
+      "name": "conceitos"
+    },
+    {
+      "order": 5,
+      "name": "links"
+    },
+    {
+      "order": 6,
+      "name": "grafo"
+    },
+    {
+      "order": 7,
+      "name": "sintese"
+    },
+    {
+      "order": 8,
+      "name": "trilhas"
+    },
+    {
+      "order": 9,
+      "name": "oportunidades"
+    },
+    {
+      "order": 10,
+      "name": "proxima_acao"
+    },
+    {
+      "order": 11,
+      "name": "artefato"
+    }
+  ],
+  "human_in_loop": true
+}

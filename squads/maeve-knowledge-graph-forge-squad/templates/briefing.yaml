@@ -1,0 +1,7 @@
+knowledge_base_path: ""
+user_goal: "study|learn|build_system|build_app|create_course|create_content|cross_domain|discover"
+preferred_output: "graph|summary|learning_path|prd|workflow|squad|course|article"
+language: "pt-BR"
+constraints:
+  max_nodes: 80
+  include_visual_html: true

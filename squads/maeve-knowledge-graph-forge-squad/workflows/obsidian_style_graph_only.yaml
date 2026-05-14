@@ -1,0 +1,30 @@
+{
+  "id": "obsidian_style_graph_only",
+  "steps": [
+    {
+      "order": 1,
+      "name": "inventario"
+    },
+    {
+      "order": 2,
+      "name": "extracao"
+    },
+    {
+      "order": 3,
+      "name": "conceitos"
+    },
+    {
+      "order": 4,
+      "name": "links"
+    },
+    {
+      "order": 5,
+      "name": "graph_json"
+    },
+    {
+      "order": 6,
+      "name": "graph_html"
+    }
+  ],
+  "human_in_loop": true
+}

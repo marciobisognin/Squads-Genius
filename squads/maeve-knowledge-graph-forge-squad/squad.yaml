@@ -1,0 +1,151 @@
+{
+  "name": "maeve-knowledge-graph-forge-squad",
+  "commercial_name": "Maeve Knowledge Graph Forge",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "license": "MIT",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "positioning": "Transforma bases documentais em mapas vivos de conhecimento, conexões e ações práticas.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
+  "agents": [
+    {
+      "id": "knowledge-intake-orchestrator",
+      "file": "agents/knowledge-intake-orchestrator.md",
+      "role": "Recebe pastas, PDFs, livros e documentos; define escopo e objetivo."
+    },
+    {
+      "id": "document-ingestion-specialist",
+      "file": "agents/document-ingestion-specialist.md",
+      "role": "Inventaria arquivos, formatos e metadados."
+    },
+    {
+      "id": "ocr-and-text-extraction-agent",
+      "file": "agents/ocr-and-text-extraction-agent.md",
+      "role": "Extrai texto e aponta necessidade de OCR externo."
+    },
+    {
+      "id": "concept-entity-miner",
+      "file": "agents/concept-entity-miner.md",
+      "role": "Identifica conceitos, entidades, termos, autores e problemas."
+    },
+    {
+      "id": "semantic-link-architect",
+      "file": "agents/semantic-link-architect.md",
+      "role": "Cria relações de causa, dependência, oposição, exemplo e aplicação."
+    },
+    {
+      "id": "knowledge-graph-visualizer",
+      "file": "agents/knowledge-graph-visualizer.md",
+      "role": "Gera grafo visual navegável em JSON/HTML."
+    },
+    {
+      "id": "learning-path-designer",
+      "file": "agents/learning-path-designer.md",
+      "role": "Transforma o grafo em trilhas de estudo."
+    },
+    {
+      "id": "application-opportunity-analyst",
+      "file": "agents/application-opportunity-analyst.md",
+      "role": "Detecta possibilidades de sistemas, apps, cursos, squads e workflows."
+    },
+    {
+      "id": "cross-domain-synthesizer",
+      "file": "agents/cross-domain-synthesizer.md",
+      "role": "Cruza o conteúdo com outras áreas."
+    },
+    {
+      "id": "action-output-generator",
+      "file": "agents/action-output-generator.md",
+      "role": "Pergunta a próxima ação e gera o artefato escolhido."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "01_intake_knowledge_base",
+      "file": "tasks/01_intake_knowledge_base.yaml",
+      "owner": "knowledge-intake-orchestrator"
+    },
+    {
+      "id": "02_inventory_and_metadata",
+      "file": "tasks/02_inventory_and_metadata.yaml",
+      "owner": "document-ingestion-specialist"
+    },
+    {
+      "id": "03_extract_text_units",
+      "file": "tasks/03_extract_text_units.yaml",
+      "owner": "ocr-and-text-extraction-agent"
+    },
+    {
+      "id": "04_mine_concepts_entities",
+      "file": "tasks/04_mine_concepts_entities.yaml",
+      "owner": "concept-entity-miner"
+    },
+    {
+      "id": "05_build_semantic_links",
+      "file": "tasks/05_build_semantic_links.yaml",
+      "owner": "semantic-link-architect"
+    },
+    {
+      "id": "06_generate_graph_visualization",
+      "file": "tasks/06_generate_graph_visualization.yaml",
+      "owner": "knowledge-graph-visualizer"
+    },
+    {
+      "id": "07_summarize_knowledge_base",
+      "file": "tasks/07_summarize_knowledge_base.yaml",
+      "owner": "knowledge-intake-orchestrator"
+    },
+    {
+      "id": "08_design_learning_paths",
+      "file": "tasks/08_design_learning_paths.yaml",
+      "owner": "learning-path-designer"
+    },
+    {
+      "id": "09_find_application_opportunities",
+      "file": "tasks/09_find_application_opportunities.yaml",
+      "owner": "application-opportunity-analyst"
+    },
+    {
+      "id": "10_cross_domain_expansion",
+      "file": "tasks/10_cross_domain_expansion.yaml",
+      "owner": "cross-domain-synthesizer"
+    },
+    {
+      "id": "11_ask_next_action",
+      "file": "tasks/11_ask_next_action.yaml",
+      "owner": "action-output-generator"
+    },
+    {
+      "id": "12_generate_selected_artifact",
+      "file": "tasks/12_generate_selected_artifact.yaml",
+      "owner": "action-output-generator"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "full_knowledge_graph_pipeline",
+      "file": "workflows/full_knowledge_graph_pipeline.yaml"
+    },
+    {
+      "id": "obsidian_style_graph_only",
+      "file": "workflows/obsidian_style_graph_only.yaml"
+    },
+    {
+      "id": "learning_mode_pipeline",
+      "file": "workflows/learning_mode_pipeline.yaml"
+    },
+    {
+      "id": "build_from_knowledge_pipeline",
+      "file": "workflows/build_from_knowledge_pipeline.yaml"
+    }
+  ],
+  "outputs": [
+    "knowledge_inventory.json",
+    "graph.json",
+    "graph.html",
+    "knowledge_summary.md",
+    "learning_paths.md",
+    "application_opportunities.md"
+  ]
+}
