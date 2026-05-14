@@ -1,7 +1,7 @@
 {
   "name": "maeve-knowledge-graph-forge-squad",
   "commercial_name": "Maeve Knowledge Graph Forge",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "language": "pt-BR",
   "license": "MIT",
   "creator": "Marcio Bisognin",
@@ -146,17 +146,6 @@
     "graph.html",
     "knowledge_summary.md",
     "learning_paths.md",
-    "application_opportunities.md",
-    "book_material_sources.md"
-  ],
-  "research_sources": [
-    {
-      "id": "1lib-sk",
-      "name": "1lib.sk",
-      "url": "https://1lib.sk/",
-      "type": "book_and_material_discovery",
-      "usage": "Pesquisar títulos, autores, assuntos, metadados bibliográficos e materiais de referência para orientar estudo e mapeamento conceitual.",
-      "compliance": "Usar somente para descoberta, referência e materiais legalmente acessíveis; não automatizar downloads nem orientar obtenção ou redistribuição de obras protegidas por direitos autorais."
-    }
+    "application_opportunities.md"
   ]
 }

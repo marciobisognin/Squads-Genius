@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.1
+## 1.0.2
 
-- Adicionada fonte opcional `https://1lib.sk/` para pesquisa de livros e materiais, com regras de uso responsável e conformidade autoral.
+- Removida do repositório público a fonte externa de pesquisa bibliográfica, mantendo-a apenas na cópia local conforme solicitação.
 
 ## 1.0.0
 

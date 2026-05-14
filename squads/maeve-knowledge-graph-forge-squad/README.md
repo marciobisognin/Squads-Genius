@@ -25,7 +25,6 @@ Transformar documentos dispersos em um **sistema de conhecimento acionável**. O
 - 4 workflows: pipeline completo, grafo visual, modo estudo e modo construção.
 - Scripts Python para inventariar arquivos, extrair texto simples, gerar conceitos, criar grafo JSON/HTML, validar e empacotar.
 - Templates, exemplo prático, documentação e quality gates.
-- Fonte opcional de pesquisa bibliográfica: `https://1lib.sk/`, usada para descoberta de livros, autores, títulos, assuntos e materiais de referência, com regra explícita de respeito a direitos autorais.
 
 ## Agentes
 
@@ -39,12 +38,6 @@ Transformar documentos dispersos em um **sistema de conhecimento acionável**. O
 - `application-opportunity-analyst` — Detecta possibilidades de sistemas, apps, cursos, squads e workflows.
 - `cross-domain-synthesizer` — Cruza o conteúdo com outras áreas.
 - `action-output-generator` — Pergunta a próxima ação e gera o artefato escolhido.
-
-## Fontes de pesquisa de livros e materiais
-
-- `https://1lib.sk/` — fonte opcional para pesquisar livros, autores, títulos, assuntos e materiais relacionados à base de conhecimento.
-- Uso recomendado: descoberta bibliográfica, metadados, referências, planejamento de estudo e enriquecimento do grafo com nós do tipo `reference_material`.
-- Regra: usar apenas para pesquisa e materiais legalmente acessíveis; não automatizar downloads nem orientar obtenção ou redistribuição de obras protegidas por direitos autorais.
 
 ## Exemplos
 
