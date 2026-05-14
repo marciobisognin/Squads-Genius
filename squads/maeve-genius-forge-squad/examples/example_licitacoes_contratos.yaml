@@ -1,0 +1,12 @@
+{
+  "project_name": "Squad Licitações e Contratos",
+  "objective": "Criar apoio operacional para análise de documentos e riscos",
+  "audience": "gestores públicos",
+  "domain": "gestão pública",
+  "desired_asset": "squad",
+  "success_criteria": [
+    "checklists",
+    "riscos",
+    "rastreamento normativo"
+  ]
+}

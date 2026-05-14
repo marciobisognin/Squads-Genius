@@ -1,0 +1,18 @@
+id: 02_research_market_and_context
+title: "Produzir pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança."
+owner: deep-research-strategist
+objective: "Produzir pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

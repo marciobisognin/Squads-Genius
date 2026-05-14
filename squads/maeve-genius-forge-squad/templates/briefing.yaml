@@ -1,0 +1,17 @@
+project_name: ""
+objective: ""
+audience: ""
+domain: ""
+desired_asset: "squad|design_system|workflow|script_pack|business_pack|full_system"
+references:
+  urls: []
+  files: []
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+success_criteria: []
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

@@ -1,0 +1,43 @@
+{
+  "id": "github_release_pipeline",
+  "description": "Valida, empacota e prepara publicação GitHub autorizada.",
+  "human_in_loop": true,
+  "rollback": "retornar ao último gate reprovado",
+  "steps": [
+    {
+      "order": 1,
+      "name": "validar manifesto",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "scan de segredos",
+      "gate_required": true
+    },
+    {
+      "order": 3,
+      "name": "gerar README",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "gerar ZIP",
+      "gate_required": true
+    },
+    {
+      "order": 5,
+      "name": "preparar changelog",
+      "gate_required": true
+    },
+    {
+      "order": 6,
+      "name": "verificar licença/IP",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "publicar se autorizado",
+      "gate_required": false
+    }
+  ]
+}

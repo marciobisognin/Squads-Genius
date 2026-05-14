@@ -52,6 +52,16 @@ Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio 
 - **Agentes:** 8 | **Tasks:** 6 | **Workflows:** 2 | **Arquivos publicados:** 34
 - **README detalhado:** [`squads/ai-business-builder-squad/README.md`](squads/ai-business-builder-squad/README.md)
 
+
+### Maeve Genius Forge Squad
+
+- **Nome técnico:** `maeve-genius-forge-squad`
+- **Versão:** `1.0.0`
+- **Pasta:** `squads/maeve-genius-forge-squad`
+- **Agentes:** 10 | **Tasks:** 12 | **Workflows:** 4 | **Arquivos publicados:** 67
+- **Para quem é:** consultores, educadores, gestores, criadores e profissionais que querem transformar briefing em sistemas de IA com pesquisa, design, workflows, scripts e monetização.
+- **README detalhado:** [`squads/maeve-genius-forge-squad/README.md`](squads/maeve-genius-forge-squad/README.md)
+
 ## Índice rápido
 
 - [`iso-42001-aims-implementation`](squads/iso-42001-aims-implementation/README.md) — ISO 42001 AIMS Implementation Squad
@@ -74,3 +84,7 @@ Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio 
 - Instagram: [@marciobisognin](https://instagram.com/marciobisognin).
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
+
+## Índice geral
+
+- [Índice de Squads](SQUAD_INDEX.md)

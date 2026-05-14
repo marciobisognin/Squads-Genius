@@ -1,0 +1,18 @@
+id: 12_package_validate_and_publish
+title: "Validar manifesto, scan de segredos, empacotar ZIP e preparar publicação GitHub."
+owner: github-release-publisher
+objective: "Validar manifesto, scan de segredos, empacotar ZIP e preparar publicação GitHub."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

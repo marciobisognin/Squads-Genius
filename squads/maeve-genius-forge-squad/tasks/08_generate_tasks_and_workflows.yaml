@@ -1,0 +1,18 @@
+id: 08_generate_tasks_and_workflows
+title: "Gerar tasks atômicas e workflows com gates, rollback e humano no loop."
+owner: workflow-engineer
+objective: "Gerar tasks atômicas e workflows com gates, rollback e humano no loop."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

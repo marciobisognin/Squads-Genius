@@ -1,0 +1,12 @@
+{
+  "project_name": "Carrossel Geopolítica Didática",
+  "objective": "Criar pipeline de carrosséis com pesquisa e design original",
+  "audience": "professores e estudantes",
+  "domain": "educação/geopolítica",
+  "desired_asset": "workflow",
+  "success_criteria": [
+    "roteiro didático",
+    "paleta 3:4",
+    "fontes rastreáveis"
+  ]
+}

@@ -1,0 +1,18 @@
+id: 09_identify_deterministic_scripts
+title: "Separar tarefas que exigem LLM das tarefas convertíveis em scripts locais."
+owner: script-factory-engineer
+objective: "Separar tarefas que exigem LLM das tarefas convertíveis em scripts locais."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

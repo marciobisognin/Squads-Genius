@@ -1,0 +1,18 @@
+id: 01_intake_and_auto_clarify
+title: "Extrair objetivo, público, ativo desejado, lacunas e hipóteses explícitas."
+owner: briefing-intelligence-analyst
+objective: "Extrair objetivo, público, ativo desejado, lacunas e hipóteses explícitas."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

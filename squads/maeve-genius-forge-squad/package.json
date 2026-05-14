@@ -1,0 +1,29 @@
+{
+  "name": "maeve-genius-forge-squad",
+  "version": "1.0.0",
+  "description": "Maeve Genius Forge — Sistema de Criação de Ativos com IA",
+  "license": "MIT",
+  "author": "Marcio Bisognin <@marciobisognin>",
+  "type": "commonjs",
+  "scripts": {
+    "validate": "python scripts/validate_squad.py --root .",
+    "demo": "python scripts/forge_squad.py --briefing examples/example_consultoria_ia.yaml --output output/demo-consultoria",
+    "package": "python scripts/package_squad.py --root . --output ../../exports/maeve-genius-forge-squad-v1.0.0.zip"
+  },
+  "files": [
+    "agents",
+    "tasks",
+    "workflows",
+    "templates",
+    "scripts",
+    "examples",
+    "docs",
+    ".ip",
+    "squad.yaml",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "AUTHORS.md",
+    "CHANGELOG.md"
+  ]
+}

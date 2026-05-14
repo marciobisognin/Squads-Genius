@@ -1,0 +1,12 @@
+{
+  "project_name": "Consultoria IA para Pequenos Negócios",
+  "objective": "Criar serviço empacotado de implantação de IA operacional",
+  "audience": "micro e pequenos empresários",
+  "domain": "consultoria",
+  "desired_asset": "full_system",
+  "success_criteria": [
+    "oferta clara",
+    "workflow de entrega",
+    "scripts de diagnóstico"
+  ]
+}

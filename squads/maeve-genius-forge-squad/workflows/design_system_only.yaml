@@ -1,0 +1,53 @@
+{
+  "id": "design_system_only",
+  "description": "Gera identidade visual original, tokens e guia de uso.",
+  "human_in_loop": true,
+  "rollback": "retornar ao último gate reprovado",
+  "steps": [
+    {
+      "order": 1,
+      "name": "intake visual",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "análise segura de referências",
+      "gate_required": true
+    },
+    {
+      "order": 3,
+      "name": "semântica da marca",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "paleta",
+      "gate_required": true
+    },
+    {
+      "order": 5,
+      "name": "tipografia",
+      "gate_required": true
+    },
+    {
+      "order": 6,
+      "name": "tokens JSON/CSS",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "componentes",
+      "gate_required": false
+    },
+    {
+      "order": 8,
+      "name": "guia de aplicação",
+      "gate_required": false
+    },
+    {
+      "order": 9,
+      "name": "gate de originalidade",
+      "gate_required": false
+    }
+  ]
+}

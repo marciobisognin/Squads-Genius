@@ -1,0 +1,18 @@
+id: 04_create_design_system
+title: "Criar identidade original, paleta, tipografia, tokens, componentes e aplicações."
+owner: design-system-forger
+objective: "Criar identidade original, paleta, tipografia, tokens, componentes e aplicações."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,18 @@
+id: 10_generate_and_test_scripts
+title: "Gerar scripts com logs, dry-run, tratamento de erro e teste mínimo."
+owner: script-factory-engineer
+objective: "Gerar scripts com logs, dry-run, tratamento de erro e teste mínimo."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

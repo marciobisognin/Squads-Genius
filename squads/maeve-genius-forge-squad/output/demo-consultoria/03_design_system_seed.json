@@ -1,0 +1,16 @@
+{
+  "project": "Consultoria IA para Pequenos Negócios",
+  "palette": [
+    "#0B1020",
+    "#2525FF",
+    "#F5B84B",
+    "#F8FAFC"
+  ],
+  "components": [
+    "hero",
+    "card",
+    "cta",
+    "evidence-box"
+  ],
+  "originality_rule": "referências não devem ser copiadas"
+}

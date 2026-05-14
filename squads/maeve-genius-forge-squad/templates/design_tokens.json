@@ -1,0 +1,15 @@
+{
+  "color": {
+    "primary": "#2525FF",
+    "background": "#0B1020",
+    "accent": "#F5B84B"
+  },
+  "font": {
+    "heading": "Inter, sans-serif",
+    "body": "Inter, sans-serif"
+  },
+  "radius": {
+    "card": "18px",
+    "button": "12px"
+  }
+}

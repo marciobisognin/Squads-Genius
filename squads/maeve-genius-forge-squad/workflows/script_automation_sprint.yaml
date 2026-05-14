@@ -1,0 +1,43 @@
+{
+  "id": "script_automation_sprint",
+  "description": "Converte tarefas repetitivas em scripts testáveis.",
+  "human_in_loop": true,
+  "rollback": "retornar ao último gate reprovado",
+  "steps": [
+    {
+      "order": 1,
+      "name": "mapear tarefas",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "classificar LLM vs determinístico",
+      "gate_required": true
+    },
+    {
+      "order": 3,
+      "name": "especificar entradas/saídas",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "gerar script",
+      "gate_required": true
+    },
+    {
+      "order": 5,
+      "name": "executar teste mínimo",
+      "gate_required": true
+    },
+    {
+      "order": 6,
+      "name": "documentar uso",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "medir economia",
+      "gate_required": false
+    }
+  ]
+}

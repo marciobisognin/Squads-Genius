@@ -1,0 +1,18 @@
+id: 03_map_opportunity_and_offer
+title: "Converter contexto em proposta de valor, oferta mínima, público comprador e canais."
+owner: business-model-architect
+objective: "Converter contexto em proposta de valor, oferta mínima, público comprador e canais."
+inputs:
+  - briefing
+  - previous_outputs
+outputs:
+  - artifact
+  - assumptions
+  - risks
+  - quality_gate_result
+acceptance_criteria:
+  - "Saída separa observado, inferido, hipótese e recomendação quando aplicável"
+  - "Critérios de sucesso explícitos"
+  - "Riscos e limitações registrados"
+  - "Footer obrigatório incluído em entregas finais"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

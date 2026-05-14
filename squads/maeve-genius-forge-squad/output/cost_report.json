@@ -1,0 +1,13 @@
+{
+  "estimated_manual_hours_saved": 12.0,
+  "estimated_value_saved": 1800.0,
+  "llm_dependent_steps": 3,
+  "deterministic_steps": 5,
+  "estimated_token_cost": "variável; reduzir com scripts locais",
+  "scripts_generated": 7,
+  "roi_notes": [
+    "Scripts locais reduzem repetição e custo marginal.",
+    "Revisão humana continua obrigatória nos gates."
+  ],
+  "generated_at": "2026-05-14 08:04:03"
+}
