@@ -1,0 +1,30 @@
+{
+  "project": "Mentoria rápida para servidores públicos aprenderem IA aplicada a processos administrativos",
+  "customer": "Servidores e gestores que querem aplicar IA com segurança sem depender de programação",
+  "jobs": [
+    "entender usos práticos de IA",
+    "reduzir retrabalho",
+    "criar documentos melhores"
+  ],
+  "pains": [
+    "medo de usar IA incorretamente",
+    "falta de tempo",
+    "dificuldade de transformar teoria em rotina"
+  ],
+  "gains": [
+    "ganhar produtividade",
+    "criar fluxos confiáveis",
+    "explicar resultados para chefias"
+  ],
+  "solution": "Programa de 4 semanas com microaulas, templates, desafios e apoio por exemplos reais",
+  "channels": [
+    "WhatsApp/Telegram",
+    "aulas online",
+    "carrosséis didáticos"
+  ],
+  "constraints": [
+    "10-15 minutos por dia",
+    "linguagem simples",
+    "sem promessas irreais"
+  ]
+}

@@ -1,0 +1,33 @@
+id: main
+name: Value Canvas Visual Forge Workflow
+steps:
+  - id: customer_profile
+    agent: customer-profile-cartographer
+    task: map-customer-profile
+  - id: value_map
+    agent: value-map-architect
+    task: build-value-map
+  - id: fit
+    agent: fit-evidence-analyst
+    task: assess-fit-evidence
+    requires: [customer_profile, value_map]
+  - id: experiment
+    agent: experiment-sprint-designer
+    task: design-experiment-sprint
+    requires: [fit]
+  - id: visual_canvas
+    agent: visual-canvas-designer
+    task: create-visual-canvas
+    requires: [fit]
+  - id: carousel
+    agent: infographic-carousel-producer
+    task: produce-carousel-infographic
+    requires: [visual_canvas]
+  - id: pitch
+    agent: pitch-story-visualizer
+    task: build-pitch-storyboard
+    requires: [visual_canvas]
+  - id: review
+    agent: ethical-financial-reviewer
+    task: review-ethics-finance
+    requires: [experiment, carousel, pitch]

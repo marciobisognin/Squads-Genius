@@ -1,0 +1,39 @@
+name: maeve-athena-mimir-matrix-squad
+version: 1.0.0
+description: "Squad premium para criar proposta de valor, validar fit, gerar materiais visuais e apoiar publicação."
+author: "Marcio Bisognin"
+license: MIT
+slashPrefix: MVC
+metadata:
+  naming_convention: "Maeve + mythological element + mythological element + optional narrative element"
+  narrative_element: "Matrix of Leadership / Transformers"
+  max_name_words: 4
+  readme_style: "dark-neon-layered-architecture"
+  source_book: "Value Proposition Design"
+  source_pdf_included: false
+  visual_material_agents: true
+components:
+  agents:
+    - maeve-orchestrator.md
+    - customer-profile-cartographer.md
+    - value-map-architect.md
+    - fit-evidence-analyst.md
+    - experiment-sprint-designer.md
+    - visual-canvas-designer.md
+    - infographic-carousel-producer.md
+    - pitch-story-visualizer.md
+    - ethical-financial-reviewer.md
+  tasks:
+    - map-customer-profile.md
+    - build-value-map.md
+    - assess-fit-evidence.md
+    - design-experiment-sprint.md
+    - create-visual-canvas.md
+    - produce-carousel-infographic.md
+    - build-pitch-storyboard.md
+    - review-ethics-finance.md
+  workflows:
+    - main.yaml
+  scripts:
+    - value_canvas_visual_forge.py
+    - smoke_test.py
