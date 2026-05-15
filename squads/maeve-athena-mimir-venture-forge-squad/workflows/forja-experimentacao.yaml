@@ -1,0 +1,12 @@
+name: forja-experimentacao
+objective: Forjar protótipos e experimentos proporcionais ao risco.
+steps:
+  - agent: bifrost-designer-experimentos
+    task: tasks/04-selecionar-experimentos.md
+  - agent: bifrost-designer-experimentos
+    task: tasks/05-desenhar-cartao-teste.md
+  - agent: hephaestus-brokkr-forja-prototipos
+    task: tasks/06-planejar-sprint.md
+  - agent: nornas-orquestradoras-sprint
+    task: tasks/06-planejar-sprint.md
+output: plano de travessia Bifröst e artefatos de forja

@@ -1,0 +1,10 @@
+name: labirinto-hipoteses
+objective: Mapear a ideia como um labirinto de hipóteses, riscos e caminhos possíveis.
+steps:
+  - agent: athena-estrategista-metis
+    task: tasks/01-mapear-ideia-e-contexto.md
+  - agent: ariadne-cartografa-labirinto
+    task: tasks/02-decompor-hipoteses.md
+  - agent: ariadne-cartografa-labirinto
+    task: tasks/03-priorizar-riscos.md
+output: mapa-labirinto de hipóteses com fio de Ariadne

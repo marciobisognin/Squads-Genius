@@ -1,0 +1,10 @@
+name: poco-evidencias-decisao
+objective: Interpretar evidências e gerar recomendação executiva.
+steps:
+  - agent: mimir-guardiao-evidencias
+    task: tasks/07-analisar-evidencias.md
+  - agent: hermes-mentor-go-to-market
+    task: tasks/08-recomendar-decisao.md
+  - agent: themis-tyr-revisor-etico-financeiro
+    task: tasks/08-recomendar-decisao.md
+output: Oráculo de Decisão com cautelas éticas e financeiras

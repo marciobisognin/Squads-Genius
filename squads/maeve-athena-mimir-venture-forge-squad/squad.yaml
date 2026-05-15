@@ -1,0 +1,47 @@
+name: Maeve Athena-Mímir Venture Forge
+slug: maeve-athena-mimir-venture-forge-squad
+version: 1.1.0
+type: premium-business-experimentation-squad
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+source_reference: "Testing Business Ideas: A Field Guide for Rapid Experimentation — versão traduzida informada pelo usuário"
+mythic_frame:
+  greek:
+    - "Atena / métis: inteligência estratégica antes da ação."
+    - "Fio de Ariadne: rastreabilidade para sair do labirinto de hipóteses."
+    - "Oráculo de Delfos: perguntas fortes, nunca profecias automáticas."
+    - "Forja de Hefesto: prototipagem, artefatos mínimos e melhoria iterativa."
+  nordic:
+    - "Poço de Mímir: evidência profunda antes de decisões caras."
+    - "Yggdrasil: mapa vivo de conexões entre cliente, problema, proposta, canal e receita."
+    - "Runas: sinais pequenos que precisam ser interpretados com método."
+    - "Bifröst: ponte controlada entre hipótese e mercado."
+    - "Nornas: passado, presente e futuro como linha de aprendizado e decisão."
+mission: "Transformar ideias de negócio em jornadas testáveis: labirinto de hipóteses, poço de evidências, forja de protótipos, ponte de mercado e decisão executiva."
+agents:
+  - agents/athena-estrategista-metis.md
+  - agents/ariadne-cartografa-labirinto.md
+  - agents/mimir-guardiao-evidencias.md
+  - agents/hephaestus-brokkr-forja-prototipos.md
+  - agents/bifrost-designer-experimentos.md
+  - agents/nornas-orquestradoras-sprint.md
+  - agents/hermes-mentor-go-to-market.md
+  - agents/themis-tyr-revisor-etico-financeiro.md
+workflows:
+  - workflows/labirinto-hipoteses.yaml
+  - workflows/forja-experimentacao.yaml
+  - workflows/poco-evidencias-decisao.yaml
+scripts:
+  - scripts/athena_mimir_venture_forge.py
+  - scripts/smoke_test.py
+validation:
+  - validation/smoke-test-report.md
+  - validation/premium-architect-report.md
+outputs:
+  - mapa-labirinto de hipóteses e riscos
+  - cartão-runa de teste
+  - plano de travessia Bifröst / sprint de experimentação
+  - matriz Poço de Mímir de evidências
+  - relatório executivo Oráculo de Decisão

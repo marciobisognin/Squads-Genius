@@ -1,0 +1,14 @@
+{
+  "ideia": "Plataforma de IA para testar rapidamente ideias de produtos e serviços públicos digitais",
+  "publico": "gestores, professores, empreendedores e equipes de inovação",
+  "proposta": "reduzir desperdício de tempo e orçamento por meio de experimentos rápidos antes da construção completa",
+  "restricoes": {
+    "prazo_dias": 14,
+    "orcamento": "baixo",
+    "canais": [
+      "entrevistas",
+      "landing page",
+      "pré-venda consultiva"
+    ]
+  }
+}
