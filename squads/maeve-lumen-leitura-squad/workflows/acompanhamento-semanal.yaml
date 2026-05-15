@@ -1,0 +1,15 @@
+name: acompanhamento-semanal
+trigger: final de semana pedagógica ou revisão de progresso
+steps:
+  - agent: diagnostico-trava-leitura
+    task: tasks/07-acompanhamento-semanal.md
+  - agent: alfabetizacao-strategist
+    task: tasks/03-gerar-sessao-15-min.md
+  - agent: familia-professor-mentor
+    task: tasks/06-relatorio-familia-professor.md
+  - agent: seguranca-pedagogica-reviewer
+    task: tasks/08-gate-seguranca-pedagogica.md
+outputs:
+  - evolução observada
+  - próximo foco
+  - alerta pedagógico

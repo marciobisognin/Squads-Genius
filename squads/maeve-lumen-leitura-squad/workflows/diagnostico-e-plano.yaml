@@ -1,0 +1,15 @@
+name: diagnostico-e-plano
+trigger: criança com leitura travada ou insegura
+steps:
+  - agent: diagnostico-trava-leitura
+    task: tasks/01-mapear-trava-3-min.md
+  - agent: alfabetizacao-strategist
+    task: tasks/02-definir-sequencia-fonologica.md
+  - agent: rotina-15min-orchestrator
+    task: tasks/03-gerar-sessao-15-min.md
+  - agent: seguranca-pedagogica-reviewer
+    task: tasks/08-gate-seguranca-pedagogica.md
+outputs:
+  - ficha de diagnóstico
+  - plano de sessão
+  - recomendação ao adulto

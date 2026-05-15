@@ -1,0 +1,14 @@
+name: gerador-atividades
+trigger: necessidade de material lúdico para som, sílaba, palavra ou frase
+steps:
+  - agent: fonologia-silabas-coach
+    task: tasks/02-definir-sequencia-fonologica.md
+  - agent: atividades-ludicas-designer
+    task: tasks/04-criar-atividades-ludicas.md
+  - agent: familia-professor-mentor
+    task: tasks/06-relatorio-familia-professor.md
+outputs:
+  - cartões
+  - caça-encontros
+  - lista de palavras
+  - orientação de uso

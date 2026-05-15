@@ -1,0 +1,47 @@
+name: Maeve Lumen Leitura — Squad Premium de Alfabetização Fonológica
+slug: maeve-lumen-leitura-squad
+version: 1.0.0
+status: premium-ready
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+created_at: 2026-05-15T00:00:22.581074
+source_book:
+  title: Método Prático de Alfabetização para Destravar a Leitura
+  local_reference: references/book-principles.md
+mission: >
+  Transformar princípios de alfabetização fonológica em diagnósticos rápidos,
+  planos de intervenção de 10–15 minutos, atividades lúdicas e relatórios de
+  acompanhamento para famílias, professores e tutores.
+quality_level: premium
+agents:
+  - id: alfabetizacao-strategist
+    path: agents/alfabetizacao-strategist.md
+  - id: diagnostico-trava-leitura
+    path: agents/diagnostico-trava-leitura.md
+  - id: fonologia-silabas-coach
+    path: agents/fonologia-silabas-coach.md
+  - id: atividades-ludicas-designer
+    path: agents/atividades-ludicas-designer.md
+  - id: rotina-15min-orchestrator
+    path: agents/rotina-15min-orchestrator.md
+  - id: familia-professor-mentor
+    path: agents/familia-professor-mentor.md
+  - id: seguranca-pedagogica-reviewer
+    path: agents/seguranca-pedagogica-reviewer.md
+workflows:
+  - workflows/diagnostico-e-plano.yaml
+  - workflows/gerador-atividades.yaml
+  - workflows/acompanhamento-semanal.yaml
+scripts:
+  - scripts/lumen_leitura.py
+  - scripts/smoke_test.py
+templates:
+  - templates/ficha-diagnostico-3-min.md
+  - templates/plano-sessao-15-min.md
+  - templates/relatorio-familia-professor.md
+  - templates/trilha-semanal.md
+validation:
+  - validation/premium-architect-report.md
+  - validation/smoke-test-report.md
