@@ -1,0 +1,3 @@
+id,titulo,autores,ano,tipo_fonte,base,url,doi_ou_identificador,status_verificacao,achado_principal,limitacoes
+E1,Fonte demonstrativa 1,não verificado,ano não verificado,artigo/base acadêmica sugerida,OpenAlex,URL pendente,DOI pendente,não verificado,Potencial pedagógico deve ser confirmado por busca real,Demo sem consulta externa
+E2,Fonte demonstrativa 2,não verificado,ano não verificado,revisão/relatório sugerido,Semantic Scholar,URL pendente,DOI pendente,não verificado,Riscos e vieses exigem fontes primárias,Demo sem consulta externa

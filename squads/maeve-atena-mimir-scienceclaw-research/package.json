@@ -1,0 +1,27 @@
+{
+  "name": "maeve-atena-mimir-scienceclaw-research",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "license": "MIT",
+  "description": "Maeve Atena Mimir — ScienceClaw Research Squad",
+  "bin": {
+    "maeve-atena-mimir-demo": "scripts/generate_research_brief.py",
+    "maeve-atena-mimir-validate": "scripts/validate_squad.py"
+  },
+  "files": [
+    "agents",
+    "tasks",
+    "workflows",
+    "checklists",
+    "templates",
+    "scripts",
+    "examples",
+    "references",
+    "README.md",
+    "squad.yaml",
+    "LICENSE",
+    "NOTICE.md",
+    "AUTHORS.md",
+    ".ip"
+  ]
+}

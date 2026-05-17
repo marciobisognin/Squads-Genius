@@ -1,0 +1,11 @@
+tema: "IA generativa na educação básica"
+pergunta: "Quais são os potenciais pedagógicos, riscos e lacunas de pesquisa sobre o uso de IA generativa na educação básica?"
+publico: "professores, gestores educacionais e pesquisadores"
+produto: "relatório acadêmico sintético em português"
+profundidade: "demo"
+bases_sugeridas:
+  - OpenAlex
+  - Semantic Scholar
+  - SciELO
+  - ERIC
+observacao: "Este exemplo gera estrutura e matriz demonstrativa; a execução real deve consultar fontes externas."

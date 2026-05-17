@@ -1,0 +1,42 @@
+name: scienceclaw-research-pipeline
+version: 1.0.0
+language: pt-BR
+phases:
+  - id: intake
+    agent: atena-orchestrator
+    task: tasks/01-classificar-demanda.md
+    gate: preflight
+  - id: search_plan
+    agent: mimir-literature-scout
+    task: tasks/02-planejar-busca.md
+    gate: search_strategy
+  - id: evidence_collection
+    agent: mimir-literature-scout
+    task: tasks/03-coletar-evidencias.md
+    gate: evidence_matrix
+  - id: citation_verification
+    agent: tyr-citation-gatekeeper
+    task: tasks/04-verificar-citacoes.md
+    gate: citation_verification
+  - id: methodology_review
+    agent: saga-method-reviewer
+    task: tasks/05-analisar-metodo.md
+    gate: methodology_review
+  - id: synthesis
+    agent: hugin-synthesis-writer
+    task: tasks/06-sintetizar-achados.md
+    gate: synthesis_review
+  - id: report
+    agent: freya-delivery-editor
+    task: tasks/07-redigir-relatorio.md
+    gate: delivery_review
+  - id: reflection
+    agent: atena-orchestrator
+    task: tasks/08-refletir-evoluir.md
+    gate: learning
+minimum_outputs:
+  - metodologia_busca.md
+  - matriz_evidencias.csv
+  - relatorio_pesquisa.md
+  - referencias_verificadas.md
+  - reflexao_pos_tarefa.md

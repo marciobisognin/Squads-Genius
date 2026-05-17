@@ -1,0 +1,80 @@
+name: maeve-atena-mimir
+slug: maeve-atena-mimir-scienceclaw-research
+display_name: "Maeve Atena Mimir"
+subtitle: "ScienceClaw Research Squad"
+version: 1.0.0
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+readme_style: parchment-goal-flow
+language: pt-BR
+runtime: "Hermes / Maeve / OpenSquad"
+source_inspiration:
+  repository: "https://github.com/beita6969/ScienceClaw"
+  components:
+    - SCIENCE.md protocol
+    - zero-hallucination citation discipline
+    - research-reflection skill pattern
+    - skill-evolution pattern
+purpose: >
+  Realizar pesquisa científica profunda, revisão bibliográfica, verificação de citações,
+  síntese crítica e geração de relatórios acadêmicos em português técnico.
+components:
+  agents:
+    - agents/atena-orchestrator.md
+    - agents/mimir-literature-scout.md
+    - agents/tyr-citation-gatekeeper.md
+    - agents/saga-method-reviewer.md
+    - agents/hugin-synthesis-writer.md
+    - agents/freya-delivery-editor.md
+  tasks:
+    - tasks/01-classificar-demanda.md
+    - tasks/02-planejar-busca.md
+    - tasks/03-coletar-evidencias.md
+    - tasks/04-verificar-citacoes.md
+    - tasks/05-analisar-metodo.md
+    - tasks/06-sintetizar-achados.md
+    - tasks/07-redigir-relatorio.md
+    - tasks/08-refletir-evoluir.md
+  workflows:
+    - workflows/scienceclaw-research-pipeline.yaml
+  checklists:
+    - checklists/zero-hallucination-citation-gate.md
+    - checklists/qualidade-metodologica.md
+    - checklists/entrega-premium.md
+  templates:
+    - templates/relatorio_pesquisa.md
+    - templates/matriz_evidencias.csv
+    - templates/metodologia_busca.md
+    - templates/reflexao_pos_tarefa.md
+  scripts:
+    - scripts/generate_research_brief.py
+    - scripts/validate_squad.py
+  references:
+    - references/scienceclaw-adaptation.md
+    - references/protocolo-pesquisa-profunda-br.md
+    - references/catalogo-fontes-pesquisa.md
+  config:
+    - config/research-sources.yaml
+  examples:
+    - examples/demo-question.yaml
+outputs:
+  - relatorio_pesquisa.md
+  - matriz_evidencias.csv
+  - metodologia_busca.md
+  - referencias_verificadas.md
+  - lacunas_e_agenda.md
+  - reflexao_pos_tarefa.md
+quality_gates:
+  - preflight
+  - search_strategy
+  - evidence_matrix
+  - citation_verification
+  - methodology_review
+  - synthesis_review
+  - delivery_review
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+research_sources:
+  catalog: config/research-sources.yaml
+  policy: "Priorizar fontes legais abertas e usar links de alto risco autoral somente para metadados, domínio público, licença aberta ou acesso autorizado."

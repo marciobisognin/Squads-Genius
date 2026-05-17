@@ -1,0 +1,90 @@
+# Catálogo de fontes de pesquisa — Maeve Atena Mimir
+# Uso: priorizar fontes legais, abertas, metadados verificáveis e ferramentas acadêmicas.
+# Observação: alguns endereços abaixo podem hospedar ou apontar para material protegido por direitos autorais.
+# O squad deve usá-los somente para busca bibliográfica, metadados, obras de domínio público, obras abertas
+# ou materiais para os quais o usuário tenha autorização legal de acesso.
+
+sources:
+  public_domain_and_open_books:
+    - name: Project Gutenberg
+      url: https://www.gutenberg.org/
+      recommended_use: "Obras de domínio público, clássicos, textos integrais legalmente distribuídos."
+      risk: low
+      access_policy: "Pode usar para baixar/consultar obras em domínio público ou licença aberta."
+    - name: Open Culture
+      url: https://www.openculture.com/
+      recommended_use: "Cursos, livros, audiolivros, filmes e materiais educacionais abertos/curados."
+      risk: low
+      access_policy: "Usar como fonte de materiais abertos e curadoria educacional."
+
+  academic_search_and_evidence_tools:
+    - name: arXiv
+      url: https://arxiv.org/
+      recommended_use: "Preprints científicos, matemática, física, computação, estatística, economia quantitativa."
+      risk: low
+      access_policy: "Consultar, citar e baixar quando disponibilizado pelo próprio arXiv."
+    - name: Semantic Scholar
+      url: https://www.semanticscholar.org/
+      recommended_use: "Busca acadêmica, metadados, citações, autores, resumos e conexões bibliográficas."
+      risk: low
+      access_policy: "Usar para descoberta e metadados; confirmar texto completo em fonte legal."
+    - name: Elicit
+      url: https://elicit.org/
+      recommended_use: "Assistente de revisão de literatura, extração de achados e perguntas de pesquisa."
+      risk: low
+      access_policy: "Usar resultados como apoio; verificar fontes originais antes de citar."
+    - name: Consensus
+      url: https://consensus.app/
+      recommended_use: "Busca de consenso científico e respostas baseadas em literatura."
+      risk: low
+      access_policy: "Usar como triagem; validar artigos e metadados antes de concluir."
+    - name: Connected Papers
+      url: https://www.connectedpapers.com/
+      recommended_use: "Mapeamento de rede bibliográfica, trabalhos relacionados e cadeias de literatura."
+      risk: low
+      access_policy: "Usar para descoberta; baixar textos apenas em fontes legais."
+    - name: SciSpace
+      url: https://typeset.io/
+      aliases: ["https://www.scispace.com/"]
+      recommended_use: "Leitura assistida de artigos, explicação de trechos, busca acadêmica."
+      risk: low
+      access_policy: "Usar para compreensão e metadados; respeitar direitos de acesso aos PDFs."
+    - name: WolframAlpha
+      url: https://www.wolframalpha.com/
+      recommended_use: "Cálculos, checagem matemática, estatística, conversões e exploração computacional."
+      risk: low
+      access_policy: "Usar para cálculo/verificação, não como substituto de citação bibliográfica."
+
+  user_supplied_discovery_links_with_copyright_caution:
+    - name: 1Lib / Z-Library mirror supplied by user
+      url: https://1lib.sk/
+      recommended_use: "Descoberta bibliográfica, título, autor, edição, ISBN e verificação se há alternativa legal."
+      risk: high
+      access_policy: "Não orientar download não autorizado. Usar apenas para metadados, domínio público, licença aberta ou acesso autorizado."
+    - name: Library Genesis mirror supplied by user
+      url: https://libgen.li/
+      recommended_use: "Descoberta bibliográfica/metadados e busca de referências cruzadas."
+      risk: high
+      access_policy: "Não orientar download não autorizado. Procurar versão legal: biblioteca institucional, editora, DOI, OpenAccess, Gutenberg, arXiv, repositório institucional."
+    - name: Sci-Hub mirror supplied by user
+      url: https://sci-hub.box/
+      recommended_use: "Não usar como fonte primária de obtenção de conteúdo protegido."
+      risk: high
+      access_policy: "Não orientar acesso ou download não autorizado. Usar DOI/metadados para buscar acesso legal, open access ou solicitação institucional."
+    - name: PDFDrive mirror supplied by user
+      url: https://pdfdrive.webs.nf/
+      recommended_use: "Triagem bibliográfica quando necessário; verificar legalidade da obra antes de acesso."
+      risk: high
+      access_policy: "Não orientar download não autorizado. Preferir domínio público, licença aberta ou acesso autorizado."
+
+priority_order:
+  - "Fontes legais abertas: Project Gutenberg, Open Culture, arXiv, repositórios institucionais, SciELO, DOAJ, PubMed Central."
+  - "Ferramentas de descoberta/metadados: Semantic Scholar, Elicit, Consensus, Connected Papers, SciSpace."
+  - "Ferramentas de cálculo/verificação: WolframAlpha."
+  - "Links de alto risco autoral: usar somente para metadados ou quando houver domínio público/licença/autorização."
+
+mandatory_behavior:
+  - "Registrar a fonte consultada e a finalidade da consulta."
+  - "Nunca apresentar material protegido como livre se a licença não foi verificada."
+  - "Preferir DOI, editora, repositório institucional, biblioteca pública/institucional ou versão open access."
+  - "Quando a legalidade do acesso não estiver clara, marcar como 'acesso não verificado' e sugerir rota legal."
