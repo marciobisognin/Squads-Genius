@@ -1,0 +1,22 @@
+id: formulacao-integrativa
+name: Formulação Psicológica Multilente
+pattern: blackboard_orchestrator_worker
+steps:
+  - agent: guardiao-etico-crise
+    task: tasks/05-auditoria-etica-crise.md
+  - agent: diretor-integrativo
+    task: tasks/01-triagem-cynefin.md
+  - parallel:
+      - agent: engenheiro-comportamental
+      - agent: arqueologo-dinamico
+      - agent: arquiteto-neurobiologico
+      - agent: dinamista-sistemico
+      - agent: fenomenologista-existencial
+      - agent: analista-psicometrico
+  - agent: diretor-integrativo
+    task: tasks/03-sintese-integrativa.md
+  - agent: guardiao-etico-crise
+    task: tasks/05-auditoria-etica-crise.md
+outputs:
+  - formulation_report.md
+  - formulation.json

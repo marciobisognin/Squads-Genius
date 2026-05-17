@@ -1,0 +1,37 @@
+{
+  "input_excerpt": "Meu funcionário de alta performance começou a procrastinar, está agressivo nas reuniões e diz que o trabalho não faz mais sentido. Como resolvo isso?\n",
+  "cynefin_domain": "complexo",
+  "crisis_flag": false,
+  "selected_agents": [
+    "diretor-integrativo",
+    "engenheiro-comportamental",
+    "dinamista-sistemico",
+    "fenomenologista-existencial",
+    "guardiao-etico-crise"
+  ],
+  "hypotheses": [
+    {
+      "agent": "engenheiro-comportamental",
+      "hypothesis": "Mapear antecedentes, comportamento e consequências. Verificar reforços, esquivas, sobrecarga e contingências que mantêm o padrão.",
+      "status": "hipótese de formulação, não diagnóstico"
+    },
+    {
+      "agent": "dinamista-sistemico",
+      "hypothesis": "Analisar papéis, cultura, incentivos, comunicação, poder, bode expiatório e padrões relacionais no sistema.",
+      "status": "hipótese de formulação, não diagnóstico"
+    },
+    {
+      "agent": "fenomenologista-existencial",
+      "hypothesis": "Explorar perda de sentido, desalinhamento de valores, liberdade, responsabilidade e possibilidades de reconstrução de propósito.",
+      "status": "hipótese de formulação, não diagnóstico"
+    }
+  ],
+  "integrative_summary": "Formulação assistiva: o caso deve ser lido por múltiplas lentes, preservando incerteza, contexto e limites profissionais.",
+  "safe_actions": [
+    "Coletar dados adicionais antes de concluir.",
+    "Separar fatores comportamentais, sistêmicos, existenciais e biológicos.",
+    "Definir intervenções de baixo risco e indicadores observáveis.",
+    "Encaminhar para profissional qualificado se houver sofrimento intenso, prejuízo funcional ou risco."
+  ],
+  "legal_notice": "Material assistivo. Não é diagnóstico, psicoterapia, prescrição ou laudo. Requer revisão humana/profissional."
+}

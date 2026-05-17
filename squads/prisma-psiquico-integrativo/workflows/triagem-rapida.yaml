@@ -1,0 +1,6 @@
+id: triagem-rapida
+name: Triagem rápida de domínio e risco
+steps:
+  - agent: guardiao-etico-crise
+  - agent: diretor-integrativo
+  - agent: analista-psicometrico

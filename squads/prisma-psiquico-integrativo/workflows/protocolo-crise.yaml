@@ -1,0 +1,7 @@
+id: protocolo-crise
+name: Protocolo de crise e contenção
+trigger: risco iminente de vida, autoagressão, suicídio, violência, psicose aguda, intoxicação grave ou emergência médica
+steps:
+  - agent: guardiao-etico-crise
+  - action: interromper análise complexa
+  - action: orientar busca imediata de serviço local de emergência, rede de apoio e profissional qualificado

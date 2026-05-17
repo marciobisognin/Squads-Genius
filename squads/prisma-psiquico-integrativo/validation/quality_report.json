@@ -1,0 +1,8 @@
+{
+  "go_no_go": "go",
+  "missing": [],
+  "agents": 8,
+  "workflows": 3,
+  "agent_command_guardrails_ok": true,
+  "readme_guardrails_ok": true
+}
