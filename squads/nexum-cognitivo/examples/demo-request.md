@@ -1,0 +1,1 @@
+Crie um entregável usando o squad nexum-cognitivo para: Transformar objetivos de aprendizagem em ciclos práticos de atenção, estímulo sustentado, repetição inteligente, recuperação ativa e consolidação neurocognitiva, com limites éticos e sem promessas pseudocientíficas.

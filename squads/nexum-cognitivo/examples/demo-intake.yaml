@@ -1,0 +1,9 @@
+meta: "Melhorar retenção em Direito Administrativo para concurso"
+dominio: "concurso"
+prazo: "8 semanas"
+tempo_diario_minutos: 15
+lacuna_dominante: "memoria"
+nivel_atual: "intermediário"
+evidencia_de_progresso: "Responder questões sem consultar o resumo e explicar o conceito em voz alta"
+restricoes:
+  - "pouco tempo em dias úteis"

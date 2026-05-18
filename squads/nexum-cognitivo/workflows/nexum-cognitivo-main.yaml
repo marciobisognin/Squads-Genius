@@ -1,0 +1,43 @@
+name: nexum-cognitivo-main
+version: 1.0.0
+trigger: user_learning_goal
+steps:
+  - id: intake
+    agent: diretor_nexo
+    task: tasks/01-intake-meta-aprendizagem.md
+    output: intake-aprendizagem.yaml
+  - id: principles
+    agent: minerador_neurocognitivo
+    task: tasks/02-minerar-principios.md
+    needs: [intake]
+    output: matriz-principios.md
+  - id: stimulus_design
+    agent: arquiteto_estimulo
+    task: tasks/03-desenhar-microsprint.md
+    needs: [principles]
+    output: micro_sprint_plan.json
+  - id: active_recall
+    agent: designer_recuperacao
+    needs: [stimulus_design]
+    output: perguntas-recuperacao.md
+  - id: practical_translation
+    agent: tradutor_pratico
+    needs: [active_recall]
+    output: plano-aplicacao.md
+  - id: metrics
+    agent: analista_metricas
+    task: tasks/04-gerar-plano-e-metricas.md
+    needs: [practical_translation]
+    output: metrics_plan.json
+  - id: safety_gate
+    agent: guardiao_etico
+    task: tasks/05-validar-seguranca-e-entrega.md
+    needs: [metrics]
+    output: validation-report.md
+acceptance:
+  - total_daily_minutes_between_10_and_15
+  - exactly_one_dominant_gap
+  - includes_active_recall
+  - includes_transfer_task
+  - includes_metrics
+  - non_clinical_language

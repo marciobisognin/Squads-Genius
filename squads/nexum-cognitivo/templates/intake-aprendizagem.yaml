@@ -1,0 +1,8 @@
+meta: "Aprender ou melhorar ________"
+dominio: "idioma | concurso | escrita | habilidade técnica | rotina | outro"
+prazo: ""
+tempo_diario_minutos: 15
+lacuna_dominante: "atenção | compreensão | memória | prática | consistência | transferência"
+nivel_atual: "iniciante | intermediário | avançado"
+evidencia_de_progresso: "Como saberei que melhorei?"
+restricoes: []

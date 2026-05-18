@@ -1,0 +1,34 @@
+{
+  "goal": "aprender neuroplasticidade aplicada aos estudos",
+  "domain": "estudo",
+  "dominant_gap": "memoria",
+  "total_minutes": 15,
+  "blocks": [
+    {
+      "name": "Priming metacognitivo",
+      "minutes": 1,
+      "instruction": "Defina a lacuna dominante e o erro provável antes de começar."
+    },
+    {
+      "name": "Sprint cognitivo principal",
+      "minutes": 8,
+      "instruction": "Execute uma tarefa única, com atenção sustentada e sem alternar fontes."
+    },
+    {
+      "name": "Recuperação ativa",
+      "minutes": 2,
+      "instruction": "Feche a fonte e evoque de memória os pontos essenciais."
+    },
+    {
+      "name": "Compressão verbal",
+      "minutes": 2,
+      "instruction": "Explique em 3 frases ou 1 analogia aplicável."
+    },
+    {
+      "name": "Registro mínimo",
+      "minutes": 2,
+      "instruction": "Registre foco, clareza, itens evocados, erro dominante e próxima repetição."
+    }
+  ],
+  "ethics": "Educacional, não clínico. Não promete aumento de QI, diagnóstico ou tratamento."
+}
