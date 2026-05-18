@@ -1,0 +1,11 @@
+{
+  "nome_operacao": "Agencia Exemplo",
+  "objetivo": "Construir, medir, otimizar e converter uma operação de marketing para clientes locais e digitais",
+  "oferta": "Pacote mensal de crescimento com tráfego, conteúdo, CRM e vendas",
+  "publico": "Pequenas empresas, prestadores de serviço e negócios digitais",
+  "restricoes": [
+    "equipe pequena",
+    "orçamento inicial controlado"
+  ],
+  "meta_30_dias": "implantar funil mínimo, dashboard e três campanhas validadas"
+}

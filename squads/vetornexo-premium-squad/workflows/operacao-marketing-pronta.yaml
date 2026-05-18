@@ -1,0 +1,42 @@
+id: operacao-marketing-pronta
+name: Operação de Marketing Pronta e Implementável
+objective: Transformar o problema do usuário em uma solução pronta para construir, medir, otimizar e converter uma operação de marketing.
+phases:
+  - order: 1
+    agent: briefing-intake
+    output: briefing_operacional
+  - order: 2
+    agent: visual-cartographer
+    output: mapa_visual_estrutural
+  - order: 3
+    agent: ocr-semantics
+    output: inventario_semantico
+  - order: 4
+    agent: problem-framer
+    output: problema_reduzido
+  - order: 5
+    agent: solution-architect
+    output: arquitetura_da_solucao
+  - order: 6
+    agent: builder-executor
+    output: pacote_implementado
+  - order: 7
+    agent: quality-sentinel
+    output: validacao_final
+gates:
+  - name: completude_dos_12_blocos
+    must_include:
+      - fundacao_estrategica
+      - medicao_controle
+      - funil
+      - psicologia_persuasao
+      - trafego_performance
+      - tecnologia_ia
+      - midia_paga
+      - conteudo
+      - automacao_dados
+      - influencia_afiliados
+      - customer_success
+      - vendas_conversao
+  - name: implementabilidade
+    rule: Toda solução final deve conter ações, responsáveis sugeridos, métrica, frequência e próximo passo.

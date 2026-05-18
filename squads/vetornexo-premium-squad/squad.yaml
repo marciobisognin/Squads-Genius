@@ -1,0 +1,54 @@
+name: VetorNexo
+slug: vetornexo-premium-squad
+version: 1.0.0
+description: Squad premium para transformar uma agência/operação de marketing em uma solução implementada de estratégia, métricas, funil, tráfego, conteúdo, automação, influência, relacionamento e vendas.
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+metadata:
+  readme_style: dark-neon-layered-architecture
+  domain: marketing-operations
+  final_response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+agents:
+  - id: briefing-intake
+    path: agents/briefing-intake.md
+    role: "Intérprete de demanda e contrato de solução"
+  - id: visual-cartographer
+    path: agents/visual-cartographer.md
+    role: "Cartógrafo visual e estrutural"
+  - id: ocr-semantics
+    path: agents/ocr-semantics.md
+    role: "Extrator semântico de conteúdo"
+  - id: problem-framer
+    path: agents/problem-framer.md
+    role: "Redutor de problema"
+  - id: solution-architect
+    path: agents/solution-architect.md
+    role: "Arquiteto da operação"
+  - id: builder-executor
+    path: agents/builder-executor.md
+    role: "Executor implementador"
+  - id: quality-sentinel
+    path: agents/quality-sentinel.md
+    role: "Sentinela de qualidade"
+workflows:
+  - workflows/operacao-marketing-pronta.yaml
+tasks:
+  - tasks/briefing-operacional.md
+  - tasks/arquitetura-funil-metricas.md
+  - tasks/implementacao-pronta.md
+scripts:
+  - scripts/vetornexo.cjs
+  - scripts/smoke-test.cjs
+templates:
+  - templates/briefing-agencia.json
+  - templates/plano-30-dias.md
+  - templates/dashboard-metricas.md
+deliverables:
+  - Plano operacional de 30 dias
+  - Arquitetura de funil TOFU/MOFU/BOFU
+  - Matriz de métricas e dashboard textual
+  - Plano de conteúdo e mídia paga
+  - Playbook de automação, CRM e personalização
+  - Roteiro de vendas, upsell, cross-sell e retenção
+  - Backlog de implementação priorizado
