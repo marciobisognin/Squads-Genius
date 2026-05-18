@@ -1,0 +1,12 @@
+{
+  "request": "Mapeie todos os elementos das imagens e construa um squad que passe por todos os agentes para resolver a solicitação do usuário.",
+  "images": [
+    "examples/page-04-funil-psicologia.jpg",
+    "examples/page-05-trafego-tecnologias.jpg",
+    "examples/page-06-midia-conteudo.jpg",
+    "examples/page-07-automacao-influencia.jpg",
+    "examples/page-08-cs-vendas.jpg"
+  ],
+  "expected_output": "relatório visual + plano multiagente + artefato final",
+  "domain_hint": "tabela periódica do marketing, glossário, categorias e conceitos"
+}

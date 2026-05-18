@@ -1,0 +1,38 @@
+name: orbisvisum-image-to-solution-pipeline
+version: 1.0.0
+language: pt-BR
+objective: "Mapear todos os elementos de uma ou mais imagens e encaminhar a solicitação por todos os agentes até construir ou resolver o problema apresentado."
+sequence:
+  - agent: briefing-intake
+    task: 01-receber-solicitacao
+    output: briefing.md
+  - agent: visual-cartographer
+    task: 02-inventariar-imagens
+    output: image_inventory.json
+  - agent: visual-cartographer
+    task: 03-mapear-elementos
+    output: visual_element_map.json
+  - agent: ocr-semantics
+    task: 04-extrair-conceitos
+    output: semantic_extraction.md
+  - agent: problem-framer
+    task: 05-enquadrar-problema
+    output: problem_frame.md
+  - agent: solution-architect
+    task: 06-projetar-solucao
+    output: solution_blueprint.md
+  - agent: builder-executor
+    task: 07-construir-entregavel
+    output: final_artifact.md
+  - agent: quality-sentinel
+    task: 08-validar-entrega
+    output: qa_report.md
+  - agent: publication-bridge
+    task: 08-validar-entrega
+    output: delivery_note.md
+quality_gates:
+  - every_image_has_inventory_entry
+  - every_detected_text_has_source_image
+  - visual_observation_separated_from_interpretation
+  - all_agents_executed_in_sequence
+  - final_answer_matches_user_request

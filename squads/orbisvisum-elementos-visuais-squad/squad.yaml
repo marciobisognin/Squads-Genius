@@ -1,0 +1,48 @@
+{
+  "name": "OrbisVisum",
+  "slug": "orbisvisum-elementos-visuais-squad",
+  "version": "1.0.0",
+  "description": "Squad premium para mapear todos os elementos de imagens e transformar solicitações visuais em soluções por uma cadeia multiagente completa.",
+  "language": "pt-BR",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "license": "MIT",
+  "readme_style": "dark-neon-layered-architecture",
+  "agents": [
+    "agents/01-briefing-intake.md",
+    "agents/02-visual-cartographer.md",
+    "agents/03-ocr-semantics.md",
+    "agents/04-problem-framer.md",
+    "agents/05-solution-architect.md",
+    "agents/06-builder-executor.md",
+    "agents/07-quality-sentinel.md",
+    "agents/08-publication-bridge.md"
+  ],
+  "tasks": [
+    "tasks/01-receber-solicitacao.md",
+    "tasks/02-inventariar-imagens.md",
+    "tasks/03-mapear-elementos.md",
+    "tasks/04-extrair-conceitos.md",
+    "tasks/05-enquadrar-problema.md",
+    "tasks/06-projetar-solucao.md",
+    "tasks/07-construir-entregavel.md",
+    "tasks/08-validar-entrega.md"
+  ],
+  "workflows": [
+    "workflows/orbisvisum-pipeline.yaml"
+  ],
+  "scripts": [
+    "scripts/orbisvisum_run.py",
+    "scripts/validate_squad.py"
+  ],
+  "templates": [
+    "templates/visual-map-template.md",
+    "templates/solution-report-template.md"
+  ],
+  "quality_gates": [
+    "all_agent_files_exist",
+    "universal_agent_commands",
+    "demo_generation",
+    "zip_packaged"
+  ]
+}
