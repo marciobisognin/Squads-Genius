@@ -1,0 +1,27 @@
+name: pipeline-operacional-vetorviveiro
+description: Pipeline premium para documentação e implantação de incubadoras/habitats de inovação.
+steps:
+  - id: ingestao
+    agent: normative-architect
+    task: tasks/01-ingestao-fontes.md
+  - id: diagnostico
+    agent: normative-architect
+    task: tasks/02-diagnostico-normativo.md
+  - id: cerne
+    agent: cerne-methodologist
+    task: tasks/03-desenho-cerne.md
+  - id: operacao
+    agent: operation-systems-designer
+    task: tasks/04-modelagem-operacional.md
+  - id: documentos
+    agent: document-factory
+    task: tasks/05-biblioteca-documental.md
+  - id: indicadores
+    agent: indicator-cartographer
+    task: tasks/06-painel-indicadores.md
+  - id: publicacao
+    agent: a4-design-publisher
+    task: tasks/07-site-pdf-a4.md
+  - id: validacao
+    agent: quality-gate
+    task: tasks/08-validacao-premium.md

@@ -1,0 +1,80 @@
+{
+  "name": "vetorviveiro-squad",
+  "display_name": "VetorViveiro Squad",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "license": "MIT",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "description": "Squad premium para transformar documentação institucional de incubadoras e habitats de inovação em regimentos revisados, sistemas CERNE, editais, matrizes, indicadores, site A4 e PDF validado.",
+  "metadata": {
+    "readme_style": "dark-neon-layered-architecture",
+    "source_report": "/storage/emulated/0/Download/Material herme/incubadora_fw_projeto_completo_html_pdf_squad/relatorio_html_pdf/projeto_integrado_incubadora_iffar_fw_a4.pdf",
+    "domain": "incubadora, inovação, CERNE, governança institucional"
+  },
+  "agents": [
+    {
+      "id": "normative-architect",
+      "file": "agents/normative-architect.md"
+    },
+    {
+      "id": "cerne-methodologist",
+      "file": "agents/cerne-methodologist.md"
+    },
+    {
+      "id": "operation-systems-designer",
+      "file": "agents/operation-systems-designer.md"
+    },
+    {
+      "id": "document-factory",
+      "file": "agents/document-factory.md"
+    },
+    {
+      "id": "indicator-cartographer",
+      "file": "agents/indicator-cartographer.md"
+    },
+    {
+      "id": "a4-design-publisher",
+      "file": "agents/a4-design-publisher.md"
+    },
+    {
+      "id": "quality-gate",
+      "file": "agents/quality-gate.md"
+    }
+  ],
+  "tasks": [
+    "tasks/01-ingestao-fontes.md",
+    "tasks/02-diagnostico-normativo.md",
+    "tasks/03-desenho-cerne.md",
+    "tasks/04-modelagem-operacional.md",
+    "tasks/05-biblioteca-documental.md",
+    "tasks/06-painel-indicadores.md",
+    "tasks/07-site-pdf-a4.md",
+    "tasks/08-validacao-premium.md"
+  ],
+  "workflows": [
+    "workflows/pipeline-operacional.yaml"
+  ],
+  "scripts": [
+    "scripts/vetorviveiro_cli.py",
+    "scripts/smoke_test.py"
+  ],
+  "templates": [
+    "templates/edital-padrao.md",
+    "templates/matriz-avaliacao.csv",
+    "templates/pde.md",
+    "templates/relatorio-periodico.md",
+    "templates/checklist-graduacao.md"
+  ],
+  "docs": [
+    "docs/projeto-base.md",
+    "docs/manual-operacional.md",
+    "docs/metodologia.md"
+  ],
+  "examples": [
+    "examples/demo_input.json"
+  ],
+  "validation": [
+    "validation/smoke-test-report.json"
+  ]
+}
