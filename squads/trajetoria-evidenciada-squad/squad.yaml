@@ -1,0 +1,43 @@
+name: trajetoria-evidenciada-squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+language: pt-BR
+objective: "Organizar processo RSC/PCCTAE/TAE a partir de documentos do servidor, com classificação documental, pontuação estratégica, memorial humanizado e auditoria."
+metadata:
+  readme_style: dark-neon-layered-architecture
+  domain: rsc-pcctae-tae
+  human_review_required: true
+components:
+  agents:
+    - agents/entrevistador-dados-servidor.md
+    - agents/guardiao-originais.md
+    - agents/separador-documental.md
+    - agents/catalogador-evidencias.md
+    - agents/leitor-pontuacao.md
+    - agents/estrategista-enquadramento.md
+    - agents/arquiteto-processo.md
+    - agents/narrador-memorial.md
+    - agents/auditor-rsc.md
+  workflows:
+    - workflows/pipeline-processo-rsc.yaml
+    - workflows/ciclo-auditoria-correcao.yaml
+  tasks:
+    - tasks/01-intake-dados-servidor.md
+    - tasks/02-preservacao-copias.md
+    - tasks/03-separacao-classificacao.md
+    - tasks/04-leitura-pontuacao.md
+    - tasks/05-enquadramento-estrategico.md
+    - tasks/06-montagem-processo.md
+    - tasks/07-redacao-memorial.md
+    - tasks/08-auditoria-final.md
+  templates:
+    - templates/dados_servidor.schema.json
+    - templates/catalogo_documentos.csv
+    - templates/matriz_pontuacao.csv
+    - templates/memorial_primeira_pessoa.md
+    - templates/relatorio_auditoria.md
+  scripts:
+    - scripts/trajetoria_evidenciada_demo.py
+    - scripts/validate_package.py

@@ -1,0 +1,35 @@
+name: pipeline-processo-rsc
+version: 1.0.0
+steps:
+  - id: intake
+    agent: entrevistador-dados-servidor
+    task: tasks/01-intake-dados-servidor.md
+  - id: preserve
+    agent: guardiao-originais
+    task: tasks/02-preservacao-copias.md
+  - id: split_classify
+    agent: separador-documental
+    task: tasks/03-separacao-classificacao.md
+  - id: catalog
+    agent: catalogador-evidencias
+    task: tasks/03-separacao-classificacao.md
+  - id: scoring_rules
+    agent: leitor-pontuacao
+    task: tasks/04-leitura-pontuacao.md
+  - id: strategic_mapping
+    agent: estrategista-enquadramento
+    task: tasks/05-enquadramento-estrategico.md
+  - id: assemble
+    agent: arquiteto-processo
+    task: tasks/06-montagem-processo.md
+  - id: memorial
+    agent: narrador-memorial
+    task: tasks/07-redacao-memorial.md
+  - id: audit
+    agent: auditor-rsc
+    task: tasks/08-auditoria-final.md
+human_gates:
+  - missing_server_identity
+  - scoring_spreadsheet_not_found
+  - ambiguous_document_classification
+  - final_protocol_approval

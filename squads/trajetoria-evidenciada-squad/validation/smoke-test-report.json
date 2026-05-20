@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "missing": [],
+  "demo_files": [
+    "output/demo/00_dados_servidor.json",
+    "output/demo/01_catalogo_documentos.csv",
+    "output/demo/02_matriz_pontuacao.csv",
+    "output/demo/03_revisao_manual/Doc_03_revisar.md",
+    "output/demo/04_memorial_primeira_pessoa.md",
+    "output/demo/06_relatorio_auditoria.md"
+  ]
+}

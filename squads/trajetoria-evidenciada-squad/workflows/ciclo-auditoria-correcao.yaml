@@ -1,0 +1,19 @@
+name: ciclo-auditoria-correcao
+version: 1.0.0
+trigger: usuario_informa_problema_ou_auditor_detecta_pendencia
+steps:
+  - id: classify_issue
+    agent: auditor-rsc
+  - id: repair_catalog_or_scoring
+    agent: catalogador-evidencias
+    when: problema_em_documento_ou_classificacao
+  - id: repair_scoring
+    agent: estrategista-enquadramento
+    when: problema_em_pontuacao_ou_uso_duplicado
+  - id: repair_memorial
+    agent: narrador-memorial
+    when: problema_em_narrativa_ou_referencia
+  - id: reassemble
+    agent: arquiteto-processo
+  - id: final_audit
+    agent: auditor-rsc

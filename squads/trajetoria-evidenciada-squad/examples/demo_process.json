@@ -1,0 +1,54 @@
+{
+  "servidor": {
+    "nome_completo": "Servidor Demonstrativo",
+    "cargo": "Técnico-Administrativo em Educação",
+    "unidade": "Campus Exemplo",
+    "rsc_pretendido": "RSC-III"
+  },
+  "documentos": [
+    {
+      "arquivo": "portaria_123_2022.pdf",
+      "tipo": "portaria",
+      "numero": "123/2022",
+      "data": "2022-05-10",
+      "assunto": "Designação para comissão de planejamento",
+      "texto": "Designa servidor para comissão de planejamento institucional."
+    },
+    {
+      "arquivo": "certificado_evento_2021.pdf",
+      "tipo": "certificado",
+      "numero": "",
+      "data": "2021-09-20",
+      "assunto": "Curso de gestão pública 40h",
+      "texto": "Certifica participação em curso de capacitação."
+    },
+    {
+      "arquivo": "documento_duvidoso.pdf",
+      "tipo": "indefinido",
+      "numero": "",
+      "data": "",
+      "assunto": "Documento com metadados insuficientes",
+      "texto": "Imagem sem OCR ou dados incompletos."
+    }
+  ],
+  "criterios": [
+    {
+      "criterio": "Participação em comissão institucional",
+      "pontos": 10,
+      "palavras_chave": [
+        "comissão",
+        "designa",
+        "portaria"
+      ]
+    },
+    {
+      "criterio": "Capacitação relacionada ao cargo",
+      "pontos": 6,
+      "palavras_chave": [
+        "curso",
+        "capacitação",
+        "certifica"
+      ]
+    }
+  ]
+}
