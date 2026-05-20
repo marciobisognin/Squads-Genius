@@ -1,0 +1,18 @@
+{
+  "nome": "AgroSensor Comunitário",
+  "proponente": "Grupo de estudantes + cooperativa local",
+  "problema": "Pequenos produtores não conseguem monitorar umidade do solo com baixo custo.",
+  "publico": "Produtores familiares da região do Médio Alto Uruguai",
+  "solucao": "Kit IoT simples com painel de alerta para irrigação racional",
+  "estagio": "ideia com protótipo artesanal",
+  "evidencias": [
+    "demanda relatada por cooperativa",
+    "dois sensores testados em bancada"
+  ],
+  "necessidades": [
+    "mentoria técnica",
+    "validação em campo",
+    "edital de fomento",
+    "apoio em modelo de negócio"
+  ]
+}

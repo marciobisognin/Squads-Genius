@@ -1,0 +1,29 @@
+name: pipeline-ideia-ao-produto
+description: Conduz uma ideia, empresa ou projeto da identificação até MVP, produto, PDE, validação e graduação.
+stages:
+  - id: prospeccao
+    agent: radar-territorial
+    task: tasks/01-prospeccao-territorial.md
+  - id: triagem
+    agent: triador-incubabilidade
+    task: tasks/02-triagem-incubabilidade.md
+  - id: problema_solucao
+    agent: arquiteto-problema-solucao
+    task: tasks/03-descoberta-problema-solucao.md
+  - id: mercado_usuario
+    agent: pesquisador-mercado-usuario
+    task: tasks/04-validacao-mercado-usuario.md
+  - id: mvp_produto
+    agent: engenheiro-mvp-produto
+    task: tasks/05-arquitetura-mvp-produto.md
+  - id: negocio_captacao
+    agent: mentor-negocio-modelo
+    support_agents: [captador-recursos-parcerias, guardiao-pi-lgpd-regulatorio]
+    task: tasks/06-modelo-negocio-captacao.md
+  - id: pde_execucao
+    agent: orquestrador-pde-incubacao
+    task: tasks/07-pde-incubacao-execucao.md
+  - id: demo_graduacao
+    agent: validador-demo-graduacao
+    task: tasks/08-demo-graduacao-impacto.md
+quality_rule: Cada etapa deve produzir evidências, decisão de gate e próximos experimentos.

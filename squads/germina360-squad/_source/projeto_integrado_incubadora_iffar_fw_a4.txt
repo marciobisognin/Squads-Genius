@@ -1,0 +1,1094 @@
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 1
+
+DOSSIÊ PREMIUM • A4 • HTML → PDF
+
+Projeto Integrado da
+Incubadora
+Tecnológica IFFar/FW
+
+Sistema completo de governança, CERNE, regimento, metodologias, etapas,
+indicadores, documentação e automação por squad premium
+
+Base normativa
+
+Regimento FW + Resolução
+CONSUP/IFFar nº 52/2022.
+
+Motor
+metodológico
+
+CERNE 1, pré-incubação,
+incubação, graduação e pós-
+incubação.
+
+Operação digital
+
+Portal Integra, evidências,
+indicadores e squad premium.
+
+Instituto Federal Farroupilha — Campus Frederico Westphalen/RS
+Documento técnico elaborado por Maeve/Hermes • 18/05/2026
+
+
+
+VISÃO EXECUTIVA
+1. O que este projeto entrega
+
+Este dossiê consolida o material gerado anteriormente, a proposta de revisão do Regimento, o
+site visual, os manuais de incubação, a lógica CERNE e o Portal Integra/IFFar em um sistema
+completo de implantação e operação da Incubadora Tecnológica do Campus Frederico
+Westphalen.
+
+A incubadora deixa de ser apenas um espaço ou uma norma: ela passa a ser um
+sistema operacional de desenvolvimento regional, com entrada, qualificação,
+mentoria, evidências, indicadores, graduação e rede de egressos.
+
+Resultado 1 — Sistema de
+governança
+
+Define papéis do CGICFW, NIT, DPEP, Direção e
+parceiros, com ritos, atas, quórum, impedimentos,
+evidências e decisões.
+
+Resultado 2 — Sistema CERNE
+operacional
+
+Converte sensibilização, seleção, pré-incubação,
+incubação, graduação e pós-incubação em etapas
+auditáveis.
+
+Resultado 3 — Documentação
+padrão
+
+Edital, matriz, PDE, termos, relatórios, checklist de
+graduação, painel de indicadores e comunicação
+institucional.
+
+Resultado 4 — Squad premium
+
+Um conjunto de agentes, tarefas, workflows e
+scripts para repetir, revisar e atualizar o sistema da
+incubadora.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 2
+
+
+
+ARQUITETURA INSTITUCIONAL
+2. Fundamentos normativos e metodológicos
+
+Base
+Função no projeto
+Aplicação operacional
+
+Resolução CONSUP/
+IFFar nº 52/2022
+Define a estrutura institucional da incubadora,
+Incubadora Campus, CGI, CGIC, seleção pública e
+responsabilidades.
+
+Base para atualizar o Regimento FW, portarias,
+composição do comitê e ritos de decisão.
+
+Regimento Interno
+FW
+Disciplina a operação local: finalidade, fases,
+governança, seleção, prazos, uso de espaço, sigilo e PI.
+Documento a ser revisado para incluir CERNE,
+indicadores, LGPD, Portal Integra, recursos e
+evidências.
+
+Manual CERNE I
+Orienta maturidade de processos, registro de
+evidências, seleção, desenvolvimento,
+acompanhamento e graduação.
+
+Transforma a incubadora em processo
+auditável, com gestão por etapas e melhoria
+contínua.
+
+Manual de
+Incubação
+Oferece repertório prático para programas,
+capacitações, acompanhamento, critérios e rotinas de
+apoio.
+
+Ajuda a desenhar trilhas, oficinas, mentorias,
+modelo de negócios e validação de mercado.
+
+Portal Integra/IFFar
+Vitrine pública do ecossistema, habitats e ambientes de
+inovação.
+Canal para divulgar a incubadora, editais,
+contatos, resultados, indicadores e cases.
+
+Decisão-chave
+
+A atualização do Regimento deve substituir referência normativa antiga pela Resolução CONSUP/IFFar nº
+52/2022 e prever anexos operacionais para que a norma seja executável.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 3
+
+
+
+MAPA GERAL
+3. Arquitetura do projeto da incubadora
+
+Ambiente institucional
+→
+Chamada pública
+→
+Seleção objetiva
+→
+
+Pré-incubação
+→
+Incubação
+→
+Graduação
+→
+Alumni
+
+Camada 1 — Norma
+
+Regimento, portarias, editais, termos, política de
+PI, LGPD e regras de uso de infraestrutura.
+
+Camada 2 — Método
+
+CERNE 1, funil de seleção, PDE, mentorias,
+avaliações, indicadores, melhoria contínua.
+
+Camada 3 — Operação
+
+Calendário anual, trilhas de formação,
+atendimento, comunicação, banco de mentores e
+laboratórios.
+
+Camada 4 — Evidência
+
+Atas, relatórios, registros de mentorias, entregas,
+bancas, indicadores e dashboard.
+
+A maturidade do sistema depende menos da existência de uma sala física e mais da
+capacidade de transformar cada ciclo da incubadora em evidência institucional verificável.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 4
+
+
+
+SISTEMA DE GOVERNANÇA
+4. Governança recomendada
+
+Ator
+Papel estratégico
+Entregas/documentos
+
+CGICFW
+Deliberação local, seleção, acompanhamento, prorrogação,
+graduação, desligamento e validação de relatórios.
+Atas, pareceres, matriz de avaliação,
+decisões, relatório anual.
+
+NIT Campus
+Articulação de inovação, PI, regimento, fluxos, integração com
+NIT/Reitoria e evidências técnicas.
+Termo de PI, pareceres, orientações de
+proteção, instruções de fluxo.
+
+DPEP
+Condições de funcionamento, recursos, articulação com
+ensino/pesquisa/extensão e planejamento.
+Plano anual, designação de apoio, integração
+com projetos e laboratórios.
+
+Direção Geral
+Aprovação estratégica, portarias, infraestrutura, parcerias
+institucionais e segurança administrativa.
+Portarias, autorizações, cooperações,
+decisões sobre casos omissos.
+
+Mentores/
+parceiros
+Qualificação técnica, gerencial, mercadológica, social,
+regulatória ou financeira dos projetos.
+Termos de sigilo, registro de mentoria,
+pareceres e encaminhamentos.
+
+Rito mínimo
+
+Reunião ordinária mensal ou bimestral, pauta, lista de presença, ata, decisões, responsáveis, prazo e
+evidência digital arquivada por ciclo e por empreendimento.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 5
+
+
+
+SISTEMA DE ENTRADA
+5. Sensibilização, prospecção e pré-funil
+
+Fontes de propostas
+
+estudantes e egressos;
+
+servidores e grupos de pesquisa/extensão;
+
+empresas locais e cooperativas;
+
+prefeituras e entidades regionais;
+
+comunidade externa e empreendedores
+informais.
+
+Ações de sensibilização
+
+oficinas de ideação;
+
+desafios regionais;
+
+palestras com egressos;
+
+plantões de inovação;
+
+hackathons e jornadas curtas.
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+Metodologia de pré-funil
+
+Mapear problemas regionais e oportunidades do campus.
+
+Registrar interessados em formulário simples.
+
+Realizar diagnóstico inicial de maturidade.
+
+Indicar trilha: sensibilização, pré-incubação ou incubação.
+
+Preparar a proposta para edital público.
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+Produto desta etapa
+
+Banco de oportunidades e interessados, com problema, público, solução imaginada, vínculo institucional,
+estágio de maturidade e necessidade de apoio.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 6
+
+
+
+SELEÇÃO PÚBLICA
+6. Sistema de seleção e admissão
+
+A seleção deve ser pública, objetiva, rastreável e capaz de proteger tanto a instituição quanto
+os proponentes.
+
+Critério
+Peso sugerido
+O que observar
+
+Clareza do problema e da solução
+10%
+Problema real, público definido, solução compreensível.
+
+Impacto social, ambiental e regional
+15%
+Relevância para território, inclusão, sustentabilidade.
+
+Viabilidade técnica
+15%
+Capacidade de execução, tecnologia, infraestrutura necessária.
+
+Viabilidade econômica/mercadológica
+15%
+Modelo de receita, demanda, parceiros, mercado.
+
+Integração com ensino/pesquisa/extensão
+10%
+Conexão com cursos, laboratórios, projetos e servidores.
+
+Equipe e dedicação
+10%
+Competências, disponibilidade, complementaridade.
+
+Propriedade intelectual e riscos
+10%
+Proteção, ética, LGPD, segurança, regulação.
+
+Maturidade do MVP ou plano de validação
+15%
+Experimentos, protótipos, entrevistas, evidências.
+
+Fluxo com recurso
+
+Inscrição → homologação → avaliação técnica → entrevista/pitch → resultado preliminar → recurso →
+resultado final → assinatura de instrumentos.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 7
+
+
+
+PRÉ-INCUBAÇÃO
+7. Metodologia do ciclo de pré-incubação
+
+01
+
+Diagnóstico
+
+Aplicação de questionário de maturidade: problema, público, tecnologia, equipe, mercado, PI, impacto e
+recursos.
+02
+
+Validação do problema
+
+Entrevistas, observação, análise de usuários, mapeamento de dor, hipóteses e evidências.
+03
+
+Modelagem da solução
+
+Canvas, proposta de valor, jornadas, diferenciais, alternativas técnicas e impacto esperado.
+04
+
+MVP ou plano de protótipo
+
+Definição do menor experimento viável: protótipo, teste de serviço, piloto, formulário, maquete, simulação
+ou prova de conceito.
+05
+
+Banca de evolução
+
+Pitch, relatório, evidências, parecer e decisão: avançar para incubação, prorrogar, redirecionar ou encerrar.
+
+Subciclo recomendado
+
+90 dias como primeira etapa de validação, compatível com o prazo normativo de até 12 meses previsto no
+Regimento.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 8
+
+
+
+INCUBAÇÃO
+8. Sistema de incubação assistida
+
+A incubação deve ser executada por ciclos trimestrais com Plano de Desenvolvimento do
+Empreendimento — PDE.
+
+PDE — Conteúdo mínimo
+
+diagnóstico inicial;
+
+objetivos e metas;
+
+entregas trimestrais;
+
+indicadores;
+
+mentores responsáveis;
+
+riscos e pendências;
+
+evidências exigidas.
+
+Trilhas de apoio
+
+gestão e finanças;
+
+prototipagem e tecnologia;
+
+mercado e vendas;
+
+impacto social/ambiental;
+
+PI, LGPD e regulação;
+
+captação e parcerias.
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+Ciclo
+Foco
+Entrega
+
+Trimestre 1
+Estruturação
+PDE, MVP, validação inicial e riscos.
+
+Trimestre 2
+Mercado
+Piloto, usuários/clientes, feedback e ajustes.
+
+Trimestre 3
+Tração
+Parcerias, captação, formalização e indicadores.
+
+Trimestre 4+
+Escala/graduação
+Relatório final, banca, plano pós-incubação.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 9
+
+
+
+GRADUAÇÃO
+9. Graduação e pós-incubação
+
+Critérios de graduação
+
+PDE concluído ou justificado.
+
+MVP, piloto ou solução validada.
+
+Modelo de sustentabilidade definido.
+
+Riscos de PI/LGPD mapeados.
+
+Relatório final aprovado pelo CGICFW.
+
+Plano de continuidade ou mercado.
+
+Pós-incubação
+
+rede alumni;
+
+mentorias reversas;
+
+cases institucionais;
+
+parcerias de P&D;
+
+participação em eventos;
+
+indicadores de sobrevivência e impacto.
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+Decisões possíveis da banca final
+
+Graduar
+Prorrogar
+Redirecionar
+Encerrar
+Pós-incubar
+
+A decisão deve ser registrada em ata ou parecer, com fundamentos, condicionantes, prazo e encaminhamentos.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 10
+
+
+
+DOCUMENTOS OPERACIONAIS
+10. Biblioteca documental obrigatória
+
+Documento
+Finalidade
+Quando usar
+
+Edital-padrão
+Publicar regras, vagas, critérios, prazos e
+obrigações.
+Abertura de chamadas.
+
+Formulário de inscrição
+Capturar dados mínimos e proposta.
+Seleção e pré-funil.
+
+Matriz de avaliação
+Padronizar pontuação e justificativa.
+Banca e seleção.
+
+Termo de adesão
+Formalizar vínculo, obrigações e serviços.
+Entrada no programa.
+
+Termo de
+confidencialidade
+Proteger informações sensíveis.
+Avaliadores, mentores, servidores e
+externos.
+
+Termo de ciência de PI
+Evitar divulgação indevida de ativos protegíveis.
+Antes de bancas e publicações.
+
+PDE
+Gerir metas, entregas e acompanhamento.
+Pré-incubação e incubação.
+
+Relatório periódico
+Registrar evolução e evidências.
+Mensal/trimestral.
+
+Checklist de graduação
+Formalizar saída ou pós-incubação.
+Banca final.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 11
+
+
+
+INDICADORES
+11. Painel de gestão e impacto
+
+Entrada
+
+Interessados, propostas, origem, áreas, vínculo,
+problemas regionais e perfil dos proponentes.
+
+Processo
+
+Oficinas, mentorias, horas, frequência, relatórios,
+entregas, bancas e uso de infraestrutura.
+
+Resultado
+
+MVPs, pilotos, clientes/usuários, parcerias, editais,
+propriedade intelectual e formalizações.
+
+Impacto
+
+Empregos, captação, sobrevivência, soluções
+adotadas, impacto social/ambiental e
+desenvolvimento regional.
+
+Rotina do painel
+
+Coleta mensal de dados mínimos.
+
+Revisão trimestral pelo CGICFW.
+
+Relatório anual ao NIT/DPEP.
+
+Publicação sintética em canais institucionais, respeitando sigilo e LGPD.
+
+1.
+
+2.
+
+3.
+
+4.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 12
+
+
+
+INTEGRAÇÃO DIGITAL
+12. Portal Integra/IFFar e site institucional
+
+O Portal Integra deve funcionar como vitrine pública do ecossistema, sem substituir o arquivo
+interno de evidências.
+
+Conteúdo público
+
+nome da incubadora;
+
+responsável e contato;
+
+modalidades;
+
+serviços;
+
+editais abertos;
+
+resultados públicos;
+
+cases autorizados.
+
+Conteúdo interno
+
+notas de avaliação;
+
+documentos pessoais;
+
+segredos de negócio;
+
+dados sensíveis;
+
+pareceres restritos;
+
+informações de PI.
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+Regra de ouro
+
+O que gera transparência deve ir ao portal; o que envolve sigilo, dado pessoal, PI ou estratégia deve ficar no
+repositório interno com controle de acesso.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 13
+
+
+
+ECOSSISTEMA IFFAR
+13. Evidências do Portal Integra analisadas
+
+A consulta pública ao Portal Integra retornou unidades de incubadora e ambientes
+relacionados em diversos campi, reforçando que Frederico Westphalen pode operar em rede
+institucional.
+
+Unidade identificada
+Campus
+Responsável informado
+
+Incubadora do IFFar - Unidade Santa Rosa
+Campus Santa Rosa
+RODRIGO MAGNOS SODER
+
+Incubadora do IFFar - Unidade de São Vicente do Sul
+Campus São Vicente
+do Sul
+CRISTIANO MARTINS VIEIRA
+
+Incubadora IFFAR Panambi
+Campus Panambi
+DANIEL HINNAH
+
+INCUBADORA DE BASE TECNOLÓGICA - TRIPARTITE (IFFar/Acisa/Prefeitura Municipal
+de Santo Augusto)
+Campus Santo Augusto
+OSMAR LUIS FREITAG BENCKE
+
+Centro de Educação Tecnológica do Amazonas - SWITCHE-IFFAR SB
+Campus São Borja
+BRUNO SIQUEIRA DA SILVA
+
+Incubadora Social do IFFar
+Reitoria
+GETULIO JORGE STEFANELLO
+JÚNIOR
+
+Incubadora IFFar - Unidade São Borja (SWITCHE)
+Campus São Borja
+BRUNO SIQUEIRA DA SILVA
+
+Incubadora do IFFar - Unidade Jaguari
+Campus Jaguari
+HENRIQUE TAMIOSSO
+MACHADO
+
+Incubadora do IFFAR - unidade Júlio de Castilhos
+Campus Júlio de
+Castilhos
+IOCHANE GARCIA GUIMARÃES
+
+Incubadora do IFFar - unidade Santo Ângelo (Switchê)
+Campus Santo Ângelo
+FRANCIES DIEGO MOTKE
+
+Centro de Educação Profissional de Santana Professora Maria Salomé Gomes Sares -
+CEPS - SWITCHE-IFFAR SB
+Campus São Borja
+BRUNO SIQUEIRA DA SILVA
+
+Incubadora IFFar - Unidade Uruguaiana (SWITCHE) (Campus Uruguaiana)
+Campus Uruguaiana
+THIARA ATAÍDE SODRÉ
+
+Uso estratégico
+
+Comparar descrições, contatos, serviços e modelos públicos das demais unidades para padronizar a
+presença da Incubadora FW e fortalecer a rede IFFar.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 14
+
+
+
+REGIMENTO
+14. Melhorias propostas para o Regimento
+Interno
+
+Atualizar norma-base
+
+Substituir referência antiga pela Resolução
+CONSUP/IFFar nº 52/2022 e demais normas
+vigentes.
+
+Adicionar conceitos
+
+CERNE, graduação, PDE, mentor, indicador,
+evidência, LGPD, Portal Integra, residente/não
+residente.
+
+Corrigir capítulos
+
+Resolver saltos de numeração e inserir capítulo
+sobre acompanhamento, monitoramento e
+graduação.
+
+Fortalecer seleção
+
+Prever matriz, banca, publicação preliminar,
+recurso, declaração de conflito e sigilo.
+
+Flexibilizar operação
+
+Permitir modalidades residentes, não residentes,
+híbridas e remotas com entregas pactuadas.
+
+Proteger ativos
+
+Atualizar PI, sigilo, LGPD, divulgação pública e
+comunicação institucional.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 15
+
+
+
+METODOLOGIAS
+15. Caixa de ferramentas metodológicas
+
+Método
+Aplicação
+Produto
+
+Canvas de problema
+Entender dor, público, contexto e
+alternativas.
+Mapa problema-público-evidência.
+
+Proposta de valor
+Conectar dores, ganhos e solução.
+Hipótese de valor validável.
+
+MVP/experimento
+mínimo
+Testar solução com menor custo e risco.
+Protótipo, piloto ou prova de conceito.
+
+Mentoria estruturada
+Acompanhar gargalos técnicos e gerenciais.
+Registro de mentoria e plano de ação.
+
+Banca de evolução
+Tomar decisão com evidência.
+Parecer: avançar, ajustar, prorrogar, graduar ou
+encerrar.
+
+CERNE 1
+Organizar processos e evidências.
+Sistema auditável de maturidade.
+
+LGPD/PI by design
+Reduzir riscos de divulgação indevida.
+Triagem e termos antes de exposição pública.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 16
+
+
+
+SISTEMAS INTERNOS
+16. Sistemas que a incubadora deve manter
+
+Sistema de documentos
+
+Repositório por ciclo e por empreendimento, com
+versionamento de editais, termos, atas, relatórios e
+evidências.
+
+Sistema de relacionamento
+
+Cadastro de interessados, mentores, parceiros,
+laboratórios, empresas, egressos e projetos.
+
+Sistema de indicadores
+
+Planilha, dashboard ou banco simples com
+métricas de entrada, processo, resultado e
+impacto.
+
+Sistema de comunicação
+
+Página do campus, Portal Integra, notícias,
+chamadas, resultados autorizados, cases e agenda.
+
+Sistema de conformidade
+
+Controle de PI, LGPD, ética, conflito de interesses,
+segurança e confidencialidade.
+
+Sistema de melhoria contínua
+
+Revisão de ciclo, lições aprendidas, atualização de
+modelos e relatório anual.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 17
+
+
+
+IMPLANTAÇÃO
+17. Roteiro de implantação em 120 dias
+
+Dias 1–15 — Governança e revisão
+
+Confirmar vigência normativa, atualizar composição do CGICFW, consolidar portarias, revisar Regimento e
+abrir pasta institucional de evidências.
+
+Dias 16–30 — Instrumentos
+
+Finalizar edital, formulário, matriz, termos, PDE, modelo de relatório, checklist e texto público do Portal
+Integra.
+
+Dias 31–60 — Sensibilização
+
+Realizar oficinas, plantões, divulgação, pré-cadastro de interessados e curadoria de problemas regionais.
+
+Dias 61–90 — Pré-incubação piloto
+
+Executar ciclo de validação com diagnóstico, mentorias, protótipo, entrevistas e banca.
+
+Dias 91–120 — Incubação e painel
+
+Selecionar projetos para incubação, pactuar PDEs, publicar relatório do ciclo, iniciar dashboard e rede
+alumni.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 18
+
+
+
+RISCOS
+18. Riscos e controles
+
+Risco
+Consequência
+Controle recomendado
+
+Norma sem execução
+Incubadora formal, mas sem entregas.
+Calendário, responsáveis, anexos e indicadores.
+
+Seleção subjetiva
+Questionamentos e baixa confiança.
+Matriz, banca, recurso e ata motivada.
+
+PI/LGPD
+negligenciada
+Perda de ativos, exposição de dados e riscos
+jurídicos.
+Triagem, termos, NIT, controle de divulgação.
+
+Capacidade limitada
+Excesso de projetos sem apoio real.
+Vagas por ciclo, critérios e acompanhamento.
+
+Falta de evidências
+Dificuldade de prestar contas e evoluir para CERNE.
+Pasta por empreendimento e relatório periódico.
+
+Isolamento regional
+Baixa tração e poucos parceiros.
+Portal Integra, entidades locais, rede IFFar e
+alumni.
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 19
+
+
+
+SQUAD PREMIUM
+19. VetorViveiro Squad — automação do sistema
+da incubadora
+
+O material deste PDF alimenta um squad premium criado para repetir, revisar e operar a
+documentação da incubadora.
+
+Para que serve
+
+Transformar documentos institucionais em planos
+operacionais, regimentos revisados, editais,
+matrizes, indicadores, site A4 e relatórios
+executivos.
+
+Como funciona
+
+Agentes especializados analisam norma, método,
+operação, documentação, indicadores, design e
+qualidade final.
+
+Entrega
+
+Gera dossiê, anexos, modelos, dashboard inicial,
+roteiro de implantação e pacote validado.
+
+Uso prático
+
+Recebe PDFs, regimentos, links de portal e
+demandas do núcleo; devolve documentação
+pronta para análise institucional.
+
+Documentos
+→
+Diagnóstico
+→
+Método
+→
+Modelos
+→
+PDF/Site
+→
+
+Validação
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 20
+
+
+
+CONCLUSÃO
+20. Decisão recomendada
+
+A incubadora deve ser implantada como um sistema institucional de inovação, não
+apenas como uma sala, edital ou comissão. O eixo de sucesso é a integração entre
+regimento, CERNE, governança, evidências, Portal Integra, indicadores e ciclos reais
+de desenvolvimento de empreendimentos.
+
+Próximo ato
+
+Validar a proposta de revisão do Regimento e
+definir responsáveis pelos anexos operacionais.
+
+Próximo ciclo
+
+Abrir pré-incubação piloto de 90 dias com matriz
+objetiva e PDE simplificado.
+
+Próxima evidência
+
+Criar pasta institucional e dashboard mínimo antes
+do lançamento do edital.
+
+Próxima vitrine
+
+Atualizar Portal Integra/IFFar e página do campus
+com serviços, contato e fluxo de entrada.
+
+Entregáveis deste pacote
+
+HTML em proporção A4 com design premium.
+
+PDF gerado a partir do HTML com WeasyPrint, preservando CSS e layout.
+
+Squad premium VetorViveiro, com agentes, tarefas, workflows, templates e validação.
+
+•
+
+•
+
+•
+
+Projeto Integrado da Incubadora Tecnológica IFFar/FW
+p. 21

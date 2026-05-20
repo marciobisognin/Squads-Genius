@@ -1,0 +1,15 @@
+name: pipeline-radar-incubaveis
+description: Mantém um radar contínuo de oportunidades incubáveis na instituição e no território.
+cycle:
+  frequency: mensal_ou_por_edital
+  sources:
+    - estudantes_e_egressos
+    - servidores_e_grupos_de_pesquisa
+    - empresas_locais_e_cooperativas
+    - prefeituras_e_entidades_regionais
+    - comunidade_externa
+  outputs:
+    - banco_oportunidades
+    - matriz_incubabilidade
+    - recomendacao_de_trilha
+    - lista_de_convites_para_pre_incubacao

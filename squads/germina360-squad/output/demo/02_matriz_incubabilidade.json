@@ -1,0 +1,54 @@
+{
+  "score": 76.0,
+  "trilha_recomendada": "incubação",
+  "criterios": [
+    {
+      "criterio": "clareza_do_problema",
+      "peso": 15,
+      "nota_0_5": 4,
+      "pontos": 12.0
+    },
+    {
+      "criterio": "aderencia_institucional",
+      "peso": 10,
+      "nota_0_5": 4,
+      "pontos": 8.0
+    },
+    {
+      "criterio": "potencial_de_impacto",
+      "peso": 15,
+      "nota_0_5": 4,
+      "pontos": 12.0
+    },
+    {
+      "criterio": "viabilidade_tecnica",
+      "peso": 15,
+      "nota_0_5": 4,
+      "pontos": 12.0
+    },
+    {
+      "criterio": "validacao_de_demanda",
+      "peso": 15,
+      "nota_0_5": 4,
+      "pontos": 12.0
+    },
+    {
+      "criterio": "capacidade_da_equipe",
+      "peso": 10,
+      "nota_0_5": 3,
+      "pontos": 6.0
+    },
+    {
+      "criterio": "potencial_de_mercado_ou_uso_social",
+      "peso": 10,
+      "nota_0_5": 4,
+      "pontos": 8.0
+    },
+    {
+      "criterio": "riscos_pi_lgpd_regulatorios",
+      "peso": 10,
+      "nota_0_5": 3,
+      "pontos": 6.0
+    }
+  ]
+}
