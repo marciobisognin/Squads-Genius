@@ -1,0 +1,16 @@
+{
+  "incubadora": "Incubadora Exemplo Territorial",
+  "empreendimento": "AgroDados Local",
+  "problema": "Pequenos produtores não consolidam dados de produção para decisões comerciais.",
+  "estagio": "pré-incubação",
+  "trl": 3,
+  "hipoteses": [
+    "produtores aceitam registrar dados semanalmente",
+    "cooperativas pagariam por painel consolidado"
+  ],
+  "indicadores": [
+    "20 entrevistas",
+    "3 pilotos",
+    "1 parceiro institucional"
+  ]
+}

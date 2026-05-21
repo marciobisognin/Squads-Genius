@@ -1,0 +1,48 @@
+name: "Fluxo Premium de Incubação"
+version: "1.0.0"
+entrypoint: "diagnostico-cerne"
+steps:
+  - id: diagnostico
+    agent: diagnostico-cerne
+    task: tasks/01-diagnostico-institucional.md
+    produces: ["diagnostico-cerne", "mapa-lacunas"]
+  - id: modelagem
+    agent: modelagem-negocios
+    task: tasks/02-modelagem-e-validacao.md
+    depends_on: [diagnostico]
+    produces: ["business-model-canvas", "value-proposition-canvas"]
+  - id: validacao
+    agent: validacao-mercado
+    task: tasks/02-modelagem-e-validacao.md
+    depends_on: [modelagem]
+    produces: ["roteiro-entrevistas", "cartoes-experimento"]
+  - id: tecnologia
+    agent: maturidade-tecnologica
+    task: tasks/03-maturidade-tecnologica.md
+    depends_on: [validacao]
+    produces: ["avaliacao-trl", "stage-gates"]
+  - id: mentoria
+    agent: mentoria-jornada
+    task: tasks/04-mentoria-indicadores-impacto.md
+    depends_on: [tecnologia]
+    produces: ["pde", "okrs", "plano-mentoria"]
+  - id: impacto
+    agent: indicadores-impacto
+    task: tasks/04-mentoria-indicadores-impacto.md
+    depends_on: [mentoria]
+    produces: ["painel-indicadores", "teoria-mudanca"]
+  - id: ecossistema
+    agent: ecossistema-parcerias
+    task: tasks/05-ecossistema-captacao-entrega.md
+    depends_on: [impacto]
+    produces: ["mapa-parcerias", "plano-inovacao-aberta"]
+  - id: captacao
+    agent: captacao-pitch
+    task: tasks/05-ecossistema-captacao-entrega.md
+    depends_on: [ecossistema]
+    produces: ["pitch", "plano-captacao", "relatorio-final"]
+quality_gate:
+  - "todos os templates essenciais existem"
+  - "agentes referenciados no workflow existem"
+  - "squad.yaml referencia caminhos reais"
+  - "relatório final contém limites e revisão humana necessária"
