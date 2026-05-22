@@ -5,7 +5,7 @@
 - Público: professores, gestores educacionais e pesquisadores
 - Produto: relatório acadêmico sintético em português
 - Profundidade: demo
-- Data de geração: 2026-05-16 20:56
+- Data de geração: 2026-05-21 20:36
 
 ## Bases sugeridas
 - OpenAlex

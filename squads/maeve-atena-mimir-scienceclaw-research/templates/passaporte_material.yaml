@@ -1,0 +1,17 @@
+projeto:
+  titulo_provisorio: ""
+  autor: "Marcio Bisognin"
+  afiliacao: "Instituto Federal Farroupilha Campus Frederico Westphalen RS"
+  periodico_alvo: ""
+  norma: ""
+corpus:
+  fontes_recebidas: []
+  matriz_evidencias: "matriz_evidencias.csv"
+verificacao:
+  referencias_verificadas: 0
+  referencias_nao_verificadas: 0
+  alertas_altos: []
+  alertas_medios: []
+decisoes_humanas: []
+licenca: "MIT"
+rodape: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

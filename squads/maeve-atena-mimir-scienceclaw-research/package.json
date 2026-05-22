@@ -1,11 +1,12 @@
 {
   "name": "maeve-atena-mimir-scienceclaw-research",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "commonjs",
   "license": "MIT",
-  "description": "Maeve Atena Mimir — ScienceClaw Research Squad",
+  "description": "Maeve Atena Mimir — research, evidence synthesis and scientific article pipeline squad",
   "bin": {
     "maeve-atena-mimir-demo": "scripts/generate_research_brief.py",
+    "maeve-atena-mimir-article-demo": "scripts/generate_article_demo.py",
     "maeve-atena-mimir-validate": "scripts/validate_squad.py"
   },
   "files": [
@@ -17,11 +18,13 @@
     "scripts",
     "examples",
     "references",
+    "config",
     "README.md",
     "squad.yaml",
     "LICENSE",
     "NOTICE.md",
     "AUTHORS.md",
-    ".ip"
+    ".ip",
+    "TEXTO_PUBLICACAO_REDES_BLOG.md"
   ]
 }

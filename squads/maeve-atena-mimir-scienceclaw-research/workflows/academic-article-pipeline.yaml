@@ -1,0 +1,54 @@
+name: academic-article-pipeline
+version: 1.1.0
+language: pt-BR
+license: MIT
+purpose: "Pipeline autoral MIT para transformar pesquisa verificada em artigo científico revisado e auditado."
+license_boundary:
+  external_reference: "Imbad0202/academic-research-skills — CC BY-NC 4.0"
+  integration_mode: "clean-room methodological adaptation; no copied files, prompts, templates, scripts or commands"
+phases:
+  - id: article_config
+    agent: gaia-article-architect
+    task: tasks/09-configurar-artigo-cientifico.md
+    gate: configuration_checkpoint
+    outputs:
+      - passaporte_material.yaml
+  - id: article_architecture
+    agent: gaia-article-architect
+    task: tasks/10-desenhar-arquitetura-imrad.md
+    gate: outline_checkpoint
+    outputs:
+      - artigo_imrad.md
+  - id: manuscript_drafting
+    agent: calliope-academic-writer
+    task: tasks/11-redigir-manuscrito.md
+    gate: evidence_traceability
+    outputs:
+      - artigo_imrad.md
+  - id: peer_review
+    agent: minerva-peer-reviewer
+    task: tasks/12-revisao-pares-simulada.md
+    gate: peer_review_decision
+    outputs:
+      - parecer_revisao_pares.md
+      - resposta_revisores.md
+  - id: final_integrity_audit
+    agent: tyr-integrity-auditor
+    task: tasks/13-auditoria-integridade-final.md
+    gate: no_high_alerts
+    outputs:
+      - auditoria_integridade.md
+      - passaporte_material.yaml
+  - id: final_formatting
+    agent: themis-format-disclosure
+    task: tasks/14-formatar-entrega-artigo.md
+    gate: delivery_package
+    outputs:
+      - manifest.json
+minimum_outputs:
+  - artigo_imrad.md
+  - parecer_revisao_pares.md
+  - auditoria_integridade.md
+  - resposta_revisores.md
+  - passaporte_material.yaml
+  - manifest.json

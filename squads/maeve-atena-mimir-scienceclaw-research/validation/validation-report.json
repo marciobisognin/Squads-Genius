@@ -1,6 +1,10 @@
 {
   "ok": true,
   "errors": [],
-  "agents": 6,
-  "tasks": 8
+  "warnings": [],
+  "agents": 11,
+  "tasks": 14,
+  "workflows": 2,
+  "license": "MIT",
+  "integration_mode": "clean-room adaptation; no upstream CC BY-NC files copied"
 }

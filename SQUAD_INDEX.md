@@ -9,7 +9,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [germina360-squad](squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
 - [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
 - [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`
-- [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.0.0`
+- [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.1.0` — pesquisa científica, síntese de evidências e artigo acadêmico auditável
 - [maeve-athena-mimir-matrix-squad](squads/maeve-athena-mimir-matrix-squad/README.md) — `maeve-athena-mimir-matrix-squad` — versão `1.0.0`
 - [Maeve Athena-Mímir Venture Forge](squads/maeve-athena-mimir-venture-forge-squad/README.md) — `maeve-athena-mimir-venture-forge-squad` — versão `1.1.0`
 - [Maeve Carrossel Premium Instagram PT-BR](squads/maeve-carrossel-premium-instagram-ptbr/README.md) — `maeve-carrossel-premium-instagram-ptbr` — versão `1.1.0`

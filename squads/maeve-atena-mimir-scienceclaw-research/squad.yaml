@@ -1,8 +1,8 @@
 name: maeve-atena-mimir
 slug: maeve-atena-mimir-scienceclaw-research
 display_name: "Maeve Atena Mimir"
-subtitle: "ScienceClaw Research Squad"
-version: 1.0.0
+subtitle: "ScienceClaw Research + Scientific Article Pipeline"
+version: 1.1.0
 license: MIT
 creator: "Marcio Bisognin"
 instagram: "@marciobisognin"
@@ -10,15 +10,18 @@ readme_style: parchment-goal-flow
 language: pt-BR
 runtime: "Hermes / Maeve / OpenSquad"
 source_inspiration:
-  repository: "https://github.com/beita6969/ScienceClaw"
-  components:
-    - SCIENCE.md protocol
-    - zero-hallucination citation discipline
-    - research-reflection skill pattern
-    - skill-evolution pattern
+  scienceclaw:
+    repository: "https://github.com/beita6969/ScienceClaw"
+    integration_mode: "adaptação autoral MIT"
+  academic_research_skills:
+    repository: "https://github.com/Imbad0202/academic-research-skills"
+    author: "Cheng-I Wu"
+    upstream_license: "CC BY-NC 4.0"
+    integration_mode: "adaptação metodológica limpa; sem cópia de arquivos, prompts, templates, scripts ou comandos"
 purpose: >
   Realizar pesquisa científica profunda, revisão bibliográfica, verificação de citações,
-  síntese crítica e geração de relatórios acadêmicos em português técnico.
+  síntese crítica, escrita de artigos científicos, revisão por pares simulada e auditoria
+  final de integridade acadêmica em português técnico.
 components:
   agents:
     - agents/atena-orchestrator.md
@@ -27,6 +30,11 @@ components:
     - agents/saga-method-reviewer.md
     - agents/hugin-synthesis-writer.md
     - agents/freya-delivery-editor.md
+    - agents/gaia-article-architect.md
+    - agents/calliope-academic-writer.md
+    - agents/minerva-peer-reviewer.md
+    - agents/tyr-integrity-auditor.md
+    - agents/themis-format-disclosure.md
   tasks:
     - tasks/01-classificar-demanda.md
     - tasks/02-planejar-busca.md
@@ -36,8 +44,15 @@ components:
     - tasks/06-sintetizar-achados.md
     - tasks/07-redigir-relatorio.md
     - tasks/08-refletir-evoluir.md
+    - tasks/09-configurar-artigo-cientifico.md
+    - tasks/10-desenhar-arquitetura-imrad.md
+    - tasks/11-redigir-manuscrito.md
+    - tasks/12-revisao-pares-simulada.md
+    - tasks/13-auditoria-integridade-final.md
+    - tasks/14-formatar-entrega-artigo.md
   workflows:
     - workflows/scienceclaw-research-pipeline.yaml
+    - workflows/academic-article-pipeline.yaml
   checklists:
     - checklists/zero-hallucination-citation-gate.md
     - checklists/qualidade-metodologica.md
@@ -47,17 +62,25 @@ components:
     - templates/matriz_evidencias.csv
     - templates/metodologia_busca.md
     - templates/reflexao_pos_tarefa.md
+    - templates/artigo_imrad.md
+    - templates/parecer_revisao_pares.md
+    - templates/auditoria_integridade.md
+    - templates/resposta_revisores.md
+    - templates/passaporte_material.yaml
   scripts:
     - scripts/generate_research_brief.py
+    - scripts/generate_article_demo.py
     - scripts/validate_squad.py
   references:
     - references/scienceclaw-adaptation.md
     - references/protocolo-pesquisa-profunda-br.md
     - references/catalogo-fontes-pesquisa.md
+    - references/academic-research-skills-integration.md
   config:
     - config/research-sources.yaml
   examples:
     - examples/demo-question.yaml
+    - examples/demo-article.yaml
 outputs:
   - relatorio_pesquisa.md
   - matriz_evidencias.csv
@@ -65,6 +88,11 @@ outputs:
   - referencias_verificadas.md
   - lacunas_e_agenda.md
   - reflexao_pos_tarefa.md
+  - artigo_imrad.md
+  - parecer_revisao_pares.md
+  - auditoria_integridade.md
+  - resposta_revisores.md
+  - passaporte_material.yaml
 quality_gates:
   - preflight
   - search_strategy
@@ -73,6 +101,12 @@ quality_gates:
   - methodology_review
   - synthesis_review
   - delivery_review
+  - configuration_checkpoint
+  - outline_checkpoint
+  - evidence_traceability
+  - peer_review_decision
+  - no_high_alerts
+  - delivery_package
 footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
 
 research_sources:

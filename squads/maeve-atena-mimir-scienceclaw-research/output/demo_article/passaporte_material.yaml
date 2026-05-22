@@ -1,0 +1,22 @@
+projeto:
+  titulo_provisorio: "IA generativa na educação básica: protocolo demonstrativo para artigo com rastreabilidade de evidências"
+  tema: "IA generativa na educação básica"
+  pergunta: "Quais condições metodológicas são necessárias para avaliar o uso pedagógico de IA generativa na educação básica sem extrapolar as evidências disponíveis?"
+  autor: "Marcio Bisognin"
+  afiliacao: "Instituto Federal Farroupilha Campus Frederico Westphalen RS"
+  periodico_alvo: ""
+  norma: "ABNT"
+corpus:
+  origem: "demo sem busca externa"
+  matriz_evidencias: "matriz_evidencias.csv"
+verificacao:
+  status: "demonstração estrutural; referências reais não verificadas"
+  referencias_verificadas: 0
+  referencias_nao_verificadas: 2
+  alertas_altos:
+    - "Demo não realizou consulta externa; não usar como revisão real."
+  alertas_medios: []
+decisoes_humanas:
+  - "Campo periódico-alvo mantido em branco até definição do usuário."
+licenca: "MIT"
+rodape: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

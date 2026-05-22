@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "kind": "article-demo",
+  "license": "MIT",
+  "outputs": [
+    "artigo_imrad.md",
+    "auditoria_integridade.md",
+    "matriz_evidencias.csv",
+    "parecer_revisao_pares.md",
+    "passaporte_material.yaml",
+    "resposta_revisores.md"
+  ],
+  "warning": "Demo estrutural; não substitui pesquisa real."
+}

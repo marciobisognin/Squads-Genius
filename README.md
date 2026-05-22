@@ -64,6 +64,7 @@ Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio 
 
 ## Índice rápido
 
+- [`maeve-atena-mimir-scienceclaw-research`](squads/maeve-atena-mimir-scienceclaw-research/README.md) — Maeve Atena Mimir: pesquisa científica, síntese de evidências e artigo acadêmico auditável
 - [`iso-42001-aims-implementation`](squads/iso-42001-aims-implementation/README.md) — ISO 42001 AIMS Implementation Squad
 - [`maeve-neurocognitive-intelligence-trainer-squad`](squads/maeve-neurocognitive-intelligence-trainer-squad/README.md) — maeve-neurocognitive-intelligence-trainer-squad
 - [`maeve-carrossel-premium-instagram-ptbr`](squads/maeve-carrossel-premium-instagram-ptbr/README.md) — Maeve Carrossel Premium Instagram PT-BR
