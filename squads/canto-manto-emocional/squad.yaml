@@ -1,0 +1,46 @@
+name: canto-manto-emocional
+version: 1.0.0
+kind: aios-music-squad
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+origin_reference:
+  album_url: "https://open.spotify.com/album/5akOZqlmymDnlSPnB7aub4"
+  album_title_detected: "Caminho, Cruz e Canções"
+  exemplar_track_detected: "Tem um Manto Me Esperando"
+  artists_detected: ["Um Peregrino", "Gabi Ribeiro"]
+  note: "Usar como referência estética/devocional, sem copiar letras, melodias, arranjos ou identidade vocal protegidos."
+metadata:
+  readme_style: dark-neon-layered-architecture
+  domain: music_generation
+  language: pt-BR
+  emotional_axis: [consolo, conversão, maternidade, fé, estrada, cruz, acolhimento]
+agents:
+  - id: escuta-devocional
+    file: agents/01-escuta-devocional.md
+  - id: letrista-narrativo
+    file: agents/02-letrista-narrativo.md
+  - id: diretor-musical
+    file: agents/03-diretor-musical.md
+  - id: produtor-vocal
+    file: agents/04-produtor-vocal.md
+  - id: arranjador-acustico-cinematico
+    file: agents/05-arranjador-acustico-cinematico.md
+  - id: guardiao-originalidade
+    file: agents/06-guardiao-originalidade.md
+  - id: operador-geracao
+    file: agents/07-operador-geracao.md
+workflows:
+  - workflows/song-creation-pipeline.yaml
+scripts:
+  - scripts/song_blueprint.py
+  - scripts/smoke_test.py
+templates:
+  - templates/briefing_musical.yaml
+  - templates/letra_estrutura.md
+  - templates/tags_heartmula.txt
+  - templates/prompt_suno_udio.md
+references:
+  - references/analise_estetica_tem_um_manto.md
+  - references/diretrizes_originalidade.md
+final_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

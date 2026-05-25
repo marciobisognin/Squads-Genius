@@ -1,0 +1,31 @@
+name: song-creation-pipeline
+version: 1.0.0
+steps:
+  - id: briefing
+    agent: escuta-devocional
+    output: tese_emocional
+  - id: lyric
+    agent: letrista-narrativo
+    output: letra_original
+  - id: music_direction
+    agent: diretor-musical
+    output: direcao_musical
+  - id: vocal_direction
+    agent: produtor-vocal
+    output: guia_vocal
+  - id: arrangement
+    agent: arranjador-acustico-cinematico
+    output: mapa_de_arranjo
+  - id: originality_gate
+    agent: guardiao-originalidade
+    output: parecer_originalidade
+    required: true
+  - id: generation_pack
+    agent: operador-geracao
+    output: prompts_tags_e_checklist
+quality_gates:
+  - letra_sem_copia_literal
+  - refrão_memoravel
+  - simbolo_central_forte
+  - curva_emocional_crescente
+  - prompt_sem_clonagem_de_artista
