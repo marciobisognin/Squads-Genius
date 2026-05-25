@@ -1,0 +1,6 @@
+{
+  "reference": "Lost In Your Eyes - Dino Fonseca",
+  "safe_style_direction": "balada rock/pop romântica, emocional, nostálgica, com refrão amplo",
+  "core_prompt": "Canção original em português com atmosfera de balada rock/pop romântica e emocional, inspirada apenas em princípios gerais de baladas dos anos 80/90: voz masculina quente e expressiva, versos íntimos, refrão amplo e memorável, piano/teclado emocional, guitarras limpas, baixo redondo, bateria lenta e pads nostálgicos. Construção gradual até um clímax vocal no refrão final. Não copiar letra, melodia, progressão reconhecível, timbre específico ou interpretação de artistas existentes.",
+  "avoid": ["religioso", "devocional", "gospel", "worship", "copiar letra", "copiar melodia", "imitar artista"]
+}

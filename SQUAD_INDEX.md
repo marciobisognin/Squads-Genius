@@ -28,3 +28,4 @@ Squads publicados no repositório `Squads-Genius`.
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
 - [Órbita Incubadora Squad](squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`
+- [Aurora PopRock Ballads](squads/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — versão `1.0.0` — pop rock romântico, rock balada e prompts musicais autorais

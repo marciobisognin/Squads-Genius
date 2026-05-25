@@ -1,0 +1,14 @@
+id: create-poprock-ballad
+steps:
+  - agent: reference-dna-analyst
+    task: tasks/extract-poprock-reference.md
+  - agent: romantic-arc-architect
+    task: tasks/create-poprock-ballad.md
+  - agent: poprock-lyricist
+    task: tasks/create-poprock-ballad.md
+  - agent: vocal-arrangement-producer
+    task: tasks/create-poprock-ballad.md
+  - agent: band-sound-director
+    task: tasks/create-poprock-ballad.md
+  - agent: originality-impact-gate
+    task: tasks/review-originality-impact.md
