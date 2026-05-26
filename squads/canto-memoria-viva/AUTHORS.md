@@ -1,0 +1,1 @@
+- Marcio Bisognin — criador e curador do squad. Instagram: @marciobisognin

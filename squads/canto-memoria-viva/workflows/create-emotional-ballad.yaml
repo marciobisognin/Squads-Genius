@@ -1,0 +1,14 @@
+name: create-emotional-ballad
+steps:
+  - agent: emotional-dna-analyst
+    task: extract-reference-dna
+  - agent: lyric-arc-composer
+    task: create-emotional-song
+  - agent: vocal-performance-director
+    task: create-emotional-song
+  - agent: arrangement-impact-producer
+    task: create-emotional-song
+  - agent: originality-safety-gate
+    task: review-originality-impact
+outputs:
+  - generated/song-package.md

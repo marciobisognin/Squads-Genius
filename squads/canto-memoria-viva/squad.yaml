@@ -1,0 +1,38 @@
+name: canto-memoria-viva
+version: 1.0.0
+title: Canto Memória Viva
+summary: Squad para criar canções originais de alto impacto emocional inspiradas na qualidade dramática de baladas pop-rock brasileiras, sem copiar letra, melodia ou arranjo de obras existentes.
+creator: Marcio Bisognin
+license: MIT
+instagram: '@marciobisognin'
+metadata:
+  source_reference: "Canção brasileira de balada pop-rock indicada como referência estética; uso apenas como DNA musical abstrato."
+  readme_style: dark-neon-layered-architecture
+  ethical_boundary: "Usar a referência apenas como análise de DNA musical; não reproduzir letra, melodia, progressão identificável ou assinatura artística protegida."
+agents:
+  - id: emotional-dna-analyst
+    file: agents/emotional-dna-analyst.md
+  - id: lyric-arc-composer
+    file: agents/lyric-arc-composer.md
+  - id: vocal-performance-director
+    file: agents/vocal-performance-director.md
+  - id: arrangement-impact-producer
+    file: agents/arrangement-impact-producer.md
+  - id: originality-safety-gate
+    file: agents/originality-safety-gate.md
+tasks:
+  - tasks/create-emotional-song.md
+  - tasks/extract-reference-dna.md
+  - tasks/review-originality-impact.md
+workflows:
+  - workflows/create-emotional-ballad.yaml
+scripts:
+  - scripts/generate_song_package.py
+  - scripts/smoke_test.py
+templates:
+  - templates/song_request.json
+  - templates/song_package_template.md
+references:
+  - references/memoria-viva-reference-dna.md
+validation:
+  - validation/smoke-test-report.md
