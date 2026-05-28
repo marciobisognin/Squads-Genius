@@ -70,6 +70,7 @@ Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio 
 - [`maeve-carrossel-premium-instagram-ptbr`](squads/maeve-carrossel-premium-instagram-ptbr/README.md) — Maeve Carrossel Premium Instagram PT-BR
 - [`instagram-carrossel-visual-pro`](squads/instagram-carrossel-visual-pro/README.md) — instagram-carrossel-visual-pro
 - [`pearson-specter-nova-legal-squad`](squads/pearson-specter-nova-legal-squad/README.md) — pearson-specter-nova-legal-squad
+- [`proactive-ai-os-squad`](squads/proactive-ai-os-squad/README.md) — Proactive AI OS Squad: sistema agentivo para contexto, skills, workflows e automações proativas
 - [`ai-business-builder-squad`](squads/ai-business-builder-squad/README.md) — ai-business-builder-squad
 
 ## Como navegar

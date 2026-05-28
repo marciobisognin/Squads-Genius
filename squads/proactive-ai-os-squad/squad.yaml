@@ -1,0 +1,39 @@
+name: Proactive AI OS Squad
+slug: proactive-ai-os-squad
+version: 1.0.0
+status: premium-v1
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+readme_style: dark-neon-layered-architecture
+source_video:
+  id: BzSHrpqYiIM
+  duration: '59:12'
+  theme: agentic AI operating system, proactive workflows, skills, context engineering
+goal: Transform recurring complaints and operational friction into context files, reusable skills, specialist agents, workflows, and proactive automations.
+components:
+  agents:
+    - agents/complaint-to-system-analyst.md
+    - agents/context-architect.md
+    - agents/skill-factory-agent.md
+    - agents/chief-of-staff-agent.md
+    - agents/research-scout.md
+    - agents/meeting-prep-agent.md
+    - agents/automation-engineer.md
+    - agents/quality-autonomy-reviewer.md
+  workflows:
+    - workflows/complaint-to-system.workflow.md
+    - workflows/morning-briefing.workflow.md
+    - workflows/weekly-review.workflow.md
+    - workflows/meeting-prep.workflow.md
+    - workflows/skill-generation.workflow.md
+  skills:
+    - skills/complaint-to-skill/SKILL.md
+    - skills/context-engineering/SKILL.md
+    - skills/morning-briefing/SKILL.md
+  scripts:
+    - scripts/generate_morning_briefing.py
+    - scripts/build_context_pack.py
+    - scripts/propose_skill_from_complaint.py
+    - scripts/validate_squad.py
+final_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
