@@ -1,0 +1,28 @@
+{
+  "name": "nirvana-readme-architect",
+  "version": "1.1.0-maeve",
+  "description": "AIOS squad and CLI for generating high-quality README.md files from project structure",
+  "type": "commonjs",
+  "bin": {
+    "nirvana-readme-architect": "bin/nirvana-readme-architect.cjs"
+  },
+  "scripts": {
+    "smoke": "node scripts/smoke-test.cjs"
+  },
+  "files": [
+    "README*.md",
+    "agents",
+    "tasks",
+    "workflows",
+    "checklists",
+    "templates",
+    "config",
+    "scripts",
+    "bin",
+    "squad.yaml"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

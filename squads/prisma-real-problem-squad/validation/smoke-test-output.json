@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-05-29T11:50:41",
+  "problem": "Melhorar um processo real com poucos recursos",
+  "workflow": [
+    {
+      "phase": "intake",
+      "agent": "Arquiteto de Contexto e Problema",
+      "output": "problema delimitado, objetivo e critérios de aceite"
+    },
+    {
+      "phase": "systems_strategy",
+      "agent": "Estrategista Sistêmico",
+      "output": "causas, efeitos, restrições e pontos de alavancagem"
+    },
+    {
+      "phase": "prototype",
+      "agent": "Prototipador de Inovação",
+      "output": "alternativas e plano de protótipo"
+    },
+    {
+      "phase": "risk_review",
+      "agent": "Governança, Ética e Risco",
+      "output": "riscos, limites e mitigação"
+    },
+    {
+      "phase": "people",
+      "agent": "Diplomacia, Pessoas e Cultura",
+      "output": "adesão, comunicação e stakeholders"
+    },
+    {
+      "phase": "evidence",
+      "agent": "Evidências, Pesquisa e Números",
+      "output": "premissas, lacunas e validação"
+    },
+    {
+      "phase": "communication",
+      "agent": "Comunicação, Ensino e Narrativa",
+      "output": "síntese e narrativa de apresentação"
+    },
+    {
+      "phase": "execution",
+      "agent": "Operações e Execução",
+      "output": "tarefas, prazos, responsáveis e checklist"
+    }
+  ],
+  "final_template": {
+    "diagnostico": "descrever a natureza do problema em linguagem clara",
+    "solucao_recomendada": "selecionar uma alternativa com justificativa",
+    "plano_acao": [
+      "ação 1",
+      "ação 2",
+      "ação 3"
+    ],
+    "riscos": [
+      "risco 1",
+      "risco 2"
+    ],
+    "criterios_sucesso": [
+      "critério 1",
+      "critério 2"
+    ]
+  }
+}

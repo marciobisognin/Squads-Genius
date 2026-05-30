@@ -30,4 +30,10 @@ Squads publicados no repositório `Squads-Genius`.
 - [vetorviveiro-squad](squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`
 - [Órbita Incubadora Squad](squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`
 
+- [Nirvana README Architect](squads/nirvana-readme-architect-v1.1.0-maeve/README.md) — `nirvana-readme-architect` — versão `1.1.0-maeve` — arquiteto premium de README para squads Nirvana/Maeve
+
+- [Nirvana Squad Creator](squads/maeve-nirvana-squad-creator-v1.2.0/README.md) — `nirvana-squad-creator` — versão `1.4.0` — ferramenta interna para criação e validação de squads
+
+- [Prisma Real Problem Squad](squads/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — versão `1.0.0` — diagnóstico e decomposição de problemas reais em squads operacionais
+
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

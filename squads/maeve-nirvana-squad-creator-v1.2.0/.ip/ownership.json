@@ -1,0 +1,8 @@
+{
+  "project": "nirvana-squad-creator",
+  "license": "MIT",
+  "original_author": "Luiz Gustavo Vieira Rodrigues (@gutomec)",
+  "local_hardening": "Maeve/Hermes for Marcio Bisognin",
+  "generator_version": "1.3.0",
+  "generated_squad_default_profile": "marcio"
+}

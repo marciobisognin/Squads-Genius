@@ -1,0 +1,174 @@
+# --- Identity ---
+workflow_name: readme_generation_pipeline
+description: "Pipeline completo de geração do README.md perfeito — da análise do codebase à entrega final polida"
+version: "1.0.0"
+squad: nirvana-readme-architect
+
+# --- Agent Sequence ---
+agent_sequence:
+  - nra-orchestrator
+  - nra-codebase-analyzer
+  - nra-content-architect
+  - nra-quality-validator
+  - nra-polisher
+
+# --- Trigger ---
+key_commands:
+  - "*readme {projeto} [tipo]"
+  - "*readme-full"
+  - "*readme-quick"
+trigger_threshold: 2
+typical_duration: "10-20 minutes"
+
+# --- Success Criteria ---
+success_indicators:
+  - "Projeto alvo parseado com tipo e escopo identificados"
+  - "Codebase analisado com todas as categorias preenchidas"
+  - "Template selecionado e seções mapeadas com features GitHub"
+  - "Conteúdo gerado com mínimo 8 features distintas do GitHub"
+  - "Validação com score >= 90 no checklist de 25+ pontos"
+  - "Polimento final aplicado com TOC, badges e espaçamento"
+  - "README entregue no caminho especificado com resumo de métricas"
+
+# --- Transitions ---
+transitions:
+  request_parsed:
+    trigger: "Tipo de projeto e escopo identificados"
+    confidence: 0.90
+    greeting_message: "📜 Request parseado. Iniciando análise do codebase."
+    next_steps:
+      - command: "*scan"
+        description: "Executar scan profundo do codebase"
+        priority: 1
+
+  codebase_scanned:
+    trigger: "project-analysis.json criado com todas as categorias analisadas"
+    confidence: 0.90
+    greeting_message: "🔍 Codebase analisado. Selecionando template e gerando conteúdo."
+    next_steps:
+      - command: "*select-template"
+        description: "Selecionar template adequado ao tipo de projeto"
+        priority: 1
+
+  template_selected:
+    trigger: "Template selecionado com seções e features mapeadas"
+    confidence: 0.85
+    greeting_message: "✍️ Template selecionado. Gerando conteúdo das seções."
+    next_steps:
+      - command: "*draft-readme"
+        description: "Gerar conteúdo de todas as seções do README"
+        priority: 1
+
+  sections_generated:
+    trigger: "README draft completo com todas as seções e features"
+    confidence: 0.85
+    greeting_message: "✍️ Conteúdo gerado. Iniciando validação de qualidade."
+    next_steps:
+      - command: "*validate"
+        description: "Validar README com checklist de 25+ pontos"
+        priority: 1
+
+  validation_passed:
+    trigger: "Score >= 75 no checklist de validação"
+    confidence: 0.90
+    greeting_message: "🔎 Validação concluída. Iniciando polimento final."
+    next_steps:
+      - command: "*polish"
+        description: "Aplicar polimento visual e estrutural"
+        priority: 1
+
+  polish_complete:
+    trigger: "README polido com TOC, badges e espaçamento perfeitos"
+    confidence: 0.90
+    greeting_message: "✨ Polimento aplicado. Revalidando qualidade."
+    next_steps:
+      - command: "*validate"
+        description: "Revalidar README após polimento"
+        priority: 1
+
+  delivery_ready:
+    trigger: "Score >= 90 após revalidação"
+    confidence: 0.95
+    greeting_message: "📜 README pronto para entrega!"
+    next_steps:
+      - command: "*deliver"
+        description: "Entregar README final ao usuário"
+        priority: 1
+
+# --- Phases ---
+phases:
+  - name: parse
+    agent: nra-orchestrator
+    task: nra-orchestrator-parse-request
+    description: "Parse da solicitação: projeto alvo, tipo, escopo, caminho de saída"
+
+  - name: scan
+    agent: nra-codebase-analyzer
+    task: nra-codebase-analyzer-scan-project
+    description: "Análise profunda do codebase: tech stack, entry points, env vars, scripts, estrutura"
+    depends_on: [parse]
+
+  - name: select-template
+    agent: nra-content-architect
+    task: nra-content-architect-select-template
+    description: "Selecionar template adequado ao tipo de projeto (Library, CLI, Web App, API, Monorepo, Mobile, Squad)"
+    depends_on: [scan]
+
+  - name: generate-sections
+    agent: nra-content-architect
+    task: nra-content-architect-generate-sections
+    description: "Gerar conteúdo de cada seção do README usando dados do scan e template selecionado"
+    depends_on: [select-template]
+
+  - name: validate
+    agent: nra-quality-validator
+    task: nra-quality-validator-validate-readme
+    description: "Validação com checklist de 25+ pontos e score de qualidade"
+    depends_on: [generate-sections]
+
+  - name: rework
+    agent: nra-content-architect
+    task: nra-content-architect-generate-sections
+    description: "Retrabalho das seções que falharam na validação com feedback específico"
+    depends_on: [validate]
+    condition: "validation.score < 75"
+    max_iterations: 2
+
+  - name: polish
+    agent: nra-polisher
+    task: nra-polisher-enhance-readme
+    description: "Polimento final: TOC, badges, espaçamento, collapsed sections"
+    depends_on: [validate]
+    condition: "validation.score >= 75"
+
+  - name: revalidate
+    agent: nra-quality-validator
+    task: nra-quality-validator-validate-readme
+    description: "Revalidação após polimento para garantir score >= 90"
+    depends_on: [polish]
+
+  - name: deliver
+    agent: nra-orchestrator
+    task: nra-orchestrator-deliver
+    description: "Entrega do README final ao usuário com resumo de métricas"
+    depends_on: [revalidate]
+    fallback: "Se score < 90 após max_iterations, entregar com advisory de melhorias pendentes"
+
+# --- Error Handling ---
+error_handling:
+  scan_failure: "Prosseguir com dados parciais, marcar seções como [dados insuficientes]"
+  draft_failure: "Retry 1x com template fallback (Library)"
+  validation_low_score: "Se score < 75, ativar phase rework (max 2 iterações). Se persistir, entregar com advisory."
+  polish_failure: "Entregar README sem polimento com advisory"
+  max_iterations: 2
+  timeout_per_phase: "5 minutos"
+
+# --- Gates ---
+gates:
+  readme_quality:
+    min_score_delivery: 90
+    min_score_polish: 75
+    min_github_features: 8
+    min_sections_full: 12
+    min_sections_quick: 6
+    max_draft_iterations: 2
