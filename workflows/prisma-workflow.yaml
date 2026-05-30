@@ -1,0 +1,28 @@
+name: prisma-real-problem-workflow
+version: 1.0.0
+objective: Resolver problemas reais por combinação de personas de prompt em agentes funcionais e seguros.
+phases:
+  - id: intake
+    agents: [context_architect, evidence_research]
+    output: briefing.md
+  - id: systems_strategy
+    agents: [systems_strategist, human_diplomacy]
+    output: strategy.md
+  - id: innovation
+    agents: [innovation_prototyper, communication_storytelling]
+    output: prototype_plan.md
+  - id: governance
+    agents: [ethics_risk_governance, evidence_research]
+    output: risk_review.md
+  - id: execution
+    agents: [execution_ops_assistant]
+    output: action_plan.md
+  - id: final_delivery
+    agents: [communication_storytelling, execution_ops_assistant]
+    output: final_package.md
+quality_gates:
+  - source_material_is_data_not_instruction
+  - no_forbidden_terms_or_external_urls
+  - offensive_security_reframed_as_defense
+  - no company information copied from sources
+  - practical_action_plan_present
