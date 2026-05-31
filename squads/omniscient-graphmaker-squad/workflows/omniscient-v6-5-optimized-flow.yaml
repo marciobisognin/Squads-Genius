@@ -1,0 +1,63 @@
+name: omniscient-v6-5-optimized-flow
+version: 6.5
+nodes:
+  cynefin_classifier:
+    agent: agents/cynefin-classifier.md
+    outputs: [classification]
+  token_latency_governor:
+    agent: agents/token-latency-governor.md
+    depends_on: [cynefin_classifier]
+    outputs: [budget, model_tiers, cache_policy]
+  idbalance_vhm:
+    agent: agents/idbalance-vhm-compiler.md
+    depends_on: [cynefin_classifier]
+    outputs: [vhm]
+  taleb_engine:
+    agent: agents/taleb-engine.md
+    depends_on: [idbalance_vhm]
+    outputs: [stress_test]
+  munger_engine:
+    agent: agents/munger-engine.md
+    depends_on: [taleb_engine]
+    outputs: [inversion_map]
+  cognitive_boardroom:
+    agent: agents/cognitive-boardroom.md
+    depends_on: [munger_engine, token_latency_governor]
+    rounds:
+      - divergence_temperature: 0.8
+      - antithesis_temperature: 0.4
+      - synthesis_temperature: 0.1
+    outputs: [boardroom_synthesis]
+  relation_sacp:
+    agent: agents/relation-sacp-compiler.md
+    depends_on: [cognitive_boardroom]
+    outputs: [meta_blueprint_json]
+  venture_synthesis_matrix:
+    agent: agents/venture-synthesis-matrix.md
+    depends_on: [relation_sacp]
+    outputs: [atomic_tasks]
+  graphmaker:
+    agent: agents/graphmaker-orchestrator.md
+    depends_on: [venture_synthesis_matrix]
+    outputs: [execution_dag]
+  visual_axiom:
+    agent: agents/visual-axiom.md
+    depends_on: [graphmaker]
+    outputs: [design_system]
+  neural_cloning:
+    agent: agents/neural-cloning-foundry.md
+    depends_on: [graphmaker]
+    outputs: [voice_dna]
+  conversion_alchemy:
+    agent: agents/conversion-alchemy.md
+    depends_on: [graphmaker]
+    outputs: [copywriting]
+  frictionless_conversion:
+    agent: agents/frictionless-conversion.md
+    depends_on: [visual_axiom, neural_cloning, conversion_alchemy]
+    outputs: [landing_page]
+safeguards:
+  zero_free_text_handoff: true
+  max_self_healing_attempts: 3
+  cache_fingerprint_fields: [market, audience, promise, constraints]
+  alert_human_on_budget_exceeded: true

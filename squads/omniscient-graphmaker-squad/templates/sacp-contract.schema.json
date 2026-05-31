@@ -1,0 +1,30 @@
+{
+  "title": "Structured Artifact Compilation Protocol",
+  "type": "object",
+  "required": [
+    "qualitative_claim",
+    "quantitative_translation",
+    "confidence",
+    "task_atoms",
+    "acceptance_criteria"
+  ],
+  "properties": {
+    "qualitative_claim": {
+      "type": "string"
+    },
+    "quantitative_translation": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "task_atoms": {
+      "type": "array"
+    },
+    "acceptance_criteria": {
+      "type": "array"
+    }
+  }
+}

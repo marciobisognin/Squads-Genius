@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MetaBlueprint",
+  "type": "object",
+  "required": [
+    "classification",
+    "metrics",
+    "dag",
+    "safeguards"
+  ],
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "dag": {
+      "type": "array"
+    },
+    "safeguards": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+name: product-initialization-dag
+nodes:
+  cynefin_classifier:
+    agent: agents/cynefin-classifier.md
+    outputs: [classification]
+  cognitive_boardroom:
+    agent: agents/cognitive-boardroom.md
+    depends_on: [cynefin_classifier]
+    condition: classification in [complex, chaotic]
+    outputs: [meta_blueprint]
+  visual_axiom:
+    agent: agents/visual-axiom.md
+    depends_on: [cognitive_boardroom]
+    outputs: [design_system]
+  neural_cloning:
+    agent: agents/neural-cloning-foundry.md
+    depends_on: [cognitive_boardroom]
+    outputs: [voice_dna]
+  conversion_alchemy:
+    agent: agents/conversion-alchemy.md
+    depends_on: [cognitive_boardroom]
+    outputs: [copywriting]
+  frictionless_conversion:
+    agent: agents/frictionless-conversion.md
+    depends_on: [visual_axiom, neural_cloning, conversion_alchemy]
+    outputs: [landing_page]
+  memetic_propagation:
+    agent: agents/memetic-propagation.md
+    depends_on: [frictionless_conversion]
+    outputs: [distribution_plan, telemetry_loop]
+safeguards:
+  max_self_healing_attempts: 3
+  cache_layer: redis-compatible heuristic cache
+  human_alert_on_failure: true

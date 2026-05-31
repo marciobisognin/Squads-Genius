@@ -1,0 +1,28 @@
+{
+  "title": "Vectorized Heuristic Matrix",
+  "type": "object",
+  "required": [
+    "clone",
+    "sources",
+    "heuristic_vector",
+    "allowed_scope",
+    "utility_loss_function"
+  ],
+  "properties": {
+    "clone": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "heuristic_vector": {
+      "type": "object"
+    },
+    "allowed_scope": {
+      "type": "array"
+    },
+    "utility_loss_function": {
+      "type": "string"
+    }
+  }
+}

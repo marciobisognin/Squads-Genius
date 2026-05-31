@@ -1,0 +1,28 @@
+{
+  "token_budget": {
+    "strategic_boardroom": 18000,
+    "tactical_swarm": 9000,
+    "validation": 3000,
+    "total": 30000
+  },
+  "latency_budget_minutes": {
+    "classification": 0.25,
+    "boardroom": 2.5,
+    "sacp": 0.75,
+    "graphmaker": 1.5,
+    "validation": 1,
+    "total": 6
+  },
+  "cost_ceiling_usd": 1.5,
+  "model_tiers": {
+    "classifier": "fast-low-cost",
+    "boardroom": "high-reasoning-only-when-complex",
+    "swarm": "medium-fast",
+    "validator": "low-cost-structured"
+  },
+  "cache_key": "eyJtYXJrZXQiOiJwcm9kdXRv",
+  "fallback": {
+    "max_self_healing_attempts": 3,
+    "human_alert": true
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "version": "6.5",
+  "classification": {
+    "cynefin": "complex",
+    "complexity_score": 0.82,
+    "routing": "boardroom_then_sacp_then_graphmaker"
+  },
+  "vhm": [
+    {
+      "clone": "Taleb",
+      "sources": [
+        "rag/taleb/*"
+      ],
+      "heuristic_vector": {
+        "risk": 0.95,
+        "inversion": 0.45,
+        "execution": 0.5,
+        "management": 0.5
+      },
+      "allowed_scope": [
+        "strategy",
+        "risk",
+        "metrics",
+        "execution_translation"
+      ],
+      "utility_loss_function": "penalize_scope_drift + penalize_unstructured_handoff + penalize_non_actionable_claims"
+    },
+    {
+      "clone": "Munger",
+      "sources": [
+        "rag/munger/*"
+      ],
+      "heuristic_vector": {
+        "risk": 0.55,
+        "inversion": 0.95,
+        "execution": 0.5,
+        "management": 0.5
+      },
+      "allowed_scope": [
+        "strategy",
+        "risk",
+        "metrics",
+        "execution_translation"
+      ],
+      "utility_loss_function": "penalize_scope_drift + penalize_unstructured_handoff + penalize_non_actionable_claims"
+    },
+    {
+      "clone": "Drucker",
+      "sources": [
+        "rag/drucker/*"
+      ],
+      "heuristic_vector": {
+        "risk": 0.55,
+        "inversion": 0.45,
+        "execution": 0.5,
+        "management": 0.9
+      },
+      "allowed_scope": [
+        "strategy",
+        "risk",
+        "metrics",
+        "execution_translation"
+      ],
+      "utility_loss_function": "penalize_scope_drift + penalize_unstructured_handoff + penalize_non_actionable_claims"
+    },
+    {
+      "clone": "Bezos",
+      "sources": [
+        "rag/bezos/*"
+      ],
+      "heuristic_vector": {
+        "risk": 0.55,
+        "inversion": 0.45,
+        "execution": 0.9,
+        "management": 0.5
+      },
+      "allowed_scope": [
+        "strategy",
+        "risk",
+        "metrics",
+        "execution_translation"
+      ],
+      "utility_loss_function": "penalize_scope_drift + penalize_unstructured_handoff + penalize_non_actionable_claims"
+    }
+  ],
+  "stress_test": {
+    "tail_risks": [
+      "API cost explosion",
+      "context anarchy",
+      "semantic handoff failure",
+      "latency creep"
+    ],
+    "antifragility_score": 0.74,
+    "pass": true
+  },
+  "inversion": {
+    "failure_modes": [
+      "free-text handoff",
+      "uncapped debate rounds",
+      "no schema validation",
+      "all agents using premium model"
+    ],
+    "destruction_probability_before_controls": 0.68,
+    "destruction_probability_after_controls": 0.21
+  },
+  "boardroom": {
+    "rounds": [
+      {
+        "round": 1,
+        "name": "divergence",
+        "temperature": 0.8,
+        "output": "independent theses"
+      },
+      {
+        "round": 2,
+        "name": "antithesis",
+        "temperature": 0.4,
+        "output": "stress and inversion attacks"
+      },
+      {
+        "round": 3,
+        "name": "synthesis",
+        "temperature": 0.1,
+        "output": "metrics and go/no-go"
+      }
+    ],
+    "convergence_score": 0.88,
+    "decision": "go_with_governed_execution"
+  },
+  "sacp": {
+    "qualitative_claim": "O ecossistema deve evitar Torre de Babel e traduzir estratégia em execução auditável.",
+    "quantitative_translation": {
+      "min_convergence_score": 0.8,
+      "max_rounds": 3,
+      "zero_free_text_handoff": true,
+      "max_latency_minutes": 6,
+      "max_cost_usd": 1.5
+    },
+    "confidence": 0.86,
+    "task_atoms": [
+      "compile_vhm",
+      "stress_test",
+      "invert_failure_modes",
+      "synthesize_metrics",
+      "build_dag",
+      "generate_landing_spec",
+      "validate_budget"
+    ],
+    "acceptance_criteria": [
+      "schema_valid",
+      "dag_acyclic",
+      "budget_within_limits",
+      "all_handoffs_structured"
+    ]
+  },
+  "dag": [
+    {
+      "id": "cynefin_classifier",
+      "depends_on": []
+    },
+    {
+      "id": "token_latency_governor",
+      "depends_on": [
+        "cynefin_classifier"
+      ]
+    },
+    {
+      "id": "idbalance_vhm",
+      "depends_on": [
+        "cynefin_classifier"
+      ]
+    },
+    {
+      "id": "taleb_engine",
+      "depends_on": [
+        "idbalance_vhm"
+      ]
+    },
+    {
+      "id": "munger_engine",
+      "depends_on": [
+        "taleb_engine"
+      ]
+    },
+    {
+      "id": "cognitive_boardroom",
+      "depends_on": [
+        "munger_engine",
+        "token_latency_governor"
+      ]
+    },
+    {
+      "id": "relation_sacp",
+      "depends_on": [
+        "cognitive_boardroom"
+      ]
+    },
+    {
+      "id": "venture_synthesis_matrix",
+      "depends_on": [
+        "relation_sacp"
+      ]
+    },
+    {
+      "id": "graphmaker",
+      "depends_on": [
+        "venture_synthesis_matrix"
+      ]
+    },
+    {
+      "id": "visual_axiom",
+      "depends_on": [
+        "graphmaker"
+      ]
+    },
+    {
+      "id": "neural_cloning",
+      "depends_on": [
+        "graphmaker"
+      ]
+    },
+    {
+      "id": "conversion_alchemy",
+      "depends_on": [
+        "graphmaker"
+      ]
+    },
+    {
+      "id": "frictionless_conversion",
+      "depends_on": [
+        "visual_axiom",
+        "neural_cloning",
+        "conversion_alchemy"
+      ]
+    }
+  ],
+  "metrics": {
+    "north_star": "structured_blueprint_to_validated_landing_spec_rate",
+    "convergence_score": 0.88,
+    "antifragility_score": 0.74,
+    "estimated_latency_minutes": 5.75,
+    "estimated_cost_usd": 1.18
+  },
+  "governance": {
+    "token_budget": {
+      "strategic_boardroom": 18000,
+      "tactical_swarm": 9000,
+      "validation": 3000,
+      "total": 30000
+    },
+    "latency_budget_minutes": {
+      "classification": 0.25,
+      "boardroom": 2.5,
+      "sacp": 0.75,
+      "graphmaker": 1.5,
+      "validation": 1,
+      "total": 6
+    },
+    "cost_ceiling_usd": 1.5,
+    "model_tiers": {
+      "classifier": "fast-low-cost",
+      "boardroom": "high-reasoning-only-when-complex",
+      "swarm": "medium-fast",
+      "validator": "low-cost-structured"
+    },
+    "cache_key": "eyJtYXJrZXQiOiJwcm9kdXRv",
+    "fallback": {
+      "max_self_healing_attempts": 3,
+      "human_alert": true
+    }
+  }
+}

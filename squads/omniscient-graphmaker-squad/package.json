@@ -1,0 +1,12 @@
+{
+  "name": "omniscient-graphmaker-squad",
+  "version": "6.5.0",
+  "type": "commonjs",
+  "bin": {
+    "omniscient-graphmaker": "scripts/graphmaker.cjs"
+  },
+  "scripts": {
+    "smoke": "node scripts/smoke-test.cjs"
+  },
+  "license": "MIT"
+}

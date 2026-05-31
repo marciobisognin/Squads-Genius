@@ -1,0 +1,10 @@
+{
+  "events": [
+    "page_view",
+    "cta_click",
+    "lead_submit",
+    "objection_signal"
+  ],
+  "update_target": "rag_weights",
+  "cadence": "daily"
+}

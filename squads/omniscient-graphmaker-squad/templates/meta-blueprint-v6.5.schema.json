@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OMNISCIENT MetaBlueprint v6.5",
+  "type": "object",
+  "required": [
+    "version",
+    "classification",
+    "vhm",
+    "stress_test",
+    "inversion",
+    "boardroom",
+    "sacp",
+    "dag",
+    "metrics",
+    "governance"
+  ],
+  "properties": {
+    "version": {
+      "const": "6.5"
+    },
+    "classification": {
+      "type": "object",
+      "required": [
+        "cynefin",
+        "complexity_score",
+        "routing"
+      ],
+      "properties": {
+        "cynefin": {
+          "enum": [
+            "simple",
+            "complicated",
+            "complex",
+            "chaotic"
+          ]
+        },
+        "complexity_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "routing": {
+          "type": "string"
+        }
+      }
+    },
+    "vhm": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "clone",
+          "heuristic_vector",
+          "utility_loss_function"
+        ],
+        "properties": {
+          "clone": {
+            "type": "string"
+          },
+          "heuristic_vector": {
+            "type": "object"
+          },
+          "utility_loss_function": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "stress_test": {
+      "type": "object"
+    },
+    "inversion": {
+      "type": "object"
+    },
+    "boardroom": {
+      "type": "object"
+    },
+    "sacp": {
+      "type": "object"
+    },
+    "dag": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "governance": {
+      "type": "object"
+    }
+  }
+}

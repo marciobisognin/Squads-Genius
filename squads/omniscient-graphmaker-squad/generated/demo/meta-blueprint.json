@@ -1,0 +1,68 @@
+{
+  "product": "Laboratório Autônomo de Lançamento",
+  "audience": "empreendedores digitais e gestores de inovação",
+  "classification": "complex",
+  "metrics": {
+    "north_star": "qualified_conversion_rate",
+    "activation": "brief_to_blueprint_minutes",
+    "conversion": "landing_cta_click_rate",
+    "learning": "telemetry_feedback_quality",
+    "cost_guardrail": "boardroom_cache_hit_rate"
+  },
+  "dag": [
+    {
+      "id": "cynefin_classifier",
+      "depends_on": [],
+      "output": "classification"
+    },
+    {
+      "id": "cognitive_boardroom",
+      "depends_on": [
+        "cynefin_classifier"
+      ],
+      "output": "meta_blueprint"
+    },
+    {
+      "id": "visual_axiom",
+      "depends_on": [
+        "cognitive_boardroom"
+      ],
+      "output": "design_system"
+    },
+    {
+      "id": "neural_cloning",
+      "depends_on": [
+        "cognitive_boardroom"
+      ],
+      "output": "voice_dna"
+    },
+    {
+      "id": "conversion_alchemy",
+      "depends_on": [
+        "cognitive_boardroom"
+      ],
+      "output": "copywriting"
+    },
+    {
+      "id": "frictionless_conversion",
+      "depends_on": [
+        "visual_axiom",
+        "neural_cloning",
+        "conversion_alchemy"
+      ],
+      "output": "landing_page"
+    },
+    {
+      "id": "memetic_propagation",
+      "depends_on": [
+        "frictionless_conversion"
+      ],
+      "output": "telemetry_loop"
+    }
+  ],
+  "safeguards": {
+    "cache": "redis-compatible",
+    "max_self_healing_attempts": 3,
+    "human_alert_on_failure": true
+  }
+}

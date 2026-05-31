@@ -1,0 +1,11 @@
+{
+  "product_name": "Laboratório Autônomo de Lançamento",
+  "audience": "empreendedores digitais e gestores de inovação",
+  "promise": "converter ideias em landing pages e experimentos mensuráveis em 48 horas",
+  "constraints": [
+    "baixo custo de inferência",
+    "DAG auditável",
+    "self-healing limitado a 3 tentativas"
+  ],
+  "market": "produtos digitais B2B e educação empreendedora"
+}

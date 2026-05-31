@@ -1,0 +1,7 @@
+{
+  "north_star": "qualified_conversion_rate",
+  "activation": "brief_to_blueprint_minutes",
+  "conversion": "landing_cta_click_rate",
+  "learning": "telemetry_feedback_quality",
+  "cost_guardrail": "boardroom_cache_hit_rate"
+}

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "cynefin_classifier",
+    "depends_on": []
+  },
+  {
+    "id": "token_latency_governor",
+    "depends_on": [
+      "cynefin_classifier"
+    ]
+  },
+  {
+    "id": "idbalance_vhm",
+    "depends_on": [
+      "cynefin_classifier"
+    ]
+  },
+  {
+    "id": "taleb_engine",
+    "depends_on": [
+      "idbalance_vhm"
+    ]
+  },
+  {
+    "id": "munger_engine",
+    "depends_on": [
+      "taleb_engine"
+    ]
+  },
+  {
+    "id": "cognitive_boardroom",
+    "depends_on": [
+      "munger_engine",
+      "token_latency_governor"
+    ]
+  },
+  {
+    "id": "relation_sacp",
+    "depends_on": [
+      "cognitive_boardroom"
+    ]
+  },
+  {
+    "id": "venture_synthesis_matrix",
+    "depends_on": [
+      "relation_sacp"
+    ]
+  },
+  {
+    "id": "graphmaker",
+    "depends_on": [
+      "venture_synthesis_matrix"
+    ]
+  },
+  {
+    "id": "visual_axiom",
+    "depends_on": [
+      "graphmaker"
+    ]
+  },
+  {
+    "id": "neural_cloning",
+    "depends_on": [
+      "graphmaker"
+    ]
+  },
+  {
+    "id": "conversion_alchemy",
+    "depends_on": [
+      "graphmaker"
+    ]
+  },
+  {
+    "id": "frictionless_conversion",
+    "depends_on": [
+      "visual_axiom",
+      "neural_cloning",
+      "conversion_alchemy"
+    ]
+  }
+]
