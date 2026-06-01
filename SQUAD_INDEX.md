@@ -12,6 +12,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
 - [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`
 - [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.1.0` — pesquisa científica, síntese de evidências e artigo acadêmico auditável
+- [Manopla da Forja — Venture Squad](squads/manopla-da-forja-venture-squad/README.md) — `manopla-da-forja-venture-squad` — versão `1.0.0` — venture design AI Native para transformar ideias em negócios estruturados
 - [Maeve Athena-Mímir Venture Forge](squads/maeve-athena-mimir-venture-forge-squad/README.md) — `maeve-athena-mimir-venture-forge-squad` — versão `1.1.0`
 - [Maeve Carrossel Premium Instagram PT-BR](squads/maeve-carrossel-premium-instagram-ptbr/README.md) — `maeve-carrossel-premium-instagram-ptbr` — versão `1.1.0`
 - [Maeve Lumen Leitura — Squad Premium de Alfabetização Fonológica](squads/maeve-lumen-leitura-squad/README.md) — `maeve-lumen-leitura-squad` — versão `1.0.0`

@@ -1,0 +1,7 @@
+quality_gates:
+  fator_de_coesao_minima:
+    rule: "Outputs de design devem usar estritamente as diretrizes de público-alvo do Defensor da Comunidade."
+  consistencia_semantica:
+    rule: "Travar execução se houver contradição lógica insustentável entre modelo de negócios e restrições técnicas."
+  tempo_resposta:
+    rule: "Ciclo completo alvo: até 5 minutos de processamento assíncrono para uma forja estruturada."

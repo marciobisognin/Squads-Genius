@@ -1,0 +1,12 @@
+FORGE_STDOUT:
+/data/data/com.termux/files/home/squad-factory/workspaces/manopla-da-forja-venture-squad/output/demo-manopla.md
+
+FORGE_STDERR:
+
+VALIDATE_STDOUT:
+
+VALIDATE_STDERR:
+  File "/data/data/com.termux/files/home/squad-factory/workspaces/manopla-da-forja-venture-squad/scripts/validate_squad.py", line 20
+    print('VALIDATION_FAILED'); print('
+                                      ^
+SyntaxError: unterminated string literal (detected at line 20)

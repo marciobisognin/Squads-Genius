@@ -1,0 +1,18 @@
+workflow: forja-negocios
+version: 1.0.0
+phases:
+  - id: ignicao
+    name: "Fase de Ignição — O Minério Bruto"
+    agents: [arquiteto-sentido]
+  - id: refino
+    name: "Fase de Refino — Mente & Alma"
+    agents: [arquiteto-sentido, defensor-comunidade]
+  - id: modelagem
+    name: "Fase de Modelagem — Espaço & Realidade"
+    agents: [defensor-portais, designer-realidade]
+  - id: compressao
+    name: "Fase de Compressão — Poder & Tempo"
+    agents: [mestre-forja, cronos-anualista]
+  - id: output
+    name: "Manopla de Negócios"
+    agents: [guardiao-coesao]

@@ -1,0 +1,76 @@
+name: forja-infinita-venture-squad
+legacy_slug: manopla-da-forja-venture-squad
+display_name: "🏛️ Forja Infinita — Squad de Agentes de IA para Criação de Negócios"
+version: "1.1.0"
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+status: premium-ready
+domain: "negócios AI Native, ideação, MVP, go-to-market, comunidade, automação e roadmap"
+visual_style: dark-neon-layered-architecture
+inspiration: "Forja de Nidavellir + Joias do Infinito como metáfora operacional de engenharia de negócios"
+objective: "Transformar o Minério Bruto de uma ideia em uma estrutura comercial validada, funcional e pronta para MVP/mercado."
+mode: YOLO-local-safe
+architecture:
+  type: multiagent-graph
+  coordination: dynamic-output-to-adjacent-nodes
+  artifact: Manopla de Negócios / Codex de Visão
+inputs:
+  - ideia ou oportunidade de mercado
+  - público ou comunidade pretendida
+  - restrições técnicas/financeiras conhecidas
+outputs:
+  - Codex de Visão
+  - Canvas IA
+  - Declaração de Posicionamento
+  - Grafo de Regras Invioláveis
+  - API Map
+  - Stack Tecnológica
+  - Canais de Distribuição
+  - Tokens de Design
+  - Copywriting de Landing Page
+  - Estrutura de Componentes Front-end
+  - Mapa de Empatia
+  - Estratégia de Growth/Comunidade
+  - Régua CRM
+  - Pipelines Back-office/n8n
+  - Matriz de Viabilidade Financeira
+  - Fluxograma Operacional
+  - GANTT Preditivo IA
+  - Roadmap Alfa/Beta/Geral
+  - Projeção de Break-even
+agents:
+  - id: arquiteto-sentido
+    file: agents/arquiteto-sentido.md
+    artifact: Joia da Mente
+  - id: defensor-portais
+    file: agents/defensor-portais.md
+    artifact: Joia do Espaço
+  - id: designer-realidade
+    file: agents/designer-realidade.md
+    artifact: Joia da Realidade
+  - id: defensor-comunidade
+    file: agents/defensor-comunidade.md
+    artifact: Joia da Alma
+  - id: mestre-forja
+    file: agents/mestre-forja.md
+    artifact: Joia do Poder
+  - id: cronos-anualista
+    file: agents/cronos-anualista.md
+    artifact: Joia do Tempo
+workflows:
+  - workflows/forja-negocios.yaml
+  - workflows/quality-gates.yaml
+tasks:
+  - tasks/forjar-negocio.md
+templates:
+  - templates/manopla-de-negocios.md
+references:
+  - references/prd-forja-infinita.md
+  - references/manual-identidade-execucao.md
+scripts:
+  - scripts/forge_venture.py
+  - scripts/validate_squad.py
+validation:
+  smoke_test: validation/smoke-test.log
+  generation_report: validation/generation-report.md
