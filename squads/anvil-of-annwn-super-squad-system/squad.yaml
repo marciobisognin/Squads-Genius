@@ -1,0 +1,170 @@
+{
+  "name": "Bigorna de Annwn — Super Sistema de Squads",
+  "slug": "anvil-of-annwn-super-squad-system",
+  "version": "1.0.0",
+  "license": "MIT",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "visual_style": "dark-neon-layered-architecture",
+  "mission": "Orquestrar squads especializados para transformar qualquer insumo estratégico em produto, oferta, MVP e validação comercial.",
+  "symbolic_system": {
+    "marvel_obscure": [
+      "Nega-Bands",
+      "Star Brand",
+      "Siege Perilous",
+      "M’Kraan Crystal",
+      "Universal Wellspring",
+      "Nullifier",
+      "Forge",
+      "Sersi",
+      "Tinkerer"
+    ],
+    "greek": [
+      "Ananke",
+      "Eirene",
+      "Ariadne",
+      "Aegis"
+    ],
+    "celtic": [
+      "Annwn",
+      "Nemeton",
+      "Ogma",
+      "Nuada",
+      "Manannán",
+      "Cerridwen",
+      "Taranis",
+      "Brigid"
+    ]
+  },
+  "agents": [
+    {
+      "id": "ianus-kree",
+      "name": "Guardião de Ianus-Kree",
+      "artifact": "Pórtico de Ianuária + Nega-Bands",
+      "role": "intake, leitura de contexto, roteamento de missão e criação do mapa inicial"
+    },
+    {
+      "id": "brigid-tinkerer",
+      "name": "Forjadora Brigid-Tinkerer",
+      "artifact": "Caldeirão de Brigid + Tinkerer obscuro",
+      "role": "decomposição técnica, arquitetura de squads, componentes e constraints"
+    },
+    {
+      "id": "ogma-cypher",
+      "name": "Cifrador Ogma-Cypher",
+      "artifact": "Ogham de Ogma + Darkhold como símbolo controlado",
+      "role": "semântica, linguagem do público, ontologias, memória e nomes"
+    },
+    {
+      "id": "aegis-sersi",
+      "name": "Metamorfa Aegis-Sersi",
+      "artifact": "Égide órfica + Sersi dos Eternos",
+      "role": "design, identidade, experiência, páginas, dashboards e narrativa visual"
+    },
+    {
+      "id": "nuada-starbrand",
+      "name": "Executor Nuada-Starbrand",
+      "artifact": "Lâmina de Nuada + Star Brand",
+      "role": "execução de MVP, scripts, automações, protótipos e squads operacionais"
+    },
+    {
+      "id": "manannan-portal",
+      "name": "Navegador Manannán-Portal",
+      "artifact": "Barco Wave Sweeper + Siege Perilous",
+      "role": "integrações, APIs, conectores, canais e ferramentas agent-ready"
+    },
+    {
+      "id": "ananke-watch",
+      "name": "Vigia Ananke-Watch",
+      "artifact": "Fuso de Ananke + Chronometer of Life",
+      "role": "tempo, roadmap, riscos, critérios, validação e ciclo de vida"
+    },
+    {
+      "id": "cerridwen-market",
+      "name": "Alquimista Cerridwen-Market",
+      "artifact": "Caldeirão de Cerridwen + Universal Wellspring",
+      "role": "mercado, oferta, precificação, conversão, validação e venda"
+    },
+    {
+      "id": "nemeton-oracle",
+      "name": "Oráculo Nemeton",
+      "artifact": "Nemeton celta + M’Kraan Crystal",
+      "role": "pesquisa profunda, benchmarking, tendências e síntese estratégica"
+    },
+    {
+      "id": "eirene-tribunal",
+      "name": "Tribunal Eirene",
+      "artifact": "Ramos de Eirene + Nullifier como símbolo de veto",
+      "role": "quality gates, ética, segurança, contradições e revisão humana"
+    },
+    {
+      "id": "ariadne-huldra",
+      "name": "Tecelã Ariadne-Huldra",
+      "artifact": "Fio de Ariadne + glamour huldra controlado",
+      "role": "workflow, memória, rastreabilidade, documentação e handoff"
+    },
+    {
+      "id": "taranis-forge",
+      "name": "Condutor Taranis-Forge",
+      "artifact": "Roda de Taranis + Forge mutante",
+      "role": "observabilidade, métricas, dashboards, smoke tests e melhoria contínua"
+    }
+  ],
+  "internal_squads": [
+    {
+      "name": "Nemeton Survey Engine",
+      "scope": "pesquisa, formulários, transcrições e dados brutos"
+    },
+    {
+      "name": "Cerridwen Offerbook Forge",
+      "scope": "livro da oferta, ICP, dores, promessa, preço e prova"
+    },
+    {
+      "name": "Sersi Reality Studio",
+      "scope": "design systems, dashboards, landing pages e apresentações"
+    },
+    {
+      "name": "Nuada MVP Crucible",
+      "scope": "MVP, automações, scripts e protótipos agent-ready"
+    },
+    {
+      "name": "Manannán Connector Fleet",
+      "scope": "APIs, MCPs, CLIs, canais e integrações"
+    },
+    {
+      "name": "Ogma Memory Codex",
+      "scope": "company brain, taxonomia, conhecimento e skills"
+    },
+    {
+      "name": "Taranis Benchmark Observatory",
+      "scope": "Tech Research, comparadores, scores e matrizes"
+    },
+    {
+      "name": "Ariadne Contract Loom",
+      "scope": "propostas, contratos, handoff e rastreabilidade"
+    },
+    {
+      "name": "Eirene Risk Citadel",
+      "scope": "quality gates, compliance, segurança e revisão humana"
+    },
+    {
+      "name": "Ananke Launch Chronogram",
+      "scope": "roadmap, GANTT, go-to-market e ciclo de vida"
+    }
+  ],
+  "workflows": [
+    "workflows/annwn-forge-main.yaml",
+    "workflows/dspc-supercycle.yaml",
+    "workflows/quality-gates.yaml"
+  ],
+  "scripts": [
+    "scripts/annwn_forge.py",
+    "scripts/validate_squad.py"
+  ],
+  "templates": [
+    "templates/intake.yaml",
+    "templates/prd_module.md",
+    "templates/offerbook.md",
+    "templates/quality_gate.md"
+  ]
+}

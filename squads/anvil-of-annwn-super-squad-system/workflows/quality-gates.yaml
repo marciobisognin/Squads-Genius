@@ -1,0 +1,7 @@
+name: quality-gates
+gates:
+  evidence_traceability: every claim must map to a source, timestamp, response or declared assumption
+  offer_coherence: product, ICP, pain, promise and price must not contradict each other
+  technical_feasibility: MVP must be executable with available stack or mark missing dependencies
+  safety_review: legal, financial, privacy and reputational risks must be visible
+  human_approval: external publishing, payments, official submissions and irreversible actions require approval

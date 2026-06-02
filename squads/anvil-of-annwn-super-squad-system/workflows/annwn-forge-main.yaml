@@ -1,0 +1,23 @@
+name: annwn-forge-main
+phases:
+  - id: ignition
+    owner: ianus-kree
+    outputs: [intake-map, mission-routing]
+  - id: evidence-nemeton
+    owner: nemeton-oracle
+    outputs: [source-map, market-benchmark, evidence-matrix]
+  - id: offer-cerridwen
+    owner: cerridwen-market
+    outputs: [offerbook, pricing-hypotheses, validation-plan]
+  - id: reality-sersi
+    owner: aegis-sersi
+    outputs: [design-system, dashboard-plan, landing-page-spec]
+  - id: mvp-nuada
+    owner: nuada-starbrand
+    outputs: [mvp-architecture, automation-plan, integration-map]
+  - id: gates-eirene
+    owner: eirene-tribunal
+    outputs: [quality-report, risk-vetoes, human-review-requests]
+  - id: chronology-ananke
+    owner: ananke-watch
+    outputs: [roadmap, gantt, launch-sequence]
