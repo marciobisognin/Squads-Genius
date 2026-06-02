@@ -1,0 +1,12 @@
+schema:
+  objective: string
+  facts_verified: list
+  inferences: list
+  hypotheses: list
+  bull_case: list
+  bear_case: list
+  risk_matrix: list
+  evidence_score: number
+  missing_data: list
+  educational_conclusion: string
+  disclaimer: string

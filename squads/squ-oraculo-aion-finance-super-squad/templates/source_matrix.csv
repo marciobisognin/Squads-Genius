@@ -1,0 +1,6 @@
+source,type,frequency,agent,verification_required
+FRED,macro,scheduled,squ-central,true
+Yahoo Finance,market,daily,squ-equities,true
+SEC EDGAR,filings,scheduled,squ-letters,true
+Central Bank websites,policy,scheduled,squ-central,true
+News portals,news,continuous,squ-news,true

@@ -1,0 +1,9 @@
+name: adversarial-risk-review
+steps:
+  - construct_bull_case
+  - construct_bear_case
+  - identify_hidden_assumptions
+  - quantify_if_data_available
+  - mark_unverified_claims
+  - block_if_personalized_recommendation_without_review
+  - produce_safe_educational_output

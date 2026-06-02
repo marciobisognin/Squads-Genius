@@ -1,0 +1,20 @@
+name: aion-global-finance-dag
+phases:
+  - id: intake
+    owner: squ-strategy
+    outputs: [user_profile, horizon, risk_limits, question]
+  - id: domain_parallel_analysis
+    parallel: [squ-geo, squ-hist, squ-eventor, squ-libquant, squ-sysarch, squ-forex, squ-equities, squ-central, squ-letters, squ-deriva, squ-news]
+    outputs: [domain_reports]
+  - id: adversarial_council
+    owner: squ-bullbear
+    outputs: [bull_case, bear_case, contradiction_map]
+  - id: risk_gate
+    owner: squ-risk
+    outputs: [risk_report, sizing_constraints, vetoes]
+  - id: compliance_gate
+    owner: squ-compliance
+    outputs: [safe_language_report, disclaimer, required_human_review]
+  - id: final_delivery
+    owner: squ-portfolio
+    outputs: [educational_research_report, watchlist, monitoring_plan]

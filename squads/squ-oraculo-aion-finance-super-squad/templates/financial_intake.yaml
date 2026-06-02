@@ -1,0 +1,9 @@
+objective: ""
+horizon: "intraday | swing | months | years | educational"
+capital_range: "optional"
+risk_tolerance: "low | medium | high"
+jurisdiction: "Brazil | US | EU | other"
+asset_classes: []
+constraints: []
+data_sources_available: []
+not_financial_advice_acknowledged: true

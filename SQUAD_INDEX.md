@@ -26,6 +26,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [pearson-specter-nova-legal-squad](squads/pearson-specter-nova-legal-squad/README.md) — `pearson-specter-nova-legal-squad` — versão `1.0.0`
 - [Proactive AI OS Squad](squads/proactive-ai-os-squad/README.md) — `proactive-ai-os-squad` — versão `1.0.0` — sistema agentivo para contexto, skills, workflows e automações proativas
 - [Prisma Psíquico Integrativo](squads/prisma-psiquico-integrativo/README.md) — `prisma-psiquico-integrativo` — versão `1.0.0`
+- [SQU Oráculo de Aion](squads/squ-oraculo-aion-finance-super-squad/README.md) — `squ-oraculo-aion-finance-super-squad` — versão `1.0.0` — inteligência financeira global educacional, cenários, risco e relatórios auditáveis
 - [skeptic-protocol](squads/skeptic-protocol/README.md) — `skeptic-protocol` — versão `1.0.0`
 - [VetorNexo](squads/vetornexo-premium-squad/README.md) — `vetornexo-premium-squad` — versão `1.0.0`
 - [vetorviveiro-squad](squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`

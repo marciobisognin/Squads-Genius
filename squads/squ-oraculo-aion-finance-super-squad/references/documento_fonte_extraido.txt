@@ -1,0 +1,1077 @@
+[2] Prompt usado
+[5] Eu quero construir um grupo de agentes que se chama SQU, e esses agentes v passar por toda a estrut que envolve especialistas no nível dos maiores fundos do mundo, oRock na do mercado financeiro. Então, eu quero uma sequência, v agentes que vão percorrer todo o arcabço do mercado financeiro para encontrar as melhores oportunidades, os melores ativos a serem comprados, com a maização dos lucros, obtendo duas, três, quatroes ac do esperado. O que essesentes vão fazer? Vai ter um agente que vai anar só aão geopolítica global, do momento, vai ter agentes que só vão analisar toda a estrutura histórica, seja de ativos financeir seja de como as economias globais estavamquele determinado período do tempo, o que aconteceu, quais são principais eventos queorreram, que desencadearam alguma coisa no merc financeiro. Vai ter um ag especialista só na área de história, só para identificar o que aconteceu e por que acceu aqueles elementos.
+[7] Vai ter um agente especialista só em identificar livros e técnicas e abordagens que funcionaram ao longo dos anos, ou que mostraram assimetria dos mercados. Vai ter um especialista somente em sistemas, ou seja, ele vai entender profundamente como funciona sistemas como o da Bloomberg, como funcionam outros sistemas o da BlackRock, como funciona esses HFTs como o Aladdin da BlackRock. Ele entender todo o funcionamento e esses algoritmos disam, quando que eles compram, quando eles vendem, quais são as simulações que elesam. Vai ter um agente especialista somente em câmbio, em moedas, onde estão oshores ativ onde está a assria dos negócios. Vai ter um especialista, umente só analisando só bolsas de val globais, o está acontecendo no mundo inte em relação às bolsas de valores. V um agente somente especialista em bancos centra ou se ele vai entender como funciona o Banco Central do, ele vaiender como funciona o Banco Central do F americano, derasias do mundo, principalmente a Alemanha, a França, a Inglra. Ele vai at das informativas desses bancos centra para
+[9] entenderatamente que eles estão fazendo, como é quees estão moviment o dinheiro, para onde está indo os títulos públic quem está comprando, qu são os bancos, quais são os investidores. Vai ter um out agente especialista em cartas de grandes fundos para analisar o que esses fundos estão mapeando, o que eles estão comprando, o que elão vendo, o que está implícito nessas cartas de que eles publicam os seus investores. Vai ter umente somente especialista em opções, em derivativos, ou seja, ele vaiapear o mercado inteiro, se o mercadoeiro, oado estrangeiro vai encontrar os melh ativos onde existe assimetria, onde o ganho é máximo, onde ele obter alta performance. Vai ter um outro agente que vai simpmente analisar tudo o que está sendo gerado vaiar para uma equipe para analis o que o usuário deseja investir, o que ele dese comprar, vai montar a melhor estratégia, dando sugestões, fazendo pergas para o usuário, e encontrando os ativos de máx performance, ouja, com o mínimo investido, o retorno vai ser máximo. E vai ter um outro agente que passar também para out equipe, ouja, vai ter vários
+[11] agentes trabalhando onde eles vãoalisar as ações, carteiras, vão ver onde deve ser investido, qual é o período a ser investido, por que deve serestido daquela forma, quanto que vai ser o risco, qual é o retorno esperado. Vai dar sugestões de acompanhament ou se em que momento deve-se comprar, deve-se vender, quais at deve-se analisar, o que está acontecendo no mundo. Vai ter um agente somente especialista em notícias, ou seja, ele vai vasculhar todo a internet, principalmente em portais de notícias economia especializada, como o próp site da Bloomberg, o Yahoo Finança, o Google Finança, o Investing, oingView. Ou seja, onde estiver no mundo especialistas em finanças e publicações periódicas envolvendo finanças, eles vão analisar. Me retorne um PRD completo com tudo o que e passei ali para ser construíd um SQU que vai vasculhar me dar resp asstiva sobre o mercado financeiro global.
+[13] ---((
+[15] Eu quero construir um grupo de agentes que se chama SQU, e esses agentes v passar por toda a estrut que envolve especialistas no nível dos maiores fundos do mundo, oRock na do mercado financeiro. Então, eu quero uma sequência, v agentes que vão percorrer todo o arcabço do mercado financeiro para encontrar as melhores oportunidades, os melores ativos a serem comprados, com a maização dos lucros, obtendo duas, três, quatroes ac do esperado. O que essesentes vão fazer? Vai ter um agente que vai anar só aão geopolítica global, do momento, vai ter agentes que só vão analisar toda a estrutura histórica, seja de ativos financeir seja de como as economias globais estavamquele determinado período do tempo, o que aconteceu, quais são principais eventos queorreram, que desencadearam alguma coisa no merc financeiro. Vai ter um ag especialista só na área de história, só para identificar o que aconteceu e por que acceu aqueles elementos. Vai ter um agente especialista só em identificar livros e técnicas e abordagens que funcionaram
+[17] ao longo dos anos, ou que mostraram assimetria dos mercados. Vai ter um especialista somente em sistemas, ou seja, ele vai entender profundamente como funciona sistemas como o da Bloomberg, como funcionam outros sistemas o da BlackRock, como funciona esses HFTs como o Aladdin da BlackRock. Ele entender todo o funcionamento e esses algoritmos disam, quando que eles compram, quando eles vendem, quais são as simulações que elesam. Vai ter um agente especialista somente em câmbio, em moedas, onde estão oshores ativ onde está a assria dos negócios. Vai ter um especialista, umente só analisando só bolsas de val globais, o está acontecendo no mundo inte em relação às bolsas de valores. V um agente somente especialista em bancos centra ou se ele vai entender como funciona o Banco Central do, ele vaiender como funciona o Banco Central do F americano, derasias do mundo, principalmente a Alemanha, a França, a Inglra. Ele vai at das informativas desses bancos centra para entenderatamente que eles estão fazendo, como é quees estão moviment o dinheiro, para
+[19] onde está indo os títulos públic quem está comprando, qu são os bancos, quais são os investidores. Vai ter um out agente especialista em cartas de grandes fundos para analisar o que esses fundos estão mapeando, o que eles estão comprando, o que elão vendo, o que está implícito nessas cartas de que eles publicam os seus investores. Vai ter umente somente especialista em opções, em derivativos, ou seja, ele vaiapear o mercado inteiro, se o mercadoeiro, oado estrangeiro vai encontrar os melh ativos onde existe assimetria, onde o ganho é máximo, onde ele obter alta performance. Vai ter um outro agente que vai simpmente analisar tudo o que está sendo gerado vaiar para uma equipe para analis o que o usuário deseja investir, o que ele dese comprar, vai montar a melhor estratégia, dando sugestões, fazendo pergas para o usuário, e encontrando os ativos de máx performance, ouja, com o mínimo investido, o retorno vai ser máximo. E vai ter um outro agente que passar também para out equipe, ouja, vai ter vários agentes trabalhando onde eles vãoalisar as ações, carteiras, vão ver onde deve ser investido,
+[21] qual é o período a ser investido, por que deve serestido daquela forma, quanto que vai ser o risco, qual é o retorno esperado. Vai dar sugestões de acompanhament ou se em que momento deve-se comprar, deve-se vender, quais at deve-se analisar, o que está acontecendo no mundo. Vai ter um agente somente especialista em notícias, ou seja, ele vai vasculhar todo a internet, principalmente em portais de notícias economia especializada, como o próp site da Bloomberg, o Yahoo Finança, o Google Finança, o Investing, oingView. Ou seja, onde estiver no mundo especialistas em finanças e publicações periódicas envolvendo finanças, eles vão analisar. Me retorne um PRD completo com tudo o que e passei ali para ser construíd um SQU que vai vasculhar me dar resp asstiva sobre o mercado financeiro global.
+[23] # PRD — Sistema SQU: Squad de Agentes de Inteligência Financeira Global
+[25] **SQU (Squad de Quant & Intelligence)** é um sistema multi-agente de IA especializada, projetado para vasculhar o mercado financeiro
+[27] global com a profundidade de um fundo institucional de nível BlackRock/Bridgewater, entregando ao usuário as melhores assimetrias e oportunidades de investimento com máxima performance e risco calculado.
+[29] ***
+[31] ## 1. Visão do Produto
+[33] **Objetivo:** Replicar o arcabouço analítico dos maiores fundos do mundo por meio de agentes LLM especializados que trabalham de forma colaborativa, tal como frameworks como TradingAgents e MASFIN já demonstraram ser superiores a modelos de agente único em retornos acumulados, Sharpe ratio e drawdown máximo [1][2].
+[35] **Princípio central:** Com o mínimo de capital investido → retorno máximo → assimetria identificada de forma sistêmica.
+[37] ***
+[39] ## 2. Arquitetura Geral do SQU
+[41] O sistema opera em **três camadas**:
+[43] - **Camada 1 — Coleta & Especialização:** Agentes coletam e analisam dados em domínios específicos de forma paralela
+[44] - **Camada 2 — Síntese & Debate:** Agentes consolidadores sintetizam os outputs, incluindo agentes Bull vs. Bear para debate adversarial (padrão validado pelo TradingAgents) [3]
+[45] - **Camada 3 — Decisão & Entrega:** Agente Portfolio Manager entrega ao usuário a estratégia final com sugestões, perguntas de refinamento e acompanhamento contínuo
+[47] O orquestrador central (padrão similar ao Aladdin Copilot da BlackRock, que usa LangGraph + LangChain em produção gerenciando mais de US$ 11 trilhões) [4] coordena todos os agentes via grafo de dependências.
+[49] ***
+[51] ## 3. Catálogo Completo de Agentes
+[53] ### Agentes da Camada 1 — Especialistas de Domínio
+[55] | Agente | Nome | Escopo Principal | Fontes-Chave |
+[56] |---|---|---|---|
+[57] | SQU-GEO | Analista Geopolítico | Conflitos, sanções, eleições, tensões regionais e seus impactos em ativos | Reuters, AP, Foreign Affairs, CFR |
+[58] | SQU-HIST | Historiador de Mercados | Ciclos históricos, crises (1929, 2008, etc.), padrões econômicos por era | NBER, livros acadêmicos, Fed archives |
+[59] | SQU-BOOK | Curador de Estratégias | Técnicas de fundos lendários (Dalio, Simons, Buffett), livros e abordagens com assimetria comprovada | Cartas anuais, publicações acadêmicas, Kaggle |
+[60] | SQU-SYS | Especialista em Sistemas | Funcionamento do Aladdin (BlackRock), Bloomberg Terminal, HFTs, algoritmos de compra/venda e simulações [4][5] |
+[62] Documentações técnicas, papers de HFT |
+[63] | SQU-FX | Especialista em Câmbio | Pares de moedas, fluxo de capital global, carry trade, assimetrias cambiais | Bloomberg FX, BIS, bancos centrais |
+[64] | SQU-EQ | Analista de Bolsas Globais | NYSE, NASDAQ, B3, LSE, TSE, SSE — movimentos, setores em alta/baixa, rotação | Yahoo Finance, Investing.com, TradingView |
+[65] | SQU-CB | Especialista em Bancos Centrais | Fed, BCE, Banco da Inglaterra, Banco do Japão, BCB — atas, política monetária, compra de títulos, quem detém o quê | FOMC minutes, ECB statements, BACEN |
+[66] | SQU-FUND | Leitor de Cartas de Fundos | Análise de cartas de Bridgewater, Pershing Square, AQR, ARK, Dynamo, SPX Capital | SEC 13F filings, cartas públicas de fundos |
+[67] | SQU-OPT | Especialista em Derivativos & Opções | Mapeamento de assimetria em opções, Put/Call ratio, volatilidade implícita, estruturas de termo | CBOE, B3 derivativos, Unusual Whales |
+[68] | SQU-NEWS | Vasculhador de Notícias | Monitoramento contínuo de Bloomberg, Yahoo
+[70] Finance, Google Finance, Investing, TradingView, portais especializados | APIs de notícias financeiras em tempo real |
+[72] ### Agentes da Camada 2 — Síntese e Debate
+[74] | Agente | Função |
+[75] |---|---|
+[76] | SQU-BULL | Constrói tese otimista com base nos outputs da Camada 1 |
+[77] | SQU-BEAR | Constrói tese pessimista / identifica riscos ocultos |
+[78] | SQU-SYNTH | Sintetiza o debate Bull vs. Bear em estratégia balanceada |
+[79] | SQU-RISK | Calcula drawdown máximo, VaR, concentração de risco, sugestão de sizing |
+[81] ### Agentes da Camada 3 — Interface e Decisão
+[83] | Agente | Função |
+[84] |---|---|
+[85] | SQU-STRATEGY | Monta a estratégia final, pergunta ao usuário sobre objetivos, prazo e tolerância a risco |
+[86] | SQU-PORTFOLIO | Define quais ativos, quanto
+[88] alocar, quando comprar/vender, métricas de acompanhamento |
+[89] | SQU-COACH | Monitora continuamente a carteira, alerta sobre mudanças de cenário, sugere rebalanceamentos |
+[91] ***
+[93] ## 4. Fluxo de Execução
+[95] ```
+[96] [Usuário faz pergunta / define objetivo]
+[97] ↓
+[98] [SQU-STRATEGY coleta intenção e perfil]
+[99] ↓
+[100] [Orquestrador dispara TODOS os agentes Camada 1 em paralelo]
+[101] ↓
+[102] [SQU-BULL e SQU-BEAR debatem os outputs]
+[103] ↓
+[104] [SQU-SYNTH consolida → SQU-RISK calcula exposição]
+[105] ↓
+[106] [SQU-PORTFOLIO monta carteira / recomendações]
+[108] ↓
+[109] [SQU-COACH monitora e envia alertas contínuos]
+[110] ```
+[112] Este padrão espelha a arquitetura validada em frameworks como MASFIN (NeurIPS 2025), que entregou 7,33% de retorno acumulado em 8 semanas, superando S&P 500, NASDAQ-100 e Dow Jones em 6 das 8 semanas [2].
+[114] ***
+[116] ## 5. Stack Tecnológica Recomendada
+[118] - **Orquestração:** LangGraph (usado pela BlackRock em produção no Aladdin) [4]
+[119] - **Framework de Agentes:** LangChain + CrewAI (suportado como padrão enterprise) [6]
+[120] - **LLMs Base:** GPT-4.1 / Claude 3.7 Sonnet (raciocínio financeiro complexo)
+[121] - **Memória de Longo Prazo:** Vector DB (Pinecone ou Weaviate) para histórico de mercado
+[122] - **Dados em Tempo Real:** APIs da Bloomberg, Yahoo Finance, Alpha Vantage, FRED (Fed), BIS
+[123] - **Dados Históricos:** WRDS, Quandl, Yahoo
+[125] Finance histórico, NBER Macrohistory Database
+[126] - **Execução de Código:** Python (Pandas, NumPy, QuantLib) para cálculos de risco e backtesting
+[127] - **Monitoramento:** LangSmith para rastreabilidade de cada decisão de agente
+[129] ***
+[131] ## 6. Requisitos Funcionais (RF)
+[133] - **RF-01:** Todos os agentes da Camada 1 devem operar em paralelo para minimizar latência total
+[134] - **RF-02:** SQU-HIST deve manter base vetorial com eventos financeiros históricos indexados por data, tipo de evento e impacto em classes de ativos
+[135] - **RF-03:** SQU-CB deve processar automaticamente atas do Fed (FOMC), BCE e BCB no dia de publicação
+[136] - **RF-04:** SQU-FUND deve parsear cartas de fundos em PDF e extrair teses implícitas e ativos mencionados
+[137] - **RF-05:** SQU-OPT deve calcular e rankear
+[139] assimetrias por razão risco/retorno ≥ 3:1
+[140] - **RF-06:** SQU-RISK deve bloquear recomendações com drawdown projetado superior ao limite definido pelo usuário
+[141] - **RF-07:** SQU-NEWS deve operar em polling contínuo (mínimo a cada 15 minutos em horário de mercado)
+[142] - **RF-08:** SQU-PORTFOLIO deve sempre apresentar: ativo, entrada sugerida, stop-loss, alvo, prazo, justificativa e score de confiança
+[144] ***
+[146] ## 7. Requisitos Não-Funcionais (RNF)
+[148] - **RNF-01:** Latência total de resposta completa ≤ 90 segundos para análise síntese
+[149] - **RNF-02:** Rastreabilidade total — toda recomendação deve ter cadeia de raciocínio auditável
+[150] - **RNF-03:** Sem alucinação financeira — dados de preço e fundamentals sempre vindos de APIs verificadas, nunca do LLM
+[151] - **RNF-04:** Conformidade com LGPD e regulação CVM (dados do usuário nunca usados
+[153] para treino)
+[154] - **RNF-05:** Sistema deve rodar backtesting automatizado de estratégias antes de recomendá-las
+[156] ***
+[158] ## 8. Métricas de Sucesso
+[160] | Métrica | Meta |
+[161] |---|---|
+[162] | Sharpe Ratio das carteiras sugeridas | ≥ 1.5 |
+[163] | Taxa de acerto direcional (Bull/Bear) | ≥ 65% |
+[164] | Assimetrias identificadas com R/R ≥ 3:1 | ≥ 5 por semana |
+[165] | Retorno vs. benchmark (ex: IBOV / S&P) | Alpha ≥ 2× |
+[166] | Tempo médio de resposta completa | ≤ 90s |
+[168] ***
+[170] ## 9. Roadmap de Implementação
+[172] **Fase 1 — MVP (semanas 1–6):**
+[173] Construir SQU-NEWS, SQU-EQ, SQU-CB +
+[175] Orquestrador básico + SQU-STRATEGY para interface com usuário.
+[177] **Fase 2 — Core Analítico (semanas 7–14):**
+[178] Adicionar SQU-GEO, SQU-FX, SQU-FUND, SQU-OPT + camada de debate Bull/Bear + SQU-RISK.
+[180] **Fase 3 — Inteligência Profunda (semanas 15–22):**
+[181] Adicionar SQU-HIST, SQU-BOOK, SQU-SYS + memória vetorial de longo prazo + backtesting automatizado.
+[183] **Fase 4 — Autonomia e Monitoramento (semanas 23–30):**
+[184] Ativar SQU-COACH para monitoramento contínuo + alertas em tempo real + loop de feedback para aprendizado dos agentes [3].
+[186] ***
+[188] ## 10. Riscos e Mitigações
+[190] | Risco | Impacto | Mitigação |
+[191] |---|---|---|
+[193] | Alucinação de dados financeiros | Crítico | Separar LLM (raciocínio) de APIs (dados) — nunca misturar |
+[194] | Latência alta em análise paralela | Alto | LangGraph com execução assíncrona; cache de contextos recorrentes |
+[195] | Overfit histórico (SQU-HIST) | Médio | Validar padrões históricos com dados out-of-sample antes de recomendar |
+[196] | Conflito entre agentes Bull/Bear | Baixo | SQU-SYNTH sempre usa score ponderado + SQU-RISK como árbitro final |
+[197] | Custo de API (OpenAI + Bloomberg) | Alto | Usar modelos menores (GPT-4.1-nano) para agentes de coleta; modelos pesados apenas na síntese [2] |
+[201] import { useState } from "react";
+[203] const agents = [
+[204] {
+[205] id: "A01",
+[206] codename: "GEOPOL",
+[208] title: "Agente Geopolítico Global",
+[209] icon: "🌐",
+[210] color: "#C0392B",
+[211] role: "Analista de Risco Geopolítico",
+[212] description:
+[213] "Monitora e interpreta o cenário geopolítico global em tempo real, identificando tensões, acordos, sanções, eleições, conflitos armados e movimentos diplomáticos que impactam os mercados financeiros.",
+[214] responsibilities: [
+[215] "Monitoramento contínuo de conflitos armados e tensões diplomáticas",
+[216] "Análise de sanções econômicas e seus impactos em cadeias de suprimento",
+[217] "Acompanhamento de eleições em mercados emergentes e desenvolvidos",
+[218] "Avaliação de risco-país e spreads soberanos em tempo real",
+[219] "Identificação de janelas de oportunidade geradas por instabilidade política",
+[220] "Correlação entre eventos geopolíticos e movimentos de commodities estratégicas (petróleo, grãos, metais)",
+[221] ],
+[223] inputs: ["Feeds de agências de notícias internacionais (Reuters, AP, AFP)", "Publicações de think tanks (CFR, Brookings, RAND)", "Relatórios de risco geopolítico (Control Risks, Oxford Analytica)"],
+[224] outputs: ["Relatório de risco geopolítico semanal", "Alertas em tempo real para eventos críticos", "Score de risco por região e setor"],
+[225] kpis: ["Acurácia na antecipação de eventos de risco (>75%)", "Latência máxima de alerta: 15 minutos após evento", "Cobertura de 45+ países estratégicos"],
+[226] },
+[227] {
+[228] id: "A02",
+[229] codename: "HISTFIN",
+[230] title: "Agente Historiador Financeiro",
+[231] icon: "📜",
+[232] color: "#8E44AD",
+[233] role: "Analista de Padrões Históricos",
+[234] description:
+[235] "Especialista em análise histórica profunda de ativos, ciclos econômicos e eventos que moldaram os mercados. Identifica padrões recorrentes e analogias históricas aplicáveis ao
+[237] momento atual.",
+[238] responsibilities: [
+[239] "Análise de ciclos econômicos desde 1900 (Kondratieff, Juglar, Kitchin)",
+[240] "Mapeamento de crises financeiras históricas e seus padrões de recuperação",
+[241] "Correlação entre eventos históricos e comportamento de classes de ativos",
+[242] "Identificação de padrões sazonais e seculares em índices globais",
+[243] "Análise comparativa de regimes inflacionários e deflacionários",
+[244] "Estudo de rotações setoriais históricas em ciclos de expansão e recessão",
+[245] ],
+[246] inputs: ["Bases de dados históricas (FRED, World Bank, IMF)", "Séries temporais de preços de ativos (100+ anos)", "Relatórios econômicos históricos digitalizados"],
+[247] outputs: ["Relatório de analogias históricas com o momento atual", "Mapa de ciclos econômicos vigentes", "Probabilidade de cenários baseada em precedentes"],
+[248] kpis: ["Base histórica mínima: 120 anos de dados por ativo", "Identificação de pelo menos 5 analogias históricas por ciclo", "Precisão de
+[250] padrão recorrente: >68%"],
+[251] },
+[252] {
+[253] id: "A03",
+[254] codename: "EVENTOR",
+[255] title: "Agente de Eventos Catalíticos",
+[256] icon: "⚡",
+[257] color: "#E67E22",
+[258] role: "Analista de Eventos de Mercado",
+[259] description:
+[260] "Especializado em identificar e catalogar eventos específicos que desencadearam movimentos relevantes nos mercados, construindo uma base causal para previsões futuras.",
+[261] responsibilities: [
+[262] "Catalogação de black swans e eventos de cauda longa desde 1900",
+[263] "Análise de reação dos mercados nos primeiros 1h, 24h, 7d, 30d, 1 ano após eventos",
+[264] "Mapeamento de efeitos secundários e terciários de crises",
+[265] "Identificação de setores vencedores e perdedores por tipo de evento",
+[266] "Análise do timing ideal de entrada pós-
+[268] eventos de pânico",
+[269] "Construção de playbooks por categoria de evento (guerra, pandemia, colapso bancário, etc.)",
+[270] ],
+[271] inputs: ["Histórico de eventos classificados por impacto", "Dados de volatilidade implícita (VIX histórico)", "Correlações de ativos pré e pós-evento"],
+[272] outputs: ["Playbook de resposta por tipo de evento", "Score de impacto potencial de eventos atuais", "Janelas de entrada oportunistas identificadas"],
+[273] kpis: ["Biblioteca de +500 eventos catalogados com playbooks", "Precisão de impacto setorial: >70%", "Cobertura de 12 categorias de eventos"],
+[274] },
+[275] {
+[276] id: "A04",
+[277] codename: "LIBQUANT",
+[278] title: "Agente Bibliográfico Quantitativo",
+[279] icon: "📚",
+[280] color: "#27AE60",
+[281] role: "Especialista em Estratégias e Técnicas",
+[283] description:
+[284] "Domina o corpo de conhecimento produzido pelos maiores investidores e acadêmicos do mundo. Extrai e aplica técnicas validadas de livros, papers, cartas e estudos que demonstraram assimetria de mercado.",
+[285] responsibilities: [
+[286] "Análise profunda de obras de Buffett, Munger, Dalio, Lynch, Marks, Klarman, Simons",
+[287] "Síntese de papers acadêmicos com alpha demonstrável (Fama-French, momentum, value, quality)",
+[288] "Extração de frameworks de livros clássicos (Security Analysis, Intelligent Investor, Market Wizards)",
+[289] "Identificação de fatores de risco-retorno com assimetria positiva comprovada",
+[290] "Construção de estratégias combinadas baseadas em múltiplos frameworks validados",
+[291] "Atualização contínua com publicações acadêmicas e cartas de gestores",
+[292] ],
+[293] inputs: ["Biblioteca de +300 obras de finanças e investimentos", "Base de papers do SSRN, Journal of Finance, Review of Financial Studies",
+[295] "Cartas anuais de Berkshire, Bridgewater, Oaktree, Renaissance"],
+[296] outputs: ["Repertório de estratégias aplicáveis ao momento", "Score de assimetria por estratégia (risco/retorno)", "Recomendações de abordagem baseadas em literatura"],
+[297] kpis: ["Biblioteca ativa: +300 obras indexadas", "Cobertura de +150 papers acadêmicos com alpha validado", "Revisão trimestral de estratégias ativas"],
+[298] },
+[299] {
+[300] id: "A05",
+[301] codename: "SYSARCH",
+[302] title: "Agente de Sistemas e Algoritmos",
+[303] icon: "🤖",
+[304] color: "#2980B9",
+[305] role: "Especialista em Infraestrutura de Mercado",
+[306] description:
+[307] "Compreende profundamente como os maiores sistemas institucionais do mundo operam: Bloomberg Terminal, BlackRock Aladdin, HFTs, market makers, dark pools e algoritmos de execução. Antecipa
+[309] comportamento algorítmico.",
+[310] responsibilities: [
+[311] "Modelagem do comportamento do sistema Aladdin (BlackRock) e suas regras de rebalanceamento",
+[312] "Análise de padrões de execução de HFTs (Citadel Securities, Virtu, Two Sigma)",
+[313] "Mapeamento de fluxos de dark pools e crossing networks",
+[314] "Identificação de níveis onde algoritmos institucionais acionam ordens de compra/venda",
+[315] "Análise de options market making e hedging algorítmico",
+[316] "Detecção de sinais de execução algorítmica no tape de negócios",
+[317] ],
+[318] inputs: ["Dados de Level 2 e Level 3 de mercado", "Relatórios regulatórios de dark pools (SEC ATS)", "Publicações sobre arquitetura de sistemas de trading institucional"],
+[319] outputs: ["Mapa de liquidez institucional por ativo", "Identificação de fronteiras algorítmicas (support/resistance algorítmico)", "Alertas de comportamento anômalo de algoritmos"],
+[321] kpis: ["Cobertura de 15+ sistemas HFT mapeados", "Precisão na identificação de zonas algorítmicas: >65%", "Latência de detecção de anomalia: <5 minutos"],
+[322] },
+[323] {
+[324] id: "A06",
+[325] codename: "FOREX",
+[326] title: "Agente de Câmbio e Moedas",
+[327] icon: "💱",
+[328] color: "#F39C12",
+[329] role: "Especialista em Mercado de Câmbio",
+[330] description:
+[331] "Especialista exclusivo no mercado de câmbio global — o maior e mais líquido do mundo (US$ 7,5 trilhões/dia). Identifica onde está a assimetria nas moedas e oportunidades de carry trade e posicionamento macro.",
+[332] responsibilities: [
+[333] "Análise técnica e fundamentalista de +30 pares de moedas",
+[334] "Monitoramento de diferenciais de juros reais entre países",
+[335] "Identificação de oportunidades de carry trade com relação risco/retorno favorável",
+[337] "Análise de posicionamento especulativo (CFTC COT Report)",
+[338] "Mapeamento de intervenções de bancos centrais no câmbio",
+[339] "Avaliação de moedas de mercados emergentes vs DXY",
+[340] ],
+[341] inputs: ["Feeds de câmbio em tempo real (Refinitiv, Bloomberg FX)", "CFTC Commitments of Traders (COT) semanal", "Dados de balanço de pagamentos e reservas cambiais"],
+[342] outputs: ["Ranking semanal de pares com maior assimetria", "Alertas de oportunidade de carry trade", "Score de força relativa de moedas por bloco econômico"],
+[343] kpis: ["Cobertura de 30+ pares de moedas monitorados", "Sharpe ratio de recomendações de câmbio: >1.5", "Atualização de posicionamento: tempo real"],
+[344] },
+[345] {
+[346] id: "A07",
+[347] codename: "EQUITIES",
+[348] title: "Agente de Bolsas Globais",
+[349] icon: "📈",
+[350] color: "#16A085",
+[352] role: "Especialista em Mercados de Ações Globais",
+[353] description:
+[354] "Monitora e analisa as principais bolsas de valores do mundo, identificando rotações setoriais, fluxos internacionais, valorizações relativas e oportunidades de arbitragem entre mercados.",
+[355] responsibilities: [
+[356] "Análise comparativa de valuation entre bolsas (P/L, P/VP, EV/EBITDA por mercado)",
+[357] "Monitoramento de fluxo de capital estrangeiro em 25+ bolsas",
+[358] "Identificação de rotações setoriais globais em tempo real",
+[359] "Análise de correlações e divergências entre índices (S&P500, Nasdaq, FTSE, DAX, Nikkei, MSCI EM)",
+[360] "Rastreamento de IPOs, delistings e rebalanceamentos de índices relevantes",
+[361] "Mapeamento de setores em estágio early vs late cycle globalmente",
+[362] ],
+[363] inputs: ["Dados de bolsas globais (NYSE, NASDAQ, LSE, Euronext, TSE, HKEX, B3)", "ETF
+[365] flows e dados de fundos globais", "Dados de valuation comparativo por mercado e setor"],
+[366] outputs: ["Mapa de oportunidade relativa entre bolsas globais", "Alertas de rotação setorial em curso", "Ranking de mercados por atratividade de valuation"],
+[367] kpis: ["Cobertura de 25+ bolsas globais monitoradas", "Atualização de fluxos: diária", "Identificação de rotações setoriais com antecedência: >5 dias"],
+[368] },
+[369] {
+[370] id: "A08",
+[371] codename: "CENTRAL",
+[372] title: "Agente de Bancos Centrais",
+[373] icon: "🏛️",
+[374] color: "#2C3E50",
+[375] role: "Especialista em Política Monetária Global",
+[376] description:
+[377] "Analisa profundamente as ações e comunicações de todos os principais bancos centrais do mundo, antecipando movimentos de política monetária e seus impactos nos mercados de ativos.",
+[379] responsibilities: [
+[380] "Análise de atas, discursos e comunicados do Fed, BCE, BoE, BoJ, PBoC, SNB, RBA",
+[381] "Modelagem de curvas de juros e spreads (yield curve, TED spread, LIBOR-OIS)",
+[382] "Rastreamento de operações de mercado aberto e mudanças no balanço do Fed",
+[383] "Monitoramento de quem compra títulos públicos (Treasury International Capital - TIC)",
+[384] "Identificação de mudanças de regime de política monetária",
+[385] "Análise do mercado de repos e liquidez de curto prazo",
+[386] ],
+[387] inputs: ["Publicações oficiais de 10+ bancos centrais", "Dados de balanço do Fed (H.4.1 semanal)", "TIC data do Tesouro Americano", "Atas do FOMC, ECB Meeting Minutes"],
+[388] outputs: ["Previsão de próximos movimentos de juros por banco central", "Mapa de liquidez global (G10 M2 aggregado)", "Alertas de mudança de regime monetário"],
+[389] kpis: ["Precisão de antecipação de decisões: >80%", "Cobertura de 10+ bancos centrais em tempo real", "Latência de análise após
+[391] comunicado: <30 minutos"],
+[392] },
+[393] {
+[394] id: "A09",
+[395] codename: "LETTERS",
+[396] title: "Agente de Cartas de Grandes Fundos",
+[397] icon: "✉️",
+[398] color: "#8E44AD",
+[399] role: "Analista de Inteligência de Fundos",
+[400] description:
+[401] "Especializado na leitura e interpretação profunda de cartas, relatórios e comunicações de grandes fundos globais, extraindo o que está implícito e explícito sobre suas visões e posicionamentos.",
+[402] responsibilities: [
+[403] "Análise de cartas trimestrais de fundos top: Bridgewater, Pershing Square, Baupost, Third Point, Appaloosa, Elliott",
+[404] "Extração de teses de investimento implícitas e explícitas",
+[405] "Cruzamento de visões entre gestores para identificar consensos e divergências",
+[406] "Rastreamento de 13F filings para confirmar posicionamento real vs comunicado",
+[408] "Análise de mudanças sutis de linguagem e tom entre cartas",
+[409] "Identificação de ideias de investimento ainda não exploradas pelo mercado",
+[410] ],
+[411] inputs: ["Cartas de +50 grandes fundos globais (trimestral)", "SEC 13F filings (trimestral)", "Entrevistas e apresentações de gestores em conferências"],
+[412] outputs: ["Síntese de consenso e divergência entre gestores top", "Teses de investimento implícitas identificadas", "Alertas de mudança de posicionamento estratégico"],
+[413] kpis: ["Cobertura de +50 fundos monitorados", "Análise de 13F cruzada com carta: trimestral", "Identificação de ideias antes de consenso de mercado: >30 dias"],
+[414] },
+[415] {
+[416] id: "A10",
+[417] codename: "DERIVA",
+[418] title: "Agente de Opções e Derivativos",
+[419] icon: "🎯",
+[420] color: "#E74C3C",
+[421] role: "Especialista em Assimetria de
+[423] Derivativos",
+[424] description:
+[425] "Especialista exclusivo em encontrar assimetrias no mercado de opções e derivativos globais, onde o ganho potencial máximo é obtido com o mínimo capital comprometido.",
+[426] responsibilities: [
+[427] "Análise de superfície de volatilidade implícita vs realizada (vol surface)",
+[428] "Identificação de distorções de skew que criam assimetrias de payoff",
+[429] "Mapeamento de estratégias estruturadas de alta relação risco/retorno (spreads, condors, straddles)",
+[430] "Análise de open interest e fluxo de opções para detectar posicionamento smart money",
+[431] "Identificação de oportunidades em opções de índices e ETFs globais",
+[432] "Modelagem de gregas e seu impacto no comportamento do ativo subjacente",
+[433] ],
+[434] inputs: ["Dados de opções em tempo real (CBOE, CME, Euronext Derivatives)", "Volatilidade histórica e implícita por strike/vencimento", "Open interest e volume por contrato"],
+[436] outputs: ["Ranking de ativos com maior assimetria em opções", "Estruturas de trade recomendadas com payoff diagram", "Alertas de anomalias de volatilidade (vol crush/spike)"],
+[437] kpis: ["Razão ganho/perda máximo em recomendações: >3:1", "Cobertura de opções em 10+ mercados globais", "Identificação de distorções de skew: tempo real"],
+[438] },
+[439] {
+[440] id: "A11",
+[441] codename: "NEWS",
+[442] title: "Agente de Inteligência de Notícias",
+[443] icon: "📡",
+[444] color: "#1ABC9C",
+[445] role: "Analista de Fluxo de Informação",
+[446] description:
+[447] "Vasculha toda a internet financeira global em tempo real, processando notícias, análises e publicações especializadas para extrair sinais relevantes antes que o mercado os precifique.",
+[448] responsibilities: [
+[449] "Monitoramento em tempo real de Bloomberg, Reuters, WSJ, FT, Barron's",
+[450] "Rastreamento de Yahoo Finance, Google Finance, Investing.com, TradingView",
+[452] "Análise de sentimento por ativo e setor (NLP em inglês, português, alemão, japonês, chinês)",
+[453] "Detecção de notícias com potencial de mover mercados antes da precificação",
+[454] "Identificação de narrativas emergentes vs estabelecidas",
+[455] "Rastreamento de publicações regulatórias (SEC, CVM, ESMA, FSA)",
+[456] ],
+[457] inputs: ["APIs de notícias financeiras (Bloomberg, Reuters, Dow Jones)", "Web scraping de portais especializados globais", "Feeds regulatórios de 15+ jurisdições"],
+[458] outputs: ["Feed curado de notícias de alto impacto em tempo real", "Score de sentimento por ativo/setor/mercado", "Alertas de narrativas emergentes relevantes"],
+[459] kpis: ["Latência de processamento: <2 minutos após publicação", "Precisão de classificação de impacto: >78%", "Cobertura de 200+ fontes globais indexadas"],
+[460] },
+[461] {
+[462] id: "A12",
+[463] codename: "STRATEGY",
+[465] title: "Agente Estrategista Principal",
+[466] icon: "🧠",
+[467] color: "#D35400",
+[468] role: "Orquestrador de Estratégia e Interface com Usuário",
+[469] description:
+[470] "O cérebro central do SQU. Consolida todas as análises dos agentes especializados, interage com o usuário para entender seus objetivos e constrói estratégias personalizadas de máxima performance.",
+[471] responsibilities: [
+[472] "Consolidação e síntese de outputs de todos os 11 agentes especializados",
+[473] "Condução de entrevista estruturada com o usuário (perfil de risco, horizonte, capital, objetivos)",
+[474] "Construção de tese de investimento personalizada baseada em convergência de sinais",
+[475] "Identificação de ativos com máxima assimetria para o perfil do usuário",
+[476] "Geração de relatório de estratégia com sugestões priorizadas por convicção",
+[477] "Interface conversacional para refinamento
+[479] contínuo da estratégia",
+[480] ],
+[481] inputs: ["Outputs consolidados de A01 a A11", "Perfil e preferências do usuário", "Restrições regulatórias e de capital"],
+[482] outputs: ["Estratégia de investimento personalizada", "Lista priorizada de ativos de alta convicção", "Relatório de convergência de sinais por oportunidade"],
+[483] kpis: ["Tempo de geração de estratégia: <10 minutos", "Taxa de satisfação do usuário: >90%", "Revisão dinâmica a cada novo sinal relevante"],
+[484] },
+[485] {
+[486] id: "A13",
+[487] codename: "PORTFOLIO",
+[488] title: "Agente de Portfólio e Gestão de Risco",
+[489] icon: "⚖️",
+[490] color: "#2ECC71",
+[491] role: "Gestor de Portfólio e Risco",
+[492] description:
+[493] "Responsável pela construção ótima do portfólio, gestão de risco, timing de entrada e saída, sizing de posição e acompanhamento contínuo dos investimentos.",
+[495] responsibilities: [
+[496] "Construção de portfólio ótimo (Markowitz, Black-Litterman, Risk Parity)",
+[497] "Definição de sizing de posição por Kelly Criterion e variações",
+[498] "Estabelecimento de stop loss, take profit e trailing stops por ativo",
+[499] "Monitoramento de drawdown máximo e correlação entre posições",
+[500] "Alertas de rebalanceamento e rotação de portfólio",
+[501] "Análise de atribuição de performance (alpha vs beta)",
+[502] ],
+[503] inputs: ["Lista de ativos selecionados pelo Agente A12", "Parâmetros de risco do usuário", "Dados de correlação e volatilidade histórica dos ativos"],
+[504] outputs: ["Portfólio ótimo com pesos percentuais", "Cronograma de entrada e saída por ativo", "Dashboard de risco em tempo real (VaR, CVaR, Sharpe, Sortino)"],
+[505] kpis: ["Sharpe ratio de portfólios recomendados: >2.0", "Max drawdown controlado: conforme perfil do usuário", "Revisão
+[507] de portfólio: semanal ou por gatilho"],
+[508] },
+[509] ];
+[511] const phases = [
+[512] {
+[513] number: "01",
+[514] title: "Coleta e Ingestão",
+[515] description: "Agentes de dados (A02, A03, A06, A07, A08, A11) coletam informações de fontes globais em tempo real e histórico.",
+[516] color: "#3498DB",
+[517] },
+[518] {
+[519] number: "02",
+[520] title: "Análise Especializada",
+[521] description: "Cada agente processa seu domínio exclusivo: geopolítica, sistemas, livros, câmbio, derivativos, bancos centrais.",
+[522] color: "#9B59B6",
+[523] },
+[524] {
+[525] number: "03",
+[526] title: "Síntese e Convergência",
+[527] description: "Agente STRATEGY (A12)
+[529] consolida todos os outputs, identifica convergências e constrói o mapa de oportunidades.",
+[530] color: "#E74C3C",
+[531] },
+[532] {
+[533] number: "04",
+[534] title: "Personalização",
+[535] description: "Interface com o usuário para entender objetivos, perfil de risco e capital. Refinamento da estratégia.",
+[536] color: "#F39C12",
+[537] },
+[538] {
+[539] number: "05",
+[540] title: "Construção de Portfólio",
+[541] description: "Agente PORTFOLIO (A13) constrói o portfólio ótimo com sizing, timing e gestão de risco.",
+[542] color: "#27AE60",
+[543] },
+[544] {
+[545] number: "06",
+[546] title: "Monitoramento Contínuo",
+[547] description: "Loop contínuo de todos os
+[549] agentes monitorando posições abertas e novas oportunidades em tempo real.",
+[550] color: "#16A085",
+[551] },
+[552] ];
+[554] const techStack = [
+[555] { layer: "Orquestração", tech: "LangGraph / CrewAI / AutoGen", detail: "Framework multi-agente com estado compartilhado e memória persistente" },
+[556] { layer: "LLM Core", tech: "Claude 3 Opus / GPT-4o", detail: "Raciocínio profundo para análises complexas de mercado" },
+[557] { layer: "Dados em Tempo Real", tech: "Bloomberg B-PIPE / Refinitiv Eikon API", detail: "Feed institucional de dados financeiros" },
+[558] { layer: "Dados Históricos", tech: "FRED API / Quandl / Yahoo Finance API", detail: "Séries históricas para análise quantitativa" },
+[559] { layer: "Web Intelligence", tech: "Firecrawl / Apify / NewsAPI", detail: "Scraping e indexação de notícias e publicações" },
+[560] { layer: "Vector Store", tech: "Pinecone / Weaviate", detail: "Base de conhecimento
+[562] vetorial para livros, papers e cartas" },
+[563] { layer: "Processamento", tech: "Apache Kafka + Spark Streaming", detail: "Pipeline de dados em tempo real de alta throughput" },
+[564] { layer: "Banco de Dados", tech: "TimescaleDB + PostgreSQL", detail: "Séries temporais financeiras e dados relacionais" },
+[565] { layer: "Interface", tech: "Next.js + WebSockets", detail: "Dashboard em tempo real para o usuário final" },
+[566] { layer: "Segurança", tech: "AWS KMS + SOC2 compliant", detail: "Criptografia de dados financeiros sensíveis" },
+[567] ];
+[569] export default function SQUPRD() {
+[570] const [activeTab, setActiveTab] = useState("overview");
+[571] const [selectedAgent, setSelectedAgent] = useState(null);
+[572] const [expandedAgent, setExpandedAgent] = useState(null);
+[574] const tabs = [
+[575] { id: "overview", label: "Visão Geral" },
+[576] { id: "agents", label: "Agentes" },
+[578] { id: "pipeline", label: "Pipeline" },
+[579] { id: "tech", label: "Tech Stack" },
+[580] { id: "kpis", label: "KPIs & SLA" },
+[581] ];
+[583] return (
+[584] <div style={{
+[585] fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+[586] background: "#050A14",
+[587] color: "#E8EAF0",
+[588] minHeight: "100vh",
+[589] overflow: "hidden",
+[590] }}>
+[591] {/* Animated background grid */}
+[592] <div style={{
+[593] position: "fixed", inset: 0, zIndex: 0,
+[594] backgroundImage: `
+[595] linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+[596] linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px)
+[597] `,
+[598] backgroundSize: "40px 40px",
+[599] pointerEvents: "none",
+[601] }} />
+[603] {/* Header */}
+[604] <header style={{
+[605] position: "relative", zIndex: 10,
+[606] borderBottom: "1px solid rgba(0,255,136,0.15)",
+[607] padding: "20px 40px",
+[608] background: "rgba(5,10,20,0.95)",
+[609] backdropFilter: "blur(20px)",
+[610] display: "flex", alignItems: "center", justifyContent: "space-between",
+[611] }}>
+[612] <div>
+[613] <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+[614] <div style={{
+[615] width: "44px", height: "44px", borderRadius: "8px",
+[616] background: "linear-gradient(135deg, #00FF88, #00B4FF)",
+[617] display: "flex", alignItems: "center", justifyContent: "center",
+[618] fontSize: "22px", fontWeight: "900", color: "#050A14",
+[620] boxShadow: "0 0 20px rgba(0,255,136,0.4)",
+[621] }}>S</div>
+[622] <div>
+[623] <div style={{ fontSize: "22px", fontWeight: "800", letterSpacing: "0.3em", color: "#00FF88" }}>SQU</div>
+[624] <div style={{ fontSize: "10px", color: "#4A6080", letterSpacing: "0.2em" }}>SQUAD QUANTITATIVO UNIVERSAL</div>
+[625] </div>
+[626] </div>
+[627] </div>
+[628] <div style={{ display: "flex", gap: "8px" }}>
+[629] <span style={{ padding: "4px 12px", border: "1px solid #00FF88", borderRadius: "20px", fontSize: "10px", color: "#00FF88", letterSpacing: "0.15em" }}>PRD v1.0</span>
+[630] <span style={{ padding: "4px 12px", background: "rgba(0,255,136,0.1)", borderRadius: "20px", fontSize: "10px", color: "#4A6080", letterSpacing: "0.15em" }}>CONFIDENCIAL</span>
+[631] </div>
+[632] </header>
+[635] {/* Hero */}
+[636] <div style={{
+[637] position: "relative", zIndex: 5,
+[638] padding: "60px 40px 40px",
+[639] borderBottom: "1px solid rgba(255,255,255,0.05)",
+[640] }}>
+[641] <div style={{ maxWidth: "900px" }}>
+[642] <div style={{ fontSize: "11px", color: "#00B4FF", letterSpacing: "0.3em", marginBottom: "16px" }}>
+[643] PRODUCT REQUIREMENTS DOCUMENT
+[644] </div>
+[645] <h1 style={{
+[646] fontSize: "clamp(28px, 5vw, 52px)", fontWeight: "900",
+[647] lineHeight: 1.1, margin: "0 0 20px",
+[648] background: "linear-gradient(135deg, #FFFFFF 0%, #00FF88 50%, #00B4FF 100%)",
+[649] WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+[650] }}>
+[651] Sistema Multi-Agente de<br />Inteligência Financeira Global
+[653] </h1>
+[654] <p style={{ fontSize: "15px", color: "#8A9BB0", lineHeight: 1.7, maxWidth: "680px", margin: "0 0 32px" }}>
+[655] 13 agentes especializados operando em paralelo para vasculhar o mercado financeiro global,
+[656] identificar assimetrias e gerar recomendações de máxima performance — com a profundidade analítica
+[657] dos maiores fundos do mundo.
+[658] </p>
+[659] <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
+[660] {[
+[661] { label: "Agentes Especializados", value: "13" },
+[662] { label: "Fontes de Dados", value: "200+" },
+[663] { label: "Mercados Cobertos", value: "45+" },
+[664] { label: "Latência Máxima", value: "<2min" },
+[665] ].map((stat) => (
+[666] <div key={stat.label} style={{
+[667] padding: "16px 24px",
+[669] border: "1px solid rgba(0,255,136,0.2)",
+[670] borderRadius: "8px",
+[671] background: "rgba(0,255,136,0.03)",
+[672] }}>
+[673] <div style={{ fontSize: "28px", fontWeight: "900", color: "#00FF88" }}>{stat.value}</div>
+[674] <div style={{ fontSize: "10px", color: "#4A6080", letterSpacing: "0.15em", marginTop: "4px" }}>{stat.label.toUpperCase()}</div>
+[675] </div>
+[676] ))}
+[677] </div>
+[678] </div>
+[679] </div>
+[681] {/* Tabs */}
+[682] <div style={{
+[683] position: "sticky", top: 0, zIndex: 20,
+[684] borderBottom: "1px solid rgba(255,255,255,0.06)",
+[685] background: "rgba(5,10,20,0.98)",
+[686] backdropFilter: "blur(20px)",
+[687] padding: "0 40px",
+[688] display: "flex", gap: "0",
+[690] }}>
+[691] {tabs.map((tab) => (
+[692] <button
+[693] key={tab.id}
+[694] onClick={() => setActiveTab(tab.id)}
+[695] style={{
+[696] padding: "16px 24px",
+[697] background: "transparent",
+[698] border: "none",
+[699] borderBottom: activeTab === tab.id ? "2px solid #00FF88" : "2px solid transparent",
+[700] color: activeTab === tab.id ? "#00FF88" : "#4A6080",
+[701] fontSize: "11px", letterSpacing: "0.2em", fontWeight: "700",
+[702] cursor: "pointer", transition: "all 0.2s",
+[703] fontFamily: "inherit",
+[704] }}
+[705] >
+[706] {tab.label.toUpperCase()}
+[707] </button>
+[708] ))}
+[709] </div>
+[711] {/* Content */}
+[712] <div style={{ padding: "40px", position:
+[714] "relative", zIndex: 5, maxWidth: "1400px", margin: "0 auto" }}>
+[716] {/* OVERVIEW TAB */}
+[717] {activeTab === "overview" && (
+[718] <div>
+[719] <SectionTitle>Visão Geral do Produto</SectionTitle>
+[721] <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "40px" }}>
+[722] <Card title="Problema" accent="#E74C3C">
+[723] <p style={bodyText}>
+[724] Investidores individuais e gestores de menor porte não têm acesso à mesma infraestrutura analítica de fundos como BlackRock, Bridgewater ou Renaissance Technologies. A dispersão de informação, a falta de síntese integrada e a impossibilidade de processar dezenas de variáveis simultaneamente resultam em decisões de investimento subótimas.
+[725] </p>
+[727] </Card>
+[728] <Card title="Solução" accent="#00FF88">
+[729] <p style={bodyText}>
+[730] O SQU democratiza a inteligência analítica de nível institucional por meio de 13 agentes de IA especializados que operam em paralelo, cobrem domínios complementares do mercado financeiro e convergem para gerar estratégias personalizadas de alta convicção — 24/7, em tempo real.
+[731] </p>
+[732] </Card>
+[733] </div>
+[735] <SectionTitle>Usuários-Alvo</SectionTitle>
+[736] <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "40px" }}>
+[737] {[
+[738] { icon: "👤", type: "Investidor Pessoa Física", desc: "Alto patrimônio com sofisticação financeira buscando performance acima do mercado" },
+[739] { icon: "🏢", type: "Family Offices", desc:
+[741] "Gestão de patrimônio familiar com necessidade de diversificação global" },
+[742] { icon: "📊", type: "Gestores Independentes", desc: "Gestores de fundos que precisam de infraestrutura analítica institucional" },
+[743] ].map((u) => (
+[744] <div key={u.type} style={{
+[745] padding: "24px", borderRadius: "8px",
+[746] border: "1px solid rgba(0,180,255,0.2)",
+[747] background: "rgba(0,180,255,0.03)",
+[748] }}>
+[749] <div style={{ fontSize: "28px", marginBottom: "12px" }}>{u.icon}</div>
+[750] <div style={{ fontSize: "13px", fontWeight: "700", color: "#E8EAF0", marginBottom: "8px" }}>{u.type}</div>
+[751] <div style={{ fontSize: "12px", color: "#6A7B90", lineHeight: 1.6 }}>{u.desc}</div>
+[752] </div>
+[753] ))}
+[754] </div>
+[756] <SectionTitle>Proposta de Valor Única</SectionTitle>
+[758] <div style={{
+[759] padding: "32px", borderRadius: "12px",
+[760] background: "linear-gradient(135deg, rgba(0,255,136,0.05), rgba(0,180,255,0.05))",
+[761] border: "1px solid rgba(0,255,136,0.2)",
+[762] marginBottom: "40px",
+[763] }}>
+[764] <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "20px" }}>
+[765] {[
+[766] { icon: "🎯", title: "Assimetria Máxima", desc: "Identificação sistemática de ativos onde o ganho esperado é desproporcional ao risco" },
+[767] { icon: "🔄", title: "Síntese Multi-Domínio", desc: "Convergência de 13 perspectivas especializadas em uma única recomendação coerente" },
+[768] { icon: "⚡", title: "Velocidade Institucional", desc: "Processamento de informação com latência comparável à infraestrutura de HFTs" },
+[769] { icon: "🧬", title: "Personalização Profunda", desc: "Estratégias calibradas para perfil, capital e objetivos específicos do usuário"
+[771] },
+[772] ].map((v) => (
+[773] <div key={v.title} style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
+[774] <span style={{ fontSize: "24px" }}>{v.icon}</span>
+[775] <div>
+[776] <div style={{ fontSize: "13px", fontWeight: "700", color: "#00FF88", marginBottom: "4px" }}>{v.title}</div>
+[777] <div style={{ fontSize: "12px", color: "#6A7B90", lineHeight: 1.6 }}>{v.desc}</div>
+[778] </div>
+[779] </div>
+[780] ))}
+[781] </div>
+[782] </div>
+[784] <SectionTitle>Objetivos de Performance</SectionTitle>
+[785] <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+[786] {[
+[787] { metric: "2x–4x", label: "Retorno vs
+[789] Benchmark", color: "#00FF88" },
+[790] { metric: ">2.0", label: "Sharpe Ratio Alvo", color: "#00B4FF" },
+[791] { metric: "3:1+", label: "Razão Ganho/Perda", color: "#F39C12" },
+[792] { metric: "<15%", label: "Max Drawdown", color: "#E74C3C" },
+[793] ].map((m) => (
+[794] <div key={m.label} style={{
+[795] padding: "24px", borderRadius: "8px", textAlign: "center",
+[796] border: `1px solid ${m.color}30`,
+[797] background: `${m.color}08`,
+[798] }}>
+[799] <div style={{ fontSize: "32px", fontWeight: "900", color: m.color, marginBottom: "8px" }}>{m.metric}</div>
+[800] <div style={{ fontSize: "10px", color: "#6A7B90", letterSpacing: "0.15em" }}>{m.label.toUpperCase()}</div>
+[801] </div>
+[802] ))}
+[803] </div>
+[804] </div>
+[805] )}
+[808] {/* AGENTS TAB */}
+[809] {activeTab === "agents" && (
+[810] <div>
+[811] <SectionTitle>Os 13 Agentes Especializados do SQU</SectionTitle>
+[812] <p style={{ ...bodyText, marginBottom: "32px" }}>
+[813] Cada agente é um especialista de nível mundial em seu domínio, operando com autonomia e contribuindo para a inteligência coletiva do sistema.
+[814] </p>
+[815] <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "16px" }}>
+[816] {agents.map((agent) => (
+[817] <div
+[818] key={agent.id}
+[819] onClick={() => setExpandedAgent(expandedAgent === agent.id ? null : agent.id)}
+[820] style={{
+[821] borderRadius: "10px", cursor: "pointer",
+[822] border: `1px solid ${expandedAgent
+[824] === agent.id ? agent.color : "rgba(255,255,255,0.07)"}`,
+[825] background: expandedAgent === agent.id
+[826] ? `linear-gradient(135deg, ${agent.color}12, rgba(5,10,20,0.9))`
+[827] : "rgba(255,255,255,0.02)",
+[828] transition: "all 0.3s",
+[829] overflow: "hidden",
+[830] }}
+[831] >
+[832] {/* Agent Header */}
+[833] <div style={{ padding: "20px 24px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+[834] <div style={{
+[835] width: "48px", height: "48px", borderRadius: "10px", flexShrink: 0,
+[836] background: `${agent.color}20`, border: `1px solid ${agent.color}40`,
+[837] display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px",
+[838] }}>{agent.icon}</div>
+[839] <div style={{ flex: 1 }}>
+[840] <div style={{ display: "flex",
+[842] justifyContent: "space-between", alignItems: "center" }}>
+[843] <span style={{ fontSize: "10px", color: agent.color, letterSpacing: "0.2em", fontWeight: "700" }}>{agent.id} · {agent.codename}</span>
+[844] <span style={{ fontSize: "16px", color: "#4A6080" }}>{expandedAgent === agent.id ? "−" : "+"}</span>
+[845] </div>
+[846] <div style={{ fontSize: "14px", fontWeight: "700", color: "#E8EAF0", marginTop: "4px", lineHeight: 1.3 }}>{agent.title}</div>
+[847] <div style={{ fontSize: "11px", color: "#6A7B90", marginTop: "4px" }}>{agent.role}</div>
+[848] </div>
+[849] </div>
+[851] {/* Expanded Content */}
+[852] {expandedAgent === agent.id && (
+[853] <div style={{ padding: "0 24px 24px", borderTop: `1px solid ${agent.color}20` }}>
+[854] <p style={{ fontSize: "12px", color: "#8A9BB0", lineHeight: 1.7, margin: "16px 0
+[856] 20px" }}>{agent.description}</p>
+[858] <AgentSection title="RESPONSABILIDADES" color={agent.color}>
+[859] {agent.responsibilities.map((r, i) => (
+[860] <div key={i} style={{ display: "flex", gap: "8px", marginBottom: "6px" }}>
+[861] <span style={{ color: agent.color, flexShrink: 0, marginTop: "2px" }}>▸</span>
+[862] <span style={{ fontSize: "11px", color: "#8A9BB0", lineHeight: 1.5 }}>{r}</span>
+[863] </div>
+[864] ))}
+[865] </AgentSection>
+[867] <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "16px" }}>
+[868] <AgentSection title="INPUTS" color={agent.color}>
+[869] {agent.inputs.map((inp, i) => (
+[870] <div key={i} style={{ fontSize: "10px", color: "#6A7B90", marginBottom: "4px",
+[872] lineHeight: 1.4 }}>• {inp}</div>
+[873] ))}
+[874] </AgentSection>
+[875] <AgentSection title="OUTPUTS" color={agent.color}>
+[876] {agent.outputs.map((out, i) => (
+[877] <div key={i} style={{ fontSize: "10px", color: "#6A7B90", marginBottom: "4px", lineHeight: 1.4 }}>• {out}</div>
+[878] ))}
+[879] </AgentSection>
+[880] </div>
+[882] <AgentSection title="KPIs" color={agent.color} style={{ marginTop: "12px" }}>
+[883] {agent.kpis.map((kpi, i) => (
+[884] <div key={i} style={{
+[885] fontSize: "10px", color: agent.color,
+[886] marginBottom: "4px", padding: "4px 8px",
+[887] background: `${agent.color}10`, borderRadius: "4px",
+[888] }}>✓ {kpi}</div>
+[889] ))}
+[891] </AgentSection>
+[892] </div>
+[893] )}
+[894] </div>
+[895] ))}
+[896] </div>
+[897] </div>
+[898] )}
+[900] {/* PIPELINE TAB */}
+[901] {activeTab === "pipeline" && (
+[902] <div>
+[903] <SectionTitle>Pipeline de Operação do SQU</SectionTitle>
+[904] <p style={{ ...bodyText, marginBottom: "40px" }}>
+[905] O SQU opera em um pipeline de 6 fases contínuas, com loop de feedback em tempo real. Os agentes trabalham de forma paralela e assíncrona, com sincronização gerenciada pelo Agente STRATEGY.
+[906] </p>
+[908] <div style={{ position: "relative", marginBottom: "48px" }}>
+[910] {phases.map((phase, i) => (
+[911] <div key={i} style={{ display: "flex", gap: "24px", marginBottom: "8px", alignItems: "stretch" }}>
+[912] <div style={{
+[913] width: "60px", flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center",
+[914] }}>
+[915] <div style={{
+[916] width: "40px", height: "40px", borderRadius: "50%",
+[917] background: `${phase.color}20`, border: `2px solid ${phase.color}`,
+[918] display: "flex", alignItems: "center", justifyContent: "center",
+[919] fontSize: "12px", fontWeight: "800", color: phase.color,
+[920] }}>{phase.number}</div>
+[921] {i < phases.length - 1 && (
+[922] <div style={{ width: "2px", flex: 1, marginTop: "4px", background: `linear-gradient(${phase.color}, ${phases[i+1].color})`, minHeight: "24px" }} />
+[923] )}
+[925] </div>
+[926] <div style={{
+[927] flex: 1, padding: "16px 24px", borderRadius: "8px", marginBottom: "8px",
+[928] border: `1px solid ${phase.color}30`,
+[929] background: `${phase.color}06`,
+[930] }}>
+[931] <div style={{ fontSize: "12px", fontWeight: "700", color: phase.color, marginBottom: "6px" }}>{phase.title}</div>
+[932] <div style={{ fontSize: "12px", color: "#6A7B90", lineHeight: 1.6 }}>{phase.description}</div>
+[933] </div>
+[934] </div>
+[935] ))}
+[936] </div>
+[938] <SectionTitle>Mapa de Dependências entre Agentes</SectionTitle>
+[939] <div style={{
+[940] padding: "32px", borderRadius: "12px",
+[941] border: "1px solid rgba(255,255,255,0.08)",
+[942] background: "rgba(255,255,255,0.01)",
+[944] marginBottom: "40px",
+[945] }}>
+[946] {[
+[947] { from: "A02 HISTFIN + A03 EVENTOR", to: "A12 STRATEGY", rel: "Contexto histórico e padrões de eventos" },
+[948] { from: "A01 GEOPOL + A08 CENTRAL", to: "A12 STRATEGY", rel: "Macro global e política monetária" },
+[949] { from: "A06 FOREX + A07 EQUITIES", to: "A12 STRATEGY", rel: "Oportunidades em câmbio e renda variável" },
+[950] { from: "A04 LIBQUANT + A09 LETTERS", to: "A12 STRATEGY", rel: "Frameworks validados e visão de smart money" },
+[951] { from: "A05 SYSARCH + A10 DERIVA", to: "A12 STRATEGY", rel: "Comportamento algorítmico e assimetria em derivativos" },
+[952] { from: "A11 NEWS", to: "TODOS OS AGENTES", rel: "Feed de notícias para contextualização em tempo real" },
+[953] { from: "A12 STRATEGY", to: "A13 PORTFOLIO", rel: "Lista de ativos de alta convicção + perfil do usuário" },
+[954] { from: "A13 PORTFOLIO", to: "USUÁRIO FINAL", rel: "Portfólio ótimo + alertas de gestão" },
+[956] ].map((dep, i) => (
+[957] <div key={i} style={{
+[958] display: "grid", gridTemplateColumns: "2fr 2fr 3fr",
+[959] gap: "12px", padding: "10px 0",
+[960] borderBottom: "1px solid rgba(255,255,255,0.04)",
+[961] alignItems: "center",
+[962] }}>
+[963] <div style={{ fontSize: "11px", color: "#00FF88", fontWeight: "600" }}>{dep.from}</div>
+[964] <div style={{ fontSize: "11px", color: "#4A6080", display: "flex", alignItems: "center", gap: "8px" }}>
+[965] <span style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.1)" }} />
+[966] <span>→</span>
+[967] <span style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.1)" }} />
+[968] </div>
+[969] <div style={{ fontSize: "11px", color: "#E8EAF0" }}>
+[970] <span style={{ color: "#00B4FF", marginRight: "8px" }}>→</span>
+[971] {dep.to}
+[973] <div style={{ fontSize: "10px", color: "#4A6080", marginTop: "2px" }}>{dep.rel}</div>
+[974] </div>
+[975] </div>
+[976] ))}
+[977] </div>
+[979] <SectionTitle>Fluxo de Interação com o Usuário</SectionTitle>
+[980] <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "8px" }}>
+[981] {[
+[982] { step: "1", title: "Onboarding", desc: "Perfil de risco, capital disponível, horizonte, objetivos" },
+[983] { step: "2", title: "Briefing SQU", desc: "Sistema processa perfil e ativa agentes relevantes" },
+[984] { step: "3", title: "Análise Paralela", desc: "13 agentes operam simultaneamente por domínio" },
+[985] { step: "4", title: "Síntese", desc: "STRATEGY converge oportunidades e monta estratégia" },
+[987] { step: "5", title: "Entrega", desc: "Portfólio + alertas + relatório de convicção" },
+[988] ].map((s) => (
+[989] <div key={s.step} style={{
+[990] padding: "20px 16px", borderRadius: "8px", textAlign: "center",
+[991] border: "1px solid rgba(0,255,136,0.15)",
+[992] background: "rgba(0,255,136,0.02)",
+[993] }}>
+[994] <div style={{ fontSize: "24px", fontWeight: "900", color: "#00FF88", marginBottom: "8px" }}>{s.step}</div>
+[995] <div style={{ fontSize: "12px", fontWeight: "700", color: "#E8EAF0", marginBottom: "6px" }}>{s.title}</div>
+[996] <div style={{ fontSize: "10px", color: "#6A7B90", lineHeight: 1.5 }}>{s.desc}</div>
+[997] </div>
+[998] ))}
+[999] </div>
+[1000] </div>
+[1001] )}
+[1003] {/* TECH STACK TAB */}
+[1005] {activeTab === "tech" && (
+[1006] <div>
+[1007] <SectionTitle>Stack Tecnológico</SectionTitle>
+[1008] <p style={{ ...bodyText, marginBottom: "32px" }}>
+[1009] O SQU é construído sobre infraestrutura de nível institucional, combinando modelos de linguagem de ponta, pipelines de dados financeiros em tempo real e orquestração multi-agente robusta.
+[1010] </p>
+[1012] <div style={{ marginBottom: "40px" }}>
+[1013] {techStack.map((item, i) => (
+[1014] <div key={i} style={{
+[1015] display: "grid", gridTemplateColumns: "180px 220px 1fr",
+[1016] gap: "16px", padding: "16px 20px",
+[1017] borderBottom: "1px solid rgba(255,255,255,0.05)",
+[1018] alignItems: "center",
+[1019] background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent",
+[1020] }}>
+[1022] <div style={{ fontSize: "10px", color: "#4A6080", letterSpacing: "0.15em" }}>{item.layer.toUpperCase()}</div>
+[1023] <div style={{ fontSize: "12px", fontWeight: "700", color: "#00B4FF" }}>{item.tech}</div>
+[1024] <div style={{ fontSize: "11px", color: "#6A7B90" }}>{item.detail}</div>
+[1025] </div>
+[1026] ))}
+[1027] </div>
+[1029] <SectionTitle>Requisitos de Dados por Agente</SectionTitle>
+[1030] <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "40px" }}>
+[1031] {[
+[1032] { agent: "A01 GEOPOL", sources: ["Reuters World", "AP International", "Control Risks API", "ACLED Conflict Data"], update: "Tempo real" },
+[1033] { agent: "A02 HISTFIN + A03 EVENTOR", sources: ["FRED (Federal Reserve)", "World Bank Open Data", "IMF Data API", "Quandl/Nasdaq
+[1035] Data"], update: "Diário" },
+[1036] { agent: "A06 FOREX", sources: ["Bloomberg FX", "OANDA API", "CFTC COT Report", "BIS Triennial Survey"], update: "Tempo real" },
+[1037] { agent: "A07 EQUITIES", sources: ["NYSE/NASDAQ feeds", "Euronext, LSE, TSE APIs", "MSCI Data", "ETF.com flows"], update: "Tempo real" },
+[1038] { agent: "A08 CENTRAL", sources: ["Fed.gov (FOMC)", "ECB Statistical Warehouse", "BoE Data", "BIS Statistics"], update: "Por publicação" },
+[1039] { agent: "A10 DERIVA", sources: ["CBOE Options Data", "CME Group API", "Euronext Derivatives", "OptionMetrics"], update: "Tempo real" },
+[1040] { agent: "A11 NEWS", sources: ["Bloomberg NewsWire", "Reuters Connect", "Dow Jones DNA", "NewsAPI Pro"], update: "<2 minutos" },
+[1041] { agent: "A09 LETTERS + A04 LIBQUANT", sources: ["SEC EDGAR (13F)", "Fundos públicos", "Google Scholar", "SSRN"], update: "Trimestral/Contínuo" },
+[1043] ].map((d, i) => (
+[1044] <div key={i} style={{
+[1045] padding: "20px", borderRadius: "8px",
+[1046] border: "1px solid rgba(255,255,255,0.07)",
+[1047] background: "rgba(255,255,255,0.01)",
+[1048] }}>
+[1049] <div style={{ fontSize: "12px", fontWeight: "700", color: "#00FF88", marginBottom: "12px" }}>{d.agent}</div>
+[1050] {d.sources.map((s, j) => (
+[1051] <div key={j} style={{ fontSize: "11px", color: "#6A7B90", marginBottom: "4px" }}>▸ {s}</div>
+[1052] ))}
+[1053] <div style={{ marginTop: "10px", padding: "4px 8px", background: "rgba(0,180,255,0.1)", borderRadius: "4px", display: "inline-block" }}>
+[1054] <span style={{ fontSize: "10px", color: "#00B4FF" }}>⏱ {d.update}</span>
+[1055] </div>
+[1056] </div>
+[1057] ))}
+[1058] </div>
+[1060] <SectionTitle>Segurança e Compliance</SectionTitle>
+[1061] <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+[1062] {[
+[1063] { icon: "🔐", title: "Criptografia", desc: "AES-256 em repouso, TLS 1.3 em trânsito. Chaves gerenciadas por AWS KMS." },
+[1064] { icon: "📋", title: "Compliance", desc: "SOC 2 Type II, GDPR, LGPD. Auditoria trimestral de acesso e logs imutáveis." },
+[1065] { icon: "🛡️", title: "Isolamento", desc: "Dados financeiros em ambiente VPC isolado. Zero trust network architecture." },
+[1066] ].map((s) => (
+[1067] <div key={s.title} style={{ padding: "24px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.07)" }}>
+[1068] <div style={{ fontSize: "28px", marginBottom: "12px" }}>{s.icon}</div>
+[1069] <div style={{ fontSize: "13px", fontWeight: "700", color: "#E8EAF0", marginBottom: "8px" }}>{s.title}</div>
+[1070] <div style={{ fontSize: "11px", color:
+[1072] "#6A7B90", lineHeight: 1.6 }}>{s.desc}</div>
+[1073] </div>
+[1074] ))}
+[1075] </div>
+[1076] </div>
+[1077] )}
+[1079] {/* KPIs TAB */}
+[1080] {activeTab === "kpis" && (
+[1081] <div>
+[1082] <SectionTitle>KPIs Globais do Sistema</SectionTitle>
+[1083] <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "40px" }}>
+[1084] <Card title="Performance de Investimento" accent="#00FF88">
+[1085] {[
+[1086] { kpi: "Retorno vs benchmark (S&P500)", target: "2x a 4x anualizado" },
+[1087] { kpi: "Sharpe Ratio mínimo", target: "> 2.0" },
+[1088] { kpi: "Razão ganho/perda em opções", target: "> 3:1" },
+[1089] { kpi: "Max drawdown por portfólio",
+[1091] target: "< 15% (conservador), < 25% (agressivo)" },
+[1092] { kpi: "Win rate de recomendações", target: "> 60%" },
+[1093] { kpi: "Calmar Ratio", target: "> 1.5" },
+[1094] ].map((k, i) => (
+[1095] <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", alignItems: "center" }}>
+[1096] <span style={{ fontSize: "11px", color: "#8A9BB0" }}>{k.kpi}</span>
+[1097] <span style={{ fontSize: "11px", color: "#00FF88", fontWeight: "700" }}>{k.target}</span>
+[1098] </div>
+[1099] ))}
+[1100] </Card>
+[1102] <Card title="Performance Operacional" accent="#00B4FF">
+[1103] {[
+[1104] { kpi: "Latência máx. de alerta crítico", target: "< 2 minutos" },
+[1105] { kpi: "Uptime do sistema", target: ">
+[1107] 99.9%" },
+[1108] { kpi: "Tempo de geração de estratégia", target: "< 10 minutos" },
+[1109] { kpi: "Cobertura de fontes de notícias", target: "> 200 fontes globais" },
+[1110] { kpi: "Precisão de classificação de impacto", target: "> 78%" },
+[1111] { kpi: "Revisão de portfólio", target: "Semanal ou por gatilho" },
+[1112] ].map((k, i) => (
+[1113] <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid rgba(255,255,255,0.05)", alignItems: "center" }}>
+[1114] <span style={{ fontSize: "11px", color: "#8A9BB0" }}>{k.kpi}</span>
+[1115] <span style={{ fontSize: "11px", color: "#00B4FF", fontWeight: "700" }}>{k.target}</span>
+[1116] </div>
+[1117] ))}
+[1118] </Card>
+[1119] </div>
+[1121] <SectionTitle>Roadmap de
+[1123] Desenvolvimento</SectionTitle>
+[1124] <div style={{ marginBottom: "40px" }}>
+[1125] {[
+[1126] { phase: "Fase 1 — MVP (0–3 meses)", color: "#E74C3C", items: ["Agentes A11 (News), A01 (Geopol), A08 (Bancos Centrais)", "Agente A12 (Strategy) com interface básica", "Integração com Yahoo Finance, Investing.com, FRED API", "Dashboard básico de oportunidades com scoring"] },
+[1127] { phase: "Fase 2 — Core (3–6 meses)", color: "#F39C12", items: ["Agentes A07 (Equities), A06 (Forex), A13 (Portfolio)", "Integração com Bloomberg ou Refinitiv (dado financeiro profissional)", "Sistema de alertas em tempo real", "Motor de backtesting para validação de estratégias"] },
+[1128] { phase: "Fase 3 — Advanced (6–12 meses)", color: "#27AE60", items: ["Agentes A04 (LibQuant), A09 (Letters), A10 (Derivativos)", "Base vetorial com +300 obras indexadas", "Análise de 13F e cartas de fundos automatizada", "Motor de opções com identificação de assimetrias"] },
+[1129] { phase: "Fase 4 — Institucional (12–18
+[1131] meses)", color: "#00B4FF", items: ["Agentes A02 (Histfin), A03 (Eventor), A05 (SysArch)", "Análise histórica completa com 100+ anos de dados", "Modelagem de comportamento algorítmico (HFTs)", "API pública para integração com corretoras"] },
+[1132] ].map((p, i) => (
+[1133] <div key={i} style={{ marginBottom: "24px" }}>
+[1134] <div style={{ fontSize: "13px", fontWeight: "700", color: p.color, marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" }}>
+[1135] <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: p.color, display: "inline-block" }} />
+[1136] {p.phase}
+[1137] </div>
+[1138] <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "8px", paddingLeft: "20px" }}>
+[1139] {p.items.map((item, j) => (
+[1140] <div key={j} style={{ fontSize: "11px", color: "#6A7B90", padding: "8px 12px", borderRadius: "6px", border: `1px solid ${p.color}
+[1142] 20`, background: `${p.color}05` }}>
+[1143] ✓ {item}
+[1144] </div>
+[1145] ))}
+[1146] </div>
+[1147] </div>
+[1148] ))}
+[1149] </div>
+[1151] <SectionTitle>Riscos e Mitigações</SectionTitle>
+[1152] <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "8px" }}>
+[1153] {[
+[1154] { risk: "Custo de APIs de dados financeiros (Bloomberg/Refinitiv)", severity: "ALTO", mitigation: "Usar Yahoo Finance e FRED no MVP; migrar para APIs institucionais conforme MRR crescer" },
+[1155] { risk: "Alucinação de LLMs em análises financeiras", severity: "ALTO", mitigation: "Cada recomendação deve ter fontes verificáveis; implementar camada de fact-checking com dados brutos" },
+[1156] { risk: "Latência em mercados de alta frequência", severity: "MÉDIO", mitigation: "SQU é
+[1158] voltado para swing e position trading (dias a meses), não HFT. Latência de minutos é aceitável." },
+[1159] { risk: "Responsabilidade legal por recomendações financeiras", severity: "ALTO", mitigation: "Disclaimer explícito: SQU é ferramenta de análise, não consultoria regulada. Usuário é responsável pelas decisões." },
+[1160] { risk: "Qualidade inconsistente entre agentes", severity: "MÉDIO", mitigation: "Sistema de score de confiança por agente. Recomendações só avançam com convergência mínima de 5 agentes." },
+[1161] ].map((r, i) => (
+[1162] <div key={i} style={{
+[1163] padding: "16px 20px", borderRadius: "8px",
+[1164] border: "1px solid rgba(255,255,255,0.06)",
+[1165] display: "grid", gridTemplateColumns: "1fr 80px 2fr", gap: "16px", alignItems: "start",
+[1166] }}>
+[1167] <div style={{ fontSize: "12px", color: "#E8EAF0" }}>{r.risk}</div>
+[1168] <div style={{
+[1170] fontSize: "10px", padding: "3px 8px", borderRadius: "4px", textAlign: "center", fontWeight: "700",
+[1171] background: r.severity === "ALTO" ? "rgba(231,76,60,0.2)" : "rgba(243,156,18,0.2)",
+[1172] color: r.severity === "ALTO" ? "#E74C3C" : "#F39C12",
+[1173] }}>{r.severity}</div>
+[1174] <div style={{ fontSize: "11px", color: "#6A7B90", lineHeight: 1.5 }}>{r.mitigation}</div>
+[1175] </div>
+[1176] ))}
+[1177] </div>
+[1178] </div>
+[1179] )}
+[1181] </div>
+[1183] {/* Footer */}
+[1184] <footer style={{
+[1185] position: "relative", zIndex: 5,
+[1186] padding: "24px 40px",
+[1187] borderTop: "1px solid rgba(255,255,255,0.05)",
+[1188] display: "flex", justifyContent: "space-
+[1190] between", alignItems: "center",
+[1191] }}>
+[1192] <div style={{ fontSize: "10px", color: "#2A3848", letterSpacing: "0.2em" }}>
+[1193] SQU — SQUAD QUANTITATIVO UNIVERSAL © 2025 — CONFIDENCIAL
+[1194] </div>
+[1195] <div style={{ fontSize: "10px", color: "#2A3848", letterSpacing: "0.2em" }}>
+[1196] PRD v1.0 · 13 AGENTES · 200+ FONTES
+[1197] </div>
+[1198] </footer>
+[1199] </div>
+[1200] );
+[1201] }
+[1203] // ── Helpers ──────────────────────────────────────────────────────────────────
+[1205] function SectionTitle({ children }) {
+[1206] return (
+[1207] <div style={{ marginBottom: "24px", marginTop: "8px" }}>
+[1209] <h2 style={{ fontSize: "11px", fontWeight: "700", color: "#4A6080", letterSpacing: "0.3em", margin: "0 0 8px" }}>
+[1210] {children.toUpperCase()}
+[1211] </h2>
+[1212] <div style={{ width: "40px", height: "2px", background: "linear-gradient(90deg, #00FF88, transparent)" }} />
+[1213] </div>
+[1214] );
+[1215] }
+[1217] function Card({ title, accent, children }) {
+[1218] return (
+[1219] <div style={{
+[1220] padding: "24px", borderRadius: "10px",
+[1221] border: `1px solid ${accent}25`,
+[1222] background: `${accent}04`,
+[1223] }}>
+[1224] <div style={{ fontSize: "11px", fontWeight: "700", color: accent, letterSpacing: "0.2em", marginBottom: "16px" }}>
+[1225] {title.toUpperCase()}
+[1226] </div>
+[1227] {children}
+[1229] </div>
+[1230] );
+[1231] }
+[1233] function AgentSection({ title, color, children }) {
+[1234] return (
+[1235] <div style={{ marginBottom: "12px" }}>
+[1236] <div style={{ fontSize: "9px", fontWeight: "700", color: color, letterSpacing: "0.2em", marginBottom: "8px", opacity: 0.8 }}>
+[1237] {title}
+[1238] </div>
+[1239] {children}
+[1240] </div>
+[1241] );
+[1242] }
+[1244] const bodyText = {
+[1245] fontSize: "13px",
+[1246] color: "#8A9BB0",
+[1247] lineHeight: 1.7,
+[1248] margin: 0,
+[1249] };
