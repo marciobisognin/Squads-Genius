@@ -1,0 +1,5 @@
+name: expandir-galeria-artistas
+steps:
+  - intake-artistico
+  - selecionar-agentes-artistas
+  - validar-publicacao

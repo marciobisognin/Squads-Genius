@@ -1,0 +1,7 @@
+name: gerar-prompt-obra
+steps:
+  - intake-artistico
+  - selecionar-agentes-artistas
+  - gerar-direcao-curatorial
+  - compor-prompt-final
+  - validar-publicacao

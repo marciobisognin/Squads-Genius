@@ -1,0 +1,5 @@
+name: revisar-prompt-obra
+steps:
+  - validar-publicacao
+  - gerar-direcao-curatorial
+  - compor-prompt-final

@@ -38,3 +38,4 @@ Squads publicados no repositório `Squads-Genius`.
 - [Prisma Real Problem Squad](squads/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — versão `1.0.0` — diagnóstico e decomposição de problemas reais em squads operacionais
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
+- [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.
