@@ -15,7 +15,7 @@
 
 ---
 
-## ✦ O que é este Squad?
+## ✨ Ideia central
 
 O **OMNISCIENT GRAPHMAKER Squad v6.5** é um sistema de agentes especializados para analisar uma ideia, tese de negócio ou produto digital e convertê-la em uma arquitetura operacional pronta para execução.
 
@@ -25,7 +25,7 @@ Em termos simples: o squad pega uma ideia ampla e transforma em **blueprint estr
 
 ---
 
-## ✦ Para que serve?
+## 🎯 Para que serve?
 
 Este squad serve para estruturar produtos, negócios, lançamentos, squads internos e experimentos de inovação com mais rigor técnico.
 
@@ -42,7 +42,7 @@ Ele foi desenhado para responder perguntas como:
 
 ---
 
-## ✦ Visão didática do fluxo
+## 🧭 Como o squad trabalha
 
 ```mermaid
 flowchart TD
@@ -67,7 +67,7 @@ flowchart TD
 
 ---
 
-## ✦ Estrutura dos agentes
+## 🧩 Estrutura dos agentes
 
 ```mermaid
 flowchart LR
@@ -176,7 +176,7 @@ sequenceDiagram
 
 ---
 
-## ✦ O que o Squad entrega no final?
+## 📦 O que o squad entrega no final?
 
 <div align="center">
 <table>
