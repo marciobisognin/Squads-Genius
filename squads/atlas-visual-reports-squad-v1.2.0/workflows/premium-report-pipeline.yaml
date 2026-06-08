@@ -1,0 +1,30 @@
+name: premium-report-big4-pipeline
+description: Pipeline v1.1 para relatório premium visual-first com camada Big Four de auditoria, compliance, risco e evidência.
+phases:
+  - id: intake-and-scope
+    agents: [partner-report-orchestrator, intake-diagnostico, dados-e-evidencias]
+    outputs: [engagement_brief, scope_criteria_evidence_map]
+  - id: strategy-and-context
+    agents: [pesquisa-benchmark-visual, strategy-coherence-reviewer, estrategia-narrativa]
+    outputs: [strategy_coherence_memo, editorial_plan]
+  - id: audit-compliance-risk
+    agents: [audit-evidence-quality-auditor, compliance-report-architect, internal-controls-matrix-builder, risk-heatmap-materiality-designer]
+    outputs: [evidence_register, compliance_scorecard, control_matrix, risk_heatmap]
+  - id: specialist-assurance
+    agents: [cyber-privacy-assurance-reviewer, tax-regulatory-report-reviewer, forensic-red-flag-reviewer, technology-digital-controls-reviewer, esg-sustainability-assurance-designer]
+    outputs: [specialist_working_papers]
+  - id: design-and-build
+    agents: [paleta-identidade, tipografia-hierarquia, design-system, infograficos, visualizacao-dados, ux-html, frontend-html-css-js, pdf-print-engineering]
+    outputs: [index.html, report.pdf]
+  - id: red-team-and-release
+    agents: [devils-advocate-red-team-reviewer, qa-visual, qa-factual-editorial, empacotamento-entrega]
+    outputs: [red_team_review, visual_qa_report, content_qa_report, package]
+quality_gates:
+  - evidence_labels_present
+  - compliance_scorecard_present
+  - control_matrix_present
+  - risk_heatmap_present
+  - html_opens_locally
+  - pdf_a4_no_overflow
+  - qpdf_check_passes_when_available
+  - no_secrets_detected

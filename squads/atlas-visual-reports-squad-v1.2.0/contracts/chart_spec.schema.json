@@ -1,0 +1,27 @@
+{
+  "chart_id": "string",
+  "purpose": [
+    "comparison",
+    "trend",
+    "composition",
+    "correlation",
+    "ranking",
+    "distribution",
+    "process",
+    "decision"
+  ],
+  "recommended_chart": [
+    "bar",
+    "line",
+    "heatmap",
+    "waterfall",
+    "scatter",
+    "treemap",
+    "funnel",
+    "matrix",
+    "timeline"
+  ],
+  "data_source": "string",
+  "title": "string",
+  "annotation": "string"
+}

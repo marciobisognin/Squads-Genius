@@ -1,0 +1,35 @@
+{
+  "report_type": [
+    "annual_report",
+    "executive_report",
+    "ESG",
+    "financial",
+    "academic",
+    "strategic",
+    "operational",
+    "consulting"
+  ],
+  "audience": [
+    "executives",
+    "board",
+    "technical_team",
+    "public",
+    "investors"
+  ],
+  "sector": "string",
+  "tone": [
+    "institutional",
+    "premium",
+    "technical",
+    "didactic",
+    "financial",
+    "academic"
+  ],
+  "format": "html_and_pdf",
+  "pdf_orientation": [
+    "portrait",
+    "landscape"
+  ],
+  "brand_assets": [],
+  "constraints": []
+}

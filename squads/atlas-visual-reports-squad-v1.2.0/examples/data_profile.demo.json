@@ -1,0 +1,42 @@
+{
+  "kpis": [
+    {
+      "label": "Camadas",
+      "value": "3",
+      "note": "executiva, analítica e técnica"
+    },
+    {
+      "label": "Agentes",
+      "value": "28",
+      "note": "design + Big Four"
+    },
+    {
+      "label": "Saída",
+      "value": "HTML/PDF",
+      "note": "revisão antes do PDF"
+    },
+    {
+      "label": "QA",
+      "value": "4 gates",
+      "note": "visual, factual, PDF e estrutura"
+    }
+  ],
+  "risks": [
+    {
+      "name": "Texto dominante",
+      "note": "Migrar conteúdo longo ao apêndice."
+    },
+    {
+      "name": "PDF cortado",
+      "note": "Usar CSS print e prévias PNG."
+    },
+    {
+      "name": "Gráfico inadequado",
+      "note": "Validar intenção analítica."
+    },
+    {
+      "name": "Fonte ausente",
+      "note": "Rotular evidência e lacunas."
+    }
+  ]
+}

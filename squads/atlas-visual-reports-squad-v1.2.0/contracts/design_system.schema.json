@@ -1,0 +1,29 @@
+{
+  "colors": {
+    "primary": "#0F172A",
+    "secondary": "#2563EB",
+    "neutral": [
+      "#F8FAFC",
+      "#E2E8F0",
+      "#334155"
+    ],
+    "semantic": {
+      "risk": "#DC2626",
+      "warning": "#F59E0B",
+      "success": "#16A34A"
+    }
+  },
+  "typography": {
+    "title": "serif editorial",
+    "body": "clean sans-serif",
+    "numeric": "tabular sans-serif"
+  },
+  "components": [
+    "kpi-card",
+    "risk-matrix",
+    "roadmap",
+    "mindmap",
+    "chart-block",
+    "appendix-page"
+  ]
+}

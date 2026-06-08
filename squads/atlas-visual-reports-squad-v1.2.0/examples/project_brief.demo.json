@@ -1,0 +1,9 @@
+{
+  "report_type": "executive_report",
+  "audience": "executives",
+  "sector": "technology",
+  "tone": "premium",
+  "format": "html_and_pdf",
+  "pdf_orientation": "portrait",
+  "thesis": "A decisão executiva depende de transformar evidências dispersas em uma narrativa visual clara."
+}

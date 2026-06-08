@@ -1,0 +1,19 @@
+{
+  "visual_status": [
+    "pass",
+    "fail",
+    "warning"
+  ],
+  "pdf_status": [
+    "pass",
+    "fail",
+    "warning"
+  ],
+  "content_status": [
+    "pass",
+    "fail",
+    "warning"
+  ],
+  "issues": [],
+  "fixes_applied": []
+}
