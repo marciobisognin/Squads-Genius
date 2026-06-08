@@ -1,0 +1,59 @@
+name: atlas-visual-reports-squad
+display_name: Atlas Visual Reports Squad
+version: 1.1.0
+status: mvp2-big4-audit-ready
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+description: Squad multiagente para transformar relatórios pré-preenchidos em HTML/PDF premium visual-first com camada Big Four de auditoria, compliance, risco, evidência e controles.
+metadata:
+  readme_visual_preset: dark-neon-layered-architecture
+  default_pdf_format: A4 portrait
+  mvp: MVP 2 — Big Four audit/compliance expansion
+  source_v1_preserved: true
+  added_layers:
+    - audit evidence quality
+    - compliance reporting
+    - internal controls
+    - risk heatmap and materiality
+    - cyber/privacy assurance
+    - tax/regulatory review
+    - forensic red flags
+    - strategy coherence
+    - technology/digital controls
+    - red team review
+agents:
+  - audit-evidence-quality-auditor
+  - compliance-report-architect
+  - cyber-privacy-assurance-reviewer
+  - dados-e-evidencias
+  - design-system
+  - devils-advocate-red-team-reviewer
+  - empacotamento-entrega
+  - esg-sustainability-assurance-designer
+  - estrategia-narrativa
+  - forensic-red-flag-reviewer
+  - frontend-html-css-js
+  - infograficos
+  - intake-diagnostico
+  - internal-controls-matrix-builder
+  - maestro
+  - paleta-identidade
+  - partner-report-orchestrator
+  - pdf-print-engineering
+  - pesquisa-benchmark-visual
+  - qa-factual-editorial
+  - qa-visual
+  - risk-heatmap-materiality-designer
+  - strategy-coherence-reviewer
+  - tax-regulatory-report-reviewer
+  - technology-digital-controls-reviewer
+  - tipografia-hierarquia
+  - ux-html
+  - visualizacao-dados
+workflows:
+  - premium-report-pipeline.yaml
+scripts:
+  - scripts/build_report.py
+  - scripts/validate_squad.py
+  - scripts/smoke_test.py

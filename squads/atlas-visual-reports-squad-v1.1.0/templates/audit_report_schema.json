@@ -1,0 +1,35 @@
+{
+  "title": "string",
+  "scope": "string",
+  "criteria": [
+    "string"
+  ],
+  "executive_summary": [
+    "string"
+  ],
+  "findings": [
+    {
+      "title": "string",
+      "severity": "HIGH|MEDIUM|LOW",
+      "evidence_label": "CONFIRMED|INFERRED|SPECULATED",
+      "impact": "string",
+      "owner": "string",
+      "due": "string"
+    }
+  ],
+  "controls": [
+    {
+      "process": "string",
+      "risk": "string",
+      "control": "string",
+      "evidence": "string",
+      "status": "string"
+    }
+  ],
+  "compliance": [
+    {
+      "requirement": "string",
+      "status": "conforme|parcial|nao_conforme|pendente"
+    }
+  ]
+}

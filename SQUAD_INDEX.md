@@ -5,6 +5,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [ai-business-builder-squad](squads/ai-business-builder-squad/README.md) — `ai-business-builder-squad` — versão `1.0.0`
 - [Bigorna de Annwn — Super Sistema de Squads](squads/anvil-of-annwn-super-squad-system/README.md) — `anvil-of-annwn-super-squad-system` — versão `1.0.0` — forja AI Native para produto, oferta, MVP, validação e execução por squads
 - [apex-context-supreme](squads/apex-context-supreme/README.md) — `apex-context-supreme` — versão `1.1.0`
+- [Atlas Visual Reports Squad](squads/atlas-visual-reports-squad-v1.1.0/README.md) — `atlas-visual-reports-squad-v1.1.0` — versão `1.1.0` — relatórios premium visual-first com auditoria, compliance, risco, controles e evidência
 - [Aurora PopRock Ballads](squads/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — versão `1.0.0` — pop rock romântico, rock balada e prompts musicais autorais
 - [Canto Memória Viva](squads/canto-memoria-viva/README.md) — `canto-memoria-viva` — versão `1.0.0` — composição musical autoral com agentes para letra, voz, arranjo e originalidade
 - [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
