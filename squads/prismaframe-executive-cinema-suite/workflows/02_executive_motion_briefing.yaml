@@ -1,0 +1,8 @@
+name: Executive Motion Briefing
+steps:
+  - 01_intake_and_evidence_map
+  - 02_narrative_architecture
+  - 04_frame_motion_plan
+  - 06_build_motion_composition
+  - 08_final_cleanroom_qa
+  - 09_release_package

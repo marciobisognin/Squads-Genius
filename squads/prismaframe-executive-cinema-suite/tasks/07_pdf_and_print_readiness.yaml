@@ -1,0 +1,7 @@
+id: 07_pdf_and_print_readiness
+title: "Prontidão de impressão/PDF"
+sequence: 7
+acceptance:
+  - entrada e saída registradas
+  - produto final não expõe bastidores
+  - evidência de validação salva em validation/

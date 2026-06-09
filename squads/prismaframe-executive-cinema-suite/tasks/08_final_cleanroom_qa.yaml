@@ -1,0 +1,7 @@
+id: 08_final_cleanroom_qa
+title: "QA cleanroom do produto final"
+sequence: 8
+acceptance:
+  - entrada e saída registradas
+  - produto final não expõe bastidores
+  - evidência de validação salva em validation/
