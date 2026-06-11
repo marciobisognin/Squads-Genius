@@ -1,7 +1,7 @@
 name: farol-contratos-licitacoes-iffar
 title: Farol Contratos & Licitações IFFar
 description: Squad institucional para auditoria recorrente de planilhas DFD/listas de itens de licitações e contratos do Instituto Federal Farroupilha, com revisão de descrições, unidades de medida, preços, quantitativos, outliers e apoio à tomada de decisão.
-version: 1.0.0
+version: 1.1.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
@@ -33,6 +33,8 @@ workflows:
   - workflows/auditoria-dfd.yaml
 scripts:
   - scripts/analisar_dfd.py
+  - scripts/compras_gov.py
+  - scripts/enriquecer_dfd_compras_gov.py
   - scripts/smoke_test.py
 templates:
   - templates/relatorio_executivo.md
@@ -40,3 +42,5 @@ templates:
 references:
   - references/metodologia.md
   - references/orientacoes-pesquisa-externa-preditiva.md
+  - references/compras-gov-integracao.md
+  - references/uso-com-codex-claude-antigravity.md
