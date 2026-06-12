@@ -1,17 +1,19 @@
-# Squad Factory Backup
+# Squad Factory Private Backup
 
-Este diretório contém o registro de backup do sistema de construção de squads.
+Este é o índice do backup privado do sistema de construção de squads.
 
-## Backup completo
+## 📁 Squad "Farol Contratos & Licitações IFFar"
 
-O backup integral do sistema de construção de squads foi compactado e publicado como release do GitHub:
+O squad foi restaurado ao repositório público:
 
-- **Release:** [squad-factory-backup-20260611](https://github.com/marciobisognin/Squads-Genius/releases/tag/squad-factory-backup-20260611)
-- **Arquivo:** `squad-factory-backup.zip`
-- **Tamanho:** 232 MB
+- **Localização:** `IFFar-Squads/farol-contratos-licitacoes-iffar/`  
+- **README:** [Leia aqui](https://github.com/marciobisognin/Squads-Genius/blob/main/IFFar-Squads/farol-contratos-licitacoes-iffar/README.md)
 
-## Observação
+## 📦 Backup completo do sistema (privado)
 
-Devido ao tamanho do arquivo compactado, o backup completo foi publicado como asset de release, e não como arquivo no repositório.
+O backup integral do sistema de construção de squads foi salvo em repositório privado:
+
+- **Repositório privado:** https://github.com/marciobisognin/squad-factory-backup  
+- **Release com ZIP:** [squad-factory-backup-20260611](https://github.com/marciobisognin/squad-factory-backup/releases/tag/squad-factory-backup-20260611)
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
