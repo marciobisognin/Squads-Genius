@@ -1,0 +1,29 @@
+{
+  "orgao": "Prefeitura Municipal Exemplo - Secretaria de Educação",
+  "esfera": "municipal",
+  "autoridade_competente": "Secretário Municipal de Educação",
+  "objeto": {
+    "descricao": "Aquisição de notebooks para laboratórios de informática das escolas municipais",
+    "natureza": "bem_comum",
+    "quantitativos": "120 notebooks, entrega única"
+  },
+  "modalidade_pretendida": "pregao",
+  "justificativa_necessidade": "Renovação do parque tecnológico das 8 escolas municipais, com equipamentos fora de garantia desde 2023",
+  "vinculacao_pca": "item 14 do PCA 2026",
+  "valor_estimado": "",
+  "dotacao_orcamentaria": "12.361.0010.2.045",
+  "prazo_vigencia_pretendida": "12 meses (garantia e suporte)",
+  "prazo_desejado_contratacao": "antes do início do segundo semestre letivo",
+  "condicoes_especiais": {
+    "srp": "não",
+    "participacao_me_epp": "cota reservada",
+    "parcelamento_objeto": "avaliar lote único vs. itens",
+    "sustentabilidade": "logística reversa de baterias",
+    "habilitacao_especifica": ""
+  },
+  "criterio_julgamento": "menor_preco",
+  "regime_execucao": "",
+  "hipotese_legal": "",
+  "razao_escolha_contratado": "",
+  "documentos_anexados": ["levantamento de inventário 2025", "ata de priorização da SME"]
+}

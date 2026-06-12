@@ -1,0 +1,14 @@
+id: "04_elaborar_etp"
+owner: "planejamento-dfd-etp-architect"
+objective: "Elaborar o Estudo Técnico Preliminar com os elementos do art. 18, §1º, da Lei 14.133/2021 e da IN SEGES 58/2022, com conclusão fundamentada de viabilidade."
+inputs:
+  - "relatorio_intake"
+  - "nota_enquadramento"
+  - "dfd"
+outputs:
+  - "etp preenchido (templates/etp.md)"
+acceptance_criteria:
+  - "elementos obrigatórios presentes; facultativos ausentes justificados"
+  - "levantamento de mercado com alternativas comparadas"
+  - "parcelamento do objeto analisado expressamente"
+  - "conclusão de viabilidade decorre dos elementos analisados"

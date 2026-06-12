@@ -1,0 +1,72 @@
+{
+  "id": "contratacao_direta",
+  "description": "Forja do processo de contratação direta (dispensa ou inexigibilidade — arts. 72 a 75 da Lei 14.133/2021): documentação completa, aviso e minuta, sem fase externa de disputa.",
+  "human_in_loop": true,
+  "rollback": "retornar à última etapa com gate reprovado; lacuna nova volta ao intake",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake e suficiência documental",
+      "task": "01_intake_suficiencia_documental",
+      "gate_required": true,
+      "gate": "intake_suficiente"
+    },
+    {
+      "order": 2,
+      "name": "Enquadramento da hipótese (art. 74 ou 75)",
+      "task": "02_enquadramento_modalidade_e_rito",
+      "gate_required": true,
+      "gate": "enquadramento_fundamentado",
+      "note": "Hipótese taxativa identificada com inciso específico; valores de baixo valor marcados 'confirmar valor vigente'."
+    },
+    {
+      "order": 3,
+      "name": "DFD e ETP (quando exigíveis)",
+      "task": "03_elaborar_dfd",
+      "gate_required": false,
+      "note": "executar também 04_elaborar_etp conforme exigibilidade da hipótese"
+    },
+    {
+      "order": 4,
+      "name": "Pesquisa de preços / justificativa de preço",
+      "task": "06_pesquisa_precos_e_planilhas",
+      "gate_required": true,
+      "gate": "precos_com_metodo_e_fontes",
+      "note": "Na inexigibilidade, a justificativa de preço substitui a comparação de mercado (IN 65/2021, art. 7º — a confirmar)."
+    },
+    {
+      "order": 5,
+      "name": "Termo de referência",
+      "task": "05_elaborar_termo_referencia",
+      "gate_required": false
+    },
+    {
+      "order": 6,
+      "name": "Aviso de contratação direta + razão da escolha",
+      "task": "08_redigir_edital_e_anexos",
+      "gate_required": false,
+      "note": "usar templates/aviso_contratacao_direta.md com a documentação do art. 72"
+    },
+    {
+      "order": 7,
+      "name": "Minuta de contrato ou instrumento equivalente",
+      "task": "09_minuta_contrato",
+      "gate_required": false
+    },
+    {
+      "order": 8,
+      "name": "Conformidade e dossiê (art. 72)",
+      "task": "10_checklist_conformidade_e_dossie",
+      "gate_required": true,
+      "gate": "dossie_conforme_e_revisao_humana"
+    },
+    {
+      "order": 9,
+      "name": "Handoff humano",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Parecer jurídico, autorização da autoridade competente e divulgação no PNCP são atos humanos do órgão."
+    }
+  ]
+}

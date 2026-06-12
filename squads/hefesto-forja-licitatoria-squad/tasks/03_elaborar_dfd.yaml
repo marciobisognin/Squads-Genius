@@ -1,0 +1,12 @@
+id: "03_elaborar_dfd"
+owner: "planejamento-dfd-etp-architect"
+objective: "Elaborar o Documento de Formalização da Demanda conforme Decreto 10.947/2022, com justificativa, quantitativos e vinculação ao PCA."
+inputs:
+  - "relatorio_intake"
+  - "nota_enquadramento"
+outputs:
+  - "dfd preenchido (templates/dfd.md)"
+acceptance_criteria:
+  - "todos os campos do template preenchidos ou justificados"
+  - "quantitativos com memória de cálculo"
+  - "vinculação ao PCA registrada (ou ausência justificada)"

@@ -1,0 +1,15 @@
+id: "09_minuta_contrato"
+owner: "edital-minutas-redator"
+objective: "Redigir a minuta de contrato com todas as cláusulas necessárias do art. 92 da Lei 14.133/2021, incluindo LGPD e anticorrupção, na estrutura dos modelos AGU/CNMLC."
+inputs:
+  - "nota_enquadramento"
+  - "termo_referencia"
+  - "matriz_riscos"
+  - "relatorio_pesquisa_precos"
+outputs:
+  - "minuta_contrato (templates/minuta_contrato.md)"
+acceptance_criteria:
+  - "todas as cláusulas do art. 92 presentes ou inaplicabilidade justificada"
+  - "cláusulas com referência legal [ref.: ...]"
+  - "matriz de riscos refletida em cláusula quando adotada"
+  - "consistência literal com edital e TR"

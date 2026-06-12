@@ -1,0 +1,12 @@
+id: "02_enquadramento_modalidade_e_rito"
+owner: "enquadramento-modalidade-strategist"
+objective: "Definir e fundamentar modalidade (ou contratação direta), critério de julgamento, modo de disputa, regime de execução e instrumentos auxiliares (SRP)."
+inputs:
+  - "relatorio_intake"
+outputs:
+  - "nota_enquadramento com fundamentos e alternativas rejeitadas"
+acceptance_criteria:
+  - "cada escolha cita o dispositivo da Lei 14.133/2021 e o fato que a sustenta"
+  - "alternativas rejeitadas registradas com motivo"
+  - "divergência com a modalidade pedida pelo usuário exposta, nunca acatada em silêncio"
+  - "limites de valor de dispensa marcados 'confirmar valor vigente'"

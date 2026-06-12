@@ -12,6 +12,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
 - [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
 - [germina360-squad](squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
+- [Hefesto Forja Licitatória](squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes
 - [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
 - [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`
 - [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.1.0` — pesquisa científica, síntese de evidências e artigo acadêmico auditável

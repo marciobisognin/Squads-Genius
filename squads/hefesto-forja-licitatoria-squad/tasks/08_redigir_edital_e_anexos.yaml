@@ -1,0 +1,15 @@
+id: "08_redigir_edital_e_anexos"
+owner: "edital-minutas-redator"
+objective: "Redigir o edital com a estrutura do art. 25 da Lei 14.133/2021 e dos modelos AGU/CNMLC (ou o aviso de contratação direta com a documentação do art. 72), com lista completa de anexos."
+inputs:
+  - "nota_enquadramento"
+  - "termo_referencia"
+  - "relatorio_pesquisa_precos"
+  - "matriz_riscos"
+outputs:
+  - "edital_e_anexos (templates/edital.md) ou aviso de contratação direta (templates/aviso_contratacao_direta.md)"
+acceptance_criteria:
+  - "estrutura completa da modalidade enquadrada, com refs legais [ref.: ...]"
+  - "decisões do órgão marcadas [[DECISÃO DO ÓRGÃO: ...]], nunca decididas pela forja"
+  - "prazos de publicidade indicados conforme art. 55 (marcar 'confirmar prazo do caso')"
+  - "objeto, valores e critério idênticos aos demais artefatos"

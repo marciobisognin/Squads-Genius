@@ -1,0 +1,14 @@
+id: "07_matriz_riscos_contratacao"
+owner: "matriz-riscos-engineer"
+objective: "Construir a matriz de riscos da contratação com identificação, avaliação, alocação entre as partes e plano de tratamento (art. 22 da Lei 14.133/2021; IN Conjunta MP/CGU 01/2016)."
+inputs:
+  - "etp"
+  - "termo_referencia"
+  - "relatorio_pesquisa_precos"
+outputs:
+  - "matriz_riscos (templates/matriz_riscos_contratacao.md)"
+acceptance_criteria:
+  - "cada risco com causa, consequência, probabilidade, impacto e justificativa"
+  - "alocação contratante/contratada/compartilhado com reflexo contratual"
+  - "tratamento com ação, responsável e gatilho de monitoramento"
+  - "profundidade proporcional à complexidade do objeto"

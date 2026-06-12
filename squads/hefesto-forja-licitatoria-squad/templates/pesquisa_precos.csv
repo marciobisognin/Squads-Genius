@@ -1,0 +1,4 @@
+item;fonte;identificacao_fonte;data;valor_unitario;quantidade
+Item 1 - exemplo;painel_de_precos;compra similar UASG 000000 - pregão 00/0000;2026-01-15;100.00;10
+Item 1 - exemplo;pncp;contrato 00000/2025 - órgão X;2026-02-01;105.50;10
+Item 1 - exemplo;cotacao_fornecedor;Fornecedor A - proposta nº 123;2026-02-10;98.75;10

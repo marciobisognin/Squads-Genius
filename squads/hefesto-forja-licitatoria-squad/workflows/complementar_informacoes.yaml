@@ -1,0 +1,29 @@
+{
+  "id": "complementar_informacoes",
+  "description": "Ciclo curto de clarificação: usado quando o usuário retorna com respostas/novos documentos, ou quando qualquer agente descobre lacuna no meio da forja. Atualiza o intake e os artefatos impactados.",
+  "human_in_loop": true,
+  "rollback": "nenhum artefato é alterado sem reavaliação de impacto",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Reavaliar suficiência com as novas informações",
+      "task": "01_intake_suficiencia_documental",
+      "gate_required": true,
+      "gate": "intake_suficiente"
+    },
+    {
+      "order": 2,
+      "name": "Mapear artefatos impactados pelas novas informações",
+      "task": null,
+      "gate_required": false,
+      "note": "o orquestrador lista quais artefatos precisam de atualização (ex.: novo quantitativo → ETP, TR, pesquisa de preços, edital, minuta)"
+    },
+    {
+      "order": 3,
+      "name": "Atualizar artefatos impactados e revalidar coerência cruzada",
+      "task": "10_checklist_conformidade_e_dossie",
+      "gate_required": true,
+      "gate": "dossie_conforme_e_revisao_humana"
+    }
+  ]
+}

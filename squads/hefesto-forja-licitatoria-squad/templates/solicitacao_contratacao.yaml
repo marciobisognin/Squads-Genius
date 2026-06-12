@@ -1,0 +1,26 @@
+# Solicitação de contratação — preencher e entregar ao squad (entrada do intake)
+orgao: ""                       # órgão/entidade e unidade requisitante
+esfera: ""                      # federal | estadual | municipal
+autoridade_competente: ""
+objeto:
+  descricao: ""                 # o que será contratado
+  natureza: ""                  # bem_comum | servico_comum | servico_mao_obra_dedicada | obra | servico_engenharia | tic
+  quantitativos: ""             # quantidades estimadas e unidade de medida
+modalidade_pretendida: ""       # pregao | concorrencia | concurso | leilao | dialogo_competitivo | dispensa | inexigibilidade | indefinida
+justificativa_necessidade: ""   # problema a resolver e resultado esperado
+vinculacao_pca: ""              # item do Plano de Contratações Anual (ou "não consta")
+valor_estimado: ""              # se já houver estimativa (a pesquisa de preços pode construir)
+dotacao_orcamentaria: ""
+prazo_vigencia_pretendida: ""
+prazo_desejado_contratacao: ""
+condicoes_especiais:
+  srp: ""                       # registro de preços? sim/não
+  participacao_me_epp: ""       # exclusiva/cota/ampla
+  parcelamento_objeto: ""       # análise desejada
+  sustentabilidade: ""
+  habilitacao_especifica: ""
+criterio_julgamento: ""         # menor_preco | maior_desconto | tecnica_e_preco | ...
+regime_execucao: ""             # quando obra/serviço de engenharia
+hipotese_legal: ""              # quando dispensa/inexigibilidade: inciso pretendido
+razao_escolha_contratado: ""    # quando inexigibilidade
+documentos_anexados: []         # lista do que está sendo entregue junto

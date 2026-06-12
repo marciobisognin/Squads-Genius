@@ -1,0 +1,15 @@
+id: "06_pesquisa_precos_e_planilhas"
+owner: "pesquisa-precos-planilhista"
+objective: "Montar a cesta de preços com fontes diversificadas (IN SEGES 65/2021), gerar planilha CSV, estatísticas determinísticas e relatório metodológico com valor estimado."
+inputs:
+  - "etp e termo_referencia (itens e quantitativos)"
+  - "cotações, consultas ao Painel de Preços/PNCP e tabelas fornecidas pelo usuário"
+outputs:
+  - "planilha_pesquisa_precos (templates/pesquisa_precos.csv preenchido)"
+  - "estatísticas JSON de scripts/analise_pesquisa_precos.py"
+  - "relatorio_pesquisa_precos (templates/relatorio_pesquisa_precos.md)"
+acceptance_criteria:
+  - "toda linha da planilha com fonte identificável e data"
+  - "estatísticas exclusivamente do script determinístico"
+  - "critério do valor estimado (média/mediana/menor) escolhido com justificativa"
+  - "outliers tratados e registrados; fontes insuficientes justificadas formalmente"

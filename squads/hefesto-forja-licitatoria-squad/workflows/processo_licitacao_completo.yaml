@@ -1,0 +1,83 @@
+{
+  "id": "processo_licitacao_completo",
+  "description": "Forja completa do processo licitatório (pregão, concorrência etc.): do intake ao dossiê com edital, anexos e minuta de contrato. Gates bloqueantes e handoff humano obrigatório.",
+  "human_in_loop": true,
+  "rollback": "retornar à última etapa com gate reprovado; lacuna nova descoberta em qualquer etapa volta ao intake",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake e suficiência documental",
+      "task": "01_intake_suficiencia_documental",
+      "gate_required": true,
+      "gate": "intake_suficiente",
+      "note": "BLOQUEANTE: com lacunas essenciais, o agente pergunta ao usuário e a forja pausa até as respostas."
+    },
+    {
+      "order": 2,
+      "name": "Enquadramento de modalidade e rito",
+      "task": "02_enquadramento_modalidade_e_rito",
+      "gate_required": true,
+      "gate": "enquadramento_fundamentado",
+      "note": "Se o enquadramento resultar em contratação direta, migrar para o workflow contratacao_direta."
+    },
+    {
+      "order": 3,
+      "name": "DFD",
+      "task": "03_elaborar_dfd",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "ETP",
+      "task": "04_elaborar_etp",
+      "gate_required": false
+    },
+    {
+      "order": 5,
+      "name": "Pesquisa de preços e planilhas",
+      "task": "06_pesquisa_precos_e_planilhas",
+      "gate_required": true,
+      "gate": "precos_com_metodo_e_fontes"
+    },
+    {
+      "order": 6,
+      "name": "Matriz de riscos",
+      "task": "07_matriz_riscos_contratacao",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "Termo de referência / projeto básico",
+      "task": "05_elaborar_termo_referencia",
+      "gate_required": true,
+      "gate": "fase_preparatoria_completa"
+    },
+    {
+      "order": 8,
+      "name": "Edital e anexos",
+      "task": "08_redigir_edital_e_anexos",
+      "gate_required": false
+    },
+    {
+      "order": 9,
+      "name": "Minuta de contrato",
+      "task": "09_minuta_contrato",
+      "gate_required": false
+    },
+    {
+      "order": 10,
+      "name": "Conformidade e dossiê",
+      "task": "10_checklist_conformidade_e_dossie",
+      "gate_required": true,
+      "gate": "dossie_conforme_e_revisao_humana"
+    },
+    {
+      "order": 11,
+      "name": "Handoff humano",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: adaptação ao modelo oficial AGU/CNMLC vigente, análise jurídica (art. 53) e autorização da autoridade competente."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+id: "05_elaborar_termo_referencia"
+owner: "termo-referencia-writer"
+objective: "Redigir o termo de referência (ou estrutura de projeto básico) com os elementos do art. 6º, XXIII, da Lei 14.133/2021, na estrutura dos modelos AGU/CNMLC."
+inputs:
+  - "relatorio_intake"
+  - "nota_enquadramento"
+  - "etp"
+outputs:
+  - "termo_referencia preenchido (templates/termo_referencia.md)"
+acceptance_criteria:
+  - "dez blocos do art. 6º, XXIII presentes"
+  - "nenhuma especificação direcionada sem justificativa técnica"
+  - "modelo de gestão com fiscalização e critérios de medição/pagamento definidos"
+  - "objeto e quantitativos idênticos aos do ETP"

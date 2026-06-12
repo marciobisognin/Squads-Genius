@@ -1,0 +1,13 @@
+id: "01_intake_suficiencia_documental"
+owner: "intake-requisitos-clarifier"
+objective: "Inventariar a documentação recebida, checar campos obrigatórios por modalidade (script determinístico) e formular ao usuário as perguntas sobre lacunas bloqueantes."
+inputs:
+  - "solicitação inicial (templates/solicitacao_contratacao.yaml) e documentos anexos"
+  - "saída de scripts/intake_suficiencia.py"
+outputs:
+  - "relatorio_intake com inventário, lacunas, perguntas, respostas e premissas"
+acceptance_criteria:
+  - "toda lacuna classificada como bloqueante ou assumível"
+  - "perguntas agrupadas, numeradas, com motivo legal e exemplo de resposta"
+  - "gate intake_suficiente liberado somente sem lacuna bloqueante"
+  - "nenhum dado inventado: lacuna vira pergunta ou premissa explícita confirmada"

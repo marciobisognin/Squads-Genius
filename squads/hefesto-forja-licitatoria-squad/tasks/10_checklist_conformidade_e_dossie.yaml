@@ -1,0 +1,15 @@
+id: "10_checklist_conformidade_e_dossie"
+owner: "conformidade-dossie-auditor"
+objective: "Auditar completude e coerência cruzada do processo, montar o dossiê indexado (script determinístico) e emitir a nota de conformidade para o handoff humano."
+inputs:
+  - "todos os artefatos do processo"
+  - "saída de scripts/montar_dossie.py"
+outputs:
+  - "checklist_conformidade"
+  - "dossie_indexado"
+  - "nota_conformidade (templates/nota_conformidade.md)"
+acceptance_criteria:
+  - "artefatos obrigatórios da modalidade todos presentes ou pendência listada"
+  - "coerência cruzada de objeto, valores, prazos e critério verificada"
+  - "decisões pendentes [[DECISÃO DO ÓRGÃO]] e marcadores 'a confirmar' consolidados"
+  - "resultado limitado a APTO PARA REVISÃO HUMANA ou PENDENTE — nunca 'aprovado'"
