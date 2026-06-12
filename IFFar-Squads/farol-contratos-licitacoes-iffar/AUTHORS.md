@@ -1,3 +1,0 @@
-# Autores
-
-- Marcio Bisognin — Criador
