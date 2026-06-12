@@ -1,33 +1,101 @@
 id: main
 name: Value Canvas Visual Forge Workflow
+version: 2.0.0
+description: "Fluxo completo com análise de fit condicional, ramificação por score e loop de validação."
+
+session_state:
+  fit_score: null
+  fit_decision: null
+  blockers: []
+
 steps:
   - id: customer_profile
     agent: customer-profile-cartographer
     task: map-customer-profile
+    produces: customer-profile.md
+
   - id: value_map
     agent: value-map-architect
     task: build-value-map
+    requires: [customer_profile]
+    produces: value-map.md
+
   - id: fit
     agent: fit-evidence-analyst
     task: assess-fit-evidence
     requires: [customer_profile, value_map]
+    produces: fit-matrix.md
+    outputs:
+      - key: fit_score
+        type: float
+        range: [0, 10]
+      - key: fit_decision
+        type: enum
+        values: ["advance", "test", "redesign"]
+
+  - id: fit_gate
+    type: condition
+    requires: [fit]
+    branches:
+      - when: "fit_decision == 'redesign'"
+        goto: end_redesign
+      - when: "fit_decision == 'test'"
+        goto: experiment
+      - when: "fit_decision == 'advance'"
+        goto: [experiment, visual_canvas]
+
   - id: experiment
     agent: experiment-sprint-designer
     task: design-experiment-sprint
     requires: [fit]
+    produces: experiment-sprint.md
+
   - id: visual_canvas
     agent: visual-canvas-designer
     task: create-visual-canvas
     requires: [fit]
+    produces: visual-canvas-brief.md
+
   - id: carousel
     agent: infographic-carousel-producer
     task: produce-carousel-infographic
     requires: [visual_canvas]
+    produces: carousel-outline.md
+
   - id: pitch
     agent: pitch-story-visualizer
     task: build-pitch-storyboard
-    requires: [visual_canvas]
+    requires: [visual_canvas, fit]
+    produces: pitch-storyboard.md
+
   - id: review
     agent: ethical-financial-reviewer
     task: review-ethics-finance
     requires: [experiment, carousel, pitch]
+    produces: executive-decision-report.md
+    outputs:
+      - key: review_approved
+        type: boolean
+      - key: blockers
+        type: list
+
+  - id: review_gate
+    type: condition
+    requires: [review]
+    branches:
+      - when: "review_approved == true"
+        goto: end_success
+      - when: "review_approved == false AND blockers contains 'critical'"
+        goto: end_blocked
+
+  - id: end_success
+    type: terminal
+    message: "Pacote completo aprovado. Artefatos prontos para uso."
+
+  - id: end_redesign
+    type: terminal
+    message: "fit_score insuficiente. Revisar perfil do cliente e mapa de valor antes de continuar."
+
+  - id: end_blocked
+    type: terminal
+    message: "Revisão identificou bloqueios críticos. Corrigir artefatos indicados e reexecutar *run."
