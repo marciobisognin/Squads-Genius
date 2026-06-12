@@ -1,5 +1,5 @@
 name: maeve-athena-mimir-matrix-squad
-version: 2.0.0
+version: 1.0.0
 description: "Squad premium para criar proposta de valor, validar fit, gerar materiais visuais e apoiar publicação."
 author: "Marcio Bisognin"
 license: MIT
@@ -15,7 +15,6 @@ metadata:
 components:
   agents:
     - maeve-orchestrator.md
-    - market-signal-scout.md
     - customer-profile-cartographer.md
     - value-map-architect.md
     - fit-evidence-analyst.md
