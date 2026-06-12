@@ -1,0 +1,24 @@
+name: revisao-bibliografica-automatizada-squad
+display_name: Revisao Bibliografica Automatizada Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para busca semantica, sintese de artigos, mapeamento de lacunas e formatacao ABNT.
+agents:
+  - buscador-semantico
+  - sintetizador-artigos
+  - mapeador-lacunas
+  - gerador-revisao
+  - formatador-abnt
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

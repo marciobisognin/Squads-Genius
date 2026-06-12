@@ -1,0 +1,24 @@
+name: notion-second-brain-squad
+display_name: Notion Second Brain Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para otimizacao da produtividade pessoal e profissional atraves de integracao com Notion.
+agents:
+  - captura-rapida
+  - organizador-para
+  - revisor-semanal
+  - foco-diario
+  - revisor-mensal
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

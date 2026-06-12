@@ -1,0 +1,24 @@
+name: copo-de-cafe-podcast-squad
+display_name: Copo de Cafe Podcast Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para roteirizacao, producao e disseminacao de podcasts academicos.
+agents:
+  - roteirista-episodio
+  - editor-clips
+  - promotor-social
+  - seo-manager
+  - cronograma-editorial
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

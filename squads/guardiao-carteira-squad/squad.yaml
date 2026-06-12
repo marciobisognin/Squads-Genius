@@ -1,0 +1,24 @@
+name: guardiao-carteira-squad
+display_name: Guardiao Carteira Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para consolidacao, analise e monitoramento de carteiras de investimento, incluindo acoes, FIIs, criptoativos e renda fixa.
+agents:
+  - consolidador-carteira
+  - analista-risco
+  - alerta-rebalanceamento
+  - rastreador-dividendos
+  - relatorio-performance
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py
