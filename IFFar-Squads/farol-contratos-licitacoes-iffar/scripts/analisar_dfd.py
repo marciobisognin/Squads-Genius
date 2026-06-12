@@ -1,69 +1,99 @@
 #!/usr/bin/env python3
-import argparse, csv, html, json, math, re, statistics, shutil, time
+"""Auditoria de planilha DFD/lista de itens do squad Farol Contratos & Licitações IFFar."""
+import argparse, csv, html, json, math, re, statistics
 from pathlib import Path
 from datetime import datetime
-from urllib.parse import urlencode
-from urllib.request import Request, urlopen
-from urllib.error import HTTPError, URLError
 import openpyxl
 from openpyxl.styles import PatternFill, Font, Alignment
+
+from farol_common import norm, num, date_range_default, compras_fetch_material_precos
 
 RISK_COLOR = {'ALTO':'FFFF9999','MÉDIO':'FFFFE699','BAIXO':'FFD9EAD3','OK':'FFE2F0D9'}
 PACK_TERMS = ['CAIXA','PACOTE','FARDO','KIT','CONJUNTO','JOGO','PAR','ROLO','FRASCO','POTE','GALÃO','SACO','EMBALAGEM','CARTELA']
 RESTRICTIVE = ['MARCA','MODELO EXCLUSIVO','FABRICAÇÃO NACIONAL','NACIONAL']
 TYPO = {'CADO':'CABO','INXIDÁVEL':'INOXIDÁVEL','M`NIMA':'MÍNIMA','MINIMA':'MÍNIMA','CARACTERISTICAS':'CARACTERÍSTICAS','ACO ':'AÇO '}
 
+# Perfil padrão de mapeamento de colunas. Pode ser sobrescrito com --perfil perfil.json
+DEFAULT_PROFILE = {
+    'codigo': ['CÓDIGO', 'CODIGO'],
+    'descricao': ['DESCRIÇÃO', 'DESCRICAO'],
+    'unidade': ['UNIDADE'],
+    'preco': ['VALOR ESTIMADO NA ÚLTIMA', 'VALOR ESTIMADO'],
+    'quantidade': ['QUANTIDADE ESTIMADA'],
+    'valor_total': ['VALOR TOTAL'],
+    'header': ['DESCRIÇÃO', 'UNIDADE'],
+    'campus_row': 2,
+}
 
-def norm(s):
-    return re.sub(r'\s+', ' ', str(s or '').strip()).upper()
 
-def num(v):
-    if v is None or v == '': return None
-    if isinstance(v, (int,float)): return float(v)
-    try: return float(str(v).replace('.','').replace(',','.'))
-    except Exception: return None
+def load_profile(path=None):
+    profile = dict(DEFAULT_PROFILE)
+    if path:
+        profile.update(json.loads(Path(path).read_text(encoding='utf-8')))
+    return profile
 
-def find_header(ws):
+def find_header(ws, profile=None):
+    profile = profile or DEFAULT_PROFILE
+    kw_desc, kw_unid = profile['header'][0], profile['header'][1]
     for r in range(1, min(ws.max_row,30)+1):
         vals=[norm(ws.cell(r,c).value) for c in range(1, ws.max_column+1)]
-        if any('DESCRIÇÃO DO ITEM' in v for v in vals) and any('UNIDADE' in v for v in vals):
+        if any(kw_desc in v for v in vals) and any(kw_unid in v for v in vals):
             return r
     return 1
 
-def campus_for_col(ws, col, header_row):
-    # prefer the nearest non-empty cell on row 2 to the left within a 2-column campus block
+def campus_for_col(ws, col, header_row, campus_row=2):
+    # prefer the nearest non-empty cell on the campus row to the left within a 2-column campus block
     for c in [col, col-1, col-2]:
         if c >= 1:
-            v = ws.cell(2,c).value
+            v = ws.cell(campus_row,c).value
             if v and 'DOCUMENTO DE FORMALIZAÇÃO' not in str(v).upper() and 'VALOR' not in str(v).upper():
                 return str(v).strip()
     return ws.cell(header_row,col).column_letter
 
 def is_yellow(cell):
-    rgb = (cell.fill.fgColor.rgb or '').upper()
-    return rgb in ('FFFFFF00','FFFF00','00FFFF00')
+    rgb = getattr(cell.fill.fgColor, 'rgb', None)
+    if not isinstance(rgb, str):
+        return False
+    rgb = rgb.upper()
+    if rgb in ('FFFFFF00','FFFF00','00FFFF00'):
+        return True
+    if len(rgb) == 8:
+        try:
+            r,g,b = int(rgb[2:4],16), int(rgb[4:6],16), int(rgb[6:8],16)
+        except ValueError:
+            return False
+        return r >= 200 and g >= 190 and b <= 130
+    return False
 
-def detect_columns(ws, header_row):
+def detect_columns(ws, header_row, profile=None):
+    profile = profile or DEFAULT_PROFILE
     cols={}
+    valor_total_cols=[]
     for c in range(1, ws.max_column+1):
         h=norm(ws.cell(header_row,c).value)
-        if 'CÓDIGO' in h or 'CODIGO' in h: cols['codigo']=c
-        elif 'DESCRIÇÃO' in h or 'DESCRICAO' in h: cols['descricao']=c
-        elif 'UNIDADE' in h: cols['unidade']=c
-        elif 'VALOR ESTIMADO NA ÚLTIMA' in h or ('VALOR ESTIMADO' in h and 'TOTAL' not in h): cols['preco']=c
+        if not h: continue
+        if 'codigo' not in cols and any(k in h for k in profile['codigo']): cols['codigo']=c
+        elif 'descricao' not in cols and any(k in h for k in profile['descricao']): cols['descricao']=c
+        elif 'unidade' not in cols and any(k in h for k in profile['unidade']): cols['unidade']=c
+        elif 'preco' not in cols and any(k in h for k in profile['preco']) and 'TOTAL' not in h: cols['preco']=c
+        if any(k in h for k in profile['valor_total']): valor_total_cols.append(c)
+    # só usa coluna de valor total quando ela é inequívoca (uma única na planilha)
+    if len(valor_total_cols) == 1:
+        cols['valor_total']=valor_total_cols[0]
     qcols=[]
+    campus_row=profile.get('campus_row',2)
     for c in range(1, ws.max_column+1):
         h=norm(ws.cell(header_row,c).value)
-        if 'QUANTIDADE ESTIMADA' in h:
+        if any(k in h for k in profile['quantidade']):
             sample=ws.cell(header_row+1,c)
             if is_yellow(sample) or is_yellow(ws.cell(header_row,c)):
-                qcols.append((c, campus_for_col(ws,c,header_row)))
+                qcols.append((c, campus_for_col(ws,c,header_row,campus_row)))
     if not qcols:
-        # fallback: quantity columns before total value columns
+        # fallback: aceita todas as colunas de quantidade quando não há marcação amarela
         for c in range(1, ws.max_column+1):
             h=norm(ws.cell(header_row,c).value)
-            if 'QUANTIDADE ESTIMADA' in h:
-                qcols.append((c, campus_for_col(ws,c,header_row)))
+            if any(k in h for k in profile['quantidade']):
+                qcols.append((c, campus_for_col(ws,c,header_row,campus_row)))
     return cols,qcols
 
 def description_findings(desc, unidade):
@@ -122,53 +152,16 @@ def price_findings(price):
     if price <= 0: return [('ALTO','PREÇO','Preço estimado zero ou negativo; corrigir antes da licitação.')]
     return []
 
-COMPRAS_BASE_URL = 'https://dadosabertos.compras.gov.br'
-COMPRAS_UA = 'farol-contratos-licitacoes-iffar/1.1 (+compras-gov-cli)'
-
-
-def compras_fetch_material_precos(codigo_item, inicio, fim, paginas=1, tamanho_pagina=10, sleep=0.05):
-    """Consulta preços praticados no módulo Pesquisa de Preços do Compras.gov.br."""
-    rows=[]
-    try:
-        codigo=int(float(codigo_item))
-    except Exception:
-        return {'erro':'codigo_invalido','registros':0,'precos':[],'rows':[]}
-    for page in range(1, max(1, int(paginas))+1):
-        params={
-            'codigoItemCatalogo': codigo,
-            'dataCompraInicio': inicio,
-            'dataCompraFim': fim,
-            'pagina': page,
-            'tamanhoPagina': max(10, int(tamanho_pagina)),
-        }
-        url=COMPRAS_BASE_URL+'/modulo-pesquisa-preco/1_consultarMaterial?'+urlencode(params)
-        req=Request(url, headers={'User-Agent': COMPRAS_UA, 'Accept':'application/json'})
-        try:
-            with urlopen(req, timeout=60) as resp:
-                payload=json.loads(resp.read().decode('utf-8', errors='replace'))
-        except Exception as exc:
-            return {'erro':str(exc)[:180], 'registros':len(rows), 'precos':[], 'rows':rows}
-        batch=payload.get('resultado') or []
-        rows.extend(batch)
-        total_pages=int(payload.get('totalPaginas') or 0)
-        if not batch or (total_pages and page>=total_pages):
-            break
-        if sleep:
-            time.sleep(sleep)
-    prices=[]
-    for r in rows:
-        p=num(r.get('precoUnitario'))
-        if p and p>0:
-            prices.append(p)
-    stats={'registros':len(rows), 'precos':prices, 'rows':rows}
-    if prices:
-        stats.update({
-            'min': min(prices),
-            'max': max(prices),
-            'media': sum(prices)/len(prices),
-            'mediana': statistics.median(prices),
-        })
-    return stats
+def total_consistency_findings(price, qty_total, declared_total):
+    """Compara valor total declarado na planilha com preço unitário × quantidade total."""
+    if not price or price <= 0 or not qty_total or declared_total is None or declared_total <= 0:
+        return []
+    calc = price * qty_total
+    if calc <= 0:
+        return []
+    if abs(calc - declared_total) / max(declared_total, calc) > 0.05:
+        return [('MÉDIO','PREÇO',f'Valor total informado R$ {declared_total:,.2f} diverge do calculado (preço × quantidade total = R$ {calc:,.2f}); verificar fórmula ou preenchimento.')]
+    return []
 
 
 def compras_price_findings(price, stats):
@@ -196,17 +189,23 @@ def risk_rank(risks):
     if 'BAIXO' in risks: return 'BAIXO'
     return 'OK'
 
-def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio='2024-01-01', compras_fim='2026-12-31', compras_paginas=1, compras_tamanho_pagina=10):
+def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio=None, compras_fim=None, compras_paginas=1, compras_tamanho_pagina=10, perfil=None, cache_dir=None):
+    default_inicio, default_fim = date_range_default()
+    compras_inicio = compras_inicio or default_inicio
+    compras_fim = compras_fim or default_fim
+    profile = load_profile(perfil)
     input_path=Path(input_path); outdir=Path(outdir); outdir.mkdir(parents=True, exist_ok=True)
+    if pesquisa_compras_gov and cache_dir is None:
+        cache_dir = outdir / '.cache'
     wb=openpyxl.load_workbook(input_path)
     ws=wb[wb.sheetnames[0]]
-    header=find_header(ws)
-    cols,qcols=detect_columns(ws, header)
+    header=find_header(ws, profile)
+    cols,qcols=detect_columns(ws, header, profile)
     required=['codigo','descricao','unidade']
     missing=[k for k in required if k not in cols]
     if missing: raise SystemExit('Colunas obrigatórias ausentes: '+', '.join(missing))
     action_col=ws.max_column+1
-    headers=['Ações Necessárias','Nível de Risco','Tipos de Achado','Outliers Quantitativos','Sugestão de Decisão']
+    headers=['Ações Necessárias','Nível de Risco','Tipos de Achado','Outliers Quantitativos','Sugestão de Decisão','Valor Total Estimado (R$)']
     if pesquisa_compras_gov:
         headers.extend(['Compras.gov Registros','Compras.gov Mediana','Compras.gov Média','Compras.gov Min/Max'])
     for i,h in enumerate(headers):
@@ -216,6 +215,8 @@ def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio='2024
         cell.alignment=Alignment(wrap_text=True, vertical='top')
     findings=[]; rows=0; counts={'ALTO':0,'MÉDIO':0,'BAIXO':0,'OK':0}
     type_counts={}
+    valor_por_risco={'ALTO':0.0,'MÉDIO':0.0,'BAIXO':0.0,'OK':0.0}
+    itens_financeiro=[]
     for r in range(header+1, ws.max_row+1):
         desc=ws.cell(r, cols['descricao']).value
         if not desc or not str(desc).strip(): continue
@@ -224,13 +225,17 @@ def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio='2024
         item=ws.cell(r, 1).value
         unidade=ws.cell(r, cols.get('unidade')).value
         price=num(ws.cell(r, cols.get('preco')).value) if cols.get('preco') else None
+        declared_total=num(ws.cell(r, cols.get('valor_total')).value) if cols.get('valor_total') else None
         vals=[(campus, num(ws.cell(r,c).value)) for c,campus in qcols]
+        qty_total=sum(v for _,v in vals if v and v>0)
+        valor_estimado=round(price*qty_total,2) if price and price>0 and qty_total else None
         fs=[]
         compras_stats=None
         if pesquisa_compras_gov:
-            compras_stats=compras_fetch_material_precos(codigo, compras_inicio, compras_fim, compras_paginas, compras_tamanho_pagina)
+            compras_stats=compras_fetch_material_precos(codigo, compras_inicio, compras_fim, compras_paginas, compras_tamanho_pagina, cache_dir=cache_dir)
         fs.extend(description_findings(desc, unidade))
         fs.extend(price_findings(price))
+        fs.extend(total_consistency_findings(price, qty_total, declared_total))
         fs.extend(compras_price_findings(price, compras_stats))
         fs.extend(outlier_findings(vals))
         if not fs:
@@ -243,9 +248,12 @@ def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio='2024
             outs=' | '.join(f[2] for f in fs if f[1]=='OUTLIER')
             decision='Revisar antes de consolidar.' if risk in ['ALTO','MÉDIO'] else 'Baixa criticidade; revisar se houver tempo.'
         counts[risk]+=1
+        if valor_estimado:
+            valor_por_risco[risk]+=valor_estimado
+            itens_financeiro.append({'linha':r,'item':item,'codigo':codigo,'risco':risk,'valor':valor_estimado,'descricao':str(desc)[:120]})
         for f in fs: type_counts[f[1]]=type_counts.get(f[1],0)+1
         fill=PatternFill('solid', fgColor=RISK_COLOR[risk])
-        row_values=[actions,risk,types,outs,decision]
+        row_values=[actions,risk,types,outs,decision, valor_estimado if valor_estimado is not None else '']
         if pesquisa_compras_gov:
             if compras_stats and not compras_stats.get('erro'):
                 row_values.extend([
@@ -262,25 +270,27 @@ def analyze(input_path, outdir, pesquisa_compras_gov=False, compras_inicio='2024
             if i==1: cell.fill=fill
         if fs:
             for sev,typ,msg in fs:
-                findings.append({'linha':r,'item':item,'codigo':codigo,'unidade':unidade,'risco':sev,'tipo':typ,'achado':msg,'descricao':str(desc)[:300]})
+                findings.append({'linha':r,'item':item,'codigo':codigo,'unidade':unidade,'risco':sev,'tipo':typ,'achado':msg,'valor_estimado':valor_estimado or '','descricao':str(desc)[:300]})
     for c in range(action_col, action_col+len(headers)):
         ws.column_dimensions[ws.cell(header,c).column_letter].width = 32 if c==action_col else 22
     audited=outdir/(input_path.stem+'_AUDITADA.xlsx')
     wb.save(audited)
     csv_path=outdir/'achados_auditoria.csv'
     with csv_path.open('w', newline='', encoding='utf-8-sig') as f:
-        w=csv.DictWriter(f, fieldnames=['linha','item','codigo','unidade','risco','tipo','achado','descricao'])
+        w=csv.DictWriter(f, fieldnames=['linha','item','codigo','unidade','risco','tipo','achado','valor_estimado','descricao'])
         w.writeheader(); w.writerows(findings)
-    top=findings[:20]
     report=outdir/'relatorio_executivo.md'
-    report.write_text(make_report(input_path, rows, counts, type_counts, findings, qcols, pesquisa_compras_gov, compras_inicio, compras_fim), encoding='utf-8')
+    report.write_text(make_report(input_path, rows, counts, type_counts, findings, qcols, valor_por_risco, itens_financeiro, pesquisa_compras_gov, compras_inicio, compras_fim), encoding='utf-8')
     dash=outdir/'dashboard_auditoria.html'
-    dash.write_text(make_dashboard(input_path, rows, counts, type_counts, findings), encoding='utf-8')
-    summary={'input':str(input_path),'items_analisados':rows,'campi_detectados':[c for _,c in qcols],'achados':len(findings),'riscos':counts,'tipos':type_counts,'integracao_compras_gov':{'ativa': bool(pesquisa_compras_gov), 'inicio': compras_inicio, 'fim': compras_fim, 'paginas': compras_paginas},'outputs':{'planilha':str(audited),'csv':str(csv_path),'relatorio':str(report),'dashboard':str(dash)}}
+    dash.write_text(make_dashboard(input_path, rows, counts, type_counts, findings, valor_por_risco), encoding='utf-8')
+    summary={'input':str(input_path),'items_analisados':rows,'campi_detectados':[c for _,c in qcols],'achados':len(findings),'riscos':counts,'tipos':type_counts,'valor_estimado_por_risco':{k:round(v,2) for k,v in valor_por_risco.items()},'integracao_compras_gov':{'ativa': bool(pesquisa_compras_gov), 'inicio': compras_inicio, 'fim': compras_fim, 'paginas': compras_paginas},'outputs':{'planilha':str(audited),'csv':str(csv_path),'relatorio':str(report),'dashboard':str(dash)}}
     (outdir/'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     return summary
 
-def make_report(input_path, rows, counts, type_counts, findings, qcols, pesquisa_compras_gov=False, compras_inicio='', compras_fim=''):
+def brl(v):
+    return f'R$ {v:,.2f}'.replace(',', 'X').replace('.', ',').replace('X', '.')
+
+def make_report(input_path, rows, counts, type_counts, findings, qcols, valor_por_risco, itens_financeiro, pesquisa_compras_gov=False, compras_inicio='', compras_fim=''):
     crit=[f for f in findings if f['risco']=='ALTO'][:15]
     lines=[]
     lines.append(f'# Relatório Executivo — Auditoria de DFD/Listas de Itens\n')
@@ -291,6 +301,15 @@ def make_report(input_path, rows, counts, type_counts, findings, qcols, pesquisa
     lines.append('\n## Síntese de risco')
     for k in ['ALTO','MÉDIO','BAIXO','OK']:
         lines.append(f'- {k}: {counts.get(k,0)} itens')
+    lines.append('\n## Valor financeiro sob risco')
+    lines.append('Estimativa por item: preço unitário × quantidade total multicampi.')
+    for k in ['ALTO','MÉDIO','BAIXO','OK']:
+        lines.append(f'- {k}: {brl(valor_por_risco.get(k,0.0))}')
+    top_fin=sorted([i for i in itens_financeiro if i['risco'] in ('ALTO','MÉDIO')], key=lambda x:-x['valor'])[:10]
+    if top_fin:
+        lines.append('\n### Maiores valores em itens com risco ALTO/MÉDIO')
+        for i in top_fin:
+            lines.append(f'- Linha {i["linha"]}, código {i["codigo"]} ({i["risco"]}): {brl(i["valor"])} — {i["descricao"]}')
     lines.append('\n## Achados por tipo')
     for k,v in sorted(type_counts.items(), key=lambda x:-x[1]): lines.append(f'- {k}: {v}')
     lines.append('\n## Itens prioritários')
@@ -307,35 +326,50 @@ def make_report(input_path, rows, counts, type_counts, findings, qcols, pesquisa
     else:
         lines.append('- Pesquisa externa não ativada nesta execução. Use `--pesquisa-compras-gov` para enriquecer com preços praticados.')
     lines.append('\n## Recomendações imediatas')
-    lines.append('- Revisar primeiro itens com risco ALTO e achados de OUTLIER/PREÇO/UNIDADE.')
+    lines.append('- Revisar primeiro itens com risco ALTO e achados de OUTLIER/PREÇO/UNIDADE, priorizando os de maior valor financeiro.')
     lines.append('- Validar com o campus demandante qualquer quantitativo muito acima ou abaixo da mediana multicampi.')
-    lines.append('- Padronizar descrições saneadas em uma base de conhecimento para reaproveitamento em próximas contratações.')
+    lines.append('- Registrar descrições saneadas na base de conhecimento (`scripts/base_conhecimento.py`) para reaproveitamento.')
+    lines.append('- Acompanhar pendências no painel de saneamento (`scripts/painel_saneamento.py`).')
     lines.append('- Para itens financeiramente relevantes, acionar pesquisa externa de preços em PNCP/Compras.gov/Painel de Preços.')
-    lines.append('\n## Possíveis extensões para tomada de decisão')
-    lines.append('- Histórico por campus para monitorar recorrência de erros e curva de consumo.')
-    lines.append('- Modelo preditivo simples por categoria/campus, usando séries históricas de DFD e execução contratual.')
-    lines.append('- Painel de saneamento com status: pendente, confirmado pelo campus, corrigido, aprovado.')
     lines.append('\n## Limitações')
     lines.append('Esta análise é apoio técnico automatizado. A equipe de licitações/contratos deve validar juridicamente, tecnicamente e com os campi os achados antes de alterar o DFD ou edital.')
     lines.append('\nLicença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.')
     return '\n'.join(lines)+'\n'
 
-def make_dashboard(input_path, rows, counts, type_counts, findings):
-    cards=''.join(f'<div class="card"><b>{html.escape(k)}</b><span>{v}</span></div>' for k,v in counts.items())
+def risk_chart_svg(counts):
+    order=['ALTO','MÉDIO','BAIXO','OK']
+    colors={'ALTO':'#ef4444','MÉDIO':'#f59e0b','BAIXO':'#a3e635','OK':'#34d399'}
+    mx=max([counts.get(k,0) for k in order]+[1])
+    bars=[]
+    for i,k in enumerate(order):
+        v=counts.get(k,0); h=int(150*v/mx)
+        x=30+i*115
+        bars.append(f'<rect x="{x}" y="{180-h}" width="80" height="{h}" rx="6" fill="{colors[k]}"/>'
+                    f'<text x="{x+40}" y="205" text-anchor="middle" fill="#cbd5e1" font-size="13">{k}</text>'
+                    f'<text x="{x+40}" y="{172-h}" text-anchor="middle" fill="#e5e7eb" font-size="15">{v}</text>')
+    return f'<svg viewBox="0 0 500 220" width="500" height="220" role="img" aria-label="Distribuição de risco">{"".join(bars)}</svg>'
+
+def make_dashboard(input_path, rows, counts, type_counts, findings, valor_por_risco=None):
+    valor_por_risco = valor_por_risco or {}
+    cards=''.join(f'<div class="card"><b>{html.escape(k)}</b><span>{v}</span><small>{html.escape(brl(valor_por_risco.get(k,0.0)))}</small></div>' for k,v in counts.items())
     type_rows=''.join(f'<tr><td>{html.escape(k)}</td><td>{v}</td></tr>' for k,v in sorted(type_counts.items(), key=lambda x:-x[1]))
     finding_rows=''.join(f'<tr><td>{f["linha"]}</td><td>{html.escape(str(f["codigo"]))}</td><td>{html.escape(f["risco"])}</td><td>{html.escape(f["tipo"])}</td><td>{html.escape(f["achado"])}</td></tr>' for f in findings[:80])
-    return f"""<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\"><title>Dashboard Auditoria DFD</title><style>body{{font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;margin:0;padding:28px}}h1{{color:#93c5fd}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.card{{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:18px}}.card span{{display:block;font-size:34px;color:#fbbf24}}table{{width:100%;border-collapse:collapse;background:#111827;margin-top:18px}}td,th{{border:1px solid #374151;padding:8px;vertical-align:top}}th{{background:#1f2937}}.muted{{color:#94a3b8}}</style></head><body><h1>Dashboard — Auditoria de DFD/Listas de Itens</h1><p class=\"muted\">Arquivo: {html.escape(Path(input_path).name)} | Itens analisados: {rows}</p><div class=\"grid\">{cards}</div><h2>Achados por tipo</h2><table><tr><th>Tipo</th><th>Quantidade</th></tr>{type_rows}</table><h2>Achados prioritários</h2><table><tr><th>Linha</th><th>Código</th><th>Risco</th><th>Tipo</th><th>Achado</th></tr>{finding_rows}</table><p class=\"muted\">Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</p></body></html>"""
+    chart=risk_chart_svg(counts)
+    return f"""<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\"><title>Dashboard Auditoria DFD</title><style>body{{font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb;margin:0;padding:28px}}h1{{color:#93c5fd}}.grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}}.card{{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:18px}}.card span{{display:block;font-size:34px;color:#fbbf24}}.card small{{color:#94a3b8}}table{{width:100%;border-collapse:collapse;background:#111827;margin-top:18px}}td,th{{border:1px solid #374151;padding:8px;vertical-align:top}}th{{background:#1f2937}}.muted{{color:#94a3b8}}.chart{{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:18px;margin-top:18px}}</style></head><body><h1>Dashboard — Auditoria de DFD/Listas de Itens</h1><p class=\"muted\">Arquivo: {html.escape(Path(input_path).name)} | Itens analisados: {rows}</p><div class=\"grid\">{cards}</div><div class=\"chart\"><h2>Distribuição de risco</h2>{chart}</div><h2>Achados por tipo</h2><table><tr><th>Tipo</th><th>Quantidade</th></tr>{type_rows}</table><h2>Achados prioritários</h2><table><tr><th>Linha</th><th>Código</th><th>Risco</th><th>Tipo</th><th>Achado</th></tr>{finding_rows}</table><p class=\"muted\">Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</p></body></html>"""
 
 def main():
+    inicio_padrao, fim_padrao = date_range_default()
     ap=argparse.ArgumentParser(description='Audita planilha DFD/lista de itens de licitações e contratos.')
     ap.add_argument('planilha')
     ap.add_argument('--out', default='output/auditoria')
+    ap.add_argument('--perfil', help='JSON com mapeamento de colunas para formatos de planilha diferentes do padrão IFFar')
     ap.add_argument('--pesquisa-compras-gov', action='store_true', help='enriquece a análise com preços praticados da API Dados Abertos Compras.gov.br')
-    ap.add_argument('--compras-inicio', default='2024-01-01', help='data inicial YYYY-MM-DD para pesquisa Compras.gov')
-    ap.add_argument('--compras-fim', default='2026-12-31', help='data final YYYY-MM-DD para pesquisa Compras.gov')
+    ap.add_argument('--compras-inicio', default=inicio_padrao, help='data inicial YYYY-MM-DD para pesquisa Compras.gov (padrão: 24 meses atrás)')
+    ap.add_argument('--compras-fim', default=fim_padrao, help='data final YYYY-MM-DD para pesquisa Compras.gov (padrão: hoje)')
     ap.add_argument('--compras-paginas', type=int, default=1, help='páginas por item a consultar no Compras.gov')
     ap.add_argument('--compras-tamanho-pagina', type=int, default=10, help='tamanho da página da API, mínimo 10')
+    ap.add_argument('--cache', help='diretório de cache das consultas Compras.gov (padrão: <out>/.cache)')
     args=ap.parse_args()
-    summary=analyze(args.planilha, args.out, args.pesquisa_compras_gov, args.compras_inicio, args.compras_fim, args.compras_paginas, args.compras_tamanho_pagina)
+    summary=analyze(args.planilha, args.out, args.pesquisa_compras_gov, args.compras_inicio, args.compras_fim, args.compras_paginas, args.compras_tamanho_pagina, perfil=args.perfil, cache_dir=args.cache)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 if __name__ == '__main__': main()

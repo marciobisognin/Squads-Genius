@@ -1,57 +1,51 @@
-# Validation Report — Farol Contratos & Licitações IFFar v1.2.0
+# Validation Report — Farol Contratos & Licitações IFFar v1.3.0
 
-## Checks executed
+## Checks executados
 
-- `scripts/smoke_test.py` returned status OK.
-- `scripts/analisar_dfd.py`, `scripts/compras_gov.py`, `scripts/enriquecer_dfd_compras_gov.py`, `scripts/farol_iffar.py` and `scripts/pncp_busca_termo.py` compiled with `py_compile`.
-- Unified command `scripts/farol_iffar.py analisar` executed on the provided DFD spreadsheet.
-- Compras.gov enrichment executed with `--max-itens 3` as a live API smoke test.
-- PNCP term search executed with `--termo-pncp "copa cozinha"` as a live API smoke test.
-- Output workbook opened successfully in the prior v1.1 validation and v1.2 output file was generated.
-- Comparative HTML map was generated.
+- `scripts/smoke_test.py` retornou status OK: estrutura de arquivos, `py_compile` de todos os scripts e auditoria offline completa na planilha de exemplo.
+- Suíte `pytest tests -q`: **23 testes passando** (regras de auditoria, utilitários compartilhados, detecção de estrutura, pipeline ponta a ponta, saneamento, histórico, base de conhecimento e previsão de quantitativos).
+- Comando unificado `scripts/farol_iffar.py analisar` executado ao vivo sobre `examples/dfd_exemplo.xlsx` com `--max-itens 3` e `--ciclo 2026-1` (smoke da API real).
+- `scripts/compras_gov.py sugerir-codigo` executado ao vivo: catálogo PDM baixado e cacheado; melhor candidato para "caneta esferográfica azul escrita média" foi o CATMAT 358291 (CANETA ESFEROGRÁFICA, ESCRITA MÉDIA, COR TINTA AZUL).
 
-## Demo command
+## Comandos de demonstração
 
 ```bash
-python scripts/farol_iffar.py analisar "DFD ND 339030.21 - MATERIAIS DE COPA E COZINHA (1).xlsx" \
-  --inicio 2026-01-01 \
-  --fim 2026-12-31 \
-  --paginas 1 \
-  --max-itens 3 \
-  --termo-pncp "copa cozinha" \
-  --pncp-paginas 1 \
-  --out "/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao"
+pip install -r requirements-dev.txt
+python scripts/smoke_test.py
+python -m pytest tests -q
+python examples/gerar_dfd_exemplo.py
+python scripts/farol_iffar.py analisar examples/dfd_exemplo.xlsx --paginas 1 --max-itens 3 --ciclo 2026-1 --out output/validacao-v13
 ```
 
-## Demo summary
+## Resultados da demonstração (planilha de exemplo, 12 itens fictícios)
 
-Base DFD audit:
+Auditoria offline:
 
-- Items analyzed: 135
-- Campi detected: 14
-- Findings: 211
-- Risk distribution: `ALTO=64`, `MÉDIO=27`, `BAIXO=7`, `OK=37`
+- Itens analisados: 12 | Campi detectados: 5
+- Achados: 16 | Riscos: `ALTO=3`, `MÉDIO=7`, `BAIXO=0`, `OK=2`
+- Tipos: DESCRIÇÃO=7, UNIDADE=5, PREÇO=3 (incl. divergência valor total declarado × calculado), OUTLIER=1
+- Valor estimado sob risco: ALTO ≈ R$ 13.119,60; MÉDIO ≈ R$ 12.140,50
 
-Compras.gov live smoke:
+Pipeline completo ao vivo (Compras.gov, 3 códigos):
 
-- Codes researched: 3
-- Items enriched: 3
-- Comparable items: 3
-- Price alerts: 1
+- Itens enriquecidos: 3 | Comparáveis: 2 | Alertas de preço: 0
+- Comparações marcadas com baixa equivalência de descrição: 2 (proteção de similaridade funcionando — códigos fictícios não correspondem às descrições externas)
+- Cache de respostas da API gravado e reutilizado em `output/.cache`
+- Fila de saneamento gerada com 16 achados (status inicial PENDENTE) + painel HTML
+- Snapshot do ciclo `2026-1` registrado no histórico com `index.json`
 
-PNCP term live smoke:
+## Outputs validados
 
-- Term: `copa cozinha`
-- Rows consulted: 10
-- Matches in the sample page: 0
-- Output JSON/CSV generated successfully.
+- Planilha enriquecida: `output/validacao-v13/dfd_exemplo_AUDITADA_COMPRAS_GOV.xlsx`
+- Relatório Compras.gov: `output/validacao-v13/relatorio_compras_gov.md`
+- Resumo técnico: `output/validacao-v13/summary_compras_gov.json`
+- Mapa comparativo: `output/validacao-v13/mapa_comparativo_compras_gov.html`
+- Saneamento: `output/validacao-v13/04_saneamento/saneamento.csv` + `painel_saneamento.html`
+- Histórico: `historico/2026-1/summary.json` + `achados_auditoria.csv`
 
-## Validated outputs
+## Limitações conhecidas
 
-- Enriched workbook: `/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao/doc_534d3eaf6437_3 - DFD ND 339030.21 - MATERIAIS DE COPA E COZINHA (1)_AUDITADA_COMPRAS_GOV.xlsx`
-- Compras.gov report: `/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao/relatorio_compras_gov.md`
-- Technical summary: `/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao/summary_compras_gov.json`
-- Comparative map: `/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao/mapa_comparativo_compras_gov.html`
-- PNCP term output: `/storage/emulated/0/Download/Material herme/farol-iffar-camada2-validacao/03_pncp_termo/pncp_busca_termo.json`
+- O filtro textual `nomePdm` da API de catálogo não funciona no servidor; o `sugerir-codigo` contorna baixando o catálogo PDM uma única vez para cache local (~41 páginas) e buscando localmente.
+- A previsão de quantitativos usa mediana histórica simples; não pondera porte do campus nem sazonalidade.
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

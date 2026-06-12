@@ -19,12 +19,18 @@ steps:
   - id: precos_internos
     agent: price-risk-analyst
     depends_on: [intake]
-    output: achados_precos_internos
+    output: achados_precos_internos_e_valor_sob_risco
   - id: compras_gov
     agent: price-risk-analyst
     depends_on: [intake, precos_internos]
     tool: scripts/enriquecer_dfd_compras_gov.py
-    output: benchmark_compras_gov_preco_atas_pncp
+    output: benchmark_compras_gov_preco_atas_pncp_similaridade
+  - id: base_conhecimento
+    agent: edital-description-auditor
+    depends_on: [descricao]
+    tool: scripts/base_conhecimento.py
+    optional: true
+    output: verificacao_descricoes_aprovadas
   - id: decisao
     agent: decision-intelligence-lead
     depends_on: [descricao, unidade, quantitativos, precos_internos, compras_gov]
@@ -33,9 +39,23 @@ steps:
     agent: report-and-dashboard-builder
     depends_on: [decisao, compras_gov]
     output: [planilha_auditada_compras_gov, relatorio_executivo, relatorio_compras_gov, achados_csv, dashboard_html]
+  - id: saneamento
+    agent: decision-intelligence-lead
+    depends_on: [entrega]
+    tool: scripts/painel_saneamento.py
+    output: fila_saneamento_e_painel_html
+  - id: historico
+    agent: decision-intelligence-lead
+    depends_on: [entrega]
+    tool: scripts/historico_farol.py
+    optional: true
+    output: snapshot_ciclo_e_relatorio_recorrencia
 quality_gates:
   - planilha abre no Excel/LibreOffice
   - todos os itens analisados possuem ação necessária
-  - quando Compras.gov estiver ativado, summary_compras_gov.json e relatorio_compras_gov.md existem
+  - planilha auditada inclui coluna Valor Total Estimado e o relatório informa valor financeiro sob risco
+  - quando Compras.gov estiver ativado, summary_compras_gov.json e relatorio_compras_gov.md existem e a similaridade de descrição acompanha cada comparação de preço
+  - fila de saneamento gerada a partir do CSV de achados
   - relatório informa limitações e necessidade de revisão humana
   - achados críticos têm justificativa e recomendação
+  - testes automatizados (pytest + smoke test) passam no CI

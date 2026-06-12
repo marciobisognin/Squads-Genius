@@ -2,13 +2,15 @@
 
 # 🧭 Farol Contratos & Licitações IFFar
 
-### Auditoria inteligente de planilhas DFD, listas de itens, quantitativos, preços externos, atas e riscos para compras públicas multicampi.
+### Auditoria inteligente de planilhas DFD, quantitativos, preços externos, atas e riscos para compras públicas multicampi — com histórico de ciclos, painel de saneamento e base de conhecimento.
 
 <p>
   <img src="https://img.shields.io/badge/status-premium-00B894?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/vers%C3%A3o-1.3.0-6C5CE7?style=for-the-badge" />
   <img src="https://img.shields.io/badge/domain-licita%C3%A7%C3%B5es%20e%20contratos-0984E3?style=for-the-badge" />
   <img src="https://img.shields.io/badge/institui%C3%A7%C3%A3o-IFFar-00A86B?style=for-the-badge" />
   <img src="https://img.shields.io/badge/integra%C3%A7%C3%A3o-Compras.gov.br-F39C12?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/testes-pytest%20%2B%20CI-2ECC71?style=for-the-badge" />
   <img src="https://img.shields.io/badge/license-MIT-6C5CE7?style=for-the-badge" />
 </p>
 
@@ -18,24 +20,24 @@
 
 ## ✨ Ideia central
 
-O **Farol Contratos & Licitações IFFar** transforma uma planilha de levantamento de demanda em um pacote de decisão: planilha auditada, achados estruturados, relatório executivo, painel HTML e, agora, **evidência externa de preços praticados na API oficial de Dados Abertos do Compras.gov.br**.
+O **Farol Contratos & Licitações IFFar** transforma uma planilha de levantamento de demanda em um pacote de decisão: planilha auditada com **valor financeiro sob risco**, achados estruturados, relatório executivo, painel HTML, **evidência externa de preços do Compras.gov.br com validação de equivalência de descrição**, fila de saneamento com status e **histórico de ciclos com detecção de recorrência**.
 
 Ele foi desenhado para a área de **Licitações e Contratos do Instituto Federal Farroupilha**, especialmente quando diferentes campi informam quantitativos para uma mesma contratação e há risco de erro por descrição ambígua, unidade incompatível, preço incoerente, consumo fora do padrão ou ausência de comparação com preços públicos recentes.
 
-Nas próximas solicitações, o usuário pode enviar apenas a nova planilha. O squad identifica a estrutura, audita item a item, consulta dados públicos quando solicitado e produz uma devolutiva institucional pronta para revisão humana.
+A cada novo ciclo, o usuário envia apenas a nova planilha. O squad identifica a estrutura, audita item a item, consulta dados públicos, compara com ciclos anteriores e produz uma devolutiva institucional pronta para revisão humana.
 
 ## 🎯 Para que serve
 
 <table>
 <tr>
 <td><b>Auditar itens</b><br/>Revisa descrição, especificação, unidade de fornecimento e possíveis ambiguidades editalícias.</td>
-<td><b>Detectar distorções</b><br/>Aponta outliers quantitativos por campus/unidade, divergências internas e riscos de preenchimento.</td>
-<td><b>Comparar preços externos</b><br/>Consulta preços praticados, atas e contratações na API Compras.gov.br para apoiar estimativas.</td>
+<td><b>Detectar distorções</b><br/>Aponta outliers quantitativos por campus, divergência entre valor total declarado e calculado e riscos de preenchimento.</td>
+<td><b>Comparar preços externos</b><br/>Consulta preços praticados, atas e contratações na API Compras.gov.br, com similaridade de descrição para evitar comparações enganosas.</td>
 </tr>
 <tr>
-<td><b>Apoiar decisão</b><br/>Gera priorização de riscos, recomendações e insumos para saneamento antes da licitação.</td>
-<td><b>Gerar evidência</b><br/>Produz planilha auditada, CSV, relatório e dashboard com rastreabilidade dos achados.</td>
-<td><b>Rodar em agentes</b><br/>Pode ser operado por Codex, Claude Code ou Google Antigravity como ferramenta de linha de comando.</td>
+<td><b>Priorizar por valor</b><br/>Calcula o valor financeiro sob risco por item (preço × quantidade multicampi) e ranqueia os achados de maior impacto.</td>
+<td><b>Monitorar ciclos</b><br/>Registra cada execução como snapshot, compara ciclos, detecta recorrência de erros e prevê quantitativos por campus.</td>
+<td><b>Acompanhar saneamento</b><br/>Gera fila de saneamento com status por achado e painel HTML de progresso, além de base de descrições aprovadas.</td>
 </tr>
 </table>
 
@@ -47,12 +49,12 @@ flowchart TD
   B --> C[Auditoria de descrição]
   B --> D[Compatibilidade da unidade]
   B --> E[Outliers quantitativos]
-  B --> F[Riscos de preço interno]
+  B --> F[Riscos de preço interno e valor total]
   B --> G[Integração Compras.gov.br]
-  G --> G1[Preços praticados]
+  G --> G1[Preços praticados + similaridade]
   G --> G2[Atas de registro de preços]
   G --> G3[Contratações PNCP]
-  C --> H[Matriz de achados]
+  C --> H[Matriz de achados + valor sob risco]
   D --> H
   E --> H
   F --> H
@@ -60,19 +62,21 @@ flowchart TD
   H --> I[Planilha auditada]
   H --> J[Relatório executivo]
   H --> K[Dashboard HTML]
-  H --> L[Monitoramento/predição]
+  H --> L[Fila e painel de saneamento]
+  H --> M[Histórico de ciclos]
+  M --> N[Recorrência e previsão de quantitativos]
 ```
 
 ## 🧩 Estrutura dos agentes
 
 <table>
-<tr><td><b>Intake Normalizer</b></td><td>Identifica cabeçalhos, campi, colunas amarelas, preços, códigos e descrições.</td><td>Base tabular normalizada e mapa de colunas.</td></tr>
-<tr><td><b>Edital Description Auditor</b></td><td>Revisa clareza, suficiência, ambiguidade, vícios de redação e indícios de direcionamento.</td><td>Alertas de descrição e sugestões textuais.</td></tr>
+<tr><td><b>Intake Normalizer</b></td><td>Identifica cabeçalhos, campi, colunas amarelas, preços, códigos e descrições; aceita perfis de coluna customizados.</td><td>Base tabular normalizada e mapa de colunas.</td></tr>
+<tr><td><b>Edital Description Auditor</b></td><td>Revisa clareza, suficiência, ambiguidade, vícios de redação e indícios de direcionamento; confere a base de conhecimento.</td><td>Alertas de descrição e sugestões textuais.</td></tr>
 <tr><td><b>Unit Measure Checker</b></td><td>Confere compatibilidade entre unidade de fornecimento e conteúdo da descrição.</td><td>Alertas de UM e recomendações de padronização.</td></tr>
-<tr><td><b>Quantitative Outlier Analyst</b></td><td>Aplica mediana, IQR, MAD e comparação multicampi para detectar distorções.</td><td>Lista de campi com quantitativos atípicos e justificativa.</td></tr>
-<tr><td><b>Price Risk Analyst</b></td><td>Procura preço ausente, zero, divergente ou distante da mediana de preços externos.</td><td>Alertas de precificação interna e externa.</td></tr>
-<tr><td><b>Decision Intelligence Lead</b></td><td>Prioriza achados e recomenda ações: aprovar, revisar, confirmar campus ou pesquisar mercado.</td><td>Matriz de risco e plano de saneamento.</td></tr>
-<tr><td><b>Report & Dashboard Builder</b></td><td>Consolida planilha auditada, CSV de achados, relatório e painel visual.</td><td>Pacote final para tomada de decisão.</td></tr>
+<tr><td><b>Quantitative Outlier Analyst</b></td><td>Aplica mediana, IQR, MAD e comparação multicampi para detectar distorções; compara com a referência histórica.</td><td>Lista de campi com quantitativos atípicos e justificativa.</td></tr>
+<tr><td><b>Price Risk Analyst</b></td><td>Procura preço ausente, zero, divergente do valor total declarado ou distante da mediana de preços externos.</td><td>Alertas de precificação interna e externa.</td></tr>
+<tr><td><b>Decision Intelligence Lead</b></td><td>Prioriza achados por severidade e valor financeiro sob risco; mantém a fila de saneamento e o histórico de ciclos.</td><td>Matriz de risco e plano de saneamento.</td></tr>
+<tr><td><b>Report & Dashboard Builder</b></td><td>Consolida planilha auditada, CSV de achados, relatório, dashboard com gráfico e painel de saneamento.</td><td>Pacote final para tomada de decisão.</td></tr>
 </table>
 
 ## 🔌 Integração Compras.gov.br
@@ -85,45 +89,65 @@ O squad inclui o CLI `scripts/compras_gov.py`, baseado na API oficial de Dados A
 
 A integração permite consultar:
 
-- preços praticados por código CATMAT;
+- preços praticados por código CATMAT (e CATSER com `--tipo servico`);
 - estatística rápida de preços: mínimo, máximo, média, mediana, quartis;
 - atas de registro de preços;
-- contratações PNCP / Lei 14.133;
-- itens de contratações PNCP;
-- resultados homologados;
+- contratações PNCP / Lei 14.133, itens e resultados homologados;
+- **sugestão de código CATMAT por descrição livre** (`sugerir-codigo`), com ranking por similaridade;
 - resumo de preços para códigos extraídos diretamente da planilha DFD.
+
+Todas as chamadas têm **retry com backoff exponencial** e **cache local** (`--cache`), para que reanalisar a mesma planilha não repita consultas idênticas.
 
 ## 📦 O que o squad entrega no final
 
-- **Planilha auditada `.xlsx`** com novas colunas: `Ações Necessárias`, `Nível de Risco`, `Tipos de Achado`, `Outliers Quantitativos`, `Sugestão de Decisão`.
-- Quando ativado, adiciona também colunas de **Compras.gov**: registros encontrados, mediana, média e faixa mínimo/máximo.
-- **Relatório executivo `.md`** com síntese, riscos, itens críticos, estatísticas e próximos passos.
-- **Achados `.csv`** com evidência linha a linha para filtragem e controle.
-- **Dashboard `.html`** com cartões, ranking de riscos e distribuição de achados.
-- **CSV/JSON de preços externos** quando o CLI `compras_gov.py planilha-precos` for usado.
-- **Estrutura de monitoramento** para comparar novas planilhas por ciclo, campus, item, preço e natureza de risco.
+- **Planilha auditada `.xlsx`** com colunas: `Ações Necessárias`, `Nível de Risco`, `Tipos de Achado`, `Outliers Quantitativos`, `Sugestão de Decisão`, `Valor Total Estimado (R$)`.
+- Quando ativado, colunas de **Compras.gov**: registros, mediana, média, faixa mín/máx, descrição amostra, **similaridade de descrição** e avaliação do preço.
+- **Relatório executivo `.md`** com síntese, riscos, **valor financeiro sob risco por nível**, itens críticos ranqueados por valor e próximos passos.
+- **Achados `.csv`** com evidência linha a linha, incluindo valor estimado do item.
+- **Dashboard `.html`** com cartões, gráfico SVG de distribuição de risco e ranking de achados.
+- **Fila de saneamento `.csv` + painel `.html`** com status por achado e barra de progresso.
+- **Histórico por ciclo** (`historico/`) com relatório de recorrência de achados entre ciclos.
+- **Previsão de quantitativos** por item/campus contra a referência histórica.
 
-## 🚀 Uso rápido
+## 🚀 Como usar
+
+### Instalação
+
+```bash
+pip install -r requirements.txt        # uso
+pip install -r requirements-dev.txt    # uso + testes
+```
+
+### Experimente sem dados reais
+
+O repositório inclui uma planilha DFD fictícia com problemas plantados (descrição curta, termo restritivo, unidade incompatível, preço ausente/zero, outlier e valor total divergente):
+
+```bash
+python examples/gerar_dfd_exemplo.py            # (re)gera examples/dfd_exemplo.xlsx
+python scripts/analisar_dfd.py examples/dfd_exemplo.xlsx --out output/demo
+```
 
 ### Camada 2 — comando único recomendado
 
-A próxima camada do squad é o comando unificado `farol_iffar.py`, que executa auditoria, Compras.gov, mapa comparativo e, opcionalmente, busca PNCP por termo.
+O comando unificado `farol_iffar.py` executa auditoria, Compras.gov, mapa comparativo, fila de saneamento e, opcionalmente, busca PNCP por termo e registro no histórico:
 
 ```bash
 python scripts/farol_iffar.py analisar "DFD.xlsx" \
-  --inicio 2024-01-01 \
-  --fim 2026-12-31 \
   --paginas 2 \
   --termo-pncp "materiais de copa e cozinha" \
+  --ciclo 2026-1 \
   --out output/farol-iffar
 ```
+
+As datas da pesquisa externa são relativas por padrão (últimos 24 meses); use `--inicio/--fim` para customizar.
 
 Saídas principais:
 
 - planilha `*_AUDITADA_COMPRAS_GOV.xlsx`;
-- `relatorio_compras_gov.md`;
-- `summary_compras_gov.json`;
+- `relatorio_compras_gov.md` e `summary_compras_gov.json`;
 - `mapa_comparativo_compras_gov.html`;
+- `04_saneamento/saneamento.csv` + `painel_saneamento.html`;
+- snapshot do ciclo em `historico/<ciclo>/` quando `--ciclo` é usado;
 - se `--termo-pncp` for usado: CSV/JSON de contratações PNCP filtradas por termo.
 
 ### Auditoria básica, sem pesquisa externa
@@ -132,56 +156,64 @@ Saídas principais:
 python scripts/analisar_dfd.py caminho/planilha.xlsx --out output/auditoria
 ```
 
+Para planilhas fora do formato padrão IFFar, informe um perfil de colunas:
+
+```bash
+python scripts/analisar_dfd.py planilha.xlsx --perfil meu_perfil.json --out output/auditoria
+```
+
 ### Auditoria com integração Compras.gov.br
 
-Use o orquestrador de enriquecimento. Ele roda a auditoria normal, pesquisa preços oficiais e gera uma planilha final com colunas de benchmark externo.
-
 ```bash
-python scripts/enriquecer_dfd_compras_gov.py "DFD.xlsx" \
-  --inicio 2024-01-01 \
-  --fim 2026-12-31 \
-  --paginas 2 \
-  --out output/farol-compras-gov
+python scripts/enriquecer_dfd_compras_gov.py "DFD.xlsx" --paginas 2 --out output/farol-compras-gov
+# teste rápido em poucos itens:
+python scripts/enriquecer_dfd_compras_gov.py "DFD.xlsx" --paginas 1 --max-itens 5 --out output/teste
 ```
 
-Para teste rápido em poucos itens:
+### Camada 3 — monitoramento recorrente
 
 ```bash
-python scripts/enriquecer_dfd_compras_gov.py "DFD.xlsx" \
-  --inicio 2026-01-01 \
-  --fim 2026-12-31 \
-  --paginas 1 \
-  --max-itens 5 \
-  --out output/teste-compras-gov
+# registrar um ciclo e comparar ciclos (recorrência de achados)
+python scripts/historico_farol.py registrar output/farol-iffar --ciclo 2026-1
+python scripts/historico_farol.py comparar --historico historico --out historico/relatorio_historico.md
+
+# fila e painel de saneamento
+python scripts/painel_saneamento.py gerar output/auditoria/achados_auditoria.csv --out output/saneamento
+python scripts/painel_saneamento.py atualizar output/saneamento/saneamento.csv --id 3 --status CORRIGIDO --obs "Descrição revisada"
+python scripts/painel_saneamento.py painel output/saneamento/saneamento.csv --out output/saneamento/painel_saneamento.html
+
+# base de conhecimento de descrições aprovadas
+python scripts/base_conhecimento.py adicionar --codigo 437939 --descricao "CANETA ESFEROGRÁFICA..." --unidade UNIDADE
+python scripts/base_conhecimento.py verificar "DFD.xlsx" --out output/verificacao_kb.csv
+
+# previsão de quantitativos: histórico... + ciclo atual (a última planilha é a atual)
+python scripts/previsao_quantitativos.py dfd_2024.xlsx dfd_2025.xlsx dfd_2026.xlsx --out output/previsao
 ```
 
-### Consultar preços por item diretamente
+### Consultas diretas ao Compras.gov
 
 ```bash
-python scripts/compras_gov.py preco-resumo \
-  --codigo-item 437939 \
-  --inicio 2024-01-01 \
-  --fim 2026-12-31 \
-  --paginas 3
+# estatística de preços por código CATMAT
+python scripts/compras_gov.py preco-resumo --codigo-item 437939 --paginas 3
+
+# atas por item
+python scripts/compras_gov.py atas --codigo-item 437939 --inicio 2025-01-01 --fim 2025-12-31
+
+# sugerir código CATMAT a partir de descrição livre
+python scripts/compras_gov.py sugerir-codigo --descricao "caneta esferográfica azul escrita média"
+
+# resumo externo para todos os códigos da planilha (com cache)
+python scripts/compras_gov.py --cache output/.cache planilha-precos "DFD.xlsx" --out output/precos
 ```
 
-### Consultar atas por item
+## ✅ Qualidade e testes
 
 ```bash
-python scripts/compras_gov.py atas \
-  --codigo-item 437939 \
-  --inicio 2025-01-01 \
-  --fim 2025-12-31
+python scripts/smoke_test.py   # estrutura + compilação + auditoria offline na planilha de exemplo
+python -m pytest tests -q     # regras de auditoria, detecção de estrutura e pipeline ponta a ponta
 ```
 
-### Gerar resumo externo para todos os códigos da planilha
-
-```bash
-python scripts/compras_gov.py planilha-precos "DFD.xlsx" \
-  --inicio 2024-01-01 \
-  --fim 2026-12-31 \
-  --out output/precos-compras-gov
-```
+O CI do repositório (`.github/workflows/farol-iffar-ci.yml`) roda smoke test e pytest a cada push que toque o squad. Todos os testes são offline — a planilha de exemplo garante reprodutibilidade sem depender da API.
 
 ## 🤖 Como usar com Codex, Claude Code e Google Antigravity
 
@@ -189,71 +221,45 @@ A lógica é a mesma nos três ambientes: abrir o repositório do squad, dar ao 
 
 ### OpenAI Codex CLI
 
-Prompt sugerido:
-
 ```text
 Você está no repositório do squad Farol Contratos & Licitações IFFar.
-Use a planilha anexada/em caminho local como entrada.
-Execute `scripts/enriquecer_dfd_compras_gov.py`, gere planilha auditada com benchmark Compras.gov, relatório complementar, CSV/JSON de preços e dashboard.
-Depois execute scripts/compras_gov.py planilha-precos para gerar o resumo externo de preços por código CATMAT.
-Valide que os arquivos existem, leia summary.json e entregue uma síntese executiva em português institucional.
+Instale as dependências de requirements.txt.
+Use a planilha em caminho local como entrada e execute scripts/farol_iffar.py analisar com --ciclo <ano-ciclo>.
+Valide que planilha auditada, relatório, mapa comparativo, fila de saneamento e snapshot do histórico existem.
+Leia summary_compras_gov.json e entregue uma síntese executiva em português institucional.
 Não altere a planilha original.
-```
-
-Comando esperado pelo agente:
-
-```bash
-python scripts/enriquecer_dfd_compras_gov.py "$PLANILHA" --inicio 2024-01-01 --fim 2026-12-31 --paginas 2 --out output/farol-compras-gov
-python scripts/compras_gov.py planilha-precos "$PLANILHA" --inicio 2024-01-01 --fim 2026-12-31 --out output/precos-compras-gov
 ```
 
 ### Claude Code
 
-Prompt sugerido:
-
 ```text
 Atue como operador do squad Farol Contratos & Licitações IFFar.
-Primeiro inspecione README.md e squad.yaml.
-Em seguida rode a auditoria da planilha com integração Compras.gov.br.
-Use os outputs para apontar itens críticos, riscos de preço, outliers quantitativos e recomendações de saneamento.
+Primeiro inspecione README.md e squad.yaml e rode python scripts/smoke_test.py.
+Em seguida rode a auditoria da planilha com integração Compras.gov.br via scripts/farol_iffar.py analisar.
+Use os outputs para apontar itens críticos por valor financeiro sob risco, riscos de preço, outliers e recomendações de saneamento.
 Preserve evidências: caminhos dos arquivos gerados, contagem de itens, riscos e limitações.
-```
-
-Comando esperado pelo agente:
-
-```bash
-python scripts/enriquecer_dfd_compras_gov.py "$PLANILHA" --inicio 2024-01-01 --fim 2026-12-31 --paginas 1 --out output/auditoria-claude
 ```
 
 ### Google Antigravity
 
-Prompt sugerido:
-
 ```text
 Abra este projeto como workspace.
-Trate o squad como uma ferramenta institucional de auditoria de DFD para licitações do IFFar.
-Identifique os scripts principais e rode uma execução completa com pesquisa externa no Compras.gov.br.
-Depois gere uma explicação para gestor público: o que foi auditado, o que exige revisão, quais itens têm risco de preço e quais evidências externas foram usadas.
-```
-
-Comando esperado pelo agente:
-
-```bash
-python scripts/enriquecer_dfd_compras_gov.py "$PLANILHA" --inicio 2024-01-01 --fim 2026-12-31 --paginas 2 --out output/auditoria-antigravity
-python scripts/compras_gov.py preco-resumo --codigo-item 437939 --inicio 2024-01-01 --fim 2026-12-31 --paginas 2
+Trate o squad como ferramenta institucional de auditoria de DFD para licitações do IFFar.
+Rode uma execução completa com pesquisa externa (scripts/farol_iffar.py analisar) e gere uma explicação para gestor público:
+o que foi auditado, o que exige revisão, quais itens concentram valor sob risco e quais evidências externas foram usadas.
 ```
 
 ### Regras para qualquer agente
 
 - Não sobrescrever a planilha original.
 - Salvar saídas em `output/...` ou em pasta informada pelo usuário.
-- Validar se a planilha auditada, o CSV, o relatório e o dashboard foram gerados.
+- Validar se a planilha auditada, o CSV, o relatório, o dashboard e a fila de saneamento foram gerados.
 - Informar limitações: a análise é apoio técnico e deve ser validada pela equipe de licitações/contratos.
-- Quando houver pesquisa externa, citar período usado e número de registros retornados.
+- Quando houver pesquisa externa, citar período usado, número de registros e similaridade de descrição das comparações.
 
 ## ✅ Em uma frase
 
-> O squad funciona como um farol técnico: ilumina inconsistências internas, compara preços públicos e reduz risco antes da contratação.
+> O squad funciona como um farol técnico: ilumina inconsistências internas, compara preços públicos, acompanha o saneamento e aprende com cada ciclo antes da contratação.
 
 <div align="center">
 

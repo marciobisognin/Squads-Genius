@@ -10,9 +10,13 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
+from farol_common import date_range_default
+
 ROOT = Path(__file__).resolve().parents[1]
 ENRIQUECER = ROOT / "scripts" / "enriquecer_dfd_compras_gov.py"
 PNCP = ROOT / "scripts" / "pncp_busca_termo.py"
+HISTORICO = ROOT / "scripts" / "historico_farol.py"
+SANEAMENTO = ROOT / "scripts" / "painel_saneamento.py"
 
 
 def run(cmd: List[str]) -> None:
@@ -80,12 +84,21 @@ def cmd_analisar(args: argparse.Namespace) -> int:
         pncp_out = outdir / "03_pncp_termo"
         run([sys.executable, str(PNCP), args.termo_pncp, "--inicio", args.inicio, "--fim", args.fim, "--modalidade", str(args.modalidade), "--uf", args.uf, "--paginas", str(args.pncp_paginas), "--out", str(pncp_out)])
     summary = load_json(outdir / "summary_compras_gov.json")
+    achados_csv = summary["auditoria_dfd"]["outputs"]["csv"]
+    saneamento_dir = outdir / "04_saneamento"
+    run([sys.executable, str(SANEAMENTO), "gerar", achados_csv, "--out", str(saneamento_dir)])
+    run([sys.executable, str(SANEAMENTO), "painel", str(saneamento_dir / "saneamento.csv"), "--out", str(saneamento_dir / "painel_saneamento.html")])
+    if args.ciclo:
+        run([sys.executable, str(HISTORICO), "registrar", str(outdir), "--ciclo", args.ciclo, "--historico", args.historico])
     final = {
         "status": "ok",
         "outdir": str(outdir),
         "planilha_enriquecida": summary["enriquecimento"]["saida"],
         "relatorio_compras_gov": summary["relatorio_compras_gov"],
         "mapa_comparativo": str(mapa),
+        "saneamento": str(saneamento_dir / "saneamento.csv"),
+        "painel_saneamento": str(saneamento_dir / "painel_saneamento.html"),
+        "ciclo_registrado": args.ciclo or None,
         "summary": str(outdir / "summary_compras_gov.json"),
     }
     print(json.dumps(final, ensure_ascii=False, indent=2))
@@ -95,10 +108,11 @@ def cmd_analisar(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="farol-iffar", description="Comando unificado do squad Farol Contratos & Licitações IFFar.")
     sub = p.add_subparsers(dest="cmd", required=True)
+    inicio_padrao, fim_padrao = date_range_default()
     a = sub.add_parser("analisar", help="audita DFD, consulta Compras.gov e gera mapa comparativo")
     a.add_argument("planilha")
-    a.add_argument("--inicio", default="2024-01-01")
-    a.add_argument("--fim", default="2026-12-31")
+    a.add_argument("--inicio", default=inicio_padrao, help="data inicial da pesquisa externa (padrão: 24 meses atrás)")
+    a.add_argument("--fim", default=fim_padrao, help="data final da pesquisa externa (padrão: hoje)")
     a.add_argument("--paginas", type=int, default=2)
     a.add_argument("--sleep", type=float, default=0.15)
     a.add_argument("--max-itens", type=int)
@@ -107,6 +121,8 @@ def build_parser() -> argparse.ArgumentParser:
     a.add_argument("--modalidade", type=int, default=6)
     a.add_argument("--uf", default="RS")
     a.add_argument("--pncp-paginas", type=int, default=3)
+    a.add_argument("--ciclo", help="identificador do ciclo (ex.: 2026-1) para registrar a execução no histórico")
+    a.add_argument("--historico", default="historico", help="diretório de snapshots do histórico de ciclos")
     a.set_defaults(func=cmd_analisar)
     return p
 
