@@ -5,9 +5,8 @@ license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
 purpose: >
-  Squad multi-agente para operacionalização completa da incubadora IDNE (Instituto Federal de Educação, 
-  Ciência e Tecnologia Farroupilha - Campus Frederico Westphalen). Automatiza o pipeline de startups, 
-  avaliação TRL, geração de Lean Canvas, gestão de mentorias, eventos e relatórios institucionais 
+  Squad multi-agente para operacionalização completa da incubadora IDNE (Instituto Federal Farroupilha - Campus Frederico Westphalen).
+  Automatiza o pipeline de startups, avaliação TRL, geração de Lean Canvas, gestão de mentorias, eventos e relatórios institucionais
   (SEBRAE/FINEP/IFFar).
 agents:
   - intake-coordinator

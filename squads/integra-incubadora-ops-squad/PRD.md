@@ -33,7 +33,7 @@ Um **squad de 8 agentes de IA** que operam o ciclo de vida completo da incubador
 
 ```mermaid
 flowchart LR
-    A[Capta%C3%A7%C3%A3o] --> B[Intake Coordinator]
+    A[Captação] --> B[Intake Coordinator]
     B --> C[TRL Assessor]
     C --> D[Lean Canvas Architect]
     D --> E[Mentorship Matcher]
@@ -122,19 +122,19 @@ Cada agente é responsável por uma etapa específica, com Human-in-the-Loop (HI
 
 ```mermaid
 flowchart TD
-    Start([In%C3%ADcio]) --> Captura[Capta%C3%A7%C3%A3o]
+    Start([Início]) --> Captura[Captação]
     Captura --> Intake[Intake Coordinator: Triagem]
-    Intake -->|Aprovada| TRL[TRL Assessor: Avalia%C3%A7%C3%A3o TRL]
+    Intake -->|Aprovada| TRL[TRL Assessor: Avaliação TRL]
     Intake -->|Rejeitada| Arquivo[Arquivar com Feedback]
-    TRL -->|TRL >= 4| Canvas[Lean Canvas Architect: Modelo de Neg%C3%B3cio]
-    TRL -->|TRL < 4| PreInc[Programa Pr%C3%A9-Incuba%C3%A7%C3%A3o]
-    Canvas -->|Validado| Admiss%C3%A3o[Admiss%C3%A3o %C3%A0 Incubadora]
-    Admiss%C3%A3o --> Mentoria[Mentorship Matcher: Matching]
+    TRL -->|TRL >= 4| Canvas[Lean Canvas Architect: Modelo de Negócio]
+    TRL -->|TRL < 4| PreInc[Programa Pré-Incubação]
+    Canvas -->|Validado| Admissão[Admissão à Incubadora]
+    Admissão --> Mentoria[Mentorship Matcher: Matching]
     Mentoria --> Eventos[Event Manager: Workshops & Demo Days]
-    Eventos --> Compliance[Compliance Auditor: Verifica%C3%A7%C3%A3o]
-    Compliance --> Relat%C3%B3rios[Report Generator: Relat%C3%B3rios]
-    Relat%C3%B3rios --> Dashboard[Dashboard Monitor: KPIs]
-    Dashboard -->|Gradua%C3%A7%C3%A3o| End([Gradua%C3%A7%C3%A3o / Egresso])
+    Eventos --> Compliance[Compliance Auditor: Verificação]
+    Compliance --> Relatórios[Report Generator: Relatórios]
+    Relatórios --> Dashboard[Dashboard Monitor: KPIs]
+    Dashboard -->|Graduação| End([Graduação / Egresso])
 ```
 
 ### 3.2 Fluxo de Relatórios
@@ -142,9 +142,9 @@ flowchart TD
 ```mermaid
 flowchart LR
     A[Dados Agregados] --> B[Report Generator]
-    B --> C[Relat%C3%B3rio SEBRAE]
-    B --> D[Relat%C3%B3rio FINEP]
-    B --> E[Relat%C3%B3rio Reitoria IFFar]
+    B --> C[Relatório SEBRAE]
+    B --> D[Relatório FINEP]
+    B --> E[Relatório Reitoria IFFar]
     C --> F[Dashboard Monitor]
     D --> F
     E --> F
