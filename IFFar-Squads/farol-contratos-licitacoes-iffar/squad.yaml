@@ -1,7 +1,7 @@
 name: farol-contratos-licitacoes-iffar
 title: Farol Contratos & Licitações IFFar
-description: Squad institucional para auditoria recorrente de planilhas DFD/listas de itens de licitações e contratos do Instituto Federal Farroupilha, com revisão de descrições, unidades de medida, preços, quantitativos, outliers e apoio à tomada de decisão.
-version: 1.2.0
+description: Squad institucional para auditoria recorrente de planilhas DFD/listas de itens de licitações e contratos do Instituto Federal Farroupilha, com revisão de descrições, unidades de medida, preços, quantitativos, outliers, benchmark Compras.gov.br, histórico de ciclos, painel de saneamento e apoio à tomada de decisão.
+version: 1.3.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
@@ -9,11 +9,13 @@ institutional_context:
   institution: Instituto Federal Farroupilha
   area: Licitações e Contratos
   recurring_input: planilha DFD/lista de itens com descrições, unidades, preços e quantitativos por campus/unidade
-  default_output: planilha auditada + relatório executivo + achados CSV + dashboard HTML
+  default_output: planilha auditada + relatório executivo + achados CSV + dashboard HTML + fila de saneamento + histórico de ciclos
 metadata:
   readme_style: dark-neon-layered-architecture
   domain: public-procurement-contracts
   language: pt-BR
+requirements:
+  - requirements.txt
 agents:
   - id: intake-normalizer
     file: agents/intake-normalizer.md
@@ -32,12 +34,24 @@ agents:
 workflows:
   - workflows/auditoria-dfd.yaml
 scripts:
+  - scripts/farol_common.py
   - scripts/analisar_dfd.py
   - scripts/compras_gov.py
   - scripts/enriquecer_dfd_compras_gov.py
   - scripts/farol_iffar.py
   - scripts/pncp_busca_termo.py
+  - scripts/historico_farol.py
+  - scripts/painel_saneamento.py
+  - scripts/base_conhecimento.py
+  - scripts/previsao_quantitativos.py
   - scripts/smoke_test.py
+examples:
+  - examples/gerar_dfd_exemplo.py
+  - examples/dfd_exemplo.xlsx
+tests:
+  - tests/test_farol_common.py
+  - tests/test_analisar_dfd.py
+  - tests/test_pipeline.py
 templates:
   - templates/relatorio_executivo.md
   - templates/checklist_auditoria_itens.md

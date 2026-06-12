@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import statistics
@@ -20,10 +21,16 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
+from farol_common import similarity
+
 BASE_URL = "https://dadosabertos.compras.gov.br"
-USER_AGENT = "compras-gov-cli/1.0 (+Hermes Termux; dadosabertos.compras.gov.br)"
+USER_AGENT = "compras-gov-cli/1.3 (+farol-contratos-licitacoes-iffar; dadosabertos.compras.gov.br)"
+
+# Diretório de cache das respostas da API; definido via --cache no comando principal.
+CACHE_DIR: Path | None = None
 
 ENDPOINTS = {
+    "pdm-material": "/modulo-material/3_consultarPdmMaterial",
     "material-item": "/modulo-material/4_consultarItemMaterial",
     "precos-material": "/modulo-pesquisa-preco/1_consultarMaterial",
     "precos-material-detalhe": "/modulo-pesquisa-preco/2_consultarMaterialDetalhe",
@@ -55,7 +62,7 @@ def eprint(*args: Any) -> None:
     print(*args, file=sys.stderr)
 
 
-INTERNAL_ARGS = {"cmd", "paginas", "sleep", "format", "csv", "out_json", "limit", "func", "xlsx", "out", "max_itens"}
+INTERNAL_ARGS = {"cmd", "paginas", "sleep", "format", "csv", "out_json", "limit", "func", "xlsx", "out", "max_itens", "cache", "tipo", "descricao"}
 
 
 def clean_params(params: Dict[str, Any]) -> Dict[str, Any]:
@@ -70,26 +77,48 @@ def clean_params(params: Dict[str, Any]) -> Dict[str, Any]:
     return out
 
 
-def fetch(path: str, params: Dict[str, Any], *, raw: bool = False) -> Any:
+def fetch(path: str, params: Dict[str, Any], *, raw: bool = False, retries: int = 3, backoff: float = 1.5) -> Any:
     url = BASE_URL + path + "?" + urlencode(clean_params(params), doseq=True)
+    cache_file = None
+    if CACHE_DIR is not None and not raw:
+        cache_file = CACHE_DIR / (hashlib.sha256(url.encode("utf-8")).hexdigest()[:32] + ".json")
+        if cache_file.exists():
+            try:
+                return json.loads(cache_file.read_text(encoding="utf-8"))
+            except Exception:
+                pass
     req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json,text/csv,*/*"})
-    try:
-        with urlopen(req, timeout=90) as resp:
-            data = resp.read()
-            text = data.decode("utf-8", errors="replace")
-            ct = resp.headers.get("content-type", "")
-    except HTTPError as ex:
-        body = ex.read().decode("utf-8", errors="replace")
-        raise SystemExit(f"HTTP {ex.code} em {url}\n{body[:1200]}")
-    except URLError as ex:
-        raise SystemExit(f"Erro de rede em {url}: {ex}")
+    text = ""
+    ct = ""
+    for attempt in range(retries + 1):
+        try:
+            with urlopen(req, timeout=90) as resp:
+                data = resp.read()
+                text = data.decode("utf-8", errors="replace")
+                ct = resp.headers.get("content-type", "")
+            break
+        except HTTPError as ex:
+            if attempt < retries and ex.code in (429, 500, 502, 503, 504):
+                time.sleep(backoff * (2 ** attempt))
+                continue
+            body = ex.read().decode("utf-8", errors="replace")
+            raise SystemExit(f"HTTP {ex.code} em {url}\n{body[:1200]}")
+        except (URLError, TimeoutError, OSError) as ex:
+            if attempt < retries:
+                time.sleep(backoff * (2 ** attempt))
+                continue
+            raise SystemExit(f"Erro de rede em {url}: {ex}")
     if raw:
         return text
     if "json" in ct or text.strip().startswith(("{", "[")):
         try:
-            return json.loads(text)
+            payload = json.loads(text)
         except json.JSONDecodeError:
             return {"raw": text, "url": url}
+        if cache_file is not None:
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
+            cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        return payload
     return {"raw": text, "url": url}
 
 
@@ -260,7 +289,7 @@ def read_xlsx_codes(path: str) -> List[int]:
     try:
         import openpyxl  # type: ignore
     except Exception as exc:
-        raise SystemExit("Para ler XLSX instale/ative openpyxl. Neste Termux do Marcio ele já costuma existir.") from exc
+        raise SystemExit("Para ler XLSX instale openpyxl: pip install -r requirements.txt") from exc
     wb = openpyxl.load_workbook(path, data_only=True, read_only=False)
     ws = wb[wb.sheetnames[0]]
     header_row = None
@@ -292,16 +321,80 @@ def read_xlsx_codes(path: str) -> List[int]:
     return codes
 
 
+def load_pdm_catalog(cache_path: Path, max_paginas: int = 60, sleep: float = 0.1) -> List[Dict[str, Any]]:
+    """Baixa o catálogo PDM completo uma única vez e mantém em cache local.
+
+    O filtro textual `nomePdm` da API não funciona no servidor, então a busca
+    por descrição precisa ser feita localmente sobre o catálogo inteiro.
+    """
+    if cache_path.exists():
+        return json.loads(cache_path.read_text(encoding="utf-8"))
+    eprint("Baixando catálogo PDM completo (apenas na primeira execução; fica em cache local)...")
+    rows: List[Dict[str, Any]] = []
+    page = 1
+    while page <= max_paginas:
+        payload = fetch(ENDPOINTS["pdm-material"], {"pagina": page, "tamanhoPagina": 500})
+        batch = extract_rows(payload)
+        rows.extend(batch)
+        total = int(payload.get("totalPaginas") or 0)
+        eprint(f"  página {page}/{total or '?'} — {len(rows)} PDMs")
+        if not batch or (total and page >= total):
+            break
+        page += 1
+        if sleep:
+            time.sleep(sleep)
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps(rows, ensure_ascii=False), encoding="utf-8")
+    return rows
+
+
+def cmd_sugerir_codigo(args: argparse.Namespace) -> None:
+    """Sugere códigos CATMAT a partir de uma descrição livre, ranqueados por similaridade."""
+    catalog = load_pdm_catalog(Path(args.catalogo_pdm), sleep=args.sleep)
+    scored = sorted(
+        ((similarity(args.descricao, p.get("nomePdm")), p) for p in catalog if p.get("statusPdm")),
+        key=lambda x: -x[0],
+    )
+    top_pdms = [(s, p) for s, p in scored[: args.top_pdm] if s > 0]
+    candidatos: List[Dict[str, Any]] = []
+    for _, pdm in top_pdms:
+        payload = fetch_pages(ENDPOINTS["material-item"], {
+            "codigoPdm": pdm.get("codigoPdm"),
+            "statusItem": True,
+            "pagina": 1,
+            "tamanhoPagina": 100,
+        }, 1, args.sleep)
+        for item in extract_rows(payload):
+            candidatos.append({
+                "codigoItem": item.get("codigoItem"),
+                "descricaoItem": item.get("descricaoItem"),
+                "nomePdm": pdm.get("nomePdm"),
+                "nomeClasse": item.get("nomeClasse") or pdm.get("nomeClasse"),
+                "similaridade": round(similarity(args.descricao, item.get("descricaoItem")), 3),
+            })
+    candidatos.sort(key=lambda c: -c["similaridade"])
+    candidatos = candidatos[: args.limit]
+    print_json({
+        "descricao": args.descricao,
+        "pdms_candidatos": [{"codigoPdm": p.get("codigoPdm"), "nomePdm": p.get("nomePdm"), "similaridade": round(s, 3)} for s, p in top_pdms],
+        "candidatos": candidatos,
+    })
+    if args.csv:
+        write_csv(candidatos, args.csv)
+        eprint(f"CSV salvo em {args.csv}")
+
+
 def cmd_planilha_pesquisar(args: argparse.Namespace) -> None:
     codes = read_xlsx_codes(args.xlsx)
     if args.max_itens:
         codes = codes[: args.max_itens]
     outdir = Path(args.out)
     outdir.mkdir(parents=True, exist_ok=True)
+    endpoint = "precos-servico" if getattr(args, "tipo", "material") == "servico" else "precos-material"
     summary_rows: List[Dict[str, Any]] = []
     for i, code in enumerate(codes, start=1):
         eprint(f"[{i}/{len(codes)}] pesquisando código {code}...")
-        payload = fetch_pages(ENDPOINTS["precos-material"], {
+        payload = fetch_pages(ENDPOINTS[endpoint], {
             "codigoItemCatalogo": code,
             "dataCompraInicio": args.inicio,
             "dataCompraFim": args.fim,
@@ -324,6 +417,7 @@ def cmd_planilha_pesquisar(args: argparse.Namespace) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="compras-gov", description="CLI para Dados Abertos Compras.gov.br: itens, preços, atas, editais/licitações e PNCP.")
+    p.add_argument("--cache", help="diretório de cache local das respostas da API (evita repetir consultas idênticas)")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     s = sub.add_parser("item", help="consultar catálogo de material por código, classe ou descrição")
@@ -408,11 +502,21 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--inicio", default=date_range_default()[0])
     s.add_argument("--fim", default=date_range_default()[1])
     s.add_argument("--out", default="output/compras-gov-planilha")
+    s.add_argument("--tipo", choices=["material", "servico"], default="material", help="módulo de preços a consultar (CATMAT ou CATSER)")
     s.add_argument("--tamanho-pagina", type=int, default=10, dest="tamanhoPagina")
     s.add_argument("--paginas", type=int, default=1)
     s.add_argument("--sleep", type=float, default=0.15)
     s.add_argument("--max-itens", type=int)
     s.set_defaults(func=cmd_planilha_pesquisar)
+
+    s = sub.add_parser("sugerir-codigo", help="sugere códigos CATMAT para uma descrição livre, ranqueados por similaridade")
+    s.add_argument("--descricao", required=True, help="descrição do item para busca no catálogo de materiais")
+    s.add_argument("--catalogo-pdm", default="output/.cache/catalogo_pdm.json", dest="catalogo_pdm", help="cache local do catálogo PDM (baixado na primeira execução)")
+    s.add_argument("--top-pdm", type=int, default=3, dest="top_pdm", help="quantos PDMs candidatos expandir em itens")
+    s.add_argument("--limit", type=int, default=10, help="máximo de códigos sugeridos")
+    s.add_argument("--sleep", type=float, default=0.1)
+    s.add_argument("--csv", help="salvar sugestões em CSV")
+    s.set_defaults(func=cmd_sugerir_codigo)
 
     s = sub.add_parser("endpoints", help="listar endpoints usados pela integração")
     s.set_defaults(func=lambda a: print_json(ENDPOINTS))
@@ -420,8 +524,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: List[str] | None = None) -> int:
+    global CACHE_DIR
     parser = build_parser()
     args = parser.parse_args(argv)
+    if getattr(args, "cache", None):
+        CACHE_DIR = Path(args.cache)
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
     args.func(args)
     return 0
 

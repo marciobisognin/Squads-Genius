@@ -20,7 +20,10 @@ from typing import Any, Dict, List
 import openpyxl
 from openpyxl.styles import Alignment, Font, PatternFill
 
+from farol_common import similarity
+
 ROOT = Path(__file__).resolve().parents[1]
+SIMILARITY_FLOOR = 0.15  # abaixo disso a comparação de preço externo é tratada como pouco confiável
 ANALYZER = ROOT / "scripts" / "analisar_dfd.py"
 COMPRAS = ROOT / "scripts" / "compras_gov.py"
 
@@ -86,6 +89,7 @@ def enrich_workbook(audited_path: Path, price_summary_path: Path, out_path: Path
     header = find_header(ws)
     code_col = find_col(ws, header, ["CÓDIGO", "CODIGO"])
     price_col = find_col(ws, header, ["VALOR ESTIMADO NA ÚLTIMA", "VALOR ESTIMADO"])
+    desc_col = find_col(ws, header, ["DESCRI"])
     if not code_col:
         raise SystemExit("Não encontrei coluna CÓDIGO na planilha auditada.")
     start = (ws.max_column or 1) + 1
@@ -96,6 +100,7 @@ def enrich_workbook(audited_path: Path, price_summary_path: Path, out_path: Path
         "Compras.gov Preço Mediano",
         "Compras.gov Preço Máximo",
         "Compras.gov Descrição Amostra",
+        "Compras.gov Similaridade Descrição",
         "Avaliação Preço x Compras.gov",
     ]
     fill = PatternFill("solid", fgColor="FF38761D")
@@ -108,6 +113,7 @@ def enrich_workbook(audited_path: Path, price_summary_path: Path, out_path: Path
     enriched = 0
     comparable = 0
     alerts = 0
+    low_similarity = 0
     for r in range(header + 1, (ws.max_row or header) + 1):
         try:
             code = int(float(ws.cell(r, code_col).value))
@@ -119,19 +125,25 @@ def enrich_workbook(audited_path: Path, price_summary_path: Path, out_path: Path
         enriched += 1
         mediana = as_float(rec.get("mediana"))
         estimado = as_float(ws.cell(r, price_col).value) if price_col else None
+        descricao_interna = ws.cell(r, desc_col).value if desc_col else None
+        sim = similarity(descricao_interna, rec.get("descricaoAmostra")) if rec.get("descricaoAmostra") else None
         avaliacao = classify_price(estimado, mediana)
-        if "Acima" in avaliacao or "Abaixo" in avaliacao:
+        if sim is not None and sim < SIMILARITY_FLOOR and "mediana" in avaliacao:
+            avaliacao += " — ATENÇÃO: baixa equivalência de descrição; comparar com cautela"
+            low_similarity += 1
+        elif "Acima" in avaliacao or "Abaixo" in avaliacao:
             alerts += 1
         if estimado is not None and mediana is not None:
             comparable += 1
         vals = [
-            rec.get("registros"), rec.get("min"), rec.get("media"), rec.get("mediana"), rec.get("max"), rec.get("descricaoAmostra"), avaliacao
+            rec.get("registros"), rec.get("min"), rec.get("media"), rec.get("mediana"), rec.get("max"), rec.get("descricaoAmostra"),
+            (f"{sim:.0%}" if sim is not None else ""), avaliacao
         ]
         for i, val in enumerate(vals):
             cell = ws.cell(r, start + i, val)
             cell.alignment = Alignment(wrap_text=True, vertical="top")
     wb.save(out_path)
-    return {"itens_enriquecidos": enriched, "comparaveis": comparable, "alertas_preco": alerts, "saida": str(out_path)}
+    return {"itens_enriquecidos": enriched, "comparaveis": comparable, "alertas_preco": alerts, "baixa_similaridade": low_similarity, "saida": str(out_path)}
 
 
 def write_report(outdir: Path, audit_summary: Dict[str, Any], compras_summary: List[Dict[str, Any]], enrichment: Dict[str, Any], inicio: str, fim: str) -> Path:
@@ -144,7 +156,8 @@ def write_report(outdir: Path, audit_summary: Dict[str, Any], compras_summary: L
         f.write(f"- Códigos pesquisados no Compras.gov: {len(compras_summary)}\n")
         f.write(f"- Itens com dados externos encontrados: {enrichment.get('itens_enriquecidos')}\n")
         f.write(f"- Itens comparáveis com preço estimado/mediana: {enrichment.get('comparaveis')}\n")
-        f.write(f"- Alertas de preço por comparação externa: {enrichment.get('alertas_preco')}\n\n")
+        f.write(f"- Alertas de preço por comparação externa: {enrichment.get('alertas_preco')}\n")
+        f.write(f"- Comparações marcadas com baixa equivalência de descrição: {enrichment.get('baixa_similaridade', 0)}\n\n")
         f.write("## Recomendações de uso\n\n")
         f.write("- Usar a mediana Compras.gov como referência robusta inicial, não como preço final automático.\n")
         f.write("- Quando a descrição do DFD divergir da descrição amostra do Compras.gov, revisar especificação antes de comparar valores.\n")
@@ -173,7 +186,8 @@ def main() -> int:
     outdir.mkdir(parents=True, exist_ok=True)
 
     run([sys.executable, str(ANALYZER), args.planilha, "--out", str(audit_dir)])
-    cmd = [sys.executable, str(COMPRAS), "planilha-precos", args.planilha, "--inicio", args.inicio, "--fim", args.fim, "--out", str(compras_dir), "--paginas", str(args.paginas), "--tamanho-pagina", str(args.tamanho_pagina), "--sleep", str(args.sleep)]
+    cache_dir = outdir / ".cache"
+    cmd = [sys.executable, str(COMPRAS), "--cache", str(cache_dir), "planilha-precos", args.planilha, "--inicio", args.inicio, "--fim", args.fim, "--out", str(compras_dir), "--paginas", str(args.paginas), "--tamanho-pagina", str(args.tamanho_pagina), "--sleep", str(args.sleep)]
     if args.max_itens:
         cmd += ["--max-itens", str(args.max_itens)]
     run(cmd)
