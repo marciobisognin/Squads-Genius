@@ -1,0 +1,13 @@
+id: "04_confronto_jurisprudencia_tcu"
+owner: "jurisprudencia-tcu-researcher"
+objective: "Mapear súmulas e acórdãos do TCU (e TCEs, quando a esfera indicar) aplicáveis aos temas levantados, indicando aderência ou divergência do caso concreto."
+inputs:
+  - "relatorio_legalidade"
+  - "temas levantados pelos demais agentes"
+outputs:
+  - "nota_jurisprudencia: tabela tema → precedente → tese → aplicação → confiança"
+acceptance_criteria:
+  - "nenhum acórdão ou súmula citado com número inventado: sem certeza, marcar 'a confirmar na Pesquisa Integrada do TCU'"
+  - "cada precedente classificado como aderente, divergente ou sem precedente localizado"
+  - "grau de confiança registrado para cada citação"
+  - "limite do efeito do precedente registrado (orientativo vs. vinculante no caso concreto)"

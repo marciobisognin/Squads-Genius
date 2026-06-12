@@ -1,0 +1,25 @@
+project_name: "Themis Contratos Públicos"
+objective: "Criar squad jurídico para análise de documentos de contratos administrativos da administração pública brasileira, com verificação de conformidade baseada nas normas e entendimentos usados pela CGU e pelos Tribunais de Contas (TCU e TCEs)"
+audience: "procuradorias, assessorias jurídicas, controladorias internas, gestores e fiscais de contratos, auditores e licitantes"
+domain: "jurídico / direito administrativo / controle externo e interno"
+desired_asset: "squad"
+references:
+  urls:
+    - "https://www.gov.br/cgu/pt-br"
+    - "https://portal.tcu.gov.br"
+    - "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14133.htm"
+  files: []
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+success_criteria:
+  - "checklist de conformidade por tipo de documento contratual"
+  - "parecer jurídico estruturado com fundamentação normativa e jurisprudencial"
+  - "matriz de riscos com classificação de severidade e referência a acórdãos/normas"
+  - "rastreabilidade: toda apontamento cita norma, súmula ou acórdão de referência"
+  - "separação explícita entre observado, inferido, hipótese e recomendação"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

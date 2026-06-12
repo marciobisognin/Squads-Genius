@@ -1,0 +1,13 @@
+id: "05_verificacao_integridade_cgu"
+owner: "cgu-integridade-compliance-analyst"
+objective: "Verificar transparência (PNCP/LAI), integridade da contratada (CEIS/CNEP/CEPIM), conflito de interesses, nepotismo, segregação de funções e gestão de riscos da contratação."
+inputs:
+  - "ficha_triagem"
+  - "documentos do processo"
+outputs:
+  - "relatorio_integridade com achados por ponto de verificação e diligências sugeridas"
+acceptance_criteria:
+  - "cada achado cita a norma ou referencial CGU correspondente"
+  - "indícios registrados como hipótese com diligência sugerida, nunca como fato"
+  - "verificada a exigibilidade de programa de integridade (art. 25, §4º, Lei 14.133/2021)"
+  - "nenhum dado pessoal exposto além do legalmente público e necessário"

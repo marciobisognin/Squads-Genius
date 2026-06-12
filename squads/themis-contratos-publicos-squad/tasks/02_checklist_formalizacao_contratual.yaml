@@ -1,0 +1,14 @@
+id: "02_checklist_formalizacao_contratual"
+owner: "legalidade-lei14133-analyst"
+objective: "Verificar a presença das cláusulas necessárias (art. 92 da Lei 14.133/2021 ou art. 55 da Lei 8.666/93, conforme o regime) e dos requisitos formais do instrumento."
+inputs:
+  - "ficha_triagem"
+  - "texto do contrato ou instrumento equivalente"
+  - "saída do script scripts/checklist_clausulas.py (pré-triagem heurística)"
+outputs:
+  - "checklist_conformidade preenchido (templates/checklist_conformidade.yaml)"
+acceptance_criteria:
+  - "cada cláusula necessária marcada como presente, ausente ou não verificável"
+  - "cada item cita o dispositivo legal correspondente"
+  - "resultado do script determinístico revisado por análise semântica (script é heurístico)"
+  - "assinaturas, qualificação das partes e publicação verificadas"

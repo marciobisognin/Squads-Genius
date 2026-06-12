@@ -1,0 +1,13 @@
+id: "07_analise_aditivos_e_alteracoes"
+owner: "riscos-sobrepreco-auditor"
+objective: "Analisar termos aditivos e apostilamentos: limites legais de acréscimo/supressão, justificativa, equilíbrio econômico-financeiro, vedação ao jogo de planilha e à transfiguração do objeto."
+inputs:
+  - "contrato original e termos aditivos com valores"
+  - "saída do script scripts/validar_limites_aditivos.py"
+outputs:
+  - "análise de aditivos integrada à matriz_riscos"
+acceptance_criteria:
+  - "percentuais calculados exclusivamente pelo script determinístico"
+  - "limite aplicável identificado conforme o regime (art. 125 da Lei 14.133/2021 ou art. 65 da Lei 8.666/93)"
+  - "justificativa e motivação do aditivo avaliadas (LINDB, art. 20)"
+  - "alteração do objeto verificada quanto à descaracterização"
