@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "composition_id",
+    "duration",
+    "width",
+    "height"
+  ],
+  "properties": {
+    "composition_id": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    }
+  }
+}

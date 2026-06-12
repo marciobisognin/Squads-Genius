@@ -1,0 +1,7 @@
+id: 04_frame_motion_plan
+title: "Plano de frames e movimento"
+sequence: 4
+acceptance:
+  - entrada e saída registradas
+  - produto final não expõe bastidores
+  - evidência de validação salva em validation/

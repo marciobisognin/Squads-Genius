@@ -1,0 +1,11 @@
+name: Full Presentation Suite
+steps:
+  - 01_intake_and_evidence_map
+  - 02_narrative_architecture
+  - 03_visual_system_design
+  - 04_frame_motion_plan
+  - 05_build_clean_html_material
+  - 06_build_motion_composition
+  - 07_pdf_and_print_readiness
+  - 08_final_cleanroom_qa
+  - 09_release_package

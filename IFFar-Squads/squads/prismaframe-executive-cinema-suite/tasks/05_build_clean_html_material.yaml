@@ -1,0 +1,7 @@
+id: 05_build_clean_html_material
+title: "Construção HTML limpa"
+sequence: 5
+acceptance:
+  - entrada e saída registradas
+  - produto final não expõe bastidores
+  - evidência de validação salva em validation/
