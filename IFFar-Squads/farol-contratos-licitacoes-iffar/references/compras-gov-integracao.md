@@ -33,7 +33,22 @@ flowchart TD
   F --> H[Relatório complementar]
 ```
 
-## Comando principal
+## Comando principal — camada 2
+
+A interface recomendada para uso recorrente é o comando unificado:
+
+```bash
+python scripts/farol_iffar.py analisar "DFD.xlsx" \
+  --inicio 2024-01-01 \
+  --fim 2026-12-31 \
+  --paginas 2 \
+  --termo-pncp "materiais de copa e cozinha" \
+  --out output/farol-iffar
+```
+
+Ele chama internamente `enriquecer_dfd_compras_gov.py`, cria `mapa_comparativo_compras_gov.html` e, quando `--termo-pncp` é informado, executa `pncp_busca_termo.py` para localizar contratações PNCP por termo.
+
+## Comando técnico de enriquecimento
 
 ```bash
 python scripts/enriquecer_dfd_compras_gov.py "DFD.xlsx" \

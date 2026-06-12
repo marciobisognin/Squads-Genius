@@ -105,6 +105,27 @@ A integração permite consultar:
 
 ## 🚀 Uso rápido
 
+### Camada 2 — comando único recomendado
+
+A próxima camada do squad é o comando unificado `farol_iffar.py`, que executa auditoria, Compras.gov, mapa comparativo e, opcionalmente, busca PNCP por termo.
+
+```bash
+python scripts/farol_iffar.py analisar "DFD.xlsx" \
+  --inicio 2024-01-01 \
+  --fim 2026-12-31 \
+  --paginas 2 \
+  --termo-pncp "materiais de copa e cozinha" \
+  --out output/farol-iffar
+```
+
+Saídas principais:
+
+- planilha `*_AUDITADA_COMPRAS_GOV.xlsx`;
+- `relatorio_compras_gov.md`;
+- `summary_compras_gov.json`;
+- `mapa_comparativo_compras_gov.html`;
+- se `--termo-pncp` for usado: CSV/JSON de contratações PNCP filtradas por termo.
+
 ### Auditoria básica, sem pesquisa externa
 
 ```bash
