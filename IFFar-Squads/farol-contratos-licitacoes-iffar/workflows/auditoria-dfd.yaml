@@ -1,0 +1,41 @@
+name: auditoria-dfd-lista-itens
+trigger: usuário envia planilha DFD/lista de itens para licitação ou contrato
+steps:
+  - id: intake
+    agent: intake-normalizer
+    output: mapa_colunas_e_itens
+  - id: descricao
+    agent: edital-description-auditor
+    depends_on: [intake]
+    output: achados_descricao
+  - id: unidade
+    agent: unit-measure-checker
+    depends_on: [intake]
+    output: achados_unidade
+  - id: quantitativos
+    agent: quantitative-outlier-analyst
+    depends_on: [intake]
+    output: achados_outliers
+  - id: precos_internos
+    agent: price-risk-analyst
+    depends_on: [intake]
+    output: achados_precos_internos
+  - id: compras_gov
+    agent: price-risk-analyst
+    depends_on: [intake, precos_internos]
+    tool: scripts/enriquecer_dfd_compras_gov.py
+    output: benchmark_compras_gov_preco_atas_pncp
+  - id: decisao
+    agent: decision-intelligence-lead
+    depends_on: [descricao, unidade, quantitativos, precos_internos, compras_gov]
+    output: matriz_risco_e_acoes
+  - id: entrega
+    agent: report-and-dashboard-builder
+    depends_on: [decisao, compras_gov]
+    output: [planilha_auditada_compras_gov, relatorio_executivo, relatorio_compras_gov, achados_csv, dashboard_html]
+quality_gates:
+  - planilha abre no Excel/LibreOffice
+  - todos os itens analisados possuem ação necessária
+  - quando Compras.gov estiver ativado, summary_compras_gov.json e relatorio_compras_gov.md existem
+  - relatório informa limitações e necessidade de revisão humana
+  - achados críticos têm justificativa e recomendação

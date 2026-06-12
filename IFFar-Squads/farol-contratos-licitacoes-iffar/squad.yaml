@@ -1,0 +1,48 @@
+name: farol-contratos-licitacoes-iffar
+title: Farol Contratos & Licitações IFFar
+description: Squad institucional para auditoria recorrente de planilhas DFD/listas de itens de licitações e contratos do Instituto Federal Farroupilha, com revisão de descrições, unidades de medida, preços, quantitativos, outliers e apoio à tomada de decisão.
+version: 1.2.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+institutional_context:
+  institution: Instituto Federal Farroupilha
+  area: Licitações e Contratos
+  recurring_input: planilha DFD/lista de itens com descrições, unidades, preços e quantitativos por campus/unidade
+  default_output: planilha auditada + relatório executivo + achados CSV + dashboard HTML
+metadata:
+  readme_style: dark-neon-layered-architecture
+  domain: public-procurement-contracts
+  language: pt-BR
+agents:
+  - id: intake-normalizer
+    file: agents/intake-normalizer.md
+  - id: edital-description-auditor
+    file: agents/edital-description-auditor.md
+  - id: unit-measure-checker
+    file: agents/unit-measure-checker.md
+  - id: quantitative-outlier-analyst
+    file: agents/quantitative-outlier-analyst.md
+  - id: price-risk-analyst
+    file: agents/price-risk-analyst.md
+  - id: decision-intelligence-lead
+    file: agents/decision-intelligence-lead.md
+  - id: report-and-dashboard-builder
+    file: agents/report-and-dashboard-builder.md
+workflows:
+  - workflows/auditoria-dfd.yaml
+scripts:
+  - scripts/analisar_dfd.py
+  - scripts/compras_gov.py
+  - scripts/enriquecer_dfd_compras_gov.py
+  - scripts/farol_iffar.py
+  - scripts/pncp_busca_termo.py
+  - scripts/smoke_test.py
+templates:
+  - templates/relatorio_executivo.md
+  - templates/checklist_auditoria_itens.md
+references:
+  - references/metodologia.md
+  - references/orientacoes-pesquisa-externa-preditiva.md
+  - references/compras-gov-integracao.md
+  - references/uso-com-codex-claude-antigravity.md
