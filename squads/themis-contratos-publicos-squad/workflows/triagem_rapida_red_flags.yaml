@@ -1,0 +1,36 @@
+{
+  "id": "triagem_rapida_red_flags",
+  "description": "Análise expressa de red flags em um documento contratual: triagem, checklist heurístico e matriz resumida de riscos. Útil para priorizar quais processos merecem análise completa.",
+  "human_in_loop": true,
+  "rollback": "descartar a triagem e reiniciar com documentos adicionais",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Triagem documental",
+      "task": "01_triagem_e_classificacao_documental",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Checklist heurístico de cláusulas",
+      "task": "02_checklist_formalizacao_contratual",
+      "gate_required": false,
+      "note": "usar scripts/checklist_clausulas.py como primeira passada"
+    },
+    {
+      "order": 3,
+      "name": "Matriz resumida de red flags",
+      "task": "06_matriz_riscos_e_sobrepreco",
+      "gate_required": true,
+      "gate": "matriz_riscos_classificada",
+      "note": "versão resumida: apenas riscos com indício observável"
+    },
+    {
+      "order": 4,
+      "name": "Decisão humana: arquivar ou escalar para análise completa",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita"
+    }
+  ]
+}

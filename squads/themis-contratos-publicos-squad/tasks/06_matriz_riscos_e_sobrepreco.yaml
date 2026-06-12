@@ -1,0 +1,14 @@
+id: "06_matriz_riscos_e_sobrepreco"
+owner: "riscos-sobrepreco-auditor"
+objective: "Produzir a matriz de riscos da contratação aplicando o catálogo de riscos típicos do controle externo, com probabilidade, impacto, indícios, evidências e diligências."
+inputs:
+  - "ficha_triagem"
+  - "relatorio_legalidade"
+  - "planilhas, valores e pesquisa de preços do processo"
+outputs:
+  - "matriz_riscos preenchida (templates/matriz_riscos.md)"
+acceptance_criteria:
+  - "cada risco classificado em probabilidade e impacto com justificativa observável"
+  - "sobrepreço distinguido de superfaturamento"
+  - "limitações de evidência registradas (ex.: ausência de referencial de preços nos autos)"
+  - "cada risco com referência normativa ou jurisprudencial"

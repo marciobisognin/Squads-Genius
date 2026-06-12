@@ -31,6 +31,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Prisma Psíquico Integrativo](squads/prisma-psiquico-integrativo/README.md) — `prisma-psiquico-integrativo` — versão `1.0.0`
 - [SQU Oráculo de Aion](squads/squ-oraculo-aion-finance-super-squad/README.md) — `squ-oraculo-aion-finance-super-squad` — versão `1.0.0` — inteligência financeira global educacional, cenários, risco e relatórios auditáveis
 - [skeptic-protocol](squads/skeptic-protocol/README.md) — `skeptic-protocol` — versão `1.0.0`
+- [Themis Contratos Públicos](squads/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — versão `1.0.0` — equipe jurídica para análise de contratos administrativos com base nas normas da CGU e dos Tribunais de Contas
 - [VetorNexo](squads/vetornexo-premium-squad/README.md) — `vetornexo-premium-squad` — versão `1.0.0`
 - [vetorviveiro-squad](squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`
 - [Órbita Incubadora Squad](squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`

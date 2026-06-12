@@ -1,0 +1,14 @@
+id: "01_triagem_e_classificacao_documental"
+owner: "intake-document-triager"
+objective: "Classificar o documento recebido, identificar o regime legal aplicável (Lei 14.133/2021, legado 8.666/93, Lei 13.303/2016 ou norma local) e mapear metadados e lacunas do processo."
+inputs:
+  - "documentos do processo (texto/PDF transcrito)"
+  - "contexto do solicitante: órgão, esfera, finalidade da análise"
+outputs:
+  - "ficha_triagem preenchida (templates/ficha_triagem.md)"
+acceptance_criteria:
+  - "tipo de documento classificado conforme a taxonomia do agente"
+  - "regime legal identificado com a evidência observada (data, cláusula de regência)"
+  - "metadados essenciais extraídos: órgão, contratada, objeto, valor, vigência, publicação"
+  - "lacunas documentais listadas com impacto na análise"
+  - "nenhum dado pessoal sensível transcrito"

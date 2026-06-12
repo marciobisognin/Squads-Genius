@@ -1,0 +1,70 @@
+{
+  "id": "analise_completa_contrato",
+  "description": "Pipeline completo de análise jurídica de contrato administrativo: da triagem documental ao parecer consolidado, com quality gates e revisão humana obrigatória.",
+  "human_in_loop": true,
+  "rollback": "retornar à última etapa com gate reprovado e sanar antes de prosseguir",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Triagem e classificação documental",
+      "task": "01_triagem_e_classificacao_documental",
+      "gate_required": true,
+      "gate": "triagem_completa"
+    },
+    {
+      "order": 2,
+      "name": "Checklist de formalização",
+      "task": "02_checklist_formalizacao_contratual",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Análise de legalidade",
+      "task": "03_analise_legalidade_e_fundamentacao",
+      "gate_required": true,
+      "gate": "fundamentacao_normativa_presente"
+    },
+    {
+      "order": 4,
+      "name": "Confronto jurisprudencial TCU/TCE",
+      "task": "04_confronto_jurisprudencia_tcu",
+      "gate_required": true,
+      "gate": "jurisprudencia_referenciada"
+    },
+    {
+      "order": 5,
+      "name": "Verificação de integridade e transparência (CGU)",
+      "task": "05_verificacao_integridade_cgu",
+      "gate_required": false
+    },
+    {
+      "order": 6,
+      "name": "Matriz de riscos e sobrepreço",
+      "task": "06_matriz_riscos_e_sobrepreco",
+      "gate_required": true,
+      "gate": "matriz_riscos_classificada"
+    },
+    {
+      "order": 7,
+      "name": "Análise de aditivos (quando houver)",
+      "task": "07_analise_aditivos_e_alteracoes",
+      "gate_required": false,
+      "conditional": "executar somente se houver termo aditivo ou apostilamento"
+    },
+    {
+      "order": 8,
+      "name": "Parecer consolidado",
+      "task": "08_parecer_juridico_consolidado",
+      "gate_required": true,
+      "gate": "parecer_com_revisao_humana"
+    },
+    {
+      "order": 9,
+      "name": "Revisão humana final",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: advogado/procurador/auditor valida o parecer antes de qualquer uso oficial."
+    }
+  ]
+}

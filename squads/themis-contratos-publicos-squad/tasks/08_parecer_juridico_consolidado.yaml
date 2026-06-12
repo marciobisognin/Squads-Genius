@@ -1,0 +1,18 @@
+id: "08_parecer_juridico_consolidado"
+owner: "parecer-relator-juridico"
+objective: "Consolidar todos os artefatos em parecer técnico-jurídico estruturado com quadro de apontamentos, recomendações priorizadas, conclusão e ressalva de revisão humana."
+inputs:
+  - "ficha_triagem"
+  - "checklist_conformidade"
+  - "relatorio_legalidade"
+  - "nota_jurisprudencia"
+  - "relatorio_integridade"
+  - "matriz_riscos"
+outputs:
+  - "parecer_juridico completo (templates/parecer_juridico.md)"
+acceptance_criteria:
+  - "nenhum apontamento novo sem origem nos relatórios dos especialistas"
+  - "classificação observado/inferido/hipótese preservada"
+  - "divergências entre agentes registradas com ambas as posições"
+  - "ressalva obrigatória de revisão humana presente"
+  - "footer obrigatório presente"

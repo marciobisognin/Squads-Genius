@@ -1,0 +1,14 @@
+id: "03_analise_legalidade_e_fundamentacao"
+owner: "legalidade-lei14133-analyst"
+objective: "Analisar legalidade material: enquadramento da contratação, motivação dos atos, publicidade no PNCP, vigência, garantias e condições de eficácia."
+inputs:
+  - "ficha_triagem"
+  - "checklist_conformidade"
+  - "documentos do processo"
+outputs:
+  - "relatorio_legalidade com apontamentos classificados (conforme / não conforme / não verificável)"
+acceptance_criteria:
+  - "todo apontamento cita lei, artigo e parágrafo"
+  - "classificação observado/inferido/hipótese aplicada a cada apontamento"
+  - "regime legal usado registrado como premissa"
+  - "contratação direta (se houver) verificada contra arts. 72-75 da Lei 14.133/2021"
