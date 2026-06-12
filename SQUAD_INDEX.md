@@ -41,5 +41,18 @@ Squads publicados no repositório `Squads-Genius`.
 
 - [Prisma Real Problem Squad](squads/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — versão `1.0.0` — diagnóstico e decomposição de problemas reais em squads operacionais
 
+- [Integra Incubadora Operations Squad](squads/integra-incubadora-ops-squad/README.md) — `integra-incubadora-ops-squad` — versão `1.0.0` — operacionalizacao da incubadora IDNE com pipeline TRL, Lean Canvas e relatorios institucionais
+- [Notion Second Brain Squad](squads/notion-second-brain-squad/README.md) — `notion-second-brain-squad` — versão `1.0.0` — produtividade pessoal com GTD, PARA e Second Brain no Notion
+- [Guardiao Carteira Squad](squads/guardiao-carteira-squad/README.md) — `guardiao-carteira-squad` — versão `1.0.0` — gestao inteligente de investimentos e criptoativos
+- [Copo de Cafe Academico Squad](squads/copo-de-cafe-academico-squad/README.md) — `copo-de-cafe-academico-squad` — versão `1.0.0` — transformacao de artigos em conteudo didatico multimodal
+- [Mentor IA Educacao Squad](squads/mentor-ia-educacao-squad/README.md) — `mentor-ia-educacao-squad` — versão `1.0.0` — tutoria inteligente e adaptativa para educacao
+- [Copo de Cafe Podcast Squad](squads/copo-de-cafe-podcast-squad/README.md) — `copo-de-cafe-podcast-squad` — versão `1.0.0` — producao de podcast academico e disseminacao cientifica
+- [Compliance IA IFFar Squad](squads/compliance-ia-iffar-squad/README.md) — `compliance-ia-iffar-squad` — versão `1.0.0` — conformidade e auditoria continua para o IFFar
+- [Revisao Bibliografica Automatizada Squad](squads/revisao-bibliografica-automatizada-squad/README.md) — `revisao-bibliografica-automatizada-squad` — versão `1.0.0` — producao academica em larga escala com IA
+- [Reforco Neurocognitivo Infantil Squad](squads/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — versão `1.0.0` — desenvolvimento neurocognitivo para criancas
+- [Gestor Projetos IFFar Squad](squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
+
+---
+
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
 - [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.
