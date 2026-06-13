@@ -1,0 +1,70 @@
+name: soulsword-personal-branding-squad
+display_name: "⚔️ Soulsword Personal Branding Squad"
+version: "1.0.0"
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+status: premium-ready
+domain: "Marca pessoal, thought leadership, posicionamento de autoridade e visibilidade estratégica"
+visual_style: dark-neon-layered-architecture
+objective: "Forjar a marca pessoal autêntica do profissional a partir da sua própria essência — diagnosticando propósito, posicionando autoridade, construindo presença omnicanal e abrindo portas de visibilidade estratégica via conteúdo, palestras e relações de imprensa."
+artifact_inspiration:
+  name: "Soulsword (Marvel Comics — Magik/Illyana Rasputin)"
+  description: "Espada mística forjada da própria alma de Illyana Rasputin — representa autenticidade absoluta transformada em poder. Verdadeira marca pessoal deve ser forjada de quem você genuinamente é, não de quem você pensa que o mercado quer que seja."
+architecture:
+  type: multiagent-graph
+  coordination: dynamic-output-to-adjacent-nodes
+  originality_gate: "Revisão de autenticidade e anti-cópia"
+inputs:
+  - "Nome, cargo, área de atuação e mercado-alvo do profissional"
+  - "Autodescrição: propósito, valores, conquistas e diferenciais percebidos"
+  - "Conteúdos já publicados (posts, artigos, palestras)"
+  - "Perfil LinkedIn atual (URL ou captura de tela)"
+  - "Objetivo de marca: visibilidade, novos clientes, oportunidades, palestras"
+  - "Tom de voz preferido e exemplos de referência"
+outputs:
+  - "Documento de DNA de Marca (propósito, valores, voz, posicionamento único)"
+  - "Plano de Estratégia de Conteúdo 90 Dias (omnicanal)"
+  - "Guia de Otimização de Perfil LinkedIn"
+  - "Kit do Palestrante (bio, proposta de palestra, media kit)"
+  - "Roadmap de Visibilidade PR (podcasts, mídia, colaborações)"
+  - "5 Artigos/Threads de Thought Leadership rascunhados"
+agents:
+  - id: soulsword-orchestrator
+    file: agents/soulsword-orchestrator.md
+    role: "Coordenador central com gate de autenticidade e originalidade; garante coerência da marca em todos os entregáveis"
+  - id: brand-dna-analyst
+    file: agents/brand-dna-analyst.md
+    role: "Diagnóstico de propósito, valores, voz e diferencial único do profissional"
+  - id: positioning-architect
+    file: agents/positioning-architect.md
+    role: "Arquitetura de posicionamento de autoridade por nicho e mercado (Blue Ocean para marcas pessoais)"
+  - id: content-calendar-strategist
+    file: agents/content-calendar-strategist.md
+    role: "Calendário editorial omnicanal 90 dias: LinkedIn, Instagram, YouTube, Substack e X"
+  - id: linkedin-optimizer
+    file: agents/linkedin-optimizer.md
+    role: "Otimização completa de perfil e estratégia de conteúdo LinkedIn com foco em algoritmo e conexão humana"
+  - id: thought-leadership-writer
+    file: agents/thought-leadership-writer.md
+    role: "Criação de artigos, threads e essays de alto impacto para posicionamento de autoridade"
+  - id: speaker-pitch-designer
+    file: agents/speaker-pitch-designer.md
+    role: "Kit completo do palestrante: bio, proposta de palestra, media kit e estrutura de depoimentos"
+  - id: pr-visibility-planner
+    file: agents/pr-visibility-planner.md
+    role: "Estratégia de PR: pitches para podcasts, imprensa, colaborações e parcerias de visibilidade"
+workflows:
+  - workflows/personal-branding-pipeline.yaml
+  - workflows/quality-gates.yaml
+tasks:
+  - tasks/brand-dna-mapping.md
+  - tasks/content-strategy.md
+quality_gates:
+  - "brand_dna_validated_by_professional"
+  - "positioning_uniqueness_confirmed"
+  - "content_authenticity_reviewed"
+  - "linkedin_profile_updated"
+  - "speaker_kit_approved"
+  - "pr_targets_validated"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

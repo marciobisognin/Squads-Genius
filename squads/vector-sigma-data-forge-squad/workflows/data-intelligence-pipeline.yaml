@@ -1,0 +1,224 @@
+workflow: data-intelligence-pipeline
+version: 1.0.0
+description: "Pipeline completo de inteligência de dados — do briefing analítico ao pacote final com arquitetura de dados, pipelines ETL/ELT, qualidade de dados, árvore de métricas, análises SQL, dashboard design, data storytelling executivo e avaliação de prontidão MLOps."
+squad: vector-sigma-data-forge-squad
+creator: "Marcio Bisognin"
+
+phases:
+  - id: phase-01-briefing-governance
+    name: "Fase 01 — Intake do Briefing e Gate de Governança"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Briefing analítico com problema de negócio ou pergunta analítica"
+      - "Descrição das fontes de dados disponíveis"
+      - "Contexto de uso: BI, ML, produto data-driven ou relatório executivo"
+    outputs:
+      - "Plano de Orquestração do Pipeline de Dados"
+      - "Relatório de Conformidade com Governança e LGPD"
+      - "Checklist de dados necessários por agente"
+    hitl: false
+    description: "O orchestrator recebe o briefing, decompõe as tarefas e executa o gate de governança verificando bases legais, dados pessoais envolvidos e controles de privacidade necessários antes de iniciar qualquer análise."
+
+  - id: phase-02-data-architecture
+    name: "Fase 02 — Design da Arquitetura de Dados"
+    agents: [data-architecture-designer]
+    inputs:
+      - "Fontes de dados disponíveis com descrição de schema"
+      - "Casos de uso analítico definidos no briefing"
+      - "Restrições de infraestrutura e ferramentas disponíveis"
+    outputs:
+      - "Data Architecture Blueprint"
+      - "Modelo Dimensional (quando aplicável)"
+      - "ERD Documentado"
+      - "Data Contracts por Domínio"
+    hitl: false
+    description: "Design da arquitetura de dados ideal para o contexto: paradigma (DW, Data Lake, Lakehouse, Data Mesh), modelos dimensionais, ERDs e contratos de dados por domínio."
+
+  - id: phase-03-data-quality-profiling
+    name: "Fase 03 — Profiling de Qualidade de Dados"
+    agents: [data-quality-sentinel]
+    inputs:
+      - "Acesso às fontes de dados ou schemas documentados"
+      - "Amostras de dados para profiling"
+      - "Definição dos campos críticos para cada caso de uso"
+    outputs:
+      - "Data Quality Scorecard baseline"
+      - "Catálogo de Regras de Validação"
+      - "Relatório de Anomalias Detectadas"
+    hitl: false
+    description: "Profiling completo das fontes de dados nas cinco dimensões de qualidade: completude, precisão, consistência, atualidade e unicidade. Estabelece o baseline de qualidade antes de qualquer análise."
+
+  - id: phase-04-schema-review-hitl
+    name: "Fase 04 — Gate HITL: Revisão de Arquitetura e Qualidade"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Data Architecture Blueprint"
+      - "Data Quality Scorecard"
+      - "Catálogo de Regras de Validação"
+    outputs:
+      - "Arquitetura aprovada para implementação"
+      - "Gaps de qualidade priorizados para remediação"
+      - "Registro de decisões do gate"
+    hitl: true
+    hitl_description: "Revisão humana obrigatória com responsável de dados, arquiteto de software e gestor de produto/analytics. Validação da arquitetura quanto à viabilidade técnica, custo e alinhamento com a estratégia de dados da empresa. Definição de go/no-go para prosseguir com os pipelines."
+    description: "Gate de revisão de arquitetura e qualidade com responsável técnico."
+
+  - id: phase-05-pipeline-design
+    name: "Fase 05 — Design dos Pipelines ETL/ELT"
+    agents: [etl-pipeline-engineer]
+    inputs:
+      - "Data Architecture Blueprint aprovado"
+      - "Data Quality Scorecard (para definir validações nos pipelines)"
+      - "SLAs de atualização de dados definidos"
+    outputs:
+      - "Data Pipeline Design Document"
+      - "Diagrama de Dependências entre Pipelines"
+      - "Estratégia de Testes de Pipeline"
+      - "Runbook de Operação"
+    hitl: false
+    description: "Design dos pipelines ETL/ELT com boas práticas de idempotência, linhagem, tratamento de erros e estratégias de teste para cada caso de uso identificado na arquitetura."
+
+  - id: phase-06-sql-analysis
+    name: "Fase 06 — Análise SQL e Exploração de Dados"
+    agents: [sql-analyst-pro]
+    inputs:
+      - "Data Architecture aprovada"
+      - "Perguntas analíticas do briefing"
+      - "Data Quality Scorecard (para contextualizar limitações das análises)"
+    outputs:
+      - "EDA Report"
+      - "Biblioteca de Templates SQL"
+      - "Queries de Análise Aprofundada"
+    hitl: false
+    description: "Análises SQL exploratórias e aprofundadas para responder às perguntas de negócio do briefing, com templates reutilizáveis e documentação de boas práticas."
+
+  - id: phase-07-statistical-analysis
+    name: "Fase 07 — Análise Estatística e Mineração de Insights"
+    agents: [statistical-insight-miner]
+    inputs:
+      - "EDA Report do SQL Analyst Pro"
+      - "Perguntas analíticas do briefing (especialmente A/B tests e hipóteses)"
+      - "Corpus de dados limpos e validados"
+    outputs:
+      - "Statistical Analysis Report"
+      - "A/B Test Interpretation Report (quando aplicável)"
+      - "Correlation Matrix e Heatmap"
+      - "Relatório de Investigação de Outliers"
+    hitl: false
+    description: "Análises estatísticas descritivas e inferenciais, correlações, testes de hipótese, interpretação de A/B tests e investigação de outliers com rigor metodológico."
+
+  - id: phase-08-metric-tree
+    name: "Fase 08 — Design da Árvore de Métricas"
+    agents: [metric-tree-architect]
+    inputs:
+      - "Perguntas de negócio e objetivos estratégicos do briefing"
+      - "EDA Report e Statistical Analysis Report"
+      - "KPIs atuais disponíveis para refinamento"
+    outputs:
+      - "Metric Tree Document"
+      - "Fichas Técnicas de cada Métrica"
+      - "Mapa de Métricas Leading vs. Lagging"
+      - "Glossário de Métricas do Negócio"
+    hitl: false
+    description: "Design da hierarquia completa de métricas do North Star até as métricas operacionais, com ownership, fórmulas, fontes, cadência e thresholds de alerta."
+
+  - id: phase-09-metric-tree-hitl
+    name: "Fase 09 — Gate HITL: Aprovação da Árvore de Métricas"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Metric Tree Document"
+      - "Fichas Técnicas de cada Métrica"
+    outputs:
+      - "Árvore de métricas aprovada pelo negócio"
+      - "North Star Metric validada pela liderança"
+      - "Registro de decisões e ajustes do gate"
+    hitl: true
+    hitl_description: "Revisão humana obrigatória da árvore de métricas com liderança executiva, product managers e responsável de analytics. A North Star Metric precisa de consenso da liderança para ser adotada. Métricas contraditórias precisam ser resolvidas aqui."
+    description: "Gate de aprovação da árvore de métricas pelo negócio — ponto mais crítico do pipeline para alinhamento estratégico."
+
+  - id: phase-10-visualization-design
+    name: "Fase 10 — Design de Visualização e Dashboards"
+    agents: [visualization-director]
+    inputs:
+      - "Metric Tree aprovada"
+      - "EDA Report e Statistical Analysis Report"
+      - "Ferramentas de BI disponíveis na empresa"
+    outputs:
+      - "Dashboard Design System"
+      - "Wireframes de Dashboard por Audiência"
+      - "Guia de Seleção de Gráficos"
+    hitl: false
+    description: "Design de dashboards aplicando princípios de Tufte, Perceptual Edge e Cairo — seleção de tipos de gráfico, hierarquia visual, paleta de cores e layout por audiência."
+
+  - id: phase-11-dashboard-ux-hitl
+    name: "Fase 11 — Gate HITL: Revisão de UX dos Dashboards"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Wireframes de Dashboard"
+      - "Dashboard Design System"
+    outputs:
+      - "Design de dashboards aprovado para implementação"
+      - "Feedback de usuários-alvo documentado"
+    hitl: true
+    hitl_description: "Revisão humana dos wireframes de dashboard com usuários finais representativos das audiências-alvo (executivos para visão C-level, gerentes para visão gerencial). Teste de 5 segundos: o usuário consegue responder à pergunta principal do dashboard em até 5 segundos?"
+    description: "Gate de revisão de UX dos dashboards com usuários finais."
+
+  - id: phase-12-data-storytelling
+    name: "Fase 12 — Data Storytelling Executivo"
+    agents: [narrative-data-storyteller]
+    inputs:
+      - "Statistical Analysis Report"
+      - "Metric Tree aprovada"
+      - "Wireframes de Dashboard aprovados"
+      - "EDA Report e todos os insights analíticos do pipeline"
+    outputs:
+      - "Executive Data Story Report — versão C-level"
+      - "Relatório Gerencial Completo"
+      - "Slide Deck Executivo"
+      - "Ficha de Recomendações Acionáveis"
+    hitl: false
+    description: "Transformação de todos os insights analíticos em narrativa executiva: situação, complicação, achados e recomendações em linguagem de negócio orientada a ação."
+
+  - id: phase-13-narrative-hitl
+    name: "Fase 13 — Gate HITL: Validação da Narrativa e Acionabilidade"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Executive Data Story Report"
+      - "Ficha de Recomendações Acionáveis"
+    outputs:
+      - "Narrativa validada e aprovada pelo negócio"
+      - "Recomendações com responsáveis e prazos definidos"
+    hitl: true
+    hitl_description: "Revisão humana da narrativa executiva com gestor de negócio ou sponsor do projeto. Validação de que os achados fazem sentido no contexto operacional da empresa, de que as recomendações são viáveis e de que há responsável identificado para cada ação proposta."
+    description: "Gate de validação da narrativa e acionabilidade das recomendações com o negócio."
+
+  - id: phase-14-mlops-assessment
+    name: "Fase 14 — Avaliação de Prontidão MLOps (quando aplicável)"
+    agents: [mlops-readiness-advisor]
+    inputs:
+      - "Data Architecture Blueprint"
+      - "Data Quality Scorecard"
+      - "Statistical Analysis Report"
+      - "Contexto de uso ML do briefing"
+    outputs:
+      - "MLOps Readiness Assessment"
+      - "Feature Engineering Specification"
+      - "Data Drift & Monitoring Strategy"
+      - "ML Infrastructure Checklist"
+    hitl: false
+    condition: "Executar apenas quando o briefing incluir casos de uso de Machine Learning"
+    description: "Avaliação de prontidão dos dados e infraestrutura para ML em produção — executada apenas quando o briefing inclui casos de uso de ML."
+
+  - id: phase-15-consolidation-delivery
+    name: "Fase 15 — Consolidação e Entrega do Pacote Final"
+    agents: [vector-sigma-orchestrator]
+    inputs:
+      - "Todos os artefatos das fases anteriores"
+    outputs:
+      - "Pacote Final Consolidado de Dados e Analytics (todos os artefatos versionados)"
+      - "Log de Linhagem de Dados"
+      - "Executive Summary do Projeto (1 página)"
+    hitl: false
+    description: "Consolidação de todos os artefatos do pipeline, verificação final de conformidade com governança, versionamento e entrega do pacote completo."
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
