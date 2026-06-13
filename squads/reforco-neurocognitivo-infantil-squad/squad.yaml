@@ -1,0 +1,24 @@
+name: reforco-neurocognitivo-infantil-squad
+display_name: Reforco Neurocognitivo Infantil Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente com exercicios de memoria, atencao, raciocinio logico e coordenacao motora fina.
+agents:
+  - treinador-memoria
+  - treinador-atencao
+  - treinador-logica
+  - treinador-motora
+  - relatorio-progresso
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

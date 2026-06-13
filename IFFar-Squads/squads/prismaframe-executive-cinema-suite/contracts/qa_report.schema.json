@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "checks"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "checks": {
+      "type": "array"
+    }
+  }
+}

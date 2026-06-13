@@ -1,0 +1,7 @@
+id: 09_release_package
+title: "Pacote final de entrega"
+sequence: 9
+acceptance:
+  - entrada e saída registradas
+  - produto final não expõe bastidores
+  - evidência de validação salva em validation/

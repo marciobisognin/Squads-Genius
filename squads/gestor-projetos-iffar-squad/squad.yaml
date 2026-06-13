@@ -1,0 +1,24 @@
+name: gestor-projetos-iffar-squad
+display_name: Gestor Projetos IFFar Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para gestao do ciclo de vida de projetos e contratos do IFFar, desde a abertura ate a prestacao de contas.
+agents:
+  - abridor-processo
+  - acompanhador-medicoes
+  - gerador-relatorios
+  - encerrador-contrato
+  - relatorio-gestao
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

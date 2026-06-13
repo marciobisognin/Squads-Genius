@@ -1,0 +1,24 @@
+name: compliance-ia-iffar-squad
+display_name: Compliance IA IFFar Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad multi-agente para monitoramento de prazos legais, alertas de vencimentos e geracao de pareceres.
+agents:
+  - vigilante-prazos
+  - auditor-checklist
+  - gerador-pareceres
+  - dashboard-riscos
+  - auditor-externo
+workflows:
+  - main
+tasks:
+  - task-1
+  - task-2
+  - task-3
+  - task-4
+  - task-5
+scripts:
+  - run.py

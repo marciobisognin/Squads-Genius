@@ -1,0 +1,16 @@
+{
+  "title": "Plano Executivo de Transformação Digital",
+  "files": [
+    "index.html",
+    "deck.html",
+    "motion-composition.html",
+    "print-ready.html"
+  ],
+  "composition": {
+    "composition_id": "executive-briefing",
+    "duration": 12,
+    "width": 1920,
+    "height": 1080
+  },
+  "source_hash": "42eca8f3184e04b3f80b74e0ec3a2fce3454fb7f3da89a7a5b5f77f0adf7b3d2"
+}

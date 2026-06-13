@@ -1,0 +1,31 @@
+name: squad-pcfp
+display_name: PCFP — Compliance & Pricing Engine
+version: 2.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+purpose: >
+  Squad Multi-Agente para Elaboração, Validação e Auditoria de Planilhas de Custos e Formação de Preços (PCFP) para a Administração Pública Federal.
+  Combina orquestração via LangGraph, motor de cálculo determinístico em Python e base normativa RAG para garantir conformidade total e rastreabilidade.
+agents:
+  - maestro
+  - intaker
+  - juris-consultor
+  - sindicalista
+  - calculista
+  - auditor
+  - gestor
+  - artifice
+workflows:
+  - main
+  - proposal-analysis
+tasks:
+  - intake
+  - normative-rag
+  - cct-analysis
+  - calculation
+  - compliance-audit
+  - contract-management
+  - artifact-generation
+scripts:
+  - run.py

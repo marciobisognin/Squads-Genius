@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "output": "/storage/emulated/0/Download/Material herme/prismaframe-executive-cinema-suite/generated/demo/final",
+  "missing": [],
+  "qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "cleanroom_forbidden_markers",
+        "status": "pass",
+        "findings": []
+      },
+      {
+        "name": "required_files",
+        "status": "pass"
+      }
+    ]
+  }
+}

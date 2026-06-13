@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "cleanroom_forbidden_markers",
+      "status": "pass",
+      "findings": []
+    },
+    {
+      "name": "required_files",
+      "status": "pass"
+    }
+  ]
+}
