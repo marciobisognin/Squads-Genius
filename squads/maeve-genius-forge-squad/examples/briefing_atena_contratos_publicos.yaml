@@ -1,0 +1,31 @@
+project_name: "Atena Contratos Públicos"
+objective: "Criar um squad que receba documentos de contratos administrativos e produza triagem técnica, checklist de conformidade, lista de pendências e minuta de encaminhamento para revisão humana."
+problem: "Equipes administrativas precisam reduzir retrabalho na análise inicial de contratos, mantendo rastreabilidade, segurança e aprovação humana nos pontos críticos."
+target_audience: "Servidores de contratos, fiscais administrativos, gestores públicos e equipes de apoio jurídico-institucional."
+expected_outputs:
+  - "squad.yaml"
+  - "README.md"
+  - "agentes de intake, entrega, integração opcional, segurança e qualidade"
+  - "tasks com validação de campos e falhas"
+  - "workflow com gates de aprovação humana"
+  - "scripts Python de execução e validação"
+  - "testes automatizados"
+  - "documentação operacional"
+constraints:
+  language: "pt-BR"
+  legal_basis: "Não emitir parecer jurídico conclusivo; apontar pendências para revisão humana."
+  runtime: "Python local, determinístico quando --no-llm estiver ativo."
+integrations:
+  - "entrada de documentos em pasta local"
+  - "exportação de relatório JSON/Markdown"
+security_level: "elevated"
+human_approval_requirements:
+  - "aprovação antes de qualquer encaminhamento externo"
+  - "revisão humana para interpretação jurídica ou recomendação decisória"
+success_metrics:
+  - "100% dos arquivos obrigatórios gerados"
+  - "validate_squad.py retorna go"
+  - "pytest retorna todos os testes aprovados"
+budget_limit: "baixo custo; sem chamadas externas no modo --no-llm"
+preferred_models:
+  - "sem LLM no modo determinístico"

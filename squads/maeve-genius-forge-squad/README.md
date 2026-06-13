@@ -1,61 +1,96 @@
 # Maeve Genius Forge Squad
 
 **Nome técnico:** `maeve-genius-forge-squad`
-**Nome comercial:** Maeve Genius Forge — Sistema de Criação de Ativos com IA
 
-Maeve Genius Forge é uma fábrica operacional para transformar briefing livre em sistema completo de IA: pesquisa, estratégia, design system, agentes, workflows, scripts, documentação, monetização e pacote publicável.
+**Nome comercial:** Maeve Genius Forge — fábrica funcional de squads
 
-## Diferencial
+O Maeve Genius Forge transforma um briefing YAML ou JSON em um squad completo, consistente, validável, testável e executável. A implementação atual é determinística no modo `--no-llm` e gera artefatos reais em disco, não apenas documentos estáticos.
 
-O squad supera pipelines genéricos porque combina quatro camadas:
+## O que está implementado
 
-1. **Inteligência e pesquisa rastreável:** separa fatos, inferências, hipóteses, recomendações e fontes.
-2. **Design original:** analisa referências sem copiar marca, gerando tokens, componentes e regras de aplicação.
-3. **Automação determinística:** converte tarefas repetitivas em scripts Python locais para reduzir custo de tokens.
-4. **Publicação e monetização:** entrega README, quality gates, ZIP, estratégia comercial e IP nativa.
+O executor `scripts/forge_squad.py` foi refatorado em módulos especializados:
 
-## Agentes
+- `briefing_parser.py` — leitura YAML/JSON com parser YAML real e schema formal.
+- `requirements_analyzer.py` — análise de lacunas, riscos e revisões humanas.
+- `squad_architect.py` — arquitetura de agentes sem redundância de responsabilidades.
+- `agent_generator.py` — geração de `agents/*.yaml` com contrato completo.
+- `task_generator.py` — geração de tasks com schema, timeout, retry e falha.
+- `workflow_generator.py` — workflows com condições, dependências, gates e caminhos de falha.
+- `script_generator.py` — scripts Python do squad gerado.
+- `documentation_generator.py` — README, docs e exemplos.
+- `test_generator.py` — testes automatizados dos arquivos gerados.
+- `package_generator.py` — LICENSE, NOTICE, AUTHORS, requirements e relatório de qualidade calculado.
 
-- `forge-orchestrator` — Coordena o pipeline completo, decide ordem de execução, consolida outputs e aciona quality gates.
-- `briefing-intelligence-analyst` — Extrai requisitos, lacunas, hipóteses e critérios de sucesso do briefing inicial.
-- `deep-research-strategist` — Executa pesquisa profunda, organiza fontes, contexto, riscos e oportunidades com rastreabilidade.
-- `business-model-architect` — Transforma pesquisa em proposta de valor, oferta, modelo comercial, precificação e monetização.
-- `design-system-forger` — Cria design system original, tokens, componentes e guidelines visuais sem copiar marcas de terceiros.
-- `workflow-engineer` — Mapeia processos, cria workflows, gates, rollback e trilhas humano-no-loop.
-- `agent-architect` — Desenha agentes, papéis, comandos, responsabilidades, dependências e contratos de saída.
-- `script-factory-engineer` — Identifica tarefas determinísticas e gera scripts portáveis, testáveis e de baixo custo.
-- `quality-audit-sentinel` — Valida qualidade, segurança, autoria, rastreabilidade, executabilidade e completude.
-- `github-release-publisher` — Empacota, cria README, prepara commit e publica no GitHub quando autorizado.
+## Schema formal do briefing
 
-## Workflows
+Campos suportados:
 
-- `full_forge_pipeline.yaml` — pipeline completo de 15 fases.
-- `design_system_only.yaml` — criação de identidade original e tokens.
-- `script_automation_sprint.yaml` — identificação, criação e teste de scripts determinísticos.
-- `github_release_pipeline.yaml` — validação, empacotamento, scan e publicação autorizada.
+- `project_name`
+- `objective`
+- `problem`
+- `target_audience`
+- `expected_outputs`
+- `constraints`
+- `integrations`
+- `security_level`
+- `human_approval_requirements`
+- `success_metrics`
+- `budget_limit`
+- `preferred_models`
+
+Em `--strict`, campos obrigatórios ausentes, tipos inválidos ou campos desconhecidos produzem erro claro. Sem `--strict`, aliases legados como `audience` e `success_criteria` são normalizados com aviso.
 
 ## Uso rápido
 
 ```bash
-python scripts/validate_squad.py --root .
-python scripts/forge_squad.py --briefing examples/example_consultoria_ia.yaml --output output/demo-consultoria
-python scripts/estimate_costs.py --root output/demo-consultoria --manual-hours 12 --hourly-rate 150
-python scripts/package_squad.py --root . --output ../../exports/maeve-genius-forge-squad-v1.0.0.zip
+python scripts/forge_squad.py \
+  --briefing examples/briefing_atena_contratos_publicos.yaml \
+  --output output/atena-contratos-publicos \
+  --overwrite \
+  --strict \
+  --no-llm
+
+python scripts/validate_squad.py --root output/atena-contratos-publicos
+pytest -q
 ```
 
-## Quality gates
+## Modos do executor
 
-- Clareza de briefing.
-- Pesquisa com fontes e riscos.
-- Design original e exportável.
-- Arquitetura de squad não redundante.
-- Scripts executáveis e testáveis.
-- Publicação sem segredos, com licença/autoria.
+- `--dry-run`: analisa o briefing e mostra componentes planejados sem gravar arquivos.
+- `--strict`: valida o briefing com rigidez de schema.
+- `--overwrite`: substitui o diretório de saída quando já existe.
+- `--format yaml|json`: força o formato de leitura.
+- `--no-llm`: executa em modo determinístico, sem chamadas externas.
+- `--budget-limit`: sobrescreve o limite de orçamento informado no briefing.
 
-## Segurança e propriedade intelectual
+## Artefatos obrigatórios gerados
 
-- Não publicar `.env`, tokens, chaves privadas ou credenciais.
-- Usar referências apenas como insumo analítico.
-- Encerrar respostas finais com o footer obrigatório.
+Cada execução completa gera:
+
+- `squad.yaml`
+- `README.md`
+- `agents/*.yaml`
+- `tasks/*.yaml`
+- `workflows/*.yaml`
+- `scripts/*.py`
+- `tests/`
+- `examples/`
+- `docs/`
+- `LICENSE`
+- `NOTICE.md`
+- `AUTHORS.md`
+- `requirements.txt`
+- `quality_report.json`
+
+## Critérios de qualidade
+
+O `quality_report.json` registra componentes gerados, validações executadas, testes aprovados, testes reprovados, riscos, itens de revisão humana e nota calculada. A nota não é fixa: deriva da proporção de validações aprovadas, penalidades por risco, testes reprovados e revisões pendentes.
+
+## Limitações conhecidas
+
+- O modo atual é determinístico e não executa pesquisa web nem chamadas LLM.
+- Integrações declaradas viram contratos e gates; chamadas externas reais exigem implementação específica e aprovação humana.
+- O Forge não cria preços, paletas ou recomendações comerciais quando o briefing não fornece base verificável.
+- Publicação GitHub permanece bloqueada até autorização humana explícita.
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
