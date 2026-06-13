@@ -1,0 +1,240 @@
+id: sales-intelligence-pipeline
+display_name: "Pipeline de Inteligência de Vendas — Cerebro"
+version: "1.0.0"
+description: >
+  Pipeline completo de inteligência de vendas: do briefing e gate LGPD até o relatório executivo
+  consolidado com ICP, scoring, inteligência de conversas, saúde de pipeline, win/loss, playbook
+  e forecast de receita.
+human_in_loop: true
+rollback: "retornar ao último gate aprovado"
+total_phases: 9
+
+phases:
+
+  - order: 1
+    id: intake-and-context
+    name: "Intake e Contexto Inicial"
+    owner: cerebro-orchestrator
+    gate_required: false
+    description: >
+      Receber briefing do usuário com objetivos comerciais, dados disponíveis, escopo de análise
+      e restrições. Validar se as informações mínimas necessárias estão presentes.
+    inputs:
+      - "Briefing de vendas do usuário"
+      - "Dados disponíveis (CRM, transcrições, win/loss data)"
+    outputs:
+      - "Contexto estruturado de análise"
+      - "Mapa de dados disponíveis vs. necessários"
+    actions:
+      - "Estruturar escopo da análise"
+      - "Identificar lacunas de dados"
+      - "Confirmar objetivos com usuário se ambíguos"
+
+  - order: 2
+    id: lgpd-privacy-gate
+    name: "Gate de Privacidade LGPD"
+    owner: cerebro-orchestrator
+    gate_required: true
+    gate_type: blocking
+    description: >
+      Verificação obrigatória de conformidade LGPD antes de qualquer processamento de dados
+      pessoais. Pipeline é bloqueado se houver dados pessoais sem base legal documentada.
+    inputs:
+      - "Todos os dados fornecidos pelo usuário"
+    outputs:
+      - "Relatório de conformidade LGPD"
+      - "Log de categorias de dados e base legal"
+      - "Dados aprovados para processamento (anonimizados ou com base legal)"
+    gate_criteria:
+      approved: "Nenhum dado pessoal sem base legal ou anonimização adequada"
+      blocked: "Dados pessoais identificáveis sem base legal documentada — solicitar anonimização"
+    actions:
+      - "Escanear dados por presença de informações pessoais identificáveis"
+      - "Verificar base legal para cada categoria de dado pessoal"
+      - "Documentar log de processamento"
+      - "Bloquear ou liberar pipeline"
+
+  - order: 3
+    id: icp-profiling
+    name: "Perfilamento de ICP"
+    owner: icp-profiler
+    gate_required: false
+    description: >
+      Definir e documentar o Perfil de Cliente Ideal com base nos dados de clientes atuais,
+      histórico de deals e critérios de segmentação fornecidos.
+    inputs:
+      - "Base de clientes atuais com métricas de sucesso"
+      - "Dados firmográficos disponíveis"
+      - "Histórico de deals ganhos (para correlação)"
+    outputs:
+      - "ICP Playbook"
+      - "Scorecard de atributos ICP com pesos"
+      - "Personas de comprador"
+      - "Mapa de gatilhos de entrada"
+    actions:
+      - "Analisar base de clientes de alto valor"
+      - "Identificar padrões firmográficos e comportamentais"
+      - "Construir scorecard de qualificação"
+      - "Documentar ICP Playbook completo"
+
+  - order: 4
+    id: lead-scoring
+    name: "Modelagem de Lead Scoring"
+    owner: lead-scorer
+    gate_required: false
+    depends_on: [icp-profiling]
+    description: >
+      Construir e aplicar modelo de scoring de leads com base no ICP definido e nos dados de
+      engajamento disponíveis.
+    inputs:
+      - "ICP Playbook (do icp-profiler)"
+      - "Base de leads com dados disponíveis"
+      - "Histórico de conversão de leads (se disponível)"
+    outputs:
+      - "Modelo de Lead Scoring documentado"
+      - "Ranking de leads por score e tier"
+      - "Relatório de calibração do modelo"
+    actions:
+      - "Definir dimensões e pesos do modelo"
+      - "Aplicar scoring à base de leads"
+      - "Calibrar com dados históricos se disponíveis"
+      - "Gerar ranking priorizado com recomendações"
+
+  - order: 5
+    id: conversation-intelligence
+    name: "Inteligência de Conversas de Vendas"
+    owner: conversation-intelligence-analyst
+    gate_required: false
+    description: >
+      Analisar transcrições de chamadas e sequências de e-mail para extrair padrões de vitória,
+      objeções recorrentes e diferenças entre top performers e performers medianos.
+    inputs:
+      - "Transcrições de chamadas (anonimizadas conforme LGPD)"
+      - "Sequências de e-mail de vendas"
+      - "Dados de atividade de CRM"
+    outputs:
+      - "Sales Conversation Intelligence Guide"
+      - "Objection Playbook"
+      - "Top Performer Pattern Report"
+      - "Discovery Quality Scorecard"
+    actions:
+      - "Analisar estrutura e conteúdo de chamadas"
+      - "Catalogar objeções por tipo e frequência"
+      - "Identificar padrões de top performers"
+      - "Gerar guia de melhoria de conversas"
+    conditional: "Executar apenas se transcrições/e-mails estiverem disponíveis e aprovados no gate LGPD"
+
+  - order: 6
+    id: pipeline-health-analysis
+    name: "Análise de Saúde do Pipeline"
+    owner: pipeline-health-monitor
+    gate_required: false
+    description: >
+      Diagnóstico completo da saúde do pipeline atual: velocidade, conversão, slippage, cobertura
+      e concentração de risco.
+    inputs:
+      - "Dados de pipeline do CRM (exportação ou descrição)"
+      - "Metas de quota do período"
+      - "Histórico de pipeline (trimestres anteriores se disponível)"
+    outputs:
+      - "Pipeline Health Report"
+      - "Deal Slippage Report"
+      - "Stage Conversion Funnel"
+      - "Pipeline Coverage Dashboard"
+    actions:
+      - "Calcular métricas de velocidade e conversão"
+      - "Identificar deals em risco de slippage"
+      - "Calcular pipeline coverage ratio"
+      - "Gerar lista de ações corretivas priorizadas"
+
+  - order: 7
+    id: win-loss-analysis
+    name: "Análise Win/Loss"
+    owner: win-loss-analyst
+    gate_required: true
+    gate_type: quality-review
+    description: >
+      Análise sistemática de deals ganhos e perdidos para identificar padrões causais e
+      gerar recomendações de melhoria de win rate.
+    inputs:
+      - "Histórico de deals fechados (won + lost) com atributos"
+      - "Razões de perda declaradas no CRM"
+      - "Dados de competidores envolvidos"
+    outputs:
+      - "Win/Loss Intelligence Report"
+      - "Competitive Battle Cards"
+      - "Root Cause Analysis Matrix"
+      - "Win Formula Document"
+    gate_criteria:
+      approved: "Análise baseada em pelo menos 20 deals e com root cause identificado para top 3 razões de perda"
+      needs_revision: "Amostra insuficiente ou root causes não identificados — solicitar dados adicionais"
+    actions:
+      - "Categorizar e tabular razões de perda"
+      - "Identificar padrões nos deals ganhos"
+      - "Realizar análise de root cause por categoria"
+      - "Gerar battle cards por competidor"
+
+  - order: 8
+    id: playbook-and-forecast
+    name: "Playbook e Forecast de Receita"
+    owner: sales-playbook-engineer
+    co_owner: revenue-forecast-modeler
+    gate_required: false
+    depends_on: [icp-profiling, conversation-intelligence, win-loss-analysis]
+    parallel_execution: true
+    description: >
+      Geração paralela do Sales Playbook completo (sales-playbook-engineer) e do modelo de
+      Forecast de Receita (revenue-forecast-modeler).
+    parallel_tasks:
+      - agent: sales-playbook-engineer
+        outputs: ["sales_playbook_master.md", "objection_scripts.md", "email_templates.md"]
+      - agent: revenue-forecast-modeler
+        outputs: ["revenue_forecast_report.md", "scenario_analysis.md", "pipeline_gap_analysis.md"]
+    actions:
+      - "Gerar Sales Playbook integrado com todos os insights"
+      - "Construir modelo de forecast com três cenários"
+      - "Calcular pipeline gap e recomendações de ação"
+
+  - order: 9
+    id: executive-consolidation
+    name: "Consolidação Executiva e Relatório Final"
+    owner: cerebro-orchestrator
+    gate_required: true
+    gate_type: final-approval
+    description: >
+      Cerebro Orchestrator consolida todos os artefatos em relatório executivo integrado e
+      apresenta ao usuário para aprovação final.
+    inputs:
+      - "Todos os artefatos das fases 3-8"
+    outputs:
+      - "Relatório Executivo de Inteligência de Vendas (consolidado)"
+      - "Top 10 Ações Priorizadas com Owner e Prazo"
+      - "Log de Privacidade LGPD"
+      - "Índice de todos os artefatos produzidos"
+    gate_criteria:
+      approved: "Usuário aprova o relatório executivo e todos os artefatos estão presentes"
+      needs_revision: "Usuário solicita ajustes em seção específica — retornar ao agente responsável"
+    actions:
+      - "Integrar e sintetizar todos os insights"
+      - "Verificar consistência entre descobertas"
+      - "Priorizar recomendações por impacto"
+      - "Gerar sumário executivo em formato C-suite"
+      - "Listar top ações com owner e prazo"
+
+quality_gates_summary:
+  - gate: "LGPD Privacy Gate (Fase 2)"
+    blocking: true
+    owner: cerebro-orchestrator
+  - gate: "Win/Loss Quality Review (Fase 7)"
+    blocking: false
+    owner: win-loss-analyst
+  - gate: "Final Executive Approval (Fase 9)"
+    blocking: true
+    owner: cerebro-orchestrator
+
+estimated_duration:
+  minimum: "2-4 horas (dados disponíveis e estruturados)"
+  typical: "1-2 dias (coleta, análise e revisão)"
+  maximum: "1 semana (dados dispersos, múltiplas iterações)"
+
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

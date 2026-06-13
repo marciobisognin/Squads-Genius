@@ -1,0 +1,208 @@
+id: leadership-development-pipeline
+display_name: "Pipeline de Desenvolvimento de Liderança"
+version: "1.0.0"
+description: >
+  Pipeline completo de desenvolvimento de liderança executiva — do intake de perfil
+  à entrega do PDI e relatórios finais. Orquestra 8 agentes especializados com gates
+  HITL (Human-in-the-Loop) em pontos críticos para garantir qualidade, coerência e
+  respeito ao contexto do líder.
+human_in_loop: true
+rollback: "retornar ao último gate reprovado e reiniciar a fase com insumos revisados"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+phases:
+
+  - order: 1
+    id: intake-perfil
+    name: "Intake e Validação de Perfil"
+    agent: matrix-orchestrator
+    description: >
+      Recebe e valida os dados de entrada do líder: perfil completo, autoavaliação,
+      cargo-alvo, contexto organizacional e desafio real atual. Verifica completude
+      mínima antes de liberar o pipeline.
+    inputs:
+      - "Perfil do líder (nome, cargo, nível hierárquico, setor)"
+      - "Autoavaliação estruturada em texto livre ou formulário"
+      - "Cargo-alvo de sucessão (quando aplicável)"
+      - "Contexto organizacional e cultura da empresa"
+      - "Desafio ou decisão real enfrentada atualmente"
+    outputs:
+      - "Perfil validado e estruturado"
+      - "Checklist de completude preenchido"
+    gate_required: true
+    gate_type: HITL
+    gate_description: >
+      Humano valida se o perfil está completo o suficiente para iniciar o diagnóstico.
+      Pipeline bloqueado até aprovação explícita.
+    on_gate_fail: "Solicitar dados faltantes ao líder e reiniciar fase"
+
+  - order: 2
+    id: diagnostico-arquetipo
+    name: "Diagnóstico de Arquétipo de Liderança"
+    agent: leadership-archetype-assessor
+    description: >
+      Diagnostica o estilo de liderança dominante e secundário do líder usando frameworks
+      Situacional (Hersey & Blanchard), Servant Leadership, Liderança Adaptativa e
+      Transformacional. Identifica pontos fortes, pontos cegos e contextos de maior eficácia.
+    inputs:
+      - "Perfil validado do intake"
+      - "Autoavaliação do líder"
+    outputs:
+      - "Relatório de Arquétipo de Liderança"
+      - "Mapa de Pontos Cegos e Pontos Fortes"
+      - "Contextos de máxima eficácia por estilo"
+    gate_required: false
+    dependency: intake-perfil
+
+  - order: 3
+    id: sintese-360
+    name: "Síntese de Feedback 360°"
+    agent: feedback-360-synthesizer
+    description: >
+      Coleta, organiza e sintetiza os feedbacks de múltiplos stakeholders (superiores,
+      pares, subordinados, clientes internos). Identifica padrões, convergências,
+      divergências e pontos cegos que não aparecem na autoavaliação.
+    inputs:
+      - "Respostas de stakeholders para síntese 360°"
+      - "Autoavaliação do líder (para contraste)"
+      - "Relatório de Arquétipo (para contextualização)"
+    outputs:
+      - "Relatório de Síntese 360°"
+      - "Mapa de Percepção por Grupo de Stakeholder"
+      - "Pontos cegos identificados por triangulação"
+    gate_required: false
+    dependency: diagnostico-arquetipo
+
+  - order: 4
+    id: coaching-decisao
+    name: "Coaching de Inteligência de Decisão"
+    agent: decision-intelligence-coach
+    description: >
+      Equipa o líder com frameworks de decisão personalizados para os tipos de decisão
+      mais frequentes e críticos identificados no diagnóstico. Constrói mapa de decisões
+      críticas e protocolo operacional de decisão sob pressão.
+    inputs:
+      - "Desafio ou decisão real do líder"
+      - "Perfil de contexto organizacional"
+      - "Pontos cegos do 360° (para calibração dos frameworks)"
+    outputs:
+      - "Mapa de Decisões Críticas"
+      - "Framework de Decisão Personalizado"
+      - "Relatório de Análise Pré-Mortem"
+      - "Guia de Decisão Rápida (OODA Loop Adaptado)"
+    gate_required: false
+    dependency: sintese-360
+
+  - order: 5
+    id: presenca-executiva
+    name: "Desenvolvimento de Presença Executiva"
+    agent: executive-presence-director
+    description: >
+      Desenvolve a capacidade comunicativa do líder para contextos de alta exposição.
+      Constrói o Executive Communication Playbook personalizado e prepara materiais
+      para board, C-suite e situações de crise comunicativa.
+    inputs:
+      - "Perfil do líder"
+      - "Contexto organizacional e cargo-alvo"
+      - "Pontos cegos identificados no 360° (dimensão comunicativa)"
+    outputs:
+      - "Executive Communication Playbook personalizado"
+      - "Script de Apresentação para Board"
+      - "Guia de Storytelling com Dados"
+      - "Kit de Comunicação em Crise"
+    gate_required: false
+    dependency: sintese-360
+
+  - order: 6
+    id: simulacao-conversas
+    name: "Simulação de Conversas Difíceis"
+    agent: difficult-conversation-simulator
+    description: >
+      Conduz simulações de roleplay de conversas difíceis calibradas para o contexto
+      real do líder. Constrói biblioteca de cenários e gera relatório de performance
+      com feedback estruturado e plano de prática progressiva.
+    inputs:
+      - "Perfil do líder e contexto organizacional"
+      - "Tipos de conversas difíceis mais frequentes (identificadas no 360°)"
+      - "Pontos cegos comunicativos (do diagnóstico)"
+    outputs:
+      - "Biblioteca de Cenários de Conversas Difíceis"
+      - "Relatório de Performance por Simulação"
+      - "Guia de Fraseologia"
+      - "Plano de Prática Progressiva"
+    gate_required: false
+    dependency: presenca-executiva
+
+  - order: 7
+    id: prontidao-sucessoria
+    name: "Avaliação de Prontidão Sucessória"
+    agent: succession-readiness-mapper
+    description: >
+      Avalia objetivamente a prontidão do líder para o cargo-alvo usando modelo
+      multidimensional de 6 eixos. Gera Succession Readiness Score com gap analysis
+      detalhado e plano de aceleração de 12 meses.
+    inputs:
+      - "Cargo-alvo de sucessão"
+      - "Perfil completo do líder"
+      - "Resultados do 360° e diagnóstico de arquétipo"
+    outputs:
+      - "Succession Readiness Score (0-100)"
+      - "Gap Analysis para o Cargo-Alvo"
+      - "Plano de Aceleração de 12 meses"
+      - "Relatório de Competências Críticas em Desenvolvimento"
+    gate_required: false
+    dependency: simulacao-conversas
+    optional: true
+    optional_condition: "Aplicável apenas quando cargo-alvo for informado no intake"
+
+  - order: 8
+    id: revisao-etica
+    name: "Revisão de Liderança Ética e Inclusiva"
+    agent: ethical-leadership-guardian
+    description: >
+      Audita decisões, comportamentos e práticas do líder sob lentes éticas e inclusivas.
+      Identifica pontos cegos, vieses inconscientes e padrões excludentes. Entrega
+      relatório construtivo e ferramentas de desenvolvimento de autoconsciência ética.
+    inputs:
+      - "Perfil do líder e contexto organizacional"
+      - "Decisões recentes compartilhadas pelo líder"
+      - "Pontos cegos identificados no 360°"
+    outputs:
+      - "Relatório de Revisão Ética com Pontos Cegos"
+      - "Guia de Liderança Inclusiva Personalizado"
+      - "Checklist de Decisão Ética"
+      - "Plano de Desenvolvimento de Consciência de Viés"
+    gate_required: true
+    gate_type: HITL
+    gate_description: >
+      Humano (líder e/ou facilitador de desenvolvimento) revisa o Relatório Ético antes
+      da consolidação final. Gate obrigatório — auditoria ética não pode ser entregue
+      sem validação humana pelo risco de impacto emocional.
+    on_gate_fail: "Revisar tom e conteúdo do relatório ético com facilitador antes da entrega"
+    dependency: prontidao-sucessoria
+
+  - order: 9
+    id: consolidacao-entrega
+    name: "Consolidação e Entrega Final"
+    agent: matrix-orchestrator
+    description: >
+      Consolida todos os artefatos produzidos nas fases anteriores no PDI (Plano de
+      Desenvolvimento Individual) final e no Relatório DNA de Liderança. Verifica
+      coerência entre diagnóstico, frameworks, simulações e plano de desenvolvimento.
+    inputs:
+      - "Todos os outputs das fases 2 a 8"
+      - "Objetivos originais do líder (intake)"
+    outputs:
+      - "PDI — Plano de Desenvolvimento Individual (documento consolidado)"
+      - "Relatório DNA de Liderança (síntese executiva)"
+      - "Executive Communication Playbook (versão final)"
+      - "Succession Readiness Score com plano de aceleração (quando aplicável)"
+      - "Relatório Ético consolidado"
+    gate_required: true
+    gate_type: HITL
+    gate_description: >
+      Gate final obrigatório: líder e seu gestor (ou coach facilitador) revisam e
+      aprovam o PDI antes da entrega formal. Nenhum artefato é considerado entregue
+      sem esta aprovação.
+    on_gate_fail: "Revisar as seções apontadas e submeter nova versão para aprovação"
+    dependency: revisao-etica

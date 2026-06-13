@@ -53,7 +53,21 @@ Squads publicados no repositório `Squads-Genius`.
 - [Reforco Neurocognitivo Infantil Squad](squads/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — versão `1.0.0` — desenvolvimento neurocognitivo para criancas
 - [Gestor Projetos IFFar Squad](squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
 
+- [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.
+
+## Squads Premium — Universo Quadrinhos & Transformers (2026)
+
+- [AllSpark Talent Intelligence Squad](squads/allspark-talent-intelligence-squad/README.md) — `allspark-talent-intelligence-squad` — versão `1.0.0` — inteligência de talentos, mapeamento de competências, sucessão e DEI analytics
+- [Mother Box Experience Squad](squads/mother-box-experience-squad/README.md) — `mother-box-experience-squad` — versão `1.0.0` — customer experience, UX research, jornada do cliente e métricas CX
+- [Matrix of Leadership Squad](squads/matrix-of-leadership-squad/README.md) — `matrix-of-leadership-squad` — versão `1.0.0` — desenvolvimento de liderança executiva, coaching, avaliação 360° e sucessão
+- [Darkhold Competitive Intelligence Squad](squads/darkhold-competitive-intelligence-squad/README.md) — `darkhold-competitive-intelligence-squad` — versão `1.0.0` — inteligência competitiva estratégica, monitoramento de concorrentes e cenários adversariais
+- [Cerebro Sales Intelligence Squad](squads/cerebro-sales-intelligence-squad/README.md) — `cerebro-sales-intelligence-squad` — versão `1.0.0` — inteligência comercial, CRM analytics, pipeline e forecast de receita
+- [Vector Sigma Data Forge Squad](squads/vector-sigma-data-forge-squad/README.md) — `vector-sigma-data-forge-squad` — versão `1.0.0` — engenharia de dados, analytics e data storytelling executivo
+- [Omega Lock Crisis Management Squad](squads/omega-lock-crisis-management-squad/README.md) — `omega-lock-crisis-management-squad` — versão `1.0.0` — gestão de crises corporativas, comunicação e continuidade de negócios
+- [Soulsword Personal Branding Squad](squads/soulsword-personal-branding-squad/README.md) — `soulsword-personal-branding-squad` — versão `1.0.0` — marca pessoal, thought leadership e visibilidade estratégica
+- [Forge of Solus Prime Cybersecurity Squad](squads/forge-of-solus-prime-cybersecurity-squad/README.md) — `forge-of-solus-prime-cybersecurity-squad` — versão `1.0.0` — segurança defensiva, conformidade LGPD/ISO 27001 e resposta a incidentes
+- [Mobius Chair Strategic Foresight Squad](squads/mobius-chair-strategic-foresight-squad/README.md) — `mobius-chair-strategic-foresight-squad` — versão `1.0.0` — inteligência de futuros, cenários estratégicos e roadmapping robusto
+
 ---
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
-- [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.

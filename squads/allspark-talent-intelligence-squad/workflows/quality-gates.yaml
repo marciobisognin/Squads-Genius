@@ -1,0 +1,101 @@
+workflow: quality-gates
+version: 1.0.0
+description: "Gates de qualidade do AllSpark Talent Intelligence Squad — pontos obrigatórios de verificação, conformidade e aprovação humana que garantem que nenhum output crítico avance no pipeline sem atender critérios mínimos de integridade, ética e relevância decisória."
+
+gates:
+  - id: gate_intake
+    name: "Gate de Intake — Completude e Conformidade de Dados"
+    phase_after: "intake-e-validacao"
+    responsible_agent: talent-orchestrator
+    description: "Verificação de completude dos dados recebidos antes de qualquer análise. Garante que o pipeline não opere com inputs insuficientes que gerariam conclusões imprecisas ou enganosas."
+    criteria:
+      - "Cobertura mínima de 80% dos colaboradores no escopo definido"
+      - "Campos obrigatórios presentes: nome/ID, cargo, área, data de admissão, nível hierárquico"
+      - "Dados sensíveis (demográficos, salariais) anonimizados conforme LGPD antes de distribuição"
+      - "Consentimento de uso de dados demográficos documentado (quando coletados diretamente)"
+      - "Fontes de dados identificadas e datadas (máximo 12 meses de defasagem para dados de mercado)"
+    result_if_fail: "Pipeline bloqueado. Checklist de pendências enviado ao solicitante. Prazo de 5 dias úteis para complementação antes de nova tentativa."
+    result_if_pass: "Pacote validado distribuído aos agentes de mapeamento e perfil comportamental em paralelo."
+    human_required: false
+    auto_check: true
+
+  - id: gate_comportamental
+    name: "Gate Comportamental — Revisão Humana de Perfis Psicométricos"
+    phase_after: "perfis-comportamentais"
+    responsible_agent: psychometric-profiler
+    description: "Revisão obrigatória por profissional de RH ou psicólogo organizacional antes da distribuição de laudos comportamentais. Nenhum perfil psicométrico circula sem validação humana — evita interpretações deterministas, estigmatizantes ou descontextualizadas."
+    criteria:
+      - "Todos os perfis individuais revisados por ao menos um especialista em comportamento organizacional"
+      - "Linguagem não determinista verificada — perfis descrevem tendências, não certezas"
+      - "Ausência de rótulos estigmatizantes ou diagnósticos clínicos não autorizados"
+      - "Contexto organizacional incorporado na interpretação (ex: perfis de liderança vs. perfis técnicos)"
+      - "Colaborador tem ciência de que avaliação comportamental foi realizada"
+    result_if_fail: "Perfis retornam ao psychometric-profiler para revisão de linguagem e contextualização. Gate reaberto após correção."
+    result_if_pass: "Perfis liberados para uso em análise de fit cultural, planejamento de sucessão e design de onboarding."
+    human_required: true
+    reviewer_role: "Psicólogo Organizacional ou HRBP Sênior"
+    sla_hours: 48
+
+  - id: gate_dei_lgpd
+    name: "Gate DEI e LGPD — Conformidade Legal e Ética de Dados"
+    phase_after: "auditoria-dei"
+    responsible_agent: dei-metrics-auditor
+    description: "Verificação de dupla camada: (1) a auditoria DEI foi conduzida dentro dos limites da LGPD — dados coletados com consentimento, anonimizados e com finalidade declarada; (2) os resultados não expõem indivíduos identificáveis ao risco de discriminação ou retaliação."
+    criteria:
+      - "Dados demográficos coletados com base legal documentada (consentimento ou legítimo interesse com DPO aprovado)"
+      - "Análises de equidade salarial apresentadas em formato agregado — nenhum indivíduo identificável nos relatórios de circulação ampla"
+      - "Grupos com menos de 10 integrantes não reportados isoladamente (anonimato estatístico preservado)"
+      - "Relatório de equidade salarial revisado pelo jurídico antes de qualquer divulgação externa"
+      - "Prazo de retenção dos dados demográficos declarado e respeitado"
+    result_if_fail: "Relatório DEI bloqueado. Dados retornam ao dei-metrics-auditor com solicitação de ajuste. Jurídico notificado se houver indício de violação LGPD."
+    result_if_pass: "Relatório DEI liberado para apresentação interna e extração de plano de ação."
+    human_required: true
+    reviewer_role: "DPO (Data Protection Officer) ou Jurídico Trabalhista"
+    sla_hours: 72
+
+  - id: gate_sucessao
+    name: "Gate de Sucessão — Aprovação Humana do Mapa de Sucessão"
+    phase_after: "planejamento-sucessao"
+    responsible_agent: succession-architect
+    description: "Aprovação obrigatória pela liderança sênior e pelo RH estratégico antes da circulação do mapa de sucessão. Posições críticas sem sucessor identificado exigem plano de contingência imediato como condição para aprovação."
+    criteria:
+      - "Mapa de sucessão revisado pelo CHRO ou VP de Pessoas"
+      - "Todas as posições de nível diretoria e acima com ao menos um sucessor identificado OU plano de contingência documentado"
+      - "Succession Readiness Score calculado e validado para cada posição crítica"
+      - "Trilhas de carreira aprovadas pelos gestores das respectivas áreas"
+      - "Planos de aceleração de sucessores revistos com os colaboradores indicados (de forma adequada ao contexto de cada organização)"
+    result_if_fail: "Mapa de sucessão retorna ao succession-architect com indicação de gaps. Prazo de revisão: 10 dias úteis."
+    result_if_pass: "Mapa aprovado entra em ciclo de revisão trimestral. Planos de aceleração de sucessores ativados."
+    human_required: true
+    reviewer_role: "CHRO / VP de Pessoas + liderança sênior das áreas envolvidas"
+    sla_hours: 96
+
+  - id: gate_entrega_final
+    name: "Gate de Entrega Final — Revisão Completa do People Intelligence Report"
+    phase_after: "consolidacao-entrega"
+    responsible_agent: talent-orchestrator
+    description: "Revisão final integrada de todos os outputs antes da entrega ao cliente ou liderança. Verifica consistência cruzada entre as análises, ausência de contradições não explicadas, conformidade total com LGPD e adequação do nível de confidencialidade de cada entregável."
+    criteria:
+      - "Todos os outputs parciais dos 9 agentes consolidados no People Intelligence Report"
+      - "Consistência cruzada verificada — recomendações de diferentes agentes não se contradizem sem justificativa"
+      - "Nenhum dado pessoal identificável no relatório de distribuição ampla"
+      - "Nível de confidencialidade classificado por entregável (público / interno / restrito / confidencial)"
+      - "Sumário executivo validado pelo talent-orchestrator com recomendações priorizadas"
+      - "Log de quality gates executados incluído como apêndice de auditoria"
+    result_if_fail: "Relatório retorna ao talent-orchestrator para revisão de inconsistências. Entrega adiada até resolução."
+    result_if_pass: "People Intelligence Report entregue ao destinatário aprovado. Ciclo de análise registrado. Próxima revisão agendada conforme periodicidade acordada."
+    human_required: true
+    reviewer_role: "RH Sênior / CHRO + patrocinador do projeto"
+    sla_hours: 48
+
+metadata:
+  total_gates: 5
+  human_in_the_loop_gates: [gate_comportamental, gate_dei_lgpd, gate_sucessao, gate_entrega_final]
+  auto_check_gates: [gate_intake]
+  lgpd_checkpoints: [gate_intake, gate_dei_lgpd, gate_entrega_final]
+  critical_blockers:
+    - "Violação de LGPD identificada em qualquer gate: pipeline suspenso até resolução com jurídico"
+    - "Dados demográficos coletados sem consentimento: destruição dos dados e revisão do processo de coleta"
+    - "Mapa de sucessão circulado antes do gate_sucessao: incidente de segurança de informação a registrar"
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

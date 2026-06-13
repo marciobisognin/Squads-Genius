@@ -1,0 +1,175 @@
+id: quality-gates
+display_name: "Quality Gates — Matrix of Leadership Squad"
+version: "1.0.0"
+description: >
+  Definição completa dos quality gates do pipeline de desenvolvimento de liderança.
+  Cada gate especifica critérios de aprovação, responsável pela validação, ação em
+  caso de reprovação e impacto no pipeline. Gates HITL (Human-in-the-Loop) são
+  obrigatórios e bloqueiam o avanço até aprovação explícita.
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+gate_philosophy: >
+  Quality gates neste squad existem para proteger três valores fundamentais:
+  (1) Dignidade do líder — nenhum relatório sensível é entregue sem revisão humana;
+  (2) Coerência do desenvolvimento — o PDI final deve refletir todo o diagnóstico,
+  não apenas partes isoladas; (3) Rastreabilidade — cada recomendação deve ser
+  justificada por evidência ou framework identificável.
+
+gates:
+
+  - id: gate-01-completude-perfil
+    name: "Gate 01 — Completude do Perfil de Entrada"
+    phase: intake-perfil
+    type: HITL
+    mandatory: true
+    description: >
+      Verifica se os dados de entrada são suficientes para iniciar o diagnóstico
+      com qualidade. Pipeline bloqueado até aprovação.
+    criteria:
+      - "Perfil do líder completo: nome, cargo atual, nível hierárquico, setor e empresa"
+      - "Autoavaliação com no mínimo 200 palavras ou formulário estruturado preenchido"
+      - "Cargo-alvo informado OU justificativa para ausência (foco em desenvolvimento sem sucessão imediata)"
+      - "Contexto organizacional descrito: cultura, momento da empresa, principais desafios"
+      - "Ao menos um desafio ou decisão real atual compartilhado pelo líder"
+    responsible: "matrix-orchestrator (verificação automática) + humano (aprovação final)"
+    approval_threshold: "Todos os critérios obrigatórios presentes; cargo-alvo ou justificativa obrigatório"
+    on_fail:
+      action: "Solicitar dados faltantes ao líder por meio de formulário complementar"
+      retry: true
+      max_retries: 3
+    on_pass:
+      action: "Liberar fase de diagnóstico de arquétipo"
+      notify: "matrix-orchestrator"
+
+  - id: gate-02-validacao-arquetipo
+    name: "Gate 02 — Validação do Arquétipo de Liderança"
+    phase: diagnostico-arquetipo
+    type: HITL
+    mandatory: true
+    description: >
+      O líder revisa e valida o arquétipo de liderança identificado. Este gate
+      garante que o diagnóstico ressoa com a experiência vivida do líder — sem
+      esta validação, os frameworks subsequentes podem ser mal calibrados.
+    criteria:
+      - "Relatório de Arquétipo entregue com justificativa baseada em evidências do perfil"
+      - "Líder revisou o relatório e confirma reconhecimento (total, parcial ou com ajustes)"
+      - "Pontos de discordância do líder documentados e considerados antes de avançar"
+      - "Arquétipo principal e secundário definidos com clareza"
+    responsible: "leadership-archetype-assessor (geração) + líder (validação)"
+    approval_threshold: "Líder confirma reconhecimento (mínimo parcial) do arquétipo"
+    on_fail:
+      action: "Revisar diagnóstico com base no feedback do líder; aprofundar entrevista se necessário"
+      retry: true
+      max_retries: 2
+    on_pass:
+      action: "Liberar síntese 360° com arquétipo confirmado como âncora de análise"
+      notify: "feedback-360-synthesizer"
+
+  - id: gate-03-qualidade-360
+    name: "Gate 03 — Qualidade e Suficiência dos Dados 360°"
+    phase: sintese-360
+    type: automatico
+    mandatory: true
+    description: >
+      Verifica automaticamente se os dados de feedback 360° atendem ao mínimo de
+      qualidade e diversidade para síntese confiável. Não requer aprovação humana
+      mas bloqueia o pipeline se os thresholds não forem atingidos.
+    criteria:
+      - "Mínimo de 3 respondentes de grupos diferentes (superior, par, subordinado)"
+      - "Nenhum grupo com apenas 1 respondente (risco de identificação)"
+      - "Respostas com no mínimo 50 palavras por respondente (qualidade mínima)"
+      - "Cobertura de ao menos 4 das 6 dimensões avaliadas no modelo"
+    responsible: "feedback-360-synthesizer (verificação automática)"
+    approval_threshold: "Todos os critérios atendidos; exceção documentada se apenas 2 grupos disponíveis"
+    on_fail:
+      action: "Notificar matrix-orchestrator para solicitar respondentes adicionais; prosseguir com ressalvas documentadas"
+      retry: true
+      max_retries: 1
+    on_pass:
+      action: "Liberar síntese completa e coaching de decisão"
+
+  - id: gate-04-coerencia-diagnostico
+    name: "Gate 04 — Coerência entre Diagnóstico e Plano de Desenvolvimento"
+    phase: consolidacao-entrega
+    type: automatico
+    mandatory: true
+    description: >
+      Verificação automática de coerência: os frameworks de decisão, a presença
+      executiva e o plano de aceleração devem endereçar os gaps identificados no
+      360° e no arquétipo. Detecta PDIs genéricos não conectados ao diagnóstico.
+    criteria:
+      - "Cada gap crítico do 360° tem ao menos uma iniciativa correspondente no PDI"
+      - "Arquétipo de liderança identificado é referenciado no plano de desenvolvimento"
+      - "Succession Readiness Score (quando aplicável) está refletido no plano de aceleração"
+      - "Executive Communication Playbook endereça ao menos um ponto cego comunicativo do diagnóstico"
+    responsible: "matrix-orchestrator (verificação cruzada automática)"
+    approval_threshold: "Mínimo 80% dos gaps críticos com iniciativa correspondente"
+    on_fail:
+      action: "Identificar gaps sem cobertura e solicitar complementação às fases responsáveis"
+      retry: true
+      max_retries: 2
+    on_pass:
+      action: "Liberar gate HITL de aprovação do PDI"
+
+  - id: gate-05-revisao-etica
+    name: "Gate 05 — Revisão Ética e de Viés (HITL Obrigatório)"
+    phase: revisao-etica
+    type: HITL
+    mandatory: true
+    description: >
+      O Relatório de Revisão Ética deve ser revisado por humano antes da consolidação
+      final. Este gate existe porque feedbacks sobre viés e comportamentos excludentes
+      têm alto potencial de impacto emocional e requerem calibração de tom e contexto
+      que vai além da verificação automática.
+    criteria:
+      - "Relatório Ético entregue com linguagem construtiva e não-julgamental"
+      - "Cada ponto cego identificado tem fundamentação baseada em comportamento observado (não em inferência)"
+      - "Tom calibrado: reflexivo e empático, não prescritivo ou acusatório"
+      - "Checklist de Decisão Ética personalizado (não genérico) incluído"
+      - "Facilitador ou coach de desenvolvimento revisou o relatório antes da entrega"
+    responsible: "ethical-leadership-guardian (geração) + facilitador/coach (revisão humana)"
+    approval_threshold: "Todos os critérios de tom e fundamentação atendidos"
+    on_fail:
+      action: "Revisar linguagem e calibrar tom com facilitador; remover afirmações sem evidência comportamental"
+      retry: true
+      max_retries: 2
+    on_pass:
+      action: "Liberar consolidação final do PDI"
+      notify: "matrix-orchestrator"
+
+  - id: gate-06-aprovacao-pdi-final
+    name: "Gate 06 — Aprovação do PDI Final (HITL Obrigatório)"
+    phase: consolidacao-entrega
+    type: HITL
+    mandatory: true
+    description: >
+      Gate final obrigatório: líder e seu gestor (ou coach facilitador) revisam e
+      aprovam o PDI consolidado. Nenhum artefato é considerado formalmente entregue
+      sem esta aprovação. O líder deve assinar (física ou digitalmente) indicando
+      comprometimento com o plano.
+    criteria:
+      - "PDI consolidado entregue com todos os artefatos das fases anteriores integrados"
+      - "Líder revisou o PDI e confirma que reflete seu desenvolvimento real"
+      - "Gestor ou sponsor revisou e alinha com expectativas organizacionais"
+      - "Plano de aceleração tem marcos com datas e responsáveis definidos"
+      - "Próxima revisão do PDI agendada (recomendado: 90 dias)"
+    responsible: "matrix-orchestrator (entrega) + líder + gestor (aprovação)"
+    approval_threshold: "Aprovação explícita de líder E gestor/facilitador"
+    on_fail:
+      action: "Documentar os pontos de divergência; revisar seções contestadas e submeter nova versão"
+      retry: true
+      max_retries: 3
+    on_pass:
+      action: "Marcar pipeline como concluído; arquivar artefatos; agendar revisão de 90 dias"
+      notify: "todos os agentes do squad"
+
+summary:
+  total_gates: 6
+  hitl_gates: 3
+  automatic_gates: 3
+  mandatory_gates: 6
+  optional_gates: 0
+  blocking_gates:
+    - gate-01-completude-perfil
+    - gate-05-revisao-etica
+    - gate-06-aprovacao-pdi-final

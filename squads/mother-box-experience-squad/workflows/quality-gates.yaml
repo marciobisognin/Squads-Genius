@@ -1,0 +1,97 @@
+workflow: quality-gates
+version: 1.0.0
+objective: Definir critérios de qualidade, rastreabilidade e conformidade para cada fase do pipeline de inteligência de experiência do cliente.
+gates:
+  - id: gate-intake
+    fase: intake-e-validacao
+    criterios:
+      - Pelo menos uma fonte de feedback de cliente disponível (NPS, CSAT, tickets, reviews ou entrevistas)
+      - Período de dados mínimo de 6 meses para análise de tendências
+      - Escopo da jornada claramente delimitado (produto, serviço, canal)
+      - Nenhum dado pessoal identificável de clientes processado sem conformidade LGPD
+    aprovacao: experience-orchestrator
+    bloqueante: true
+
+  - id: gate-jornada-as-is
+    fase: mapeamento-jornada
+    criterios:
+      - Jornada As-Is construída com dados de clientes reais, não com opiniões internas
+      - Todas as etapas da jornada cobertas desde o awareness até o pós-venda
+      - Pontos de abandono identificados com hipóteses de causa documentadas
+      - Fonte de dados de cada etapa registrada
+    aprovacao: journey-cartographer + humano-cx
+    bloqueante: true
+
+  - id: gate-voc
+    fase: mineracao-voc
+    criterios:
+      - Mínimo de 50 feedbacks processados para análise temática confiável
+      - Temas identificados com frequência relativa calculada
+      - Verbatins representativos anonimizados conforme LGPD
+      - Período de coleta dos feedbacks documentado
+    aprovacao: voice-of-customer-miner
+    bloqueante: false
+
+  - id: gate-ux-research
+    fase: sintese-pesquisa-ux
+    criterios:
+      - Separação explícita entre observado, padrão identificado, inferência e recomendação
+      - Limitações da amostra de pesquisa documentadas
+      - Insights validados por triangulação com pelo menos uma fonte quantitativa
+    aprovacao: ux-research-synthesizer
+    bloqueante: false
+
+  - id: gate-emocional
+    fase: analise-emocional
+    criterios:
+      - Curva emocional construída com base em dados, não em suposições
+      - Momentos da verdade identificados com evidência de impacto em métricas
+      - Limitações da análise de sentimento documentadas
+    aprovacao: emotion-signal-analyst
+    bloqueante: false
+
+  - id: gate-friccoes
+    fase: identificacao-friccoes
+    criterios:
+      - Todos os friction points classificados por tipo e impacto estimado
+      - Matriz impacto × esforço construída com critérios explícitos
+      - CX Backlog com pelo menos 5 friction points priorizados para ação
+    aprovacao: friction-removal-engineer + humano-produto
+    bloqueante: true
+
+  - id: gate-blueprint
+    fase: design-blueprint
+    criterios:
+      - Blueprint validado com representante de pelo menos uma equipe operacional
+      - Pontos de falha de processo identificados e documentados
+      - Fluxos de informação entre atores e sistemas mapeados
+    aprovacao: service-blueprint-architect + humano-operacoes
+    bloqueante: true
+
+  - id: gate-metricas
+    fase: design-metricas
+    criterios:
+      - Framework de métricas acordado com stakeholders de negócio
+      - Metas baseadas em baseline existente ou explicitamente sinalizadas como hipótese
+      - Pelo menos uma métrica leading e uma lagging para cada dimensão de experiência
+    aprovacao: experience-metrics-designer + humano-negocio
+    bloqueante: true
+
+  - id: gate-jornada-to-be
+    fase: projecao-jornada-to-be
+    criterios:
+      - Aprovação formal do negócio para os compromissos de melhoria representados na jornada To-Be
+      - Friction points priorizados endereçados na jornada To-Be
+      - Cronograma preliminar de implementação definido
+    aprovacao: journey-cartographer + humano-executivo
+    bloqueante: true
+
+  - id: gate-final
+    fase: consolidacao-final
+    criterios:
+      - Todos os outputs parciais referenciados e rastreáveis
+      - Nenhum dado pessoal de cliente identificável no pacote final
+      - Footer de autoria e licença presentes em todos os documentos
+      - Sumário executivo aprovado pelo patrocinador do projeto
+    aprovacao: experience-orchestrator + humano-cx-senior
+    bloqueante: true

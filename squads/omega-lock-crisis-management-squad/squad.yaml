@@ -1,0 +1,97 @@
+name: omega-lock-crisis-management-squad
+display_name: "🔐 Omega Lock — Crisis Management Squad"
+version: "1.0.0"
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+status: premium-ready
+domain: "Gestão de crises corporativas, comunicação de risco e continuidade de negócios"
+visual_style: dark-neon-layered-architecture
+language: pt-BR
+
+objective: >
+  Detectar, classificar e orquestrar a resposta a crises corporativas com velocidade,
+  clareza e controle. Do sinal precoce ao pós-mortem: proteger reputação, preservar
+  operações e transformar a crise em aprendizado institucional.
+
+inspiration:
+  artifact: "Omega Lock (Transformers Prime)"
+  meaning: >
+    O Omega Lock é um artefato capaz de restaurar ou destruir planetas inteiros.
+    Neste squad, representa o poder de reverter o irreversível e reconstruir a partir
+    da catástrofe — a capacidade de transformar o caos em ordem e a crise em reinvenção.
+
+architecture:
+  type: multiagent-graph
+  coordination: dynamic-output-to-adjacent-nodes
+  hitl_required: "Nível 3 ou superior na escala de severidade (1-5)"
+
+inputs:
+  - "Sinal de alerta ou incidente reportado"
+  - "Contexto organizacional (setor, porte, stakeholders)"
+  - "Histórico de crises anteriores (quando disponível)"
+  - "Canais monitorados (mídia, redes sociais, reguladores)"
+
+outputs:
+  - "Crisis Response Playbook"
+  - "Kit de Comunicação para Stakeholders"
+  - "Plano de Continuidade de Negócios (BCP)"
+  - "Templates de Resposta à Mídia"
+  - "Relatório de Pós-Mortem"
+
+agents:
+  - id: omega-lock-orchestrator
+    file: agents/omega-lock-orchestrator.md
+    role: "Coordenador central com HITL obrigatório para crises Nível 3 ou superior"
+  - id: crisis-early-warning-sentinel
+    file: agents/crisis-early-warning-sentinel.md
+    role: "Detecção precoce de sinais de crise reputacional, operacional, financeira e regulatória"
+  - id: crisis-classifier
+    file: agents/crisis-classifier.md
+    role: "Classificação tipológica e avaliação de severidade (escala 1-5) com HITL em Nível 3+"
+  - id: stakeholder-comm-architect
+    file: agents/stakeholder-comm-architect.md
+    role: "Arquitetura de comunicação diferenciada por grupo de stakeholders"
+  - id: media-response-strategist
+    file: agents/media-response-strategist.md
+    role: "Estratégia de mídia e coaching de porta-voz: o que dizer, quando e como"
+  - id: legal-risk-interface
+    file: agents/legal-risk-interface.md
+    role: "Interface jurídica: riscos, disclaimers e avaliação de responsabilidade durante a crise"
+  - id: operational-continuity-planner
+    file: agents/operational-continuity-planner.md
+    role: "Plano de Continuidade de Negócios: identificação de processos críticos e rotas de recuperação"
+  - id: reputation-recovery-designer
+    file: agents/reputation-recovery-designer.md
+    role: "Estratégia de recuperação reputacional pós-crise"
+  - id: post-mortem-analyst
+    file: agents/post-mortem-analyst.md
+    role: "Análise de causa raiz e lições aprendidas (5 Porquês, Fishbone, Action Review)"
+
+workflows:
+  - workflows/crisis-management-pipeline.yaml
+  - workflows/quality-gates.yaml
+
+tasks:
+  - tasks/crisis-response.md
+  - tasks/business-continuity.md
+
+tags:
+  - gestao-de-crise
+  - comunicacao-corporativa
+  - continuidade-de-negocios
+  - reputacao
+  - pos-mortem
+  - stakeholders
+  - midia
+  - juridico
+
+metadata:
+  readme_style: dark-neon-layered-architecture
+  final_response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+  severity_scale:
+    level_1: "Incidente isolado — resposta interna"
+    level_2: "Incidente com potencial de escalada — alerta elevado"
+    level_3: "Crise ativa com impacto externo — HITL obrigatório"
+    level_4: "Crise grave com cobertura midiática — HITL obrigatório + comitê de crise"
+    level_5: "Crise existencial — HITL obrigatório + liderança sênior ativada"

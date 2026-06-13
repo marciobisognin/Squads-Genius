@@ -1,0 +1,115 @@
+workflow: talent-intelligence-pipeline
+version: 1.0.0
+description: "Pipeline completo de Inteligência de Talentos do AllSpark Squad — da coleta de dados brutos ao People Intelligence Report consolidado, passando por mapeamento de competências, perfis comportamentais, benchmarking salarial, análise cultural, planejamento de sucessão, auditoria DEI, design de onboarding e monitoramento de retenção."
+
+phases:
+  - id: intake-e-validacao
+    name: "Intake e Validação de Dados"
+    description: "Recebimento, estruturação e validação de todos os inputs de RH. O talent-orchestrator verifica completude dos dados, identifica lacunas críticas e distribui pacotes ao pipeline. Dados com cobertura insuficiente são devolvidos ao solicitante com checklist de pendências antes de prosseguir."
+    agents: [talent-orchestrator]
+    outputs:
+      - "Pacote de dados validado e estruturado"
+      - "Checklist de completude com lacunas identificadas"
+      - "Plano de execução do pipeline (agentes acionados e ordem)"
+      - "Log de premissas e fontes registradas"
+    gate: "100% dos campos obrigatórios presentes; dado sensível anonimizado conforme LGPD; consentimento de uso de dados demográficos documentado"
+
+  - id: mapeamento-competencias
+    name: "Mapeamento de Competências Organizacionais"
+    description: "Construção do inventário completo de competências técnicas e comportamentais. O talent-mapper cruza perfis individuais com os requisitos de cada cargo e os objetivos estratégicos da organização, produzindo a matriz de skills com gaps críticos e a lista de colaboradores HiPo."
+    agents: [talent-mapper]
+    outputs:
+      - "Inventário de competências organizacional (matriz de skills)"
+      - "Mapa de gaps críticos por área e nível hierárquico"
+      - "Lista de colaboradores HiPo com critérios justificados"
+      - "Recomendações de PDI priorizadas por impacto"
+    gate: "Matriz de competências cobrindo ≥ 80% dos colaboradores; gaps classificados por criticidade; HiPo list com critérios documentados e auditáveis"
+
+  - id: perfis-comportamentais
+    name: "Perfilamento Comportamental e Psicométrico"
+    description: "Síntese e interpretação dos dados comportamentais disponíveis (DISC, Big Five, CliftonStrengths ou equivalentes). O psychometric-profiler transforma avaliações brutas em perfis acionáveis, identificando padrões de time e riscos de conflito interpessoal."
+    agents: [psychometric-profiler]
+    outputs:
+      - "Perfis comportamentais individuais com análise de pontos fortes e riscos"
+      - "Mapa de dinâmica de time por área (complementaridade e tensões)"
+      - "Recomendações de abordagem por perfil (gestão, feedback, desenvolvimento)"
+    gate: "Human-in-the-loop obrigatório: revisor de RH valida interpretações dos perfis antes de compartilhar com gestores; nenhum laudo psicométrico é distribuído sem revisão humana"
+
+  - id: inteligencia-mercado
+    name: "Inteligência de Mercado e Benchmarking Salarial"
+    description: "Coleta e análise de dados de remuneração de mercado por cargo, senioridade, setor e região. O market-salary-intel produz o posicionamento competitivo da organização, identifica colaboradores sob risco salarial e avalia a proposta de valor ao empregado."
+    agents: [market-salary-intel]
+    outputs:
+      - "Relatório de Benchmarking Salarial por cargo e nível"
+      - "Posicionamento competitivo da organização (percentil 25/50/75)"
+      - "Lista de colaboradores com gap salarial de risco"
+      - "Análise de Employer Branding e atração de talentos"
+    gate: "Fontes de benchmarking identificadas e datadas; gaps salariais classificados por nível de risco (alto/médio/baixo); dados não extrapolados além do escopo disponível"
+
+  - id: analise-cultura-fit
+    name: "Análise de Fit Cultural e Clima Organizacional"
+    description: "Avaliação do alinhamento de valores individuais com a cultura organizacional e diagnóstico do clima por área. O culture-fit-analyst mapeia subculturas, gaps entre cultura declarada e vivida, e propõe ações preventivas de gestão cultural."
+    agents: [culture-fit-analyst]
+    outputs:
+      - "Relatório de Fit Cultural por colaborador ou candidato"
+      - "Diagnóstico de Clima Organizacional com NPS interno por área"
+      - "Mapa de Subculturas com focos de conflito identificados"
+      - "Plano de Ação Cultural priorizado"
+    gate: "Pesquisa de clima com taxa de resposta ≥ 60%; fit cultural calculado com critérios objetivos documentados; gaps críticos identificados com causa-raiz hipotética"
+
+  - id: planejamento-sucessao
+    name: "Planejamento de Sucessão e Trilhas de Carreira"
+    description: "Identificação de posições críticas, avaliação de prontidão de sucessores e construção de trilhas de carreira com critérios mensuráveis. O succession-architect prioriza investimentos de desenvolvimento por risco real de ruptura operacional."
+    agents: [succession-architect]
+    outputs:
+      - "Mapa de Sucessão visual por nível hierárquico"
+      - "Succession Readiness Score por posição crítica"
+      - "Trilhas de Carreira documentadas com marcos mensuráveis"
+      - "Plano de Aceleração de Sucessores com roadmap individual"
+    gate: "Human-in-the-loop obrigatório: liderança sênior e RH aprovam o mapa de sucessão antes de circulação; posições sem sucessor identificado recebem plano de contingência imediato"
+
+  - id: auditoria-dei
+    name: "Auditoria de Métricas DEI e Conformidade LGPD"
+    description: "Análise sistemática da representatividade demográfica, equidade salarial e vieses em processos de RH. O dei-metrics-auditor verifica a conformidade com a LGPD e produz diagnóstico acionável com prioridades de intervenção."
+    agents: [dei-metrics-auditor]
+    outputs:
+      - "Dashboard de Métricas DEI auditável"
+      - "Relatório de Equidade Salarial com gap bruto e ajustado"
+      - "Análise de Vieses em processos de seleção, promoção e desligamento"
+      - "Plano de Ação DEI com metas, prazos e responsáveis"
+    gate: "Conformidade LGPD verificada: consentimento documentado, dados anonimizados em análises agregadas; amostra mínima de 10 por grupo demográfico para análises estatísticas; gateway jurídico antes de divulgação de dados salariais"
+
+  - id: design-onboarding
+    name: "Design de Jornada de Onboarding"
+    description: "Construção de jornadas de integração personalizadas por cargo, área e perfil comportamental. O onboarding-designer integra os outputs das fases anteriores para criar trilhas 30-60-90 com rituais, redes de suporte e métricas de sucesso."
+    agents: [onboarding-designer]
+    outputs:
+      - "Jornada de Onboarding personalizada (30-60-90 dias) por cargo"
+      - "Checklist de Integração por função"
+      - "Kit de Boas-Vindas personalizado por perfil"
+      - "Dashboard de Métricas de Sucesso de Onboarding"
+    gate: "Jornada validada com ao menos um gestor da área alvo; checklist testado com turma de recém-contratados antes de escalar; métricas instrumentadas antes do lançamento"
+
+  - id: monitoramento-retencao
+    name: "Monitoramento e Sentinela de Retenção"
+    description: "Cálculo de Risk Scores de turnover por colaborador e área, emissão de alertas precoces e proposição de intervenções de retenção personalizadas. O retention-risk-sentinel opera continuamente, atualizando scores mensalmente e acionando gestores quando necessário."
+    agents: [retention-risk-sentinel]
+    outputs:
+      - "Risk Score de Turnover por colaborador (atualizado mensalmente)"
+      - "Alertas de Risco com recomendações de ação imediata"
+      - "Playbook de Retenção por perfil de risco"
+      - "Dashboard de Tendências de Rotatividade e custo evitado"
+    gate: "Risk Score calibrado com histórico de turnover real; alertas críticos (score ≥ 70) com SLA de resposta de 48h pelo gestor; privacidade dos dados respeitada — scores não são divulgados ao próprio colaborador"
+
+  - id: consolidacao-entrega
+    name: "Consolidação e Entrega do People Intelligence Report"
+    description: "O talent-orchestrator integra todos os outputs parciais em um pacote executivo coeso: o People Intelligence Report. Realiza revisão de consistência cruzada, identifica contradições entre análises, resolve conflitos de dados e entrega o pacote final com resumo executivo, apêndices técnicos e recomendações priorizadas."
+    agents: [talent-orchestrator]
+    outputs:
+      - "People Intelligence Report (versão executiva e técnica)"
+      - "Sumário de recomendações por prioridade (imediata / 90 dias / 1 ano)"
+      - "Log completo de decisões, fontes e quality gates executados"
+      - "Pacote de apresentação para liderança sênior"
+    gate: "Revisão cruzada de consistência entre todos os outputs aprovada; nenhuma informação pessoal identificável no relatório final de distribuição ampla; aprovação do RH sênior antes da entrega ao cliente/liderança"
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

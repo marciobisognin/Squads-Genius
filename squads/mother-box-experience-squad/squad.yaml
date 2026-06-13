@@ -1,0 +1,68 @@
+name: mother-box-experience-squad
+display_name: "🔵 Mother Box Experience Squad"
+version: "1.0.0"
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+status: premium-ready
+domain: "Experiência do cliente, jornada do usuário, pesquisa UX, blueprint de serviço e inteligência CX"
+visual_style: dark-neon-layered-architecture
+objective: "Abrir portais entre a voz do cliente e as decisões de negócio: mapear jornadas, sintetizar pesquisa UX, detectar fricções, projetar blueprints de serviço e desenhar métricas de experiência que guiem evolução contínua."
+architecture:
+  type: multiagent-graph
+  coordination: dynamic-output-to-adjacent-nodes
+inputs:
+  - Dados de NPS, CSAT e CES
+  - Tickets e transcrições de suporte ao cliente
+  - Avaliações em plataformas de reviews e redes sociais
+  - Gravações e transcrições de entrevistas com usuários
+  - Relatórios de testes de usabilidade
+  - Dados de comportamento em produto (analytics, heatmaps, funis)
+  - Dados de churn e pesquisas de cancelamento
+outputs:
+  - Mapa de Jornada do Cliente (As-Is e To-Be)
+  - Blueprint de Serviço (frontstage e backstage)
+  - CX Backlog priorizado com friction points
+  - Relatório de Voz do Cliente sintetizado
+  - Dashboard de KPIs de Experiência (NPS, CSAT, CES, CLV, churn)
+agents:
+  - id: experience-orchestrator
+    file: agents/experience-orchestrator.md
+    role: "Coordenador central com gates de validação humana: roteia inputs, gerencia o pipeline CX e consolida os outputs finais."
+  - id: journey-cartographer
+    file: agents/journey-cartographer.md
+    role: "Mapeia a jornada do cliente nos estados As-Is e To-Be, identificando etapas, canais e momentos da verdade."
+  - id: voice-of-customer-miner
+    file: agents/voice-of-customer-miner.md
+    role: "Minera e sintetiza a voz do cliente a partir de NPS, reviews, tickets de suporte e redes sociais."
+  - id: ux-research-synthesizer
+    file: agents/ux-research-synthesizer.md
+    role: "Sintetiza pesquisa qualitativa de UX (entrevistas, testes de usabilidade) em insights acionáveis."
+  - id: emotion-signal-analyst
+    file: agents/emotion-signal-analyst.md
+    role: "Analisa sentimentos, detecta momentos da verdade e mapeia o estado emocional do cliente em cada etapa da jornada."
+  - id: friction-removal-engineer
+    file: agents/friction-removal-engineer.md
+    role: "Identifica e prioriza friction points, gerando matriz de esforço/impacto e recomendações de remoção."
+  - id: service-blueprint-architect
+    file: agents/service-blueprint-architect.md
+    role: "Projeta o blueprint de serviço completo com frontstage, backstage, linhas de visibilidade e processos de suporte."
+  - id: experience-metrics-designer
+    file: agents/experience-metrics-designer.md
+    role: "Desenha o framework de métricas CX: CSAT, CES, NPS, CLV, churn prediction e indicadores de experiência."
+workflows:
+  - workflows/experience-intelligence-pipeline.yaml
+  - workflows/quality-gates.yaml
+tasks:
+  - tasks/journey-mapping.md
+  - tasks/cx-metrics-design.md
+quality_gates:
+  - inputs_de_cliente_validados
+  - jornada_as_is_aprovada
+  - voz_do_cliente_sintetizada
+  - pesquisa_ux_consolidada
+  - mapa_emocional_revisado
+  - friction_points_priorizados
+  - blueprint_validado_pelo_time_de_servico
+  - metricas_cx_acordadas
+final_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
