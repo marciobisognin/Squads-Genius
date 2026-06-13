@@ -1,0 +1,14 @@
+id: "06_auditar_conformidade"
+owner: "a6-auditor-conformidade"
+objective: "Rodar o checklist normativo contra a CostSheet (com scripts/validar_pcfp.py), gerar o ComplianceReport e disparar o loop de correção no A5 quando houver achado crítico (máx. 3 iterações)."
+inputs:
+  - "CostSheet"
+  - "checklist_normativo"
+  - "CCTProfile"
+outputs:
+  - "ComplianceReport (findings com severidade, fundamento e recomendação)"
+acceptance_criteria:
+  - "reserva técnica sem custos → crítico com TCU 1442/2010"
+  - "custos mínimos IN 176/2024 e reembolso-creche IN 147/2026 verificados"
+  - "não renováveis e conta vinculada conferidos"
+  - "após 3 iterações com crítico persistente, escalada humana registrada"

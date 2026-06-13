@@ -1,0 +1,13 @@
+id: "05_calcular_costsheet"
+owner: "a5-engine-calculo"
+objective: "Montar o input da engine a partir de ServiceProfile + CCTProfile + decisões humanas (lucro, CI, regime tributário) e executar scripts/pcfp_core.py para preencher os módulos 1-6 do Anexo VII-D."
+inputs:
+  - "ServiceProfile"
+  - "CCTProfile (pós Gate 1)"
+  - "tabela de percentuais vigente e decisões humanas registradas"
+outputs:
+  - "CostSheet JSON com memória de cálculo por rubrica"
+acceptance_criteria:
+  - "nenhum valor monetário produzido fora da engine (gate costsheet_sem_valor_de_llm)"
+  - "cada rubrica com valor, fórmula, fundamento, fonte, renovável e conta_vinculada"
+  - "percentuais discricionários presentes como decisão humana registrada, nunca default silencioso"

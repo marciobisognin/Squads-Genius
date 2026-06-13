@@ -1,0 +1,11 @@
+id: "01_classificar_demanda"
+owner: "a1-orquestrador-maestro"
+objective: "Classificar a demanda (elaboração nova / análise de proposta / repactuação-reajuste / auditoria) e montar o WorkflowPlan com agentes, ordem e gates HITL."
+inputs:
+  - "solicitação em linguagem natural + documentos (TR, ETP, proposta, CCT, contrato)"
+outputs:
+  - "WorkflowPlan JSON"
+acceptance_criteria:
+  - "tipo de demanda classificado com justificativa observável"
+  - "gates HITL aplicáveis identificados (Gate 1 sindical, Gate 2 aprovação/parecer)"
+  - "agentes e ordem coerentes com o roteamento canônico do A1"

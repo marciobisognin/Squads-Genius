@@ -1,0 +1,12 @@
+id: "02_intake_service_profile"
+owner: "a2-intake-classificacao"
+objective: "Extrair e validar o ServiceProfile: tipo de serviço, CBO (IN 176/2024), município/UF, escala, postos, adicionais, vigência e cobertura ininterrupta."
+inputs:
+  - "solicitação e documentos do caso"
+outputs:
+  - "ServiceProfile JSON validado (schema em templates/schemas.md)"
+acceptance_criteria:
+  - "CBO presente e compatível com o tipo de serviço"
+  - "escala validada contra a CLT"
+  - "cobertura ininterrupta avaliada (habilita Módulo 4)"
+  - "campos ausentes viraram perguntas ao usuário, nunca valores inventados"

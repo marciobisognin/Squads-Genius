@@ -1,0 +1,14 @@
+id: "08_repactuacao_reajuste_hitl2"
+owner: "a7-gestao-contratual"
+objective: "Calcular repactuação (nova CCT) ou reajuste (índice) com demonstração analítica rubrica a rubrica via engine, enquadrar o instituto correto e obter parecer humano (HITL Gate 2) antes da minuta."
+inputs:
+  - "contrato vigente + CostSheet original"
+  - "CCTProfile atualizado (pós Gate 1) ou índice aplicável"
+  - "histórico de repactuações"
+outputs:
+  - "calculo_repactuacao com diff analítico, enquadramento, alerta de preclusão e efeitos na conta vinculada"
+acceptance_criteria:
+  - "repactuação, reajuste e reequilíbrio nunca confundidos no fundamento"
+  - "rubricas não renováveis excluídas (IN 07/2018)"
+  - "alerta de preclusão lógica emitido com prazos"
+  - "gate hitl2 registrado antes de qualquer minuta de apostilamento/aditivo"

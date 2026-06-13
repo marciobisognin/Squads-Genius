@@ -1,0 +1,59 @@
+{
+  "id": "elaboracao_pcfp_nova",
+  "description": "Fluxo principal do PRD (seção 3.3): elaboração de PCFP nova — intake, normas, CCT com HITL 1, cálculo determinístico, auditoria com loop de correção e artefatos com HITL 2.",
+  "human_in_loop": true,
+  "rollback": "achado crítico volta ao A5 (máx. 3 iterações); lacuna de dados volta ao A2; gates HITL reprovados pausam o fluxo",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Classificação da demanda e WorkflowPlan",
+      "task": "01_classificar_demanda",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Intake → ServiceProfile",
+      "task": "02_intake_service_profile",
+      "gate_required": true,
+      "gate": "service_profile_validado"
+    },
+    {
+      "order": 3,
+      "name": "Checklist normativo (redações vigentes)",
+      "task": "03_checklist_normativo",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "CCT & enquadramento sindical",
+      "task": "04_cct_profile_hitl1",
+      "gate_required": true,
+      "gate": "hitl1_enquadramento_sindical",
+      "note": "BLOQUEANTE: confirmação humana do enquadramento, com alternativas e prós/contras."
+    },
+    {
+      "order": 5,
+      "name": "Engine de cálculo → CostSheet (módulos 1-6)",
+      "task": "05_calcular_costsheet",
+      "gate_required": true,
+      "gate": "costsheet_sem_valor_de_llm",
+      "note": "Nenhum valor monetário gerado por LLM; lucro/CI/regime tributário são decisões humanas registradas."
+    },
+    {
+      "order": 6,
+      "name": "Auditoria de conformidade → ComplianceReport",
+      "task": "06_auditar_conformidade",
+      "gate_required": true,
+      "gate": "compliance_sem_critico",
+      "note": "Se vermelho: loop de correção no A5, máximo 3 iterações; depois escalada humana."
+    },
+    {
+      "order": 7,
+      "name": "Geração de artefatos (planilha, relatório, checklist)",
+      "task": "09_gerar_artefatos",
+      "gate_required": true,
+      "gate": "hitl2_aprovacao_final",
+      "note": "BLOQUEANTE: aprovação final humana registrada (responsável + data) — automação não é parecer jurídico."
+    }
+  ]
+}

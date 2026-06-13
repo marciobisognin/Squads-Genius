@@ -1,0 +1,14 @@
+id: "09_gerar_artefatos"
+owner: "a8-gerador-artefatos"
+objective: "Materializar planilha no layout Anexo VII-D, relatório técnico fundamentado rubrica a rubrica, checklist assinável e dashboard comparativo — com aprovação final humana (HITL Gate 2 do fluxo de elaboração)."
+inputs:
+  - "CostSheet"
+  - "ComplianceReport"
+  - "CCTProfile e decisões/aprovações registradas"
+outputs:
+  - "planilha_anexo_viid, relatorio_tecnico, checklist_assinavel, dashboard_comparativo"
+acceptance_criteria:
+  - "valores idênticos aos da CostSheet (gerador nunca altera número)"
+  - "disclaimer e campo 'responsável pela validação' presentes"
+  - "conta vinculada em seção destacada; não renováveis sinalizadas"
+  - "aprovação humana registrada antes da entrega"

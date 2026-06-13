@@ -1,0 +1,13 @@
+id: "07_analise_exequibilidade"
+owner: "a6-auditor-conformidade"
+objective: "Comparar a planilha da proposta com o recálculo de referência (diff célula a célula via scripts/diff_proposta.py) e com limites SEGES/benchmark PNCP; emitir parecer de exequibilidade verde/amarelo/vermelho."
+inputs:
+  - "planilha da proposta normalizada pelo A2"
+  - "CostSheet de referência recalculada pelo A5"
+  - "valores limites SEGES e benchmark PNCP disponíveis"
+outputs:
+  - "diff célula a célula + parecer_exequibilidade para o pregoeiro"
+acceptance_criteria:
+  - "cada divergência com valor absoluto, percentual e classificação"
+  - "classificação de risco fundamentada (limiar registrado)"
+  - "amarelo gera pedido de esclarecimento sugerido; vermelho gera fundamentação para diligência"

@@ -1,0 +1,13 @@
+id: "04_cct_profile_hitl1"
+owner: "a4-cct-sindical"
+objective: "Localizar a CCT aplicável (categoria preponderante × territorialidade), extrair pisos/benefícios cláusula a cláusula e obter a confirmação humana do enquadramento (HITL Gate 1)."
+inputs:
+  - "ServiceProfile"
+  - "CCTs fornecidas ou localizadas (Mediador/MTE)"
+outputs:
+  - "CCTProfile JSON aprovado no Gate 1 (responsável + data registrados)"
+acceptance_criteria:
+  - "alternativas de enquadramento apresentadas com prós/contras e impacto — o agente nunca decide sozinho"
+  - "cada benefício citado com cláusula de origem e valor"
+  - "cláusulas excluídas pelo art. 6º da IN 05/2017 registradas com motivo"
+  - "gate hitl1_enquadramento_sindical registrado antes de liberar para o A5"

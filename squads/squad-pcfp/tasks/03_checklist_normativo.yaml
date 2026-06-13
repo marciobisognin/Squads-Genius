@@ -1,0 +1,13 @@
+id: "03_checklist_normativo"
+owner: "a3-normativo-rag"
+objective: "Montar o checklist de conformidade aplicável ao caso com as normas vigentes na data de referência (índice temporal), detectando normas revogadas/alteradas."
+inputs:
+  - "ServiceProfile"
+  - "data de referência do caso"
+  - "corpus normativo versionado (docs/base_normativa.md)"
+outputs:
+  - "checklist_normativo com norma, dispositivo, redação vigente e severidade por item"
+acceptance_criteria:
+  - "nenhuma citação sem validação contra o corpus ou marcação 'a confirmar'"
+  - "índice temporal aplicado: redação vigente na data de referência identificada"
+  - "checklist cobre custos mínimos (IN 176/2024 e IN 147/2026), reserva técnica (TCU 1442/2010), não renováveis (IN 07/2018) e conta vinculada (Anexo XII)"

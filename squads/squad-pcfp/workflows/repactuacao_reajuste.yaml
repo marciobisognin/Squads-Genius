@@ -1,0 +1,43 @@
+{
+  "id": "repactuacao_reajuste",
+  "description": "Ciclo de vida contratual: repactuação por nova CCT ou reajuste por índice (arts. 54-60 da IN 05/2017), com demonstração analítica pela engine e parecer humano antes da minuta.",
+  "human_in_loop": true,
+  "rollback": "enquadramento incorreto do instituto reinicia no passo 2; gates HITL reprovados pausam o fluxo",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Classificação da demanda e resgate do contrato/CostSheet original",
+      "task": "01_classificar_demanda",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Atualização do checklist normativo (índice temporal na data-base)",
+      "task": "03_checklist_normativo",
+      "gate_required": false,
+      "note": "redação vigente na data-base é crítica para repactuação retroativa"
+    },
+    {
+      "order": 3,
+      "name": "Nova CCT → CCTProfile atualizado",
+      "task": "04_cct_profile_hitl1",
+      "gate_required": true,
+      "gate": "hitl1_enquadramento_sindical",
+      "conditional": "apenas repactuação (mão de obra); reajuste por índice pula esta etapa"
+    },
+    {
+      "order": 4,
+      "name": "Cálculo analítico (repactuação ou reajuste) + alerta de preclusão",
+      "task": "08_repactuacao_reajuste_hitl2",
+      "gate_required": true,
+      "gate": "hitl2_aprovacao_final",
+      "note": "BLOQUEANTE: parecer humano antes de gerar minuta de apostilamento/aditivo"
+    },
+    {
+      "order": 5,
+      "name": "Artefatos: demonstração analítica + minuta + efeitos na conta vinculada",
+      "task": "09_gerar_artefatos",
+      "gate_required": false
+    }
+  ]
+}

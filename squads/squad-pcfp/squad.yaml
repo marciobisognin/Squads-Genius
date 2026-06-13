@@ -1,0 +1,189 @@
+{
+  "name": "squad-pcfp",
+  "commercial_name": "Squad PCFP — Planilhas de Custos e Formação de Preços",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "license": "MIT",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "source_document": "PRD Squad PCFP v1.0 (junho/2026) — docs/prd_squad_pcfp_v1.md",
+  "positioning": "Squad multi-agente para elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços (PCFP) em contratos com dedicação exclusiva de mão de obra na administração pública federal — ciclo completo: intake, pesquisa normativa, cálculo determinístico, conformidade, exequibilidade, artefatos e gestão contratual (repactuação/reajuste).",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
+  "disclaimer": "Automação não é parecer jurídico. Os percentuais de referência embarcados são valores de partida que DEVEM ser conferidos contra a redação vigente das normas e os Cadernos Técnicos SEGES. HITL obrigatório nos gates de enquadramento sindical e aprovação final; campo de responsável pela validação obrigatório em todo relatório.",
+  "design_principles": [
+    "cálculo determinístico, raciocínio por LLM: nenhum valor monetário é gerado por LLM — a engine é Python puro testável; os agentes decidem quais regras aplicar e justificam",
+    "rastreabilidade total: cada rubrica carrega {valor, formula, fundamento_legal, fonte, timestamp}",
+    "HITL nos pontos jurídicos: enquadramento sindical, regime tributário e percentuais discricionários exigem aprovação humana",
+    "schema-first: handoffs entre agentes via JSON validado (ServiceProfile, CCTProfile, CostSheet, ComplianceReport)",
+    "índice temporal do corpus normativo: saber qual redação vigia em cada data (crítico para repactuações retroativas)"
+  ],
+  "agents": [
+    {
+      "id": "a1-orquestrador-maestro",
+      "file": "agents/a1-orquestrador-maestro.md",
+      "role": "Classifica a demanda (elaboração nova / análise de proposta / repactuação / auditoria), monta o grafo de execução e gerencia estado e gates HITL."
+    },
+    {
+      "id": "a2-intake-classificacao",
+      "file": "agents/a2-intake-classificacao.md",
+      "role": "Extrai parâmetros estruturados (tipo de serviço, CBO, município/UF, escala, postos, adicionais, vigência) e valida consistência; emite ServiceProfile."
+    },
+    {
+      "id": "a3-normativo-rag",
+      "file": "agents/a3-normativo-rag.md",
+      "role": "Pesquisa a base normativa versionada, detecta normas revogadas/alteradas e monta o checklist de conformidade aplicável, com índice temporal de vigência."
+    },
+    {
+      "id": "a4-cct-sindical",
+      "file": "agents/a4-cct-sindical.md",
+      "role": "Localiza a CCT aplicável (categoria preponderante × território), extrai pisos e benefícios cláusula a cláusula; aciona o HITL Gate 1 de enquadramento sindical."
+    },
+    {
+      "id": "a5-engine-calculo",
+      "file": "agents/a5-engine-calculo.md",
+      "role": "Opera a engine determinística (scripts/pcfp_core.py) que preenche os módulos 1-6 do Anexo VII-D; emite CostSheet com memória de cálculo por célula."
+    },
+    {
+      "id": "a6-auditor-conformidade",
+      "file": "agents/a6-auditor-conformidade.md",
+      "role": "Roda o checklist normativo contra a CostSheet, analisa exequibilidade contra limites SEGES/PNCP e classifica risco verde/amarelo/vermelho."
+    },
+    {
+      "id": "a7-gestao-contratual",
+      "file": "agents/a7-gestao-contratual.md",
+      "role": "Calcula repactuação (data-base/CCT) e reajuste (índices), distingue de reequilíbrio, trata preclusão lógica e custos não renováveis; aciona o HITL Gate 2."
+    },
+    {
+      "id": "a8-gerador-artefatos",
+      "file": "agents/a8-gerador-artefatos.md",
+      "role": "Materializa planilha (layout Anexo VII-D), relatório técnico fundamentado rubrica a rubrica, checklist assinável e dashboard comparativo."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "01_classificar_demanda",
+      "file": "tasks/01_classificar_demanda.yaml",
+      "owner": "a1-orquestrador-maestro",
+      "objective": "Classificar a demanda e montar o WorkflowPlan com agentes, ordem e gates HITL."
+    },
+    {
+      "id": "02_intake_service_profile",
+      "file": "tasks/02_intake_service_profile.yaml",
+      "owner": "a2-intake-classificacao",
+      "objective": "Extrair e validar o ServiceProfile (CBO obrigatório, escala compatível com CLT, cobertura ininterrupta)."
+    },
+    {
+      "id": "03_checklist_normativo",
+      "file": "tasks/03_checklist_normativo.yaml",
+      "owner": "a3-normativo-rag",
+      "objective": "Montar o checklist de conformidade com as normas vigentes na data de referência do caso."
+    },
+    {
+      "id": "04_cct_profile_hitl1",
+      "file": "tasks/04_cct_profile_hitl1.yaml",
+      "owner": "a4-cct-sindical",
+      "objective": "Produzir o CCTProfile com enquadramento sindical fundamentado e obter a confirmação humana (HITL Gate 1)."
+    },
+    {
+      "id": "05_calcular_costsheet",
+      "file": "tasks/05_calcular_costsheet.yaml",
+      "owner": "a5-engine-calculo",
+      "objective": "Preencher os módulos 1-6 via engine determinística, com memória de cálculo e fundamento por rubrica."
+    },
+    {
+      "id": "06_auditar_conformidade",
+      "file": "tasks/06_auditar_conformidade.yaml",
+      "owner": "a6-auditor-conformidade",
+      "objective": "Rodar o checklist contra a CostSheet, gerar ComplianceReport e disparar loop de correção se vermelho (máx. 3 iterações)."
+    },
+    {
+      "id": "07_analise_exequibilidade",
+      "file": "tasks/07_analise_exequibilidade.yaml",
+      "owner": "a6-auditor-conformidade",
+      "objective": "Comparar proposta com valores limites SEGES e planilhas homologadas do PNCP; diff célula a célula e parecer de exequibilidade."
+    },
+    {
+      "id": "08_repactuacao_reajuste_hitl2",
+      "file": "tasks/08_repactuacao_reajuste_hitl2.yaml",
+      "owner": "a7-gestao-contratual",
+      "objective": "Calcular repactuação/reajuste conforme arts. 54-60 da IN 05/2017 e obter parecer humano (HITL Gate 2) antes da minuta."
+    },
+    {
+      "id": "09_gerar_artefatos",
+      "file": "tasks/09_gerar_artefatos.yaml",
+      "owner": "a8-gerador-artefatos",
+      "objective": "Gerar planilha no layout do Anexo VII-D, relatório técnico, checklist assinável e dashboard comparativo."
+    },
+    {
+      "id": "10_atualizar_corpus_normativo",
+      "file": "tasks/10_atualizar_corpus_normativo.yaml",
+      "owner": "a3-normativo-rag",
+      "objective": "Rotina recorrente: verificar DOU/Portal de Compras, registrar alterações com frontmatter de vigência e alertar divergências."
+    }
+  ],
+  "workflows": [
+    {
+      "id": "elaboracao_pcfp_nova",
+      "file": "workflows/elaboracao_pcfp_nova.yaml"
+    },
+    {
+      "id": "analise_proposta_licitante",
+      "file": "workflows/analise_proposta_licitante.yaml"
+    },
+    {
+      "id": "repactuacao_reajuste",
+      "file": "workflows/repactuacao_reajuste.yaml"
+    }
+  ],
+  "scripts": [
+    {
+      "id": "pcfp_core",
+      "file": "scripts/pcfp_core.py",
+      "purpose": "Engine determinística (fundação F0 do roadmap): módulos 1-6 do Anexo VII-D a partir de JSON, cada rubrica com valor, fórmula, fundamento e flags. Percentuais em tabela de configuração versionada."
+    },
+    {
+      "id": "validar_pcfp",
+      "file": "scripts/validar_pcfp.py",
+      "purpose": "Checklist determinístico de conformidade sobre a CostSheet: reserva técnica (TCU 1442/2010), faixas de percentuais, rubricas não renováveis (IN 07/2018) e conta vinculada (Anexo XII)."
+    },
+    {
+      "id": "diff_proposta",
+      "file": "scripts/diff_proposta.py",
+      "purpose": "Diff célula a célula entre CostSheet de referência e proposta de licitante, com classificação verde/amarelo/vermelho por limiar."
+    }
+  ],
+  "quality_gates": [
+    "service_profile_validado",
+    "hitl1_enquadramento_sindical",
+    "costsheet_sem_valor_de_llm",
+    "compliance_sem_critico",
+    "hitl2_aprovacao_final"
+  ],
+  "outputs": [
+    "workflow_plan",
+    "service_profile",
+    "checklist_normativo",
+    "cct_profile",
+    "costsheet",
+    "compliance_report",
+    "parecer_exequibilidade",
+    "calculo_repactuacao",
+    "planilha_anexo_viid",
+    "relatorio_tecnico",
+    "checklist_assinavel"
+  ],
+  "roadmap": [
+    "F0 Fundação: corpus normativo versionado + pcfp-core (módulos 1-3) com golden tests dos Cadernos Técnicos",
+    "F1 MVP: fluxo completo para limpeza 44h (A1, A2, A5, A8 + planilha)",
+    "F2 Conformidade: A3 (RAG) + A6 (auditor) + checklist TCU/CGU + gates HITL",
+    "F3 CCT & multi-serviço: A4 + vigilância 12x36 + insalubridade/periculosidade + Simples Nacional",
+    "F4 Ciclo de vida: A7 (repactuação/reajuste) + parser de propostas + diff de exequibilidade",
+    "F5 Reforma Tributária: motor CBS/IBS com cronograma de transição parametrizado"
+  ],
+  "out_of_scope_v1": [
+    "obras e serviços de engenharia (SINAPI/SICRO)",
+    "contratações estaduais/municipais",
+    "integração transacional com SIPAC/Compras.gov",
+    "assinatura digital e tramitação processual"
+  ]
+}

@@ -1,0 +1,12 @@
+id: "10_atualizar_corpus_normativo"
+owner: "a3-normativo-rag"
+objective: "Rotina recorrente (job semanal no PRD): verificar DOU/Portal de Compras por alterações nas normas da base, registrar nova redação com frontmatter de vigência e alertar divergências com o corpus."
+inputs:
+  - "corpus normativo versionado"
+  - "fontes dinâmicas: DOU, Portal de Compras, Mediador (CCTs), valores limites SEGES"
+outputs:
+  - "corpus atualizado + alerta de divergência quando norma mudou sem atualização"
+acceptance_criteria:
+  - "cada norma com frontmatter de vigência (início/fim de cada redação)"
+  - "diff entre redações registrado (revisão por PR no padrão do PRD)"
+  - "alerta emitido para casos em andamento afetados pela mudança"

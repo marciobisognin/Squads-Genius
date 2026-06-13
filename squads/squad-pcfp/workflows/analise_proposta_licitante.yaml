@@ -1,0 +1,57 @@
+{
+  "id": "analise_proposta_licitante",
+  "description": "Fluxo secundário do PRD (seção 3.4): análise de proposta de licitante — parser da planilha, recálculo paralelo pela engine, diff célula a célula e parecer de exequibilidade para o pregoeiro. Serve também ao modo auditoria de planilha existente.",
+  "human_in_loop": true,
+  "rollback": "parsing ilegível cai em revisão manual assistida com mapeamento de colunas (mitigação do PRD); nunca chute de valores",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Classificação da demanda",
+      "task": "01_classificar_demanda",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Parser da proposta + ServiceProfile",
+      "task": "02_intake_service_profile",
+      "gate_required": true,
+      "gate": "service_profile_validado",
+      "note": "extração XLSX/PDF com origem (aba, linha, coluna) por célula"
+    },
+    {
+      "order": 3,
+      "name": "Checklist normativo do caso",
+      "task": "03_checklist_normativo",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "Recálculo de referência pela engine",
+      "task": "05_calcular_costsheet",
+      "gate_required": true,
+      "gate": "costsheet_sem_valor_de_llm"
+    },
+    {
+      "order": 5,
+      "name": "Diff célula a célula + conformidade",
+      "task": "06_auditar_conformidade",
+      "gate_required": false
+    },
+    {
+      "order": 6,
+      "name": "Parecer de exequibilidade (verde/amarelo/vermelho)",
+      "task": "07_analise_exequibilidade",
+      "gate_required": true,
+      "gate": "compliance_sem_critico",
+      "note": "crítico aqui significa parecer inconsistente/sem fundamento, não proposta vermelha — proposta vermelha é resultado legítimo"
+    },
+    {
+      "order": 7,
+      "name": "Relatório para o pregoeiro",
+      "task": "09_gerar_artefatos",
+      "gate_required": true,
+      "gate": "hitl2_aprovacao_final",
+      "note": "a decisão sobre a proposta (diligência, desclassificação) é do pregoeiro/agente de contratação"
+    }
+  ]
+}

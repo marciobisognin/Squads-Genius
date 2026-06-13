@@ -1,0 +1,52 @@
+{
+  "_comentario": "Exemplo F1 do roadmap: limpeza, escala 44h, valores fictícios para teste da engine. Percentuais de referência: conferir Caderno Técnico vigente.",
+  "tipo_servico": "limpeza",
+  "cbo": "5143-20",
+  "escala": "44h",
+  "qtd_postos": 10,
+  "cobertura_ininterrupta": true,
+  "salario_base": 1850.00,
+  "adicionais": [],
+  "beneficios": [
+    {
+      "nome": "vale_transporte",
+      "valor_mensal": 220.00,
+      "desconto_empregado": 111.00,
+      "fundamento": "Lei 7.418/1985 — desconto de até 6% do salário-base"
+    },
+    {
+      "nome": "auxilio_alimentacao",
+      "valor_mensal": 528.00,
+      "desconto_empregado": 26.40,
+      "fundamento": "CCT — cláusula de auxílio-alimentação (exemplo)"
+    }
+  ],
+  "insumos": [
+    {
+      "nome": "uniformes_epi",
+      "valor_mensal": 45.00,
+      "fundamento": "TR — memória de cálculo de uniformes e EPIs"
+    },
+    {
+      "nome": "materiais_limpeza",
+      "valor_mensal": 180.00,
+      "fundamento": "TR — cesta de materiais por posto"
+    }
+  ],
+  "percentuais_overrides": {
+    "submodulo_2_2": {
+      "rat_fap": "0.02"
+    }
+  },
+  "decisoes_humanas": {
+    "custos_indiretos_pct": "0.06",
+    "lucro_pct": "0.08",
+    "regime_tributario": "lucro_presumido",
+    "tributos": {
+      "pis": "0.0065",
+      "cofins": "0.03",
+      "iss": "0.05"
+    },
+    "responsavel": "Gestor Exemplo (matrícula 0000) — valores fictícios de teste"
+  }
+}
