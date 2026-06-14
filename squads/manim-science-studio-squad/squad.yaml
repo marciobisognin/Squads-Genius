@@ -1,0 +1,75 @@
+name: manim-science-studio-squad
+display_name: Manim Science Studio Squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+status: operational-prototype
+purpose: Automação editorial multiagente para produção de Reels educativos científicos
+  em PT-BR com roteiro, storyboard, código Manim, narração TTS, revisão epistêmica,
+  FFmpeg e calendário editorial.
+source_prd: PRD.md
+agents:
+- id: scientific-scriptwriter
+  file: agents/scientific-scriptwriter.yaml
+- id: storyboard-director
+  file: agents/storyboard-director.yaml
+- id: manim-coder
+  file: agents/manim-coder.yaml
+- id: narration-director
+  file: agents/narration-director.yaml
+- id: epistemic-reviewer
+  file: agents/epistemic-reviewer.yaml
+- id: ffmpeg-editor
+  file: agents/ffmpeg-editor.yaml
+- id: editorial-calendar-strategist
+  file: agents/editorial-calendar-strategist.yaml
+tasks:
+- id: draft-science-script
+  file: tasks/draft-science-script.yaml
+- id: design-storyboard
+  file: tasks/design-storyboard.yaml
+- id: generate-manim-code
+  file: tasks/generate-manim-code.yaml
+- id: generate-narration-assets
+  file: tasks/generate-narration-assets.yaml
+- id: run-epistemic-review
+  file: tasks/run-epistemic-review.yaml
+- id: build-ffmpeg-pipeline
+  file: tasks/build-ffmpeg-pipeline.yaml
+- id: schedule-editorial-slot
+  file: tasks/schedule-editorial-slot.yaml
+- id: package-production
+  file: tasks/package-production.yaml
+workflows:
+- id: manim-science-reel-production
+  file: workflows/manim-science-reel-production.yaml
+scripts:
+- scripts/manim_studio_pipeline.py
+- scripts/validate_squad.py
+schemas:
+- schemas/production_job.schema.json
+- schemas/script.schema.json
+- schemas/review.schema.json
+examples:
+- examples/briefing_heisenberg.json
+docs:
+- docs/architecture.md
+- docs/operational_runbook.md
+- docs/quality_and_epistemic_review.md
+quality_gates:
+- briefing_schema_valid
+- script_segments_valid
+- storyboard_timing_valid
+- manim_code_generated
+- epistemic_review_passed
+- ffmpeg_commands_generated
+- package_created
+tags:
+- manim
+- science-education
+- reels
+- tts
+- ffmpeg
+- pt-br
+- multiagent
+- editorial-automation

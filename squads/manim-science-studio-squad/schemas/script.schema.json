@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "script_id",
+    "topic",
+    "segments"
+  ],
+  "properties": {
+    "script_id": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "segments": {
+      "type": "array"
+    }
+  }
+}

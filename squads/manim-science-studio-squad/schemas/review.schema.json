@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "script_id",
+    "verdict",
+    "findings"
+  ],
+  "properties": {
+    "script_id": {
+      "type": "string"
+    },
+    "verdict": {
+      "enum": [
+        "APROVADO",
+        "APROVADO COM RESSALVAS",
+        "REPROVADO"
+      ]
+    },
+    "findings": {
+      "type": "array"
+    }
+  }
+}

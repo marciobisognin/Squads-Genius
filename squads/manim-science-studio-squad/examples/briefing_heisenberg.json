@@ -1,0 +1,11 @@
+{
+  "topic": "Princípio da Incerteza de Heisenberg",
+  "complexity_level": "intermediário",
+  "target_duration_sec": 60,
+  "tone": "didático, preciso e visual",
+  "key_equation": "\\Delta x\\Delta p \\geq \\frac{\\hbar}{2}",
+  "references_suggested": [
+    "Heisenberg, W. (1927). Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.",
+    "Robertson, H. P. (1929). The Uncertainty Principle."
+  ]
+}

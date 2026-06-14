@@ -1,0 +1,46 @@
+{
+  "components_generated": [
+    "README.md",
+    "PRD.md",
+    "squad.yaml",
+    "agents/*.yaml",
+    "tasks/*.yaml",
+    "workflows/*.yaml",
+    "scripts/*.py",
+    "tests/*.py",
+    "examples/*.json",
+    "schemas/*.json",
+    "docs/*.md",
+    "LICENSE",
+    "NOTICE.md",
+    "AUTHORS.md",
+    "requirements.txt",
+    "pyproject.toml"
+  ],
+  "validations_executed": [
+    "python -m py_compile scripts/*.py",
+    "python -m pytest -q: 9 passed",
+    "python scripts/manim_studio_pipeline.py --briefing examples/briefing_heisenberg.json --output /data/data/com.termux/files/home/tmp/manim-studio-demo --package: package_ready",
+    "python scripts/validate_squad.py --root .: go",
+    "python squads/maeve-genius-forge-squad/scripts/validate_squad.py --root squads/manim-science-studio-squad: go"
+  ],
+  "tests_passed": [
+    "test_pipeline_generates_complete_package",
+    "test_invalid_briefing_reports_clear_errors",
+    "test_slugify_is_stable",
+    "contract tests for required files, agents, tasks, workflow, scripts and quality_report"
+  ],
+  "tests_failed": [],
+  "risks_found": [
+    "Renderização real depende de Manim CE e FFmpeg instalados.",
+    "Revisão epistêmica automatizada não substitui revisão humana final.",
+    "Publicação automática fora do escopo v1.0."
+  ],
+  "human_review_required": [
+    "Aprovar fontes científicas primárias antes da publicação.",
+    "Verificar licenças de músicas, fontes e ativos visuais."
+  ],
+  "score": 92,
+  "score_basis": "Score inicial calculado por completude estrutural, protótipo executável determinístico e riscos residuais documentados.",
+  "go_no_go": "go"
+}

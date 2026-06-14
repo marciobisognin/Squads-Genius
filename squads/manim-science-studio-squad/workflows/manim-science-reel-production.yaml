@@ -1,0 +1,87 @@
+id: manim-science-reel-production
+name: Produção de Reel Científico com Manim
+version: 1.0.0
+entrypoint: draft-science-script
+conditions:
+- briefing.topic obrigatório
+- target_duration_sec entre 30 e 90
+- complexity_level em iniciante/intermediário/avançado
+steps:
+- id: draft-science-script
+  task: draft-science-script
+  depends_on: []
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: design-storyboard
+  task: design-storyboard
+  depends_on:
+  - draft-science-script
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: generate-manim-code
+  task: generate-manim-code
+  depends_on:
+  - design-storyboard
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: generate-narration-assets
+  task: generate-narration-assets
+  depends_on:
+  - draft-science-script
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: run-epistemic-review
+  task: run-epistemic-review
+  depends_on:
+  - draft-science-script
+  - generate-manim-code
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: build-ffmpeg-pipeline
+  task: build-ffmpeg-pipeline
+  depends_on:
+  - generate-manim-code
+  - generate-narration-assets
+  - run-epistemic-review
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: schedule-editorial-slot
+  task: schedule-editorial-slot
+  depends_on:
+  - build-ffmpeg-pipeline
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+- id: package-production
+  task: package-production
+  depends_on:
+  - schedule-editorial-slot
+  timeout: 600s
+  retries: 2
+  gate: artifact_exists
+parallel_branches:
+- after: design-storyboard
+  branches:
+  - generate-manim-code
+  - generate-narration-assets
+review_loop:
+  review_task: run-epistemic-review
+  max_cycles: 2
+  critical_failure_route: draft-science-script
+  major_failure_route: draft-science-script
+  third_failure: human_escalation
+failure_paths:
+  invalid_briefing: stop_with_clear_message
+  manim_code_error: return_to_manim-coder
+  epistemic_rejected: return_to_scientific-scriptwriter
+  asset_license_unclear: human_escalation
+outputs:
+- production_package/
+- quality_report.json
+- calendar_entry.json

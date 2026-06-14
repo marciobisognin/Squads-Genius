@@ -1,0 +1,29 @@
+id: schedule-editorial-slot
+description: Criar entrada de calendário editorial
+assigned_agent: editorial-calendar-strategist
+dependencies:
+- build-ffmpeg-pipeline
+input_schema:
+  briefing: object
+  upstream_artifacts: object
+output_schema:
+  status: string
+  artifact: string
+  metrics: object
+validation_rules:
+- schema válido
+- arquivo de saída existe
+- limitações documentadas
+timeout: 600s
+retry_policy:
+  max_attempts: 2
+  backoff: linear
+  retry_on:
+  - transient_generation_error
+  stop_on:
+  - epistemic_failure
+  - invalid_briefing
+  - missing_dependency
+human_approval: false
+failure_behavior: Persistir erro, preservar artefatos intermediários e retornar ao
+  agente responsável no máximo duas vezes antes de escalar ao operador humano.

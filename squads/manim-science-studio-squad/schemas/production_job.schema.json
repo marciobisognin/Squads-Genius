@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "job_id",
+    "status",
+    "briefing"
+  ],
+  "properties": {
+    "job_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "briefing": {
+      "type": "object"
+    },
+    "package_path": {
+      "type": "string"
+    }
+  }
+}
