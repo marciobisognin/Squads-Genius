@@ -1,0 +1,52 @@
+id: durable-execution-lifecycle
+name: Ciclo de Execução Durável
+entrypoint: register-versioned-workflow
+version: 1.0.0
+conditions:
+- Executar apenas com workflow validado.
+- Nunca reexecutar step already-completed sem chave de idempotência.
+steps:
+- id: register
+  task: register-versioned-workflow
+  depends_on: []
+  timeout: 120s
+  retries: 1
+  gate: schema_valid
+- id: start
+  task: execute-durable-instance
+  depends_on:
+  - register
+  timeout: 300s
+  retries: 3
+  gate: checkpoint_written
+- id: approval
+  task: manage-human-signal-gate
+  depends_on:
+  - start
+  condition: step.requires_signal == true
+  timeout: indefinite
+  retries: 0
+  gate: human_signal_verified
+- id: observe
+  task: emit-observability-events
+  depends_on:
+  - start
+  timeout: 120s
+  retries: 1
+  gate: logs_redacted
+- id: readiness
+  task: validate-runtime-readiness
+  depends_on:
+  - observe
+  timeout: 300s
+  retries: 1
+  gate: tests_passed
+failure_paths:
+  transient_error: retry_with_backoff
+  definitive_error: persist_failure_and_compensate
+  human_timeout: pause_without_resource_consumption
+  security_violation: cancel_and_escalate
+resume_conditions:
+- último checkpoint válido encontrado
+- workflow version compatível
+- política de idempotência satisfeita

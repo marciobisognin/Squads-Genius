@@ -1,0 +1,32 @@
+id: manage-human-signal-gate
+description: Pausar e retomar gate de aprovação humana
+assigned_agent: hitl-compliance-officer
+dependencies:
+- execute-durable-instance
+input_schema:
+  workflow_instance: object
+  configuration: object
+  evidence: object
+output_schema:
+  status: string
+  result: object
+  events: array
+validation_rules:
+- workflow fica paused sem signal
+- retoma apenas com signal approval válido
+- aprovação simulada é ignorada
+timeout: 300s
+retry_policy:
+  max_attempts: 3
+  backoff: exponential
+  retry_on:
+  - transient_error
+  - rate_limit
+  - worker_restart
+  stop_on:
+  - validation_error
+  - permission_denied
+  - human_rejection
+human_approval: true
+failure_behavior: Persistir evento de falha, preservar checkpoint e acionar compensação
+  quando houver efeito colateral.

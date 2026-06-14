@@ -1,0 +1,66 @@
+id: lead-research-hitl
+version: 1.0.0
+description: Workflow de cinco etapas com checkpoint, aprovação humana e compensação.
+steps:
+- id: planning
+  name: Planejamento
+  action: plan_research
+  depends_on: []
+  timeout_seconds: 60
+  retry_policy:
+    max_attempts: 2
+    backoff: exponential
+  compensation: null
+  tokens_in: 80
+  tokens_out: 60
+  estimated_cost: 0.001
+- id: search
+  name: Busca
+  action: search_sources
+  depends_on:
+  - planning
+  timeout_seconds: 120
+  retry_policy:
+    max_attempts: 3
+    backoff: exponential
+  compensation: archive_search_results
+  tokens_in: 120
+  tokens_out: 90
+  estimated_cost: 0.002
+- id: extraction
+  name: Extração
+  action: extract_data
+  depends_on:
+  - search
+  timeout_seconds: 120
+  retry_policy:
+    max_attempts: 3
+    backoff: exponential
+  compensation: delete_extracted_data
+  tokens_in: 150
+  tokens_out: 100
+  estimated_cost: 0.002
+- id: approval
+  name: Aprovação humana
+  action: wait_for_approval
+  depends_on:
+  - extraction
+  requires_signal: approval
+  timeout_seconds: null
+  retry_policy:
+    max_attempts: 0
+    backoff: none
+  compensation: null
+- id: synthesis
+  name: Síntese
+  action: synthesize_report
+  depends_on:
+  - approval
+  timeout_seconds: 180
+  retry_policy:
+    max_attempts: 2
+    backoff: exponential
+  compensation: mark_synthesis_invalid
+  tokens_in: 200
+  tokens_out: 160
+  estimated_cost: 0.003

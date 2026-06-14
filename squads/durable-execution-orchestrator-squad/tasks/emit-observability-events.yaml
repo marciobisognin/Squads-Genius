@@ -1,0 +1,33 @@
+id: emit-observability-events
+description: Emitir logs, métricas e traces
+assigned_agent: observability-auditor
+dependencies:
+- execute-durable-instance
+- manage-human-signal-gate
+input_schema:
+  workflow_instance: object
+  configuration: object
+  evidence: object
+output_schema:
+  status: string
+  result: object
+  events: array
+validation_rules:
+- eventos correlacionados
+- tokens/custos/retries registrados
+- sem segredos em logs
+timeout: 300s
+retry_policy:
+  max_attempts: 3
+  backoff: exponential
+  retry_on:
+  - transient_error
+  - rate_limit
+  - worker_restart
+  stop_on:
+  - validation_error
+  - permission_denied
+  - human_rejection
+human_approval: false
+failure_behavior: Persistir evento de falha, preservar checkpoint e acionar compensação
+  quando houver efeito colateral.

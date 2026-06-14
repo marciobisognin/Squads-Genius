@@ -1,0 +1,32 @@
+id: execute-durable-instance
+description: Executar instância durável com checkpoints
+assigned_agent: durability-engineer
+dependencies:
+- register-versioned-workflow
+input_schema:
+  workflow_instance: object
+  configuration: object
+  evidence: object
+output_schema:
+  status: string
+  result: object
+  events: array
+validation_rules:
+- event log criado
+- tasks concluídas persistidas
+- retomada não reexecuta step concluído
+timeout: 300s
+retry_policy:
+  max_attempts: 3
+  backoff: exponential
+  retry_on:
+  - transient_error
+  - rate_limit
+  - worker_restart
+  stop_on:
+  - validation_error
+  - permission_denied
+  - human_rejection
+human_approval: false
+failure_behavior: Persistir evento de falha, preservar checkpoint e acionar compensação
+  quando houver efeito colateral.

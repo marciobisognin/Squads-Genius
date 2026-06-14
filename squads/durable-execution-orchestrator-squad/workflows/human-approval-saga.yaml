@@ -1,0 +1,50 @@
+id: human-approval-saga
+name: Aprovação Humana com Saga
+entrypoint: execute-durable-instance
+version: 1.0.0
+conditions:
+- Ações externas exigem compensação declarada.
+- Aprovação humana exige signal externo validado.
+steps:
+- id: plan
+  task: execute-durable-instance
+  depends_on: []
+  timeout: 120s
+  retries: 2
+  compensation: null
+- id: search
+  task: execute-durable-instance
+  depends_on:
+  - plan
+  timeout: 180s
+  retries: 3
+  compensation: record_search_rollback
+- id: extract
+  task: execute-durable-instance
+  depends_on:
+  - search
+  timeout: 180s
+  retries: 3
+  compensation: delete_extracted_artifacts
+- id: approval
+  task: manage-human-signal-gate
+  depends_on:
+  - extract
+  timeout: indefinite
+  retries: 0
+  gate: approval_signal
+- id: synthesis
+  task: execute-durable-instance
+  depends_on:
+  - approval
+  timeout: 180s
+  retries: 2
+  compensation: mark_synthesis_invalid
+failure_paths:
+  cancelled: run-saga-compensation
+  definitive_error: run-saga-compensation
+  approval_rejected: run-saga-compensation
+resume_conditions:
+- signal aprovado recebido
+- compensações pendentes verificadas
+- event log íntegro

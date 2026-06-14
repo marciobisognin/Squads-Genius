@@ -1,0 +1,46 @@
+{
+  "components_generated": [
+    "README.md",
+    "PRD.md",
+    "squad.yaml",
+    "agents/*.yaml",
+    "tasks/*.yaml",
+    "workflows/*.yaml",
+    "scripts/*.py",
+    "tests/*.py",
+    "examples/*.yaml",
+    "docs/*.md",
+    "LICENSE",
+    "NOTICE.md",
+    "AUTHORS.md",
+    "requirements.txt",
+    "pyproject.toml"
+  ],
+  "validations_executed": [
+    "python -m py_compile scripts/*.py",
+    "python -m pytest -q: 10 passed",
+    "python scripts/durable_orchestrator.py run-example: final_status completed",
+    "python scripts/validate_squad.py --root .: go",
+    "python squads/maeve-genius-forge-squad/scripts/validate_squad.py --root squads/durable-execution-orchestrator-squad: go"
+  ],
+  "tests_passed": [
+    "test_run_example_completes_after_human_signal",
+    "test_resume_does_not_duplicate_completed_steps",
+    "test_cancel_triggers_compensations",
+    "test_status_exposes_metrics",
+    "contract tests for required files, agents, tasks, workflows, scripts and quality_report"
+  ],
+  "tests_failed": [],
+  "risks_found": [
+    "SQLite é protótipo local, não substitui backend HA.",
+    "OpenTelemetry está modelado como contrato, sem exportador real.",
+    "Workers distribuídos e filas ainda são próximos passos."
+  ],
+  "human_review_required": [
+    "Escolha entre engine própria, Temporal, Restate ou provedor cloud.",
+    "Definir política de retenção, criptografia e RBAC produtivo."
+  ],
+  "score": 94,
+  "score_basis": "Score calculado por completude estrutural, protótipo executável, testes automatizados e riscos residuais documentados.",
+  "go_no_go": "go"
+}

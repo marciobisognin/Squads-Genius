@@ -1,0 +1,9 @@
+[project]
+name = "durable-execution-orchestrator-squad"
+version = "1.0.0"
+description = "Runtime durável local para workflows de squads multiagentes"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

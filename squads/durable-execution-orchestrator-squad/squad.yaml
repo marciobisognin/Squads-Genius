@@ -1,0 +1,85 @@
+name: durable-execution-orchestrator-squad
+display_name: Orquestrador de Execução Durável para Squads
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+status: operational-prototype
+purpose: Squad para especificar, validar e operar um runtime durável para workflows
+  de squads multiagentes, com checkpoints, retomada após falhas, timers, sinais de
+  aprovação humana, compensações, auditoria, observabilidade e controle de custos.
+source_prd: PRD.md
+agents:
+- id: workflow-architect
+  file: agents/workflow-architect.yaml
+- id: durability-engineer
+  file: agents/durability-engineer.yaml
+- id: worker-runtime-engineer
+  file: agents/worker-runtime-engineer.yaml
+- id: hitl-compliance-officer
+  file: agents/hitl-compliance-officer.yaml
+- id: observability-auditor
+  file: agents/observability-auditor.yaml
+- id: devops-release-engineer
+  file: agents/devops-release-engineer.yaml
+tasks:
+- id: register-versioned-workflow
+  file: tasks/register-versioned-workflow.yaml
+- id: execute-durable-instance
+  file: tasks/execute-durable-instance.yaml
+- id: manage-human-signal-gate
+  file: tasks/manage-human-signal-gate.yaml
+- id: run-saga-compensation
+  file: tasks/run-saga-compensation.yaml
+- id: emit-observability-events
+  file: tasks/emit-observability-events.yaml
+- id: validate-runtime-readiness
+  file: tasks/validate-runtime-readiness.yaml
+workflows:
+- id: durable-execution-lifecycle
+  file: workflows/durable-execution-lifecycle.yaml
+- id: human-approval-saga
+  file: workflows/human-approval-saga.yaml
+scripts:
+- scripts/durable_orchestrator.py
+- scripts/validate_squad.py
+docs:
+- docs/architecture.md
+- docs/operational_runbook.md
+- docs/security_compliance.md
+examples:
+- examples/lead_research_workflow.yaml
+- examples/sample_input.json
+quality_gates:
+- workflow_schema_valid
+- sqlite_event_log_created
+- checkpoint_resume_verified
+- human_signal_gate_verified
+- compensation_events_verified
+- pytest_passed
+capabilities:
+  durable_execution:
+    checkpoints: true
+    resume_from_last_completed_step: true
+    idempotent_task_results: true
+  human_in_the_loop:
+    durable_signal_gate: true
+    indefinite_pause_without_resource_consumption: true
+  reliability:
+    retry_policy_contract: true
+    saga_compensation_contract: true
+  observability:
+    structured_event_log: true
+    metrics_tokens_cost_retries: true
+  deployment:
+    local_sqlite_prototype: true
+    cloud_runtime_reference: true
+tags:
+- durable-execution
+- orchestration
+- multiagent
+- squads
+- checkpoints
+- human-approval
+- saga
+- observability
+- python

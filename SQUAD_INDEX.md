@@ -10,6 +10,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Aurora PopRock Ballads](squads/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — versão `1.0.0` — pop rock romântico, rock balada e prompts musicais autorais
 - [Canto Memória Viva](squads/canto-memoria-viva/README.md) — `canto-memoria-viva` — versão `1.0.0` — composição musical autoral com agentes para letra, voz, arranjo e originalidade
 - [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
+- [Orquestrador de Execução Durável para Squads](squads/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — versão `1.0.0` — runtime durável para workflows multiagentes com checkpoints, sinais humanos, compensações e auditoria
 - [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
 - [germina360-squad](squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
 - [Hefesto Forja Licitatória](squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes

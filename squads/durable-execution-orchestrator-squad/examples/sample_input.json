@@ -1,0 +1,6 @@
+{
+  "topic": "prospecção de leads para incubadora tecnológica",
+  "budget_limit": 25.0,
+  "requires_human_approval": true,
+  "approval_channel": "human_signal"
+}
