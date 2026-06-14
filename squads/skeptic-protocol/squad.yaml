@@ -1,6 +1,6 @@
 name: skeptic-protocol
-version: 2.0.0
-description: "Plataforma defensiva de red teaming de agentes e squads multiagentes, com biblioteca de ataques canários, cenários reproduzíveis, evidências, regressão de segurança e CI."
+version: 2.1.0
+description: "Plataforma defensiva de red teaming de agentes e squads multiagentes, com biblioteca de ataques canários, runtime adapters, cenários reproduzíveis, evidências, regressão de segurança e CI."
 author: "Marcio Bisognin"
 license: MIT
 aios:
@@ -31,13 +31,22 @@ components:
     - agent_redteam_attack_library.json
   docs:
     - agent-red-team-platform.md
+    - runtime-adapters.md
     - skeptic_protocol_v2_evolution_report.md
+  examples:
+    - runtime_adapters/safe_local_command_adapter.py
+    - runtime_adapters/vulnerable_local_command_adapter.py
 config:
   - coding-standards.md
   - tech-stack.md
   - source-tree.md
 capabilities:
-  target: "qualquer squad por caminho"
+  target: "qualquer squad por caminho, com scan estático e probes dinâmicos opcionais"
+  runtime_adapters:
+    - static
+    - mock-safe
+    - mock-vulnerable
+    - local-command
   exports:
     - json
     - markdown
@@ -63,6 +72,7 @@ quality_gates:
   - attack_library_integrity
   - reproducible_scenarios
   - evidence_report_json_markdown_html
+  - dynamic_runtime_probe
   - security_regression_tests
   - ci_execution
 tags:
@@ -74,3 +84,4 @@ tags:
   - ci
   - skeptic
   - testing
+  - runtime-adapters

@@ -2,7 +2,7 @@
 
 O **SKEPTIC Protocol** evoluiu de uma metodologia de testes adversariais de software para uma plataforma defensiva de **red teaming de agentes e squads multiagentes**.
 
-A versão atual testa qualquer squad por caminho, usando biblioteca de ataques canários, 16 cenários reproduzíveis cobrindo as 14 classes solicitadas, classificação por severidade/probabilidade/impacto, relatório de evidências, recomendações, geração de testes de regressão e integração com CI.
+A versão atual testa qualquer squad por caminho, usando biblioteca de ataques canários, 16 cenários reproduzíveis cobrindo as 14 classes solicitadas, classificação por severidade/probabilidade/impacto, relatório de evidências, recomendações, execução dinâmica opcional via runtime adapters, geração de testes de regressão e integração com CI.
 
 ## O que faz
 
@@ -79,6 +79,46 @@ Cada entrada contém:
 
 Os payloads são **canários defensivos**. Eles simulam tentativas de ataque sem usar credenciais reais, dados reais de usuários ou exploração de sistemas externos.
 
+## Runtime adapters
+
+Além do modo estático, o SKEPTIC agora executa probes dinâmicos canários contra um runtime explicitamente informado.
+
+### Adapter seguro simulado
+
+```bash
+python scripts/skeptic_agent_redteam.py \
+  --squad . \
+  --output redteam-output/mock-safe \
+  --runtime-adapter mock-safe \
+  --formats json,markdown,html \
+  --write-scenarios
+```
+
+### Adapter vulnerável simulado
+
+```bash
+python scripts/skeptic_agent_redteam.py \
+  --squad . \
+  --output redteam-output/mock-vulnerable \
+  --runtime-adapter mock-vulnerable \
+  --fail-on none
+```
+
+### Adapter por comando local
+
+```bash
+python scripts/skeptic_agent_redteam.py \
+  --squad . \
+  --output redteam-output/local-command \
+  --runtime-adapter local-command \
+  --runtime-command "python examples/runtime_adapters/safe_local_command_adapter.py" \
+  --runtime-timeout 5 \
+  --formats json,markdown,html \
+  --write-scenarios
+```
+
+O comando recebe o probe JSON via `stdin` e devolve texto ou JSON com `response`, `content`, `message` ou `output`.
+
 ## Regressão de segurança
 
 Quando uma correção for aplicada, gere um teste de regressão:
@@ -116,6 +156,7 @@ python scripts/skeptic_agent_redteam.py --squad . --output redteam-output --form
 
 ## Documentação técnica
 
+- `docs/runtime-adapters.md`
 - `docs/agent-red-team-platform.md`
 - `tasks/run-agent-red-team.md`
 - `workflows/agent-squad-red-team-platform.yaml`
@@ -123,9 +164,9 @@ python scripts/skeptic_agent_redteam.py --squad . --output redteam-output --form
 
 ## Limitações
 
-- A execução padrão é estática e determinística: verifica controles documentados e cenários reproduzíveis, não executa agentes vivos.
-- Adaptadores dinâmicos para runtimes reais podem ser adicionados posteriormente, mantendo payloads canários e sem dados reais.
-- Resultado `pass` indica cobertura documental mínima; ambientes produtivos ainda exigem validação dinâmica conforme o runtime usado.
+- A execução padrão continua estática e determinística: verifica controles documentados e cenários reproduzíveis.
+- A execução dinâmica agora existe por runtime adapters (`mock-safe`, `mock-vulnerable` e `local-command`), mas runtimes produtivos devem ser conectados por wrappers isolados e com dados sintéticos.
+- Resultado `pass` indica cobertura mínima nos artefatos e/ou resposta segura ao canário; ambientes produtivos ainda exigem validação em sandbox antes de uso operacional.
 
 ## Autor
 
