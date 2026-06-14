@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "farol.case.schema.json",
+  "type": "object",
+  "required": [
+    "case_id",
+    "cycle_id",
+    "status",
+    "responsible_role",
+    "findings",
+    "audit_log"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "cycle_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "novo",
+        "em_saneamento",
+        "aguardando_resposta",
+        "reaberto",
+        "aprovado",
+        "bloqueado",
+        "concluído"
+      ]
+    },
+    "responsible_role": {
+      "type": "string"
+    },
+    "sla_due_date": {
+      "type": "string"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "audit_log": {
+      "type": "array"
+    }
+  }
+}

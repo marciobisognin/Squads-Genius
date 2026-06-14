@@ -43,3 +43,12 @@
 
 ## 1.0.0
 - Auditoria de planilha DFD multicampi: descrições, unidades, preços, outliers, relatório executivo, CSV de achados e dashboard HTML.
+
+## 3.0.0 — Farol Public Procurement Intelligence Platform
+
+- Reposiciona o Farol como plataforma institucional de inteligência para contratações públicas.
+- Adiciona 12 contratos YAML de agentes especializados.
+- Adiciona workflow institucional com estados, retries, timeouts, gates humanos, evidências e falhas.
+- Cria base normativa versionada e schemas de achados, evidências e casos.
+- Adiciona motor determinístico Farol 3.0 para contratos, especificações, memória de preços e forecasting baseline.
+- Adiciona testes automatizados para os novos contratos e motores.

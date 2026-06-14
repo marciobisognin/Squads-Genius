@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "farol.finding.schema.json",
+  "type": "object",
+  "required": [
+    "finding_id",
+    "case_id",
+    "item_ref",
+    "category",
+    "classification",
+    "risk_level",
+    "evidence_refs",
+    "human_review_required"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "item_ref": {
+      "type": "object"
+    },
+    "category": {
+      "enum": [
+        "descrição",
+        "unidade",
+        "preço",
+        "quantitativo",
+        "pca",
+        "etp",
+        "tr",
+        "sustentabilidade",
+        "lgpd",
+        "integridade"
+      ]
+    },
+    "classification": {
+      "enum": [
+        "erro_confirmado",
+        "suspeita",
+        "recomendacao",
+        "depende_justificativa",
+        "insuficiente"
+      ]
+    },
+    "risk_level": {
+      "enum": [
+        "crítico",
+        "alto",
+        "médio",
+        "baixo",
+        "informativo"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "normative_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_review_required": {
+      "type": "boolean"
+    }
+  }
+}

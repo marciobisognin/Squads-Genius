@@ -6,7 +6,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/status-premium-00B894?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/vers%C3%A3o-1.3.0-6C5CE7?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/vers%C3%A3o-3.0.0-6C5CE7?style=for-the-badge" />
   <img src="https://img.shields.io/badge/domain-licita%C3%A7%C3%B5es%20e%20contratos-0984E3?style=for-the-badge" />
   <img src="https://img.shields.io/badge/institui%C3%A7%C3%A3o-IFFar-00A86B?style=for-the-badge" />
   <img src="https://img.shields.io/badge/integra%C3%A7%C3%A3o-Compras.gov.br-F39C12?style=for-the-badge" />
@@ -268,3 +268,34 @@ o que foi auditado, o que exige revisão, quais itens concentram valor sob risco
 **Instagram:** [@marciobisognin](https://instagram.com/marciobisognin)
 
 </div>
+
+
+## Farol 3.0 — evolução para plataforma de inteligência
+
+A atualização **3.0.0** reposiciona o Farol como **Farol Public Procurement Intelligence Platform**: um sistema auditável de inteligência para planejamento, pesquisa de preços, qualidade das especificações, previsão de demanda e governança das contratações públicas.
+
+### Novas capacidades estruturais
+
+- contratos YAML tipados para 12 agentes especializados;
+- workflow institucional com estados, retries, timeouts, gates humanos, evidências, caminhos de falha e idempotência;
+- base normativa versionada em `references/normative_rules.yaml`;
+- schemas formais para achados, evidências e casos de saneamento;
+- motor determinístico `scripts/farol_30_contracts.py` para validação de contratos, avaliação contextual de especificações, memória de preço com hash e forecasting baseline;
+- testes automatizados adicionais para os contratos e motores Farol 3.0.
+
+### Princípios obrigatórios
+
+1. Nenhuma decisão administrativa é automática.
+2. Citação normativa crítica deve vir da base versionada, nunca de texto livre do modelo.
+3. Preço externo só pode fundamentar decisão quando houver equivalência, fonte, parâmetros, data e hash da evidência.
+4. Achados críticos exigem revisão humana.
+5. Dados pessoais e informações institucionais seguem minimização, retenção configurável e trilha de auditoria.
+
+### Comandos Farol 3.0
+
+```bash
+python scripts/farol_30_contracts.py validate-contracts --root .
+python scripts/farol_30_contracts.py evaluate-spec --descricao "PANELA MARCA X 7 LITROS EM ALUMÍNIO" --unidade UNIDADE
+```
+
+Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

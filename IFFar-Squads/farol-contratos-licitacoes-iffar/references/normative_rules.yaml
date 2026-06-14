@@ -1,0 +1,47 @@
+version: 2026.06.14
+rules:
+- id: lei-14133-art23-preco-mercado
+  source: Lei nº 14.133/2021
+  article: art. 23
+  scope: estimativa de preços
+  requirement: valor estimado compatível com preços praticados no mercado, considerados
+    bancos públicos, quantidades e peculiaridades locais
+  official_source: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm
+  status: active
+  validated_by: human_required
+- id: in-65-2021-pesquisa-precos
+  source: IN SEGES/ME nº 65/2021
+  article: parâmetros de pesquisa
+  scope: pesquisa de preços
+  requirement: documentar fontes, métodos, parâmetros, exclusões e justificativas
+    da cesta de preços
+  official_source: https://www.gov.br/compras/
+  status: active
+  validated_by: human_required
+- id: decreto-10947-2022-pca
+  source: Decreto nº 10.947/2022
+  article: PCA e DFD
+  scope: planejamento anual de contratações
+  requirement: DFD fundamenta demanda que deve estar alinhada ao Plano de Contratações
+    Anual quando aplicável
+  official_source: https://www.planalto.gov.br/
+  status: active
+  validated_by: human_required
+- id: in-58-2022-etp
+  source: IN SEGES nº 58/2022
+  article: ETP
+  scope: estudo técnico preliminar
+  requirement: necessidade, alternativas, solução e justificativas devem ser avaliadas
+    antes do termo de referência
+  official_source: https://www.gov.br/compras/
+  status: active
+  validated_by: human_required
+- id: in-81-2022-tr
+  source: IN SEGES nº 81/2022
+  article: Termo de Referência
+  scope: termo de referência
+  requirement: TR deve consolidar objeto, especificação, condições e critérios de
+    forma clara e suficiente
+  official_source: https://www.gov.br/compras/
+  status: active
+  validated_by: human_required

@@ -22,7 +22,7 @@ A convenção passa a ser:
 
 ### 🧭 Farol Contratos e Licitações IFFar
 
-Auditoria inteligente de planilhas DFD/listas de itens para licitações e contratos: descrições, unidades de medida, preços, quantitativos por campus, outliers, riscos e comparação externa via Compras.gov.br.
+Auditoria inteligente de planilhas DFD/listas de itens para licitações e contratos, agora evoluída na versão 3.0 para uma plataforma de inteligência em contratações públicas: contratos tipados de agentes, workflow institucional com gates humanos, base normativa versionada, memória de preços, schemas de evidência e roadmap para DFD–PCA–ETP–TR.
 
 - Pasta: [`farol-contratos-licitacoes-iffar`](./farol-contratos-licitacoes-iffar/)
 - README: [`farol-contratos-licitacoes-iffar/README.md`](./farol-contratos-licitacoes-iffar/README.md)

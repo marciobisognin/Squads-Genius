@@ -1,0 +1,165 @@
+id: farol-30-procurement-intelligence
+name: Farol 3.0 — Public Procurement Intelligence Workflow
+version: 3.0.0
+trigger: planilha DFD/lista de itens, artefatos de PCA/ETP/TR ou ciclo de contratação
+  multicampi
+states:
+- registered
+- intake_validated
+- evidence_collected
+- human_review
+- sanitation
+- decision_package
+- completed
+- blocked
+input_schema:
+  dfd_file: path
+  pca_reference: object|null
+  cycle_id: string
+  institutional_profile: object
+  security_context: object
+output_schema:
+  audited_spreadsheet: path
+  findings: array
+  price_memory: object
+  case_queue: array
+  decision_package: object
+  audit_log: array
+steps:
+- id: intake_quality
+  agent: data-intake-quality-guardian
+  depends_on: []
+  timeout: 180s
+  retry_policy:
+    max_attempts: 2
+    backoff: exponential
+  human_approval: false
+  success_condition: layout_detectado and colunas_minimas_presentes
+  failure_condition: arquivo ilegível ou schema mínimo ausente
+  audit_event: intake_validated
+  idempotency_key: hash_arquivo+perfil
+- id: dfd_pca_alignment
+  agent: dfd-pca-alignment-auditor
+  depends_on:
+  - intake_quality
+  timeout: 180s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: false
+  legal_gate: Decreto nº 10.947/2022
+  evidence_gate: pca_reference ou justificativa de ausência
+  fallback: marcar como pendente de PCA
+- id: specification_intelligence
+  agent: specification-competition-auditor
+  depends_on:
+  - intake_quality
+  timeout: 240s
+  retry_policy:
+    max_attempts: 2
+    backoff: exponential
+  human_approval: false
+  evidence_gate: atributos extraídos e regra normativa quando houver alerta crítico
+  on_error: classificar como evidência insuficiente
+- id: catalog_resolution
+  agent: catalog-entity-resolution-specialist
+  depends_on:
+  - intake_quality
+  - specification_intelligence
+  timeout: 240s
+  retry_policy:
+    max_attempts: 3
+    backoff: exponential
+  human_approval: false
+  fallback: comparabilidade insuficiente
+- id: price_evidence_memory
+  agent: price-research-evidence-specialist
+  depends_on:
+  - catalog_resolution
+  timeout: 600s
+  retry_policy:
+    max_attempts: 3
+    backoff: exponential
+  human_approval: true
+  legal_gate: Lei nº 14.133/2021 art. 23 e IN SEGES/ME nº 65/2021
+  evidence_gate: fonte, data, parâmetros, resposta bruta, hash e justificativa de
+    exclusões
+- id: demand_forecasting
+  agent: demand-consumption-forecaster
+  depends_on:
+  - intake_quality
+  timeout: 240s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: false
+  success_condition: baseline e incerteza calculados ou insuficiência declarada
+- id: risk_integrity
+  agent: procurement-risk-integrity-analyst
+  depends_on:
+  - dfd_pca_alignment
+  - specification_intelligence
+  - price_evidence_memory
+  - demand_forecasting
+  timeout: 240s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: true
+  evidence_gate: risco com probabilidade, impacto, materialidade e tratamento
+- id: sustainability_accessibility
+  agent: sustainability-accessibility-advisor
+  depends_on:
+  - specification_intelligence
+  timeout: 180s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: false
+  legal_gate: critério sustentável vinculado a fonte oficial quando houver obrigação
+- id: normative_audit
+  agent: normative-evidence-auditor
+  depends_on:
+  - specification_intelligence
+  - price_evidence_memory
+  - risk_integrity
+  - sustainability_accessibility
+  timeout: 180s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: true
+  success_condition: 100% das citações críticas referenciam rule_id versionado
+- id: case_sanitation
+  agent: human-review-sanitation-manager
+  depends_on:
+  - normative_audit
+  timeout: indefinite
+  retry_policy:
+    max_attempts: 0
+    backoff: none
+  human_approval: true
+  responsible_role: unidade de compras ou campus demandante
+  audit_event: human_review_signal
+- id: decision_package
+  agent: decision-intelligence-lead
+  depends_on:
+  - case_sanitation
+  timeout: 240s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: true
+  success_condition: dados validados, evidência de preço, norma, saneamento e aprovação
+    humana reunidos
+failure_paths:
+  evidence_insufficient: bloquear decisão e solicitar saneamento
+  legal_uncertainty: escalar para jurídico ou responsável competente
+  critical_data_risk: bloquear exportação e acionar governança LGPD
+  api_failure: usar cache válido ou registrar indisponibilidade
+quality_gates:
+- 'citações normativas corretas: 100%'
+- 'rastreabilidade de evidência: 100%'
+- zero decisão administrativa automática
+- achados altos exigem revisão humana
+- preço não comparável não entra na mediana decisória

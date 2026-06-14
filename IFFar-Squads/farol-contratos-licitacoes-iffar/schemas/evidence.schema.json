@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "farol.evidence.schema.json",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "source",
+    "collected_at",
+    "parameters",
+    "raw_hash",
+    "quality_score"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "collected_at": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "raw_hash": {
+      "type": "string"
+    },
+    "quality_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "exclusions": {
+      "type": "array"
+    },
+    "retention_policy": {
+      "type": "string"
+    }
+  }
+}

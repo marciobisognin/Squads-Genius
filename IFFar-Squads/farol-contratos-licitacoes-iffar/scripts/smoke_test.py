@@ -22,11 +22,18 @@ required = [
     'scripts/painel_saneamento.py',
     'scripts/base_conhecimento.py',
     'scripts/previsao_quantitativos.py',
+    'scripts/farol_30_contracts.py',
     'examples/gerar_dfd_exemplo.py',
     'tests/test_analisar_dfd.py',
+    'tests/test_farol_30_contracts.py',
     'workflows/auditoria-dfd.yaml',
+    'workflows/farol-30-procurement-intelligence.yaml',
     'references/compras-gov-integracao.md',
     'references/uso-com-codex-claude-antigravity.md',
+    'references/normative_rules.yaml',
+    'schemas/finding.schema.json',
+    'schemas/evidence.schema.json',
+    'schemas/case.schema.json',
 ]
 missing = [p for p in required if not (root / p).exists()]
 if missing:
