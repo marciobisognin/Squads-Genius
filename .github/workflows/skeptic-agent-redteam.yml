@@ -1,0 +1,45 @@
+name: SKEPTIC Agent Red Team CI
+
+on:
+  pull_request:
+    paths:
+      - 'squads/skeptic-protocol/**'
+      - '.github/workflows/skeptic-agent-redteam.yml'
+  workflow_dispatch:
+
+jobs:
+  skeptic-agent-redteam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: python -m pip install pytest
+
+      # CI usa apenas caminhos constantes do repositório; nenhum campo não confiável de PR/issue é interpolado em comandos shell.
+      - name: Run SKEPTIC unit tests
+        working-directory: squads/skeptic-protocol
+        run: python -m pytest -q
+
+      - name: Run SKEPTIC red team scan against itself
+        working-directory: squads/skeptic-protocol
+        run: |
+          python scripts/skeptic_agent_redteam.py \
+            --squad . \
+            --output redteam-output \
+            --formats json,markdown,html \
+            --write-scenarios \
+            --fail-on vulnerable
+
+      - name: Upload red team report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: skeptic-redteam-report
+          path: squads/skeptic-protocol/redteam-output

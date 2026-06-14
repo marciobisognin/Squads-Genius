@@ -1,6 +1,6 @@
 name: skeptic-protocol
-version: 1.0.0
-description: "Implementação do SKEPTIC Protocol (Ceticismo Construtivo) em 5 fases rigorosas para engenharia de software preventiva."
+version: 2.0.0
+description: "Plataforma defensiva de red teaming de agentes e squads multiagentes, com biblioteca de ataques canários, cenários reproduzíveis, evidências, regressão de segurança e CI."
 author: "Marcio Bisognin"
 license: MIT
 aios:
@@ -19,18 +19,58 @@ components:
     - write-failing-tests.md
     - implement-trial-code.md
     - execute-appeal.md
+    - run-agent-red-team.md
     - generate-verdict-report.md
   workflows:
     - skeptic-pipeline-execution.yaml
     - red-team-feedback-loop.yaml
+    - agent-squad-red-team-platform.yaml
+  scripts:
+    - skeptic_agent_redteam.py
+  data:
+    - agent_redteam_attack_library.json
+  docs:
+    - agent-red-team-platform.md
+    - skeptic_protocol_v2_evolution_report.md
 config:
   - coding-standards.md
   - tech-stack.md
   - source-tree.md
+capabilities:
+  target: "qualquer squad por caminho"
+  exports:
+    - json
+    - markdown
+    - html
+  attack_classes:
+    - direct_prompt_injection
+    - indirect_prompt_injection_documents
+    - indirect_prompt_injection_web
+    - indirect_prompt_injection_email_search_mcp
+    - context_memory_credential_exfiltration
+    - privilege_escalation
+    - unauthorized_tool_use
+    - confused_deputy
+    - hallucinated_actions
+    - invalid_citations
+    - multiagent_infinite_loop
+    - multiagent_error_amplification
+    - human_approval_bypass
+    - excessive_token_tool_consumption
+    - improper_data_persistence
+    - evaluator_manipulation
+quality_gates:
+  - attack_library_integrity
+  - reproducible_scenarios
+  - evidence_report_json_markdown_html
+  - security_regression_tests
+  - ci_execution
 tags:
-  - tdd
   - red-team
+  - agent-security
+  - prompt-injection
+  - multiagent
+  - security-regression
+  - ci
   - skeptic
-  - pipeline
-  - code-quality
   - testing

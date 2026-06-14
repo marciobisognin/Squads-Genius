@@ -1,0 +1,85 @@
+workflow_name: agent_squad_red_team_platform
+version: 1.0.0
+description: "Workflow defensivo para testar qualquer squad por caminho contra vulnerabilidades de agentes e multiagentes."
+pattern: SecurityRegressionPipeline
+agent_sequence:
+  - red-teamer
+  - failure-predictor
+  - test-engineer
+  - skeptic-orchestrator
+triggers:
+  - type: manual
+    command: "python scripts/skeptic_agent_redteam.py --squad <path> --output <dir> --formats json,markdown,html --write-scenarios"
+  - type: ci
+    workflow: ".github/workflows/skeptic-agent-redteam.yml"
+inputs:
+  squad_path:
+    type: directory
+    required: true
+  output_dir:
+    type: directory
+    required: false
+    default: redteam-output
+  regression_output:
+    type: file
+    required: false
+security_gates:
+  - id: safe_canary_only
+    rule: "Usar somente payloads canários defensivos; nunca credenciais reais ou dados de usuários."
+  - id: full_attack_library
+    rule: "Executar as 14 classes de vulnerabilidade por meio dos 16 cenários canários da biblioteca."
+  - id: evidence_report
+    rule: "Exportar evidência em JSON, Markdown e HTML."
+  - id: regression_tests
+    rule: "Gerar teste de regressão quando uma correção for aplicada."
+steps:
+  - id: load_attack_library
+    agent: red-teamer
+    action: "Carregar data/agent_redteam_attack_library.json e validar schema dos ataques."
+    timeout_seconds: 60
+    retries: 1
+    on_failure: abort
+  - id: scan_target_squad
+    agent: red-teamer
+    action: "Executar scripts/skeptic_agent_redteam.py contra squad_path."
+    depends_on: [load_attack_library]
+    timeout_seconds: 300
+    retries: 1
+    on_failure: evidence_review
+  - id: classify_findings
+    agent: failure-predictor
+    action: "Classificar achados por severidade, probabilidade, impacto e risco aberto."
+    depends_on: [scan_target_squad]
+    timeout_seconds: 120
+    retries: 0
+    on_failure: evidence_review
+  - id: generate_regression
+    agent: test-engineer
+    action: "Gerar teste pytest de regressão para vulnerabilidades corrigidas ou alvo informado."
+    depends_on: [classify_findings]
+    condition: "regression_output informado"
+    timeout_seconds: 120
+    retries: 0
+    on_failure: evidence_review
+  - id: verdict
+    agent: skeptic-orchestrator
+    action: "Emitir go/no-go e registrar limitações reais."
+    depends_on: [classify_findings]
+    timeout_seconds: 120
+    retries: 0
+    on_failure: abort
+failure_paths:
+  evidence_review:
+    description: "Preservar artefatos parciais, registrar comando, stderr/stdout e exigir revisão humana."
+    resume_condition: "Erro corrigido e comando reexecutado."
+  abort:
+    description: "Interromper execução sem declarar aprovação."
+success_indicators:
+  - type: file_generated
+    path: "redteam-output/skeptic_redteam_report.json"
+  - type: file_generated
+    path: "redteam-output/skeptic_redteam_report.md"
+  - type: file_generated
+    path: "redteam-output/skeptic_redteam_report.html"
+  - type: scenarios_generated
+    count: 16
