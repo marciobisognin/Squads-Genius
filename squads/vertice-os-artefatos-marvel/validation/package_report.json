@@ -1,0 +1,10 @@
+{
+  "zip_path": "/storage/emulated/0/Download/Material herme/vertice-os-artefatos-marvel-squad-v2.1.0.zip",
+  "hermes_zip": "/data/data/com.termux/files/home/hermes_out/vertice-os-artefatos-marvel-squad-v2.1.0.zip",
+  "zip_size": 83536,
+  "zip_files": 49,
+  "zip_test": "ok",
+  "required_missing": [],
+  "workspace": "/data/data/com.termux/files/home/squad-factory/workspaces/vertice-os-artefatos-marvel",
+  "workspace_files": 52
+}

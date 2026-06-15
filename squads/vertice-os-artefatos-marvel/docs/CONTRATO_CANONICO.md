@@ -1,0 +1,23 @@
+# Contrato canônico entre agentes
+
+Todos os agentes usam um envelope único. O codinome temático nunca substitui os IDs técnicos nem os schemas.
+
+```yaml
+message_id: msg_01H...
+run_id: run_01H...
+project_id: prj_...
+tenant_id: tnt_...
+source_agent: CORE-01
+destination_agent: CORE-02
+capability_required: routing.resolve
+schema_version: 2.1.0
+idempotency_key: sha256:...
+priority: normal
+deadline: 2026-06-15T18:00:00-03:00
+data_classification: internal
+policy_decision: allow
+artifact_refs: [artifact://...]
+qa_status: pending
+trace_id: 4bf92f...
+signature: ed25519:...
+```

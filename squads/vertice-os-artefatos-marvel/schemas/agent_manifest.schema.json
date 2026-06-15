@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VÉRTICE-OS Agent Manifest",
+  "type": "object",
+  "required": [
+    "id",
+    "codename",
+    "function",
+    "version",
+    "inputs",
+    "outputs",
+    "allowed_tools",
+    "forbidden_tools",
+    "memory_read",
+    "memory_write",
+    "quality_gates",
+    "escalation",
+    "owner"
+  ]
+}

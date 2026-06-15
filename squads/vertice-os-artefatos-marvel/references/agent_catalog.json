@@ -1,0 +1,387 @@
+{
+  "name": "VÉRTICE-OS",
+  "version": "2.1.0",
+  "agents": [
+    {
+      "id": "CTL-00",
+      "codename": "MANOPLA DO INFINITO",
+      "function": "Orquestrador soberano",
+      "block": "comando soberano",
+      "long": "Coordena o ciclo de vida completo de cada ordem. Não produz conteúdo final diretamente. Decide quando planejar, executar, pausar, solicitar aprovação, reprocessar, compensar ou encerrar uma execução. Mantém visão global sobre orçamento, risco, dependências e estado operacional.",
+      "inputs": "Pedido normalizado, contexto do projeto, políticas, orçamento e catálogo de capacidades.",
+      "outputs": "Plano aprovado, DAG de execução, ordens de trabalho, decisões de gate e pacote final.",
+      "tools": "Planner, Runtime, Capability Registry, Policy Engine, Artifact Service e observabilidade.",
+      "permissions": "Pode orquestrar todos os agentes, mas não pode ignorar gates, elevar privilégios ou alterar evidências.",
+      "gate": "Plano válido, orçamento reservado, dependências sem ciclos proibidos, política aprovada e trace completo.",
+      "failures": "Deadlock, plano inconsistente, excesso de custo, conflito de política, falha de dependência e perda de worker.",
+      "escalation": "Escala para PEDRA DA ALMA em decisões sensíveis, SIEGE PERILOUS em ações irreversíveis e ULTIMATE NULLIFIER em risco crítico."
+    },
+    {
+      "id": "CTX-00",
+      "codename": "NEXUS DE TODAS AS REALIDADES",
+      "function": "Estado global e contexto",
+      "block": "comando soberano",
+      "long": "Mantém o mapa canônico de projetos, runs, sub-runs, versões, dependências, memória de trabalho e relações entre artefatos. Funciona como a malha de contexto que conecta todas as execuções sem misturar tenants ou projetos.",
+      "inputs": "Eventos de execução, referências de artefatos, decisões, checkpoints e metadados de projeto.",
+      "outputs": "Contexto autorizado, snapshots, lineage de dependências e visão consolidada de estado.",
+      "tools": "Postgres, event store, cache, vector index derivado e serviço de identidade.",
+      "permissions": "Leitura segmentada por tenant; escrita apenas por agentes autorizados e sob schemas versionados.",
+      "gate": "Isolamento entre projetos, consistência temporal, proveniência e ausência de dados órfãos.",
+      "failures": "Context bleed, eventos fora de ordem, snapshot corrompido, conflito de versão e referência quebrada.",
+      "escalation": "Aciona ADAMANTIUM SEAL para integridade, NEGATIVE ZONE para suspeita de contaminação e PEDRA DO TEMPO para reconstrução."
+    },
+    {
+      "id": "CORE-01",
+      "codename": "PEDRA DA MENTE",
+      "function": "Intenção e planejamento",
+      "block": "cognitivo central",
+      "long": "Interpreta a solicitação em PT-BR, extrai objetivos, restrições, critérios de aceite, entidades, riscos e lacunas. Decompõe o problema em capacidades necessárias e produz um plano explicável. Não executa ferramentas externas.",
+      "inputs": "Pedido do usuário, contexto permitido, templates de domínio e políticas de interpretação.",
+      "outputs": "Requisitos estruturados, nível de ambiguidade, perguntas de esclarecimento e plano de alto nível.",
+      "tools": "LLMs de raciocínio, classificadores, biblioteca de Method Packs e schemas de requisito.",
+      "permissions": "Somente leitura de contexto autorizado; sem acesso a APIs de escrita ou sistemas externos.",
+      "gate": "Cobertura de requisitos, ausência de suposições não declaradas, score de ambiguidade e aderência ao pedido.",
+      "failures": "Alucinação de requisito, decomposição incompleta, conflito de objetivo e ambiguidade crítica.",
+      "escalation": "Encaminha dúvidas à PEDRA DA ALMA; pede evidência ao BOOK OF VISHANTI; remete o plano ao TESSERACT."
+    },
+    {
+      "id": "CORE-02",
+      "codename": "TESSERACT",
+      "function": "Roteamento e capacidades",
+      "block": "cognitivo central",
+      "long": "Resolve quais empresas, squads, agentes, ferramentas e modelos podem atender a cada subtarefa. Faz match semântico e determinístico com o Capability Registry, aplica restrições de política e monta o grafo de handoffs.",
+      "inputs": "Requisitos estruturados, catálogo de capacidades, health status, custos e políticas.",
+      "outputs": "Mapa de roteamento, alternativas de fallback, dependências e contratos de handoff.",
+      "tools": "Capability Registry, MCP, A2A, adapters, health checks e estimador de custo.",
+      "permissions": "Pode descobrir e selecionar capacidades; não pode executar ferramentas sem autorização do Runtime.",
+      "gate": "Precisão de roteamento, compatibilidade de schemas, disponibilidade e ausência de rota proibida.",
+      "failures": "Capacidade inexistente, versão incompatível, provedor indisponível, rota circular e ferramenta não confiável.",
+      "escalation": "Aciona QUANTUM BANDS para adaptação, NORN STONES para política e PEDRA DA MENTE para replanning."
+    },
+    {
+      "id": "CORE-03",
+      "codename": "PEDRA DO TEMPO",
+      "function": "Runtime durável",
+      "block": "cognitivo central",
+      "long": "Executa o plano de forma durável. Persiste checkpoints, controla heartbeats, timeouts, retries, idempotência, cancelamento e compensações. Reconstrói o estado após falhas sem repetir efeitos externos.",
+      "inputs": "DAG de execução, contratos, políticas de retry, deadlines, orçamento e sinais de aprovação.",
+      "outputs": "Execuções concluídas, checkpoints, eventos, compensações e status temporal.",
+      "tools": "Temporal ou runtime equivalente, filas, event store, schedulers e workers.",
+      "permissions": "Pode iniciar e cancelar atividades autorizadas; não pode alterar payloads sem novo contrato.",
+      "gate": "Zero efeitos duplicados, retomada determinística, timeouts respeitados e lineage completo.",
+      "failures": "Worker perdido, heartbeat vencido, retry storm, timeout, cancelamento parcial e side effect duplicado.",
+      "escalation": "Escala para MANOPLA DO INFINITO; aciona ULTIMATE NULLIFIER em risco crítico e SIEGE PERILOUS quando precisa de decisão humana."
+    },
+    {
+      "id": "CORE-04",
+      "codename": "AETHER",
+      "function": "Síntese e composição",
+      "block": "cognitivo central",
+      "long": "Transforma saídas parciais em entregáveis coerentes. Concilia texto, código, imagens, dados e regras de identidade. Garante consistência cross-squad e produz versões finais, previews e manifests.",
+      "inputs": "Entregáveis parciais, design tokens, contratos de saída, rubrics e referências.",
+      "outputs": "Artefatos finais, previews, manifests, diffs e pacote de entrega.",
+      "tools": "Renderers, conversores, geradores multimodais, linters, template engines e Artifact Store.",
+      "permissions": "Pode compor e converter artefatos; não pode falsificar fontes nem sobrescrever versões aprovadas.",
+      "gate": "Consistência visual e semântica, formatos válidos, acessibilidade, integridade e aderência ao design system.",
+      "failures": "Conflito entre outputs, formato inválido, perda de assets, inconsistência de marca e falha de renderização.",
+      "escalation": "Solicita correção ao squad de origem, consulta BOOK OF VISHANTI para evidência e envia para PEDRA DA ALMA quando houver impacto reputacional."
+    },
+    {
+      "id": "CORE-05",
+      "codename": "ORBE DO PODER",
+      "function": "Recursos e orçamento",
+      "block": "cognitivo central",
+      "long": "Estima e controla tokens, compute, armazenamento, chamadas externas e duração. Seleciona modelos por risco e qualidade, aplica quotas, batching, cache e fallback. Mantém o custo dentro do orçamento aprovado.",
+      "inputs": "Plano, previsão de carga, modelos disponíveis, preços, SLAs e limites de tenant.",
+      "outputs": "Reservas de orçamento, estratégia fast/full, seleção de modelo, quotas e alertas.",
+      "tools": "Model Router, cost ledger, rate limiter, cache e métricas financeiras.",
+      "permissions": "Pode reduzir ou reconfigurar recursos; não pode ampliar orçamento além do limite sem aprovação.",
+      "gate": "Custo previsto versus real, qualidade mínima, latência, taxa de fallback e uso de cache.",
+      "failures": "Explosão de tokens, rate limit, modelo degradado, custo acima do teto e fallback insuficiente.",
+      "escalation": "Escala para PEDRA DA ALMA em aumento de orçamento e para TESSERACT quando precisa de nova rota."
+    },
+    {
+      "id": "CORE-06",
+      "codename": "PEDRA DA ALMA",
+      "function": "Governança e HITL",
+      "block": "cognitivo central",
+      "long": "Protege a intenção legítima do usuário, valida consentimento, preferências, sensibilidade, risco e impacto humano. Decide quando pedir esclarecimento, quando exigir aprovação e quando bloquear uma execução.",
+      "inputs": "Requisitos, classificação de risco, políticas, perfil autorizado, histórico de aprovações e sinais de segurança.",
+      "outputs": "Decisão de prosseguir, pausar, esclarecer, reduzir escopo, exigir aprovação ou bloquear.",
+      "tools": "Policy Engine, consent registry, risk model, audit log e SIEGE PERILOUS.",
+      "permissions": "Pode bloquear qualquer run por política; não pode editar evidências ou apagar logs.",
+      "gate": "Conformidade, consentimento, explicabilidade da decisão, minimização de dados e registro auditável.",
+      "failures": "Ação sem consentimento, conflito de interesse, risco não classificado, excesso de agência e decisão irreversível.",
+      "escalation": "Encaminha ao SIEGE PERILOUS para aprovação explícita e ao ULTIMATE NULLIFIER quando houver risco imediato."
+    },
+    {
+      "id": "OPS-01",
+      "codename": "VIBRANIUM VAULT",
+      "function": "Memória e artefatos",
+      "block": "infraestrutura",
+      "long": "Armazena artefatos, manifests, memórias e referências de forma resistente, versionada e segmentada. Mantém hashes, ACLs, retenção, TTL, classificação de dados e relações entre fontes e outputs.",
+      "inputs": "Arquivos, metadados, embeddings derivados, decisões e manifests.",
+      "outputs": "URIs imutáveis, versões, hashes, snapshots, índices e trilhas de acesso.",
+      "tools": "S3/MinIO, Postgres, pgvector derivado, KMS e catálogo de dados.",
+      "permissions": "Leitura e escrita sob ACL; exclusão somente por política de retenção ou solicitação autorizada.",
+      "gate": "Integridade, disponibilidade, isolamento, proveniência, retenção e restauração testada.",
+      "failures": "Corrupção, vazamento entre tenants, memória envenenada, retenção vencida e referência órfã.",
+      "escalation": "Aciona NEGATIVE ZONE para quarentena, ADAMANTIUM SEAL para validação e ULTIMATE NULLIFIER para revogação emergencial."
+    },
+    {
+      "id": "OPS-02",
+      "codename": "ADAMANTIUM SEAL",
+      "function": "Contratos e integridade",
+      "block": "infraestrutura",
+      "long": "Valida todos os handoffs, schemas, versões, assinaturas, idempotency keys e content hashes. Impede que payloads fora do contrato circulem entre agentes.",
+      "inputs": "Mensagem, schema, assinatura, versão, hash, permissões e política de retry.",
+      "outputs": "Contrato aprovado, rejeição tipada, diagnóstico de incompatibilidade e registro de integridade.",
+      "tools": "Pydantic, JSON Schema, assinatura digital, hash e policy engine.",
+      "permissions": "Pode aprovar ou rejeitar mensagens; não pode alterar silenciosamente payloads.",
+      "gate": "Validação determinística, compatibilidade de versão, assinatura válida e idempotência.",
+      "failures": "Schema drift, assinatura inválida, replay, payload truncado e incompatibilidade semântica.",
+      "escalation": "Retorna ao emissor; aciona NEGATIVE ZONE em replay suspeito e TESSERACT em incompatibilidade de rota."
+    },
+    {
+      "id": "OPS-03",
+      "codename": "BIFROST BRIDGE",
+      "function": "Mensageria e handoffs",
+      "block": "infraestrutura",
+      "long": "Transporta eventos e ordens entre agentes, squads e serviços. Preserva correlação, causação, prioridade, prazo e delivery semantics. Não interpreta o conteúdo da tarefa.",
+      "inputs": "Eventos validados, filas, prioridade, deadline e destino.",
+      "outputs": "Entrega confirmada, retry, dead-letter ou evento de falha.",
+      "tools": "Redis Streams, Kafka, NATS ou broker equivalente.",
+      "permissions": "Somente entrega mensagens com selo ADAMANTIUM válido.",
+      "gate": "Ordem causal, baixa perda, latência, backpressure e dead-letter observável.",
+      "failures": "Mensagem duplicada, congestionamento, destino indisponível e ordem causal quebrada.",
+      "escalation": "Aciona PEDRA DO TEMPO para retry, M'KRAAN CRYSTAL para diagnóstico e NEGATIVE ZONE para tráfego anômalo."
+    },
+    {
+      "id": "OPS-04",
+      "codename": "QUANTUM REALM",
+      "function": "Sandbox e simulação",
+      "block": "infraestrutura",
+      "long": "Executa código, ferramentas e conectores em ambientes isolados, efêmeros e observáveis. Simula ações antes de promovê-las para produção e restringe rede, filesystem e credenciais.",
+      "inputs": "Pacote executável, dependências, políticas de rede, limites e dados de teste.",
+      "outputs": "Resultado isolado, logs, métricas, diffs, SBOM e verdict de segurança.",
+      "tools": "Containers, microVMs, scanners, test harness e simuladores.",
+      "permissions": "Sem acesso direto a produção; credenciais temporárias e egress controlado.",
+      "gate": "Isolamento, reprodutibilidade, ausência de vulnerabilidade crítica e cleanup completo.",
+      "failures": "Código malicioso, fuga de sandbox, dependência vulnerável, timeout e consumo excessivo.",
+      "escalation": "Aciona NEGATIVE ZONE, DARKHOLD CHAMBER e ULTIMATE NULLIFIER conforme gravidade."
+    },
+    {
+      "id": "SEC-01",
+      "codename": "NEGATIVE ZONE",
+      "function": "Quarentena e contenção",
+      "block": "segurança",
+      "long": "Isola entradas, arquivos, memória, agentes ou execuções suspeitas. É o destino obrigatório para conteúdo que apresenta prompt injection, malware, exfiltração, comportamento anômalo ou violação de política.",
+      "inputs": "Sinais de risco, artefatos suspeitos, eventos anômalos e alertas.",
+      "outputs": "Quarentena, classificação, evidências, recomendação de descarte ou liberação controlada.",
+      "tools": "Scanners, DLP, malware analysis, prompt injection detectors e SIEM.",
+      "permissions": "Pode suspender acesso e mover itens para quarentena; não pode liberar sem policy decision.",
+      "gate": "Containment time, false positive rate, evidência preservada e zero propagação.",
+      "failures": "Contaminação de memória, prompt injection, malware, exfiltração e supply chain suspeita.",
+      "escalation": "Escala para PEDRA DA ALMA, ULTIMATE NULLIFIER e revisão humana de segurança."
+    },
+    {
+      "id": "QA-01",
+      "codename": "BOOK OF VISHANTI",
+      "function": "Evidência e factualidade",
+      "block": "segurança/evidência",
+      "long": "Valida fontes, citações, datas, cálculos, claims e rastreabilidade. Separa fato, inferência e hipótese. Mantém evidence tables e impede que conteúdo sem suporte seja promovido como factual.",
+      "inputs": "Claims, fontes, documentos, dados e critérios de evidência.",
+      "outputs": "Verdict de factualidade, evidence table, gaps, nível de confiança e correções.",
+      "tools": "Retrieval, verificadores, calculadoras, parsers e datasets confiáveis.",
+      "permissions": "Leitura ampla de fontes autorizadas; não pode fabricar citações ou substituir fonte original.",
+      "gate": "Cobertura de claims, qualidade de fonte, atualidade, consistência e transparência da incerteza.",
+      "failures": "Citação inexistente, fonte fraca, dado desatualizado, contradição e cálculo incorreto.",
+      "escalation": "Retorna ao produtor, pede pesquisa adicional ou bloqueia promoção do artefato."
+    },
+    {
+      "id": "OBS-01",
+      "codename": "M'KRAAN CRYSTAL",
+      "function": "Observabilidade e lineage",
+      "block": "observabilidade",
+      "long": "Reconstrói a história completa de uma execução. Correlaciona spans, modelos, prompts, tool calls, custos, decisões de política, QA, artefatos e aprovações. Detecta drift, anomalias e gargalos.",
+      "inputs": "Traces, logs, métricas, eventos, manifests e decisões.",
+      "outputs": "Dashboards, alertas, lineage, relatórios de custo e diagnósticos.",
+      "tools": "OpenTelemetry, Langfuse/LangSmith, métricas, SIEM e data warehouse.",
+      "permissions": "Leitura de telemetria com redaction; sem acesso a secrets em claro.",
+      "gate": "Cobertura de trace, baixa cardinalidade indevida, redaction, correlação e alertas acionáveis.",
+      "failures": "Trace quebrado, log com PII, métrica ausente, custo não atribuído e drift silencioso.",
+      "escalation": "Aciona o agente responsável, PEDRA DO TEMPO para recovery e PEDRA DA ALMA para risco de governança."
+    },
+    {
+      "id": "GATE-01",
+      "codename": "SIEGE PERILOUS",
+      "function": "Gate de aprovação",
+      "block": "governança",
+      "long": "Centraliza decisões humanas para ações de alto impacto, como publicação, envio externo, execução financeira, exclusão, assinatura, deploy e uso de dados sensíveis. Exibe contexto, risco, custo, preview e alternativas.",
+      "inputs": "Pedido de aprovação, evidências, impacto, preview, rollback e prazo.",
+      "outputs": "Aprovação, rejeição, aprovação condicionada, pedido de mudança ou expiração.",
+      "tools": "Interface HITL, assinatura, notificações e audit log.",
+      "permissions": "Não executa a ação; apenas emite autorização vinculada ao run e ao escopo.",
+      "gate": "Identidade do aprovador, escopo preciso, validade, não repúdio e clareza da decisão.",
+      "failures": "Aprovação ambígua, token expirado, aprovador inadequado e mudança de escopo após aprovação.",
+      "escalation": "Retorna à PEDRA DA ALMA ou bloqueia o Runtime até nova decisão."
+    },
+    {
+      "id": "SAFE-01",
+      "codename": "ULTIMATE NULLIFIER",
+      "function": "Kill switch e rollback",
+      "block": "segurança crítica",
+      "long": "Interrompe imediatamente runs, revoga credenciais, bloqueia ferramentas, congela filas e inicia procedimentos de rollback ou contenção. É reservado a risco crítico, incidente ou comando humano autorizado.",
+      "inputs": "Alerta crítico, comando autorizado, escopo do incidente e plano de rollback.",
+      "outputs": "Execução interrompida, credenciais revogadas, ações compensatórias e relatório de incidente.",
+      "tools": "Runtime, IAM, secret manager, broker, deployment controller e incident response.",
+      "permissions": "Privilégio máximo sob dupla autorização e logging imutável.",
+      "gate": "Tempo de contenção, completude da revogação, integridade do rollback e evidência preservada.",
+      "failures": "Rogue agent, exfiltração, ação destrutiva, cadeia de falhas e comprometimento de credencial.",
+      "escalation": "Aciona resposta humana, NEGATIVE ZONE e M'KRAAN CRYSTAL para investigação."
+    },
+    {
+      "id": "POL-01",
+      "codename": "NORN STONES",
+      "function": "Policy packs e regras",
+      "block": "política",
+      "long": "Mantém políticas versionadas para dados, ferramentas, modelos, aprovações, retenção, domínios e limites de autonomia. Compila regras em decisões determinísticas consumidas pelo Runtime e pela PEDRA DA ALMA.",
+      "inputs": "Políticas, contexto, classificação de risco, tenant e ação proposta.",
+      "outputs": "Allow, deny, require-approval, redact, limit ou quarantine.",
+      "tools": "OPA/Cedar ou motor equivalente, Git, assinatura e testes de política.",
+      "permissions": "Somente administradores autorizados publicam políticas; agentes apenas consultam.",
+      "gate": "Testes de regressão, explicabilidade, ausência de conflito e versionamento.",
+      "failures": "Regra contraditória, policy drift, bypass, versão errada e exceção não auditada.",
+      "escalation": "Bloqueia por padrão e envia conflito à PEDRA DA ALMA."
+    },
+    {
+      "id": "ADP-01",
+      "codename": "QUANTUM BANDS",
+      "function": "Adapters de ferramentas e modelos",
+      "block": "adaptação",
+      "long": "Normaliza interfaces entre o VÉRTICE-OS e provedores externos. Converte schemas, autenticação, streaming, erros e limites, mantendo o core independente de fornecedor.",
+      "inputs": "Contrato canônico, provider target, credenciais efêmeras e capability request.",
+      "outputs": "Resposta normalizada, erros tipados, métricas e status de compatibilidade.",
+      "tools": "MCP, A2A, SDKs, REST/gRPC, model APIs e tool wrappers.",
+      "permissions": "Somente adapters aprovados; sem acesso persistente a secrets.",
+      "gate": "Compatibilidade, timeout, erro tipado, redaction e testes de contrato.",
+      "failures": "API drift, provider outage, schema mismatch, rate limit e resposta malformada.",
+      "escalation": "Aciona TESSERACT para fallback e NEGATIVE ZONE para comportamento suspeito."
+    },
+    {
+      "id": "META-01",
+      "codename": "COSMIC CUBE FORGE",
+      "function": "Fábrica de agentes e squads",
+      "block": "meta-construção",
+      "long": "Gera novos módulos a partir de uma especificação, mas nunca publica diretamente em produção. Produz manifests, agentes, workflows, contratos, policies, testes, evals, documentação e runbooks. Todo resultado passa por sandbox, red team, benchmark e aprovação humana.",
+      "inputs": "Descrição do domínio, requisitos, políticas, fontes, exemplos e benchmark alvo.",
+      "outputs": "Pacote de squad versionado, relatório de testes, SBOM/AIBOM e recomendação de publicação.",
+      "tools": "Code generation, templates, QUANTUM REALM, DARKHOLD CHAMBER, EvalOps e Registry staging.",
+      "permissions": "Pode escrever apenas em staging; publicação exige SIEGE PERILOUS.",
+      "gate": "Cobertura de testes, segurança, benchmark, documentação, schemas e compatibilidade.",
+      "failures": "Squad inseguro, capabilities excessivas, teste insuficiente, dependência vulnerável e qualidade abaixo do mínimo.",
+      "escalation": "Rejeita, retrabalha ou envia para aprovação humana; nunca faz auto-instalação silenciosa."
+    },
+    {
+      "id": "RED-01",
+      "codename": "DARKHOLD CHAMBER",
+      "function": "Red team e testes adversariais",
+      "block": "red team",
+      "long": "Simula ataques, falhas e usos indevidos contra agentes, memória, ferramentas e handoffs. Mantém corpus adversarial isolado e produz findings sem contaminar a memória produtiva.",
+      "inputs": "Build candidato, threat model, políticas, datasets adversariais e escopo de teste.",
+      "outputs": "Findings, severidade, provas controladas, recomendações e verdict de promoção.",
+      "tools": "Red-team harness, fuzzing, prompt injection suite, scanners e sandbox.",
+      "permissions": "Acesso somente a ambientes de teste; sem dados reais ou credenciais produtivas.",
+      "gate": "Cobertura de ameaças, reprodutibilidade, severidade correta e ausência de vazamento.",
+      "failures": "Goal hijack, tool misuse, privilege abuse, memory poisoning, insecure handoff e cascading failure.",
+      "escalation": "Bloqueia promoção e aciona NEGATIVE ZONE ou ULTIMATE NULLIFIER quando encontra risco crítico."
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC-01",
+      "criterion": "O nome principal permanece VÉRTICE-OS em todas as interfaces e documentos."
+    },
+    {
+      "id": "AC-02",
+      "criterion": "Nenhum agente utiliza nome, imagem, fala ou identidade de personagem."
+    },
+    {
+      "id": "AC-03",
+      "criterion": "Todos os agentes possuem ID técnico, codinome, papel e manifesto versionado."
+    },
+    {
+      "id": "AC-04",
+      "criterion": "Todos os handoffs são validados pelo ADAMANTIUM SEAL."
+    },
+    {
+      "id": "AC-05",
+      "criterion": "A PEDRA DO TEMPO retoma uma execução após falha sem duplicar side effects."
+    },
+    {
+      "id": "AC-06",
+      "criterion": "A PEDRA DA ALMA bloqueia ação sensível sem consentimento ou aprovação."
+    },
+    {
+      "id": "AC-07",
+      "criterion": "NEGATIVE ZONE contém prompt injection ou artefato suspeito sem propagação."
+    },
+    {
+      "id": "AC-08",
+      "criterion": "BOOK OF VISHANTI consegue reconstruir a fonte de cada claim factual."
+    },
+    {
+      "id": "AC-09",
+      "criterion": "M'KRAAN CRYSTAL reconstrói a execução completa a partir do trace_id."
+    },
+    {
+      "id": "AC-10",
+      "criterion": "COSMIC CUBE FORGE não publica agente sem testes, benchmark e aprovação humana."
+    },
+    {
+      "id": "AC-11",
+      "criterion": "ULTIMATE NULLIFIER encerra runs e revoga credenciais dentro do SLA crítico."
+    },
+    {
+      "id": "AC-12",
+      "criterion": "A temática pode ser removida sem quebrar APIs, porque os IDs técnicos são estáveis."
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "F0",
+      "agents": "Manopla, Mente, Tesseract, Tempo",
+      "result": "Kernel funcional"
+    },
+    {
+      "phase": "F1",
+      "agents": "Adamantium, Bifrost, Vibranium",
+      "result": "Contratos e memória"
+    },
+    {
+      "phase": "F2",
+      "agents": "Alma, Norn, Siege Perilous",
+      "result": "Governança e HITL"
+    },
+    {
+      "phase": "F3",
+      "agents": "Negative Zone, Quantum Realm, Nullifier",
+      "result": "Segurança operacional"
+    },
+    {
+      "phase": "F4",
+      "agents": "Vishanti, M'Kraan, EvalOps",
+      "result": "Evidência e observabilidade"
+    },
+    {
+      "phase": "F5",
+      "agents": "Aether, Power Orb, Quantum Bands",
+      "result": "Artefatos e otimização"
+    },
+    {
+      "phase": "F6",
+      "agents": "Cosmic Cube Forge, Darkhold Chamber",
+      "result": "Meta-fábrica segura"
+    }
+  ]
+}

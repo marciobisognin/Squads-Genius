@@ -1,0 +1,20 @@
+name: security_governance
+version: 2.1.0
+description: Segurança, limites de autonomia, QA, EvalOps e gates conforme PRD.
+rules:
+  - Nenhum agente possui credencial permanente de produção.
+  - Toda ferramenta é allowlisted e vinculada a uma capability específica.
+  - Ações irreversíveis exigem SIEGE PERILOUS.
+  - Conteúdo externo passa por sanitização e, quando necessário, NEGATIVE ZONE.
+  - Memória produtiva e corpus adversarial permanecem isolados.
+  - O Runtime aplica limites de custo, duração, tentativas e paralelismo.
+  - O ULTIMATE NULLIFIER pode revogar credenciais e congelar filas.
+  - Logs recebem redaction de dados sensíveis e preservam evidência auditável.
+gates:
+  - Formato: Schema e arquivos.
+  - Técnico: Testes e performance.
+  - Factual: Evidência e fontes.
+  - Segurança: Ameaças e permissões.
+  - Política: Consentimento e uso.
+  - Cross-squad: Coerência entre outputs.
+  - Humano: Aceitação ou aprovação.

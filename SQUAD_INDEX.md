@@ -60,6 +60,8 @@ Squads publicados no repositório `Squads-Genius`.
 - [Farol Contratos e Licitações IFFar](IFFar-Squads/squads/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — versão `3.0.0` — inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências e gates humanos
 - [PrismaFrame Executive Cinema Suite](IFFar-Squads/squads/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — versão `1.0.0` — materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual
 
+- [VÉRTICE-OS | Artefatos Marvel](squads/vertice-os-artefatos-marvel/README.md) — `vertice-os-artefatos-marvel` — versão `2.1.0` — arquitetura interna temática multiagente com 21 agentes, contratos, gates, HITL, evidência e rollback conforme PRD de Marcio Bisognin
+
 ---
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

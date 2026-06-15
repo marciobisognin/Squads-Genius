@@ -1,0 +1,52 @@
+name: order_lifecycle
+version: 2.1.0
+description: Fluxo ponta a ponta de uma ordem conforme PRD VÉRTICE-OS.
+steps:
+  - order: 1
+    agent: CTL-00
+    codename: MANOPLA DO INFINITO
+    action: Recebe o pedido e cria um run imutável no NEXUS DE TODAS AS REALIDADES.
+  - order: 2
+    agent: CORE-01
+    codename: PEDRA DA MENTE
+    action: Transforma linguagem natural em requisitos, riscos, critérios de aceite e plano.
+  - order: 3
+    agent: CORE-02
+    codename: TESSERACT
+    action: Descobre capacidades, versões, custos e rotas permitidas.
+  - order: 4
+    agent: CORE-05
+    codename: ORBE DO PODER
+    action: Reserva orçamento e define combinação de modelos e ferramentas.
+  - order: 5
+    agent: CORE-06
+    codename: PEDRA DA ALMA
+    action: Avalia consentimento, risco, política e necessidade de aprovação.
+  - order: 6
+    agent: CORE-03
+    codename: PEDRA DO TEMPO
+    action: Executa DAG com checkpoints, retries, cancelamento e idempotência.
+  - order: 7
+    agent: OPS-03
+    codename: BIFROST BRIDGE
+    action: Transporta handoffs selados pelo ADAMANTIUM SEAL.
+  - order: 8
+    agent: OPS-04
+    codename: QUANTUM REALM
+    action: Executa código e ferramentas de risco em isolamento.
+  - order: 9
+    agent: CORE-04
+    codename: AETHER
+    action: Compõe artefatos finais e envia claims para o BOOK OF VISHANTI.
+  - order: 10
+    agent: OBS-01
+    codename: M'KRAAN CRYSTAL
+    action: Registra traces, custos, QA, decisões e lineage.
+  - order: 11
+    agent: GATE-01
+    codename: SIEGE PERILOUS
+    action: Coleta aprovação quando exigido e o VIBRANIUM VAULT publica a versão final.
+  - order: 12
+    agent: SAFE-01
+    codename: ULTIMATE NULLIFIER
+    action: Em incidente crítico, interrompe, revoga e inicia rollback.

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VÉRTICE-OS Canonical Agent Envelope",
+  "type": "object",
+  "required": [
+    "message_id",
+    "run_id",
+    "project_id",
+    "tenant_id",
+    "source_agent",
+    "destination_agent",
+    "capability_required",
+    "schema_version",
+    "idempotency_key",
+    "priority",
+    "deadline",
+    "data_classification",
+    "policy_decision",
+    "artifact_refs",
+    "qa_status",
+    "trace_id",
+    "signature"
+  ],
+  "properties": {
+    "message_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "source_agent": {
+      "type": "string"
+    },
+    "destination_agent": {
+      "type": "string"
+    },
+    "capability_required": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "idempotency_key": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "deadline": {
+      "type": "string"
+    },
+    "data_classification": {
+      "type": "string"
+    },
+    "policy_decision": {
+      "type": "string"
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qa_status": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    }
+  }
+}

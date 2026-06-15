@@ -1,0 +1,23 @@
+# Inventário VÉRTICE-OS
+
+- `CTL-00` | **MANOPLA DO INFINITO** | Orquestrador soberano
+- `CTX-00` | **NEXUS DE TODAS AS REALIDADES** | Estado global e contexto
+- `CORE-01` | **PEDRA DA MENTE** | Intenção e planejamento
+- `CORE-02` | **TESSERACT** | Roteamento e capacidades
+- `CORE-03` | **PEDRA DO TEMPO** | Runtime durável
+- `CORE-04` | **AETHER** | Síntese e composição
+- `CORE-05` | **ORBE DO PODER** | Recursos e orçamento
+- `CORE-06` | **PEDRA DA ALMA** | Governança e HITL
+- `OPS-01` | **VIBRANIUM VAULT** | Memória e artefatos
+- `OPS-02` | **ADAMANTIUM SEAL** | Contratos e integridade
+- `OPS-03` | **BIFROST BRIDGE** | Mensageria e handoffs
+- `OPS-04` | **QUANTUM REALM** | Sandbox e simulação
+- `SEC-01` | **NEGATIVE ZONE** | Quarentena e contenção
+- `QA-01` | **BOOK OF VISHANTI** | Evidência e factualidade
+- `OBS-01` | **M'KRAAN CRYSTAL** | Observabilidade e lineage
+- `GATE-01` | **SIEGE PERILOUS** | Gate de aprovação
+- `SAFE-01` | **ULTIMATE NULLIFIER** | Kill switch e rollback
+- `POL-01` | **NORN STONES** | Policy packs e regras
+- `ADP-01` | **QUANTUM BANDS** | Adapters de ferramentas e modelos
+- `META-01` | **COSMIC CUBE FORGE** | Fábrica de agentes e squads
+- `RED-01` | **DARKHOLD CHAMBER** | Red team e testes adversariais
