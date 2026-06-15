@@ -1,4 +1,8 @@
 <div align="center">
+  <img src="assets/vertice-os-capacidades.jpg" alt="VÉRTICE-OS — o que este squad será capaz de fazer" width="100%">
+</div>
+
+<div align="center">
   <h1>VÉRTICE-OS</h1>
   <p><strong>PRD de arquitetura interna temática — Artefatos Marvel</strong></p>
 
