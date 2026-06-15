@@ -1,0 +1,54 @@
+id: checklist-conformidade-edital
+description: Aplicar checklist de conformidade a edital conforme Lei 14.133/2021.
+assigned_agent: gestor-convenios-editais
+dependencies: []
+input_schema:
+  type: object
+  required:
+  - source
+  - reference_date
+  properties:
+    source:
+      type: string
+    reference_date:
+      type: string
+    records:
+      type: array
+    human_review_required:
+      type: boolean
+  additionalProperties: true
+  title: checklist-conformidade-edital input
+output_schema:
+  type: object
+  required:
+  - status
+  - human_review_required
+  properties:
+    status:
+      type: string
+    human_review_required:
+      const: true
+    issues:
+      type: array
+    outputs:
+      type: array
+validation_rules:
+- validar schema de entrada
+- registrar origem e data de referência
+- marcar campos ausentes como dado_incompleto
+- não emitir decisão final
+timeout: 120s
+retry_policy:
+  max_attempts: 2
+  retry_on:
+  - erro de parsing
+  - arquivo temporariamente indisponível
+  do_not_retry_on:
+  - schema inválido
+  - ausência de dado obrigatório
+human_approval: true
+failure_behavior: Gerar relatório de bloqueio com dados faltantes, sem fabricar evidências ou valores.
+quality_criteria:
+- Aplicar checklist de conformidade da Lei 14.133/2021 a editais e processos correlatos.
+- Mapear pendências de convênios, TED, vigência, prestação de contas e publicação.
+- saída auditável e revisável

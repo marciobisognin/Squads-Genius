@@ -55,6 +55,8 @@ Squads publicados no repositório `Squads-Genius`.
 - [Reforco Neurocognitivo Infantil Squad](squads/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — versão `1.0.0` — desenvolvimento neurocognitivo para criancas
 - [Gestor Projetos IFFar Squad](squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
 
+- [SQU Tesouraria & Conformidade Pública](squads/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — versão `1.0.0` — inteligência orçamentária, prestação de contas, auditoria e conformidade pública para IFs
+
 ---
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

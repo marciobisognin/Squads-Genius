@@ -1,0 +1,35 @@
+id: execucao-orcamentaria-mensal
+description: Fluxo mensal de acompanhamento por DAP, PROAD ou PROPLAN.
+version: 1.0.0
+conditions:
+- executar somente com dados fornecidos pelo usuário
+- exigir revisão humana antes de protocolo ou decisão
+steps:
+- task: consolidar-execucao-orcamentaria
+  timeout: 120s
+  retries: 1
+  human_gate: false
+- task: classificar-saldo-restos-a-pagar
+  timeout: 120s
+  retries: 1
+  human_gate: false
+- task: gerar-painel-indicadores
+  timeout: 120s
+  retries: 1
+  human_gate: false
+dependencies:
+- from: consolidar-execucao-orcamentaria
+  to: classificar-saldo-restos-a-pagar
+- from: classificar-saldo-restos-a-pagar
+  to: gerar-painel-indicadores
+gates:
+- schema_valid
+- fonte_de_dados_informada
+- revisao_humana_dap_proad
+failure_paths:
+- dados_incompletos -> solicitar nova exportação
+- saldo_negativo -> marcar inconsistência e exigir conferência humana
+outputs:
+- relatório Markdown
+- JSON auditável
+- registro de revisão humana

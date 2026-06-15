@@ -1,0 +1,75 @@
+name: squ-tesouraria-publica-squad
+display_name: SQU Tesouraria & Conformidade Pública
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+status: operational-prototype
+purpose: Apoio analítico e documental para execução orçamentária, prestação de contas, auditoria, convênios, editais,
+  pareceres e indicadores em instituições federais.
+domain: setor-publico-federal
+language: pt-BR
+entry_point: orcamentista-chefe
+agents:
+- id: orcamentista-chefe
+  file: agents/orcamentista-chefe.yaml
+- id: analista-execucao-sipac
+  file: agents/analista-execucao-sipac.yaml
+- id: auditor-tcu-cgu
+  file: agents/auditor-tcu-cgu.yaml
+- id: gestor-convenios-editais
+  file: agents/gestor-convenios-editais.yaml
+- id: redator-pareceres-tecnicos
+  file: agents/redator-pareceres-tecnicos.yaml
+- id: painel-indicadores
+  file: agents/painel-indicadores.yaml
+tasks:
+- id: consolidar-execucao-orcamentaria
+  file: tasks/consolidar-execucao-orcamentaria.yaml
+- id: classificar-saldo-restos-a-pagar
+  file: tasks/classificar-saldo-restos-a-pagar.yaml
+- id: montar-dossie-prestacao-contas
+  file: tasks/montar-dossie-prestacao-contas.yaml
+- id: responder-achado-auditoria
+  file: tasks/responder-achado-auditoria.yaml
+- id: registrar-plano-de-acao
+  file: tasks/registrar-plano-de-acao.yaml
+- id: checklist-conformidade-edital
+  file: tasks/checklist-conformidade-edital.yaml
+- id: checklist-conformidade-convenio-ted
+  file: tasks/checklist-conformidade-convenio-ted.yaml
+- id: redigir-parecer-tecnico
+  file: tasks/redigir-parecer-tecnico.yaml
+- id: simular-cenario-orcamentario
+  file: tasks/simular-cenario-orcamentario.yaml
+- id: gerar-painel-indicadores
+  file: tasks/gerar-painel-indicadores.yaml
+workflows:
+- id: execucao-orcamentaria-mensal
+  file: workflows/execucao-orcamentaria-mensal.yaml
+- id: prestacao-de-contas-auditoria
+  file: workflows/prestacao-de-contas-auditoria.yaml
+- id: simulacao-cenarios-pdi
+  file: workflows/simulacao-cenarios-pdi.yaml
+scripts:
+- scripts/tesouraria_publica.py
+- scripts/validate_squad.py
+examples:
+- examples/execution_sample.csv
+- examples/scenario_cut_10.json
+- examples/edital_sample.json
+quality_gates:
+- briefing_prd_preserved
+- contracts_valid
+- prototype_runs
+- pytest_passes
+- human_review_required
+tags:
+- tesouraria-publica
+- orcamento
+- conformidade
+- auditoria
+- tcu
+- cgu
+- pdi
+- sipac
+- siafi

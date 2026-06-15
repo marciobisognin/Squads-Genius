@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "process_id",
+    "object",
+    "documents_present"
+  ],
+  "properties": {
+    "process_id": {
+      "type": "string"
+    },
+    "object": {
+      "type": "string"
+    },
+    "documents_present": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

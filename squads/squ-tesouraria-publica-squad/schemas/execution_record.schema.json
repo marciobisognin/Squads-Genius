@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "required": [
+    "unidade",
+    "acao",
+    "natureza_despesa",
+    "fonte",
+    "dotacao",
+    "empenhado",
+    "liquidado",
+    "pago",
+    "restos_processados",
+    "restos_nao_processados"
+  ],
+  "properties": {
+    "unidade": {
+      "type": "string"
+    },
+    "acao": {
+      "type": "string"
+    },
+    "natureza_despesa": {
+      "type": "string"
+    },
+    "fonte": {
+      "type": "string"
+    },
+    "dotacao": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "empenhado": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "liquidado": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "pago": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "restos_processados": {
+      "type": [
+        "number",
+        "string"
+      ]
+    },
+    "restos_nao_processados": {
+      "type": [
+        "number",
+        "string"
+      ]
+    }
+  }
+}

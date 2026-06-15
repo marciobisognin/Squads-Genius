@@ -1,0 +1,11 @@
+{
+  "name": "corte_linear_10_saldo_disponivel",
+  "type": "percentage_cut",
+  "percentage": 10,
+  "affected_units": [],
+  "premises": [
+    "Corte aplicado apenas sobre saldo disponível calculado.",
+    "Não altera valores já empenhados.",
+    "Simulação exige revisão PROAD/PROPLAN."
+  ]
+}

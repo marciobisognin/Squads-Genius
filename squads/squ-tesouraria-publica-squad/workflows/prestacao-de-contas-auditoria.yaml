@@ -1,0 +1,41 @@
+id: prestacao-de-contas-auditoria
+description: Fluxo para Relatório de Gestão, e-Contas ou resposta a TCU/CGU.
+version: 1.0.0
+conditions:
+- executar somente com dados fornecidos pelo usuário
+- exigir revisão humana antes de protocolo ou decisão
+steps:
+- task: montar-dossie-prestacao-contas
+  timeout: 120s
+  retries: 1
+  human_gate: false
+- task: responder-achado-auditoria
+  timeout: 120s
+  retries: 1
+  human_gate: true
+- task: redigir-parecer-tecnico
+  timeout: 120s
+  retries: 1
+  human_gate: true
+- task: registrar-plano-de-acao
+  timeout: 120s
+  retries: 1
+  human_gate: false
+dependencies:
+- from: montar-dossie-prestacao-contas
+  to: responder-achado-auditoria
+- from: responder-achado-auditoria
+  to: redigir-parecer-tecnico
+- from: redigir-parecer-tecnico
+  to: registrar-plano-de-acao
+gates:
+- evidencias_presentes
+- sem_normativo_inventado
+- revisao_humana_auditoria_procuradoria
+failure_paths:
+- evidencia_ausente -> marcar pendência
+- risco_juridico -> escalar para Procuradoria
+outputs:
+- relatório Markdown
+- JSON auditável
+- registro de revisão humana

@@ -1,0 +1,55 @@
+id: montar-dossie-prestacao-contas
+description: Montar dossiê de prestação de contas com achados, evidências e plano de ação.
+assigned_agent: auditor-tcu-cgu
+dependencies:
+- consolidar-execucao-orcamentaria
+input_schema:
+  type: object
+  required:
+  - source
+  - reference_date
+  properties:
+    source:
+      type: string
+    reference_date:
+      type: string
+    records:
+      type: array
+    human_review_required:
+      type: boolean
+  additionalProperties: true
+  title: montar-dossie-prestacao-contas input
+output_schema:
+  type: object
+  required:
+  - status
+  - human_review_required
+  properties:
+    status:
+      type: string
+    human_review_required:
+      const: true
+    issues:
+      type: array
+    outputs:
+      type: array
+validation_rules:
+- validar schema de entrada
+- registrar origem e data de referência
+- marcar campos ausentes como dado_incompleto
+- não emitir decisão final
+timeout: 120s
+retry_policy:
+  max_attempts: 2
+  retry_on:
+  - erro de parsing
+  - arquivo temporariamente indisponível
+  do_not_retry_on:
+  - schema inválido
+  - ausência de dado obrigatório
+human_approval: true
+failure_behavior: Gerar relatório de bloqueio com dados faltantes, sem fabricar evidências ou valores.
+quality_criteria:
+- Mapear achados por origem, normativo citado, prazo, status e unidade responsável.
+- Estruturar matriz achado x resposta x evidência x plano de ação.
+- saída auditável e revisável

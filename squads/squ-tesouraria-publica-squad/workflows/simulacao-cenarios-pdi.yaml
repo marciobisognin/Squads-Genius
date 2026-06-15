@@ -1,0 +1,41 @@
+id: simulacao-cenarios-pdi
+description: Fluxo de apoio à decisão para contingenciamento, corte linear ou remanejamento.
+version: 1.0.0
+conditions:
+- executar somente com dados fornecidos pelo usuário
+- exigir revisão humana antes de protocolo ou decisão
+steps:
+- task: consolidar-execucao-orcamentaria
+  timeout: 120s
+  retries: 1
+  human_gate: false
+- task: simular-cenario-orcamentario
+  timeout: 120s
+  retries: 1
+  human_gate: true
+- task: gerar-painel-indicadores
+  timeout: 120s
+  retries: 1
+  human_gate: false
+- task: redigir-parecer-tecnico
+  timeout: 120s
+  retries: 1
+  human_gate: true
+dependencies:
+- from: consolidar-execucao-orcamentaria
+  to: simular-cenario-orcamentario
+- from: simular-cenario-orcamentario
+  to: gerar-painel-indicadores
+- from: gerar-painel-indicadores
+  to: redigir-parecer-tecnico
+gates:
+- premissas_registradas
+- impacto_por_unidade_calculado
+- revisao_humana_reitoria_proad
+failure_paths:
+- premissa_ausente -> solicitar definição
+- impacto_alto -> exigir justificativa e aprovação superior
+outputs:
+- relatório Markdown
+- JSON auditável
+- registro de revisão humana
