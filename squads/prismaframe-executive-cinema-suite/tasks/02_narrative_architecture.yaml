@@ -1,7 +1,0 @@
-id: 02_narrative_architecture
-title: "Arquitetura narrativa executiva"
-sequence: 2
-acceptance:
-  - entrada e saída registradas
-  - produto final não expõe bastidores
-  - evidência de validação salva em validation/

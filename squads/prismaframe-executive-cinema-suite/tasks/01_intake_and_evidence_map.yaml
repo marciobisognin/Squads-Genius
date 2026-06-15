@@ -1,7 +1,0 @@
-id: 01_intake_and_evidence_map
-title: "Intake e mapa de evidências"
-sequence: 1
-acceptance:
-  - entrada e saída registradas
-  - produto final não expõe bastidores
-  - evidência de validação salva em validation/

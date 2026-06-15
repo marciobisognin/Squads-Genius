@@ -1,0 +1,83 @@
+{
+  "status": "validated",
+  "generated_at": "2026-06-15T01:38:02Z",
+  "components_generated": {
+    "required_files": [
+      "README.md",
+      "PRD.md",
+      "squad.yaml",
+      "guardrails.md",
+      "LICENSE",
+      "NOTICE.md",
+      "AUTHORS.md",
+      "requirements.txt"
+    ],
+    "directories": [
+      "agents",
+      "tasks",
+      "workflows",
+      "scripts",
+      "tests",
+      "examples",
+      "docs",
+      "schemas",
+      "templates"
+    ],
+    "agents": 6,
+    "tasks": 10,
+    "workflows": 3,
+    "scripts": 2,
+    "tests": 1
+  },
+  "validations_executed": [
+    {
+      "command": "python -m py_compile scripts/*.py",
+      "result": "passed"
+    },
+    {
+      "command": "python -m pytest -q",
+      "result": "4 passed"
+    },
+    {
+      "command": "python scripts/tesouraria_publica.py run-demo --output /data/data/com.termux/files/home/tmp/tesouraria_demo",
+      "result": "completed"
+    },
+    {
+      "command": "python scripts/validate_squad.py --root .",
+      "result": "go; issues: []"
+    },
+    {
+      "command": "python squads/maeve-genius-forge-squad/scripts/validate_squad.py --root IFFar-Squads/squads/squ-tesouraria-publica-squad",
+      "result": "go; issues: []"
+    }
+  ],
+  "tests_passed": [
+    "test_consolidate_records_totals",
+    "test_checklist_edital_detects_pending_items",
+    "test_run_demo_generates_expected_outputs",
+    "test_contracts_have_required_fields"
+  ],
+  "tests_failed": [],
+  "risks_found": [
+    "Protótipo local opera sobre exportações fornecidas pelo usuário e não substitui SIAFI, SIPAC, Tesouro Gerencial ou sistemas oficiais.",
+    "Normativos específicos e dispositivos legais devem ser confirmados antes de protocolo institucional.",
+    "Simulações são apoio à decisão e exigem validação de PROAD/PROPLAN/Reitoria."
+  ],
+  "elements_requiring_human_review": [
+    "respostas a achados TCU/CGU",
+    "pareceres técnicos finais",
+    "simulações usadas para decisão orçamentária",
+    "documentos a protocolar",
+    "tratamento de dados pessoais sensíveis"
+  ],
+  "score_criteria": {
+    "completeness": 100,
+    "agent_task_traceability": 100,
+    "execution_readiness": 100,
+    "safety_guardrails": 95,
+    "source_traceability": 95
+  },
+  "score_formula": "média simples dos critérios completeness, agent_task_traceability, execution_readiness, safety_guardrails e source_traceability, calculados sobre arquivos e validações reais",
+  "score": 98.0,
+  "go_no_go": "go"
+}

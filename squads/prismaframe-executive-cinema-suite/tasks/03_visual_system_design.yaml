@@ -1,7 +1,0 @@
-id: 03_visual_system_design
-title: "Sistema visual premium"
-sequence: 3
-acceptance:
-  - entrada e saída registradas
-  - produto final não expõe bastidores
-  - evidência de validação salva em validation/

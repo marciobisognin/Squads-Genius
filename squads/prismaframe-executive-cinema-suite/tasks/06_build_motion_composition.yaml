@@ -1,7 +1,0 @@
-id: 06_build_motion_composition
-title: "Composição animada HTML-native"
-sequence: 6
-acceptance:
-  - entrada e saída registradas
-  - produto final não expõe bastidores
-  - evidência de validação salva em validation/

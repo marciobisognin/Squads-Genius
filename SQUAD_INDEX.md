@@ -12,8 +12,8 @@ Squads publicados no repositório `Squads-Genius`.
 - [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
 - [Orquestrador de Execução Durável para Squads](squads/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — versão `1.0.0` — runtime durável para workflows multiagentes com checkpoints, sinais humanos, compensações e auditoria
 - [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
-- [germina360-squad](squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
-- [Hefesto Forja Licitatória](squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes
+- [germina360-squad](IFFar-Squads/squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
+- [Hefesto Forja Licitatória](IFFar-Squads/squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes
 - [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
 - [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`
 - [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.1.0` — pesquisa científica, síntese de evidências e artigo acadêmico auditável
@@ -34,28 +34,31 @@ Squads publicados no repositório `Squads-Genius`.
 - [Prisma Psíquico Integrativo](squads/prisma-psiquico-integrativo/README.md) — `prisma-psiquico-integrativo` — versão `1.0.0`
 - [SQU Oráculo de Aion](squads/squ-oraculo-aion-finance-super-squad/README.md) — `squ-oraculo-aion-finance-super-squad` — versão `1.0.0` — inteligência financeira global educacional, cenários, risco e relatórios auditáveis
 - [skeptic-protocol](squads/skeptic-protocol/README.md) — `skeptic-protocol` — versão `1.0.0`
-- [Squad PCFP](squads/squad-pcfp/README.md) — `squad-pcfp` — versão `1.0.0` — elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços (Anexo VII-D, IN 05/2017) com engine determinística e HITL
-- [Themis Contratos Públicos](squads/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — versão `1.0.0` — equipe jurídica para análise de contratos administrativos com base nas normas da CGU e dos Tribunais de Contas
+- [Squad PCFP](IFFar-Squads/squads/squad-pcfp/README.md) — `squad-pcfp` — versão `1.0.0` — elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços (Anexo VII-D, IN 05/2017) com engine determinística e HITL
+- [Themis Contratos Públicos](IFFar-Squads/squads/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — versão `1.0.0` — equipe jurídica para análise de contratos administrativos com base nas normas da CGU e dos Tribunais de Contas
 - [VetorNexo](squads/vetornexo-premium-squad/README.md) — `vetornexo-premium-squad` — versão `1.0.0`
-- [vetorviveiro-squad](squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`
-- [Órbita Incubadora Squad](squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`
+- [vetorviveiro-squad](IFFar-Squads/squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`
+- [Órbita Incubadora Squad](IFFar-Squads/squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`
 
 
 
 - [Prisma Real Problem Squad](squads/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — versão `1.0.0` — diagnóstico e decomposição de problemas reais em squads operacionais
 
-- [Integra Incubadora Operations Squad](squads/integra-incubadora-ops-squad/README.md) — `integra-incubadora-ops-squad` — versão `1.0.0` — operacionalizacao da incubadora IDNE com pipeline TRL, Lean Canvas e relatorios institucionais
+- [Integra Incubadora Operations Squad](IFFar-Squads/squads/integra-incubadora-ops-squad/README.md) — `integra-incubadora-ops-squad` — versão `1.0.0` — operacionalizacao da incubadora IDNE com pipeline TRL, Lean Canvas e relatorios institucionais
 - [Notion Second Brain Squad](squads/notion-second-brain-squad/README.md) — `notion-second-brain-squad` — versão `1.0.0` — produtividade pessoal com GTD, PARA e Second Brain no Notion
 - [Guardiao Carteira Squad](squads/guardiao-carteira-squad/README.md) — `guardiao-carteira-squad` — versão `1.0.0` — gestao inteligente de investimentos e criptoativos
 - [Copo de Cafe Academico Squad](squads/copo-de-cafe-academico-squad/README.md) — `copo-de-cafe-academico-squad` — versão `1.0.0` — transformacao de artigos em conteudo didatico multimodal
 - [Mentor IA Educacao Squad](squads/mentor-ia-educacao-squad/README.md) — `mentor-ia-educacao-squad` — versão `1.0.0` — tutoria inteligente e adaptativa para educacao
 - [Copo de Cafe Podcast Squad](squads/copo-de-cafe-podcast-squad/README.md) — `copo-de-cafe-podcast-squad` — versão `1.0.0` — producao de podcast academico e disseminacao cientifica
-- [Compliance IA IFFar Squad](squads/compliance-ia-iffar-squad/README.md) — `compliance-ia-iffar-squad` — versão `1.0.0` — conformidade e auditoria continua para o IFFar
+- [Compliance IA IFFar Squad](IFFar-Squads/squads/compliance-ia-iffar-squad/README.md) — `compliance-ia-iffar-squad` — versão `1.0.0` — conformidade e auditoria continua para o IFFar
 - [Revisao Bibliografica Automatizada Squad](squads/revisao-bibliografica-automatizada-squad/README.md) — `revisao-bibliografica-automatizada-squad` — versão `1.0.0` — producao academica em larga escala com IA
 - [Reforco Neurocognitivo Infantil Squad](squads/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — versão `1.0.0` — desenvolvimento neurocognitivo para criancas
-- [Gestor Projetos IFFar Squad](squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
+- [Gestor Projetos IFFar Squad](IFFar-Squads/squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
 
-- [SQU Tesouraria & Conformidade Pública](squads/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — versão `1.0.0` — inteligência orçamentária, prestação de contas, auditoria e conformidade pública para IFs
+- [SQU Tesouraria & Conformidade Pública](IFFar-Squads/squads/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — versão `1.0.0` — inteligência orçamentária, prestação de contas, auditoria e conformidade pública para IFs
+
+- [Farol Contratos e Licitações IFFar](IFFar-Squads/squads/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — versão `3.0.0` — inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências e gates humanos
+- [PrismaFrame Executive Cinema Suite](IFFar-Squads/squads/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — versão `1.0.0` — materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual
 
 ---
 

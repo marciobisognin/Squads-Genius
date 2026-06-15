@@ -2,7 +2,7 @@
 
 # 🏛️ IFFar-Squads
 
-### Squads institucionais criados para apoiar rotinas, decisões e análises do Instituto Federal Farroupilha.
+### Squads institucionais para apoiar rotinas, decisões, análises e produção técnico-administrativa do Instituto Federal Farroupilha e de instituições públicas correlatas.
 
 </div>
 
@@ -10,55 +10,51 @@
 
 ## 📌 Sobre esta pasta
 
-Esta pasta reúne squads voltados ao contexto do **Instituto Federal Farroupilha (IFFar)** ou squads que Marcio indicar explicitamente para este espaço.
+Esta pasta reúne squads voltados ao contexto do **Instituto Federal Farroupilha (IFFar)**, à administração pública federal, à gestão institucional, a contratos/licitações, à incubadora tecnológica e a entregáveis institucionais indicados por Marcio.
 
-A convenção passa a ser:
+A convenção saneada passa a ser:
 
-- squads gerais continuam na estrutura geral do repositório;
-- squads do IFFar ficam em `IFFar-Squads/`;
-- cada squad mantém sua própria pasta, README, agentes, workflows, scripts, templates e validações.
+- squads gerais permanecem na estrutura geral do repositório;
+- squads institucionais/IFFar ficam em `IFFar-Squads/squads/`;
+- cada squad mantém sua própria pasta, README, agentes, workflows, scripts, templates e validações;
+- duplicidades entre `squads/` e `IFFar-Squads/squads/` devem ser removidas, mantendo uma única versão canônica.
 
 ## 📦 Squads disponíveis
 
-### 🧭 Farol Contratos e Licitações IFFar
+| Squad | Pasta | Escopo principal |
+|---|---|---|
+| Farol Contratos e Licitações IFFar | [`farol-contratos-licitacoes-iffar`](./squads/farol-contratos-licitacoes-iffar/) | Inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências e gates humanos. |
+| PCFP — Compliance & Pricing Engine | [`squad-pcfp`](./squads/squad-pcfp/) | Elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços para contratação pública federal. |
+| Integra Incubadora Operations Squad | [`integra-incubadora-ops-squad`](./squads/integra-incubadora-ops-squad/) | Operacionalização da incubadora IDNE/IFFar com pipeline TRL, Lean Canvas, mentorias e relatórios institucionais. |
+| Compliance IA IFFar Squad | [`compliance-ia-iffar-squad`](./squads/compliance-ia-iffar-squad/) | Monitoramento de prazos, conformidade, checklist e pareceres para o IFFar. |
+| Gestor Projetos IFFar Squad | [`gestor-projetos-iffar-squad`](./squads/gestor-projetos-iffar-squad/) | Ciclo completo de projetos e contratos no IFFar, da abertura à prestação de contas. |
+| SQU Tesouraria & Conformidade Pública | [`squ-tesouraria-publica-squad`](./squads/squ-tesouraria-publica-squad/) | Execução orçamentária, prestação de contas, auditoria, convênios, editais e indicadores para IFs. |
+| Hefesto Forja Licitatória | [`hefesto-forja-licitatoria-squad`](./squads/hefesto-forja-licitatoria-squad/) | Montagem de processos licitatórios: DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital e minuta. |
+| Themis Contratos Públicos | [`themis-contratos-publicos-squad`](./squads/themis-contratos-publicos-squad/) | Análise jurídica e de conformidade de contratos administrativos com base em CGU, TCU e normas públicas. |
+| Órbita Incubadora Squad | [`orbita-incubadora-squad`](./squads/orbita-incubadora-squad/) | Sistema operacional premium para incubadoras, indicadores, impacto territorial e maturidade CERNE. |
+| Germina360 Squad | [`germina360-squad`](./squads/germina360-squad/) | Descoberta, qualificação e transformação de ideias em empreendimentos incubáveis. |
+| VetorViveiro Squad | [`vetorviveiro-squad`](./squads/vetorviveiro-squad/) | Conversão de documentos institucionais de incubadoras em sistema operacional de inovação. |
+| PrismaFrame Executive Cinema Suite | [`prismaframe-executive-cinema-suite`](./squads/prismaframe-executive-cinema-suite/) | Materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual. |
 
-Auditoria inteligente de planilhas DFD/listas de itens para licitações e contratos, agora evoluída na versão 3.0 para uma plataforma de inteligência em contratações públicas: contratos tipados de agentes, workflow institucional com gates humanos, base normativa versionada, memória de preços, schemas de evidência e roadmap para DFD–PCA–ETP–TR.
+## 🧭 Organização saneada
 
-- Pasta: [`farol-contratos-licitacoes-iffar`](./farol-contratos-licitacoes-iffar/)
-- README: [`farol-contratos-licitacoes-iffar/README.md`](./farol-contratos-licitacoes-iffar/README.md)
-- Integração: Compras.gov.br Dados Abertos, preços praticados, atas e PNCP
-
-### 💰 PCFP — Compliance & Pricing Engine
-
-Squad Multi-Agente para Elaboração, Validação e Auditoria de Planilhas de Custos e Formação de Preços (PCFP) para contratação pública federal. Gera planilhas determinísticas, valida conformidade com IN 05/2017 e jurisprudência do TCU, e gerencia repactuações/reajustes contratuais.
-
-- Pasta: [`squad-pcfp`](./squads/squad-pcfp/)
-- README: [`squad-pcfp/README.md`](./squads/squad-pcfp/README.md)
-- PRD: [`squad-pcfp/PRD.md`](./squads/squad-pcfp/PRD.md)
-
-### 🚀 Integra Incubadora Operations Squad
-
-Squad multi-agente para operacionalizacao completa da incubadora IDNE: pipeline de startups, avaliacao TRL, Lean Canvas, gestao de mentorias, eventos e relatorios institucionais (SEBRAE/FINEP/IFFar).
-
-- Pasta na raiz: [`integra-incubadora-ops-squad`](../squads/integra-incubadora-ops-squad/)
-- README: [`integra-incubadora-ops-squad/README.md`](../squads/integra-incubadora-ops-squad/README.md)
-- PRD: [`integra-incubadora-ops-squad/PRD.md`](../squads/integra-incubadora-ops-squad/PRD.md)
-
-### ✅ Compliance IA IFFar Squad
-
-Squad multi-agente para monitoramento de prazos legais, alertas de vencimentos, checklist de conformidade e geracao de pareceres para o IFFar.
-
-- Pasta na raiz: [`compliance-ia-iffar-squad`](../squads/compliance-ia-iffar-squad/)
-- README: [`compliance-ia-iffar-squad/README.md`](../squads/compliance-ia-iffar-squad/README.md)
-- PRD: [`compliance-ia-iffar-squad/PRD.md`](../squads/compliance-ia-iffar-squad/PRD.md)
-
-### 📊 Gestor Projetos IFFar Squad
-
-Squad multi-agente para gestao do ciclo completo de projetos e contratos do IFFar, desde a abertura ate a prestacao de contas final.
-
-- Pasta na raiz: [`gestor-projetos-iffar-squad`](../squads/gestor-projetos-iffar-squad/)
-- README: [`gestor-projetos-iffar-squad/README.md`](../squads/gestor-projetos-iffar-squad/README.md)
-- PRD: [`gestor-projetos-iffar-squad/PRD.md`](../squads/gestor-projetos-iffar-squad/PRD.md)
+```text
+IFFar-Squads/
+├── README.md
+└── squads/
+    ├── compliance-ia-iffar-squad/
+    ├── farol-contratos-licitacoes-iffar/
+    ├── germina360-squad/
+    ├── gestor-projetos-iffar-squad/
+    ├── hefesto-forja-licitatoria-squad/
+    ├── integra-incubadora-ops-squad/
+    ├── orbita-incubadora-squad/
+    ├── prismaframe-executive-cinema-suite/
+    ├── squad-pcfp/
+    ├── squ-tesouraria-publica-squad/
+    ├── themis-contratos-publicos-squad/
+    └── vetorviveiro-squad/
+```
 
 ---
 

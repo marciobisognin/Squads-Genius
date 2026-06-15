@@ -36,9 +36,10 @@ Briefings de exemplo em `squads/maeve-genius-forge-squad/examples/`. Template de
 
 ### Onde os novos squads devem ser criados
 
-- Pasta: `squads/<nome-tecnico-do-squad>/`
+- Squads gerais: `squads/<nome-tecnico-do-squad>/`.
+- Squads institucionais/IFFar: `IFFar-Squads/squads/<nome-tecnico-do-squad>/`.
 - Estrutura mínima: `squad.yaml`, `README.md`, `agents/`, `tasks/`, `workflows/` (e `scripts/`, `templates/` quando aplicável).
-- Após criar, registrar o squad em `SQUAD_INDEX.md` e, se for destaque, no `README.md` da raiz.
+- Após criar, registrar o squad em `SQUAD_INDEX.md` e, quando for institucional/IFFar, também em `IFFar-Squads/README.md`.
 - Validar com `validate_squad.py` antes de considerar concluído.
 
 ## Convenções gerais do repositório

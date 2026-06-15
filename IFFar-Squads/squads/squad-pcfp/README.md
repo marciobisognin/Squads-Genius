@@ -1,221 +1,56 @@
-<div align="center">
+# 🧮 Squad PCFP — Planilhas de Custos e Formação de Preços
 
-# PCFP — Compliance & Pricing Engine
+**Nome técnico:** `squad-pcfp` | **Versão:** `1.0.0` | **Origem:** PRD Squad PCFP v1.0 ([docs/prd_squad_pcfp_v1.md](docs/prd_squad_pcfp_v1.md))
 
-**Squad Multi-Agente para Elaboração, Validação e Auditoria de Planilhas de Custos e Formação de Preços**
+Squad multi-agente para **elaboração, validação e auditoria de PCFP** em contratos com dedicação exclusiva de mão de obra (administração pública federal): intake → pesquisa normativa → cálculo determinístico → conformidade → exequibilidade → artefatos → gestão contratual (repactuação/reajuste), com **Human-in-the-Loop obrigatório** nos pontos de decisão jurídica.
 
-![Status](https://img.shields.io/badge/Status-Desenvolvimento-success?style=for-the-badge&logo=statuspage)
-![Versão](https://img.shields.io/badge/Versão-2.0-blue?style=for-the-badge)
-![Licença](https://img.shields.io/badge/Licença-MIT-yellow?style=for-the-badge)
+> ⚖️ **Automação não é parecer jurídico.** Percentuais embarcados são referências a conferir contra a redação vigente e os Cadernos Técnicos SEGES. Todo relatório exige "responsável pela validação".
 
-</div>
+## Princípios (do PRD)
 
----
+1. **Cálculo determinístico, raciocínio por LLM** — nenhum valor monetário é gerado por LLM; a engine (`scripts/pcfp_core.py`) é a única fonte de números.
+2. **Rastreabilidade total** — cada rubrica: `{valor, formula, fundamento, fonte, renovavel, conta_vinculada}`.
+3. **HITL nos pontos jurídicos** — Gate 1: enquadramento sindical; Gate 2: aprovação final/parecer de repactuação.
+4. **Schema-first** — handoffs via JSON validado ([templates/schemas.md](templates/schemas.md)).
 
-## O que é
+## Os 8 agentes
 
-O **PCFP — Compliance & Pricing Engine** é um sistema multi-agente de inteligência artificial que automatiza o ciclo de vida completo da **Planilha de Custos e Formação de Preços (PCFP)** para a Administração Pública Federal.
+| Agente | Função |
+|---|---|
+| **A1** Orquestrador | classifica a demanda, monta o grafo, gerencia gates |
+| **A2** Intake & Classificação | ServiceProfile (CBO, escala, postos); parser de propostas |
+| **A3** Normativo (RAG) | checklist por caso, índice temporal de vigência das normas |
+| **A4** CCT & Sindical | CCTProfile cláusula a cláusula; **HITL Gate 1** |
+| **A5** Engine de Cálculo | módulos 1–6 do Anexo VII-D via `pcfp_core.py` |
+| **A6** Auditor de Conformidade | checklist TCU/CGU + exequibilidade verde/amarelo/vermelho |
+| **A7** Gestão Contratual | repactuação × reajuste, preclusão, conta vinculada; **HITL Gate 2** |
+| **A8** Gerador de Artefatos | planilha Anexo VII-D, relatório técnico, checklist assinável |
 
-Ele transforma um processo manual, fragmentado e de alto risco jurídico em um fluxo **orquestrado, determinístico e auditável**, garantindo conformidade total com a legislação vigente e rastreabilidade de cada célula de cálculo.
+## Workflows
 
-## Para que serve
+- `elaboracao_pcfp_nova` — fluxo principal (loop de correção A6→A5, máx. 3 iterações).
+- `analise_proposta_licitante` — recálculo paralelo + diff célula a célula para o pregoeiro.
+- `repactuacao_reajuste` — demonstração analítica por nova CCT/índice (arts. 54–60 da IN 05/2017).
 
-- **Elaboração de PCFPs:** Gera planilhas conforme a IN 05/2017 e suas alterações, com cálculos determinísticos e rastreáveis.
-- **Validação de Propostas:** Analisa planilhas de licitantes, comparando com valores de referência e limites SEGES.
-- **Auditoria de Conformidade:** Verifica a planilha contra a base normativa e jurisprudência do TCU, gerando relatórios de não-conformidade.
-- **Gestão Contratual:** Calcula repactuações e reajustes com base em nova CCT ou índice, conforme arts. 54–60 da IN 05/2017.
-
----
-
-## Arquitetura do Squad
-
-O sistema é composto por 8 agentes especializados, orquestrados por um grafo de execução inteligente.
-
-```mermaid
-mindmap
-  root((PCFP Engine))
-    Direção
-      Maestro (Orquestrador)
-    Dados & Normas
-      Intaker (Intake & Classificação)
-      JurisConsultor (Base Normativa RAG)
-      Sindicalista (Análise CCT)
-    Cálculo & Lógica
-      Calculista (Engine Determinístico)
-      Auditor (Conformidade)
-      Gestor (Repactuação)
-    Entregas
-      Artífice (Artefatos)
-```
-
----
-
-## Fluxo de Trabalho
-
-O fluxo principal cobre a elaboração de uma PCFP do zero, com validação humana (HITL) nos pontos críticos.
-
-```mermaid
-flowchart TD
-    Start([Início]) --> U[Usuário: Demanda em NL + Documentos]
-    U --> A1[A1 Maestro]
-    A1 --> A2[A2 Intaker]
-    A2 -->|ServiceProfile| A3[A3 JurisConsultor]
-    A3 -->|NormativeChecklist| A4[A4 Sindicalista]
-    A4 -->|CCTProfile| Gate1{HITL #1}
-    Gate1 -->|Aprovado| A5[A5 Calculista]
-    Gate1 -->|Rejeitado| A4
-    A5 -->|CostSheet| A6[A6 Auditor]
-    A6 -->|ComplianceReport| Gate2{HITL #2}
-    Gate2 -->|Verde| A8[A8 Artífice]
-    Gate2 -->|Amarelo| A5
-    Gate2 -->|Vermelho| A4
-    A8 -->|XLSX + Relatório| End([Fim])
-```
-
----
-
-## Os 8 Agentes
-
-| Agente | Função | Entrada | Saída |
-| :--- | :--- | :--- | :--- |
-| **A1 — Maestro** | Orquestrador de Demandas | Solicitação em NL + TR/ETP + CCT | `WorkflowPlan` (JSON) |
-| **A2 — Intaker** | Intake & Classificação | Documentos da demanda | `ServiceProfile` (JSON) |
-| **A3 — JurisConsultor** | Base Normativa RAG | Perfil do serviço | `NormativeChecklist` (JSON) |
-| **A4 — Sindicalista** | Análise CCT & Enquadramento | CCT + Perfil | `CCTProfile` (JSON) |
-| **A5 — Calculista** | Engine de Cálculo Determinístico | Perfil + CCT + Normas | `CostSheet` (JSON) |
-| **A6 — Auditor** | Verificação de Conformidade | `CostSheet` + Checklist | `ComplianceReport` (JSON) |
-| **A7 — Gestor** | Gestão Contratual (Repactuação) | Contrato + Nova CCT/Índice | Minuta de Aditivo |
-| **A8 — Artífice** | Geração de Artefatos | Planilha Valida + Relatório | XLSX, DOCX, PDF, Dashboard |
-
----
-
-## Entregas Finais
-
-Ao final do fluxo, o sistema gera:
-
-- **Planilha XLSX:** No layout do Anexo VII-D, com fórmulas vivas e aba de memória de cálculo.
-- **Relatório Técnico (DOCX/PDF):** Com fundamentação jurídica rubrica a rubrica.
-- **Checklist de Conformidade:** Assinável pelo gestor.
-- **Dashboard Comparativo:** Visualização da proposta vs. referência vs. limites SEGES.
-
----
-
-## Como Executar
-
-### Pré-requisitos
-
-- Python 3.10+
-- Docker & Docker Compose
-- Poetry (gerenciamento de dependências)
-
-### Instalação
+## Scripts determinísticos (Python 3.11+, sem dependências) — testados
 
 ```bash
-# Clone o repositório
-git clone https://github.com/marciobisognin/Squads-Genius.git
-cd Squads-Genius/IFFar-Squads/squads/squad-pcfp
-
-# Instale as dependências
-poetry install
-
-# Configure as variáveis de ambiente
-cp .env.example .env
-# Edite .env com suas credenciais (APIs, DB)
-
-# Inicie a base de dados e os serviços
-docker-compose up -d
+python3 scripts/pcfp_core.py --input examples/exemplo_input_limpeza44h.json   # módulos 1-6 → CostSheet
+python3 scripts/validar_pcfp.py --costsheet costsheet.json                    # ComplianceReport
+python3 scripts/diff_proposta.py --referencia ref.json --proposta prop.json   # diff de exequibilidade
 ```
 
-### Execução do Fluxo Principal
+## Base normativa
 
-```bash
-# Ative o ambiente virtual
-poetry shell
+Lei 14.133/2021 · IN SEGES 05/2017 + Anexo VII-D e Anexo XII · IN 07/2018 · IN 98/2022 · IN 176/2024 · IN 147/2026 · Decreto 12.174/2024 · LC 214/2025 (CBS/IBS) · Lei 14.973/2024 · Acórdãos TCU 1207/2024, 1442/2010, 593/2010, 614/2008 · IN Conjunta MP/CGU 01/2016 — detalhes e papel de cada norma em [docs/base_normativa.md](docs/base_normativa.md).
 
-# Execute o fluxo de elaboração de PCFP
-python -m pcfp_engine run --demanda "Elaborar PCFP para 5 vigilantes em Porto Alegre, 12x36, 12 meses" --docs ./docs_exemplo/
+## Roadmap (PRD, seção 6)
 
-# O resultado será gerado em ./output/
-```
+F0 Fundação (corpus + pcfp-core com golden tests) → F1 MVP limpeza 44h → F2 Conformidade → F3 CCT & multi-serviço → F4 Ciclo de vida → F5 Reforma Tributária. **Esta versão do repositório implementa a camada agentiva completa + engine F0**; XLSX/RAG/LangGraph são a implantação de produção descrita no PRD (seção 4).
 
----
+## Squads irmãos
 
-## Como Executar em AI Code Assistants
+- [`hefesto-forja-licitatoria-squad`](../hefesto-forja-licitatoria-squad/) — monta o processo licitatório (a PCFP instrui o TR/edital); candidato a "A9 pesquisa de preços" da questão aberta nº 3 do PRD.
+- [`themis-contratos-publicos-squad`](../themis-contratos-publicos-squad/) — análise jurídica independente de contratos e aditivos.
 
-O projeto é otimizado para ser desenvolvido e orquestrado com assistentes de IA. Abaixo, instruções para os principais ambientes.
-
-### OpenAI Codex
-
-1. **Contexto:** Carregue o `PRD.md` e os schemas (`schemas/`) na janela de contexto.
-2. **Prompt Inicial:**
-   ```text
-   Desenvolva o módulo Calculista (A5) com base no PRD v2.0.
-   Use Pydantic para validação de dados e pytest para golden tests.
-   Siga a estrutura de módulos do Anexo VII-D da IN 05/2017.
-   ```
-3. **Iteração:** Use o Codex para gerar boilerplate, testes e lógica de cálculo. Solicite refatoração com base nos feedbacks do `Auditor` (A6).
-
-### Claude Code (Anthropic)
-
-1. **Contexto:** Use o `PRD.md` como documento raiz. Utilize a funcionalidade de "Projects" para manter a base normativa (RAG) e os schemas em memória.
-2. **Prompt Típico:**
-   ```text
-   Com base no PRD do SQUAD PCFP v2.0, implemente o agente A3 (JurisConsultor).
-   Use LangGraph para o StateGraph. A base de dados normativa deve ser carregada de um JSON versionado.
-   ```
-3. **HITL Simulation:** Simule os Gates HITL usando `interrupts` do LangGraph, pausando a execução para input do usuário antes de prosseguir.
-
-### Antigravity (ou outro Agente Genérico)
-
-1. **Contexto:** Forneça o repositório completo (ou um `zip` do escopo do projeto) como contexto.
-2. **Prompt:**
-   ```text
-   Você é o arquiteto de software do SQUAD PCFP v2.0.
-   Revise o PRD.md e proponha uma refatoração da engine de cálculo (A5) para melhorar a performance e a testabilidade.
-   Foque na separação entre regras de negócio (pure Python) e adaptadores de infraestrutura.
-   ```
-3. **Execução:** Use para tarefas de revisão de código, geração de testes e análise de complexidade ciclomática.
-
----
-
-## Stack Técnico
-
-| Camada | Tecnologia |
-| :--- | :--- |
-| **Orquestração** | LangGraph |
-| **LLM** | Claude (Anthropic) |
-| **Engine de Cálculo** | Python Puro + Pydantic |
-| **RAG** | pgvector + Reranker |
-| **Parsing de Docs** | openpyxl, pdfplumber, docling |
-| **Geração XLSX** | openpyxl |
-| **Frontend** | Next.js |
-| **DB** | PostgreSQL (TimescaleDB) |
-| **Observabilidade** | LangSmith / Langfuse |
-
----
-
-## Estrutura do Repositório
-
-```text
-squad-pcfp/
-├── agents/          # Implementação de cada agente (A1-A8)
-├── core/            # Engine de cálculo determinístico (pcfp-core)
-├── schemas/         # Schemas Pydantic (ServiceProfile, CostSheet, etc.)
-├── knowledge_base/  # Base normativa versionada (JSON/Markdown)
-├── templates/       # Templates XLSX (Anexo VII-D) e DOCX
-├── tests/           # Testes unitários, integração e golden tests
-├── frontend/        # Interface Next.js para HITL e revisão
-├── scripts/         # Scripts utilitários (parsing, CI/CD)
-├── docs/            # Documentação adicional e guias
-├── PRD.md           # Product Requirements Document
-└── README.md        # Este arquivo
-```
-
----
-
-## Licença
-
-Este projeto está sob a licença **MIT**.
-
-**Criado por:** Marcio Bisognin / Maeve  
-**Repositório:** [marciobisognin/Squads-Genius](https://github.com/marciobisognin/Squads-Genius)
+Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
