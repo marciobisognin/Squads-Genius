@@ -3,11 +3,11 @@ name: farol-iffar-ci
 on:
   push:
     paths:
-      - 'IFFar-Squads/farol-contratos-licitacoes-iffar/**'
+      - 'IFFar-Squads/squads/farol-contratos-licitacoes-iffar/**'
       - '.github/workflows/farol-iffar-ci.yml'
   pull_request:
     paths:
-      - 'IFFar-Squads/farol-contratos-licitacoes-iffar/**'
+      - 'IFFar-Squads/squads/farol-contratos-licitacoes-iffar/**'
       - '.github/workflows/farol-iffar-ci.yml'
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: IFFar-Squads/farol-contratos-licitacoes-iffar
+        working-directory: IFFar-Squads/squads/farol-contratos-licitacoes-iffar
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

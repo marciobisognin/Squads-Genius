@@ -10,6 +10,14 @@ def test_num_brazilian_format():
     assert num("abc") is None
 
 
+def test_num_plain_decimal_format_is_not_multiplied_by_100():
+    # Regressão: célula/API em formato decimal simples (sem separador de milhar)
+    # era tratada como BR e multiplicada por 100 (ex.: "1234.56" -> 123456.0).
+    assert num("1234.56") == 1234.56
+    assert num("45.90") == 45.90
+    assert num("12.345.678") == 12345678.0
+
+
 def test_norm_collapses_whitespace_and_uppercases():
     assert norm("  caneta   azul ") == "CANETA AZUL"
     assert norm(None) == ""

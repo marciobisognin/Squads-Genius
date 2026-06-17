@@ -1,5 +1,13 @@
 # Changelog — Farol Contratos & Licitações IFFar
 
+## 3.0.1 — Correções de auditoria de código
+
+- **CI**: corrigido caminho de `paths` e `working-directory` em `farol-iffar-ci.yml`, que apontava para `IFFar-Squads/farol-contratos-licitacoes-iffar` (sem o segmento `squads/`) e por isso nunca disparava nem encontrava o diretório do squad.
+- **`farol_common.num()`**: corrigido bug em que valores decimais sem separador de milhar (ex.: `"1234.56"` vindo de célula em texto ou de API) eram interpretados como formato BR e multiplicados por 100 (`123456.0`). Agora o ponto só é tratado como separador de milhar quando há vírgula decimal junto, ou quando há mais de um ponto na string.
+- **`farol_30_contracts.extract_attributes()`**: corrigido falso positivo em que os termos de unidade `"m"` e `"l"` casavam por substring com qualquer palavra que contivesse essas letras (ex.: "plástico" gerava `capacidade: ["l"]`). Os padrões agora usam regex com `\b` e exigem dígito colado à abreviação.
+- **Heurística de termo restritivo "marca"** (`analisar_dfd.py` e `farol_30_contracts.py`): adicionada exceção para marca citada apenas como referência de padrão de qualidade, com similar/equivalente admitido — uso expressamente permitido pelo art. 41 da Lei nº 14.133/2021. Também corrigido bug em que a exceção textual era aplicada a qualquer termo restritivo, não só a "marca".
+- Adicionados testes de regressão para os quatro itens acima (`tests/test_farol_common.py`, `tests/test_analisar_dfd.py`, `tests/test_farol_30_contracts.py`).
+
 ## 1.3.0 — 2026-06-12
 
 ### Fundação técnica
