@@ -1,0 +1,158 @@
+{
+  "name": "nucleo-prpi-iffar-squad",
+  "commercial_name": "Núcleo PRPI IFFar",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "license": "MIT",
+  "creator": "Marcio Bisognin",
+  "instagram": "@marciobisognin",
+  "positioning": "Squad institucional que apoia a Pró-Reitoria/Diretoria de Pesquisa, Pós-Graduação e Extensão (PRPI) do IFFar na gestão de editais internos de fomento (PIBIC/PIBITI/PIBID/extensão), triagem formal de propostas, acompanhamento de cronograma de bolsas, consolidação de relatórios de produção científica/técnica e apoio à prestação de contas de bolsas e convênios.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
+  "disclaimer": "Os artefatos gerados são minutas e relatórios de apoio técnico-administrativo. Mérito científico/técnico de propostas, aprovação de editais e decisões de concessão ou corte de bolsa são exclusivos dos comitês de avaliação e da Pró-Reitoria. Revisão humana é obrigatória em todos os artefatos.",
+  "principles": [
+    "nenhuma decisão de mérito científico, aprovação de edital ou concessão/corte de bolsa é tomada pelo squad: ele prepara, audita e sinaliza, a decisão é sempre humana",
+    "triagem de propostas é estritamente formal (documentação, enquadramento, conflitos) e checada por script determinístico, nunca por inferência do agente",
+    "separar observado, inferido, hipótese, recomendação e risco em todo artefato",
+    "registrar fontes e versões normativas (normas internas do IFFar, CNPq, Capes); marcar 'a confirmar' o que não foi verificado na fonte oficial",
+    "dados pessoais de bolsistas e orientadores tratados com minimização: apenas os campos necessários à tarefa, nunca replicados além do artefato solicitado",
+    "nunca incluir dados pessoais sensíveis ou segredos nos artefatos de exemplo/documentação"
+  ],
+  "agents": [
+    {
+      "id": "prpi-orchestrator",
+      "file": "agents/prpi-orchestrator.md",
+      "role": "Coordena a demanda de ponta a ponta: intake, roteamento por workflow, controle de gates e consolidação dos artefatos."
+    },
+    {
+      "id": "triagem-propostas-fomento",
+      "file": "agents/triagem-propostas-fomento.md",
+      "role": "Apoia a elaboração de editais internos de fomento e realiza a triagem formal das propostas submetidas (documentação, enquadramento, conflitos)."
+    },
+    {
+      "id": "cronograma-bolsas-acompanhador",
+      "file": "agents/cronograma-bolsas-acompanhador.md",
+      "role": "Acompanha o cronograma de bolsas: mensalidades, relatórios parciais/finais e Termo de Compromisso e Responsabilidade (TCR)."
+    },
+    {
+      "id": "producao-cientifica-redator",
+      "file": "agents/producao-cientifica-redator.md",
+      "role": "Consolida relatórios de produção científica e técnica para Lattes, SUAP, relatório de gestão e Plataforma Nilo Peçanha."
+    },
+    {
+      "id": "prestacao-contas-fomento-auditor",
+      "file": "agents/prestacao-contas-fomento-auditor.md",
+      "role": "Audita a prestação de contas de bolsas e apoia a prestação de contas de convênios/parcerias de extensão."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "01_intake_demanda_prpi",
+      "file": "tasks/01_intake_demanda_prpi.yaml",
+      "owner": "prpi-orchestrator",
+      "objective": "Identificar o tipo de demanda (edital, triagem, acompanhamento de bolsas, produção científica ou prestação de contas) e lacunas bloqueantes antes de rotear o workflow."
+    },
+    {
+      "id": "02_elaborar_edital_fomento",
+      "file": "tasks/02_elaborar_edital_fomento.yaml",
+      "owner": "triagem-propostas-fomento",
+      "objective": "Apoiar a elaboração do edital interno de fomento com checklist de aderência às normas institucionais, do CNPq e da Capes."
+    },
+    {
+      "id": "03_triagem_propostas_submetidas",
+      "file": "tasks/03_triagem_propostas_submetidas.yaml",
+      "owner": "triagem-propostas-fomento",
+      "objective": "Triagem formal das propostas submetidas via script determinístico: documentação completa, enquadramento no edital e conflitos de coorientação/bolsa."
+    },
+    {
+      "id": "04_acompanhamento_cronograma_bolsas",
+      "file": "tasks/04_acompanhamento_cronograma_bolsas.yaml",
+      "owner": "cronograma-bolsas-acompanhador",
+      "objective": "Monitorar o cronograma de bolsas (mensalidades, relatórios parciais/finais, TCR) e sinalizar pendências e atrasos."
+    },
+    {
+      "id": "05_relatorio_producao_cientifica",
+      "file": "tasks/05_relatorio_producao_cientifica.yaml",
+      "owner": "producao-cientifica-redator",
+      "objective": "Consolidar relatório de produção científica e técnica para Lattes, SUAP, relatório de gestão e Plataforma Nilo Peçanha."
+    },
+    {
+      "id": "06_prestacao_contas_convenios_extensao",
+      "file": "tasks/06_prestacao_contas_convenios_extensao.yaml",
+      "owner": "prestacao-contas-fomento-auditor",
+      "objective": "Apoiar a organização da prestação de contas de convênios e parcerias de extensão (FINEP, fundações de apoio)."
+    },
+    {
+      "id": "07_auditoria_prestacao_contas_bolsas",
+      "file": "tasks/07_auditoria_prestacao_contas_bolsas.yaml",
+      "owner": "prestacao-contas-fomento-auditor",
+      "objective": "Auditar a prestação de contas de bolsas contra a proposta aprovada e o TCR, sinalizando divergências."
+    }
+  ],
+  "workflows": [
+    {
+      "id": "ciclo_edital_fomento",
+      "file": "workflows/ciclo_edital_fomento.yaml"
+    },
+    {
+      "id": "acompanhamento_bolsas",
+      "file": "workflows/acompanhamento_bolsas.yaml"
+    },
+    {
+      "id": "producao_e_prestacao_contas",
+      "file": "workflows/producao_e_prestacao_contas.yaml"
+    }
+  ],
+  "scripts": [
+    {
+      "id": "checklist_edital_fomento",
+      "file": "scripts/checklist_edital_fomento.py",
+      "purpose": "Verificação determinística dos campos obrigatórios de um edital interno de fomento, comuns e específicos por programa (PIBIC, PIBITI, extensão)."
+    },
+    {
+      "id": "triagem_propostas",
+      "file": "scripts/triagem_propostas.py",
+      "purpose": "Checagem determinística de documentação completa, enquadramento no edital e limite de bolsas por orientador."
+    },
+    {
+      "id": "cronograma_bolsas",
+      "file": "scripts/cronograma_bolsas.py",
+      "purpose": "Identificação determinística de relatórios e mensalidades de bolsa em atraso em relação à data de referência."
+    },
+    {
+      "id": "consolidador_producao",
+      "file": "scripts/consolidador_producao.py",
+      "purpose": "Agregação determinística da produção científica/técnica declarada por pesquisador, com detecção de duplicidades e itens sem identificador mínimo."
+    },
+    {
+      "id": "auditoria_prestacao_contas_bolsas",
+      "file": "scripts/auditoria_prestacao_contas_bolsas.py",
+      "purpose": "Conferência determinística da documentação de prestação de contas de bolsas individuais contra a vigência e os documentos exigidos."
+    }
+  ],
+  "quality_gates": [
+    "edital_aderente_normas",
+    "triagem_documental_completa",
+    "cronograma_bolsas_monitorado",
+    "producao_consolidada",
+    "prestacao_contas_auditada"
+  ],
+  "outputs": [
+    "relatorio_intake",
+    "edital_fomento",
+    "relatorio_triagem_propostas",
+    "relatorio_cronograma_bolsas",
+    "relatorio_producao_cientifica",
+    "dossie_prestacao_contas_convenio",
+    "relatorio_auditoria_prestacao_contas_bolsas"
+  ],
+  "integrations": [
+    {
+      "squad": "compliance-ia-iffar-squad",
+      "use": "monitoramento cruzado de prazos institucionais e conformidade dos editais e prestações de contas"
+    },
+    {
+      "squad": "squ-tesouraria-publica-squad",
+      "use": "apoio na execução orçamentária e prestação de contas financeira de convênios de fomento e extensão"
+    }
+  ]
+}

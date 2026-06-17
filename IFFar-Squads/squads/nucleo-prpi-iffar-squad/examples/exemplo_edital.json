@@ -1,0 +1,11 @@
+{
+  "programa": "PIBIC",
+  "objeto": "Bolsas de iniciação científica para o ciclo 2026/2027",
+  "publico_elegivel": "estudantes de graduação regularmente matriculados",
+  "cronograma": "inscrições 01/07 a 31/07/2026, resultado 15/08/2026",
+  "valor_bolsa": 400.00,
+  "limite_bolsas_por_orientador": 2,
+  "documentacao_exigida": ["plano_de_trabalho", "historico_escolar", "carta_de_anuencia"],
+  "criterios_classificacao": "nota do plano de trabalho conforme rubrica do edital",
+  "exige_termo_compromisso": true
+}

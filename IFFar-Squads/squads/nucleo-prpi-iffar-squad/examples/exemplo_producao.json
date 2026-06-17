@@ -1,0 +1,26 @@
+{
+  "producao": [
+    {
+      "tipo": "artigo",
+      "titulo": "Sensores de baixo custo para monitoramento ambiental",
+      "identificador": "10.1234/abcd.2026.01",
+      "pesquisador": "Prof. Ana Souza"
+    },
+    {
+      "tipo": "artigo",
+      "titulo": "Sensores de baixo custo para monitoramento ambiental",
+      "identificador": "10.1234/abcd.2026.01",
+      "pesquisador": "Prof. Ana Souza"
+    },
+    {
+      "tipo": "patente",
+      "titulo": "Dispositivo de irrigação automatizada",
+      "pesquisador": "Prof. Carlos Lima"
+    },
+    {
+      "tipo": "evento",
+      "titulo": "Participação na Semana Nacional de Ciência e Tecnologia",
+      "pesquisador": "Prof. Ana Souza"
+    }
+  ]
+}

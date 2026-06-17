@@ -1,0 +1,12 @@
+id: "06_prestacao_contas_convenios_extensao"
+owner: "prestacao-contas-fomento-auditor"
+objective: "Organizar o dossiê de prestação de contas de um convênio/parceria de extensão a partir do plano de aplicação aprovado e dos comprovantes declarados."
+inputs:
+  - "plano de trabalho/plano de aplicação aprovado do convênio/parceria"
+  - "comprovantes e documentos declarados (JSON)"
+outputs:
+  - "dossie_prestacao_contas_convenio com itens cobertos, pendências documentais e divergências em relação ao plano de aplicação"
+acceptance_criteria:
+  - "todo gasto fora do plano de aplicação sinalizado explicitamente, nunca reclassificado pelo agente"
+  - "nenhuma decisão sobre aprovação, glosa ou devolução de recursos tomada nesta task"
+  - "dados financeiros e pessoais usados apenas conforme estritamente necessário ao dossiê"

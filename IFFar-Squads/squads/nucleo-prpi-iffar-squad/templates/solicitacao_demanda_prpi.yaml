@@ -1,0 +1,11 @@
+demanda: ""           # ciclo_edital_fomento | acompanhamento_bolsas | producao_e_prestacao_contas
+campus: ""
+programa: ""           # PIBIC | PIBITI | PIBID | extensao
+periodo_referencia: ""
+documentos_disponiveis:
+  minuta_edital: false
+  propostas_submetidas: false
+  dados_bolsas_ativas: false
+  producao_cientifica_periodo: false
+  plano_de_aplicacao_convenio: false
+observacoes: ""

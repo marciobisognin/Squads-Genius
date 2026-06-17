@@ -1,0 +1,13 @@
+id: "03_triagem_propostas_submetidas"
+owner: "triagem-propostas-fomento"
+objective: "Realizar a triagem estritamente formal das propostas submetidas a um edital de fomento: documentação completa, enquadramento nas regras do edital e limite de bolsas por orientador."
+inputs:
+  - "edital de fomento publicado (regras, limite de bolsas por orientador, documentação exigida)"
+  - "propostas submetidas (JSON)"
+outputs:
+  - "relatorio_triagem_propostas com cada proposta classificada como apta, inapta por documentação ou conflito a resolver"
+acceptance_criteria:
+  - "toda classificação produzida por scripts/triagem_propostas.py, nunca por avaliação do agente"
+  - "mérito científico/técnico nunca avaliado nesta task"
+  - "cada exigência de documentação citada com o item do edital ou da norma que a fundamenta"
+  - "gate triagem_documental_completa só é proposto como liberado após execução do script para todas as propostas"

@@ -1,0 +1,14 @@
+{
+  "completeness": 100,
+  "traceability": 90,
+  "originality": 90,
+  "execution_readiness": 95,
+  "commercial_value": 90,
+  "safety": 95,
+  "ip_compliance": 100,
+  "go_no_go": "go",
+  "issues": [],
+  "recommendations": [
+    "Publicar no GitHub somente após autorização humana."
+  ]
+}

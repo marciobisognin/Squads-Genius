@@ -1,0 +1,13 @@
+id: "05_relatorio_producao_cientifica"
+owner: "producao-cientifica-redator"
+objective: "Consolidar a produção científica e técnica declarada por pesquisador/grupo de pesquisa em um período de referência, para fins de Plataforma Nilo Peçanha, relatório de gestão ou avaliação institucional."
+inputs:
+  - "produção científica/técnica declarada por pesquisador (JSON: publicações, orientações, projetos, patentes/registros, eventos)"
+  - "período de referência"
+  - "finalidade do relatório"
+outputs:
+  - "relatorio_producao_cientifica consolidado por pesquisador, grupo e período, com pendências e duplicidades sinalizadas"
+acceptance_criteria:
+  - "agregação e deduplicação executadas por scripts/consolidador_producao.py, nunca estimadas pelo agente"
+  - "nenhum metadado de produção inventado ou inferido; lacuna vira pendência explícita"
+  - "gate producao_consolidada só é proposto como liberado após execução do script sobre toda a produção declarada do período"

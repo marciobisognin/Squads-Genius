@@ -1,0 +1,24 @@
+{
+  "propostas": [
+    {
+      "id": "PROP-001",
+      "orientador": "Prof. Ana Souza",
+      "documentos_entregues": ["plano_de_trabalho", "historico_escolar", "carta_de_anuencia"]
+    },
+    {
+      "id": "PROP-002",
+      "orientador": "Prof. Ana Souza",
+      "documentos_entregues": ["plano_de_trabalho", "historico_escolar"]
+    },
+    {
+      "id": "PROP-003",
+      "orientador": "Prof. Ana Souza",
+      "documentos_entregues": ["plano_de_trabalho", "historico_escolar", "carta_de_anuencia"]
+    },
+    {
+      "id": "PROP-004",
+      "orientador": "Prof. Carlos Lima",
+      "documentos_entregues": ["plano_de_trabalho", "historico_escolar", "carta_de_anuencia"]
+    }
+  ]
+}

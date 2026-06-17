@@ -24,6 +24,7 @@ A convenção saneada passa a ser:
 | Squad | Pasta | Escopo principal |
 |---|---|---|
 | Bússola Acadêmica IFFar | [`bussola-academica-iffar-squad`](./squads/bussola-academica-iffar-squad/) | Apoio ao ciclo acadêmico: PPC/DCN, integralização curricular, calendário e editais de matrícula, atas de conselho de classe e consistência de dados para SISTEC/Plataforma Nilo Peçanha. |
+| Núcleo PRPI IFFar | [`nucleo-prpi-iffar-squad`](./squads/nucleo-prpi-iffar-squad/) | Editais internos de fomento, triagem formal de propostas, cronograma de bolsas, produção científica/técnica e prestação de contas de bolsas e convênios de extensão. |
 | Farol Contratos e Licitações IFFar | [`farol-contratos-licitacoes-iffar`](./squads/farol-contratos-licitacoes-iffar/) | Inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências e gates humanos. |
 | PCFP — Compliance & Pricing Engine | [`squad-pcfp`](./squads/squad-pcfp/) | Elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços para contratação pública federal. |
 | Integra Incubadora Operations Squad | [`integra-incubadora-ops-squad`](./squads/integra-incubadora-ops-squad/) | Operacionalização da incubadora IDNE/IFFar com pipeline TRL, Lean Canvas, mentorias e relatórios institucionais. |
@@ -50,6 +51,7 @@ IFFar-Squads/
     ├── gestor-projetos-iffar-squad/
     ├── hefesto-forja-licitatoria-squad/
     ├── integra-incubadora-ops-squad/
+    ├── nucleo-prpi-iffar-squad/
     ├── orbita-incubadora-squad/
     ├── prismaframe-executive-cinema-suite/
     ├── squad-pcfp/

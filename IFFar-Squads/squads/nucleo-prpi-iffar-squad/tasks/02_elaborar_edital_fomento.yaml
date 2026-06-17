@@ -1,0 +1,14 @@
+id: "02_elaborar_edital_fomento"
+owner: "triagem-propostas-fomento"
+objective: "Montar a minuta de edital interno de fomento (PIBIC, PIBITI, PIBID ou extensão) a partir do template institucional, verificando a presença dos campos obrigatórios comuns e específicos do programa."
+inputs:
+  - "templates/edital_fomento.md"
+  - "normas institucionais/CNPq/Capes de referência para o programa"
+  - "parâmetros do edital (programa, cotas, valores, cronograma, limite de bolsas por orientador)"
+outputs:
+  - "minuta de edital revisada"
+  - "relatorio_checklist_edital com campos ausentes apontados pelo script determinístico"
+acceptance_criteria:
+  - "checklist executado por scripts/checklist_edital_fomento.py antes de qualquer revisão textual"
+  - "todo campo obrigatório ausente sinalizado explicitamente, nunca preenchido por suposição"
+  - "gate edital_aderente_normas só é proposto como liberado quando o script não aponta pendência bloqueante"

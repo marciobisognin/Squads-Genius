@@ -1,0 +1,12 @@
+id: "04_acompanhamento_cronograma_bolsas"
+owner: "cronograma-bolsas-acompanhador"
+objective: "Comparar a data de referência com os prazos previstos de mensalidades, relatórios parciais/finais e TCR de cada bolsa ativa, identificando pendências e atrasos."
+inputs:
+  - "lista de bolsas ativas com cronograma de relatórios e mensalidades (JSON)"
+  - "data de referência"
+outputs:
+  - "relatorio_cronograma_bolsas com cada bolsa classificada como em dia, relatório próximo do vencimento ou relatório em atraso"
+acceptance_criteria:
+  - "toda classificação produzida por scripts/cronograma_bolsas.py, nunca por estimativa do agente"
+  - "casos de atraso sinalizados à coordenação sem decisão automática sobre advertência, prorrogação ou corte de bolsa"
+  - "dados pessoais do bolsista usados apenas se estritamente necessários ao relatório"

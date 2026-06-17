@@ -1,0 +1,24 @@
+{
+  "bolsas": [
+    {
+      "bolsa_id": "BOLSA-2026-001",
+      "entregas": [
+        {"tipo": "relatorio_parcial", "prazo": "2026-05-01", "entregue": true},
+        {"tipo": "relatorio_final", "prazo": "2026-12-15", "entregue": false}
+      ]
+    },
+    {
+      "bolsa_id": "BOLSA-2026-002",
+      "entregas": [
+        {"tipo": "relatorio_parcial", "prazo": "2026-05-01", "entregue": false},
+        {"tipo": "relatorio_final", "prazo": "2026-12-15", "entregue": false}
+      ]
+    },
+    {
+      "bolsa_id": "BOLSA-2026-003",
+      "entregas": [
+        {"tipo": "relatorio_parcial", "prazo": "2026-06-25", "entregue": false}
+      ]
+    }
+  ]
+}
