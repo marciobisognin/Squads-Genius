@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pdi.risk.schema.json",
+  "title": "Risco associado a meta/programa do PDI",
+  "type": "object",
+  "required": ["codigo_meta", "nivel", "descricao", "acao_corretiva"],
+  "properties": {
+    "codigo_meta": { "type": "string" },
+    "campus": { "type": "string" },
+    "dimensao": { "type": "string" },
+    "nivel": { "enum": ["baixo", "médio", "alto", "crítico"] },
+    "categoria": {
+      "enum": [
+        "orçamentário",
+        "infraestrutura",
+        "pessoas",
+        "dados",
+        "dependência_externa",
+        "prazo",
+        "governança",
+        "legal_normativo",
+        "lgpd"
+      ]
+    },
+    "descricao": { "type": "string" },
+    "probabilidade": { "enum": ["baixa", "média", "alta"] },
+    "impacto": { "enum": ["baixo", "médio", "alto"] },
+    "motivos": { "type": "array", "items": { "type": "string" } },
+    "acao_corretiva": { "type": "string" },
+    "responsavel": { "type": "string" },
+    "prazo": { "type": "string" },
+    "requer_decisao_colegiada": { "type": "boolean" }
+  },
+  "additionalProperties": true
+}

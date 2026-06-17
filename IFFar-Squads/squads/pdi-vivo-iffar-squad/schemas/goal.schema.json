@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pdi.goal.schema.json",
+  "title": "Meta operacional do PDI",
+  "type": "object",
+  "required": [
+    "codigo",
+    "ciclo",
+    "dimensao",
+    "meta",
+    "indicador",
+    "fonte_dados",
+    "responsavel_nome",
+    "periodicidade",
+    "status",
+    "risco"
+  ],
+  "properties": {
+    "codigo": { "type": "string", "description": "Identificador único da meta (ex.: M-001)." },
+    "ciclo": { "type": "string", "description": "Ciclo do PDI (ex.: 2027-2034)." },
+    "dimensao": { "type": "string" },
+    "objetivo": { "type": "string" },
+    "meta": { "type": "string" },
+    "acao": { "type": "string" },
+    "campus": { "type": "string" },
+    "unidade_responsavel": { "type": "string" },
+    "responsavel_nome": { "type": "string" },
+    "indicador": { "type": "string" },
+    "linha_base": { "type": ["string", "number"] },
+    "meta_anual": { "type": ["string", "number"] },
+    "meta_2034": { "type": ["string", "number"] },
+    "fonte_dados": { "type": "string" },
+    "evidencia_obrigatoria": { "type": "string" },
+    "periodicidade": {
+      "enum": ["mensal", "trimestral", "semestral", "anual", "bienal", "eventual"]
+    },
+    "status": {
+      "enum": [
+        "não iniciada",
+        "em planejamento",
+        "em execução",
+        "parcialmente concluída",
+        "concluída",
+        "atrasada",
+        "suspensa",
+        "requer decisão",
+        "requer repactuação"
+      ]
+    },
+    "risco": { "enum": ["baixo", "médio", "alto", "crítico"] },
+    "restricao_principal": { "type": "string" },
+    "acao_corretiva": { "type": "string" },
+    "ultima_atualizacao": { "type": "string" },
+    "proxima_revisao": { "type": "string" }
+  },
+  "additionalProperties": true
+}

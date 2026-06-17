@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pdi.evidence.schema.json",
+  "title": "Evidência auditável de indicador/meta do PDI",
+  "type": "object",
+  "required": ["evidencia_id", "codigo_meta", "tipo", "fonte", "data_referencia"],
+  "properties": {
+    "evidencia_id": { "type": "string" },
+    "codigo_meta": { "type": "string" },
+    "indicador_codigo": { "type": "string" },
+    "tipo": {
+      "enum": ["relatorio", "planilha", "sistema", "documento", "ata", "formulario", "painel"]
+    },
+    "fonte": { "type": "string", "description": "Sistema ou unidade de origem." },
+    "url_ou_caminho": { "type": "string" },
+    "sha256": { "type": "string", "description": "Hash de integridade da evidência." },
+    "data_referencia": { "type": "string" },
+    "data_coleta": { "type": "string" },
+    "valor_observado": { "type": ["string", "number"] },
+    "responsavel_coleta": { "type": "string" },
+    "contem_dado_pessoal": { "type": "boolean", "default": false },
+    "classificacao_lgpd": {
+      "enum": ["publico", "interno", "restrito", "pessoal", "pessoal_sensivel"]
+    },
+    "observacoes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

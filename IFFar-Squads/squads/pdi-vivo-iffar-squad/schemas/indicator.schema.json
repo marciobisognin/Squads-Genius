@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pdi.indicator.schema.json",
+  "title": "Indicador do PDI",
+  "type": "object",
+  "required": [
+    "codigo",
+    "nome",
+    "formula",
+    "unidade",
+    "fonte_dados",
+    "periodicidade",
+    "responsavel"
+  ],
+  "properties": {
+    "codigo": { "type": "string" },
+    "nome": { "type": "string" },
+    "descricao": { "type": "string" },
+    "formula": { "type": "string", "description": "Definição de cálculo do indicador." },
+    "unidade": { "type": "string", "description": "Unidade de medida (%, nº, R$, etc.)." },
+    "polaridade": {
+      "enum": ["quanto_maior_melhor", "quanto_menor_melhor", "alvo_exato"],
+      "description": "Sentido desejado do indicador."
+    },
+    "linha_base": { "type": ["string", "number"] },
+    "meta_anual": { "type": ["string", "number"] },
+    "meta_final": { "type": ["string", "number"] },
+    "fonte_dados": { "type": "string" },
+    "sistema_origem": { "type": "string", "description": "Ex.: SUAP, SISTEC, PNP, e-MEC, SIAFI." },
+    "periodicidade": {
+      "enum": ["mensal", "trimestral", "semestral", "anual", "bienal", "eventual"]
+    },
+    "responsavel": { "type": "string" },
+    "criticidade": { "enum": ["estratégico", "tático", "operacional"] }
+  },
+  "additionalProperties": true
+}

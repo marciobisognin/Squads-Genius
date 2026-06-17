@@ -1,0 +1,35 @@
+name: workflow-b-matriz-operacional-de-metas
+descricao: Conversão das metas do PDI em matriz operacional estruturada, validada e com indicadores.
+trigger: base documental pronta (workflow A concluído) e necessidade de estruturar metas
+steps:
+  - id: extracao_metas
+    agent: goal-indicator-extractor
+    tool: scripts/build_goal_matrix.py
+    output: matriz_preliminar_csv_json
+  - id: indicadores
+    agent: evidence-data-curator
+    depends_on: [extracao_metas]
+    output: dicionario_de_indicadores_fonte_periodicidade_calculo
+  - id: integracao_dados
+    agent: data-bi-integration-engineer
+    depends_on: [indicadores]
+    output: mapeamento_de_fontes_e_camada_semantica
+  - id: orcamento
+    agent: budget-loa-ppa-analyst
+    depends_on: [extracao_metas]
+    output: vinculo_metas_acoes_orcamentarias
+  - id: validacao
+    agent: evidence-data-curator
+    depends_on: [extracao_metas, indicadores]
+    tool: scripts/validate_indicator_matrix.py
+    output: quality_report_lacunas
+  - id: consolidacao
+    agent: pdi-orchestrator
+    depends_on: [validacao, integracao_dados, orcamento]
+    output: matriz_operacional_consolidada
+quality_gates:
+  - matriz exportada em CSV e JSON conforme schema goal.schema.json
+  - metas sem indicador, sem fonte, sem responsável ou sem evidência sinalizadas
+  - indicadores possuem fórmula, unidade, fonte e periodicidade
+  - duplicidades e códigos repetidos detectados
+  - script nunca preenche indicador, fonte ou responsável automaticamente

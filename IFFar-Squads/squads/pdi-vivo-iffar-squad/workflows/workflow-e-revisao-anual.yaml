@@ -1,0 +1,34 @@
+name: workflow-e-revisao-anual-e-conferencia-bienal
+descricao: Consolidação anual, comparação metas x execução e preparação da consulta pública/conferência bienal.
+trigger: fechamento de ciclo anual ou preparação da conferência bienal do PDI
+steps:
+  - id: consolidacao_anual
+    agent: evidence-data-curator
+    output: indicadores_anuais_consolidados
+  - id: comparacao_execucao
+    agent: budget-loa-ppa-analyst
+    depends_on: [consolidacao_anual]
+    output: metas_versus_execucao_fisica_e_financeira
+  - id: avaliacao_institucional
+    agent: institutional-assessment-cpa-sinaes-specialist
+    depends_on: [consolidacao_anual]
+    output: leitura_sinaes_cpa_e_recomendacoes
+  - id: repactuacao
+    agent: methodology-mec-compliance-reviewer
+    depends_on: [comparacao_execucao, avaliacao_institucional]
+    output: sugestoes_de_repactuacao_justificadas
+  - id: consulta_publica
+    agent: institutional-diplomacy-consultation
+    depends_on: [repactuacao]
+    output: pacote_de_consulta_publica_e_versao_comentada
+  - id: governanca_final
+    agent: governance-ethics-lgpd-guardian
+    depends_on: [consulta_publica]
+    output: parecer_final_de_publicacao
+quality_gates:
+  - indicadores anuais consolidados com evidência
+  - comparação meta x execução documentada
+  - repactuações justificadas e rastreáveis
+  - material de consulta pública em linguagem acessível
+  - parecer de governança/LGPD antes da publicação
+  - deliberação colegiada registrada (humano no loop)

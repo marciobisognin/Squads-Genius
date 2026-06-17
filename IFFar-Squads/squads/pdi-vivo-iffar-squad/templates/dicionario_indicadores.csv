@@ -1,0 +1,2 @@
+codigo,nome,descricao,formula,unidade,polaridade,linha_base,meta_anual,meta_final,fonte_dados,sistema_origem,periodicidade,responsavel,criticidade
+IND-001,Taxa de ocupação de vagas,Percentual de vagas ocupadas frente às ofertadas,matriculados / vagas ofertadas * 100,%,quanto_maior_melhor,,,,Relatório de matrículas,SISTEC,semestral,Coordenação de Ensino,estratégico

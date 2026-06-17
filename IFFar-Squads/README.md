@@ -37,6 +37,7 @@ A convenção saneada passa a ser:
 | Germina360 Squad | [`germina360-squad`](./squads/germina360-squad/) | Descoberta, qualificação e transformação de ideias em empreendimentos incubáveis. |
 | VetorViveiro Squad | [`vetorviveiro-squad`](./squads/vetorviveiro-squad/) | Conversão de documentos institucionais de incubadoras em sistema operacional de inovação. |
 | PrismaFrame Executive Cinema Suite | [`prismaframe-executive-cinema-suite`](./squads/prismaframe-executive-cinema-suite/) | Materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual. |
+| PDI Vivo IFFar Squad | [`pdi-vivo-iffar-squad`](./squads/pdi-vivo-iffar-squad/) | Governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, relatório trimestral e painel, com 17 agentes SME e engine determinística. |
 
 ## 🧭 Organização saneada
 
