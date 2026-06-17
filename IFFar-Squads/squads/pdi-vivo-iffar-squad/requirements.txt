@@ -1,0 +1,8 @@
+# Núcleo determinístico roda apenas com a biblioteca padrão do Python 3.11+.
+# As dependências abaixo são OPCIONAIS, usadas apenas para conveniências:
+#   - pyyaml: validação/serialização de YAML (squad.yaml, agentes, workflows)
+#   - pypdf: extração de texto de PDF em extract_pdi_text.py
+#   - python-docx: extração de texto de DOCX (há fallback por descompactação zip)
+pyyaml>=6.0
+pypdf>=4.0
+python-docx>=1.1

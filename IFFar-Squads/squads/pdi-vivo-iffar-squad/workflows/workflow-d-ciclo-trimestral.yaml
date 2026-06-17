@@ -1,0 +1,37 @@
+name: workflow-d-ciclo-trimestral-de-acompanhamento
+descricao: Ciclo trimestral de acompanhamento, recálculo de status/risco e geração de relatório executivo.
+trigger: chegada de atualizações mensais/trimestrais de indicadores e status
+steps:
+  - id: importacao
+    agent: evidence-data-curator
+    output: atualizacoes_importadas_e_validadas
+  - id: recalculo_risco
+    agent: risk-budget-dependency-analyst
+    depends_on: [importacao]
+    tool: scripts/risk_matrix.py
+    output: matriz_de_riscos_atualizada
+  - id: permanencia
+    agent: retention-success-monitor
+    depends_on: [importacao]
+    output: alertas_de_permanencia_e_exito
+  - id: relatorio
+    agent: dashboard-report-designer
+    depends_on: [recalculo_risco, permanencia]
+    tool: scripts/generate_quarterly_report.py
+    output: relatorio_executivo_trimestral
+  - id: painel
+    agent: dashboard-report-designer
+    depends_on: [recalculo_risco]
+    tool: scripts/render_dashboard.py
+    output: painel_html_status_e_risco
+  - id: decisao
+    agent: pdi-orchestrator
+    depends_on: [relatorio, painel]
+    output: ata_de_decisao_corretiva_e_pendencias
+quality_gates:
+  - status, risco e atraso recalculados de forma determinística
+  - metas críticas identificadas com justificativa e ação corretiva
+  - relatório executivo de duas páginas gerado
+  - painel HTML abre no navegador
+  - ata de decisão corretiva registra pendências e responsáveis
+  - relatório informa limitações e necessidade de revisão humana

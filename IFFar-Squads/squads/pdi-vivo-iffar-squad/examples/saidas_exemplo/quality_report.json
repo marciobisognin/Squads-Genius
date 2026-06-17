@@ -1,0 +1,31 @@
+{
+  "total_metas": 10,
+  "total_achados": 3,
+  "por_severidade": {
+    "alto": 3,
+    "médio": 0,
+    "baixo": 0
+  },
+  "go_no_go": "no-go",
+  "achados": [
+    {
+      "severidade": "alto",
+      "codigo_meta": "M-006",
+      "categoria": "prazo",
+      "mensagem": "próxima revisão vencida: 2026-05-01"
+    },
+    {
+      "severidade": "alto",
+      "codigo_meta": "M-007",
+      "categoria": "prazo",
+      "mensagem": "próxima revisão vencida: 2026-04-10"
+    },
+    {
+      "severidade": "alto",
+      "codigo_meta": "M-010",
+      "categoria": "prazo",
+      "mensagem": "próxima revisão vencida: 2026-03-20"
+    }
+  ],
+  "observacao": "Achados de severidade alta exigem saneamento/revisão humana antes da publicação."
+}

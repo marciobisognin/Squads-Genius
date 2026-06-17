@@ -1,0 +1,35 @@
+name: workflow-a-ingestao-comparacao-documental
+descricao: Ingestão e comparação documental entre o PDI vigente, o anterior e a proposta do novo ciclo.
+trigger: usuário envia PDI vigente, PDI anterior, metodologia, relatórios e/ou a proposta do novo ciclo
+steps:
+  - id: intake
+    agent: pdi-orchestrator
+    output: lista_de_fontes_e_plano
+  - id: extracao
+    agent: documental-architect
+    depends_on: [intake]
+    tool: scripts/extract_pdi_text.py
+    output: textos_extraidos_com_hash_e_metricas
+  - id: classificacao
+    agent: documental-architect
+    depends_on: [extracao]
+    output: fontes_classificadas_oficial_interna_proposta
+  - id: comparativo
+    agent: documental-architect
+    depends_on: [extracao]
+    tool: scripts/compare_pdi_cycles.py
+    output: comparativo_de_ciclos_termos_csv_md
+  - id: lacunas
+    agent: methodology-mec-compliance-reviewer
+    depends_on: [classificacao, comparativo]
+    output: relatorio_de_lacunas_e_conformidade
+  - id: governanca
+    agent: governance-ethics-lgpd-guardian
+    depends_on: [lacunas]
+    output: parecer_de_governanca_e_restricoes_de_publicacao
+quality_gates:
+  - todas as fontes possuem hash SHA-256 e métricas de extração
+  - fontes classificadas como oficial, interna ou proposta
+  - comparativo de termos gerado em CSV e Markdown
+  - relatório de lacunas separa observado, inferido, hipótese e recomendação
+  - parecer de governança emitido antes de qualquer publicação

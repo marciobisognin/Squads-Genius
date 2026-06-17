@@ -1,0 +1,29 @@
+name: workflow-c-pacto-territorial-por-campus
+descricao: Geração do pacto territorial por campus, com responsabilidades e restrições locais.
+trigger: matriz operacional consolidada e necessidade de pactuar metas por campus
+steps:
+  - id: filtro_campus
+    agent: campus-territory-analyst
+    tool: scripts/build_campus_pact.py
+    output: metas_por_campus
+  - id: restricoes
+    agent: risk-budget-dependency-analyst
+    depends_on: [filtro_campus]
+    output: restricoes_orcamento_infra_equipe_dados
+  - id: infraestrutura
+    agent: infrastructure-works-analyst
+    depends_on: [filtro_campus]
+    output: capacidade_instalada_e_obras_por_campus
+  - id: pessoas
+    agent: people-staffing-analyst
+    depends_on: [filtro_campus]
+    output: dimensionamento_equipe_por_campus
+  - id: pacto
+    agent: campus-territory-analyst
+    depends_on: [restricoes, infraestrutura, pessoas]
+    output: matriz_de_pacto_territorial_por_campus
+quality_gates:
+  - cada campus possui pacto em CSV e Markdown
+  - restrições locais explicitadas (orçamento, infraestrutura, equipe, dados)
+  - responsáveis locais identificados
+  - metas de atenção (risco alto/crítico) destacadas no pacto

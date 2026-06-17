@@ -1,0 +1,112 @@
+name: pdi-vivo-iffar-squad
+title: PDI Vivo IFFar Squad
+description: Equipe multiagente institucional que transforma o Plano de Desenvolvimento
+  Institucional do IFFar em um sistema vivo de planejamento, indicadores, evidências,
+  riscos, pactos por campus, revisão e comunicação, com engine determinística e gates
+  humanos.
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+institutional_context:
+  institution: Instituto Federal Farroupilha
+  area: Desenvolvimento Institucional / PDI
+  scope: ingestão documental, matriz operacional de metas, indicadores, evidências,
+    riscos, orçamento, pactos por campus, ciclo trimestral, revisão anual e conferência
+    bienal
+  default_output: pacote auditável com base de conhecimento, matriz de metas, dicionário
+    de indicadores, matriz de riscos, relatório trimestral, painel HTML e pacote de
+    consulta pública
+  cycles:
+  - PDI 2014-2018 (longitudinal)
+  - PDI 2019-2026 (histórico/referência)
+  - PDI 2027-2034 (ciclo vivo)
+metadata:
+  readme_style: institutional-intelligence-platform
+  domain: institutional-development-planning
+  language: pt-BR
+  maturity_target: national-reference-platform
+data_policy:
+  lgpd: minimização, retenção configurável, mascaramento de dado pessoal e trilha de
+    auditoria
+  external_models: proibido enviar dados institucionais a modelos externos sem autorização
+  evidence_integrity: hash SHA-256 obrigatório para fontes extraídas e evidências
+  human_in_the_loop: toda publicação e repactuação exige revisão humana institucional
+normative_bases:
+- Lei nº 9.394/1996 (LDB)
+- Lei nº 11.892/2008 (criação dos Institutos Federais)
+- Lei nº 10.861/2004 (SINAES)
+- Decreto nº 9.235/2017 (regulação da educação superior)
+- Lei nº 13.709/2018 (LGPD)
+- Instrumentos e diretrizes do MEC/INEP para PDI e avaliação institucional
+requirements:
+- requirements.txt
+agents:
+- id: pdi-orchestrator
+  file: agents/pdi-orchestrator.yaml
+- id: documental-architect
+  file: agents/documental-architect.yaml
+- id: goal-indicator-extractor
+  file: agents/goal-indicator-extractor.yaml
+- id: campus-territory-analyst
+  file: agents/campus-territory-analyst.yaml
+- id: evidence-data-curator
+  file: agents/evidence-data-curator.yaml
+- id: data-bi-integration-engineer
+  file: agents/data-bi-integration-engineer.yaml
+- id: risk-budget-dependency-analyst
+  file: agents/risk-budget-dependency-analyst.yaml
+- id: budget-loa-ppa-analyst
+  file: agents/budget-loa-ppa-analyst.yaml
+- id: retention-success-monitor
+  file: agents/retention-success-monitor.yaml
+- id: innovation-extension-radar
+  file: agents/innovation-extension-radar.yaml
+- id: people-staffing-analyst
+  file: agents/people-staffing-analyst.yaml
+- id: infrastructure-works-analyst
+  file: agents/infrastructure-works-analyst.yaml
+- id: institutional-assessment-cpa-sinaes-specialist
+  file: agents/institutional-assessment-cpa-sinaes-specialist.yaml
+- id: methodology-mec-compliance-reviewer
+  file: agents/methodology-mec-compliance-reviewer.yaml
+- id: dashboard-report-designer
+  file: agents/dashboard-report-designer.yaml
+- id: institutional-diplomacy-consultation
+  file: agents/institutional-diplomacy-consultation.yaml
+- id: governance-ethics-lgpd-guardian
+  file: agents/governance-ethics-lgpd-guardian.yaml
+tasks:
+- id: ingestao-comparacao-documental
+  file: tasks/ingestao-comparacao-documental.md
+- id: matriz-operacional-metas
+  file: tasks/matriz-operacional-metas.md
+- id: ciclo-trimestral-acompanhamento
+  file: tasks/ciclo-trimestral-acompanhamento.md
+workflows:
+- id: workflow-a-ingestao-comparacao
+  file: workflows/workflow-a-ingestao-comparacao.yaml
+- id: workflow-b-matriz-metas
+  file: workflows/workflow-b-matriz-metas.yaml
+- id: workflow-c-pacto-campus
+  file: workflows/workflow-c-pacto-campus.yaml
+- id: workflow-d-ciclo-trimestral
+  file: workflows/workflow-d-ciclo-trimestral.yaml
+- id: workflow-e-revisao-anual
+  file: workflows/workflow-e-revisao-anual.yaml
+scripts:
+- scripts/pdi_common.py
+- scripts/extract_pdi_text.py
+- scripts/build_goal_matrix.py
+- scripts/validate_indicator_matrix.py
+- scripts/compare_pdi_cycles.py
+- scripts/build_campus_pact.py
+- scripts/risk_matrix.py
+- scripts/generate_quarterly_report.py
+- scripts/render_dashboard.py
+- scripts/smoke_test.py
+schemas:
+- schemas/goal.schema.json
+- schemas/indicator.schema.json
+- schemas/risk.schema.json
+- schemas/evidence.schema.json

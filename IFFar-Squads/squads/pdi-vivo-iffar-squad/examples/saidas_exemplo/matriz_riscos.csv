@@ -1,0 +1,11 @@
+codigo,dimensao,campus,meta,status,risco,motivos,restricao_principal,acao_corretiva
+M-007,Sustentabilidade Financeira,,Captar R$ 5 mi/ano em recursos externos,requer decisão,crítico,prazo; status crítico,Dependência de emendas parlamentares,Levar à Câmara de Riscos
+M-010,Internacionalização,,Triplicar editais de mobilidade internacional,suspensa,crítico,prazo; status crítico,Sem orçamento de mobilidade,Repactuar meta com a Reitoria
+M-002,Permanência e Êxito,São Borja,Reduzir a evasão para abaixo de 12%,em execução,alto,—,Equipe reduzida,Ampliar busca ativa e tutoria
+M-006,Infraestrutura,Júlio de Castilhos,Reformar 100% dos laboratórios prioritários,atrasada,alto,prazo,Restrição orçamentária de capital,Repactuar cronograma de obras
+M-009,Tecnologia da Informação,,Implantar lakehouse e camada semântica do PDI,não iniciada,alto,—,Equipe de dados insuficiente,Priorizar fontes críticas
+M-001,Acesso e Inclusão,São Borja,Elevar a taxa de ocupação de vagas para 95%,em execução,médio,—,Demanda regional irregular,Revisar oferta por eixo tecnológico
+M-003,Pesquisa e Inovação,Santa Maria,Dobrar o número de projetos de pesquisa com fomento,em planejamento,médio,—,Orçamento de fomento limitado,Buscar parcerias e emendas
+M-005,Gestão de Pessoas,,Atingir 70% de docentes com doutorado,em planejamento,médio,—,Limite de afastamentos simultâneos,Escalonar afastamentos
+M-008,Avaliação Institucional,,Atingir 60% de participação na autoavaliação,em execução,médio,—,Baixa adesão histórica,Comunicação e devolutivas
+M-004,Extensão,Santa Maria,Atingir 30 mil pessoas em ações de extensão/ano,em execução,baixo,—,,Acompanhamento de rotina.
