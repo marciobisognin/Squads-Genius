@@ -1,0 +1,12 @@
+id: "06_relatorio_aproveitamento_evasao"
+owner: "curriculo-integralizacao-auditor"
+objective: "Consolidar indicadores agregados de aproveitamento, retenção e evasão por turma/curso a partir dos dados de fechamento do período letivo."
+inputs:
+  - "resultados de scripts/auditor_integralizacao.py para a turma/curso"
+  - "dados de matrícula, trancamento e desligamento do período"
+outputs:
+  - "relatorio_aproveitamento_evasao (templates/relatorio_aproveitamento_evasao.md preenchido)"
+acceptance_criteria:
+  - "indicadores apresentados de forma agregada, sem exposição de dados individuais além do necessário"
+  - "metodologia de cálculo de cada indicador (aproveitamento, retenção, evasão) explicitada no relatório"
+  - "dados destinados a relatório de gestão e à Plataforma Nilo Peçanha claramente identificados"

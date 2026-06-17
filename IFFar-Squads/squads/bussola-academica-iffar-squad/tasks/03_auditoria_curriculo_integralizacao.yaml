@@ -1,0 +1,13 @@
+id: "03_auditoria_curriculo_integralizacao"
+owner: "curriculo-integralizacao-auditor"
+objective: "Cruzar o histórico escolar do aluno com a matriz curricular vigente via script determinístico e classificar pendências, pré-requisitos e equivalências."
+inputs:
+  - "histórico escolar do aluno (JSON)"
+  - "matriz curricular vigente (templates/matriz_curricular.yaml)"
+  - "saída de scripts/auditor_integralizacao.py"
+outputs:
+  - "relatorio_integralizacao com componentes pendentes, pré-requisitos não satisfeitos, percentual de integralização e equivalências propostas"
+acceptance_criteria:
+  - "toda checagem de pré-requisito/carga horária feita pelo script determinístico, não por inferência do agente"
+  - "equivalência entre matrizes sempre marcada como proposta, pendente de validação da coordenação"
+  - "gate integralizacao_auditada liberado somente com o script executado e resultado anexado ao relatório"

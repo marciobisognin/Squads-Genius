@@ -1,0 +1,30 @@
+{
+  "id": "revisao_ppc",
+  "description": "Apoio à revisão ou criação de PPC e matriz curricular, com verificação de aderência às DCN e ao catálogo nacional de cursos técnicos e aprovação final do NDE/colegiado.",
+  "human_in_loop": true,
+  "rollback": "pendência classificada como não conforme volta ao ppc-dcn-analyst após ajuste do PPC pela coordenação",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake do ciclo acadêmico",
+      "task": "01_intake_ciclo_academico",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Análise de aderência PPC/DCN",
+      "task": "02_analise_ppc_e_matriz_curricular",
+      "gate_required": true,
+      "gate": "ppc_aderente_dcn",
+      "note": "Pendências não conformes retornam à coordenação/NDE para ajuste do PPC antes de seguir."
+    },
+    {
+      "order": 3,
+      "name": "Aprovação humana do NDE/colegiado",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: deliberação de mérito pedagógico e aprovação formal do PPC/matriz curricular."
+    }
+  ]
+}

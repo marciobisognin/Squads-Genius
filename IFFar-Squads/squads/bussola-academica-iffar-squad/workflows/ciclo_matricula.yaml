@@ -1,0 +1,43 @@
+{
+  "id": "ciclo_matricula",
+  "description": "Calendário acadêmico, edital de matrícula/rematrícula e auditoria de integralização curricular dos alunos, com gates de conflito de calendário e de integralização auditada.",
+  "human_in_loop": true,
+  "rollback": "conflito de calendário ou pré-requisito não satisfeito retorna à etapa correspondente; nova lacuna descoberta volta ao intake",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake do ciclo acadêmico",
+      "task": "01_intake_ciclo_academico",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Calendário e edital de matrícula",
+      "task": "04_calendario_e_editais_matricula",
+      "gate_required": true,
+      "gate": "calendario_sem_conflito"
+    },
+    {
+      "order": 3,
+      "name": "Auditoria de integralização por aluno",
+      "task": "03_auditoria_curriculo_integralizacao",
+      "gate_required": true,
+      "gate": "integralizacao_auditada"
+    },
+    {
+      "order": 4,
+      "name": "Checklist SISTEC/PNP",
+      "task": "07_checklist_sistec_pnp",
+      "gate_required": true,
+      "gate": "dados_consistentes_sistec_pnp"
+    },
+    {
+      "order": 5,
+      "name": "Deferimento humano da matrícula",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: deferimento/indeferimento de matrícula e validação de equivalências propostas pela secretaria acadêmica."
+    }
+  ]
+}

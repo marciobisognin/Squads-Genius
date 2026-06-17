@@ -61,6 +61,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [PrismaFrame Executive Cinema Suite](IFFar-Squads/squads/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — versão `1.0.0` — materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual
 
 - [VÉRTICE-OS | Artefatos Marvel](squads/vertice-os-artefatos-marvel/README.md) — `vertice-os-artefatos-marvel` — versão `2.1.0` — arquitetura interna temática multiagente com 21 agentes, contratos, gates, HITL, evidência e rollback conforme PRD de Marcio Bisognin
+- [Bússola Acadêmica IFFar](IFFar-Squads/squads/bussola-academica-iffar-squad/README.md) — `bussola-academica-iffar-squad` — versão `1.0.0` — apoio ao ciclo acadêmico do IFFar: PPC/DCN, integralização curricular, calendário e editais de matrícula, atas de conselho de classe e consistência de dados para SISTEC/Plataforma Nilo Peçanha
 
 ---
 

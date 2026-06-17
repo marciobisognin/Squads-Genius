@@ -1,0 +1,37 @@
+{
+  "id": "fechamento_periodo_letivo",
+  "description": "Fechamento do período letivo: minuta de ata de conselho de classe, relatório de aproveitamento/evasão e checklist de consistência para envio a SISTEC/PNP.",
+  "human_in_loop": true,
+  "rollback": "deliberação do colegiado que altere resultado de aluno retorna ao relatório de aproveitamento/evasão antes do checklist final",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Minuta de ata de conselho de classe",
+      "task": "05_atas_conselho_classe",
+      "gate_required": true,
+      "gate": "ata_aprovada_pelo_colegiado",
+      "note": "BLOQUEANTE: campos de deliberação só são finalizados após a reunião do colegiado."
+    },
+    {
+      "order": 2,
+      "name": "Relatório de aproveitamento e evasão",
+      "task": "06_relatorio_aproveitamento_evasao",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Checklist SISTEC/PNP",
+      "task": "07_checklist_sistec_pnp",
+      "gate_required": true,
+      "gate": "dados_consistentes_sistec_pnp"
+    },
+    {
+      "order": 4,
+      "name": "Envio humano aos sistemas federais",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: envio oficial ao SISTEC e à Plataforma Nilo Peçanha pela secretaria acadêmica."
+    }
+  ]
+}

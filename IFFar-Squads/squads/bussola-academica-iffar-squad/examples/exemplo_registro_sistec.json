@@ -1,0 +1,8 @@
+{
+  "aluno": {"nome": "Aluno Exemplo", "matricula": "2024001234"},
+  "curso": "Técnico em Informática",
+  "situacao_matricula": "concluinte",
+  "data_inicio": "2024-02-01",
+  "carga_horaria_cursada": 240,
+  "carga_horaria_matriz_referencia": 320
+}

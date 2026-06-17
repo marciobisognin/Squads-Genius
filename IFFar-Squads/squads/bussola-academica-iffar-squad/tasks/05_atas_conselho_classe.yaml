@@ -1,0 +1,12 @@
+id: "05_atas_conselho_classe"
+owner: "atas-editais-redator"
+objective: "Gerar minuta de ata de conselho de classe a partir dos dados de desempenho da turma, para deliberação e aprovação do colegiado."
+inputs:
+  - "dados de desempenho da turma (notas, frequência, pareceres docentes)"
+  - "templates/ata_conselho_classe.md"
+outputs:
+  - "minuta de ata de conselho de classe com campos de deliberação marcados [[DELIBERAÇÃO DO COLEGIADO]]"
+acceptance_criteria:
+  - "nenhum campo de deliberação pedagógica preenchido por suposição: permanece marcado para a reunião"
+  - "dados de desempenho citados de forma agregada por aluno, sem exposição de dados sensíveis além do necessário"
+  - "gate ata_aprovada_pelo_colegiado depende de aprovação humana explícita registrada após a reunião"

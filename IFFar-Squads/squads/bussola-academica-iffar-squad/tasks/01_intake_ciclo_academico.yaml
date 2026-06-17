@@ -1,0 +1,12 @@
+id: "01_intake_ciclo_academico"
+owner: "bussola-orchestrator"
+objective: "Identificar o tipo de demanda do ciclo acadêmico, inventariar documentos disponíveis e lacunas bloqueantes antes de rotear para o workflow adequado."
+inputs:
+  - "solicitação inicial (templates/solicitacao_ciclo_academico.yaml)"
+  - "documentos disponíveis: PPC, matriz curricular, histórico de alunos, calendário, atas anteriores"
+outputs:
+  - "relatorio_intake com tipo de demanda identificado, documentos presentes, lacunas e workflow recomendado"
+acceptance_criteria:
+  - "demanda classificada em um dos três workflows (revisao_ppc, ciclo_matricula, fechamento_periodo_letivo) com justificativa"
+  - "toda lacuna bloqueante formulada como pergunta objetiva ao usuário"
+  - "nenhum dado inventado: lacuna vira pergunta ou premissa explícita confirmada pelo usuário"
