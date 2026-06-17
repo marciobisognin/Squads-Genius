@@ -1,0 +1,11 @@
+id: "02_extracao_texto_e_ocr"
+owner: "extrator-texto-juridico"
+objective: "Extrair texto fiel; aplicar OCR quando o documento for imagem."
+inputs:
+  - "manifest.json"
+outputs:
+  - "textos limpos"
+  - "aviso de OCR quando aplicável"
+acceptance_criteria:
+  - "texto extraído para todos os itens"
+  - "documentos imagem sinalizados para OCR"

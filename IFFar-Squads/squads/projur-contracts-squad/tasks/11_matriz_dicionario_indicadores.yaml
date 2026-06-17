@@ -1,0 +1,10 @@
+id: "11_matriz_dicionario_indicadores"
+owner: "gerador-matriz-dicionario"
+objective: "Consolidar matriz, dicionário e indicadores."
+inputs:
+  - "metadados, cláusulas, validações"
+outputs:
+  - "matriz, dicionário, indicadores"
+acceptance_criteria:
+  - "matriz com ≤ 5% campos vazios"
+  - "indicadores gerados sem erro"

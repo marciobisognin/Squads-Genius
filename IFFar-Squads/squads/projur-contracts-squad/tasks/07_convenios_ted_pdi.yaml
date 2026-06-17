@@ -1,0 +1,10 @@
+id: "07_convenios_ted_pdi"
+owner: "sme-convenios-ted-transferencias"
+objective: "Aplicar regras específicas de convênios/TED e PD&I."
+inputs:
+  - "instrumentos convênio/TED/PD&I"
+outputs:
+  - "apontamentos específicos"
+acceptance_criteria:
+  - "plano de trabalho/prestação de contas verificados"
+  - "cláusulas de PI/sigilo verificadas quando PD&I"

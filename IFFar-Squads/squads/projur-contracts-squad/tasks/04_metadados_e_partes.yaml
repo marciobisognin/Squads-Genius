@@ -1,0 +1,11 @@
+id: "04_metadados_e_partes"
+owner: "extrator-metadados"
+objective: "Extrair metadados e normalizar/validar as partes (CNPJ/CPF)."
+inputs:
+  - "textos"
+outputs:
+  - "metadados"
+  - "partes canônicas"
+acceptance_criteria:
+  - "≥ 80% dos campos preenchidos"
+  - "CNPJ/CPF validados por dígito verificador"

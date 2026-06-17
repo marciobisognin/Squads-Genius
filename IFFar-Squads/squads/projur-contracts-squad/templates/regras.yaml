@@ -1,0 +1,61 @@
+# Base de regras de conformidade do PROJUR Contracts Squad.
+# Cada regra é REFERENCIAL e exige verificação de vigência e validação jurídica
+# antes do uso em produção (marcadas como hipótese no PRD).
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
+regras:
+  - id: R01
+    descricao: "Contrato sem cláusulas necessárias do art. 92"
+    condicao: sem_clausulas_essenciais
+    severidade: critica
+    base_legal: "Art. 92, Lei 14.133/2021 (verificar vigência)"
+    vigente_em: "2026-06-17"
+    confianca: 0.7
+  - id: R02
+    descricao: "Instrumento sem base legal identificada"
+    condicao: sem_base_legal
+    severidade: media
+    base_legal: "Princípio da motivação (art. 50, Lei 9.784/1999)"
+    vigente_em: "2026-06-17"
+    confianca: 0.6
+  - id: R03
+    descricao: "Valor do instrumento ausente ou não identificado"
+    condicao: valor_ausente
+    severidade: media
+    base_legal: "Controle de execução orçamentária"
+    vigente_em: "2026-06-17"
+    confianca: 0.6
+  - id: R04
+    descricao: "Convênio/TED sem menção a plano de trabalho"
+    condicao: convenio_sem_plano_trabalho
+    severidade: alta
+    base_legal: "Decreto 11.531/2023; Decreto 10.426/2020 (verificar vigência)"
+    vigente_em: "2026-06-17"
+    confianca: 0.6
+  - id: R05
+    descricao: "Parte com CNPJ/CPF inválido ou ausente"
+    condicao: documento_parte_invalido
+    severidade: media
+    base_legal: "Integridade cadastral das partes"
+    vigente_em: "2026-06-17"
+    confianca: 0.8
+  - id: R06
+    descricao: "Instrumento sem data de vigência identificada"
+    condicao: sem_vigencia
+    severidade: alta
+    base_legal: "Gestão contratual / ciclo de vida (CLM)"
+    vigente_em: "2026-06-17"
+    confianca: 0.7
+  - id: R07
+    descricao: "Projeto de PD&I deve conter cláusula de PI e sigilo"
+    condicao: pdi_sem_pi
+    severidade: media
+    base_legal: "Lei 10.973/2004; Decreto 9.283/2018 (verificar vigência)"
+    vigente_em: "2026-06-17"
+    confianca: 0.5
+  - id: R08
+    descricao: "Marca de revisão humana obrigatória para todo instrumento"
+    condicao: sempre
+    severidade: informativa
+    base_legal: "Art. 53, Lei 14.133/2021 — controle prévio de legalidade"
+    vigente_em: "2026-06-17"
+    confianca: 0.9

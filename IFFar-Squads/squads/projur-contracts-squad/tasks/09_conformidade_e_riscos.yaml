@@ -1,0 +1,11 @@
+id: "09_conformidade_e_riscos"
+owner: "validador-conformidade"
+objective: "Aplicar rules engine, vigência, limites de aditivo e anomalias."
+inputs:
+  - "metadados, cláusulas, regras.yaml"
+outputs:
+  - "validações"
+  - "alertas"
+acceptance_criteria:
+  - "≥ 8 regras aplicadas com fundamento"
+  - "alertas de vigência para 100% com vigência"

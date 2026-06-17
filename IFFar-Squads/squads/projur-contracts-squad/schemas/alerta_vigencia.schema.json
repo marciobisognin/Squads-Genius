@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "alerta_vigencia",
+  "type": "object",
+  "properties": {
+    "instrumento_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "vigente",
+        "a_vencer",
+        "vencido",
+        "sem_vigencia"
+      ]
+    },
+    "dias_para_vencimento": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "percentual_aditivos": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "acao_recomendada": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "instrumento_id",
+    "status"
+  ]
+}

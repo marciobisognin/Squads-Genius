@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vinculo_instrumento",
+  "type": "object",
+  "properties": {
+    "origem_id": {
+      "type": "string"
+    },
+    "destino_id": {
+      "type": "string"
+    },
+    "tipo_vinculo": {
+      "type": "string",
+      "enum": [
+        "aditivo",
+        "ted",
+        "ata",
+        "fomento",
+        "desconhecido"
+      ]
+    },
+    "confianca": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "origem_id",
+    "destino_id",
+    "tipo_vinculo"
+  ]
+}

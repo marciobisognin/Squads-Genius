@@ -1,0 +1,10 @@
+id: "10_jurisprudencia_controle"
+owner: "sme-jurisprudencia-controle"
+objective: "Mapear red flags vs. TCU/CGU e indicar handoff ao Themis."
+inputs:
+  - "validações"
+outputs:
+  - "lista de red flags + handoff"
+acceptance_criteria:
+  - "red flags com referência verificável"
+  - "casos críticos encaminhados ao Themis"

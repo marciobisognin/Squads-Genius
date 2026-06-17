@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "validacao",
+  "type": "object",
+  "properties": {
+    "instrumento_id": {
+      "type": "string"
+    },
+    "regra_id": {
+      "type": "string"
+    },
+    "resultado": {
+      "type": "string"
+    },
+    "classificacao": {
+      "type": "string",
+      "enum": [
+        "erro_confirmado",
+        "suspeita",
+        "recomendacao",
+        "depende_justificativa",
+        "insuficiente"
+      ]
+    },
+    "fundamento": {
+      "type": "string"
+    },
+    "confianca": {
+      "type": "number"
+    },
+    "revisao_humana": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "instrumento_id",
+    "regra_id",
+    "classificacao"
+  ]
+}

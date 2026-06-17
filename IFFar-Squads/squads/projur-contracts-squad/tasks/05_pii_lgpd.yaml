@@ -1,0 +1,11 @@
+id: "05_pii_lgpd"
+owner: "sme-lgpd-privacidade"
+objective: "Detectar e mascarar dados pessoais; gerar relatório LGPD."
+inputs:
+  - "textos"
+outputs:
+  - "pii.json"
+  - "textos mascarados"
+acceptance_criteria:
+  - "PII detectado com recall ≥ 95% na amostra"
+  - "nenhum PII em claro nos artefatos"

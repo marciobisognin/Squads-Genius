@@ -1,0 +1,10 @@
+id: "01_intake_e_deduplicacao"
+owner: "intake-triagem"
+objective: "Receber o lote, deduplicar por hash e gerar o manifest."
+inputs:
+  - "pasta de entrada"
+outputs:
+  - "manifest.json"
+acceptance_criteria:
+  - "todos os arquivos catalogados com hash"
+  - "duplicatas removidas e registradas"

@@ -1,0 +1,14 @@
+{
+  "itens": [
+    {
+      "id": "INS-0001",
+      "tipo_esperado": "contrato",
+      "texto_esperado": "CONTRATO ADMINISTRATIVO Nº 045/2025\n\nCONTRATO QUE ENTRE SI CELEBRAM O INSTITUTO FEDERAL FARROUPILHA, CNPJ 26.304.156/0001-50,\nDORAVANTE DENOMINADO CONTRATANTE, E A EMPRESA ALFA SERVICOS DE LIMPEZA LTDA,\nCNPJ 11.222.333/0001-81, DORAVANTE DENOMINADA CONTRATADA.\n\nO presente contrato rege-se pela Lei 14.133/2021.\n\nCLAUSULA PRIMEIRA - DO OBJETO: contratacao de servicos continuados de limpeza e conservacao\npredial para as unidades do campus, conforme termo de referencia.\n\nCLAUSULA SEGUNDA - DO VALOR: o valor global do contrato e de R$ 1.200.000,00 (um milhao e\nduzentos mil reais).\n\nCLAUSULA TERCEIRA - DA VIGENCIA: o contrato tera vigencia de 01/03/2025 a 28/02/2026,\nadmitida a prorrogacao na forma da lei.\n\nCLAUSULA QUARTA - DA GARANTIA: sera exigida garantia de 5% do valor do contrato.\n\nCLAUSULA QUINTA - DA FISCALIZACAO: a execucao sera acompanhada por gestor e fiscal designados.\n\nCLAUSULA SEXTA - DAS SANCOES: o descumprimento sujeita a contratada as penalidades legais.\n\nCLAUSULA SETIMA - DA RESCISAO: o contrato podera ser extinto nas hipoteses legais.\n\nCLAUSULA OITAVA - DO FORO: fica eleito o foro da Justica Federal, secao judiciaria do RS.\n"
+    },
+    {
+      "id": "INS-0002",
+      "tipo_esperado": "convenio",
+      "texto_esperado": "CONVENIO Nº 008/2025\n\nCONVENIO DE COOPERACAO TECNICA E FINANCEIRA QUE CELEBRAM O INSTITUTO FEDERAL FARROUPILHA\n(CONCEDENTE), CNPJ 26.304.156/0001-50, E A FUNDACAO DE APOIO BETA (CONVENENTE),\nCNPJ 98.765.432/0001-98, com fundamento na Lei 8.958/1994 e na Lei 10.973/2004.\n\nO presente convenio possui plano de trabalho anexo e prevê prestacao de contas.\n\nCLAUSULA PRIMEIRA - DO OBJETO: execucao de projeto de pesquisa e desenvolvimento (PD&I)\nem agricultura de precisao, com repasse de recursos conforme plano de trabalho.\n\nCLAUSULA SEGUNDA - DO VALOR: o valor total do convenio e de R$ 350.000,00.\n\nCLAUSULA TERCEIRA - DA VIGENCIA: de 10/01/2025 a 31/07/2026.\n\nCLAUSULA QUARTA - DA PRESTACAO DE CONTAS: a convenente apresentara prestacao de contas final.\n\nCLAUSULA QUINTA - DO FORO: Justica Federal, secao judiciaria do RS.\n"
+    }
+  ]
+}

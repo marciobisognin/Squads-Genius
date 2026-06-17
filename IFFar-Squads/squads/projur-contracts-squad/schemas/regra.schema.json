@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "regra",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "descricao": {
+      "type": "string"
+    },
+    "condicao": {
+      "type": "string"
+    },
+    "severidade": {
+      "type": "string",
+      "enum": [
+        "critica",
+        "alta",
+        "media",
+        "baixa",
+        "informativa"
+      ]
+    },
+    "base_legal": {
+      "type": "string"
+    },
+    "vigente_em": {
+      "type": "string"
+    },
+    "confianca": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "descricao",
+    "condicao",
+    "severidade"
+  ]
+}

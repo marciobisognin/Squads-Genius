@@ -1,0 +1,92 @@
+{
+  "id": "lote_completo",
+  "description": "Pipeline integral do lote: do intake ao quality report e pacote ZIP.",
+  "human_in_loop": true,
+  "rollback": "descartar a saída e reprocessar o lote com ajustes",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake e deduplicação",
+      "task": "01_intake_e_deduplicacao",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Extração de texto e OCR",
+      "task": "02_extracao_texto_e_ocr",
+      "gate_required": true,
+      "gate": "extracao_completa"
+    },
+    {
+      "order": 3,
+      "name": "Classificação do instrumento",
+      "task": "03_classificacao_instrumento",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "Metadados e partes",
+      "task": "04_metadados_e_partes",
+      "gate_required": true,
+      "gate": "metadados_e_partes_validados"
+    },
+    {
+      "order": 5,
+      "name": "PII / LGPD",
+      "task": "05_pii_lgpd",
+      "gate_required": true,
+      "gate": "pii_tratado"
+    },
+    {
+      "order": 6,
+      "name": "Cláusulas essenciais",
+      "task": "06_clausulas_essenciais",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "Convênios / TED / PD&I",
+      "task": "07_convenios_ted_pdi",
+      "gate_required": false
+    },
+    {
+      "order": 8,
+      "name": "Vínculo de instrumentos",
+      "task": "08_vinculo_instrumentos",
+      "gate_required": false
+    },
+    {
+      "order": 9,
+      "name": "Conformidade e riscos",
+      "task": "09_conformidade_e_riscos",
+      "gate_required": true,
+      "gate": "conformidade_aplicada"
+    },
+    {
+      "order": 10,
+      "name": "Jurisprudência e controle (handoff Themis)",
+      "task": "10_jurisprudencia_controle",
+      "gate_required": true,
+      "gate": "revisao_humana_red_flags"
+    },
+    {
+      "order": 11,
+      "name": "Matriz, dicionário e indicadores",
+      "task": "11_matriz_dicionario_indicadores",
+      "gate_required": false
+    },
+    {
+      "order": 12,
+      "name": "Relatório executivo",
+      "task": "12_relatorio_executivo",
+      "gate_required": false
+    },
+    {
+      "order": 13,
+      "name": "Evidência e quality report",
+      "task": "13_evidencia_e_quality",
+      "gate_required": true,
+      "gate": "quality_report_passed"
+    }
+  ]
+}

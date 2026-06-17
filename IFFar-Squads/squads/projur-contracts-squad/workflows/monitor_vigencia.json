@@ -1,0 +1,27 @@
+{
+  "id": "monitor_vigencia",
+  "description": "Execução periódica do ciclo de vida: alertas de vencimento, renovação e limites de aditivo.",
+  "human_in_loop": true,
+  "rollback": "descartar a saída e reprocessar o lote com ajustes",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Carregar matriz vigente",
+      "task": "11_matriz_dicionario_indicadores",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Conformidade e riscos (vigência/aditivos)",
+      "task": "09_conformidade_e_riscos",
+      "gate_required": true,
+      "gate": "conformidade_aplicada"
+    },
+    {
+      "order": 3,
+      "name": "Relatório de alertas",
+      "task": "12_relatorio_executivo",
+      "gate_required": false
+    }
+  ]
+}

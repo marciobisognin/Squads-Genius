@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "clausula",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "instrumento_id": {
+      "type": "string"
+    },
+    "rotulo": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "string"
+    },
+    "essencial": {
+      "type": "boolean"
+    },
+    "presente": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "instrumento_id",
+    "categoria"
+  ]
+}
