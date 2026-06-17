@@ -1,0 +1,11 @@
+{
+  "eventos": [
+    {"nome": "Matricula_2026_1", "tipo": "matricula", "inicio": "2026-01-05", "fim": "2026-01-20"},
+    {"nome": "Recesso_Janeiro", "tipo": "recesso", "inicio": "2026-01-15", "fim": "2026-01-31"},
+    {"nome": "Aulas_2026_1", "tipo": "aula", "inicio": "2026-02-02", "fim": "2026-06-30"},
+    {"nome": "Avaliacoes_Bimestre1", "tipo": "prova", "inicio": "2026-03-20", "fim": "2026-03-27"}
+  ],
+  "prazos_minimos_dias": [
+    {"evento_antes": "Matricula_2026_1", "evento_depois": "Aulas_2026_1", "dias_minimos": 5}
+  ]
+}

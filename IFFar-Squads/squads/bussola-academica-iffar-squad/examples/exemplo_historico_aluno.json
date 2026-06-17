@@ -1,0 +1,9 @@
+{
+  "aluno": "ALUNO-EXEMPLO-001",
+  "matricula": "2024001234",
+  "componentes_cursados": [
+    {"id": "MAT1", "situacao": "aprovado"},
+    {"id": "PROG1", "situacao": "cursando"},
+    {"id": "PROG2", "situacao": "cursando"}
+  ]
+}

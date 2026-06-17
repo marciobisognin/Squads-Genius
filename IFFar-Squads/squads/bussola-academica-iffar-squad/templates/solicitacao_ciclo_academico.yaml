@@ -1,0 +1,12 @@
+demanda: ""           # revisao_ppc | ciclo_matricula | fechamento_periodo_letivo
+campus: ""
+curso: ""
+periodo_letivo: ""
+documentos_disponiveis:
+  ppc: false
+  matriz_curricular: false
+  historico_alunos: false
+  calendario_atual: false
+  regulamento_didatico_pedagogico: false
+  atas_anteriores: false
+observacoes: ""

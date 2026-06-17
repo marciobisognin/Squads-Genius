@@ -1,0 +1,12 @@
+curso: ""
+eixo_tecnologico: ""
+carga_horaria_total: 0
+dcn_referencia: ""        # ex.: "Resolução CNE/CEB nº X/AAAA - a confirmar vigência"
+catalogo_nacional_referencia: ""  # quando curso técnico
+componentes:
+  - id: ""
+    nome: ""
+    carga_horaria: 0
+    periodo: 0
+    pre_requisitos: []      # lista de ids de componentes
+    equivalencias: []       # ids de componentes de matrizes anteriores considerados equivalentes (a confirmar pela coordenação)

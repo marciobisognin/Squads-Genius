@@ -1,0 +1,13 @@
+id: "02_analise_ppc_e_matriz_curricular"
+owner: "ppc-dcn-analyst"
+objective: "Verificar a aderência do PPC e da matriz curricular às DCN aplicáveis e ao catálogo nacional de cursos técnicos, listando pendências classificadas."
+inputs:
+  - "PPC e/ou matriz curricular atual (templates/matriz_curricular.yaml)"
+  - "DCN aplicável ao nível/modalidade de ensino"
+  - "catálogo nacional de cursos técnicos (quando curso técnico)"
+outputs:
+  - "relatorio_ppc_dcn (templates/ppc_checklist.md preenchido) com achados classificados em conforme/não conforme/a confirmar"
+acceptance_criteria:
+  - "toda carga horária e componente obrigatório do PPC conferido contra a norma de referência citada com artigo/seção"
+  - "nenhuma sugestão de mérito pedagógico: apenas aderência normativa, decisão de conteúdo é do NDE/colegiado"
+  - "gate ppc_aderente_dcn liberado somente sem pendência classificada como não conforme"

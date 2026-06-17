@@ -1,0 +1,13 @@
+id: "04_calendario_e_editais_matricula"
+owner: "atas-editais-redator"
+objective: "Elaborar calendário acadêmico e edital de matrícula/rematrícula, verificando conflitos de datas via script determinístico e aderência ao regulamento didático-pedagógico."
+inputs:
+  - "datas-base do período letivo (templates/calendario_academico.json ou equivalente)"
+  - "regulamento didático-pedagógico vigente"
+  - "saída de scripts/conflito_calendario.py"
+outputs:
+  - "calendario_academico validado e edital_matricula (templates/edital_matricula.md preenchido)"
+acceptance_criteria:
+  - "calendário sem sobreposição de datas e sem violação de prazo mínimo (dias letivos, recesso, prazo de recurso)"
+  - "cada prazo do edital cita o artigo/seção do regulamento didático-pedagógico que o fundamenta"
+  - "gate calendario_sem_conflito liberado somente com o script executado e sem conflito pendente"

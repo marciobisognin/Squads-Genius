@@ -1,0 +1,13 @@
+id: "07_checklist_sistec_pnp"
+owner: "sistec-pnp-validador"
+objective: "Checar a consistência dos dados acadêmicos antes do envio oficial ao SISTEC e à Plataforma Nilo Peçanha, via script determinístico."
+inputs:
+  - "registro acadêmico do aluno/turma (JSON)"
+  - "última situação conhecida no SISTEC/PNP, se disponível"
+  - "saída de scripts/checklist_sistec_pnp.py"
+outputs:
+  - "checklist de consistência SISTEC/PNP com divergências e campos a confirmar"
+acceptance_criteria:
+  - "toda divergência aponta campo, valor local e valor de referência, sem indicar qual está correto"
+  - "nenhum envio automático ao SISTEC/PNP: o squad apenas prepara o checklist para o responsável pelo envio"
+  - "gate dados_consistentes_sistec_pnp liberado somente sem divergência pendente de classificação"
