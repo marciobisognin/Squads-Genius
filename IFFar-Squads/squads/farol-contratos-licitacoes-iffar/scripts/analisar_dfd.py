@@ -11,6 +11,19 @@ from farol_common import norm, num, date_range_default, compras_fetch_material_p
 RISK_COLOR = {'ALTO':'FFFF9999','MÉDIO':'FFFFE699','BAIXO':'FFD9EAD3','OK':'FFE2F0D9'}
 PACK_TERMS = ['CAIXA','PACOTE','FARDO','KIT','CONJUNTO','JOGO','PAR','ROLO','FRASCO','POTE','GALÃO','SACO','EMBALAGEM','CARTELA']
 RESTRICTIVE = ['MARCA','MODELO EXCLUSIVO','FABRICAÇÃO NACIONAL','NACIONAL']
+# Frases que indicam marca citada apenas como referência de padrão de qualidade,
+# com similar/equivalente admitido — uso permitido pelo art. 41 da Lei nº
+# 14.133/2021. Sem essa exceção, qualquer menção a "marca" era sempre apontada
+# como termo restritivo, mesmo quando a redação já está em conformidade.
+BRAND_REFERENCE_SAFE = re.compile(
+    r'MARCA\s+DE\s+REFER[ÊE]NCIA'
+    r'|A\s+T[ÍI]TULO\s+DE\s+REFER[ÊE]NCIA'
+    r'|ADMITID[OA]S?\s+(?:PRODUTOS?\s+)?SIMILAR'
+    r'|OU\s+SIMILAR'
+    r'|OU\s+EQUIVALENTE'
+    r'|QUALIDADE\s+EQUIVALENTE'
+    r'|N[ÃA]O\s+SER[ÁA]\s+ACEITA\s+INDICA[ÇC][ÃA]O\s+DE\s+MARCA'
+)
 TYPO = {'CADO':'CABO','INXIDÁVEL':'INOXIDÁVEL','M`NIMA':'MÍNIMA','MINIMA':'MÍNIMA','CARACTERISTICAS':'CARACTERÍSTICAS','ACO ':'AÇO '}
 
 # Perfil padrão de mapeamento de colunas. Pode ser sobrescrito com --perfil perfil.json
@@ -108,6 +121,8 @@ def description_findings(desc, unidade):
             findings.append(('BAIXO','DESCRIÇÃO',f'Possível erro de digitação: "{wrong}"; sugerir "{right}".'))
     for term in RESTRICTIVE:
         if term in d:
+            if term == 'MARCA' and BRAND_REFERENCE_SAFE.search(d):
+                continue
             sev='MÉDIO' if term != 'FABRICAÇÃO NACIONAL' else 'ALTO'
             findings.append((sev,'DESCRIÇÃO',f'Termo potencialmente restritivo/direcionador: "{term}"; revisar justificativa ou remover.'))
     if any(t in d for t in ['INOX','ALUMÍNIO','ALUMINIO','VIDRO','PLÁSTICO','PLASTICO','POLIPROPILENO','AÇO','ACO']):

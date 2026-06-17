@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import statistics
 from datetime import datetime, timezone
 from pathlib import Path
@@ -15,15 +16,35 @@ try:
 except Exception:  # pragma: no cover
     yaml = None
 
+# Cada padrão é um regex com \b (word boundary): evita falso positivo de
+# substring solta, como "m" ou "l" casando com qualquer palavra que contenha
+# essas letras. Abreviações de unidade (mm, cm, m, ml, l) só contam quando
+# vêm coladas a um número, já que isoladas não indicam dimensão/capacidade.
 ATTRIBUTE_PATTERNS = {
-    "dimensao": ["mm", "cm", "m", "metro", "metros"],
-    "capacidade": ["ml", "l", "litro", "litros"],
-    "material": ["aço", "aco", "inox", "alumínio", "aluminio", "plástico", "plastico", "polipropileno", "vidro"],
-    "embalagem": ["caixa", "pacote", "fardo", "frasco", "galão", "embalagem", "kit"],
-    "garantia": ["garantia"],
-    "norma_tecnica": ["abnt", "inmetro", "nbr"],
+    "dimensao": [r"\d+\s?(?:mm|cm|m)\b", r"\bmetros?\b"],
+    "capacidade": [r"\d+\s?(?:ml|l)\b", r"\blitros?\b"],
+    "material": [r"\ba[çc]o\b", r"\binox\b", r"\balum[íi]nio\b", r"\bpl[áa]stico\b", r"\bpolipropileno\b", r"\bvidro\b"],
+    "embalagem": [r"\bcaixa\b", r"\bpacote\b", r"\bfardo\b", r"\bfrasco\b", r"\bgal[ãa]o\b", r"\bembalagem\b", r"\bkit\b"],
+    "garantia": [r"\bgarantia\b"],
+    "norma_tecnica": [r"\babnt\b", r"\binmetro\b", r"\bnbr\b"],
+}
+_ATTRIBUTE_PATTERNS_COMPILED = {
+    name: [re.compile(p) for p in patterns] for name, patterns in ATTRIBUTE_PATTERNS.items()
 }
 RESTRICTIVE_TERMS = ["marca", "modelo exclusivo", "fabricação nacional", "nacional"]
+# Frases que indicam uso de marca apenas como referência de padrão de qualidade,
+# com aceitação de similar/equivalente — uso expressamente permitido pelo art. 41
+# da Lei nº 14.133/2021. Sem essa exceção, qualquer menção a "marca" (mesmo em
+# conformidade) era classificada como termo restritivo.
+_BRAND_REFERENCE_SAFE_RX = re.compile(
+    r"marca\s+de\s+refer[êe]ncia"
+    r"|a\s+t[íi]tulo\s+de\s+refer[êe]ncia"
+    r"|admitid[oa]s?\s+(?:produtos?\s+)?similar"
+    r"|ou\s+similar"
+    r"|ou\s+equivalente"
+    r"|qualidade\s+equivalente"
+    r"|n[ãa]o\s+ser[áa]\s+aceita\s+indica[çc][ãa]o\s+de\s+marca"
+)
 
 
 def normalize(text: Any) -> str:
@@ -45,10 +66,10 @@ def load_yaml(path: Path) -> Any:
 def extract_attributes(description: str) -> dict[str, list[str]]:
     d = normalize(description)
     attrs: dict[str, list[str]] = {}
-    for name, terms in ATTRIBUTE_PATTERNS.items():
-        hits = [term for term in terms if term in d]
+    for name, patterns in _ATTRIBUTE_PATTERNS_COMPILED.items():
+        hits = sorted({m.group(0).strip() for rx in patterns for m in rx.finditer(d)})
         if hits:
-            attrs[name] = sorted(set(hits))
+            attrs[name] = hits
     numbers = [token for token in d.replace("x", " x ").split() if any(ch.isdigit() for ch in token)]
     if numbers:
         attrs["valores_numericos"] = numbers
@@ -64,8 +85,13 @@ def evaluate_specification(description: str, unidade: str = "", codigo: str = ""
     if not attrs.get("valores_numericos"):
         findings.append({"classification": "depende_justificativa", "risk_level": "médio", "category": "descrição", "message": "Descrição sem medida, capacidade ou dimensão numérica; confirmar se o objeto exige atributo objetivo."})
     for term in RESTRICTIVE_TERMS:
-        if term in d and "não será aceita indicação de marca" not in d:
-            findings.append({"classification": "depende_justificativa", "risk_level": "alto", "category": "descrição", "message": f"Termo potencialmente restritivo: {term}."})
+        if term not in d:
+            continue
+        if term == "marca" and _BRAND_REFERENCE_SAFE_RX.search(d):
+            # Marca citada apenas como referência de qualidade, com similar/equivalente
+            # admitido — conforme art. 41 da Lei nº 14.133/2021. Não é achado restritivo.
+            continue
+        findings.append({"classification": "depende_justificativa", "risk_level": "alto", "category": "descrição", "message": f"Termo potencialmente restritivo: {term}."})
     u = normalize(unidade)
     if u in {"unidade", "und", "un"} and attrs.get("embalagem"):
         findings.append({"classification": "suspeita", "risk_level": "médio", "category": "unidade", "message": "Descrição menciona embalagem, mas unidade de fornecimento está como unidade."})

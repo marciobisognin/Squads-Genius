@@ -26,6 +26,17 @@ def test_restrictive_term_flagged():
     assert any("MARCA" in f[2] for f in fs)
 
 
+def test_restrictive_term_allows_brand_used_only_as_reference():
+    # Regressão: marca citada apenas como referência de qualidade, com similar/
+    # equivalente admitido, é uso permitido pelo art. 41 da Lei nº 14.133/2021
+    # e não deveria ser apontada como termo restritivo.
+    fs = description_findings(
+        "PANELA MARCA DE REFERÊNCIA TRAMONTINA 7 LITROS EM ALUMÍNIO ADMITIDA SIMILAR DE QUALIDADE EQUIVALENTE",
+        "UNIDADE",
+    )
+    assert not any("MARCA" in f[2] for f in fs)
+
+
 def test_unit_package_mismatch():
     fs = description_findings("PAPEL TOALHA INTERFOLHADO PACOTE COM 1000 FOLHAS 2 DOBRAS 100% CELULOSE", "UNIDADE")
     assert has_finding(fs, tipo="UNIDADE")

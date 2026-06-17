@@ -38,8 +38,22 @@ def num(v: Any) -> Optional[float]:
         return None
     if isinstance(v, (int, float)):
         return float(v)
+    s = str(v).strip()
+    if not s:
+        return None
+    if "," in s:
+        # Formato BR (ex.: "1.234,56" ou "45,90"): ponto é separador de milhar,
+        # vírgula é separador decimal.
+        s = s.replace(".", "").replace(",", ".")
+    elif s.count(".") > 1:
+        # Vários pontos sem vírgula só podem ser separadores de milhar
+        # (ex.: "12.345.678"); um único ponto decimal nunca se repete.
+        s = s.replace(".", "")
+    # Sem vírgula e com no máximo um ponto: o ponto já é o separador decimal
+    # padrão (ex.: "1234.56" vindo de API ou célula em texto). Não remover,
+    # senão "1234.56" virava 123456.0 (bug: valor 100x maior).
     try:
-        return float(str(v).replace(".", "").replace(",", "."))
+        return float(s)
     except Exception:
         return None
 
