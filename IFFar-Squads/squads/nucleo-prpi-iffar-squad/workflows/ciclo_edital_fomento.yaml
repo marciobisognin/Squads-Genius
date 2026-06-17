@@ -1,0 +1,44 @@
+{
+  "id": "ciclo_edital_fomento",
+  "description": "Elaboração de edital interno de fomento (PIBIC, PIBITI, PIBID ou extensão) e triagem formal das propostas submetidas, com gates de aderência às normas e de triagem documental completa.",
+  "human_in_loop": true,
+  "rollback": "campo obrigatório ausente no edital ou pendência documental em proposta retorna à etapa correspondente; nova lacuna descoberta volta ao intake",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake da demanda PRPI",
+      "task": "01_intake_demanda_prpi",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Elaboração da minuta de edital",
+      "task": "02_elaborar_edital_fomento",
+      "gate_required": true,
+      "gate": "edital_aderente_normas"
+    },
+    {
+      "order": 3,
+      "name": "Aprovação humana do edital",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: aprovação e publicação do edital pela Pró-Reitoria."
+    },
+    {
+      "order": 4,
+      "name": "Triagem formal das propostas submetidas",
+      "task": "03_triagem_propostas_submetidas",
+      "gate_required": true,
+      "gate": "triagem_documental_completa"
+    },
+    {
+      "order": 5,
+      "name": "Avaliação de mérito pelo comitê",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: avaliação de mérito científico/técnico pelo comitê de avaliação e decisão final sobre concessão de bolsas."
+    }
+  ]
+}

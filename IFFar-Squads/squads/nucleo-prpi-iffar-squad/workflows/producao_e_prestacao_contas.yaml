@@ -1,0 +1,36 @@
+{
+  "id": "producao_e_prestacao_contas",
+  "description": "Consolidação da produção científica/técnica do período e apoio à prestação de contas de convênios/parcerias de extensão, com gates de produção consolidada e dossiê organizado.",
+  "human_in_loop": true,
+  "rollback": "pendência ou duplicidade na produção declarada, ou divergência no plano de aplicação, retorna à etapa correspondente",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake da demanda PRPI",
+      "task": "01_intake_demanda_prpi",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Consolidação da produção científica",
+      "task": "05_relatorio_producao_cientifica",
+      "gate_required": true,
+      "gate": "producao_consolidada"
+    },
+    {
+      "order": 3,
+      "name": "Organização do dossiê de prestação de contas de convênio/parceria",
+      "task": "06_prestacao_contas_convenios_extensao",
+      "gate_required": true,
+      "gate": "prestacao_contas_auditada"
+    },
+    {
+      "order": 4,
+      "name": "Validação humana final",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: validação final do relatório de gestão/Nilo Peçanha e decisão sobre aprovação da prestação de contas do convênio/parceria."
+    }
+  ]
+}

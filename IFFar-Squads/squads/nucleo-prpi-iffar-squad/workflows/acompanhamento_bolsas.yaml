@@ -1,0 +1,36 @@
+{
+  "id": "acompanhamento_bolsas",
+  "description": "Acompanhamento do cronograma de bolsas concedidas (mensalidades, relatórios, TCR) e auditoria da prestação de contas individual, com gates de cronograma monitorado e prestação de contas auditada.",
+  "human_in_loop": true,
+  "rollback": "atraso identificado ou pendência documental retorna à coordenação para decisão; nova lacuna descoberta volta ao intake",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake da demanda PRPI",
+      "task": "01_intake_demanda_prpi",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Acompanhamento do cronograma de bolsas",
+      "task": "04_acompanhamento_cronograma_bolsas",
+      "gate_required": true,
+      "gate": "cronograma_bolsas_monitorado"
+    },
+    {
+      "order": 3,
+      "name": "Auditoria da prestação de contas de bolsas",
+      "task": "07_auditoria_prestacao_contas_bolsas",
+      "gate_required": true,
+      "gate": "prestacao_contas_auditada"
+    },
+    {
+      "order": 4,
+      "name": "Decisão da coordenação sobre pendências e atrasos",
+      "task": null,
+      "gate_required": true,
+      "gate": "aprovacao_humana_explicita",
+      "note": "Etapa exclusivamente humana: decisão sobre advertência, prorrogação de prazo ou corte de bolsa."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+id: "07_auditoria_prestacao_contas_bolsas"
+owner: "prestacao-contas-fomento-auditor"
+objective: "Conferir se a documentação de prestação de contas de uma bolsa individual (relatório final, TCR, comprovantes quando aplicável) foi entregue e corresponde à vigência da bolsa."
+inputs:
+  - "dados da bolsa (vigência, documentos exigidos)"
+  - "documentos e comprovantes declarados (JSON)"
+outputs:
+  - "relatorio_auditoria_prestacao_contas_bolsas com cada bolsa classificada como prestação de contas completa, pendência documental ou divergência a esclarecer"
+acceptance_criteria:
+  - "toda classificação produzida por scripts/auditoria_prestacao_contas_bolsas.py, nunca por estimativa do agente"
+  - "nenhuma decisão sobre aprovação, glosa ou devolução de recursos tomada nesta task"
+  - "gate prestacao_contas_auditada só é proposto como liberado após execução do script para todas as bolsas do lote"
