@@ -39,6 +39,7 @@ A convenção saneada passa a ser:
 | PrismaFrame Executive Cinema Suite | [`prismaframe-executive-cinema-suite`](./squads/prismaframe-executive-cinema-suite/) | Materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual. |
 | PDI Vivo IFFar Squad | [`pdi-vivo-iffar-squad`](./squads/pdi-vivo-iffar-squad/) | Governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, relatório trimestral e painel, com 17 agentes SME e engine determinística. |
 | PROJUR Contracts Squad | [`projur-contracts-squad`](./squads/projur-contracts-squad/) | Inteligência documental em lote e ciclo de vida (CLM) de contratos, convênios e TED: extração (com OCR), classificação, partes (CNPJ/CPF), LGPD, vínculos, vigência, conformidade e matriz/indicadores, com 22 agentes (6 SMEs jurídicos) e engine determinística; encaminha casos ao Themis/Farol/PCFP. |
+| Squad Docente IFFar | [`squad-docente-iffar`](./squads/squad-docente-iffar/) | Automação do trabalho docente: plano de ensino, materiais didáticos com ponte Manim, avaliações/rubricas, adaptação AEE (Res. CONSUP 52/2019) e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório. |
 
 ## 🧭 Organização saneada
 
@@ -57,6 +58,7 @@ IFFar-Squads/
     ├── orbita-incubadora-squad/
     ├── prismaframe-executive-cinema-suite/
     ├── projur-contracts-squad/
+    ├── squad-docente-iffar/
     ├── squad-pcfp/
     ├── squ-tesouraria-publica-squad/
     ├── themis-contratos-publicos-squad/

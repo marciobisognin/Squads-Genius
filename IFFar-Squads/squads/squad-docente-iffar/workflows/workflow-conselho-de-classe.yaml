@@ -1,0 +1,21 @@
+name: workflow-conselho-de-classe
+descricao: Consolidação de conteúdos e frequência em dossiê para o conselho de
+  classe, e monitoramento de prazos relacionados.
+trigger: aproximação da data de conselho de classe do calendário acadêmico
+steps:
+  - id: checagem_prazos
+    agent: sentinela-conformidade-prazos
+    tool: scripts/check_prazos.py
+    output: alertas_e_checklist
+  - id: consolidacao
+    agent: registros-conselho-classe
+    depends_on: [checagem_prazos]
+    output: dossie_e_resumo_por_estudante
+  - id: homologacao
+    agent: gate-humano
+    depends_on: [consolidacao]
+    output: decisao_homologacao
+quality_gates:
+  - dossiê rastreável aos dados de origem (conteúdo, frequência, histórico)
+  - inconsistências de dados explicitadas, nunca preenchidas por inferência
+  - nenhuma decisão de conselho é tomada pelo squad — apenas consolidação

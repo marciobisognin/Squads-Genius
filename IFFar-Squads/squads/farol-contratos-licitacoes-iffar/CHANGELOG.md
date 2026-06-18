@@ -1,5 +1,13 @@
 # Changelog — Farol Contratos & Licitações IFFar
 
+## 3.1.0 — Download das atas assinadas usadas na planilha
+
+- **Novo grupo de agentes "Atas Assinadas"**: `signed-minutes-download-orchestrator`, `minutes-evidence-fetcher`, `minutes-page-locator` e `minutes-index-builder`.
+- **Gate humano ao final do pacote de decisão** (`signed_minutes_offer` no workflow `farol-30-procurement-intelligence`): o squad pergunta se o usuário deseja baixar as atas assinadas com os preços usados na planilha entregue.
+- **Novo workflow** `baixar-atas-assinadas.yaml`: oferta → confirmação → manifesto → download → localização de página/valor → índice HTML.
+- **Novo script determinístico** `scripts/baixar_atas_assinadas.py`: baixa/organiza as atas em pasta por item, calcula `sha256`, localiza em que página o item e o valor aparecem e gera `index.html` + `index.json` (com referência PNCP para pendências). Extração de PDF via `pypdf`/`pdfminer`, com degradação elegante quando não houver biblioteca ou rede.
+- **Testes** `tests/test_baixar_atas_assinadas.py` (offline) e atualização de `smoke_test.py` e `requirements.txt` (`pypdf` opcional).
+
 ## 3.0.1 — Correções de auditoria de código
 
 - **CI**: corrigido caminho de `paths` e `working-directory` em `farol-iffar-ci.yml`, que apontava para `IFFar-Squads/farol-contratos-licitacoes-iffar` (sem o segmento `squads/`) e por isso nunca disparava nem encontrava o diretório do squad.

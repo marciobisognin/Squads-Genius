@@ -57,7 +57,7 @@ Squads publicados no repositório `Squads-Genius`.
 
 - [SQU Tesouraria & Conformidade Pública](IFFar-Squads/squads/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — versão `1.0.0` — inteligência orçamentária, prestação de contas, auditoria e conformidade pública para IFs
 
-- [Farol Contratos e Licitações IFFar](IFFar-Squads/squads/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — versão `3.0.0` — inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências e gates humanos
+- [Farol Contratos e Licitações IFFar](IFFar-Squads/squads/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — versão `3.1.0` — inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências, download das atas assinadas por item e gates humanos
 - [PrismaFrame Executive Cinema Suite](IFFar-Squads/squads/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — versão `1.0.0` — materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual
 
 - [VÉRTICE-OS | Artefatos Marvel](squads/vertice-os-artefatos-marvel/README.md) — `vertice-os-artefatos-marvel` — versão `2.1.0` — arquitetura interna temática multiagente com 21 agentes, contratos, gates, HITL, evidência e rollback conforme PRD de Marcio Bisognin
@@ -65,6 +65,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Núcleo PRPI IFFar](IFFar-Squads/squads/nucleo-prpi-iffar-squad/README.md) — `nucleo-prpi-iffar-squad` — versão `1.0.0` — apoio à Pró-Reitoria/Diretoria de Pesquisa, Pós-Graduação e Extensão do IFFar: editais de fomento, triagem de propostas, cronograma de bolsas, produção científica e prestação de contas
 - [PDI Vivo IFFar Squad](IFFar-Squads/squads/pdi-vivo-iffar-squad/README.md) — `pdi-vivo-iffar-squad` — versão `1.0.0` — governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, ciclo trimestral e painel, com 17 agentes SME e engine determinística
 - [PROJUR Contracts Squad](IFFar-Squads/squads/projur-contracts-squad/README.md) — `projur-contracts-squad` — versão `2.0.0` — inteligência documental em lote e ciclo de vida (CLM) de contratos, convênios e TED do IFFar: extração (com OCR), classificação, partes (CNPJ/CPF), LGPD, vínculos, vigência, conformidade e matriz/indicadores, com 22 agentes (6 SMEs jurídicos) e engine determinística; encaminha casos ao Themis/Farol/PCFP
+- [Squad Docente IFFar](IFFar-Squads/squads/squad-docente-iffar/README.md) — `squad-docente-iffar` — versão `1.0.0` — automação do trabalho docente: plano de ensino, materiais didáticos (com ponte Manim), avaliações/rubricas, adaptação AEE conforme Res. CONSUP 52/2019 e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório
 
 ---
 

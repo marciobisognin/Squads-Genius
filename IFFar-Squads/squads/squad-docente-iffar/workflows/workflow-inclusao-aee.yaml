@@ -1,0 +1,25 @@
+name: workflow-inclusao-aee
+descricao: Adaptação de material ou avaliação conforme a Res. CONSUP 52/2019, com
+  articulação NAPNE/CAI quando exigido.
+trigger: necessidade de adaptação de pequeno ou grande porte identificada pelo
+  docente ou pela equipe pedagógica
+steps:
+  - id: analise_perfil
+    agent: agente-inclusao-aee
+    output: classificacao_pequeno_ou_grande_porte
+  - id: articulacao_napne_cai
+    agent: agente-inclusao-aee
+    depends_on: [analise_perfil]
+    output: parecer_napne_cai_ou_pendencia
+  - id: producao_adaptacao
+    agent: agente-inclusao-aee
+    depends_on: [articulacao_napne_cai]
+    output: versao_adaptada_e_registro
+  - id: homologacao
+    agent: gate-humano
+    depends_on: [producao_adaptacao]
+    output: decisao_homologacao
+quality_gates:
+  - toda adaptação cita o dispositivo da Res. CONSUP 52/2019 aplicado
+  - adaptação de grande porte sem parecer NAPNE/CAI fica pendente, não avança
+  - dado de saúde/laudo não é persistido fora do ambiente controlado

@@ -1,0 +1,23 @@
+name: workflow-material-e-avaliacao
+descricao: Geração de material didático e de instrumentos de avaliação/rubrica a
+  partir do Plano de Ensino homologado.
+trigger: pedido de material didático ou de avaliação
+steps:
+  - id: geracao_material
+    agent: designer-materiais-didaticos
+    output: material_em_rascunho_e_roteiros_manim
+  - id: geracao_avaliacao
+    agent: avaliador-rubricas
+    output: instrumento_e_rubrica
+  - id: validacao_curricular
+    agent: guardiao-curricular
+    depends_on: [geracao_material, geracao_avaliacao]
+    output: veredito_de_aderencia
+  - id: homologacao
+    agent: gate-humano
+    depends_on: [validacao_curricular]
+    output: decisao_homologacao
+quality_gates:
+  - material referencia o objetivo de aprendizagem do plano vigente
+  - item de avaliação mapeado a pelo menos um objetivo de aprendizagem
+  - nenhum material ou instrumento é distribuído antes da homologação

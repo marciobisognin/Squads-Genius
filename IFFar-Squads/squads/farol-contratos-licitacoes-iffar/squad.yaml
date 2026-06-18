@@ -3,7 +3,7 @@ title: Farol Public Procurement Intelligence Platform
 description: Sistema auditável de inteligência para planejamento, pesquisa de preços,
   qualidade de especificações, previsão de demanda e governança das contratações públicas
   do IFFar.
-version: 3.0.0
+version: 3.1.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
@@ -58,6 +58,14 @@ agents:
   file: agents/human-review-sanitation-manager.yaml
 - id: decision-intelligence-lead
   file: agents/decision-intelligence-lead.yaml
+- id: signed-minutes-download-orchestrator
+  file: agents/signed-minutes-download-orchestrator.yaml
+- id: minutes-evidence-fetcher
+  file: agents/minutes-evidence-fetcher.yaml
+- id: minutes-page-locator
+  file: agents/minutes-page-locator.yaml
+- id: minutes-index-builder
+  file: agents/minutes-index-builder.yaml
 legacy_agents_markdown:
 - id: decision-intelligence-lead
   file: agents/decision-intelligence-lead.md
@@ -81,6 +89,8 @@ workflows:
   file: workflows/auditoria-dfd.yaml
 - id: farol-30-procurement-intelligence
   file: workflows/farol-30-procurement-intelligence.yaml
+- id: baixar-atas-assinadas
+  file: workflows/baixar-atas-assinadas.yaml
 scripts:
 - scripts/farol_common.py
 - scripts/analisar_dfd.py
@@ -93,6 +103,7 @@ scripts:
 - scripts/base_conhecimento.py
 - scripts/previsao_quantitativos.py
 - scripts/farol_30_contracts.py
+- scripts/baixar_atas_assinadas.py
 - scripts/smoke_test.py
 schemas:
 - schemas/finding.schema.json
@@ -103,12 +114,14 @@ references:
 - references/metodologia.md
 - references/orientacoes-pesquisa-externa-preditiva.md
 - references/compras-gov-integracao.md
+- references/atas-assinadas-download.md
 - references/uso-com-codex-claude-antigravity.md
 tests:
 - tests/test_farol_common.py
 - tests/test_analisar_dfd.py
 - tests/test_pipeline.py
 - tests/test_farol_30_contracts.py
+- tests/test_baixar_atas_assinadas.py
 quality_gates:
 - contratos tipados para agentes e achados
 - base normativa versionada

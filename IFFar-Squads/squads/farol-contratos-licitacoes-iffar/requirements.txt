@@ -1,2 +1,5 @@
 openpyxl>=3.1
 pyyaml>=6.0
+# Opcional: extração de texto de PDF para localizar página/valor nas atas assinadas
+# (baixar_atas_assinadas.py degrada com elegância quando ausente).
+pypdf>=4.0

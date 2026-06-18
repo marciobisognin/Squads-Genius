@@ -10,6 +10,7 @@ states:
 - human_review
 - sanitation
 - decision_package
+- signed_minutes_offer
 - completed
 - blocked
 input_schema:
@@ -152,6 +153,20 @@ steps:
   human_approval: true
   success_condition: dados validados, evidência de preço, norma, saneamento e aprovação
     humana reunidos
+- id: signed_minutes_offer
+  agent: signed-minutes-download-orchestrator
+  depends_on:
+  - decision_package
+  timeout: indefinite
+  retry_policy:
+    max_attempts: 0
+    backoff: none
+  human_approval: true
+  question: 'Deseja baixar as atas assinadas com os preços usados na planilha entregue,
+    organizadas por item e com índice HTML (pasta, arquivo, página e valor)?'
+  on_confirmation: acionar workflow baixar-atas-assinadas
+  optional: true
+  audit_event: signed_minutes_offer
 failure_paths:
   evidence_insufficient: bloquear decisão e solicitar saneamento
   legal_uncertainty: escalar para jurídico ou responsável competente
