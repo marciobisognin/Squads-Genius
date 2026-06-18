@@ -1,0 +1,102 @@
+name: squad-docente-iffar
+title: Squad Docente IFFar
+description: Sistema multiagente que assiste o docente do IFFar do planejamento de
+  ensino à avaliação — plano de ensino, materiais didáticos, avaliações e rubricas,
+  adaptação para AEE e consolidação para o conselho de classe — sempre validado
+  contra o PPC e o RDP, com homologação humana obrigatória antes de qualquer saída
+  oficial.
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+institutional_context:
+  institution: Instituto Federal Farroupilha
+  area: Trabalho docente / organização de aulas e materiais didáticos
+  scope: classificação e roteamento de pedidos, verificação curricular (PPC/RDP),
+    plano de ensino, materiais didáticos, roteiros de animação (Manim), avaliações
+    e rubricas, adaptação para AEE/inclusão, consolidação para conselho de classe
+    e monitoramento de prazos da PROEN
+  default_output: plano de ensino estruturado, materiais didáticos exportáveis,
+    instrumentos de avaliação com rubrica, dossiê de conselho de classe e alertas
+    de conformidade — todos sujeitos a homologação humana
+  invariant: nenhuma saída se torna oficial sem revisão e homologação humana (docente,
+    Coordenação de Curso ou NDE)
+metadata:
+  readme_style: institutional-multiagent-teaching-assistant
+  domain: teaching-workflow-automation
+  language: pt-BR
+  maturity_target: campus-wide-adoption
+data_policy:
+  lgpd: dado de estudante só é tratado em ambiente controlado (Fase 3 do roadmap),
+    com minimização e inferência aderente à política institucional
+  external_models: proibido enviar dado sensível de estudante a modelos externos
+    sem autorização e ambiente controlado
+  evidence_integrity: toda recuperação normativa (PPC/RDP/resoluções) cita a fonte;
+    sem fonte, o agente sinaliza em vez de inventar
+  human_in_the_loop: toda saída que pode se tornar oficial (plano, material, avaliação,
+    adaptação, dossiê) exige homologação humana antes do lançamento nos sistemas
+    institucionais
+normative_bases:
+- Lei nº 9.394/1996 (LDB)
+- Lei nº 11.892/2008 (criação dos Institutos Federais)
+- Resolução CONSUP/IFFar sobre o Regulamento Didático-Pedagógico (RDP)
+- Resolução CONSUP nº 52/2019 (adaptações de pequeno e grande porte / AEE)
+- Lei nº 13.146/2015 (Estatuto da Pessoa com Deficiência)
+- Lei nº 13.709/2018 (LGPD)
+- PPC e calendário acadêmico de cada curso/campus
+requirements:
+- requirements.txt
+agents:
+- id: maestro-pedagogico
+  file: agents/maestro-pedagogico.yaml
+- id: guardiao-curricular
+  file: agents/guardiao-curricular.yaml
+- id: planejador-de-ensino
+  file: agents/planejador-de-ensino.yaml
+- id: designer-materiais-didaticos
+  file: agents/designer-materiais-didaticos.yaml
+- id: avaliador-rubricas
+  file: agents/avaliador-rubricas.yaml
+- id: agente-inclusao-aee
+  file: agents/agente-inclusao-aee.yaml
+- id: registros-conselho-classe
+  file: agents/registros-conselho-classe.yaml
+- id: sentinela-conformidade-prazos
+  file: agents/sentinela-conformidade-prazos.yaml
+- id: gate-humano
+  file: agents/gate-humano.yaml
+tasks:
+- id: classificar-e-rotear-pedido
+  file: tasks/classificar-e-rotear-pedido.md
+- id: elaborar-plano-de-ensino
+  file: tasks/elaborar-plano-de-ensino.md
+- id: gerar-material-didatico
+  file: tasks/gerar-material-didatico.md
+- id: construir-avaliacao-e-rubrica
+  file: tasks/construir-avaliacao-e-rubrica.md
+- id: adaptar-para-aee
+  file: tasks/adaptar-para-aee.md
+- id: consolidar-conselho-de-classe
+  file: tasks/consolidar-conselho-de-classe.md
+workflows:
+- id: pipeline-completo-docente
+  file: workflows/pipeline-completo-docente.yaml
+- id: workflow-plano-de-ensino
+  file: workflows/workflow-plano-de-ensino.yaml
+- id: workflow-material-e-avaliacao
+  file: workflows/workflow-material-e-avaliacao.yaml
+- id: workflow-inclusao-aee
+  file: workflows/workflow-inclusao-aee.yaml
+- id: workflow-conselho-de-classe
+  file: workflows/workflow-conselho-de-classe.yaml
+scripts:
+- scripts/sacp_common.py
+- scripts/build_cronograma.py
+- scripts/validate_plano_ensino.py
+- scripts/check_prazos.py
+- scripts/smoke_test.py
+schemas:
+- schemas/sacp_handoff.schema.json
+- schemas/plano_ensino.schema.json
+- schemas/avaliacao_rubrica.schema.json
+- schemas/adaptacao_aee.schema.json

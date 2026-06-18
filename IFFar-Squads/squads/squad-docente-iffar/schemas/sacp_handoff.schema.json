@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "squad-docente-iffar.sacp_handoff.schema.json",
+  "title": "Payload SACP de handoff entre agentes",
+  "type": "object",
+  "required": ["intencao_classificada", "agente_origem", "agente_destino", "contexto", "confidence"],
+  "properties": {
+    "intencao_classificada": {
+      "enum": ["planejar", "gerar_material", "avaliar", "adaptar", "registrar", "monitorar_prazo"]
+    },
+    "agente_origem": { "type": "string" },
+    "agente_destino": { "type": "string" },
+    "contexto": {
+      "type": "object",
+      "properties": {
+        "curso_id": { "type": "string" },
+        "campus": { "type": "string" },
+        "turma_id": { "type": "string" },
+        "componente_id": { "type": "string" }
+      },
+      "required": ["curso_id", "componente_id"]
+    },
+    "payload": { "type": "object" },
+    "fontes": { "type": "array", "items": { "type": "string" } },
+    "human_review_required": { "type": "boolean" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

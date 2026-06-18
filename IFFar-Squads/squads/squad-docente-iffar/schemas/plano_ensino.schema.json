@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "squad-docente-iffar.plano_ensino.schema.json",
+  "title": "Plano de Ensino",
+  "type": "object",
+  "required": [
+    "componente_id",
+    "curso_id",
+    "ementa",
+    "objetivos",
+    "metodologia",
+    "conteudo_programatico",
+    "avaliacao",
+    "referencias",
+    "cronograma",
+    "status_homologacao"
+  ],
+  "properties": {
+    "componente_id": { "type": "string" },
+    "curso_id": { "type": "string" },
+    "campus": { "type": "string" },
+    "ementa": { "type": "string" },
+    "objetivos": { "type": "array", "items": { "type": "string" } },
+    "metodologia": { "type": "string" },
+    "conteudo_programatico": { "type": "array", "items": { "type": "string" } },
+    "avaliacao": { "type": "string" },
+    "referencias": { "type": "array", "items": { "type": "string" } },
+    "cronograma": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["data_aula", "topico"],
+        "properties": {
+          "data_aula": { "type": "string" },
+          "topico": { "type": "string" },
+          "observacao": { "type": "string" }
+        }
+      }
+    },
+    "veredito_curricular": { "enum": ["conforme", "não conforme", "inconclusivo", "pendente"] },
+    "status_homologacao": { "enum": ["rascunho", "em_revisao", "homologado", "devolvido"] }
+  },
+  "additionalProperties": true
+}

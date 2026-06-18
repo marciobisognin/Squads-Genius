@@ -1,0 +1,30 @@
+name: workflow-plano-de-ensino
+descricao: Elaboração do Plano de Ensino cruzado com o calendário acadêmico e
+  validado contra o PPC/RDP.
+trigger: pedido de planejamento de semestre/componente
+steps:
+  - id: estruturacao
+    agent: planejador-de-ensino
+    tool: scripts/build_cronograma.py
+    output: plano_em_rascunho_e_cronograma
+  - id: validacao_curricular
+    agent: guardiao-curricular
+    depends_on: [estruturacao]
+    output: veredito_e_apontamentos
+  - id: ajuste
+    agent: planejador-de-ensino
+    depends_on: [validacao_curricular]
+    output: plano_ajustado
+  - id: validacao_schema
+    agent: planejador-de-ensino
+    tool: scripts/validate_plano_ensino.py
+    depends_on: [ajuste]
+    output: plano_validado
+  - id: homologacao
+    agent: gate-humano
+    depends_on: [validacao_schema]
+    output: decisao_homologacao
+quality_gates:
+  - cronograma respeita dias letivos, feriados e datas de conselho de classe
+  - plano segue schemas/plano_ensino.schema.json
+  - apontamentos do Guardião Curricular são sanados antes da homologação

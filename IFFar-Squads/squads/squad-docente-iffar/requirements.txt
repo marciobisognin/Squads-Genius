@@ -1,0 +1,2 @@
+# Núcleo determinístico roda apenas com a biblioteca padrão do Python 3.11+.
+# Nenhuma dependência externa é necessária para scripts/ e tests/.

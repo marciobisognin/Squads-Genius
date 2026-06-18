@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "squad-docente-iffar.adaptacao_aee.schema.json",
+  "title": "Registro de adaptação AEE / inclusão",
+  "type": "object",
+  "required": ["componente_id", "porte_adaptacao", "dispositivo_normativo", "descricao", "status_homologacao"],
+  "properties": {
+    "componente_id": { "type": "string" },
+    "porte_adaptacao": { "enum": ["pequeno_porte", "grande_porte"] },
+    "dispositivo_normativo": { "type": "string", "description": "Artigo da Res. CONSUP 52/2019 aplicado." },
+    "descricao": { "type": "string" },
+    "parecer_napne_cai": { "enum": ["aprovado", "pendente", "não_exigido"] },
+    "registro_para_plano_de_ensino": { "type": "string" },
+    "status_homologacao": { "enum": ["rascunho", "em_revisao", "homologado", "devolvido"] }
+  },
+  "additionalProperties": false
+}
