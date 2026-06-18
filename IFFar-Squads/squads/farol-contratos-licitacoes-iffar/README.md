@@ -98,6 +98,24 @@ A integração permite consultar:
 
 Todas as chamadas têm **retry com backoff exponencial** e **cache local** (`--cache`), para que reanalisar a mesma planilha não repita consultas idênticas.
 
+## 🗂️ Download das atas assinadas usadas na planilha
+
+Ao final do pacote de decisão, o squad **pergunta ao usuário** se ele deseja baixar as **atas de registro de preços assinadas** cujos preços foram usados na planilha entregue. Com a confirmação, um **novo grupo de agentes** (`signed-minutes-download-orchestrator`, `minutes-evidence-fetcher`, `minutes-page-locator`, `minutes-index-builder`) baixa os documentos, organiza **uma pasta por item** e gera um **índice HTML** que aponta, para cada item, a pasta, os arquivos e **em que página de cada documento o item e o seu valor aparecem**.
+
+```bash
+# 1) esqueleto do manifesto item -> ata (preenchido pela pesquisa de preços)
+python scripts/baixar_atas_assinadas.py montar-manifesto \
+  --resumo output/02_compras_gov/resumo_precos_por_codigo.json \
+  --out output/atas-assinadas/manifesto.json
+
+# 2) download + organização por item + índice HTML
+python scripts/baixar_atas_assinadas.py baixar \
+  --manifest output/atas-assinadas/manifesto.json \
+  --out output/atas-assinadas
+```
+
+Saídas: `output/atas-assinadas/<codigo>-<slug>/` (atas por item), `index.html` (pasta + arquivo + página + valor + trecho) e `index.json` (com `sha256` por arquivo e referência PNCP para pendências). Detalhes em [`references/atas-assinadas-download.md`](references/atas-assinadas-download.md). Nada é baixado sem confirmação humana, e página/valor nunca são inventados — ausências são declaradas.
+
 ## 📦 O que o squad entrega no final
 
 - **Planilha auditada `.xlsx`** com colunas: `Ações Necessárias`, `Nível de Risco`, `Tipos de Achado`, `Outliers Quantitativos`, `Sugestão de Decisão`, `Valor Total Estimado (R$)`.
