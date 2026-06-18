@@ -1,0 +1,11 @@
+id: "13_evidencia_e_quality"
+owner: "quality-auditor"
+objective: "Calcular checksums, trilha e quality_report."
+inputs:
+  - "saída completa"
+outputs:
+  - "quality_report"
+  - "checksums"
+acceptance_criteria:
+  - "quality_report passed: true"
+  - "checksums reprodutíveis"

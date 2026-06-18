@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matriz",
+  "type": "object",
+  "properties": {
+    "colunas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "linhas": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "colunas",
+    "linhas"
+  ]
+}

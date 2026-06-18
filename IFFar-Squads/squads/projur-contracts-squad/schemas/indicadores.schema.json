@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "indicadores",
+  "type": "object",
+  "properties": {
+    "total_instrumentos": {
+      "type": "integer"
+    },
+    "valor_total": {
+      "type": "number"
+    },
+    "por_tipo": {
+      "type": "object"
+    },
+    "taxa_renovacao": {
+      "type": "number"
+    },
+    "pct_clausulas_fora_padrao": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "total_instrumentos",
+    "valor_total"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "instrumento",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "string"
+    },
+    "partes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "objeto": {
+      "type": "string"
+    },
+    "valor": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "vigencia_inicio": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vigencia_fim": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "base_legal": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "origem": {
+      "type": "string"
+    },
+    "checksum": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "tipo",
+    "origem"
+  ]
+}

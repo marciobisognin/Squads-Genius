@@ -1,0 +1,46 @@
+{
+  "id": "atualizacao_incremental",
+  "description": "Ingestão incremental: processa apenas instrumentos novos e atualiza a matriz sem reprocessar o histórico.",
+  "human_in_loop": true,
+  "rollback": "descartar a saída e reprocessar o lote com ajustes",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake incremental (somente novos)",
+      "task": "01_intake_e_deduplicacao",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Extração de texto e OCR",
+      "task": "02_extracao_texto_e_ocr",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Classificação",
+      "task": "03_classificacao_instrumento",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "Metadados e partes",
+      "task": "04_metadados_e_partes",
+      "gate_required": true,
+      "gate": "metadados_e_partes_validados"
+    },
+    {
+      "order": 5,
+      "name": "Atualizar matriz e indicadores",
+      "task": "11_matriz_dicionario_indicadores",
+      "gate_required": false
+    },
+    {
+      "order": 6,
+      "name": "Quality report",
+      "task": "13_evidencia_e_quality",
+      "gate_required": true,
+      "gate": "quality_report_passed"
+    }
+  ]
+}

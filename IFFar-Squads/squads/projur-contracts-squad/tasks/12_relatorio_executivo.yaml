@@ -1,0 +1,10 @@
+id: "12_relatorio_executivo"
+owner: "gerador-relatorio-executivo"
+objective: "Gerar o relatório executivo (PDF/MD)."
+inputs:
+  - "matriz, indicadores, alertas"
+outputs:
+  - "relatório executivo"
+acceptance_criteria:
+  - "relatório gerado sem erro"
+  - "indicadores e alertas presentes"

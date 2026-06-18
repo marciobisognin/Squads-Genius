@@ -1,0 +1,10 @@
+id: "08_vinculo_instrumentos"
+owner: "vinculador-instrumentos"
+objective: "Relacionar aditivos, convênios, TEDs e atas."
+inputs:
+  - "metadados do lote"
+outputs:
+  - "grafo de vínculos"
+acceptance_criteria:
+  - "aditivos ligados ao contrato-pai"
+  - "precisão de vínculo ≥ 90% na amostra"

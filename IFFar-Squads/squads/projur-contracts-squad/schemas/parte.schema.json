@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parte",
+  "type": "object",
+  "properties": {
+    "nome_razao_social": {
+      "type": "string"
+    },
+    "documento": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tipo_documento": {
+      "type": "string",
+      "enum": [
+        "CNPJ",
+        "CPF",
+        "desconhecido"
+      ]
+    },
+    "papel": {
+      "type": "string"
+    },
+    "valido": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "nome_razao_social",
+    "tipo_documento",
+    "valido"
+  ]
+}

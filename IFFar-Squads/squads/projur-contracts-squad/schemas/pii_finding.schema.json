@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pii_finding",
+  "type": "object",
+  "properties": {
+    "instrumento_id": {
+      "type": "string"
+    },
+    "tipo_pii": {
+      "type": "string",
+      "enum": [
+        "cpf",
+        "cnpj",
+        "email",
+        "telefone",
+        "conta_bancaria"
+      ]
+    },
+    "trecho_mascarado": {
+      "type": "string"
+    },
+    "posicao": {
+      "type": "integer"
+    },
+    "base_legal_lgpd": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "instrumento_id",
+    "tipo_pii"
+  ]
+}

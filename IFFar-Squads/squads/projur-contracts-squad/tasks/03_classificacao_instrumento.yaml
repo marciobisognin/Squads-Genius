@@ -1,0 +1,10 @@
+id: "03_classificacao_instrumento"
+owner: "classificador-instrumento"
+objective: "Detectar o tipo do instrumento e a confiança."
+inputs:
+  - "textos"
+outputs:
+  - "tipo + confiança por documento"
+acceptance_criteria:
+  - "tipo classificado conforme a taxonomia"
+  - "confiança registrada"

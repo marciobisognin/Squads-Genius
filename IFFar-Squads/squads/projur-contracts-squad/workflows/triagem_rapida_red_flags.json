@@ -1,0 +1,40 @@
+{
+  "id": "triagem_rapida_red_flags",
+  "description": "Triagem expressa para priorizar quais instrumentos merecem parecer completo no Themis.",
+  "human_in_loop": true,
+  "rollback": "descartar a saída e reprocessar o lote com ajustes",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake e deduplicação",
+      "task": "01_intake_e_deduplicacao",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Extração de texto e OCR",
+      "task": "02_extracao_texto_e_ocr",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Classificação do instrumento",
+      "task": "03_classificacao_instrumento",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "Conformidade e riscos (resumido)",
+      "task": "09_conformidade_e_riscos",
+      "gate_required": true,
+      "gate": "conformidade_aplicada"
+    },
+    {
+      "order": 5,
+      "name": "Red flags e handoff ao Themis",
+      "task": "10_jurisprudencia_controle",
+      "gate_required": true,
+      "gate": "revisao_humana_red_flags"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+id: "06_clausulas_essenciais"
+owner: "analisador-clausulas"
+objective: "Segmentar cláusulas e checar as essenciais (art. 92)."
+inputs:
+  - "textos"
+outputs:
+  - "cláusulas + checklist art. 92"
+acceptance_criteria:
+  - "cláusulas essenciais avaliadas"
+  - "sem juízo de mérito automático"
