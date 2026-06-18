@@ -38,6 +38,7 @@ A convenção saneada passa a ser:
 | VetorViveiro Squad | [`vetorviveiro-squad`](./squads/vetorviveiro-squad/) | Conversão de documentos institucionais de incubadoras em sistema operacional de inovação. |
 | PrismaFrame Executive Cinema Suite | [`prismaframe-executive-cinema-suite`](./squads/prismaframe-executive-cinema-suite/) | Materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual. |
 | PDI Vivo IFFar Squad | [`pdi-vivo-iffar-squad`](./squads/pdi-vivo-iffar-squad/) | Governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, relatório trimestral e painel, com 17 agentes SME e engine determinística. |
+| Squad Docente IFFar | [`squad-docente-iffar`](./squads/squad-docente-iffar/) | Automação do trabalho docente: plano de ensino, materiais didáticos com ponte Manim, avaliações/rubricas, adaptação AEE (Res. CONSUP 52/2019) e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório. |
 
 ## 🧭 Organização saneada
 
@@ -55,6 +56,7 @@ IFFar-Squads/
     ├── nucleo-prpi-iffar-squad/
     ├── orbita-incubadora-squad/
     ├── prismaframe-executive-cinema-suite/
+    ├── squad-docente-iffar/
     ├── squad-pcfp/
     ├── squ-tesouraria-publica-squad/
     ├── themis-contratos-publicos-squad/

@@ -1,0 +1,32 @@
+name: pipeline-completo-docente
+descricao: Fluxo ponta a ponta — do pedido do docente à saída oficial — passando
+  por classificação, validação curricular, produção, consolidação e homologação
+  humana.
+trigger: pedido do docente em linguagem natural
+steps:
+  - id: classificacao
+    agent: maestro-pedagogico
+    tool: tasks/classificar-e-rotear-pedido.md
+    output: rota_e_payload_sacp
+  - id: validacao_curricular
+    agent: guardiao-curricular
+    depends_on: [classificacao]
+    output: veredito_de_aderencia
+  - id: producao
+    agent: any_of(planejador-de-ensino, designer-materiais-didaticos, avaliador-rubricas, agente-inclusao-aee)
+    depends_on: [validacao_curricular]
+    output: artefato_em_rascunho
+  - id: consolidacao_e_checagem
+    agent: any_of(registros-conselho-classe, sentinela-conformidade-prazos)
+    depends_on: [producao]
+    output: dossie_ou_checklist
+  - id: homologacao
+    agent: gate-humano
+    depends_on: [producao, consolidacao_e_checagem]
+    output: decisao_homologacao
+quality_gates:
+  - nenhum artefato avança para "producao" sem veredito do Guardião Curricular
+  - nenhum artefato é marcado "saída oficial" sem decisão do Gate Humano
+  - todo handoff entre etapas segue o schema sacp_handoff.schema.json
+  - dado sensível (estudante) só circula entre registros-conselho-classe,
+    agente-inclusao-aee e gate-humano, nunca para fora do ambiente controlado
