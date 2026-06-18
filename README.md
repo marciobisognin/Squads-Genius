@@ -2,6 +2,10 @@
 
 Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio Bisognin para automação, governança, criação de conteúdo, análise estratégica e construção de negócios com IA.
 
+## Site visual dos squads
+
+Galeria visual (GitHub Pages) mostrando agentes, ferramentas e a jornada de cada squad, com avatares e animações: **[docs/index.html](docs/index.html)** — piloto com 5 squads, publicado em `https://<usuário>.github.io/Squads-Genius/` após ativar o Pages apontando para a pasta `/docs`.
+
 ## Squads carregados nesta publicação
 
 ### 1. [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/)
