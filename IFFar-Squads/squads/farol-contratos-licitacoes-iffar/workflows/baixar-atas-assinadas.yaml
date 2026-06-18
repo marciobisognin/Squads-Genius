@@ -1,0 +1,91 @@
+id: baixar-atas-assinadas
+name: Download das Atas Assinadas Usadas na Planilha
+version: 1.0.0
+trigger: confirmação humana, ao final do pacote de decisão, de que deseja baixar as
+  atas de registro de preços assinadas cujos preços foram usados na planilha entregue
+precondition: pacote de decisão concluído e memória de preço com a ata adotada por item
+states:
+- offered
+- confirmed
+- manifest_ready
+- downloaded
+- located
+- indexed
+- completed
+- blocked
+input_schema:
+  case_id: string
+  price_memory: object
+  audited_spreadsheet: path
+  user_confirmation: boolean
+output_schema:
+  atas_dir: path
+  index_html: path
+  index_json: path
+  pendencias: array
+steps:
+- id: oferta_e_confirmacao
+  agent: signed-minutes-download-orchestrator
+  depends_on: []
+  timeout: indefinite
+  retry_policy:
+    max_attempts: 0
+    backoff: none
+  human_approval: true
+  question: 'Deseja que o squad baixe as atas assinadas com os preços usados na planilha
+    entregue, organizadas por item e com índice HTML?'
+  success_condition: usuário confirma explicitamente o download
+  failure_condition: usuário recusa ou não confirma
+  audit_event: signed_minutes_offer
+- id: montar_manifesto
+  agent: signed-minutes-download-orchestrator
+  depends_on:
+  - oferta_e_confirmacao
+  timeout: 120s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: false
+  evidence_gate: cada item liga a ao menos uma ata (numeroControlePncpAta, URL ou arquivo)
+  fallback: registrar itens sem ata adotada como pendência
+- id: baixar_documentos
+  agent: minutes-evidence-fetcher
+  depends_on:
+  - montar_manifesto
+  timeout: 600s
+  retry_policy:
+    max_attempts: 3
+    backoff: exponential
+  human_approval: false
+  evidence_gate: sha256 por arquivo baixado e referência PNCP para pendências
+  on_error: registrar indisponibilidade e seguir com os demais itens
+- id: localizar_pagina_valor
+  agent: minutes-page-locator
+  depends_on:
+  - baixar_documentos
+  timeout: 300s
+  retry_policy:
+    max_attempts: 2
+    backoff: exponential
+  human_approval: false
+  success_condition: página e valor localizados ou ausência declarada por documento
+- id: gerar_indice
+  agent: minutes-index-builder
+  depends_on:
+  - localizar_pagina_valor
+  timeout: 120s
+  retry_policy:
+    max_attempts: 1
+    backoff: fixed
+  human_approval: false
+  success_condition: index.html e index.json gerados apontando pasta, arquivo, página e valor
+failure_paths:
+  user_declined: encerrar sem baixar e manter apenas o pacote de decisão
+  evidence_insufficient: registrar pendência e solicitar a ata adotada por item
+  api_failure: registrar indisponibilidade e oferecer reexecução
+  critical_data_risk: bloquear download e acionar governança LGPD
+quality_gates:
+- download somente após confirmação humana explícita
+- hash sha256 por arquivo de ata baixado
+- nenhuma página/valor inventado; ausência é declarada
+- índice aponta pasta, arquivo, página e valor de cada item
