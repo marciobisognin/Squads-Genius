@@ -1,0 +1,164 @@
+name: quality-gates
+version: 1.0.0
+description: >
+  Gates de qualidade obrigatórios do Mobius Chair Strategic Foresight Squad.
+  O gate epistemológico é o mais crítico e é verificado em todas as fases.
+author: "Marcio Bisognin"
+license: MIT
+
+gate_enforcement:
+  mode: "blocking"
+  description: >
+    Gates são verificados sequencialmente pelo mobius-orchestrator. Um gate reprovado
+    bloqueia a entrega até correção, com evidência documentada.
+
+gates:
+  - id: epistemologia_confirmada
+    name: "Epistemologia Confirmada"
+    phase: all
+    type: automated_check
+    description: >
+      Toda afirmação do relatório final está rotulada com sua categoria epistemológica:
+      Fato Estabelecido, Tendência Confirmada, Tendência Emergente, Sinal Fraco,
+      Especulação ou Wildcard.
+    verification:
+      - "Nenhuma afirmação especulativa apresentada sem rótulo de categoria"
+      - "Categorias usadas de forma consistente em todo o relatório"
+    failure_action: "Revisar e rotular afirmações sem categoria epistemológica"
+    responsible: mobius-orchestrator
+    severity: critical
+    required_for_phases: [2, 3, 4, 5, 6]
+
+  - id: tendencias_com_fonte_e_confianca
+    name: "Tendências com Fonte e Confiança"
+    phase: scanning
+    type: completeness_check
+    description: "Toda megatendência STEEP tem fonte rastreável e grau de confiança."
+    verification:
+      - "100% das megatendências têm fonte e data de verificação"
+      - "Grau de confiança atribuído (Alto/Médio/Baixo)"
+    failure_action: "Retornar ao horizon-scanner para completar fontes faltantes"
+    responsible: mobius-orchestrator
+    required_for_phases: [3, 4, 5, 6]
+
+  - id: sinais_fracos_catalogados
+    name: "Sinais Fracos Catalogados"
+    phase: scanning
+    type: completeness_check
+    description: "Sinais fracos identificados têm categoria, fonte e classificação de confiança."
+    verification:
+      - "Cada sinal fraco tem categoria (Tecnológico/Social/Regulatório/Econômico/Wildcard)"
+      - "Classificação de confiança presente (Confirmado/Isolado/Especulação/Wildcard)"
+    failure_action: "Retornar ao weak-signal-detector para completar catalogação"
+    responsible: mobius-orchestrator
+    required_for_phases: [3, 4, 5, 6]
+
+  - id: tecnologias_mapeadas_no_hype_cycle
+    name: "Tecnologias Mapeadas no Hype Cycle"
+    phase: scanning
+    type: completeness_check
+    description: "Tecnologias emergentes relevantes posicionadas no Hype Cycle com evidência."
+    verification:
+      - "Cada tecnologia tem fase do hype cycle justificada com evidência de adoção"
+    failure_action: "Retornar ao emerging-tech-analyst para completar evidências"
+    responsible: mobius-orchestrator
+    required_for_phases: [3, 4, 5, 6]
+
+  - id: cenarios_distintos_e_consistentes
+    name: "Cenários Distintos e Internamente Consistentes"
+    phase: scenario_construction
+    type: hitl
+    description: "Os 4 cenários são plausíveis, distintos entre si e logicamente consistentes."
+    verification:
+      - "Nenhum cenário é variação superficial de outro"
+      - "Cada cenário tem narrativa coerente sem contradições internas"
+      - "Cliente validou os eixos de incerteza antes da construção"
+    failure_action: "Retornar ao scenario-architect para revisar eixos ou narrativas"
+    responsible: mobius-orchestrator
+    severity: critical
+    required_for_phases: [4, 5, 6]
+
+  - id: implicacoes_por_cenario
+    name: "Implicações Mapeadas por Cenário"
+    phase: implications_and_testing
+    type: completeness_check
+    description: "Cada um dos 4 cenários tem implicações estratégicas específicas mapeadas."
+    verification:
+      - "Todas as 5 dimensões de implicação cobertas por cenário (produto, mercado, operação, talento, posicionamento)"
+    failure_action: "Retornar ao strategic-implications-analyst para completar dimensões faltantes"
+    responsible: mobius-orchestrator
+    required_for_phases: [5, 6]
+
+  - id: estrategias_testadas_no_windtunnel
+    name: "Estratégias Testadas no Wind Tunnel"
+    phase: implications_and_testing
+    type: completeness_check
+    description: "Estratégias atuais informadas pelo cliente foram testadas contra os 4 cenários."
+    verification:
+      - "Cada estratégia tem veredito (Sobrevive/Ajuste/Falha) para os 4 cenários"
+      - "Score de robustez calculado"
+    failure_action: "Retornar ao windtunnel-tester para completar testes faltantes"
+    responsible: mobius-orchestrator
+    required_for_phases: [5, 6]
+
+  - id: roadmap_robusto_aprovado
+    name: "Roadmap Robusto Aprovado"
+    phase: roadmap
+    type: hitl
+    description: "O roadmap estratégico robusto foi aprovado pelo cliente antes da entrega final."
+    verification:
+      - "Registro de aprovação do cliente sobre ações no-regret, apostas e hedges"
+    failure_action: "Revisar roadmap sinalizado com o roadmap-forger"
+    responsible: mobius-orchestrator
+    required_for_phases: [6]
+
+  - id: indicadores_de_alerta_definidos
+    name: "Indicadores de Alerta Precoce Definidos"
+    phase: roadmap
+    type: completeness_check
+    description: "Cada cenário tem indicadores de alerta precoce com fonte e threshold."
+    verification:
+      - "Cada cenário tem 3 a 5 indicadores com fonte de verificação e threshold"
+    failure_action: "Retornar ao early-indicator-designer para completar indicadores"
+    responsible: mobius-orchestrator
+    required_for_phases: [6]
+
+  - id: aprovacao_humana_explicita
+    name: "Aprovação Humana Explícita do Relatório Final"
+    phase: synthesis
+    type: hitl
+    description: "Sign-off final humano antes da entrega do Relatório de Inteligência de Futuros."
+    pre_requisites:
+      - epistemologia_confirmada
+      - cenarios_distintos_e_consistentes
+      - roadmap_robusto_aprovado
+    verification:
+      - "Todos os gates anteriores com status APROVADO"
+      - "Registro de sign-off final (data, nome, cargo do responsável)"
+    failure_action: "Bloquear entrega — revisar seções indicadas"
+    responsible: mobius-orchestrator
+    required_for_delivery: true
+
+gate_summary_template: |
+  ## RELATÓRIO DE QUALITY GATES — MOBIUS CHAIR STRATEGIC FORESIGHT SQUAD
+  Data de verificação: [data]
+  Verificado por: mobius-orchestrator
+
+  | Gate ID | Nome | Status | Responsável | Data Verificação | Observações |
+  |---------|------|--------|-------------|-----------------|-------------|
+  | epistemologia_confirmada | Epistemologia Confirmada | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | tendencias_com_fonte_e_confianca | Fonte e Confiança | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | sinais_fracos_catalogados | Sinais Catalogados | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | tecnologias_mapeadas_no_hype_cycle | Hype Cycle Mapeado | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | cenarios_distintos_e_consistentes | Cenários Distintos | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | implicacoes_por_cenario | Implicações Mapeadas | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | estrategias_testadas_no_windtunnel | Wind Tunnel Concluído | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | roadmap_robusto_aprovado | Roadmap Aprovado | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | indicadores_de_alerta_definidos | Indicadores Definidos | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | aprovacao_humana_explicita | Sign-off Final | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+
+  STATUS GERAL: [APROVADO PARA ENTREGA | BLOQUEADO — ver gates reprovados]
+
+---
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
