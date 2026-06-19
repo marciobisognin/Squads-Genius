@@ -5,3 +5,4 @@ output/
 .cache/
 *.tmp
 .DS_Store
+.claude/worktrees/
