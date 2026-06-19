@@ -1,0 +1,153 @@
+name: quality-gates
+version: 1.0.0
+description: >
+  Gates de qualidade obrigatórios do Forge of Solus Prime Cybersecurity Squad.
+  Todos os gates devem ser verificados pelo solus-forge-orchestrator antes da entrega final.
+  O gate de escopo defensivo é o mais crítico do squad e bloqueia o pipeline inteiro.
+author: "Marcio Bisognin"
+license: MIT
+
+gate_enforcement:
+  mode: "blocking"
+  description: >
+    Gates são verificados sequencialmente pelo solus-forge-orchestrator. O gate de
+    autorização documentada é verificado ANTES de qualquer outra atividade. Um gate
+    reprovado bloqueia a entrega até correção, com evidência documentada.
+
+gates:
+  - id: escopo_defensivo_confirmado
+    name: "Escopo Estritamente Defensivo Confirmado"
+    phase: intake_and_authorization
+    type: hitl
+    description: >
+      Confirmação de que todas as atividades do pipeline são estritamente defensivas:
+      nenhum exploit, ataque simulado real ou técnica ofensiva ativa será executada.
+    verification:
+      - "Nenhuma menção a execução de exploit real em qualquer entregável"
+      - "Todas as análises adversariais são conceituais, baseadas em frameworks públicos"
+      - "Disclaimer de escopo defensivo presente em todos os agentes e no README"
+    failure_action: "Bloquear pipeline imediatamente — revisar escopo solicitado pelo cliente"
+    responsible: solus-forge-orchestrator
+    severity: critical
+    required_for_phases: [2, 3, 4, 5]
+
+  - id: autorizacao_documentada_verificada
+    name: "Autorização Documentada Verificada"
+    phase: intake_and_authorization
+    type: hitl
+    description: >
+      O proprietário dos ativos avaliados forneceu autorização documentada e explícita
+      antes do início de qualquer avaliação.
+    verification:
+      - "Documento de autorização anexado ou referenciado no briefing"
+      - "Autorização cobre todos os ativos incluídos no inventário"
+      - "Nome e cargo do responsável que autorizou estão registrados"
+    failure_action: "Não iniciar avaliação — solicitar documentação de autorização ao cliente"
+    responsible: solus-forge-orchestrator
+    severity: critical
+    required_for_phases: [2, 3, 4, 5]
+
+  - id: inventario_ativos_validado
+    name: "Inventário de Ativos Validado"
+    phase: assessment
+    type: completeness_check
+    description: "O inventário de ativos cobre todos os sistemas críticos informados pela organização."
+    verification:
+      - "Todos os ativos críticos mencionados no briefing estão no inventário"
+      - "Superfície de ataque documentada por categoria de ativo"
+    failure_action: "Retornar ao asset-inventory-mapper para completar lacunas"
+    responsible: solus-forge-orchestrator
+    required_for_phases: [3, 4, 5]
+
+  - id: modelo_ameacas_revisado_por_humano
+    name: "Modelo de Ameaças Revisado por Humano"
+    phase: assessment
+    type: hitl
+    description: "O modelo de ameaças foi revisado e validado por um profissional de segurança."
+    verification:
+      - "Registro de revisão humana do modelo STRIDE/MITRE ATT&CK"
+      - "Ameaças identificadas são plausíveis para o perfil setorial da organização"
+    failure_action: "Revisar modelo de ameaças com contexto adicional do profissional"
+    responsible: solus-forge-orchestrator
+    required_for_phases: [3, 4, 5]
+
+  - id: politicas_aprovadas_pelo_cliente
+    name: "Políticas de Segurança Aprovadas pelo Cliente"
+    phase: hardening
+    type: hitl
+    description: "O pack de políticas de segurança foi revisado e aprovado pelo cliente."
+    verification:
+      - "Registro de aprovação do cliente para cada política gerada"
+      - "Políticas são compatíveis com a realidade operacional da organização"
+    failure_action: "Revisar políticas sinalizadas com o security-policy-writer"
+    responsible: solus-forge-orchestrator
+    required_for_phases: [4, 5]
+
+  - id: playbooks_testados_conceitualmente
+    name: "Playbooks de Resposta Testados Conceitualmente"
+    phase: hardening
+    type: completeness_check
+    description: "Cada playbook de resposta a incidentes foi revisado por tabletop conceitual."
+    verification:
+      - "Cada tipo de incidente coberto tem playbook com etapas claras e responsáveis"
+      - "Playbooks foram discutidos em exercício tabletop conceitual (não simulação real)"
+    failure_action: "Retornar ao incident-response-planner para completar playbooks"
+    responsible: solus-forge-orchestrator
+    required_for_phases: [5]
+
+  - id: conformidade_gap_priorizado
+    name: "Lacunas de Conformidade Priorizadas"
+    phase: compliance_and_awareness
+    type: completeness_check
+    description: "O relatório de lacunas de conformidade está priorizado por risco e esforço."
+    verification:
+      - "Cada lacuna identificada tem nível de risco e esforço de correção estimado"
+      - "Lacunas críticas (LGPD/ISO 27001) destacadas com prioridade máxima"
+    failure_action: "Retornar ao lgpd-iso27001-auditor para priorização"
+    responsible: solus-forge-orchestrator
+    required_for_phases: [5]
+
+  - id: entrega_final_revisada_por_humano
+    name: "Entrega Final Revisada por Profissional Qualificado"
+    phase: synthesis
+    type: hitl
+    description: >
+      Revisão humana final obrigatória por profissional de segurança qualificado antes
+      da entrega do pacote completo ao cliente.
+    pre_requisites:
+      - escopo_defensivo_confirmado
+      - autorizacao_documentada_verificada
+      - inventario_ativos_validado
+      - modelo_ameacas_revisado_por_humano
+      - politicas_aprovadas_pelo_cliente
+      - playbooks_testados_conceitualmente
+      - conformidade_gap_priorizado
+    verification:
+      - "Todos os gates anteriores com status APROVADO"
+      - "Disclaimer de escopo defensivo presente na entrega final"
+      - "Registro de aprovação final (data, nome, cargo do responsável)"
+    failure_action: "Bloquear entrega — revisar seções indicadas"
+    responsible: solus-forge-orchestrator
+    required_for_delivery: true
+
+gate_summary_template: |
+  ## RELATÓRIO DE QUALITY GATES — FORGE OF SOLUS PRIME CYBERSECURITY SQUAD
+  Data de verificação: [data]
+  Verificado por: solus-forge-orchestrator
+
+  | Gate ID | Nome | Status | Responsável | Data Verificação | Observações |
+  |---------|------|--------|-------------|-----------------|-------------|
+  | escopo_defensivo_confirmado | Escopo Defensivo | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | autorizacao_documentada_verificada | Autorização Documentada | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | inventario_ativos_validado | Inventário Validado | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | modelo_ameacas_revisado_por_humano | Modelo de Ameaças Revisado | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | politicas_aprovadas_pelo_cliente | Políticas Aprovadas | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | playbooks_testados_conceitualmente | Playbooks Testados | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | conformidade_gap_priorizado | Conformidade Priorizada | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | entrega_final_revisada_por_humano | Revisão Final Humana | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+
+  STATUS GERAL: [APROVADO PARA ENTREGA | BLOQUEADO — ver gates reprovados]
+
+---
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

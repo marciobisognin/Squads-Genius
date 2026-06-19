@@ -1,0 +1,108 @@
+name: quality-gates
+version: 1.0.0
+description: >
+  Gates de qualidade obrigatórios do Soulsword Personal Branding Squad.
+  Todos os gates devem ser verificados pelo soulsword-orchestrator antes da entrega final.
+author: "Marcio Bisognin"
+license: MIT
+
+gate_enforcement:
+  mode: "blocking"
+  description: >
+    Gates são verificados sequencialmente pelo soulsword-orchestrator. Um gate reprovado
+    bloqueia a entrega até correção, com evidência documentada do resultado de cada gate.
+
+gates:
+  - id: brand_dna_validated_by_professional
+    name: "DNA de Marca Validado pelo Profissional"
+    phase: intake
+    type: hitl
+    description: "O DNA de marca diagnosticado foi validado pelo próprio profissional."
+    verification:
+      - "Registro de aprovação do profissional sobre propósito, valores e voz diagnosticados"
+      - "Diferencial único confirmado como autêntico (não aspiracional)"
+    failure_action: "Revisar diagnóstico com input adicional do profissional"
+    responsible: soulsword-orchestrator
+    required_for_phases: [2, 3, 4, 5]
+
+  - id: positioning_uniqueness_confirmed
+    name: "Singularidade do Posicionamento Confirmada"
+    phase: positioning
+    type: automated_check
+    description: "O posicionamento de autoridade ocupa um território distinto da concorrência mapeada."
+    verification:
+      - "Mapa de posicionamento competitivo mostra espaço único"
+      - "Declaração de posicionamento não duplica linguagem de referências do nicho"
+    failure_action: "Retornar ao positioning-architect para refinar território de autoridade"
+    responsible: soulsword-orchestrator
+    required_for_phases: [3, 4, 5]
+
+  - id: content_authenticity_reviewed
+    name: "Autenticidade do Conteúdo Revisada"
+    phase: content_and_channels
+    type: hitl
+    description: "Todo conteúdo produzido (artigos, calendário, perfil LinkedIn) reflete o tom de voz real do profissional."
+    verification:
+      - "Profissional confirmou que o tom de voz é autêntico"
+      - "Nenhum conteúdo copiado ou parafraseado de terceiros sem atribuição"
+      - "Artigos de thought leadership passam por verificação de originalidade"
+    failure_action: "Revisar conteúdo sinalizado com input direto do profissional"
+    responsible: soulsword-orchestrator
+    severity: critical
+    required_for_phases: [4, 5]
+
+  - id: linkedin_profile_updated
+    name: "Guia de Perfil LinkedIn Completo"
+    phase: content_and_channels
+    type: completeness_check
+    description: "O guia de otimização cobre headline, sobre, experiência e seção featured."
+    verification:
+      - "Todas as seções do perfil têm recomendação específica"
+      - "Headline e sobre alinhados ao posicionamento de autoridade definido"
+    failure_action: "Retornar ao linkedin-optimizer para completar seções faltantes"
+    responsible: soulsword-orchestrator
+    required_for_phases: [5]
+
+  - id: speaker_kit_approved
+    name: "Kit do Palestrante Aprovado"
+    phase: visibility
+    type: hitl
+    description: "Bios, speaker one-sheet e media kit aprovados pelo profissional."
+    verification:
+      - "Registro de aprovação do profissional sobre as 3 versões de bio"
+      - "Prova social no kit é verificável (não inflada)"
+    failure_action: "Revisar itens sinalizados com o speaker-pitch-designer"
+    responsible: soulsword-orchestrator
+    required_for_phases: [5]
+
+  - id: pr_targets_validated
+    name: "Alvos de PR Validados"
+    phase: visibility
+    type: hitl
+    description: "Lista de alvos de PR (podcasts, veículos, eventos) validada como relevante pelo profissional."
+    verification:
+      - "Profissional confirmou relevância dos alvos prioritários"
+      - "Nenhum alvo conflita com restrições ou preferências do profissional"
+    failure_action: "Revisar lista de alvos com o pr-visibility-planner"
+    responsible: soulsword-orchestrator
+    required_for_delivery: true
+
+gate_summary_template: |
+  ## RELATÓRIO DE QUALITY GATES — SOULSWORD PERSONAL BRANDING SQUAD
+  Data de verificação: [data]
+  Verificado por: soulsword-orchestrator
+
+  | Gate ID | Nome | Status | Responsável | Data Verificação | Observações |
+  |---------|------|--------|-------------|-----------------|-------------|
+  | brand_dna_validated_by_professional | DNA de Marca Validado | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | positioning_uniqueness_confirmed | Singularidade Confirmada | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | content_authenticity_reviewed | Autenticidade Revisada | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | linkedin_profile_updated | Perfil LinkedIn Completo | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | speaker_kit_approved | Kit Palestrante Aprovado | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | pr_targets_validated | Alvos PR Validados | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+
+  STATUS GERAL: [APROVADO PARA ENTREGA | BLOQUEADO — ver gates reprovados]
+
+---
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

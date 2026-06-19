@@ -1,0 +1,193 @@
+name: cybersecurity-pipeline
+version: 1.0.0
+description: >
+  Pipeline completo de segurança defensiva do Forge of Solus Prime Squad.
+  Transforma inventário de ativos em postura de segurança fortalecida: modelo de ameaças,
+  vulnerabilidades priorizadas, políticas, playbooks de incidentes e conformidade.
+author: "Marcio Bisognin"
+license: MIT
+
+scope_restriction: |
+  ⚠️ ESCOPO ESTRITAMENTE DEFENSIVO ⚠️
+  Nenhuma fase deste pipeline executa testes de penetração reais, exploits ou ataques
+  simulados sem autorização explícita documentada. Toda atividade pressupõe autorização
+  prévia do proprietário dos ativos avaliados.
+
+ethical_constraints:
+  - "Gate de autorização documentada obrigatório antes de qualquer fase de avaliação"
+  - "Nenhuma técnica ofensiva ativa é executada em qualquer fase"
+  - "Revisão humana por profissional de segurança qualificado obrigatória antes de implementação"
+  - "Este pipeline não substitui consultoria de segurança certificada (CISSP, CISM, CEH, OSCP)"
+
+inputs:
+  required:
+    - inventario_ativos: "Inventário parcial ou completo de ativos digitais"
+    - contexto_setor: "Setor e perfil de ameaças relevante"
+    - autorizacao_documentada: "Documento de autorização do proprietário dos ativos"
+  optional:
+    - politicas_existentes: "Documentos de políticas e controles existentes"
+    - escopo_conformidade: "LGPD, ISO 27001, SOC 2, NIST CSF"
+    - historico_incidentes: "Relatos de incidentes anteriores"
+
+outputs:
+  primary:
+    - Scorecard de Postura de Segurança
+    - Relatório de Análise de Lacunas de Conformidade
+  secondary:
+    - Relatório de Inventário de Ativos e Superfície de Ataque
+    - Relatório de Modelagem de Ameaças
+    - Pack de Políticas de Segurança
+    - Playbook de Resposta a Incidentes
+    - Plano de Treinamento e Conscientização
+    - Relatório de Risco de Cadeia de Suprimentos
+    - Relatório de Perspectiva Adversarial
+
+phases:
+  - id: 1
+    name: intake_and_authorization
+    label: "Recepção e Gate de Autorização Documentada"
+    agents:
+      - solus-forge-orchestrator
+    description: >
+      Recepção do contexto da organização e verificação obrigatória de autorização
+      documentada antes de qualquer atividade de avaliação. Pipeline não avança sem
+      este gate.
+    steps:
+      - step: 1.1
+        action: "Receber contexto organizacional, escopo de conformidade e autorização documentada"
+        agent: solus-forge-orchestrator
+        output: "Briefing estruturado com escopo confirmado"
+      - step: 1.2
+        action: "Verificar que a autorização documentada cobre todos os ativos a serem avaliados"
+        agent: solus-forge-orchestrator
+        output: "Confirmação de escopo autorizado"
+    hitl_gate:
+      id: scope_and_authorization_confirmation
+      description: "Confirmação humana de que o escopo está autorizado e é estritamente defensivo"
+      required: true
+      blocker: true
+      responsible: "Usuário/Responsável de Segurança"
+      action_if_approved: "Avançar para fase 2 (assessment)"
+      action_if_rejected: "Solicitar documentação de autorização antes de prosseguir"
+
+  - id: 2
+    name: assessment
+    label: "Inventário, Modelagem de Ameaças e Avaliação de Vulnerabilidades"
+    agents:
+      - asset-inventory-mapper
+      - threat-model-architect
+      - vulnerability-assessor
+    description: >
+      Construção do inventário de ativos, modelo de ameaças (STRIDE/MITRE ATT&CK) e
+      avaliação de vulnerabilidades com priorização CVSS — sem execução de exploits.
+    steps:
+      - step: 2.1
+        action: "Mapear inventário de ativos digitais e superfície de ataque"
+        agent: asset-inventory-mapper
+        output: "Relatório de Inventário de Ativos e Superfície de Ataque"
+      - step: 2.2
+        action: "Construir modelo de ameaças com STRIDE, MITRE ATT&CK e Kill Chain"
+        agent: threat-model-architect
+        output: "Relatório de Modelagem de Ameaças"
+      - step: 2.3
+        action: "Avaliar e priorizar vulnerabilidades conhecidas com pontuação CVSS"
+        agent: vulnerability-assessor
+        output: "Scorecard de Postura de Segurança com prioridades CVSS"
+    hitl_gate:
+      id: threat_model_human_review
+      description: "Revisão humana do modelo de ameaças antes de gerar recomendações"
+      required: true
+      blocker: true
+      responsible: "Usuário/Profissional de Segurança"
+      action_if_approved: "Avançar para fase 3 (hardening)"
+      action_if_rejected: "Revisar modelo de ameaças com contexto adicional"
+
+  - id: 3
+    name: hardening
+    label: "Políticas, Resposta a Incidentes e Perspectiva Adversarial"
+    agents:
+      - security-policy-writer
+      - incident-response-planner
+      - red-team-advisor
+    description: >
+      Geração de políticas de segurança, playbooks de resposta a incidentes e análise
+      conceitual de perspectiva adversarial para fortalecimento defensivo.
+    parallel: true
+    steps:
+      - step: 3.1
+        action: "Gerar pack de políticas de segurança (PSI, BYOD, nuvem, trabalho remoto, classificação de dados)"
+        agent: security-policy-writer
+        output: "Pack de Políticas de Segurança"
+      - step: 3.2
+        action: "Criar playbooks de resposta a incidentes por tipo de ataque"
+        agent: incident-response-planner
+        output: "Playbook de Resposta a Incidentes"
+      - step: 3.3
+        action: "Construir cadeias de ataque conceituais e priorizar defesas (sem execução real)"
+        agent: red-team-advisor
+        output: "Relatório de Perspectiva Adversarial para Fortalecimento Defensivo"
+    hitl_gate:
+      id: policies_approved_by_client
+      description: "Aprovação das políticas de segurança pelo cliente"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Avançar para fase 4 (compliance_and_awareness)"
+      action_if_rejected: "Revisar políticas sinalizadas"
+
+  - id: 4
+    name: compliance_and_awareness
+    label: "Conformidade, Conscientização e Risco de Terceiros"
+    agents:
+      - lgpd-iso27001-auditor
+      - security-awareness-designer
+      - supply-chain-risk-analyst
+    description: >
+      Análise de lacunas de conformidade, design de programa de conscientização e
+      avaliação de risco de cadeia de suprimentos digitais.
+    parallel: true
+    steps:
+      - step: 4.1
+        action: "Analisar lacunas para LGPD, ISO 27001, SOC 2, NIST CSF"
+        agent: lgpd-iso27001-auditor
+        output: "Relatório de Análise de Lacunas de Conformidade"
+      - step: 4.2
+        action: "Projetar programa de conscientização e simulações conceituais de phishing"
+        agent: security-awareness-designer
+        output: "Plano de Treinamento e Conscientização em Segurança"
+      - step: 4.3
+        action: "Avaliar risco de terceiros e cadeia de suprimentos digitais"
+        agent: supply-chain-risk-analyst
+        output: "Relatório de Risco de Cadeia de Suprimentos Digitais"
+
+  - id: 5
+    name: synthesis
+    label: "Consolidação Final e Revisão Humana Obrigatória"
+    agents:
+      - solus-forge-orchestrator
+    description: >
+      Consolidação de todos os relatórios em um pacote único de postura de segurança,
+      com verificação dos quality gates e revisão humana final obrigatória.
+    steps:
+      - step: 5.1
+        action: "Executar quality gates definidos em quality-gates.yaml"
+        agent: solus-forge-orchestrator
+        output: "Relatório de Quality Gates"
+      - step: 5.2
+        action: "Consolidar todos os relatórios no Pacote Final de Postura de Segurança"
+        agent: solus-forge-orchestrator
+        output: "Pacote Final de Postura de Segurança"
+    hitl_gate:
+      id: final_human_review
+      description: "Revisão humana final por profissional de segurança qualificado antes da entrega"
+      required: true
+      blocker: true
+      responsible: "Usuário/Profissional de Segurança Qualificado"
+      action_if_approved: "Entregar pacote final ao cliente"
+      action_if_rejected: "Revisar seções sinalizadas"
+
+quality_gates_reference: quality-gates.yaml
+
+---
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
