@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJUR Contracts Squad — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#0f5c4a;--accent-soft:#0f5c4a26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></span> PROJUR Contracts Squad</h1>
+  <p class="tagline">Camada de inteligência documental em lote para contratos, convênios e termos do IFFar, gerando matriz, indicadores e alertas para gestores e procuradoria.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>PROJUR Orchestrator</h4><p>Coordena o pipeline em lote, aplica quality gates e aciona o HITL.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Triagem</div><h4>Intake Triagem</h4><p>Recebe o lote, deduplica por hash e gera o manifest de fila.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Extrator de texto</div><h4>Extrator Texto Jurídico</h4><p>Converte PDF, DOCX e MD em texto limpo para análise.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">Classificador</div><h4>Classificador Instrumento</h4><p>Detecta o tipo do instrumento contratual.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">Extrator de metadados</div><h4>Extrator Metadados</h4><p>Extrai número, partes, objeto, valor e vigência.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Analisador de cláusulas</div><h4>Analisador Cláusulas</h4><p>Segmenta cláusulas e verifica as essenciais da Lei 14.133.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-architect"/></svg></div>
+        <div><div class="role">Vinculador</div><h4>Vinculador Instrumentos</h4><p>Liga aditivos, convênios, TED e atas aos contratos relacionados.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Especialista normativo</div><h4>SME Lei 14.133 Conformidade</h4><p>Avalia conformidade com a Lei 14.133/2021 e regime legado.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Especialista em LGPD</div><h4>SME LGPD Privacidade</h4><p>Detecta dados pessoais, base legal e minimização.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">Validador</div><h4>Validador Conformidade</h4><p>Aplica a rules engine versionada e consolida apontamentos.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Auditor de vigência</div><h4>Auditor Vigência Riscos</h4><p>Gera alertas de vigência, renovação e anomalias de valor.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">Auditor de qualidade</div><h4>Quality Auditor</h4><p>Verifica as saídas e gera o quality_report final.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>ingest.py</code><span>Lê o lote de entrada, deduplica por hash e gera manifest determinístico.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>extract_text.py</code><span>Extrai texto de TXT, MD, PDF e DOCX com degradação graciosa.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>classify_instrument.py</code><span>Classifica o tipo do instrumento por regras e palavras-chave.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>extract_metadata.py</code><span>Extrai número, partes, objeto, valor, vigência e base legal.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>normalize_parties.py</code><span>Valida dígito verificador de CNPJ/CPF e normaliza as partes.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>detect_pii.py</code><span>Detecta e mascara dados pessoais conforme a LGPD.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>extract_clauses.py</code><span>Segmenta o texto em cláusulas rotuladas.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>check_essential_clauses.py</code><span>Verifica presença das cláusulas necessárias do art. 92 da Lei 14.133.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>rules_engine.py</code><span>Aplica as regras de conformidade de forma determinística.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>validar_limites_aditivos.py</code><span>Calcula o percentual de alteração contratual e compara com limites legais.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>link_instruments.py</code><span>Liga aditivos, convênios e atas aos instrumentos relacionados.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>vigencia_alertas.py</code><span>Calcula status de vigência e alertas do ciclo de vida contratual.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>value_anomaly.py</code><span>Detecta anomalias de valor por mediana e IQR.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>build_matrix.py</code><span>Consolida a matriz de instrumentos em CSV e JSON.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>build_dictionary.py</code><span>Gera o dicionário de cláusulas reutilizáveis.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>compute_indicators.py</code><span>Calcula indicadores de gestão contratual.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>generate_report.py</code><span>Gera o relatório executivo em Markdown e PDF.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>manifest_checksums.py</code><span>Gera e confere checksums dos artefatos para reprodutibilidade.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>quality_audit.py</code><span>Verifica as saídas e emite o quality_report.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>gold_eval.py</code><span>Mede métricas de extração e classificação contra o gold set.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>package_zip.py</code><span>Empacota todos os artefatos da saída em um ZIP.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>projur_common.py</code><span>Funções compartilhadas de normalização, hashing e IO.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Intake e deduplicação</h4><p>Recebe o lote, deduplica por hash e gera o manifest.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Extração de texto e OCR</h4><p>Extrai texto fiel com fallback de OCR para PDFs imagem.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Classificação do instrumento</h4><p>Detecta o tipo de cada instrumento contratual.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Metadados e partes</h4><p>Extrai e normaliza metadados, partes e CNPJ/CPF.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>PII e LGPD</h4><p>Detecta e mascara dados pessoais conforme a LGPD.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Cláusulas e vínculos</h4><p>Verifica cláusulas essenciais e vincula instrumentos relacionados.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Conformidade e riscos</h4><p>Aplica regras de conformidade, vigência e detecta anomalias.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>Jurisprudência e handoff</h4><p>Mapeia red flags e encaminha casos críticos ao Themis.</p></div></div>
+      <div class="step"><div class="num">9</div><div class="body"><h4>Matriz e relatório executivo</h4><p>Consolida matriz, indicadores e relatório executivo final.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Pacote de inteligência contratual</strong><span>Matriz de contratos, dicionário de cláusulas, alertas de vigência, indicadores, relatório executivo e quality_report auditável.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
