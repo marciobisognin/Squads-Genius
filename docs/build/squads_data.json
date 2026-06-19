@@ -6377,5 +6377,1025 @@
       "title": "Conhecimento pesquisável e citável do seu Obsidian",
       "desc": "Respostas com citações verificadas, mapas de conhecimento, digests e relatórios — gerados localmente, em read-only por padrão, a partir do seu vault."
     }
+  },
+  {
+    "id": "allspark-talent-intelligence-squad",
+    "name": "AllSpark Talent Intelligence Squad",
+    "tagline": "Transformar dados brutos de RH em inteligência de talentos viva: mapear competências, identificar riscos de retenção, projetar sucessão, auditar DEI e personalizar…",
+    "color": "#F5A623",
+    "card_icon": "analyst",
+    "agents": [
+      {
+        "name": "Talent Orchestrator",
+        "role": "Coordenador central: roteia inputs,…",
+        "desc": "Coordenador central: roteia inputs, gerencia o pipeline, aciona quality gates e consolida os outputs finais.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Talent Mapper",
+        "role": "Mapeia inventário de competências,…",
+        "desc": "Mapeia inventário de competências, identifica lacunas organizacionais e alinha perfis a estratégias de negócio.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Psychometric Profiler",
+        "role": "Sintetiza avaliações comportamentais…",
+        "desc": "Sintetiza avaliações comportamentais (DISC, Big Five, CliftonStrengths) em perfis acionáveis.",
+        "icon": "generic"
+      },
+      {
+        "name": "Market Salary Intel",
+        "role": "Benchmarking salarial, inteligência de…",
+        "desc": "Benchmarking salarial, inteligência de employer branding e análise competitiva de remuneração.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Culture Fit Analyst",
+        "role": "Avalia alinhamento cultural, diagnostica…",
+        "desc": "Avalia alinhamento cultural, diagnostica clima organizacional e identifica gaps de cultura.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Succession Architect",
+        "role": "Projeta planos de sucessão e trajetórias…",
+        "desc": "Projeta planos de sucessão e trajetórias de carreira com critérios objetivos e priorização de risco.",
+        "icon": "architect"
+      },
+      {
+        "name": "Dei Metrics Auditor",
+        "role": "Audita métricas de diversidade, equidade…",
+        "desc": "Audita métricas de diversidade, equidade e inclusão com KPIs verificáveis e conformidade LGPD.",
+        "icon": "auditor"
+      },
+      {
+        "name": "Onboarding Designer",
+        "role": "Desenha jornadas de onboarding…",
+        "desc": "Desenha jornadas de onboarding personalizadas por perfil comportamental, cargo e área.",
+        "icon": "designer"
+      },
+      {
+        "name": "Retention Risk Sentinel",
+        "role": "Detecta sinais de risco de turnover e…",
+        "desc": "Detecta sinais de risco de turnover e emite alertas com planos de retenção individualizados.",
+        "icon": "guardian"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Intake e Validação de Dados",
+        "desc": "Recebimento, estruturação e validação de todos os inputs de RH. O talent-orchestrator verifica completude dos dados, identifica lacunas críticas e…"
+      },
+      {
+        "title": "Mapeamento de Competências Organizacionais",
+        "desc": "Construção do inventário completo de competências técnicas e comportamentais. O talent-mapper cruza perfis individuais com os requisitos de cada…"
+      },
+      {
+        "title": "Perfilamento Comportamental e Psicométrico",
+        "desc": "Síntese e interpretação dos dados comportamentais disponíveis (DISC, Big Five, CliftonStrengths ou equivalentes). O psychometric-profiler transforma…"
+      },
+      {
+        "title": "Inteligência de Mercado e Benchmarking Salarial",
+        "desc": "Coleta e análise de dados de remuneração de mercado por cargo, senioridade, setor e região. O market-salary-intel produz o posicionamento competitivo…"
+      },
+      {
+        "title": "Análise de Fit Cultural e Clima Organizacional",
+        "desc": "Avaliação do alinhamento de valores individuais com a cultura organizacional e diagnóstico do clima por área. O culture-fit-analyst mapeia…"
+      },
+      {
+        "title": "Planejamento de Sucessão e Trilhas de Carreira",
+        "desc": "Identificação de posições críticas, avaliação de prontidão de sucessores e construção de trilhas de carreira com critérios mensuráveis. O…"
+      },
+      {
+        "title": "Auditoria de Métricas DEI e Conformidade LGPD",
+        "desc": "Análise sistemática da representatividade demográfica, equidade salarial e vieses em processos de RH. O dei-metrics-auditor verifica a conformidade…"
+      },
+      {
+        "title": "Design de Jornada de Onboarding",
+        "desc": "Construção de jornadas de integração personalizadas por cargo, área e perfil comportamental. O onboarding-designer integra os outputs das fases…"
+      },
+      {
+        "title": "Monitoramento e Sentinela de Retenção",
+        "desc": "Cálculo de Risk Scores de turnover por colaborador e área, emissão de alertas precoces e proposição de intervenções de retenção personalizadas. O…"
+      },
+      {
+        "title": "Consolidação e Entrega do People Intelligence Report",
+        "desc": "O talent-orchestrator integra todos os outputs parciais em um pacote executivo coeso: o People Intelligence Report. Realiza revisão de consistência…"
+      }
+    ],
+    "output": {
+      "title": "Relatório de Inteligência de Pessoas (People Intelligence…",
+      "desc": "Mapa de Sucessão por nível e área · Playbook de Retenção com ações prioritárias · Dashboard de Métricas DEI auditável"
+    }
+  },
+  {
+    "id": "cerebro-sales-intelligence-squad",
+    "name": "Cerebro Sales Intelligence Squad",
+    "tagline": "Amplificar a inteligência de vendas da organização detectando oportunidades invisíveis ao olho humano: perfil de cliente ideal, scoring de leads com sinais…",
+    "color": "#00B8D4",
+    "card_icon": "strategist",
+    "agents": [
+      {
+        "name": "Cerebro Orchestrator",
+        "role": "Coordenador central com gate de…",
+        "desc": "Coordenador central com gate de privacidade LGPD, decide prioridade de análise, consolida insights e entrega relatório executivo",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Icp Profiler",
+        "role": "Define e refina o Perfil de Cliente Ideal…",
+        "desc": "Define e refina o Perfil de Cliente Ideal com dados firmográficos, comportamentais e de engajamento",
+        "icon": "scientist"
+      },
+      {
+        "name": "Lead Scorer",
+        "role": "Executa scoring de leads com sinais…",
+        "desc": "Executa scoring de leads com sinais comportamentais, demográficos e de engajamento em modelo ponderado",
+        "icon": "architect"
+      },
+      {
+        "name": "Conversation Intelligence Analyst",
+        "role": "Analisa chamadas e e-mails de vendas…",
+        "desc": "Analisa chamadas e e-mails de vendas identificando padrões vencedores, objeções recorrentes e gaps de discurso",
+        "icon": "researcher"
+      },
+      {
+        "name": "Pipeline Health Monitor",
+        "role": "Monitora saúde do pipeline: velocidade,…",
+        "desc": "Monitora saúde do pipeline: velocidade, taxas de conversão, deal slippage, distribuição de estágio e cobertura",
+        "icon": "builder"
+      },
+      {
+        "name": "Win Loss Analyst",
+        "role": "Analisa negócios ganhos e perdidos com…",
+        "desc": "Analisa negócios ganhos e perdidos com síntese de padrões, identificação de causa raiz e recomendações acionáveis",
+        "icon": "analyst"
+      },
+      {
+        "name": "Sales Playbook Engineer",
+        "role": "Gera playbooks de vendas por vertical,…",
+        "desc": "Gera playbooks de vendas por vertical, persona e tipo de objeção com scripts e frameworks testados",
+        "icon": "builder"
+      },
+      {
+        "name": "Revenue Forecast Modeler",
+        "role": "Modela forecast probabilístico de receita…",
+        "desc": "Modela forecast probabilístico de receita com análise de cenários conservador, realista e otimista",
+        "icon": "architect"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Intake e Contexto Inicial",
+        "desc": "Receber briefing do usuário com objetivos comerciais, dados disponíveis, escopo de análise e restrições. Validar se as informações mínimas…"
+      },
+      {
+        "title": "Gate de Privacidade LGPD",
+        "desc": "Verificação obrigatória de conformidade LGPD antes de qualquer processamento de dados pessoais. Pipeline é bloqueado se houver dados pessoais sem…"
+      },
+      {
+        "title": "Perfilamento de ICP",
+        "desc": "Definir e documentar o Perfil de Cliente Ideal com base nos dados de clientes atuais, histórico de deals e critérios de segmentação fornecidos."
+      },
+      {
+        "title": "Modelagem de Lead Scoring",
+        "desc": "Construir e aplicar modelo de scoring de leads com base no ICP definido e nos dados de engajamento disponíveis."
+      },
+      {
+        "title": "Inteligência de Conversas de Vendas",
+        "desc": "Analisar transcrições de chamadas e sequências de e-mail para extrair padrões de vitória, objeções recorrentes e diferenças entre top performers e…"
+      },
+      {
+        "title": "Análise de Saúde do Pipeline",
+        "desc": "Diagnóstico completo da saúde do pipeline atual: velocidade, conversão, slippage, cobertura e concentração de risco."
+      },
+      {
+        "title": "Análise Win/Loss",
+        "desc": "Análise sistemática de deals ganhos e perdidos para identificar padrões causais e gerar recomendações de melhoria de win rate."
+      },
+      {
+        "title": "Playbook e Forecast de Receita",
+        "desc": "Geração paralela do Sales Playbook completo (sales-playbook-engineer) e do modelo de Forecast de Receita (revenue-forecast-modeler)."
+      },
+      {
+        "title": "Consolidação Executiva e Relatório Final",
+        "desc": "Cerebro Orchestrator consolida todos os artefatos em relatório executivo integrado e apresenta ao usuário para aprovação final."
+      }
+    ],
+    "output": {
+      "title": "ICP Playbook (Perfil de Cliente Ideal documentado)",
+      "desc": "Guia de Inteligência de Conversas de Vendas · Relatório de Saúde do Pipeline · Relatório de Inteligência Win/Loss"
+    }
+  },
+  {
+    "id": "darkhold-competitive-intelligence-squad",
+    "name": "Darkhold Competitive Intelligence Squad",
+    "tagline": "Revelar o que os concorrentes escondem — monitorando movimentos, detectando sinais fracos de disrupção, construindo cenários adversariais e mapeando oportunidades de…",
+    "color": "#8E24AA",
+    "card_icon": "researcher",
+    "agents": [
+      {
+        "name": "Darkhold Orchestrator",
+        "role": "Coordenador central com rastreabilidade…",
+        "desc": "Coordenador central com rastreabilidade completa de fontes; gerencia pipeline, gates HITL e consolidação do dossier final.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Competitor Radar",
+        "role": "Monitoramento contínuo de concorrentes…",
+        "desc": "Monitoramento contínuo de concorrentes via web, patentes, vagas de emprego, lançamentos e movimentos de pricing.",
+        "icon": "generic"
+      },
+      {
+        "name": "Weak Signal Detector",
+        "role": "Identificação de sinais fracos de…",
+        "desc": "Identificação de sinais fracos de disrupção e wildcards estratégicos antes de se tornarem tendências visíveis.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Swot Deep Analyst",
+        "role": "SWOT expandido baseado em evidências com…",
+        "desc": "SWOT expandido baseado em evidências com fontes rastreáveis e análise de confiança por afirmação.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Pricing Intel Agent",
+        "role": "Análise de inteligência de precificação,…",
+        "desc": "Análise de inteligência de precificação, posicionamento e estratégias comerciais dos concorrentes.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Adversarial Scenario Planner",
+        "role": "Construção de cenários adversariais — 'o…",
+        "desc": "Construção de cenários adversariais — 'o que os concorrentes farão a seguir?' — com análise de probabilidade e impacto.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Market Opportunity Mapper",
+        "role": "Mapeamento de espaços em branco e…",
+        "desc": "Mapeamento de espaços em branco e oportunidades não atendidas no mercado com potencial de captura.",
+        "icon": "generic"
+      },
+      {
+        "name": "Patent Trend Analyst",
+        "role": "Análise de tendências tecnológicas via…",
+        "desc": "Análise de tendências tecnológicas via patentes e publicações técnicas para detectar direções estratégicas emergentes.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Red Team Strategist",
+        "role": "Perspectiva do adversário — 'como eles…",
+        "desc": "Perspectiva do adversário — 'como eles nos atacariam?' — identificando vulnerabilidades próprias antes dos concorrentes.",
+        "icon": "strategist"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "intake",
+        "desc": "Recepção do briefing do cliente, validação do escopo de monitoramento, definição de concorrentes prioritários, perguntas estratégicas e horizonte…"
+      },
+      {
+        "title": "monitoring",
+        "desc": "Monitoramento em paralelo de dois eixos: players estabelecidos (competitor-radar) e ameaças emergentes/wildcards (weak-signal-detector). Correntes…"
+      },
+      {
+        "title": "analysis",
+        "desc": "Análise profunda em três dimensões independentes que podem rodar em paralelo. Todos os outputs são consolidados pelo orchestrator antes da fase…"
+      },
+      {
+        "title": "adversarial",
+        "desc": "Fase adversarial com duas perspectivas complementares: o que os concorrentes farão (adversarial-scenario-planner) e onde o cliente está vulnerável…"
+      },
+      {
+        "title": "opportunity",
+        "desc": "Identificação e priorização de whitespaces, segmentos subatendidos e janelas de oportunidade com base em todos os outputs anteriores do pipeline."
+      },
+      {
+        "title": "synthesis",
+        "desc": "Consolidação de todos os outputs do pipeline no Dossier Final de Inteligência Competitiva. Quality gates executados antes do HITL final. Pipeline…"
+      }
+    ],
+    "output": {
+      "title": "Dossier de Inteligência Competitiva (Competitive…",
+      "desc": "Mapa de Ameaças (Threat Map) com probabilidade e impacto · Relatório de Cenários Adversariais com planos de resposta · Matriz de Oportunidades — Whitespace Matrix de mercados inexplorados"
+    }
+  },
+  {
+    "id": "forge-of-solus-prime-cybersecurity-squad",
+    "name": "Forge of Solus Prime — Cybersecurity Squad",
+    "tagline": "Fortalecer a postura de segurança digital de organizações por meio de inventário de ativos, modelagem de ameaças (STRIDE/MITRE ATT&CK/Kill Chain), avaliação e…",
+    "color": "#00C853",
+    "card_icon": "guardian",
+    "agents": [
+      {
+        "name": "Solus Forge Orchestrator",
+        "role": "Coordenador central com gate ético…",
+        "desc": "Coordenador central com gate ético mandatório de escopo defensivo; roteia missões e consolida entregas",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Asset Inventory Mapper",
+        "role": "Inventário de ativos digitais e…",
+        "desc": "Inventário de ativos digitais e mapeamento de superfície de ataque",
+        "icon": "generic"
+      },
+      {
+        "name": "Threat Model Architect",
+        "role": "Modelagem de ameaças com STRIDE, MITRE…",
+        "desc": "Modelagem de ameaças com STRIDE, MITRE ATT&CK e Kill Chain",
+        "icon": "architect"
+      },
+      {
+        "name": "Vulnerability Assessor",
+        "role": "Avaliação e priorização de…",
+        "desc": "Avaliação e priorização de vulnerabilidades com pontuação CVSS (sem execução de exploits)",
+        "icon": "guardian"
+      },
+      {
+        "name": "Security Policy Writer",
+        "role": "Geração de políticas de segurança: PSI,…",
+        "desc": "Geração de políticas de segurança: PSI, BYOD, nuvem, trabalho remoto, classificação de dados",
+        "icon": "writer"
+      },
+      {
+        "name": "Incident Response Planner",
+        "role": "Criação de playbooks de resposta a…",
+        "desc": "Criação de playbooks de resposta a incidentes por tipo de ataque",
+        "icon": "failsafe"
+      },
+      {
+        "name": "Lgpd Iso27001 Auditor",
+        "role": "Análise de lacunas para LGPD, ISO 27001,…",
+        "desc": "Análise de lacunas para LGPD, ISO 27001, SOC 2, NIST CSF",
+        "icon": "auditor"
+      },
+      {
+        "name": "Security Awareness Designer",
+        "role": "Design de programas de conscientização e…",
+        "desc": "Design de programas de conscientização e simulações conceituais de phishing",
+        "icon": "guardian"
+      },
+      {
+        "name": "Supply Chain Risk Analyst",
+        "role": "Avaliação de risco de terceiros e cadeia…",
+        "desc": "Avaliação de risco de terceiros e cadeia de suprimentos digitais",
+        "icon": "guardian"
+      },
+      {
+        "name": "Red Team Advisor",
+        "role": "Perspectiva adversarial conceitual para…",
+        "desc": "Perspectiva adversarial conceitual para fortalecer defesas (sem ataques reais)",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "intake_and_authorization",
+        "desc": "Recepção do contexto da organização e verificação obrigatória de autorização documentada antes de qualquer atividade de avaliação. Pipeline não…"
+      },
+      {
+        "title": "assessment",
+        "desc": "Construção do inventário de ativos, modelo de ameaças (STRIDE/MITRE ATT&CK) e avaliação de vulnerabilidades com priorização CVSS — sem execução de…"
+      },
+      {
+        "title": "hardening",
+        "desc": "Geração de políticas de segurança, playbooks de resposta a incidentes e análise conceitual de perspectiva adversarial para fortalecimento defensivo."
+      },
+      {
+        "title": "compliance_and_awareness",
+        "desc": "Análise de lacunas de conformidade, design de programa de conscientização e avaliação de risco de cadeia de suprimentos digitais."
+      },
+      {
+        "title": "synthesis",
+        "desc": "Consolidação de todos os relatórios em um pacote único de postura de segurança, com verificação dos quality gates e revisão humana final obrigatória."
+      }
+    ],
+    "output": {
+      "title": "Relatório de Inventário de Ativos e Superfície de Ataque",
+      "desc": "Relatório de Modelagem de Ameaças (STRIDE + MITRE ATT&CK) · Scorecard de Postura de Segurança com prioridades CVSS · Pack de Políticas de Segurança (PSI, BYOD, Nuvem, Trabalho Remoto, Classificação…"
+    }
+  },
+  {
+    "id": "matrix-of-leadership-squad",
+    "name": "Matrix of Leadership Squad",
+    "tagline": "Avaliar, diagnosticar e desenvolver líderes executivos com base na sabedoria acumulada da ciência da liderança — transformando dados, feedbacks e cenários reais em…",
+    "color": "#2962FF",
+    "card_icon": "orchestrator",
+    "agents": [
+      {
+        "name": "Matrix Orchestrator",
+        "role": "Coordenador central do pipeline de…",
+        "desc": "Coordenador central do pipeline de desenvolvimento de liderança; gerencia fluxo, gates HITL e consolidação dos artefatos finais.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Leadership Archetype Assessor",
+        "role": "Diagnóstico de estilo de liderança usando…",
+        "desc": "Diagnóstico de estilo de liderança usando frameworks Situacional, Servant, Adaptativo e Transformacional.",
+        "icon": "generic"
+      },
+      {
+        "name": "Feedback 360 Synthesizer",
+        "role": "Coleta, organização e síntese de…",
+        "desc": "Coleta, organização e síntese de feedbacks 360° de múltiplos stakeholders com análise de padrões e pontos cegos.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Decision Intelligence Coach",
+        "role": "Coaching em frameworks de decisão sob…",
+        "desc": "Coaching em frameworks de decisão sob pressão e incerteza — Cynefin, OODA, pré-mortem e análise de segunda ordem.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Executive Presence Director",
+        "role": "Desenvolvimento de comunicação executiva,…",
+        "desc": "Desenvolvimento de comunicação executiva, storytelling para C-suite, conselho e apresentações de alto impacto.",
+        "icon": "writer"
+      },
+      {
+        "name": "Difficult Conversation Simulator",
+        "role": "Simulador de role-play para conversas…",
+        "desc": "Simulador de role-play para conversas difíceis com feedback estruturado em tempo real via IA.",
+        "icon": "generic"
+      },
+      {
+        "name": "Succession Readiness Mapper",
+        "role": "Avaliação de prontidão para o próximo…",
+        "desc": "Avaliação de prontidão para o próximo papel com gap analysis, plano de aceleração e Succession Readiness Score.",
+        "icon": "planner"
+      },
+      {
+        "name": "Ethical Leadership Guardian",
+        "role": "Revisão ética, detecção de viés…",
+        "desc": "Revisão ética, detecção de viés inconsciente, auditoria de inclusão e governança de liderança responsável.",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Intake e Validação de Perfil",
+        "desc": "Recebe e valida os dados de entrada do líder: perfil completo, autoavaliação, cargo-alvo, contexto organizacional e desafio real atual. Verifica…"
+      },
+      {
+        "title": "Diagnóstico de Arquétipo de Liderança",
+        "desc": "Diagnostica o estilo de liderança dominante e secundário do líder usando frameworks Situacional (Hersey & Blanchard), Servant Leadership, Liderança…"
+      },
+      {
+        "title": "Síntese de Feedback 360°",
+        "desc": "Coleta, organiza e sintetiza os feedbacks de múltiplos stakeholders (superiores, pares, subordinados, clientes internos). Identifica padrões,…"
+      },
+      {
+        "title": "Coaching de Inteligência de Decisão",
+        "desc": "Equipa o líder com frameworks de decisão personalizados para os tipos de decisão mais frequentes e críticos identificados no diagnóstico. Constrói…"
+      },
+      {
+        "title": "Desenvolvimento de Presença Executiva",
+        "desc": "Desenvolve a capacidade comunicativa do líder para contextos de alta exposição. Constrói o Executive Communication Playbook personalizado e prepara…"
+      },
+      {
+        "title": "Simulação de Conversas Difíceis",
+        "desc": "Conduz simulações de roleplay de conversas difíceis calibradas para o contexto real do líder. Constrói biblioteca de cenários e gera relatório de…"
+      },
+      {
+        "title": "Avaliação de Prontidão Sucessória",
+        "desc": "Avalia objetivamente a prontidão do líder para o cargo-alvo usando modelo multidimensional de 6 eixos. Gera Succession Readiness Score com gap…"
+      },
+      {
+        "title": "Revisão de Liderança Ética e Inclusiva",
+        "desc": "Audita decisões, comportamentos e práticas do líder sob lentes éticas e inclusivas. Identifica pontos cegos, vieses inconscientes e padrões…"
+      },
+      {
+        "title": "Consolidação e Entrega Final",
+        "desc": "Consolida todos os artefatos produzidos nas fases anteriores no PDI (Plano de Desenvolvimento Individual) final e no Relatório DNA de Liderança.…"
+      }
+    ],
+    "output": {
+      "title": "Relatório DNA de Liderança (arquétipo + pontos cegos +…",
+      "desc": "PDI — Plano de Desenvolvimento Individual com marcos e métricas · Executive Communication Playbook (narrativa, storytelling, comunicação C-suite) · Succession Readiness Score com gap analysis…"
+    }
+  },
+  {
+    "id": "mobius-chair-strategic-foresight-squad",
+    "name": "Mobius Chair Strategic Foresight Squad",
+    "tagline": "Da varredura de horizontes à estratégia robusta: o squad que navega futuros incertos com rigor epistemológico e inteligência adversarial de cenários.",
+    "color": "#5E35B1",
+    "card_icon": "strategist",
+    "agents": [
+      {
+        "name": "Mobius Orchestrator",
+        "role": "Coordenador central com gate…",
+        "desc": "Coordenador central com gate epistemológico obrigatório — distingue tendência de fato de especulação",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Horizon Scanner",
+        "role": "Varredura de megatendências STEEP…",
+        "desc": "Varredura de megatendências STEEP (Social, Tecnológico, Econômico, Ambiental, Político)",
+        "icon": "researcher"
+      },
+      {
+        "name": "Weak Signal Detector",
+        "role": "Identificação de sinais fracos e…",
+        "desc": "Identificação de sinais fracos e wildcards em fontes de fronteira e dados emergentes",
+        "icon": "researcher"
+      },
+      {
+        "name": "Emerging Tech Analyst",
+        "role": "Mapeamento de tecnologias emergentes e…",
+        "desc": "Mapeamento de tecnologias emergentes e análise de curva de adoção (metodologia Gartner Hype Cycle)",
+        "icon": "analyst"
+      },
+      {
+        "name": "Scenario Architect",
+        "role": "Construção de quatro cenários com lógicas…",
+        "desc": "Construção de quatro cenários com lógicas narrativas distintas e consistência interna",
+        "icon": "architect"
+      },
+      {
+        "name": "Strategic Implications Analyst",
+        "role": "Análise de implicações estratégicas por…",
+        "desc": "Análise de implicações estratégicas por cenário para a organização específica",
+        "icon": "strategist"
+      },
+      {
+        "name": "Windtunnel Tester",
+        "role": "Teste de estratégias atuais contra cada…",
+        "desc": "Teste de estratégias atuais contra cada cenário futuro para avaliar robustez",
+        "icon": "strategist"
+      },
+      {
+        "name": "Roadmap Forger",
+        "role": "Design de roadmap estratégico robusto que…",
+        "desc": "Design de roadmap estratégico robusto que se sustenta em múltiplos futuros plausíveis",
+        "icon": "strategist"
+      },
+      {
+        "name": "Early Indicator Designer",
+        "role": "Indicadores líderes para monitorar qual…",
+        "desc": "Indicadores líderes para monitorar qual cenário está se materializando em tempo real",
+        "icon": "strategist"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "intake",
+        "desc": "Recepção do contexto organizacional, definição da questão estratégica focal e horizonte temporal. Pipeline não avança sem aprovação humana da questão…"
+      },
+      {
+        "title": "scanning",
+        "desc": "Varredura paralela em três eixos complementares: megatendências STEEP confirmadas, sinais fracos de fronteira e tecnologias emergentes posicionadas…"
+      },
+      {
+        "title": "scenario_construction",
+        "desc": "Seleção dos dois eixos de incerteza crítica e construção dos 4 cenários da matriz. Dois gates HITL: validação dos eixos e revisão das narrativas…"
+      },
+      {
+        "title": "implications_and_testing",
+        "desc": "Análise de implicações específicas por cenário para a organização, seguida do teste de estratégias atuais contra cada cenário (wind tunneling)."
+      },
+      {
+        "title": "roadmap",
+        "desc": "Construção do roadmap estratégico robusto (ações no-regret, apostas direcionais, opções de hedge) e do dashboard de indicadores de alerta precoce."
+      },
+      {
+        "title": "synthesis",
+        "desc": "Consolidação de todos os outputs no Relatório de Inteligência de Futuros, com verificação dos quality gates e sign-off final humano."
+      }
+    ],
+    "output": {
+      "title": "relatorio_inteligencia_de_futuros",
+      "desc": "documento_quatro_cenarios · resultados_wind_tunnel · roadmap_estrategico"
+    }
+  },
+  {
+    "id": "mother-box-experience-squad",
+    "name": "Mother Box Experience Squad",
+    "tagline": "Abrir portais entre a voz do cliente e as decisões de negócio: mapear jornadas, sintetizar pesquisa UX, detectar fricções, projetar blueprints de serviço e desenhar…",
+    "color": "#EC407A",
+    "card_icon": "designer",
+    "agents": [
+      {
+        "name": "Experience Orchestrator",
+        "role": "Coordenador central com gates de…",
+        "desc": "Coordenador central com gates de validação humana: roteia inputs, gerencia o pipeline CX e consolida os outputs finais.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Journey Cartographer",
+        "role": "Mapeia a jornada do cliente nos estados…",
+        "desc": "Mapeia a jornada do cliente nos estados As-Is e To-Be, identificando etapas, canais e momentos da verdade.",
+        "icon": "planner"
+      },
+      {
+        "name": "Voice Of Customer Miner",
+        "role": "Minera e sintetiza a voz do cliente a…",
+        "desc": "Minera e sintetiza a voz do cliente a partir de NPS, reviews, tickets de suporte e redes sociais.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Ux Research Synthesizer",
+        "role": "Sintetiza pesquisa qualitativa de UX…",
+        "desc": "Sintetiza pesquisa qualitativa de UX (entrevistas, testes de usabilidade) em insights acionáveis.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Emotion Signal Analyst",
+        "role": "Analisa sentimentos, detecta momentos da…",
+        "desc": "Analisa sentimentos, detecta momentos da verdade e mapeia o estado emocional do cliente em cada etapa da jornada.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Friction Removal Engineer",
+        "role": "Identifica e prioriza friction points,…",
+        "desc": "Identifica e prioriza friction points, gerando matriz de esforço/impacto e recomendações de remoção.",
+        "icon": "builder"
+      },
+      {
+        "name": "Service Blueprint Architect",
+        "role": "Projeta o blueprint de serviço completo…",
+        "desc": "Projeta o blueprint de serviço completo com frontstage, backstage, linhas de visibilidade e processos de suporte.",
+        "icon": "architect"
+      },
+      {
+        "name": "Experience Metrics Designer",
+        "role": "Desenha o framework de métricas CX: CSAT,…",
+        "desc": "Desenha o framework de métricas CX: CSAT, CES, NPS, CLV, churn prediction e indicadores de experiência.",
+        "icon": "designer"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Intake e Validação de Dados CX",
+        "desc": ""
+      },
+      {
+        "title": "Mapeamento de Jornada do Cliente",
+        "desc": ""
+      },
+      {
+        "title": "Mineração da Voz do Cliente",
+        "desc": ""
+      },
+      {
+        "title": "Síntese de Pesquisa UX",
+        "desc": ""
+      },
+      {
+        "title": "Análise de Sinais Emocionais",
+        "desc": ""
+      },
+      {
+        "title": "Identificação e Priorização de Fricções",
+        "desc": ""
+      },
+      {
+        "title": "Design do Blueprint de Serviço",
+        "desc": ""
+      },
+      {
+        "title": "Design de Métricas de Experiência",
+        "desc": ""
+      },
+      {
+        "title": "Projeção da Jornada To-Be",
+        "desc": ""
+      },
+      {
+        "title": "Consolidação do Pacote CX Intelligence",
+        "desc": ""
+      }
+    ],
+    "output": {
+      "title": "Mapa de Jornada do Cliente (As-Is e To-Be)",
+      "desc": "Blueprint de Serviço (frontstage e backstage) · CX Backlog priorizado com friction points · Relatório de Voz do Cliente sintetizado"
+    }
+  },
+  {
+    "id": "omega-lock-crisis-management-squad",
+    "name": "Omega Lock — Crisis Management Squad",
+    "tagline": "Detectar, classificar e orquestrar a resposta a crises corporativas com velocidade, clareza e controle. Do sinal precoce ao pós-mortem: proteger reputação, preservar…",
+    "color": "#D50000",
+    "card_icon": "failsafe",
+    "agents": [
+      {
+        "name": "Omega Lock Orchestrator",
+        "role": "Coordenador central com HITL obrigatório…",
+        "desc": "Coordenador central com HITL obrigatório para crises Nível 3 ou superior",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Crisis Early Warning Sentinel",
+        "role": "Detecção precoce de sinais de crise…",
+        "desc": "Detecção precoce de sinais de crise reputacional, operacional, financeira e regulatória",
+        "icon": "failsafe"
+      },
+      {
+        "name": "Crisis Classifier",
+        "role": "Classificação tipológica e avaliação de…",
+        "desc": "Classificação tipológica e avaliação de severidade (escala 1-5) com HITL em Nível 3+",
+        "icon": "failsafe"
+      },
+      {
+        "name": "Stakeholder Comm Architect",
+        "role": "Arquitetura de comunicação diferenciada…",
+        "desc": "Arquitetura de comunicação diferenciada por grupo de stakeholders",
+        "icon": "architect"
+      },
+      {
+        "name": "Media Response Strategist",
+        "role": "Estratégia de mídia e coaching de…",
+        "desc": "Estratégia de mídia e coaching de porta-voz: o que dizer, quando e como",
+        "icon": "strategist"
+      },
+      {
+        "name": "Legal Risk Interface",
+        "role": "Interface jurídica: riscos, disclaimers e…",
+        "desc": "Interface jurídica: riscos, disclaimers e avaliação de responsabilidade durante a crise",
+        "icon": "failsafe"
+      },
+      {
+        "name": "Operational Continuity Planner",
+        "role": "Plano de Continuidade de Negócios:…",
+        "desc": "Plano de Continuidade de Negócios: identificação de processos críticos e rotas de recuperação",
+        "icon": "planner"
+      },
+      {
+        "name": "Reputation Recovery Designer",
+        "role": "Estratégia de recuperação reputacional…",
+        "desc": "Estratégia de recuperação reputacional pós-crise",
+        "icon": "strategist"
+      },
+      {
+        "name": "Post Mortem Analyst",
+        "role": "Análise de causa raiz e lições aprendidas…",
+        "desc": "Análise de causa raiz e lições aprendidas (5 Porquês, Fishbone, Action Review)",
+        "icon": "reviewer"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Detecção e Alerta",
+        "desc": ""
+      },
+      {
+        "title": "Classificação da Crise",
+        "desc": ""
+      },
+      {
+        "title": "Ativação do Comando Central",
+        "desc": ""
+      },
+      {
+        "title": "Resposta Multi-Frente (paralelo)",
+        "desc": ""
+      },
+      {
+        "title": "Consolidação e Playbook",
+        "desc": ""
+      },
+      {
+        "title": "Monitoramento de Contenção",
+        "desc": ""
+      },
+      {
+        "title": "Recuperação Reputacional",
+        "desc": ""
+      },
+      {
+        "title": "Pós-Mortem",
+        "desc": ""
+      }
+    ],
+    "output": {
+      "title": "Crisis Response Playbook",
+      "desc": "Kit de Comunicação para Stakeholders · Plano de Continuidade de Negócios (BCP) · Templates de Resposta à Mídia"
+    }
+  },
+  {
+    "id": "soulsword-personal-branding-squad",
+    "name": "Soulsword Personal Branding Squad",
+    "tagline": "Forjar a marca pessoal autêntica do profissional a partir da sua própria essência — diagnosticando propósito, posicionando autoridade, construindo presença omnicanal e…",
+    "color": "#FF6D00",
+    "card_icon": "communicator",
+    "agents": [
+      {
+        "name": "Soulsword Orchestrator",
+        "role": "Coordenador central com gate de…",
+        "desc": "Coordenador central com gate de autenticidade e originalidade; garante coerência da marca em todos os entregáveis",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Brand Dna Analyst",
+        "role": "Diagnóstico de propósito, valores, voz e…",
+        "desc": "Diagnóstico de propósito, valores, voz e diferencial único do profissional",
+        "icon": "analyst"
+      },
+      {
+        "name": "Positioning Architect",
+        "role": "Arquitetura de posicionamento de…",
+        "desc": "Arquitetura de posicionamento de autoridade por nicho e mercado (Blue Ocean para marcas pessoais)",
+        "icon": "architect"
+      },
+      {
+        "name": "Content Calendar Strategist",
+        "role": "Calendário editorial omnicanal 90 dias:…",
+        "desc": "Calendário editorial omnicanal 90 dias: LinkedIn, Instagram, YouTube, Substack e X",
+        "icon": "strategist"
+      },
+      {
+        "name": "Linkedin Optimizer",
+        "role": "Otimização completa de perfil e…",
+        "desc": "Otimização completa de perfil e estratégia de conteúdo LinkedIn com foco em algoritmo e conexão humana",
+        "icon": "strategist"
+      },
+      {
+        "name": "Thought Leadership Writer",
+        "role": "Criação de artigos, threads e essays de…",
+        "desc": "Criação de artigos, threads e essays de alto impacto para posicionamento de autoridade",
+        "icon": "writer"
+      },
+      {
+        "name": "Speaker Pitch Designer",
+        "role": "Kit completo do palestrante: bio,…",
+        "desc": "Kit completo do palestrante: bio, proposta de palestra, media kit e estrutura de depoimentos",
+        "icon": "designer"
+      },
+      {
+        "name": "Pr Visibility Planner",
+        "role": "Estratégia de PR: pitches para podcasts,…",
+        "desc": "Estratégia de PR: pitches para podcasts, imprensa, colaborações e parcerias de visibilidade",
+        "icon": "strategist"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "intake",
+        "desc": "Recepção do perfil do profissional e diagnóstico de propósito, valores, voz e diferencial único. Gate de autenticidade verifica coerência entre…"
+      },
+      {
+        "title": "positioning",
+        "desc": "Construção do posicionamento de autoridade por nicho e mercado, usando lógica de Blue Ocean aplicada a marcas pessoais — encontrar o espaço onde o…"
+      },
+      {
+        "title": "content_and_channels",
+        "desc": "Construção do calendário editorial 90 dias, otimização de perfil LinkedIn e criação de artigos/threads de thought leadership. Agentes operam em…"
+      },
+      {
+        "title": "visibility",
+        "desc": "Construção do kit completo do palestrante e do roadmap de visibilidade estratégica com pitches para podcasts, imprensa e colaborações."
+      },
+      {
+        "title": "synthesis",
+        "desc": "Consolidação de todos os entregáveis em um pacote único de marca pessoal, com verificação dos quality gates."
+      }
+    ],
+    "output": {
+      "title": "Documento de DNA de Marca (propósito, valores, voz,…",
+      "desc": "Plano de Estratégia de Conteúdo 90 Dias (omnicanal) · Guia de Otimização de Perfil LinkedIn · Kit do Palestrante (bio, proposta de palestra, media kit)"
+    }
+  },
+  {
+    "id": "vector-sigma-data-forge-squad",
+    "name": "Vector Sigma Data Forge Squad",
+    "tagline": "Transformar dados brutos em inteligência de negócio viva: arquitetar dados, forjar pipelines, garantir qualidade, construir métricas e narrar insights que movem decisões…",
+    "color": "#1DE9B6",
+    "card_icon": "scientist",
+    "agents": [
+      {
+        "name": "Vector Sigma Orchestrator",
+        "role": "Coordenador central com gate de…",
+        "desc": "Coordenador central com gate de governança de dados e privacidade LGPD",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Data Architecture Designer",
+        "role": "Modelagem de dados: dimensional, ERD,…",
+        "desc": "Modelagem de dados: dimensional, ERD, data mesh, data contracts e design de domínios",
+        "icon": "architect"
+      },
+      {
+        "name": "Etl Pipeline Engineer",
+        "role": "Design de pipelines ETL/ELT com…",
+        "desc": "Design de pipelines ETL/ELT com idempotência, linhagem, testes e padrões de orquestração",
+        "icon": "builder"
+      },
+      {
+        "name": "Data Quality Sentinel",
+        "role": "Perfis de qualidade de dados, detecção de…",
+        "desc": "Perfis de qualidade de dados, detecção de anomalias, scorecards e documentação de linhagem",
+        "icon": "scientist"
+      },
+      {
+        "name": "Metric Tree Architect",
+        "role": "Design de árvore de métricas do North…",
+        "desc": "Design de árvore de métricas do North Star à operação, com ownership e alertas",
+        "icon": "architect"
+      },
+      {
+        "name": "Sql Analyst Pro",
+        "role": "Análise SQL avançada, EDA, otimização de…",
+        "desc": "Análise SQL avançada, EDA, otimização de queries e templates reutilizáveis",
+        "icon": "analyst"
+      },
+      {
+        "name": "Visualization Director",
+        "role": "Design de dashboards com princípios…",
+        "desc": "Design de dashboards com princípios Tufte/Cairo: layout, tipos de gráfico e hierarquia visual",
+        "icon": "designer"
+      },
+      {
+        "name": "Narrative Data Storyteller",
+        "role": "Transforma análise em narrativa executiva…",
+        "desc": "Transforma análise em narrativa executiva orientada a ação com framing de impacto de negócio",
+        "icon": "writer"
+      },
+      {
+        "name": "Statistical Insight Miner",
+        "role": "Análise estatística descritiva e…",
+        "desc": "Análise estatística descritiva e inferencial, hipóteses, A/B test, correlação e outliers",
+        "icon": "researcher"
+      },
+      {
+        "name": "Mlops Readiness Advisor",
+        "role": "Avaliação de prontidão para ML em…",
+        "desc": "Avaliação de prontidão para ML em produção: pré-requisitos de dados, feature engineering e monitoramento",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [],
+    "steps": [
+      {
+        "title": "Intake do Briefing e Gate de Governança",
+        "desc": "O orchestrator recebe o briefing, decompõe as tarefas e executa o gate de governança verificando bases legais, dados pessoais envolvidos e controles…"
+      },
+      {
+        "title": "Design da Arquitetura de Dados",
+        "desc": "Design da arquitetura de dados ideal para o contexto: paradigma (DW, Data Lake, Lakehouse, Data Mesh), modelos dimensionais, ERDs e contratos de…"
+      },
+      {
+        "title": "Profiling de Qualidade de Dados",
+        "desc": "Profiling completo das fontes de dados nas cinco dimensões de qualidade: completude, precisão, consistência, atualidade e unicidade. Estabelece o…"
+      },
+      {
+        "title": "Gate HITL: Revisão de Arquitetura e Qualidade",
+        "desc": "Gate de revisão de arquitetura e qualidade com responsável técnico."
+      },
+      {
+        "title": "Design dos Pipelines ETL/ELT",
+        "desc": "Design dos pipelines ETL/ELT com boas práticas de idempotência, linhagem, tratamento de erros e estratégias de teste para cada caso de uso…"
+      },
+      {
+        "title": "Análise SQL e Exploração de Dados",
+        "desc": "Análises SQL exploratórias e aprofundadas para responder às perguntas de negócio do briefing, com templates reutilizáveis e documentação de boas…"
+      },
+      {
+        "title": "Análise Estatística e Mineração de Insights",
+        "desc": "Análises estatísticas descritivas e inferenciais, correlações, testes de hipótese, interpretação de A/B tests e investigação de outliers com rigor…"
+      },
+      {
+        "title": "Design da Árvore de Métricas",
+        "desc": "Design da hierarquia completa de métricas do North Star até as métricas operacionais, com ownership, fórmulas, fontes, cadência e thresholds de…"
+      },
+      {
+        "title": "Gate HITL: Aprovação da Árvore de Métricas",
+        "desc": "Gate de aprovação da árvore de métricas pelo negócio — ponto mais crítico do pipeline para alinhamento estratégico."
+      },
+      {
+        "title": "Design de Visualização e Dashboards",
+        "desc": "Design de dashboards aplicando princípios de Tufte, Perceptual Edge e Cairo — seleção de tipos de gráfico, hierarquia visual, paleta de cores e…"
+      },
+      {
+        "title": "Gate HITL: Revisão de UX dos Dashboards",
+        "desc": "Gate de revisão de UX dos dashboards com usuários finais."
+      },
+      {
+        "title": "Data Storytelling Executivo",
+        "desc": "Transformação de todos os insights analíticos em narrativa executiva: situação, complicação, achados e recomendações em linguagem de negócio…"
+      },
+      {
+        "title": "Gate HITL: Validação da Narrativa e Acionabilidade",
+        "desc": "Gate de validação da narrativa e acionabilidade das recomendações com o negócio."
+      },
+      {
+        "title": "Avaliação de Prontidão MLOps (quando aplicável)",
+        "desc": "Avaliação de prontidão dos dados e infraestrutura para ML em produção — executada apenas quando o briefing inclui casos de uso de ML."
+      },
+      {
+        "title": "Consolidação e Entrega do Pacote Final",
+        "desc": "Consolidação de todos os artefatos do pipeline, verificação final de conformidade com governança, versionamento e entrega do pacote completo."
+      }
+    ],
+    "output": {
+      "title": "Data Architecture Blueprint (modelo dimensional, ERD,…",
+      "desc": "Data Pipeline Design Document (ETL/ELT com boas práticas) · Data Quality Scorecard com regras de validação · Árvore de Métricas (Metric Tree) com North Star e métricas derivadas"
+    }
   }
 ]

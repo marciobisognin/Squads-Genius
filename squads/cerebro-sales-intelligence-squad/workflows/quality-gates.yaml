@@ -1,0 +1,154 @@
+id: quality-gates-cerebro
+display_name: "Quality Gates — Cerebro Sales Intelligence Squad"
+version: "1.0.0"
+description: >
+  Definição detalhada de todos os quality gates do pipeline de inteligência de vendas,
+  com critérios de aprovação, gatilhos de bloqueio e protocolos de revisão.
+
+gates:
+
+  - id: lgpd_privacy_gate
+    name: "Gate de Privacidade LGPD"
+    phase: 2
+    type: blocking
+    owner: cerebro-orchestrator
+    description: >
+      Verificação obrigatória de conformidade com a LGPD (Lei 13.709/2018) antes de qualquer
+      processamento de dados pessoais. Nenhum agente pode processar dados pessoais sem este gate
+      ter sido aprovado.
+    checklist:
+      - "Nenhum CPF, nome completo, e-mail ou telefone pessoal presente sem pseudonimização"
+      - "Base legal de tratamento documentada para cada categoria de dado pessoal"
+      - "Princípio da minimização aplicado: apenas dados necessários para a análise"
+      - "Dados de terceiros mencionados em transcrições não processados além do necessário"
+      - "Política de retenção e descarte documentada para dados de conversas"
+      - "Log de processamento iniciado com data, agente e categorias de dados"
+    approved_condition: "Todos os itens do checklist verificados e nenhuma violação encontrada"
+    blocked_condition: >
+      Um ou mais itens do checklist violados. O pipeline permanece bloqueado até que o usuário
+      resolva a questão: anonimizar dados, documentar base legal ou remover dados problemáticos.
+    blocked_action: >
+      Notificar o usuário com lista detalhada de itens não conformes e instruções específicas
+      de resolução. Não prosseguir com nenhum agente até resolução.
+
+  - id: icp_completeness_gate
+    name: "Gate de Completude do ICP"
+    phase: 3
+    type: quality-review
+    owner: icp-profiler
+    description: >
+      Validar que o ICP produzido cobre as dimensões mínimas necessárias para orientar
+      qualificação de leads e construção do modelo de scoring.
+    checklist:
+      - "ICP inclui dimensão firmográfica com pelo menos 3 critérios quantificáveis"
+      - "ICP inclui pelo menos 3 sinais comportamentais ou de engajamento"
+      - "ICP inclui perfil negativo (critérios de exclusão explícitos)"
+      - "Pelo menos 2 personas de comprador documentadas"
+      - "Mapa de gatilhos de entrada com pelo menos 3 eventos"
+      - "Scorecard de atributos com pesos somando 100%"
+    approved_condition: "Todos os critérios presentes com documentação suficiente"
+    revision_condition: "Alguma dimensão incompleta ou insuficiente — retornar ao icp-profiler"
+
+  - id: scoring_calibration_gate
+    name: "Gate de Calibração de Scoring"
+    phase: 4
+    type: quality-review
+    owner: lead-scorer
+    description: >
+      Validar que o modelo de scoring é coerente com o ICP, tem critérios justificáveis e
+      produz distribuição razoável de scores na base de leads.
+    checklist:
+      - "Pesos das dimensões somam 100% e cada dimensão tem justificativa"
+      - "Critérios de scoring positivo alinhados aos atributos do ICP"
+      - "Critérios de descarte claramente definidos e documentados"
+      - "Thresholds MQL/SQL/SRL estabelecidos com critério claro"
+      - "Distribuição de scores na base não concentrada demais em um único tier"
+      - "Modelo validado contra pelo menos uma amostra de leads históricos (se disponível)"
+    approved_condition: "Modelo consistente, justificado e calibrado"
+    revision_condition: "Inconsistência com ICP ou distribuição de scores problemática"
+
+  - id: win_loss_quality_gate
+    name: "Gate de Qualidade da Análise Win/Loss"
+    phase: 7
+    type: quality-review
+    owner: win-loss-analyst
+    description: >
+      Garantir que a análise win/loss tem profundidade analítica suficiente para gerar
+      recomendações confiáveis e não apenas tabular razões declaradas.
+    checklist:
+      - "Amostra de pelo menos 20 deals analisados (10 ganhos + 10 perdidos ideal)"
+      - "Root cause identificado para as top 3 razões de perda (não apenas sintoma)"
+      - "Padrões de win identificados com pelo menos 3 atributos em comum"
+      - "Análise de competição inclui pelo menos o principal competidor"
+      - "Recomendações prioritárias são específicas e acionáveis (não genéricas)"
+      - "Limitações e vieses da análise documentados (ex: dados de CRM podem refletir percepção do rep, não do comprador)"
+    approved_condition: "Análise profunda com root cause e recomendações acionáveis"
+    revision_condition: "Amostra insuficiente, root cause ausente ou recomendações genéricas"
+
+  - id: forecast_confidence_gate
+    name: "Gate de Confiança do Forecast"
+    phase: 8
+    type: quality-review
+    owner: revenue-forecast-modeler
+    description: >
+      Validar que o forecast tem premissas explícitas, intervalos de confiança realistas
+      e não apresenta otimismo ou pessimismo não justificado.
+    checklist:
+      - "Três cenários documentados (conservador, realista, otimista) com premissas distintas"
+      - "Premissas de cada cenário explícitas e justificadas"
+      - "Accuracy histórica de forecasts anteriores documentada (se disponível)"
+      - "Deals críticos (whale deals) identificados e analisados separadamente"
+      - "Análise de sensibilidade executada para pelo menos 3 variáveis-chave"
+      - "Pipeline gap calculado e recomendações de geração de pipeline incluídas"
+      - "Limitações do modelo explicitamente declaradas"
+    approved_condition: "Forecast com premissas sólidas, cenários diferenciados e sensibilidade analisada"
+    revision_condition: "Premissas implícitas, cenários idênticos ou análise de sensibilidade ausente"
+
+  - id: playbook_actionability_gate
+    name: "Gate de Acionabilidade do Playbook"
+    phase: 8
+    type: quality-review
+    owner: sales-playbook-engineer
+    description: >
+      Garantir que o Sales Playbook é verdadeiramente utilizável pelo time de vendas — não
+      apenas um documento teórico mas um guia de ação concreto.
+    checklist:
+      - "Playbook cobre pelo menos 1 vertical específica do negócio (não apenas genérico)"
+      - "Pelo menos 2 personas de comprador com guia de abordagem diferenciado"
+      - "Módulo de objeções com pelo menos as top 5 objeções catalogadas e scripts de resposta"
+      - "Templates de e-mail prontos para uso (não apenas instruções)"
+      - "Discovery framework com pelo menos 10 perguntas de alto impacto"
+      - "Cada seção termina com ação específica recomendada"
+      - "Playbook revisado pela perspectiva de um novo vendedor (seria auto-suficiente?)"
+    approved_condition: "Playbook completo, específico e pronto para uso pelo time de vendas"
+    revision_condition: "Seções genéricas, templates ausentes ou ações não especificadas"
+
+  - id: executive_final_gate
+    name: "Gate de Aprovação Executiva Final"
+    phase: 9
+    type: final-approval
+    owner: cerebro-orchestrator
+    description: >
+      Aprovação final pelo usuário do relatório executivo consolidado e de todos os artefatos.
+      Este gate requer interação humana explícita.
+    checklist:
+      - "Todos os artefatos esperados estão presentes e acessíveis"
+      - "Relatório executivo integra insights de todos os agentes de forma coerente"
+      - "Top 10 ações têm owner sugerido, prazo e métrica de sucesso"
+      - "Log LGPD completo e arquivado"
+      - "Usuário revisou e aprovou explicitamente o relatório"
+    approved_condition: "Usuário confirma aprovação explícita ('aprovado', 'ok', 'confirmar')"
+    revision_condition: "Usuário solicita ajuste — identificar agente responsável e retornar"
+
+rollback_protocol:
+  description: >
+    Quando um gate não é aprovado, o pipeline retorna ao agente responsável pela fase
+    anterior para revisão. O histórico de feedback é preservado para evitar retrabalho.
+  steps:
+    - "Identificar o gate não aprovado e o agente responsável"
+    - "Registrar o feedback específico do gate"
+    - "Notificar o agente responsável com o feedback detalhado"
+    - "Executar revisão focada no critério específico que falhou"
+    - "Re-submeter ao gate com evidência de resolução"
+
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

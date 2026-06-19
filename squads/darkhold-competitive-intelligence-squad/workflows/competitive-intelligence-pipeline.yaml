@@ -1,0 +1,264 @@
+name: competitive-intelligence-pipeline
+version: 1.0.0
+description: >
+  Pipeline completo de Inteligência Competitiva do Darkhold Squad.
+  Transforma um briefing de escopo em um Dossier de Inteligência Competitiva rastreável,
+  com fontes verificadas, níveis de confiança e análise adversarial aprovada por humano.
+author: "Marcio Bisognin"
+license: MIT
+
+ethical_constraints:
+  - "Apenas dados públicos e autorizados em todas as fases"
+  - "Sem espionagem industrial ou acesso a dados não públicos"
+  - "Rastreabilidade completa de fontes em cada etapa"
+  - "HITL obrigatório nos gates definidos — pipeline não avança sem aprovação humana"
+
+inputs:
+  required:
+    - briefing_cliente: "Descrição do mercado, negócio e perguntas estratégicas"
+    - lista_concorrentes: "Lista de concorrentes prioritários a monitorar"
+    - horizonte_temporal: "Período de análise prospectiva (ex: 6 meses, 12 meses)"
+  optional:
+    - dominio_tecnologico: "Área tecnológica para análise de patentes"
+    - segmentos_prioritarios: "Segmentos de mercado de maior interesse"
+    - perguntas_estrategicas: "Perguntas específicas que o dossier deve responder"
+
+outputs:
+  primary:
+    - Dossier de Inteligência Competitiva Consolidado
+    - Log de Fontes e Rastreabilidade Completo
+  secondary:
+    - Relatório de Movimentos dos Concorrentes
+    - Relatório de Sinais Fracos e Wildcards
+    - SWOT Expandido com Fontes Rastreáveis
+    - Mapa de Precificação Competitiva
+    - Relatório de Análise de Patentes
+    - Relatório de Cenários Adversariais (HITL aprovado)
+    - Relatório de Vulnerabilidades Estratégicas
+    - Whitespace Matrix de Mercado Inexplorado
+
+phases:
+
+  - id: 1
+    name: intake
+    label: "Recepção, Validação de Escopo e HITL de Aprovação"
+    agents:
+      - darkhold-orchestrator
+    description: >
+      Recepção do briefing do cliente, validação do escopo de monitoramento,
+      definição de concorrentes prioritários, perguntas estratégicas e horizonte temporal.
+      Pipeline não avança sem aprovação HITL do escopo.
+    steps:
+      - step: 1.1
+        action: "Receber briefing e lista de concorrentes do cliente"
+        agent: darkhold-orchestrator
+        output: "Briefing estruturado com: mercado, concorrentes, perguntas, horizonte"
+      - step: 1.2
+        action: "Validar completude do briefing e identificar gaps de informação"
+        agent: darkhold-orchestrator
+        output: "Lista de gaps e perguntas de clarificação para o cliente"
+      - step: 1.3
+        action: "Criar plano de execução do pipeline com estimativa de prazo por fase"
+        agent: darkhold-orchestrator
+        output: "Plano de execução com fases, agentes, dependências e prazos"
+      - step: 1.4
+        action: "Registrar premissas, limitações e definição de escopo final"
+        agent: darkhold-orchestrator
+        output: "Documento de escopo com premissas e limitações registradas"
+    hitl_gate:
+      id: scope_validation
+      description: "Aprovação do escopo pelo cliente antes de iniciar monitoramento"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Avançar para fase 2 (monitoring)"
+      action_if_rejected: "Revisar escopo e retornar ao step 1.1"
+
+  - id: 2
+    name: monitoring
+    label: "Monitoramento Ativo e Detecção de Sinais Fracos"
+    agents:
+      - competitor-radar
+      - weak-signal-detector
+    description: >
+      Monitoramento em paralelo de dois eixos: players estabelecidos (competitor-radar)
+      e ameaças emergentes/wildcards (weak-signal-detector). Correntes independentes que
+      podem rodar simultaneamente.
+    parallel: true
+    steps:
+      - step: 2.1
+        action: "Monitorar cada concorrente da lista: site, vagas, mídia, redes sociais, changelogs"
+        agent: competitor-radar
+        output: "Relatório de Movimentos por Concorrente com timestamps e fontes"
+      - step: 2.2
+        action: "Analisar padrões de vagas de emprego como sinal de intenção estratégica"
+        agent: competitor-radar
+        output: "Análise de Vagas Estratégicas por concorrente"
+      - step: 2.3
+        action: "Varrer startups emergentes e early-stage no setor"
+        agent: weak-signal-detector
+        output: "Radar de Startups Emergentes com funding, diferencial e risco"
+      - step: 2.4
+        action: "Identificar sinais regulatórios em rascunho que impactam o mercado"
+        agent: weak-signal-detector
+        output: "Relatório de Sinais Regulatórios em Gestação"
+      - step: 2.5
+        action: "Mapear migrações de talentos e wildcards estratégicos"
+        agent: weak-signal-detector
+        output: "Relatório de Sinais Fracos e Wildcards com classificação por horizonte"
+    escalation:
+      trigger: "Detecção de mudança crítica de alta prioridade"
+      action: "Alertar darkhold-orchestrator imediatamente — não aguardar consolidação da fase"
+
+  - id: 3
+    name: analysis
+    label: "Análise Profunda: SWOT, Pricing e Patentes"
+    agents:
+      - swot-deep-analyst
+      - pricing-intel-agent
+      - patent-trend-analyst
+    description: >
+      Análise profunda em três dimensões independentes que podem rodar em paralelo.
+      Todos os outputs são consolidados pelo orchestrator antes da fase adversarial.
+    parallel: true
+    steps:
+      - step: 3.1
+        action: "Conduzir SWOT expandido do cliente com fontes rastreáveis e confiança por item"
+        agent: swot-deep-analyst
+        output: "SWOT Expandido do Cliente com Fontes"
+      - step: 3.2
+        action: "Conduzir SWOT de cada concorrente principal e gerar matriz comparativa"
+        agent: swot-deep-analyst
+        output: "Matriz SWOT Comparativa (cliente vs. concorrentes)"
+      - step: 3.3
+        action: "Mapear pricing de todos os concorrentes: modelos, tiers, preços, condições"
+        agent: pricing-intel-agent
+        output: "Mapa de Precificação Competitiva"
+      - step: 3.4
+        action: "Identificar vulnerabilidades de pricing e análise valor-preço"
+        agent: pricing-intel-agent
+        output: "Relatório de Vulnerabilidades de Pricing"
+      - step: 3.5
+        action: "Analisar portfólio de patentes dos concorrentes e identificar apostas tecnológicas"
+        agent: patent-trend-analyst
+        output: "Relatório de Análise de Patentes por Concorrente"
+      - step: 3.6
+        action: "Mapear tendências tecnológicas emergentes e riscos de PI"
+        agent: patent-trend-analyst
+        output: "Mapa de Tendências Tecnológicas e Alertas de Risco de PI"
+      - step: 3.7
+        action: "Consolidar outputs das três análises em dossier preliminar"
+        agent: darkhold-orchestrator
+        output: "Dossier Preliminar Consolidado (pré-HITL)"
+    hitl_gate:
+      id: dossier_review
+      description: "Revisão humana do dossier preliminar antes da fase adversarial"
+      required: true
+      blocker: true
+      responsible: "Usuário/Analista Sênior"
+      action_if_approved: "Avançar para fase 4 (adversarial)"
+      action_if_rejected: "Revisar análises sinalizadas e reprocessar etapas indicadas"
+
+  - id: 4
+    name: adversarial
+    label: "Cenários Adversariais e Red Team (HITL Obrigatório)"
+    agents:
+      - adversarial-scenario-planner
+      - red-team-strategist
+    description: >
+      Fase adversarial com duas perspectivas complementares: o que os concorrentes farão
+      (adversarial-scenario-planner) e onde o cliente está vulnerável (red-team-strategist).
+      HITL obrigatório antes da entrega de cenários críticos.
+    parallel: true
+    steps:
+      - step: 4.1
+        action: "Construir 3-5 cenários adversariais com probabilidade, impacto e horizonte temporal"
+        agent: adversarial-scenario-planner
+        output: "Rascunho de Cenários Adversariais (pré-HITL)"
+      - step: 4.2
+        action: "Definir indicadores de alerta precoce e planos de resposta por cenário"
+        agent: adversarial-scenario-planner
+        output: "Indicadores de Alerta Precoce e Esboços de Planos de Resposta"
+      - step: 4.3
+        action: "Simular ataques dos concorrentes à posição de mercado do cliente"
+        agent: red-team-strategist
+        output: "Simulações de Ataque por Concorrente"
+      - step: 4.4
+        action: "Identificar vulnerabilidades, segmentos expostos e blind spots do cliente"
+        agent: red-team-strategist
+        output: "Mapa de Vulnerabilidades Estratégicas e Blind Spots"
+      - step: 4.5
+        action: "Desenvolver plano de defesa preventiva por vulnerabilidade de alta prioridade"
+        agent: red-team-strategist
+        output: "Plano de Defesa Preventiva"
+    hitl_gate:
+      id: adversarial_scenarios_approval
+      description: "Aprovação humana dos cenários adversariais de alto impacto antes da entrega"
+      required: true
+      blocker: true
+      responsible: "Usuário/Gestor Estratégico"
+      scope: "Cenários com impacto ≥ 4 e probabilidade ≥ 30%"
+      action_if_approved: "Avançar para fase 5 (opportunity)"
+      action_if_rejected: "Revisar cenários sinalizados com input humano adicional"
+
+  - id: 5
+    name: opportunity
+    label: "Mapeamento de Oportunidades de Mercado Inexploradas"
+    agents:
+      - market-opportunity-mapper
+    description: >
+      Identificação e priorização de whitespaces, segmentos subatendidos e janelas
+      de oportunidade com base em todos os outputs anteriores do pipeline.
+    steps:
+      - step: 5.1
+        action: "Identificar whitespaces: necessidades não atendidas por nenhum concorrente"
+        agent: market-opportunity-mapper
+        output: "Whitespace Matrix de Mercado Inexplorado"
+      - step: 5.2
+        action: "Mapear segmentos subatendidos com score de atratividade"
+        agent: market-opportunity-mapper
+        output: "Mapa de Segmentos Subatendidos"
+      - step: 5.3
+        action: "Priorizar oportunidades por score composto de atratividade"
+        agent: market-opportunity-mapper
+        output: "Ranking de Oportunidades por Atratividade com janelas de captura"
+
+  - id: 6
+    name: synthesis
+    label: "Consolidação do Dossier Final e HITL Go/No-Go"
+    agents:
+      - darkhold-orchestrator
+    description: >
+      Consolidação de todos os outputs do pipeline no Dossier Final de Inteligência
+      Competitiva. Quality gates executados antes do HITL final. Pipeline encerra apenas
+      após aprovação go/no-go pelo tomador de decisão.
+    steps:
+      - step: 6.1
+        action: "Executar quality gates: verificar todos os gates da lista quality-gates.yaml"
+        agent: darkhold-orchestrator
+        output: "Relatório de Quality Gates (passou/falhou por gate)"
+      - step: 6.2
+        action: "Consolidar todos os outputs no Dossier Final de IC com sumário executivo"
+        agent: darkhold-orchestrator
+        output: "Dossier Final de Inteligência Competitiva (rascunho)"
+      - step: 6.3
+        action: "Verificar rastreabilidade: cada afirmação no dossier tem fonte, data e confiança"
+        agent: darkhold-orchestrator
+        output: "Log de Rastreabilidade Completo"
+      - step: 6.4
+        action: "Gerar sumário executivo com top findings e recomendações priorizadas"
+        agent: darkhold-orchestrator
+        output: "Sumário Executivo do Dossier"
+    hitl_gate:
+      id: publication_go_no_go
+      description: "Aprovação final do dossier antes da entrega ao cliente"
+      required: true
+      blocker: true
+      responsible: "Usuário/Tomador de Decisão"
+      action_if_approved: "Entregar Dossier Final ao cliente"
+      action_if_rejected: "Revisar seções sinalizadas e retornar ao step 6.1"
+
+quality_gates_reference: quality-gates.yaml
+
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

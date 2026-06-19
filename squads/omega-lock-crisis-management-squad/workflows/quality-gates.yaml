@@ -1,0 +1,102 @@
+workflow_name: omega_lock_quality_gates
+display_name: "Quality Gates — Omega Lock Crisis Management"
+version: "1.0.0"
+description: >
+  Definição dos quality gates obrigatórios do Omega Lock Crisis Management Squad.
+  Cada gate deve ser validado antes de avançar para a próxima fase do pipeline.
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+
+gates:
+
+  - id: qg-01
+    name: "Detecção com Evidências"
+    phase: "Fase 01 — Detecção e Alerta"
+    owner: crisis-early-warning-sentinel
+    criteria:
+      - "Boletim de alerta gerado com no mínimo 3 sinais documentados"
+      - "Cada sinal possui fonte, data/hora e nível de urgência"
+      - "Domínios afetados identificados (reputacional, operacional, financeiro, regulatório, humano)"
+    hitl: false
+    failure_action: "Voltar à coleta de evidências antes de acionar o classificador"
+
+  - id: qg-02
+    name: "Classificação Validada"
+    phase: "Fase 02 — Classificação"
+    owner: crisis-classifier
+    criteria:
+      - "Tipologia da crise definida com justificativa"
+      - "Nível de severidade (1-5) atribuído com critérios objetivos documentados"
+      - "Fatores agravantes e mitigantes listados"
+      - "Para nível >= 3: aprovação humana registrada com nome e timestamp"
+    hitl: "Obrigatório se nível >= 3"
+    failure_action: "Reclassificar com mais evidências ou escalar para humano"
+
+  - id: qg-03
+    name: "Comunicados Revisados pelo Jurídico"
+    phase: "Fase 04 — Resposta Multi-Frente"
+    owner: legal-risk-interface
+    criteria:
+      - "Todos os comunicados externos passaram pela revisão do legal-risk-interface"
+      - "Nenhum comunicado contém admissão de culpa não autorizada"
+      - "Obrigações legais de notificação identificadas com prazos"
+      - "Parecer de aprovação emitido para cada comunicado"
+    hitl: true
+    failure_action: "Bloquear publicação até obter parecer jurídico de aprovação"
+
+  - id: qg-04
+    name: "Crisis Response Playbook Aprovado"
+    phase: "Fase 05 — Consolidação"
+    owner: omega-lock-orchestrator
+    criteria:
+      - "Playbook contém planos de todas as frentes (comunicação, jurídico, BCP, mídia)"
+      - "Responsáveis humanos definidos para cada frente"
+      - "Playbook lido e aprovado por responsável humano com assinatura"
+      - "Cronograma de execução definido com milestones"
+    hitl: true
+    failure_action: "Revisão do playbook com os agentes responsáveis pelas lacunas identificadas"
+
+  - id: qg-05
+    name: "BCP Ativado e Validado"
+    phase: "Fase 04 — Continuidade Operacional"
+    owner: operational-continuity-planner
+    criteria:
+      - "Processos críticos identificados e categorizados por impacto"
+      - "RTO/RPO definidos para cada processo crítico"
+      - "Rotas alternativas documentadas e testadas (quando possível)"
+      - "Equipes de contingência notificadas e confirmadas"
+    hitl: false
+    failure_action: "Completar mapeamento de processos antes de ativar o BCP"
+
+  - id: qg-06
+    name: "Contenção Confirmada"
+    phase: "Fase 06 — Monitoramento"
+    owner: crisis-early-warning-sentinel
+    criteria:
+      - "Sinais de crise em tendência de queda por no mínimo 24 horas"
+      - "Nenhum novo vetor de crise identificado nas últimas 12 horas"
+      - "Stakeholders críticos comunicados sobre status de contenção"
+      - "Operações críticas estabilizadas ou em rota de recuperação"
+    hitl: false
+    failure_action: "Manter pipeline ativo e reavaliar status após 6 horas"
+
+  - id: qg-07
+    name: "Pós-Mortem Fechado"
+    phase: "Fase 08 — Pós-Mortem"
+    owner: post-mortem-analyst
+    criteria:
+      - "Análise de causa-raiz (5 Porquês) documentada para cada causa principal"
+      - "Diagrama de Fishbone preenchido"
+      - "After Action Review conduzido para todas as frentes de resposta"
+      - "Plano de ação com 100% dos itens com proprietário e prazo definidos"
+      - "Recomendações de atualização do playbook documentadas"
+      - "Relatório aprovado pela liderança responsável"
+    hitl: true
+    failure_action: "Completar análise antes de encerrar formalmente o ciclo de crise"
+
+compliance_notes:
+  - "Todos os quality gates devem ser documentados no decision-log.md"
+  - "Aprovações HITL devem conter: nome do aprovador, cargo, data e hora"
+  - "Gates não cumpridos bloqueiam o avanço do pipeline até resolução"
+  - "Qualquer bypass de gate deve ser justificado e aprovado pela liderança sênior"

@@ -1,0 +1,179 @@
+workflow_name: crisis_management_pipeline
+display_name: "Pipeline de Gestão de Crises — Omega Lock"
+version: "1.0.0"
+description: >
+  Pipeline principal do Omega Lock Crisis Management Squad. Orquestra a resposta completa
+  a crises corporativas desde a detecção precoce até o pós-mortem, com HITL obrigatório
+  para crises de Nível 3 ou superior.
+pattern: Pipeline
+license: MIT
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+
+triggers:
+  - type: event
+    event: "crisis.signal.detected"
+    description: "Acionado quando um sinal de crise é detectado pelo sentinel"
+  - type: manual
+    description: "Acionado manualmente pelo gestor responsável"
+
+phases:
+  - id: phase-01
+    name: "Detecção e Alerta"
+    agent: crisis-early-warning-sentinel
+    objective: "Identificar e documentar sinais de crise com evidências"
+    inputs:
+      - "Feeds de monitoramento de mídia"
+      - "KPIs operacionais"
+      - "Alertas internos"
+    outputs:
+      - "boletim-alerta-antecipado.md"
+      - "pacote-de-evidencias.md"
+    hitl: false
+    success_condition: "Boletim de alerta emitido com nível de urgência definido"
+
+  - id: phase-02
+    name: "Classificação da Crise"
+    agent: crisis-classifier
+    objective: "Tipificar e atribuir nível de severidade (1-5)"
+    inputs:
+      - "pacote-de-evidencias.md"
+    outputs:
+      - "relatorio-classificacao.md"
+      - "recomendacao-ativacao.md"
+    hitl: "condicional — obrigatório se nivel >= 3"
+    success_condition: "Nível de severidade definido e validado (com HITL se nível >= 3)"
+
+  - id: phase-03
+    name: "Ativação do Comando Central"
+    agent: omega-lock-orchestrator
+    objective: "Abrir o ciclo de crise, registrar decisões e acionar agentes na sequência correta"
+    inputs:
+      - "relatorio-classificacao.md"
+    outputs:
+      - "decision-log.md"
+      - "sequencia-ativacao.md"
+    hitl: "conforme nível definido na fase anterior"
+    success_condition: "Pipeline ativo, decision log iniciado, equipe notificada"
+
+  - id: phase-04
+    name: "Resposta Multi-Frente (paralelo)"
+    agents:
+      - stakeholder-comm-architect
+      - legal-risk-interface
+      - operational-continuity-planner
+      - media-response-strategist
+    objective: "Executar as quatro frentes de resposta em paralelo"
+    inputs:
+      - "relatorio-classificacao.md"
+      - "decision-log.md"
+    outputs:
+      - "kit-comunicacao-stakeholders.md"
+      - "mapa-riscos-juridicos.md"
+      - "plano-continuidade-negocios.md"
+      - "key-messages.md"
+      - "statement-inicial.md"
+    hitl: "para aprovação de comunicados externos"
+    success_condition: "Todos os artefatos das quatro frentes aprovados e prontos para execução"
+
+  - id: phase-05
+    name: "Consolidação e Playbook"
+    agent: omega-lock-orchestrator
+    objective: "Consolidar todos os outputs em um Crisis Response Playbook unificado"
+    inputs:
+      - "kit-comunicacao-stakeholders.md"
+      - "mapa-riscos-juridicos.md"
+      - "plano-continuidade-negocios.md"
+      - "key-messages.md"
+      - "statement-inicial.md"
+    outputs:
+      - "crisis-response-playbook.md"
+    hitl: true
+    success_condition: "Playbook aprovado pelo responsável humano antes de execução"
+
+  - id: phase-06
+    name: "Monitoramento de Contenção"
+    agent: crisis-early-warning-sentinel
+    objective: "Monitorar sinais de escalada ou contenção da crise"
+    inputs:
+      - "crisis-response-playbook.md"
+    outputs:
+      - "status-report-contencao.md"
+    hitl: false
+    success_condition: "Sinais de crise em tendência de redução por pelo menos 24 horas"
+
+  - id: phase-07
+    name: "Recuperação Reputacional"
+    agent: reputation-recovery-designer
+    objective: "Iniciar o plano de recuperação de reputação pós-contenção"
+    inputs:
+      - "crisis-response-playbook.md"
+      - "status-report-contencao.md"
+    outputs:
+      - "roadmap-recuperacao.md"
+      - "narrativa-retomada.md"
+    hitl: false
+    success_condition: "Roadmap de recuperação aprovado com KRIs definidos"
+
+  - id: phase-08
+    name: "Pós-Mortem"
+    agent: post-mortem-analyst
+    objective: "Conduzir análise de causa-raiz e gerar plano de ação preventiva"
+    inputs:
+      - "decision-log.md"
+      - "crisis-response-playbook.md"
+      - "status-report-contencao.md"
+    outputs:
+      - "relatorio-pos-mortem.md"
+      - "plano-acao-preventiva.md"
+    hitl: true
+    success_condition: "Pós-mortem aprovado e plano de ação com proprietários definidos"
+
+transitions:
+  - from: start
+    to: phase-01
+  - from: phase-01
+    to: phase-02
+    condition: "boletim-alerta-antecipado.md gerado"
+  - from: phase-02
+    to: phase-03
+    condition: "relatorio-classificacao.md aprovado (com HITL se nível >= 3)"
+  - from: phase-03
+    to: phase-04
+    condition: "sequencia-ativacao.md definida"
+  - from: phase-04
+    to: phase-05
+    condition: "todos os artefatos das quatro frentes gerados"
+  - from: phase-05
+    to: phase-06
+    condition: "crisis-response-playbook.md aprovado por humano"
+  - from: phase-06
+    to: phase-07
+    condition: "crise em contenção confirmada"
+  - from: phase-07
+    to: phase-08
+    condition: "roadmap-recuperacao.md definido"
+  - from: phase-08
+    to: end
+    condition: "relatorio-pos-mortem.md aprovado e plano de ação fechado"
+
+rollback:
+  trigger: "Escalada de nível durante qualquer fase"
+  action: "Retornar à fase-03 com novo nível de severidade e HITL obrigatório"
+
+quality_gates:
+  - gate: "QG-01 — Classificação validada"
+    phase: phase-02
+    criterion: "Nível de severidade definido com evidências documentadas"
+  - gate: "QG-02 — Comunicações aprovadas"
+    phase: phase-04
+    criterion: "Todos os comunicados externos revisados pelo legal-risk-interface"
+  - gate: "QG-03 — Playbook aprovado"
+    phase: phase-05
+    criterion: "Crisis Response Playbook assinado por responsável humano"
+  - gate: "QG-04 — Contenção confirmada"
+    phase: phase-06
+    criterion: "Sinais de crise em queda por 24h consecutivas"
+  - gate: "QG-05 — Pós-mortem fechado"
+    phase: phase-08
+    criterion: "Plano de ação com proprietário e prazo para 100% dos itens"

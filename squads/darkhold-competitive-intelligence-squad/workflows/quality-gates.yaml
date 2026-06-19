@@ -1,0 +1,148 @@
+name: quality-gates
+version: 1.0.0
+description: >
+  Gates de qualidade obrigatórios do Darkhold Competitive Intelligence Squad.
+  Todos os gates devem ser verificados pelo darkhold-orchestrator antes do HITL
+  go/no-go de publicação do Dossier Final.
+author: "Marcio Bisognin"
+license: MIT
+
+gate_enforcement:
+  mode: "blocking"
+  description: >
+    Gates são verificados sequencialmente pelo darkhold-orchestrator na fase de síntese.
+    Um gate reprovado bloqueia a entrega até correção. O orchestrator documenta o resultado
+    de cada gate com evidência.
+
+gates:
+
+  - id: scope_validated_by_client
+    name: "Escopo Validado pelo Cliente"
+    phase: intake
+    type: hitl
+    description: >
+      O escopo de monitoramento (lista de concorrentes, perguntas estratégicas,
+      horizonte temporal e segmentos prioritários) foi formalmente validado pelo cliente
+      antes do início do pipeline.
+    verification:
+      - "Registro de aprovação do escopo pelo cliente (data, nome, canal)"
+      - "Documento de escopo final assinado/confirmado pelo cliente"
+      - "Gaps de briefing foram esclarecidos antes de prosseguir"
+    failure_action: "Retornar ao cliente para validação — pipeline não inicia sem aprovação"
+    responsible: darkhold-orchestrator
+    required_for_phases: [2, 3, 4, 5, 6]
+
+  - id: all_claims_have_traceable_sources
+    name: "Todas as Afirmações Têm Fontes Rastreáveis"
+    phase: synthesis
+    type: automated_check
+    description: >
+      Cada afirmação no Dossier Final tem: fonte rastreável (URL ou publicação),
+      data de acesso ou publicação, e nível de confiança (Alto/Médio/Baixo).
+      Afirmações sem fonte são removidas ou marcadas explicitamente como hipótese.
+    verification:
+      - "Protocolo de rastreabilidade aplicado em 100% dos itens SWOT"
+      - "100% dos cenários adversariais têm justificativa de probabilidade com fontes"
+      - "100% dos itens de pricing têm URL + data de captura"
+      - "Log de fontes consolidado e auditável disponível"
+      - "Zero afirmações categorizadas como fato sem fonte"
+    failure_action: "Identificar afirmações sem fonte, coletar fontes ou reclassificar como hipótese"
+    responsible: darkhold-orchestrator
+    severity: critical
+    required_for_phases: [6]
+
+  - id: adversarial_scenarios_reviewed_by_human
+    name: "Cenários Adversariais Revisados por Humano"
+    phase: adversarial
+    type: hitl
+    description: >
+      Todos os cenários adversariais com impacto ≥ 4 e probabilidade ≥ 30% foram
+      revisados e aprovados por um responsável humano antes de serem incluídos
+      no Dossier Final.
+    verification:
+      - "Registro de aprovação HITL para cada cenário de alto impacto (data, responsável)"
+      - "Cenários rejeitados ou modificados pelo HITL foram atualizados"
+      - "Cenários aprovados mantêm probabilidade e impacto justificados"
+    failure_action: "Submeter cenários pendentes ao responsável designado — não incluir no dossier sem aprovação"
+    responsible: darkhold-orchestrator
+    required_for_phases: [6]
+
+  - id: threat_map_probability_impact_filled
+    name: "Mapa de Ameaças com Probabilidade e Impacto Preenchidos"
+    phase: adversarial
+    type: completeness_check
+    description: >
+      Todos os cenários adversariais e vulnerabilidades estratégicas têm probabilidade
+      (em %) e impacto (escala 1-5) preenchidos com justificativa explícita.
+      Campos em branco não são aceitos.
+    verification:
+      - "Todos os cenários adversariais têm campo PROBABILIDADE preenchido com justificativa"
+      - "Todos os cenários adversariais têm campo IMPACTO_CLIENTE preenchido (1-5)"
+      - "Todas as vulnerabilidades do red team têm IMPACTO_SE_EXPLORADA e PROBABILIDADE_EXPLORAÇÃO"
+      - "Matriz de priorização (probabilidade × impacto) está completa e coerente"
+    failure_action: "Retornar ao adversarial-scenario-planner e red-team-strategist para preenchimento"
+    responsible: darkhold-orchestrator
+    severity: high
+    required_for_phases: [6]
+
+  - id: no_unauthorized_confidential_information
+    name: "Nenhuma Informação Confidencial Não Autorizada"
+    phase: synthesis
+    type: ethical_compliance
+    description: >
+      O Dossier Final não contém informações obtidas por meios não éticos, ilegais
+      ou não autorizados. Todas as fontes são públicas e legalmente acessíveis.
+      Nenhuma informação interna de concorrentes obtida ilegalmente está presente.
+    verification:
+      - "Todas as fontes listadas no log são URLs públicas ou publicações abertas"
+      - "Nenhuma fonte é de origem desconhecida, vazamento ou acesso não autorizado"
+      - "Informações de funcionários individuais de concorrentes tratadas com privacidade adequada"
+      - "Nenhum dado obtido por engenharia social, phishing ou acesso indevido a sistemas"
+      - "Conformidade com LGPD (BR) e regulações de proteção de dados aplicáveis"
+    failure_action: "Remover imediatamente qualquer dado de origem não verificada — não publicar"
+    responsible: darkhold-orchestrator
+    severity: critical
+    required_for_phases: [6]
+
+  - id: dossier_approved_for_delivery
+    name: "Dossier Aprovado para Entrega"
+    phase: synthesis
+    type: hitl
+    description: >
+      O Dossier Final de Inteligência Competitiva foi revisado e aprovado pelo tomador
+      de decisão responsável. Todos os outros gates foram verificados e aprovados antes
+      deste gate final.
+    pre_requisites:
+      - scope_validated_by_client
+      - all_claims_have_traceable_sources
+      - adversarial_scenarios_reviewed_by_human
+      - threat_map_probability_impact_filled
+      - no_unauthorized_confidential_information
+    verification:
+      - "Todos os gates anteriores com status APROVADO"
+      - "Sumário executivo revisado e aprovado pelo tomador de decisão"
+      - "Formato de entrega acordado com o cliente"
+      - "Log de rastreabilidade completo e disponível para auditoria"
+      - "Registro de aprovação go/no-go final (data, nome, cargo do responsável)"
+    failure_action: "Bloquear entrega — revisar seções indicadas e retornar para aprovação"
+    responsible: darkhold-orchestrator
+    required_for_delivery: true
+
+gate_summary_template: |
+  ## RELATÓRIO DE QUALITY GATES — DARKHOLD COMPETITIVE INTELLIGENCE SQUAD
+  Data de verificação: [data]
+  Verificado por: darkhold-orchestrator
+
+  | Gate ID | Nome | Status | Responsável | Data Verificação | Observações |
+  |---------|------|--------|-------------|-----------------|-------------|
+  | scope_validated_by_client | Escopo Validado | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | all_claims_have_traceable_sources | Rastreabilidade | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | adversarial_scenarios_reviewed_by_human | Cenários Revisados | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | threat_map_probability_impact_filled | Prob./Impacto Preenchidos | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | no_unauthorized_confidential_information | Ética e Conformidade | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | dossier_approved_for_delivery | Go/No-Go Final | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+
+  STATUS GERAL: [APROVADO PARA ENTREGA | BLOQUEADO — ver gates reprovados]
+
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,199 @@
+name: strategic-foresight-pipeline
+version: 1.0.0
+description: >
+  Pipeline completo de inteligência estratégica de futuros do Mobius Chair Squad.
+  Transforma uma questão estratégica focal em varredura de tendências, sinais fracos,
+  tecnologias emergentes, quatro cenários, implicações, teste de robustez e roadmap.
+author: "Marcio Bisognin"
+license: MIT
+
+epistemological_gate: >
+  Gate obrigatório de qualidade epistemológica em todas as fases: distingue Fato
+  Estabelecido, Tendência Confirmada, Tendência Emergente, Sinal Fraco, Especulação e
+  Wildcard. Nenhuma especulação pode ser apresentada como fato.
+
+inputs:
+  required:
+    - questao_focal: "Questão estratégica focal (ex: 'Como será o nosso setor em 2035?')"
+    - horizonte_temporal: "Horizonte de análise (ex: 2030, 2035, 2040)"
+    - nome_organizacao: "Nome da organização e setor de atuação"
+  optional:
+    - escopo_geografico: "Global, regional, nacional"
+    - estrategias_atuais: "Estratégias atuais para teste no wind-tunnel"
+    - restricoes: "Restrições e premissas organizacionais"
+
+outputs:
+  primary:
+    - Relatório de Inteligência de Futuros Consolidado
+    - Documento dos Quatro Cenários
+  secondary:
+    - Relatório de Megatendências STEEP
+    - Relatório de Sinais Fracos e Wildcards
+    - Mapa de Tecnologias Emergentes (Hype Cycle)
+    - Relatório de Implicações Estratégicas por Cenário
+    - Resultados do Wind Tunnel
+    - Roadmap Estratégico Robusto
+    - Dashboard de Indicadores de Alerta Precoce
+
+phases:
+  - id: 1
+    name: intake
+    label: "Recepção do Contexto e Aprovação da Questão Focal"
+    agents:
+      - mobius-orchestrator
+    description: >
+      Recepção do contexto organizacional, definição da questão estratégica focal e
+      horizonte temporal. Pipeline não avança sem aprovação humana da questão focal.
+    steps:
+      - step: 1.1
+        action: "Receber nome da organização, setor, questão focal e horizonte temporal"
+        agent: mobius-orchestrator
+        output: "Briefing estruturado do contexto estratégico"
+      - step: 1.2
+        action: "Validar que a questão focal é específica e respondível via inteligência de futuros"
+        agent: mobius-orchestrator
+        output: "Questão focal refinada"
+    hitl_gate:
+      id: focal_question_approval
+      description: "Aprovação humana do contexto estratégico e questão focal"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Avançar para fase 2 (scanning)"
+      action_if_rejected: "Refinar questão focal com o cliente"
+
+  - id: 2
+    name: scanning
+    label: "Varredura de Megatendências, Sinais Fracos e Tecnologias"
+    agents:
+      - horizon-scanner
+      - weak-signal-detector
+      - emerging-tech-analyst
+    description: >
+      Varredura paralela em três eixos complementares: megatendências STEEP confirmadas,
+      sinais fracos de fronteira e tecnologias emergentes posicionadas no hype cycle.
+    parallel: true
+    steps:
+      - step: 2.1
+        action: "Varrer megatendências STEEP relevantes ao horizonte e setor"
+        agent: horizon-scanner
+        output: "Relatório de Megatendências STEEP com fonte e grau de confiança"
+      - step: 2.2
+        action: "Identificar sinais fracos e wildcards em fontes de fronteira"
+        agent: weak-signal-detector
+        output: "Relatório de Sinais Fracos e Wildcards"
+      - step: 2.3
+        action: "Mapear tecnologias emergentes e posicioná-las no Gartner Hype Cycle"
+        agent: emerging-tech-analyst
+        output: "Mapa de Tecnologias Emergentes"
+
+  - id: 3
+    name: scenario_construction
+    label: "Construção dos Quatro Cenários (HITL de Eixos e Narrativas)"
+    agents:
+      - scenario-architect
+    description: >
+      Seleção dos dois eixos de incerteza crítica e construção dos 4 cenários da matriz.
+      Dois gates HITL: validação dos eixos e revisão das narrativas finais.
+    steps:
+      - step: 3.1
+        action: "Selecionar os 2 eixos de incerteza crítica mais relevantes"
+        agent: scenario-architect
+        output: "Proposta de Eixos de Incerteza"
+      - step: 3.2
+        action: "Construir os 4 cenários da matriz com narrativa completa"
+        agent: scenario-architect
+        output: "Documento dos Quatro Cenários (rascunho)"
+    hitl_gate:
+      id: uncertainty_axes_validation
+      description: "Validação dos eixos de incerteza crítica antes da construção dos cenários"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Construir os 4 cenários completos"
+      action_if_rejected: "Revisar seleção de eixos com o scenario-architect"
+
+  - id: 4
+    name: implications_and_testing
+    label: "Implicações Estratégicas e Wind Tunnel"
+    agents:
+      - strategic-implications-analyst
+      - windtunnel-tester
+    description: >
+      Análise de implicações específicas por cenário para a organização, seguida do
+      teste de estratégias atuais contra cada cenário (wind tunneling).
+    steps:
+      - step: 4.1
+        action: "Mapear implicações estratégicas por cenário para a organização"
+        agent: strategic-implications-analyst
+        output: "Relatório de Implicações Estratégicas por Cenário"
+      - step: 4.2
+        action: "Testar estratégias atuais da organização contra os 4 cenários"
+        agent: windtunnel-tester
+        output: "Resultados do Wind Tunnel com score de robustez"
+    hitl_gate:
+      id: scenario_narratives_review
+      description: "Revisão humana das narrativas dos quatro cenários e implicações"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Avançar para fase 5 (roadmap)"
+      action_if_rejected: "Revisar narrativas ou implicações sinalizadas"
+
+  - id: 5
+    name: roadmap
+    label: "Roadmap Robusto e Indicadores de Alerta Precoce"
+    agents:
+      - roadmap-forger
+      - early-indicator-designer
+    description: >
+      Construção do roadmap estratégico robusto (ações no-regret, apostas direcionais,
+      opções de hedge) e do dashboard de indicadores de alerta precoce.
+    steps:
+      - step: 5.1
+        action: "Construir roadmap robusto a partir dos resultados do wind tunnel"
+        agent: roadmap-forger
+        output: "Roadmap Estratégico Robusto"
+      - step: 5.2
+        action: "Projetar dashboard de indicadores de alerta precoce por cenário"
+        agent: early-indicator-designer
+        output: "Dashboard de Indicadores de Alerta Precoce"
+    hitl_gate:
+      id: robust_roadmap_approval
+      description: "Aprovação do roadmap robusto antes da entrega final"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Avançar para fase 6 (synthesis)"
+      action_if_rejected: "Revisar roadmap sinalizado"
+
+  - id: 6
+    name: synthesis
+    label: "Consolidação do Relatório Final e Sign-off"
+    agents:
+      - mobius-orchestrator
+    description: >
+      Consolidação de todos os outputs no Relatório de Inteligência de Futuros, com
+      verificação dos quality gates e sign-off final humano.
+    steps:
+      - step: 6.1
+        action: "Executar quality gates definidos em quality-gates.yaml"
+        agent: mobius-orchestrator
+        output: "Relatório de Quality Gates"
+      - step: 6.2
+        action: "Consolidar todos os outputs no Relatório de Inteligência de Futuros"
+        agent: mobius-orchestrator
+        output: "Relatório de Inteligência de Futuros Consolidado"
+    hitl_gate:
+      id: final_signoff
+      description: "Sign-off final do Relatório de Inteligência de Futuros"
+      required: true
+      blocker: true
+      responsible: "Usuário/Cliente"
+      action_if_approved: "Entregar relatório final"
+      action_if_rejected: "Revisar seções sinalizadas e retornar ao step 6.1"
+
+quality_gates_reference: quality-gates.yaml
+
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

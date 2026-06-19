@@ -1,0 +1,75 @@
+workflow: experience-intelligence-pipeline
+version: 1.0.0
+objective: Abrir o portal entre a voz do cliente e as decisões de negócio — mapear jornadas, sintetizar pesquisa, detectar fricções, projetar blueprints e estruturar métricas de experiência em um pipeline integrado.
+phases:
+  - id: intake-e-validacao
+    name: "Intake e Validação de Dados CX"
+    agents: [experience-orchestrator]
+    output: validated_cx_inputs.json
+    gate: dados_minimos_presentes_para_analise_cx
+
+  - id: mapeamento-jornada
+    name: "Mapeamento de Jornada do Cliente"
+    agents: [journey-cartographer]
+    output: as_is_journey_map.md
+    gate: jornada_as_is_baseada_em_dados_de_cliente_nao_suposicoes
+
+  - id: mineracao-voc
+    name: "Mineração da Voz do Cliente"
+    agents: [voice-of-customer-miner]
+    output: voice_of_customer_report.md
+    gate: temas_identificados_com_frequencia_e_fonte_registrada
+
+  - id: sintese-pesquisa-ux
+    name: "Síntese de Pesquisa UX"
+    agents: [ux-research-synthesizer]
+    output: ux_research_synthesis.md
+    gate: insights_separados_em_observado_padrao_inferencia_recomendacao
+
+  - id: analise-emocional
+    name: "Análise de Sinais Emocionais"
+    agents: [emotion-signal-analyst]
+    output: customer_emotion_curve.md
+    gate: curva_emocional_construida_com_dados_nao_com_suposicoes
+
+  - id: identificacao-friccoes
+    name: "Identificação e Priorização de Fricções"
+    agents: [friction-removal-engineer]
+    output: friction_prioritization_matrix.md
+    gate: friction_points_classificados_e_matriz_impacto_esforco_construida
+
+  - id: design-blueprint
+    name: "Design do Blueprint de Serviço"
+    agents: [service-blueprint-architect]
+    output: service_blueprint_as_is_to_be.md
+    gate: blueprint_validado_com_times_operacionais
+
+  - id: design-metricas
+    name: "Design de Métricas de Experiência"
+    agents: [experience-metrics-designer]
+    output: cx_metrics_framework.md
+    gate: framework_de_metricas_acordado_pelos_stakeholders
+
+  - id: projecao-jornada-to-be
+    name: "Projeção da Jornada To-Be"
+    agents: [journey-cartographer, friction-removal-engineer]
+    output: to_be_journey_map.md
+    gate: jornada_to_be_aprovada_pelo_humano_no_loop
+
+  - id: consolidacao-final
+    name: "Consolidação do Pacote CX Intelligence"
+    agents: [experience-orchestrator]
+    output: cx_intelligence_pack.md
+    gate: pacote_final_revisado_e_aprovado
+
+human_in_loop:
+  - fase: design-blueprint
+    motivo: "O blueprint de serviço exige validação dos times operacionais que conhecem os processos reais de backstage."
+  - fase: projecao-jornada-to-be
+    motivo: "A jornada To-Be implica compromissos de investimento e mudança de processo que exigem aprovação de negócio."
+  - fase: design-metricas
+    motivo: "As metas de métricas CX e o framework de medição precisam de alinhamento com stakeholders de negócio e produto."
+
+rollback:
+  trigger: "Quality gate reprovado por dados insuficientes ou insights não rastreáveis"
+  action: "Retornar à fase de intake-e-validacao para complementação de dados ou redesign do escopo"

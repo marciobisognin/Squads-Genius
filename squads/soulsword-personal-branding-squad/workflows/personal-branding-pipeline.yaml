@@ -1,0 +1,169 @@
+name: personal-branding-pipeline
+version: 1.0.0
+description: >
+  Pipeline completo de construção de marca pessoal do Soulsword Squad.
+  Transforma autodescrição e conteúdos existentes em DNA de marca, posicionamento de
+  autoridade, estratégia de conteúdo omnicanal, kit de palestrante e roadmap de visibilidade.
+author: "Marcio Bisognin"
+license: MIT
+
+ethical_constraints:
+  - "Toda marca construída deve refletir a autenticidade real do profissional"
+  - "Gate de originalidade obrigatório — nenhum conteúdo copiado de terceiros"
+  - "Promessas de resultado de PR não são garantidas — dependem de decisão editorial de terceiros"
+
+inputs:
+  required:
+    - perfil_profissional: "Nome, cargo, área de atuação e mercado-alvo"
+    - autodescricao: "Propósito, valores, conquistas e diferenciais percebidos"
+    - objetivo_marca: "Visibilidade, novos clientes, oportunidades, palestras"
+  optional:
+    - conteudos_existentes: "Posts, artigos e palestras já publicados"
+    - perfil_linkedin: "URL ou captura de tela do perfil atual"
+    - tom_de_voz: "Tom preferido e exemplos de referência"
+
+outputs:
+  primary:
+    - Documento de DNA de Marca
+    - Plano de Estratégia de Conteúdo 90 Dias
+  secondary:
+    - Guia de Otimização de Perfil LinkedIn
+    - Kit do Palestrante
+    - Roadmap de Visibilidade PR
+    - Artigos de Thought Leadership
+
+phases:
+  - id: 1
+    name: intake
+    label: "Recepção e Diagnóstico de DNA de Marca"
+    agents:
+      - soulsword-orchestrator
+      - brand-dna-analyst
+    description: >
+      Recepção do perfil do profissional e diagnóstico de propósito, valores, voz e
+      diferencial único. Gate de autenticidade verifica coerência entre autodescrição
+      e conteúdos já publicados.
+    steps:
+      - step: 1.1
+        action: "Receber perfil, autodescrição e objetivo de marca"
+        agent: soulsword-orchestrator
+        output: "Briefing estruturado do profissional"
+      - step: 1.2
+        action: "Diagnosticar propósito, valores e voz a partir da autodescrição e conteúdos existentes"
+        agent: brand-dna-analyst
+        output: "Documento de DNA de Marca (rascunho)"
+      - step: 1.3
+        action: "Identificar diferencial único frente ao mercado-alvo"
+        agent: brand-dna-analyst
+        output: "Declaração de Diferencial Único"
+    hitl_gate:
+      id: brand_dna_validation
+      description: "Validação do profissional sobre o DNA de marca diagnosticado"
+      required: true
+      blocker: true
+      responsible: "Usuário/Profissional"
+      action_if_approved: "Avançar para fase 2 (positioning)"
+      action_if_rejected: "Revisar diagnóstico com input adicional do profissional"
+
+  - id: 2
+    name: positioning
+    label: "Arquitetura de Posicionamento de Autoridade"
+    agents:
+      - positioning-architect
+    description: >
+      Construção do posicionamento de autoridade por nicho e mercado, usando lógica
+      de Blue Ocean aplicada a marcas pessoais — encontrar o espaço onde o profissional
+      é referência única.
+    steps:
+      - step: 2.1
+        action: "Mapear concorrência de marca pessoal no nicho (outros profissionais de referência)"
+        agent: positioning-architect
+        output: "Mapa de Posicionamento Competitivo"
+      - step: 2.2
+        action: "Definir território de autoridade único e mensagem de posicionamento"
+        agent: positioning-architect
+        output: "Declaração de Posicionamento de Autoridade"
+
+  - id: 3
+    name: content_and_channels
+    label: "Estratégia de Conteúdo Omnicanal"
+    agents:
+      - content-calendar-strategist
+      - linkedin-optimizer
+      - thought-leadership-writer
+    description: >
+      Construção do calendário editorial 90 dias, otimização de perfil LinkedIn e
+      criação de artigos/threads de thought leadership. Agentes operam em paralelo.
+    parallel: true
+    steps:
+      - step: 3.1
+        action: "Construir calendário editorial omnicanal de 90 dias"
+        agent: content-calendar-strategist
+        output: "Plano de Estratégia de Conteúdo 90 Dias"
+      - step: 3.2
+        action: "Otimizar perfil LinkedIn completo (headline, sobre, experiência, featured)"
+        agent: linkedin-optimizer
+        output: "Guia de Otimização de Perfil LinkedIn"
+      - step: 3.3
+        action: "Escrever 5 artigos/threads de thought leadership alinhados ao posicionamento"
+        agent: thought-leadership-writer
+        output: "5 Artigos/Threads de Thought Leadership"
+    hitl_gate:
+      id: content_authenticity_review
+      description: "Revisão de autenticidade do conteúdo produzido pelo profissional"
+      required: true
+      blocker: true
+      responsible: "Usuário/Profissional"
+      action_if_approved: "Avançar para fase 4 (visibility)"
+      action_if_rejected: "Revisar conteúdo sinalizado com tom de voz real do profissional"
+
+  - id: 4
+    name: visibility
+    label: "Kit do Palestrante e Roadmap de Visibilidade PR"
+    agents:
+      - speaker-pitch-designer
+      - pr-visibility-planner
+    description: >
+      Construção do kit completo do palestrante e do roadmap de visibilidade estratégica
+      com pitches para podcasts, imprensa e colaborações.
+    parallel: true
+    steps:
+      - step: 4.1
+        action: "Construir kit do palestrante: bios multi-formato, speaker one-sheet, media kit"
+        agent: speaker-pitch-designer
+        output: "Kit do Palestrante"
+      - step: 4.2
+        action: "Mapear alvos de PR e construir roadmap de visibilidade"
+        agent: pr-visibility-planner
+        output: "Roadmap de Visibilidade PR"
+    hitl_gate:
+      id: speaker_kit_and_pr_approval
+      description: "Aprovação do kit do palestrante e roadmap de PR antes da entrega final"
+      required: true
+      blocker: true
+      responsible: "Usuário/Profissional"
+      action_if_approved: "Avançar para fase 5 (synthesis)"
+      action_if_rejected: "Revisar itens sinalizados"
+
+  - id: 5
+    name: synthesis
+    label: "Consolidação Final da Marca Pessoal"
+    agents:
+      - soulsword-orchestrator
+    description: >
+      Consolidação de todos os entregáveis em um pacote único de marca pessoal,
+      com verificação dos quality gates.
+    steps:
+      - step: 5.1
+        action: "Executar quality gates definidos em quality-gates.yaml"
+        agent: soulsword-orchestrator
+        output: "Relatório de Quality Gates"
+      - step: 5.2
+        action: "Consolidar todos os entregáveis no Pacote Final de Marca Pessoal"
+        agent: soulsword-orchestrator
+        output: "Pacote Final de Marca Pessoal"
+
+quality_gates_reference: quality-gates.yaml
+
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
