@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orquestrador de Execução Durável — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#2563eb;--accent-soft:#2563eb26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></span> Orquestrador de Execução Durável</h1>
+  <p class="tagline">Transforma workflows multiagentes em execuções rastreáveis, retomáveis e auditáveis, com checkpoints e aprovação humana.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-architect"/></svg></div>
+        <div><div class="role">Arquiteto de workflows</div><h4>Workflow Architect</h4><p>Converte manifestos YAML de squads em definições de workflow versionadas e validáveis.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Engenheiro de persistência</div><h4>Durability Engineer</h4><p>Garante checkpoints, event log e retomada de execuções sem duplicar chamadas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Executor de atividades</div><h4>Worker Runtime Engineer</h4><p>Executa steps com retries, backoff e distinção entre erros transientes e definitivos.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Guardião de aprovação humana</div><h4>HITL Compliance Officer</h4><p>Controla sinais externos, gates de aprovação e conformidade LGPD/ISO 42001.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Auditor de observabilidade</div><h4>Observability Auditor</h4><p>Produz rastreabilidade de eventos, métricas, tokens, custos e decisões humanas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Engenheiro de release</div><h4>DevOps Release Engineer</h4><p>Prepara execução local, testes de queda, empacotamento e evolução para runtime cloud.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>durable_orchestrator.py</code><span>CLI/runtime Python com SQLite que registra, inicia, retoma e executa workflows com checkpoints e compensações.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>validate_squad.py</code><span>Valida quality gates: arquivos obrigatórios, integridade dos YAMLs e compilação dos arquivos Python.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Registro</h4><p>Registra o workflow versionado validando schema antes da execução.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Início</h4><p>Inicia a instância durável e persiste o primeiro checkpoint.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Aprovação</h4><p>Pausa aguardando sinal externo de aprovação humana.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Observação</h4><p>Emite e audita eventos estruturados com logs redigidos.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Prontidão</h4><p>Valida que os testes automatizados passaram antes de considerar pronto.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Runtime Durável Prototipado</strong><span>Protótipo local (CLI Python + SQLite) que registra, executa, pausa, retoma e compensa workflows multiagentes com event log auditável.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
