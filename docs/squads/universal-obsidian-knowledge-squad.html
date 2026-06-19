@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Obsidian Knowledge Squad — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#7C5CFF;--accent-soft:#7C5CFF26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></span> Universal Obsidian Knowledge Squad</h1>
+  <p class="tagline">Transforma qualquer vault Obsidian em base de conhecimento pesquisável, citável e auditável — portável entre usuários, agentes e CLI, em read-only por padrão.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>Vault Orchestrator</h4><p>Interpreta o pedido, escolhe o workflow e consolida a entrega sobre o vault.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Resolução de perfil</div><h4>User Profile Resolver</h4><p>Localiza o vault e carrega idioma, modo e adaptador sem caminho fixo.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Indexador</div><h4>Note Indexer</h4><p>Varre o vault e cria o índice SQLite FTS5 + JSON de forma determinística.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">Extrator de metadados</div><h4>Metadata Extractor</h4><p>Extrai frontmatter, tags, headings, wikilinks e datas de cada nota.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Busca lexical</div><h4>Lexical Retriever</h4><p>Recupera trechos por busca FTS5 acento-insensível ranqueada por bm25.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-scientist"/></svg></div>
+        <div><div class="role">Busca semântica</div><h4>Semantic Retriever</h4><p>Recuperação por embeddings opcional, desligada por padrão e com consentimento.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Guardião de citações</div><h4>Citation Guardian</h4><p>Verifica e ancora citações em path &gt; heading &gt; trecho; descarta não verificadas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></div>
+        <div><div class="role">Sintetizador</div><h4>Knowledge Synthesizer</h4><p>Redige a resposta/produto final usando apenas as evidências citadas (LLM).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-architect"/></svg></div>
+        <div><div class="role">Mapeador de grafo</div><h4>Graph Mapper</h4><p>Mapeia links, backlinks, clusters por tag, notas órfãs e duplicatas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-reviewer"/></svg></div>
+        <div><div class="role">Curador</div><h4>Note Curator</h4><p>Sugere consolidação e reorganização; nunca escreve sem autorização explícita.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Auditor</div><h4>Quality Auditor</h4><p>Verifica integridade das citações, varredura de segredos e emite go/no-go.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/setup_user_profile.py</code><span>Cria o perfil/config do usuário sem hardcode de caminho.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_index.py</code><span>Indexa o vault (parsing, chunking, SQLite FTS5 + JSON).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_search.py</code><span>Busca lexical acento-insensível via FTS5.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_query.py</code><span>Consulta com citações verificadas (path &gt; heading &gt; trecho).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_graph.py</code><span>Mapa de conhecimento: links, backlinks, clusters, órfãs e duplicatas.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_digest.py</code><span>Digest determinístico de notas recentes.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_export_context.py</code><span>Exporta bundle de contexto citável para outro agente.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_quality_audit.py</code><span>Auditoria de qualidade e segurança; gera quality_report.json.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/run_squad.py</code><span>Orquestrador único de workflows via CLI.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/obsidian_core.py</code><span>Núcleo compartilhado: parsing, IDs estáveis e armazenamento do índice.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Setup do perfil</h4><p>Resolve o vault (CLI &gt; config &gt; env &gt; pergunta) e cria a config em read-only.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Indexação</h4><p>Varre as notas, extrai metadados/links e grava o índice local SQLite FTS5 + JSON.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Busca lexical</h4><p>Recupera os trechos mais relevantes, acento-insensível, ranqueados por bm25.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Citações verificadas</h4><p>Ancora e valida cada citação na nota-fonte; descarta o que não for verificável.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Síntese citada</h4><p>Um agente LLM redige a resposta usando apenas as evidências citadas.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Mapa e curadoria</h4><p>Gera grafo de conhecimento e sugere curadoria — escrita só com autorização.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Auditoria</h4><p>Verifica integridade, segredos e citações; emite go/no-go em quality_report.json.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Conhecimento pesquisável e citável do seu Obsidian</strong><span>Respostas com citações verificadas, mapas de conhecimento, digests e relatórios — gerados localmente, em read-only por padrão, a partir do seu vault.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

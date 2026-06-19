@@ -6226,5 +6226,156 @@
       "title": "Pacote institucional da incubadora",
       "desc": "Regimentos revisados, sistema CERNE, editais, matrizes, painel de indicadores e site A4/PDF validado."
     }
+  },
+  {
+    "id": "universal-obsidian-knowledge-squad",
+    "name": "Universal Obsidian Knowledge Squad",
+    "tagline": "Transforma qualquer vault Obsidian em base de conhecimento pesquisável, citável e auditável — portável entre usuários, agentes e CLI, em read-only por padrão.",
+    "color": "#7C5CFF",
+    "card_icon": "researcher",
+    "agents": [
+      {
+        "name": "Vault Orchestrator",
+        "role": "Orquestrador",
+        "desc": "Interpreta o pedido, escolhe o workflow e consolida a entrega sobre o vault.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "User Profile Resolver",
+        "role": "Resolução de perfil",
+        "desc": "Localiza o vault e carrega idioma, modo e adaptador sem caminho fixo.",
+        "icon": "router"
+      },
+      {
+        "name": "Note Indexer",
+        "role": "Indexador",
+        "desc": "Varre o vault e cria o índice SQLite FTS5 + JSON de forma determinística.",
+        "icon": "builder"
+      },
+      {
+        "name": "Metadata Extractor",
+        "role": "Extrator de metadados",
+        "desc": "Extrai frontmatter, tags, headings, wikilinks e datas de cada nota.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Lexical Retriever",
+        "role": "Busca lexical",
+        "desc": "Recupera trechos por busca FTS5 acento-insensível ranqueada por bm25.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Semantic Retriever",
+        "role": "Busca semântica",
+        "desc": "Recuperação por embeddings opcional, desligada por padrão e com consentimento.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Citation Guardian",
+        "role": "Guardião de citações",
+        "desc": "Verifica e ancora citações em path > heading > trecho; descarta não verificadas.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Knowledge Synthesizer",
+        "role": "Sintetizador",
+        "desc": "Redige a resposta/produto final usando apenas as evidências citadas (LLM).",
+        "icon": "writer"
+      },
+      {
+        "name": "Graph Mapper",
+        "role": "Mapeador de grafo",
+        "desc": "Mapeia links, backlinks, clusters por tag, notas órfãs e duplicatas.",
+        "icon": "architect"
+      },
+      {
+        "name": "Note Curator",
+        "role": "Curador",
+        "desc": "Sugere consolidação e reorganização; nunca escreve sem autorização explícita.",
+        "icon": "reviewer"
+      },
+      {
+        "name": "Quality Auditor",
+        "role": "Auditor",
+        "desc": "Verifica integridade das citações, varredura de segredos e emite go/no-go.",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [
+      {
+        "file": "scripts/setup_user_profile.py",
+        "desc": "Cria o perfil/config do usuário sem hardcode de caminho."
+      },
+      {
+        "file": "scripts/obsidian_index.py",
+        "desc": "Indexa o vault (parsing, chunking, SQLite FTS5 + JSON)."
+      },
+      {
+        "file": "scripts/obsidian_search.py",
+        "desc": "Busca lexical acento-insensível via FTS5."
+      },
+      {
+        "file": "scripts/obsidian_query.py",
+        "desc": "Consulta com citações verificadas (path > heading > trecho)."
+      },
+      {
+        "file": "scripts/obsidian_graph.py",
+        "desc": "Mapa de conhecimento: links, backlinks, clusters, órfãs e duplicatas."
+      },
+      {
+        "file": "scripts/obsidian_digest.py",
+        "desc": "Digest determinístico de notas recentes."
+      },
+      {
+        "file": "scripts/obsidian_export_context.py",
+        "desc": "Exporta bundle de contexto citável para outro agente."
+      },
+      {
+        "file": "scripts/obsidian_quality_audit.py",
+        "desc": "Auditoria de qualidade e segurança; gera quality_report.json."
+      },
+      {
+        "file": "scripts/run_squad.py",
+        "desc": "Orquestrador único de workflows via CLI."
+      },
+      {
+        "file": "scripts/obsidian_core.py",
+        "desc": "Núcleo compartilhado: parsing, IDs estáveis e armazenamento do índice."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Setup do perfil",
+        "desc": "Resolve o vault (CLI > config > env > pergunta) e cria a config em read-only."
+      },
+      {
+        "title": "Indexação",
+        "desc": "Varre as notas, extrai metadados/links e grava o índice local SQLite FTS5 + JSON."
+      },
+      {
+        "title": "Busca lexical",
+        "desc": "Recupera os trechos mais relevantes, acento-insensível, ranqueados por bm25."
+      },
+      {
+        "title": "Citações verificadas",
+        "desc": "Ancora e valida cada citação na nota-fonte; descarta o que não for verificável."
+      },
+      {
+        "title": "Síntese citada",
+        "desc": "Um agente LLM redige a resposta usando apenas as evidências citadas."
+      },
+      {
+        "title": "Mapa e curadoria",
+        "desc": "Gera grafo de conhecimento e sugere curadoria — escrita só com autorização."
+      },
+      {
+        "title": "Auditoria",
+        "desc": "Verifica integridade, segredos e citações; emite go/no-go em quality_report.json."
+      }
+    ],
+    "output": {
+      "title": "Conhecimento pesquisável e citável do seu Obsidian",
+      "desc": "Respostas com citações verificadas, mapas de conhecimento, digests e relatórios — gerados localmente, em read-only por padrão, a partir do seu vault."
+    }
   }
 ]
