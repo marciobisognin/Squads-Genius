@@ -1,0 +1,13 @@
+id: t09_generate_digest
+owner: knowledge-synthesizer
+objective: Gerar insumo de digest de notas recentes e redigir o resumo executivo.
+inputs:
+  - notes_index.json
+  - janela em dias
+outputs:
+  - weekly_digest.md
+acceptance_criteria:
+  - lista deterministica de notas recentes (script)
+  - resumo textual gerado por LLM sobre os dados
+script: scripts/obsidian_digest.py
+needs_llm: true

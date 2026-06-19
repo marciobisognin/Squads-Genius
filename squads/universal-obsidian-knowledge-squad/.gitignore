@@ -1,0 +1,10 @@
+# Indices gerados e dados de vault nunca vao para o repositorio
+.obsidian_knowledge_index/
+indexes/*
+!indexes/.gitkeep
+config/user.config.yaml
+config/user.config.json
+examples/sample_vault/.obsidian_knowledge_index/
+__pycache__/
+*.pyc
+output/

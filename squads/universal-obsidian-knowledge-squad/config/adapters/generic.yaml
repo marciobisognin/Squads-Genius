@@ -1,0 +1,6 @@
+agent_adapter:
+  name: "generic"
+  invoke_style: "neutral"
+  answer_voice: "professional"
+  require_citations: true
+  allow_agent_memory_write: false

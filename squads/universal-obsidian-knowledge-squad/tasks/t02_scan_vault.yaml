@@ -1,0 +1,13 @@
+id: t02_scan_vault
+owner: note-indexer
+objective: Varrer o vault aplicando include/exclude e pulando notas com segredos.
+inputs:
+  - config resolvida
+  - vault valido
+outputs:
+  - lista de notas em escopo
+acceptance_criteria:
+  - pastas privadas configuradas sao excluidas
+  - notas com padrao de segredo sao puladas e reportadas
+script: scripts/obsidian_index.py
+needs_llm: false

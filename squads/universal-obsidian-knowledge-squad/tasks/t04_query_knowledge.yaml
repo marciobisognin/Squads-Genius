@@ -1,0 +1,13 @@
+id: t04_query_knowledge
+owner: lexical-retriever
+objective: Recuperar trechos relevantes por busca lexical FTS5.
+inputs:
+  - consulta em texto livre
+  - top_k e filtros opcionais
+outputs:
+  - lista de chunks candidatos com caminho, heading e score
+acceptance_criteria:
+  - busca acento-insensivel
+  - resultados contem caminho, heading e trecho
+script: scripts/obsidian_search.py
+needs_llm: false

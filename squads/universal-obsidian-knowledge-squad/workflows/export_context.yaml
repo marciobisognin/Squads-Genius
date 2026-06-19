@@ -1,0 +1,10 @@
+id: export_context
+description: Exporta bundle de contexto citavel para outro agente.
+human_in_loop: false
+steps:
+  - executar consulta
+  - coletar citacoes verificadas e evidencias
+  - empacotar bundle JSON
+quality_gates:
+  - apenas citacoes verificadas no bundle
+rollback: nenhum (leitura apenas)

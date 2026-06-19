@@ -1,0 +1,24 @@
+project_name: "Universal Obsidian Knowledge Squad"
+objective: "Transformar qualquer vault Obsidian em base de conhecimento pesquisável, citável e auditável, portável entre usuários, agentes e CLI, operando em read-only por padrão."
+audience: "Usuários de Obsidian, pesquisadores, criadores de conteúdo, agentes (Maeve/Hermes) e times que mantêm um segundo cérebro em Markdown."
+domain: "Gestão de conhecimento pessoal (PKM), RAG sobre Markdown, indexação e busca local"
+desired_asset: "squad"
+references:
+  urls: []
+  files:
+    - "Universal_Obsidian_Knowledge_Squad_PRD_revisado.md"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub + CLI local"
+  budget: "low-token"
+success_criteria:
+  - "Aceitar configuração de vault por usuário, sem caminho fixo"
+  - "Indexar notas Markdown e extrair frontmatter, tags, headings, links e backlinks"
+  - "Busca lexical via SQLite FTS5 com resultados contendo caminho, heading e trecho"
+  - "Respostas com citações verificadas (path > heading > trecho)"
+  - "Read-only por padrão; escrita bloqueada sem autorização explícita"
+  - "Gerar quality_report.json e passar no validate_squad.py com go"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

@@ -1,0 +1,13 @@
+id: t10_quality_gate
+owner: quality-auditor
+objective: Auditar integridade, citacoes e seguranca; emitir go_no_go.
+inputs:
+  - indice persistido
+  - vault
+outputs:
+  - quality_report.json
+acceptance_criteria:
+  - falha de ancora ou segredo rebaixa go_no_go
+  - relatorio com timestamp e contagens
+script: scripts/obsidian_quality_audit.py
+needs_llm: false

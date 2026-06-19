@@ -1,0 +1,13 @@
+id: t03_build_index
+owner: note-indexer
+objective: Construir indice SQLite FTS5 e indices JSON com IDs estaveis e backlinks.
+inputs:
+  - notas em escopo
+outputs:
+  - .obsidian_knowledge_index/ (vault.sqlite + JSONs)
+acceptance_criteria:
+  - frontmatter, tags, headings, links e backlinks extraidos
+  - note_id estavel com previous_paths em renames
+  - indice persistente e local
+script: scripts/obsidian_index.py
+needs_llm: false

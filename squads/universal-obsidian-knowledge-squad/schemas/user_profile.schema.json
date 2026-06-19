@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "user_profile",
+  "type": "object",
+  "properties": {
+    "display_name": {"type": "string"},
+    "language": {"type": "string"},
+    "preferred_style": {"type": "string"},
+    "domain_focus": {"type": "array", "items": {"type": "string"}},
+    "private_mode": {"type": "boolean"}
+  },
+  "required": ["language"]
+}

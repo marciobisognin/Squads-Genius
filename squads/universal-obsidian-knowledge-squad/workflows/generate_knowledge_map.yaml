@@ -1,0 +1,11 @@
+id: generate_knowledge_map
+description: Mapa de conhecimento por tema (links, backlinks, clusters).
+human_in_loop: false
+steps:
+  - filtrar notas por tema (opcional)
+  - mapear links e backlinks
+  - gerar clusters por tag
+  - exportar knowledge_map.md / grafo JSON
+quality_gates:
+  - nos e arestas contabilizados
+rollback: nenhum (leitura apenas)

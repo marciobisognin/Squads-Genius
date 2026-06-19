@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "note",
+  "type": "object",
+  "properties": {
+    "note_id": {"type": "string"},
+    "current_path": {"type": "string"},
+    "previous_paths": {"type": "array", "items": {"type": "string"}},
+    "title": {"type": "string"},
+    "frontmatter": {"type": "object"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "headings": {"type": "array", "items": {"type": "string"}},
+    "links_out": {"type": "array", "items": {"type": "string"}},
+    "links_in": {"type": "array", "items": {"type": "string"}},
+    "modified_at": {"type": "string"},
+    "content_sha256": {"type": "string"},
+    "word_count": {"type": "integer"},
+    "language": {"type": "string"}
+  },
+  "required": ["note_id", "current_path", "title", "content_sha256"]
+}

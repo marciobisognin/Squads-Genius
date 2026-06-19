@@ -1,0 +1,15 @@
+# Template de configuracao de usuario (copie e ajuste).
+user_profile:
+  display_name: ""
+  language: "pt-BR"
+  preferred_style: "claro, técnico e objetivo"
+  private_mode: true
+vault:
+  path: ""
+  include_patterns: ["**/*.md"]
+  exclude_patterns: [".obsidian/**", "Private/**"]
+runtime:
+  default_mode: "read_only"
+  citation_required: true
+  allow_write: false
+  agent_adapter: "generic"

@@ -1,0 +1,12 @@
+id: build_index
+description: Indexacao completa do vault (scan + chunk + FTS5 + JSON).
+human_in_loop: false
+steps:
+  - scan_vault (include/exclude, pula segredos)
+  - extrair metadados e links
+  - chunking por heading
+  - gravar SQLite FTS5 e indices JSON
+quality_gates:
+  - notas indexadas > 0
+  - sem segredos no indice
+rollback: descartar indice parcial

@@ -1,0 +1,14 @@
+id: t01_setup_profile
+owner: user-profile-resolver
+objective: Criar a configuração do usuário e resolver o caminho do vault sem hardcode.
+inputs:
+  - flags CLI (--vault, --language, --adapter, --mode)
+  - variavel de ambiente OBSIDIAN_VAULT_PATH (opcional)
+outputs:
+  - config/user.config.yaml (ou .json)
+acceptance_criteria:
+  - vault resolvido e existente
+  - modo padrao read_only quando nao especificado
+  - escrita desabilitada salvo modo write/curate autorizado
+script: scripts/setup_user_profile.py
+needs_llm: false

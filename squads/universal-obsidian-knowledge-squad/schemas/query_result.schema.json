@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "query_result",
+  "type": "object",
+  "properties": {
+    "question": {"type": "string"},
+    "has_sources": {"type": "boolean"},
+    "message": {"type": ["string", "null"]},
+    "evidence": {"type": "array"},
+    "citations": {"type": "array"}
+  },
+  "required": ["question", "has_sources"]
+}

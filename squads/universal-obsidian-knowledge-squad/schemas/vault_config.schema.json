@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "vault_config",
+  "type": "object",
+  "properties": {
+    "path": {"type": "string"},
+    "include_patterns": {"type": "array", "items": {"type": "string"}},
+    "exclude_patterns": {"type": "array", "items": {"type": "string"}},
+    "max_file_size_mb": {"type": "number"},
+    "parse_frontmatter": {"type": "boolean"},
+    "parse_wikilinks": {"type": "boolean"},
+    "parse_tags": {"type": "boolean"}
+  },
+  "required": ["path"]
+}

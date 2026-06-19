@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "vault_index",
+  "type": "object",
+  "properties": {
+    "scanned_at": {"type": "string"},
+    "note_count": {"type": "integer"},
+    "chunk_count": {"type": "integer"}
+  },
+  "required": ["scanned_at", "note_count", "chunk_count"]
+}

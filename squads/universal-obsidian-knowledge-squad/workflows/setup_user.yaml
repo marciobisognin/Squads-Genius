@@ -1,0 +1,13 @@
+id: setup_user
+description: Setup inicial - resolve vault, cria config, indexa e testa consulta.
+human_in_loop: true
+steps:
+  - resolver caminho do vault (CLI > config > env > pedir)
+  - criar config/user.config.yaml em modo read_only
+  - executar build_index
+  - rodar consulta de teste
+  - gerar quality_report.json
+quality_gates:
+  - vault valido e config criada
+  - quality_report com go
+rollback: remover config gerada e abortar

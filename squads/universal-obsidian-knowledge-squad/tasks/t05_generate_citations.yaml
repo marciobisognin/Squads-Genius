@@ -1,0 +1,13 @@
+id: t05_generate_citations
+owner: citation-guardian
+objective: Construir e verificar citacoes ancoradas em path > heading > trecho.
+inputs:
+  - chunks recuperados
+  - vault
+outputs:
+  - lista de citacoes verificadas
+acceptance_criteria:
+  - citacao nao verificada e descartada
+  - ausencia de fonte gera mensagem padrao
+script: scripts/obsidian_query.py
+needs_llm: false

@@ -1,0 +1,25 @@
+# Copie para config/user.config.yaml e ajuste. NAO comitar o arquivo real.
+user_profile:
+  display_name: "Seu nome"
+  language: "pt-BR"
+  preferred_style: "claro, técnico e objetivo"
+  domain_focus: ["pesquisa", "gestão", "educação"]
+  private_mode: true
+vault:
+  path: "/caminho/para/o/seu/vault"   # nunca fixo no codigo; vem daqui, CLI ou env
+  include_patterns: ["**/*.md"]
+  exclude_patterns:
+    - ".obsidian/**"
+    - "Templates/**"
+    - "Private/**"
+    - "Anexos/**"
+  max_file_size_mb: 5
+  parse_frontmatter: true
+  parse_wikilinks: true
+  parse_tags: true
+runtime:
+  default_mode: "read_only"
+  citation_required: true
+  allow_write: false
+  agent_adapter: "generic"
+  # index_dir: "/caminho/opcional/para/indice"

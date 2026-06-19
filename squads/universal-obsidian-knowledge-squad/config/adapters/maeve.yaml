@@ -1,0 +1,9 @@
+# Adaptador opcional e isolado. SEM caminhos de dispositivo embutidos.
+agent_adapter:
+  name: "maeve"
+  invoke_style: "executive_orchestrator"
+  answer_voice: "Maeve, pt-BR, profissional e direta"
+  require_citations: true
+  default_language: "pt-BR"
+  delivery_path_env: "MAEVE_DELIVERY_PATH"   # caminho resolvido por env/config do usuario
+  allow_agent_memory_write: false

@@ -66,6 +66,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [PDI Vivo IFFar Squad](IFFar-Squads/squads/pdi-vivo-iffar-squad/README.md) — `pdi-vivo-iffar-squad` — versão `1.0.0` — governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, ciclo trimestral e painel, com 17 agentes SME e engine determinística
 - [PROJUR Contracts Squad](IFFar-Squads/squads/projur-contracts-squad/README.md) — `projur-contracts-squad` — versão `2.0.0` — inteligência documental em lote e ciclo de vida (CLM) de contratos, convênios e TED do IFFar: extração (com OCR), classificação, partes (CNPJ/CPF), LGPD, vínculos, vigência, conformidade e matriz/indicadores, com 22 agentes (6 SMEs jurídicos) e engine determinística; encaminha casos ao Themis/Farol/PCFP
 - [Squad Docente IFFar](IFFar-Squads/squads/squad-docente-iffar/README.md) — `squad-docente-iffar` — versão `1.0.0` — automação do trabalho docente: plano de ensino, materiais didáticos (com ponte Manim), avaliações/rubricas, adaptação AEE conforme Res. CONSUP 52/2019 e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório
+- [Universal Obsidian Knowledge Squad](squads/universal-obsidian-knowledge-squad/README.md) — `universal-obsidian-knowledge-squad` — versão `1.0.0` — squad portátil que transforma qualquer vault Obsidian em base de conhecimento pesquisável e citável (SQLite FTS5), read-only por padrão, citações verificadas, núcleo determinístico e LLM só na síntese, com adaptadores generic/maeve/hermes e operação via agente ou CLI
 
 ---
 

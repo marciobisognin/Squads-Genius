@@ -1,0 +1,12 @@
+id: update_index
+description: Atualizacao incremental do indice a partir do last_scan.
+human_in_loop: false
+steps:
+  - ler last_scan e hashes
+  - reindexar notas alteradas
+  - remover notas deletadas
+  - recomputar backlinks
+  - gerar quality_report
+quality_gates:
+  - contagem consistente com o vault
+rollback: manter indice anterior

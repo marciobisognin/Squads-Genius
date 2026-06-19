@@ -1,0 +1,14 @@
+id: ask_vault
+description: Consulta ao vault com resposta citada.
+human_in_loop: false
+steps:
+  - resolver perfil
+  - busca lexical (FTS5)
+  - selecionar trechos
+  - verificar citacoes (path > heading > trecho)
+  - sintetizar resposta (LLM) sobre evidencias citadas
+  - entregar fontes
+quality_gates:
+  - toda afirmacao do vault tem citacao verificada
+  - ausencia de fonte declarada explicitamente
+rollback: retornar evidencias sem sintese

@@ -1,0 +1,6 @@
+agent_adapter:
+  name: "hermes"
+  invoke_style: "assistant"
+  answer_voice: "neutro e direto"
+  require_citations: true
+  allow_agent_memory_write: false

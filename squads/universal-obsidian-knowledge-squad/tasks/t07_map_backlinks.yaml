@@ -1,0 +1,13 @@
+id: t07_map_backlinks
+owner: graph-mapper
+objective: Mapear links, backlinks e clusters por tag em formato navegavel.
+inputs:
+  - notes_index.json
+  - tema opcional
+outputs:
+  - knowledge_map.md / grafo JSON
+acceptance_criteria:
+  - clusters por tag e contagem de nos/arestas
+  - notas orfas listadas
+script: scripts/obsidian_graph.py
+needs_llm: false

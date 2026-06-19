@@ -1,0 +1,10 @@
+id: vault_digest
+description: Digest de notas recentes com resumo executivo.
+human_in_loop: false
+steps:
+  - listar notas modificadas na janela (script)
+  - agrupar por tag
+  - redigir weekly_digest.md (LLM)
+quality_gates:
+  - janela e contagem reportadas
+rollback: nenhum (leitura apenas)

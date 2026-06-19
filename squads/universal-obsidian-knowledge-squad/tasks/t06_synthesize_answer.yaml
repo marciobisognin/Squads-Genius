@@ -1,0 +1,13 @@
+id: t06_synthesize_answer
+owner: knowledge-synthesizer
+objective: Redigir a resposta/produto final usando apenas evidencias citadas.
+inputs:
+  - evidencias e citacoes verificadas
+  - perfil do usuario e tipo de produto
+outputs:
+  - documento Markdown citado
+acceptance_criteria:
+  - nenhuma afirmacao do vault sem citacao
+  - inferencia do agente rotulada como tal
+  - footer obrigatorio presente
+needs_llm: true

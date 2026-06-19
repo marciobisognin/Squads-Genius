@@ -1,0 +1,12 @@
+id: curate_notes
+description: Curadoria segura - sugestoes/patch com humano no loop.
+human_in_loop: true
+steps:
+  - auditar notas (orfas, duplicatas, lacunas)
+  - gerar sugestoes ou diff (modo suggest/draft_patch)
+  - aguardar autorizacao explicita
+  - aplicar patch somente se autorizado (modo write/curate)
+quality_gates:
+  - nenhuma escrita sem autorizacao explicita
+  - previous_paths preservado em rename
+rollback: descartar patch nao aplicado

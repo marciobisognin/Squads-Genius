@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "citation",
+  "type": "object",
+  "properties": {
+    "path": {"type": "string"},
+    "heading": {"type": "string"},
+    "anchor_quote": {"type": "string"},
+    "start_line": {"type": "integer"},
+    "end_line": {"type": "integer"},
+    "verified": {"type": "boolean"}
+  },
+  "required": ["path", "anchor_quote", "verified"]
+}

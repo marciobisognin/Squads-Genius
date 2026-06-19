@@ -1,0 +1,11 @@
+# Configuracao padrao do squad. NAO contem caminho de vault (resolvido em runtime).
+user_profile:
+  display_name: "Usuário"
+  language: "pt-BR"
+  preferred_style: "claro, técnico e objetivo"
+  private_mode: true
+runtime:
+  default_mode: "read_only"
+  citation_required: true
+  allow_write: false
+  agent_adapter: "generic"

@@ -1,0 +1,12 @@
+id: t08_detect_duplicates
+owner: graph-mapper
+objective: Detectar notas duplicadas e orfas como candidatas a curadoria.
+inputs:
+  - notes_index.json
+outputs:
+  - gap_report.md / lista de candidatas
+acceptance_criteria:
+  - duplicatas por content_sha ou titulo identico
+  - nenhuma remocao automatica
+script: scripts/obsidian_graph.py
+needs_llm: false
