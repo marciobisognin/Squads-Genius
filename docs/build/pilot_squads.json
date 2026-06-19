@@ -1,0 +1,193 @@
+[
+  {
+    "id": "maeve-genius-forge-squad",
+    "name": "Maeve Genius Forge",
+    "tagline": "Fábrica que transforma um briefing livre em um squad completo: pesquisa, oferta, design system, agentes, workflows, scripts e publicação.",
+    "color": "#8b5cf6",
+    "card_icon": "factory",
+    "agents": [
+      {"name": "Forge Orchestrator", "role": "Orquestrador", "desc": "Coordena o pipeline completo e os quality gates entre fases.", "icon": "orchestrator"},
+      {"name": "Briefing Intelligence Analyst", "role": "Analista", "desc": "Extrai requisitos, lacunas e premissas do briefing.", "icon": "researcher"},
+      {"name": "Deep Research Strategist", "role": "Pesquisador", "desc": "Pesquisa profunda com fontes e riscos rastreáveis.", "icon": "researcher"},
+      {"name": "Business Model Architect", "role": "Estrategista", "desc": "Transforma pesquisa em oferta, posicionamento e precificação.", "icon": "strategist"},
+      {"name": "Design System Forger", "role": "Designer", "desc": "Cria identidade visual original para o squad.", "icon": "designer"},
+      {"name": "Workflow Engineer", "role": "Arquiteto", "desc": "Mapeia processos com quality gates e rollback.", "icon": "architect"},
+      {"name": "Agent Architect", "role": "Arquiteto", "desc": "Desenha os agentes do novo squad e seus contratos de saída.", "icon": "architect"},
+      {"name": "Script Factory Engineer", "role": "Engenheiro", "desc": "Gera scripts determinísticos e testáveis.", "icon": "builder"},
+      {"name": "Quality Audit Sentinel", "role": "Auditor", "desc": "Valida qualidade, segurança e autoria antes da entrega.", "icon": "auditor"},
+      {"name": "GitHub Release Publisher", "role": "Publicador", "desc": "Empacota e publica o squad quando autorizado pelo usuário.", "icon": "communicator"}
+    ],
+    "tools": [
+      {"file": "forge_squad.py", "desc": "Executor principal do pipeline"},
+      {"file": "briefing_parser.py", "desc": "Parser do briefing de entrada"},
+      {"file": "requirements_analyzer.py", "desc": "Analisa lacunas de requisitos"},
+      {"file": "extract_visual_style.py", "desc": "Extrai estilo visual de referências"},
+      {"file": "squad_architect.py", "desc": "Define regras de arquitetura do squad"},
+      {"file": "agent_generator.py", "desc": "Gera os agentes do squad"},
+      {"file": "task_generator.py", "desc": "Gera as tasks dos agentes"},
+      {"file": "workflow_generator.py", "desc": "Gera os workflows do squad"},
+      {"file": "script_generator.py", "desc": "Gera os scripts determinísticos"},
+      {"file": "test_generator.py", "desc": "Gera os testes automatizados"},
+      {"file": "documentation_generator.py", "desc": "Gera a documentação do squad"},
+      {"file": "generate_readme.py", "desc": "Gera o README final"},
+      {"file": "estimate_costs.py", "desc": "Estima custo e ROI do squad"},
+      {"file": "package_generator.py", "desc": "Monta licença e checklist de qualidade"},
+      {"file": "validate_squad.py", "desc": "Roda os quality gates / go-no-go"},
+      {"file": "package_squad.py", "desc": "Empacota o squad em ZIP"},
+      {"file": "publish_github.py", "desc": "Publica no GitHub (dry-run por padrão)"}
+    ],
+    "steps": [
+      {"title": "Intake", "desc": "Recebe o briefing livre do usuário."},
+      {"title": "Auto-clarificação", "desc": "Identifica e resolve lacunas do briefing."},
+      {"title": "Pesquisa profunda", "desc": "Investiga mercado, referências e riscos."},
+      {"title": "Mapa estratégico", "desc": "Define oferta, posicionamento e modelo de negócio."},
+      {"title": "Design system", "desc": "Cria a identidade visual original do squad."},
+      {"title": "Arquitetura do squad", "desc": "Define estrutura, papéis e contratos."},
+      {"title": "Agentes, tasks e workflows", "desc": "Gera os agentes, tarefas e o fluxo entre eles."},
+      {"title": "Scripts e testes", "desc": "Gera automações determinísticas e testes."},
+      {"title": "Documentação e monetização", "desc": "Produz README, custos e modelo de precificação."},
+      {"title": "Empacotamento e publicação", "desc": "Roda quality gates, gera o ZIP e publica quando autorizado."}
+    ],
+    "output": {"title": "Squad completo e validado", "desc": "Agentes, tasks, workflows, scripts, testes, design system e documentação, empacotados em ZIP e prontos para uso ou publicação."}
+  },
+  {
+    "id": "atlas-visual-reports-squad",
+    "name": "Atlas Visual Reports Squad",
+    "tagline": "Transforma relatórios densos em entregas premium HTML/PDF com camadas executiva, analítica e técnica auditável.",
+    "color": "#14b8a6",
+    "card_icon": "analyst",
+    "agents": [
+      {"name": "Partner Report Orchestrator", "role": "Orquestrador", "desc": "Coordena o relatório e as três camadas de entrega.", "icon": "orchestrator"},
+      {"name": "Intake Diagnóstico", "role": "Diagnosticador", "desc": "Classifica tipo de relatório, público e objetivo.", "icon": "planner"},
+      {"name": "Dados e Evidências", "role": "Pesquisador", "desc": "Extrai KPIs e evidências da fonte original.", "icon": "researcher"},
+      {"name": "Estratégia Narrativa", "role": "Redator", "desc": "Constrói a tese executiva do relatório.", "icon": "writer"},
+      {"name": "Revisores de Compliance e Risco", "role": "Auditores", "desc": "Compliance, controles internos, cyber, fiscal e fraude.", "icon": "auditor"},
+      {"name": "Paleta, Infográficos e Heatmaps", "role": "Designers", "desc": "Identidade visual, gráficos e mapas de risco/materialidade.", "icon": "designer"},
+      {"name": "Frontend HTML/CSS/JS e PDF", "role": "Implementadores", "desc": "Constrói o relatório navegável e a exportação em PDF.", "icon": "builder"},
+      {"name": "Devil's Advocate Reviewer", "role": "Red team", "desc": "Pré-mortem e checagem de viés narrativo.", "icon": "reviewer"},
+      {"name": "QA Visual e Factual", "role": "Validadores", "desc": "Checagem final visual e editorial antes da entrega.", "icon": "validator"},
+      {"name": "Empacotamento e Entrega", "role": "Empacotador", "desc": "Organiza o pacote final do relatório.", "icon": "factory"}
+    ],
+    "tools": [
+      {"file": "build_report.py", "desc": "Orquestra o pipeline completo do relatório"},
+      {"file": "build_html.py", "desc": "Gera o HTML navegável do relatório"},
+      {"file": "build_pdf.py", "desc": "Converte HTML em PDF A4 via WeasyPrint"},
+      {"file": "validate_pdf.py", "desc": "Valida o PDF e gera previews"},
+      {"file": "validate_squad.py", "desc": "Checa estrutura do squad e segredos"},
+      {"file": "smoke_test.py", "desc": "Build de demonstração ponta a ponta"}
+    ],
+    "steps": [
+      {"title": "Intake e escopo", "desc": "Classifica relatório, público e objetivo."},
+      {"title": "Estratégia e narrativa", "desc": "Define a tese executiva e a coerência do argumento."},
+      {"title": "Auditoria e compliance", "desc": "Revisa controles internos, risco e conformidade."},
+      {"title": "Revisão especializada", "desc": "Cyber, fiscal, forense e ESG entram em paralelo."},
+      {"title": "Design e construção", "desc": "Paleta, gráficos, HTML e PDF são produzidos."},
+      {"title": "Red team", "desc": "Pré-mortem ataca a narrativa antes da entrega."},
+      {"title": "QA visual e factual", "desc": "Confere consistência visual e dados."},
+      {"title": "Empacotamento", "desc": "Organiza e entrega o pacote final."}
+    ],
+    "output": {"title": "Relatório premium em HTML e PDF", "desc": "Camadas executiva, analítica e apêndice técnico auditável, validado visual e factualmente."}
+  },
+  {
+    "id": "manim-science-studio-squad",
+    "name": "Manim Science Studio Squad",
+    "tagline": "Estúdio multiagente que transforma um briefing científico em Reels educativos em PT-BR completos: roteiro, animação Manim, narração TTS e revisão epistêmica.",
+    "color": "#1b998b",
+    "card_icon": "scientist",
+    "agents": [
+      {"name": "Scientific Scriptwriter", "role": "Roteirista", "desc": "Escreve o roteiro em PT-BR com precisão conceitual.", "icon": "writer"},
+      {"name": "Storyboard Director", "role": "Diretor", "desc": "Converte o roteiro em cenas Manim planejadas.", "icon": "designer"},
+      {"name": "Manim Coder", "role": "Codificador", "desc": "Gera o código Python Manim CE das cenas.", "icon": "builder"},
+      {"name": "Narration Director", "role": "Diretor", "desc": "Produz SSML, legendas VTT e sincronia com TTS.", "icon": "composer"},
+      {"name": "Epistemic Reviewer", "role": "Revisor", "desc": "Verifica afirmações científicas e equações.", "icon": "auditor"},
+      {"name": "FFmpeg Editor", "role": "Editor", "desc": "Monta o vídeo final no formato 9:16.", "icon": "builder"},
+      {"name": "Editorial Calendar Strategist", "role": "Estrategista", "desc": "Agenda a publicação com SEO e hashtags.", "icon": "strategist"}
+    ],
+    "tools": [
+      {"file": "manim_studio_pipeline.py", "desc": "Gera o pacote completo de produção a partir do briefing"},
+      {"file": "validate_squad.py", "desc": "Quality gates e compilação dos scripts"}
+    ],
+    "steps": [
+      {"title": "Roteiro científico", "desc": "Escreve o roteiro com precisão conceitual."},
+      {"title": "Storyboard", "desc": "Planeja as cenas que viram animação."},
+      {"title": "Código Manim + Narração", "desc": "Cenas e narração TTS são produzidas em paralelo."},
+      {"title": "Revisão epistêmica", "desc": "Confere afirmações científicas e equações."},
+      {"title": "Pipeline FFmpeg", "desc": "Monta o vídeo final em 9:16."},
+      {"title": "Calendário editorial", "desc": "Define o slot de publicação com SEO."},
+      {"title": "Empacotamento", "desc": "Reúne tudo em um pacote de produção."}
+    ],
+    "output": {"title": "Pacote de produção em ZIP", "desc": "Roteiro, storyboard, scene.py, narração, revisão epistêmica, script FFmpeg e entrada de calendário, prontos para renderização e publicação."}
+  },
+  {
+    "id": "vertice-os-artefatos-marvel",
+    "name": "VÉRTICE-OS · Artefatos Marvel",
+    "tagline": "Sistema operacional interno de orquestração multiagente com codinomes Marvel: planejamento, execução durável, segurança, evidência e meta-construção de squads.",
+    "color": "#6b1fb3",
+    "card_icon": "orchestrator",
+    "agents": [
+      {"name": "Manopla do Infinito", "role": "Orquestrador soberano", "desc": "Comanda o pipeline geral de cada ordem.", "icon": "orchestrator"},
+      {"name": "Nexus", "role": "Estado global", "desc": "Mantém o estado compartilhado entre agentes.", "icon": "guardian"},
+      {"name": "Pedra da Mente", "role": "Planejador", "desc": "Interpreta a intenção e gera o plano de execução.", "icon": "planner"},
+      {"name": "Tesseract", "role": "Roteador", "desc": "Descobre capacidades e roteia tarefas.", "icon": "router"},
+      {"name": "Pedra do Tempo", "role": "Executor", "desc": "Runtime durável com checkpoints do DAG.", "icon": "architect"},
+      {"name": "Aether", "role": "Compositor", "desc": "Compõe e valida os resultados das tarefas.", "icon": "composer"},
+      {"name": "Orbe do Poder", "role": "Recursos", "desc": "Reserva orçamento e modelos por execução.", "icon": "analyst"},
+      {"name": "Pedra da Alma", "role": "Governança", "desc": "Aplica políticas e pontos de humano no loop.", "icon": "validator"},
+      {"name": "Vibranium Vault", "role": "Armazenamento", "desc": "Guarda memória, artefatos e versões.", "icon": "guardian"},
+      {"name": "Adamantium Seal", "role": "Validador", "desc": "Garante contratos e integridade dos dados.", "icon": "validator"},
+      {"name": "Bifrost Bridge", "role": "Mensageiro", "desc": "Transporta handoffs selados entre agentes.", "icon": "communicator"},
+      {"name": "Siege Perilous", "role": "Aprovador", "desc": "Gate de aprovação humana obrigatória.", "icon": "validator"}
+    ],
+    "tools": [
+      {"file": "vertice_os_blueprint.py", "desc": "Gera o blueprint JSON do catálogo de agentes"},
+      {"file": "validate_squad.py", "desc": "Valida estrutura, IDs e quality gates"}
+    ],
+    "steps": [
+      {"title": "Recebimento da ordem", "desc": "Cria um run imutável para a solicitação."},
+      {"title": "Plano de execução", "desc": "Interpreta a intenção e gera o plano."},
+      {"title": "Descoberta de rotas", "desc": "Mapeia capacidades disponíveis."},
+      {"title": "Orçamento e risco", "desc": "Reserva recursos e avalia risco/aprovação."},
+      {"title": "Execução do DAG", "desc": "Roda as tarefas com checkpoints."},
+      {"title": "Sandbox e composição", "desc": "Isola execução e valida os resultados."},
+      {"title": "Lineage e custos", "desc": "Registra histórico completo da execução."},
+      {"title": "Aprovação humana", "desc": "Gate final antes da publicação."},
+      {"title": "Rollback (contingência)", "desc": "Reverte em caso de incidente."}
+    ],
+    "output": {"title": "Versão publicada e versionada", "desc": "Cada ordem fica registrada no Vibranium Vault com lineage, evidências, contrato validado e aprovação humana quando exigida."}
+  },
+  {
+    "id": "hefesto-forja-licitatoria-squad",
+    "name": "Hefesto Forja Licitatória",
+    "tagline": "Forja, a partir da documentação inicial do órgão, o processo completo de licitação ou contratação direta (DFD, ETP, edital, contrato, dossiê) conforme a Lei 14.133/2021 — com revisão humana obrigatória.",
+    "color": "#b5651d",
+    "card_icon": "guardian",
+    "agents": [
+      {"name": "Hefesto Orchestrator", "role": "Orquestrador", "desc": "Coordena a forja e consolida o dossiê final.", "icon": "orchestrator"},
+      {"name": "Intake Requisitos Clarifier", "role": "Gatekeeper", "desc": "Avalia se a documentação inicial está suficiente.", "icon": "validator"},
+      {"name": "Enquadramento Modalidade Strategist", "role": "Estrategista", "desc": "Define a modalidade e o rito legal aplicável.", "icon": "strategist"},
+      {"name": "Planejamento DFD/ETP Architect", "role": "Arquiteto", "desc": "Elabora o Documento de Formalização e o ETP.", "icon": "architect"},
+      {"name": "Termo de Referência Writer", "role": "Redator", "desc": "Redige o termo de referência do objeto.", "icon": "writer"},
+      {"name": "Pesquisa Preços Planilhista", "role": "Pesquisador", "desc": "Pesquisa e organiza a cesta de preços.", "icon": "researcher"},
+      {"name": "Matriz de Riscos Engineer", "role": "Engenheiro de risco", "desc": "Constrói a matriz de riscos do processo.", "icon": "analyst"},
+      {"name": "Edital Minutas Redator", "role": "Redator", "desc": "Redige o edital e a minuta de contrato.", "icon": "writer"},
+      {"name": "Conformidade Dossiê Auditor", "role": "Auditor", "desc": "Roda checklists e monta o dossiê final.", "icon": "auditor"}
+    ],
+    "tools": [
+      {"file": "intake_suficiencia.py", "desc": "Verifica campos obrigatórios por modalidade"},
+      {"file": "analise_pesquisa_precos.py", "desc": "Estatísticas da cesta de preços (IN SEGES 65/2021)"},
+      {"file": "montar_dossie.py", "desc": "Gera o índice do dossiê do processo"}
+    ],
+    "steps": [
+      {"title": "Intake e suficiência", "desc": "Avalia se a documentação inicial está completa."},
+      {"title": "Enquadramento", "desc": "Define a modalidade de contratação aplicável."},
+      {"title": "DFD e ETP", "desc": "Formaliza a demanda e elabora o estudo técnico preliminar."},
+      {"title": "Pesquisa de preços", "desc": "Monta a cesta de preços de referência."},
+      {"title": "Matriz de riscos", "desc": "Mapeia riscos do processo e do contrato."},
+      {"title": "Termo de referência", "desc": "Detalha o objeto e os critérios de aceite."},
+      {"title": "Edital e minuta", "desc": "Redige edital e minuta de contrato."},
+      {"title": "Conformidade e dossiê", "desc": "Confere checklists e organiza o dossiê."},
+      {"title": "Handoff humano", "desc": "Aprovação jurídica obrigatória antes do uso."}
+    ],
+    "output": {"title": "Dossiê de licitação indexado", "desc": "DFD, ETP, termo de referência, pesquisa de preços, matriz de riscos, edital e minuta de contrato — minuta de apoio técnico para revisão jurídica e aprovação final humana."}
+  }
+]
