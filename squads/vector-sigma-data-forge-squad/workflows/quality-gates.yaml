@@ -1,0 +1,120 @@
+name: quality-gates
+version: 1.0.0
+description: >
+  Gates de qualidade obrigatórios do Vector Sigma Data Forge Squad.
+  Todos os gates devem ser verificados pelo vector-sigma-orchestrator antes da entrega final.
+author: "Marcio Bisognin"
+license: MIT
+
+gate_enforcement:
+  mode: "blocking"
+  description: >
+    Gates são verificados sequencialmente pelo vector-sigma-orchestrator. Um gate reprovado
+    bloqueia a entrega até correção, com evidência documentada do resultado de cada gate.
+
+gates:
+  - id: data_governance_validated
+    name: "Governança de Dados Validada"
+    phase: intake
+    type: hitl
+    description: "Conformidade LGPD e governança de dados confirmadas antes de qualquer modelagem."
+    verification:
+      - "Dados pessoais identificados e tratamento conforme LGPD confirmado"
+      - "Classificação de sensibilidade dos dados documentada"
+    failure_action: "Bloquear pipeline — revisar tratamento de dados sensíveis com o cliente"
+    responsible: vector-sigma-orchestrator
+    severity: critical
+    required_for_phases: [2, 3, 4, 5]
+
+  - id: schema_design_reviewed
+    name: "Design de Esquema Revisado"
+    phase: architecture
+    type: completeness_check
+    description: "O blueprint de arquitetura de dados foi revisado quanto a normalização e contratos de dados."
+    verification:
+      - "Modelo dimensional ou ERD documentado e consistente"
+      - "Contratos de dados definidos entre domínios produtores e consumidores"
+    failure_action: "Retornar ao data-architecture-designer para ajustes"
+    responsible: vector-sigma-orchestrator
+    required_for_phases: [3, 4, 5]
+
+  - id: pipeline_idempotency_confirmed
+    name: "Idempotência do Pipeline Confirmada"
+    phase: engineering
+    type: automated_check
+    description: "Os pipelines ETL/ELT projetados são idempotentes e seguros para reprocessamento."
+    verification:
+      - "Estratégia de idempotência documentada (upsert, particionamento, watermarking)"
+      - "Testes de qualidade de dados definidos por etapa do pipeline"
+    failure_action: "Retornar ao etl-pipeline-engineer para corrigir estratégia"
+    responsible: vector-sigma-orchestrator
+    required_for_phases: [4, 5]
+
+  - id: data_quality_baseline_set
+    name: "Baseline de Qualidade de Dados Definido"
+    phase: engineering
+    type: completeness_check
+    description: "Scorecard de qualidade de dados com regras de validação e thresholds definidos."
+    verification:
+      - "Regras de validação cobrem completude, unicidade, consistência e atualidade"
+      - "Thresholds de alerta definidos por métrica de qualidade"
+    failure_action: "Retornar ao data-quality-sentinel para completar scorecard"
+    responsible: vector-sigma-orchestrator
+    required_for_phases: [5]
+
+  - id: metric_tree_approved_by_business
+    name: "Árvore de Métricas Aprovada pelo Negócio"
+    phase: metrics
+    type: hitl
+    description: "A árvore de métricas (North Star + derivadas) foi validada pelos stakeholders de negócio."
+    verification:
+      - "Registro de aprovação do North Star Metric pelo stakeholder de negócio"
+      - "Métricas derivadas têm ownership definido"
+    failure_action: "Revisar árvore de métricas com o metric-tree-architect e stakeholders"
+    responsible: vector-sigma-orchestrator
+    required_for_phases: [5]
+
+  - id: dashboard_ux_reviewed
+    name: "UX do Dashboard Revisada"
+    phase: visualization
+    type: completeness_check
+    description: "O design system do dashboard segue princípios de hierarquia visual e clareza."
+    verification:
+      - "Hierarquia visual definida (o que vem primeiro, o que é destaque)"
+      - "Tipos de gráfico escolhidos são adequados ao tipo de dado representado"
+    failure_action: "Retornar ao visualization-director para ajustes de design"
+    responsible: vector-sigma-orchestrator
+    required_for_phases: [5]
+
+  - id: narrative_actionability_confirmed
+    name: "Acionabilidade da Narrativa Confirmada"
+    phase: storytelling
+    type: hitl
+    description: "O relatório executivo de dados traduz insights em recomendações acionáveis."
+    verification:
+      - "Cada insight do relatório tem recomendação de ação associada"
+      - "Linguagem é executiva, sem jargão técnico desnecessário"
+    failure_action: "Retornar ao narrative-data-storyteller para reforçar acionabilidade"
+    responsible: vector-sigma-orchestrator
+    required_for_delivery: true
+
+gate_summary_template: |
+  ## RELATÓRIO DE QUALITY GATES — VECTOR SIGMA DATA FORGE SQUAD
+  Data de verificação: [data]
+  Verificado por: vector-sigma-orchestrator
+
+  | Gate ID | Nome | Status | Responsável | Data Verificação | Observações |
+  |---------|------|--------|-------------|-----------------|-------------|
+  | data_governance_validated | Governança Validada | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | schema_design_reviewed | Esquema Revisado | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | pipeline_idempotency_confirmed | Idempotência Confirmada | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | data_quality_baseline_set | Baseline Qualidade Definido | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | metric_tree_approved_by_business | Árvore Métricas Aprovada | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+  | dashboard_ux_reviewed | UX Dashboard Revisada | APROVADO/REPROVADO | orchestrator | [data] | [obs] |
+  | narrative_actionability_confirmed | Narrativa Acionável | APROVADO/REPROVADO | [nome] | [data] | [obs] |
+
+  STATUS GERAL: [APROVADO PARA ENTREGA | BLOQUEADO — ver gates reprovados]
+
+---
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
