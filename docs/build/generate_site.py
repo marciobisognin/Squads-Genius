@@ -91,13 +91,32 @@ TOOL_CARD = """      <div class="tool-card"><div class="tool-icon"><svg><use hre
 
 STEP_CARD = """      <div class="step"><div class="num">{n}</div><div class="body"><h4>{title}</h4><p>{desc}</p></div></div>"""
 
-CARD_TEMPLATE = """    <a class="squad-card" href="squads/{id}.html" style="--accent-card:{color};--accent-soft-card:{color}26">
-      <div class="badge"><svg><use href="assets/icons/sprite.svg#icon-{card_icon}"/></svg></div>
-      <h3>{name}</h3>
-      <p>{tagline}</p>
-      <div class="meta"><span class="tag">{agent_count} agentes</span><span class="tag">{tool_count} scripts</span></div>
-      <span class="open">Ver jornada →</span>
-    </a>"""
+CARD_TEMPLATE = """      <a class="squad-card" href="squads/{id}.html" style="--accent-card:{color};--accent-soft-card:{color}26">
+        <div class="badge"><svg><use href="assets/icons/sprite.svg#icon-{card_icon}"/></svg></div>
+        <h3>{name}</h3>
+        <p>{tagline}</p>
+        <div class="meta"><span class="tag">{agent_count} agentes</span><span class="tag">{tool_count} scripts</span></div>
+        <span class="open">Ver jornada →</span>
+      </a>"""
+
+# Ordem de exibição das categorias na galeria. IFFar fica como bloco
+# institucional dedicado ao final. Categorias fora desta lista entram depois,
+# em ordem alfabética.
+CATEGORY_ORDER = [
+    "Construção de Squads & Sistemas de IA",
+    "Negócios, Estratégia & Vendas",
+    "Conhecimento, Pesquisa & Dados",
+    "Conteúdo, Marketing & Visual",
+    "Educação & Desenvolvimento Cognitivo",
+    "Jurídico, Risco, Finanças & Segurança",
+    "Saúde, Bem-estar & Expressão",
+    "Instituto Federal Farroupilha (IFFar)",
+]
+
+
+def slugify(text):
+    s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    return s or "cat"
 
 VALID_ICONS = {
     "orchestrator", "researcher", "writer", "auditor", "designer", "validator",
@@ -144,24 +163,47 @@ def render_squad_page(sq):
     (SQUADS_DIR / f"{sq['id']}.html").write_text(html, encoding="utf-8")
 
 
-def render_index_grid(squads):
-    cards = "\n\n".join(
-        CARD_TEMPLATE.format(
-            id=sq["id"],
-            color=sq.get("color", "#7c5cff"),
-            card_icon=safe_icon(sq.get("card_icon")),
-            name=esc(sq["name"]),
-            tagline=esc(sq.get("tagline")),
-            agent_count=len(sq.get("agents", [])),
-            tool_count=len(sq.get("tools", [])),
-        )
-        for sq in squads
+def _card(sq):
+    return CARD_TEMPLATE.format(
+        id=sq["id"],
+        color=sq.get("color", "#7c5cff"),
+        card_icon=safe_icon(sq.get("card_icon")),
+        name=esc(sq["name"]),
+        tagline=esc(sq.get("tagline")),
+        agent_count=len(sq.get("agents", [])),
+        tool_count=len(sq.get("tools", [])),
     )
+
+
+def render_index_grid(squads):
+    # Agrupa por categoria, respeitando CATEGORY_ORDER e mantendo a ordem
+    # original dos squads dentro de cada categoria.
+    groups = {}
+    for sq in squads:
+        groups.setdefault(sq.get("category", "Outros"), []).append(sq)
+    ordered = [c for c in CATEGORY_ORDER if c in groups]
+    ordered += sorted(c for c in groups if c not in CATEGORY_ORDER)
+
+    nav = "\n".join(
+        f'      <a href="#cat-{slugify(c)}">{esc(c)} <span>{len(groups[c])}</span></a>'
+        for c in ordered
+    )
+    sections = []
+    for c in ordered:
+        cards = "\n\n".join(_card(sq) for sq in groups[c])
+        sections.append(
+            f'    <section class="cat-section" id="cat-{slugify(c)}">\n'
+            f'      <h2 class="cat-title">{esc(c)} <span class="cat-count">{len(groups[c])}</span></h2>\n'
+            f'      <div class="grid">\n\n{cards}\n\n      </div>\n'
+            f'    </section>'
+        )
+    body = f'    <nav class="cat-nav">\n{nav}\n    </nav>\n\n' + "\n\n".join(sections)
+
     index_path = DOCS / "index.html"
     text = index_path.read_text(encoding="utf-8")
     new_text = re.sub(
-        r'(<div class="grid" id="squad-grid">\n).*?(\n  </div>\n</main>)',
-        lambda m: m.group(1) + "\n\n" + cards + "\n" + m.group(2),
+        r'(<div id="squad-grid">\n).*?(\n  </div>\n</main>)',
+        lambda m: m.group(1) + "\n" + body + "\n" + m.group(2),
         text,
         flags=re.DOTALL,
     )

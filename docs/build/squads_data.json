@@ -182,7 +182,8 @@
     "output": {
       "title": "Squad completo e validado",
       "desc": "Agentes, tasks, workflows, scripts, testes, design system e documentação, empacotados em ZIP e prontos para uso ou publicação."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "atlas-visual-reports-squad",
@@ -315,7 +316,8 @@
     "output": {
       "title": "Relatório premium em HTML e PDF",
       "desc": "Camadas executiva, analítica e apêndice técnico auditável, validado visual e factualmente."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "manim-science-studio-squad",
@@ -410,7 +412,8 @@
     "output": {
       "title": "Pacote de produção em ZIP",
       "desc": "Roteiro, storyboard, scene.py, narração, revisão epistêmica, script FFmpeg e entrada de calendário, prontos para renderização e publicação."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "vertice-os-artefatos-marvel",
@@ -543,7 +546,8 @@
     "output": {
       "title": "Versão publicada e versionada",
       "desc": "Cada ordem fica registrada no Vibranium Vault com lineage, evidências, contrato validado e aprovação humana quando exigida."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "hefesto-forja-licitatoria-squad",
@@ -662,7 +666,8 @@
     "output": {
       "title": "Dossiê de licitação indexado",
       "desc": "DFD, ETP, termo de referência, pesquisa de preços, matriz de riscos, edital e minuta de contrato — minuta de apoio técnico para revisão jurídica e aprovação final humana."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "ai-business-builder-squad",
@@ -758,7 +763,8 @@
     "output": {
       "title": "Pacote de Lançamento de Negócio Completo",
       "desc": "Um pacote integrado com modelo de negócio validado, pesquisa de mercado, arquitetura de produto/MVP, identidade de marca, copy de conversão, funil de vendas mapeado e calendário de conteúdo — pronto para o lançamento oficial do negócio."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "anvil-of-annwn-super-squad-system",
@@ -891,7 +897,8 @@
     "output": {
       "title": "Pacote de Forja Annwn (Annwn Forge Pack)",
       "desc": "Um pacote executável completo contendo PRD Master, blueprint operacional de squads, livro da oferta, MVP/protótipo, matriz de riscos e qualidade, roadmap de execução e pacote de handoff — pronto para avanço comercial e operacional."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "apex-context-supreme",
@@ -957,7 +964,8 @@
     "output": {
       "title": "Base de Contexto Multiplataforma Otimizada (Context Pack)",
       "desc": "Conjunto de arquivos de regras de contexto (ex.: CLAUDE.md, GEMINI.md) densos, sem redundância e validados, prontos para maximizar a performance de agentes de IA em qualquer plataforma compatível."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "atlas-visual-reports-squad-v1.1.0",
@@ -1082,7 +1090,8 @@
     "output": {
       "title": "Relatório Executivo Premium em HTML e PDF com Camada de Auditoria Big Four",
       "desc": "Um pacote final com HTML revisável e PDF A4 de alto impacto visual, acompanhado de mapa de evidências, matriz de riscos, scorecard de compliance, matriz de controles internos, working papers especializados e revisão Red Team — pronto para tomada de decisão executiva."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "aurora-poprock-ballads",
@@ -1167,7 +1176,8 @@
     "output": {
       "title": "Blueprint de Música Autoral Pop Rock Romântico",
       "desc": "Um documento completo e pronto para uso com letra estruturada em português, direção vocal, arranjo instrumental, tags e prompt para IA musical, além de checklist de originalidade."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "canto-manto-emocional",
@@ -1262,7 +1272,8 @@
     "output": {
       "title": "Pacote de Criação Musical Devocional",
       "desc": "Letra original, direção musical, guia vocal, mapa de arranjo e prompts para IA musical com checklist de originalidade."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "canto-memoria-viva",
@@ -1337,7 +1348,8 @@
     "output": {
       "title": "Pacote de Música Original",
       "desc": "Conceito emocional, letra completa, estilo, direção vocal, instrumentação e prompt pronto para IA musical, sem risco de plágio."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "copo-de-cafe-academico-squad",
@@ -1411,7 +1423,8 @@
     "output": {
       "title": "Pacote de Conteúdo Didático Multimodal",
       "desc": "Carrossel, slides, roteiro de podcast e quiz com gabarito gerados a partir de um único artigo acadêmico."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "copo-de-cafe-podcast-squad",
@@ -1481,7 +1494,8 @@
     "output": {
       "title": "Pacote de Episódio Pronto para Publicação",
       "desc": "Roteiro, clipes editados, posts sociais e show notes otimizados em SEO, prontos para divulgação científica."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "dharma-companion",
@@ -1561,7 +1575,8 @@
     "output": {
       "title": "Registro do Ciclo Diário de Prática Contemplativa",
       "desc": "Log diário da prática com zazen, reflexão, preceito, observações emocionais, arrependimento e ação de compaixão realizada."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "durable-execution-orchestrator-squad",
@@ -1642,7 +1657,8 @@
     "output": {
       "title": "Runtime Durável Prototipado",
       "desc": "Protótipo local (CLI Python + SQLite) que registra, executa, pausa, retoma e compensa workflows multiagentes com event log auditável."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "genius-athena-strange",
@@ -1708,7 +1724,8 @@
     "output": {
       "title": "Relatório Executivo de Antifragilidade",
       "desc": "Documento com TL;DR, mapa de riscos, design antifrágil, estratégia barbell, auditoria e plano de ação imediato."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "guardiao-carteira-squad",
@@ -1779,7 +1796,8 @@
     "output": {
       "title": "Relatório de Performance da Carteira",
       "desc": "PDF consolidado com posição unificada, métricas de risco, alertas de rebalanceamento e histórico de dividendos."
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "instagram-carrossel-visual-pro",
@@ -1884,7 +1902,8 @@
     "output": {
       "title": "Pacote de Publicação do Carrossel",
       "desc": "Imagens dos slides, apresentação .pptx, vídeo Manim, legenda e hashtags prontos para publicar."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "iso-42001-aims-implementation",
@@ -1985,7 +2004,8 @@
     "output": {
       "title": "Pacote SGIA/AIMS de Prontidão para Certificação",
       "desc": "Conjunto de documentos (inventário, gap analysis, registro de riscos, AIIA, SoA, políticas, evidências) prontos para auditoria ISO/IEC 42001."
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "maeve-atena-mimir-scienceclaw-research",
@@ -2108,7 +2128,8 @@
     "output": {
       "title": "Pacote de Pesquisa e Artigo Científico Auditado",
       "desc": "Relatório de pesquisa, matriz de evidências, manuscrito IMRaD e auditoria de integridade prontos para submissão."
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   },
   {
     "id": "maeve-athena-mimir-matrix-squad",
@@ -2215,7 +2236,8 @@
     "output": {
       "title": "Executive Decision Report",
       "desc": "Relatório executivo de recomendação (avançar, pivotar ou abandonar) com canvas, fit matrix e materiais visuais."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "maeve-athena-mimir-venture-forge-squad",
@@ -2316,7 +2338,8 @@
     "output": {
       "title": "Oráculo de Decisão",
       "desc": "Relatório executivo de recomendação (avançar, pivotar, redesenhar ou abandonar) apoiado por mapa de hipóteses e plano de travessia."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "maeve-carrossel-premium-instagram-ptbr",
@@ -2413,7 +2436,8 @@
     "output": {
       "title": "Pasta de Publicação para Instagram",
       "desc": "Slides em HTML/PNG, roteiro, legenda, hashtags, manifest e vídeo vertical final prontos para postar."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "maeve-fundamentos-roi-compass",
@@ -2482,7 +2506,8 @@
     "output": {
       "title": "Diagnóstico de Decisão",
       "desc": "Recomendação clara (comprar agora, consolidar básico ou acelerar) com plano de prática e context brief para IA."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "maeve-knowledge-graph-forge-squad",
@@ -2607,7 +2632,8 @@
     "output": {
       "title": "Grafo de conhecimento e artefato escolhido",
       "desc": "Grafo visual JSON/HTML, resumo, trilhas de estudo e oportunidades de aplicação prontos para uso."
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   },
   {
     "id": "maeve-lumen-leitura-squad",
@@ -2698,7 +2724,8 @@
     "output": {
       "title": "Plano de alfabetização fonológica",
       "desc": "Ficha de diagnóstico, plano de sessão, atividades, trilha semanal e relatório para família/professor."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "maeve-neurocognitive-intelligence-trainer-squad",
@@ -2789,7 +2816,8 @@
     "output": {
       "title": "Protocolo diário e plano de métricas",
       "desc": "Protocolo diário, plano de microsprint, plano de métricas e dashboard seed para acompanhamento."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "manopla-da-forja-venture-squad",
@@ -2874,7 +2902,8 @@
     "output": {
       "title": "Manopla de Negócios",
       "desc": "Documento executivo com estratégia, público, identidade, infraestrutura, viabilidade financeira e roadmap de lançamento."
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "mentor-ia-educacao-squad",
@@ -2945,7 +2974,8 @@
     "output": {
       "title": "Pacote didático e relatório de turma",
       "desc": "Plano de aula, material adaptativo, quiz com feedback e relatório de desempenho da turma."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "nexum-cognitivo",
@@ -3044,7 +3074,8 @@
     "output": {
       "title": "Protocolo diário de aprendizagem",
       "desc": "MicroSprint de 10 a 15 minutos com recuperação ativa, plano de métricas e parecer de segurança."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "notion-second-brain-squad",
@@ -3115,7 +3146,8 @@
     "output": {
       "title": "Sistema PARA organizado",
       "desc": "Itens classificados, plano diário, plano semanal priorizado e relatório mensal de produtividade."
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   },
   {
     "id": "omniscient-graphmaker-squad",
@@ -3240,7 +3272,8 @@
     "output": {
       "title": "Meta-Blueprint e DAG de execução",
       "desc": "Blueprint JSON, grafo de execução, orçamento de token/latência e especificação de produto/landing pronta para execução."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "orbisvisum-elementos-visuais-squad",
@@ -3345,7 +3378,8 @@
     "output": {
       "title": "Artefato visual estruturado",
       "desc": "Mapa de elementos, blueprint de solução, artefato final e relatório de validação prontos para publicação."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "pearson-specter-nova-legal-squad",
@@ -3425,7 +3459,8 @@
     "output": {
       "title": "Relatório de estratégia jurídica",
       "desc": "Relatório consolidado do caso com estratégia de argumentação, auditoria financeira e alinhamento regulatório."
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "prisma-psiquico-integrativo",
@@ -3534,7 +3569,8 @@
     "output": {
       "title": "Relatório de Formulação Integrativa",
       "desc": "Documento com hipóteses não diagnósticas e plano de ação seguro, exigindo revisão profissional."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "prisma-real-problem-squad",
@@ -3627,7 +3663,8 @@
     "output": {
       "title": "Pacote Final do Problema",
       "desc": "Diagnóstico, solução, plano de ação, riscos e critérios de sucesso consolidados."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "proactive-ai-os-squad",
@@ -3732,7 +3769,8 @@
     "output": {
       "title": "Sistema Agentivo de Produtividade Proativa",
       "desc": "Context packs, skills reutilizáveis, workflows e automações com governança de autonomia."
-    }
+    },
+    "category": "Construção de Squads & Sistemas de IA"
   },
   {
     "id": "prometheus-artis-galeria-dos-mestres",
@@ -3845,7 +3883,8 @@
     "output": {
       "title": "Prompt Artístico Aprovado",
       "desc": "Prompt principal, negative prompt, versão curta e parâmetros por ferramenta, com selo curatorial final."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "reforco-neurocognitivo-infantil-squad",
@@ -3919,7 +3958,8 @@
     "output": {
       "title": "Relatório de Progresso Neurocognitivo Infantil",
       "desc": "Exercícios personalizados e relatório consolidado para pais, educadores e terapeutas."
-    }
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   },
   {
     "id": "revisao-bibliografica-automatizada-squad",
@@ -3985,7 +4025,8 @@
     "output": {
       "title": "Revisão Bibliográfica Formatada",
       "desc": "Documento completo, estruturado e em conformidade ABNT, pronto para publicação acadêmica."
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   },
   {
     "id": "skeptic-protocol",
@@ -4064,7 +4105,8 @@
     "output": {
       "title": "Relatório Consolidado de Red Team com Veredito",
       "desc": "Estatísticas, achados classificados, evidências multi-formato e veredito final com recomendações."
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "squ-oraculo-aion-finance-super-squad",
@@ -4179,7 +4221,8 @@
     "output": {
       "title": "Relatório de Inteligência Financeira Educacional",
       "desc": "Síntese com fatos e inferências separados, matriz Bull/Bear, mapa de risco e disclaimers, sem executar trades."
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "trajetoria-evidenciada-squad",
@@ -4298,7 +4341,8 @@
     "output": {
       "title": "Dossiê RSC Organizado e Auditado",
       "desc": "Pacote com dados estruturados, pontuação sem duplicidades, memorial humanizado e relatório de auditoria."
-    }
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   },
   {
     "id": "vetornexo-premium-squad",
@@ -4393,7 +4437,8 @@
     "output": {
       "title": "Operação de Marketing Pronta e Mensurável",
       "desc": "Plano de 30 dias, arquitetura de funil, matriz de métricas e playbooks de CRM e vendas prontos para implementação."
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "bussola-academica-iffar-squad",
@@ -4480,7 +4525,8 @@
     "output": {
       "title": "Pacote de relatórios acadêmicos",
       "desc": "Conjunto de relatórios de aderência curricular, integralização, calendário, editais e atas, sempre com aprovação humana final."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "compliance-ia-iffar-squad",
@@ -4550,7 +4596,8 @@
     "output": {
       "title": "Pareceres e dashboard de conformidade",
       "desc": "Squad em desenvolvimento; entregáveis previstos incluem alertas, pareceres e dashboard de riscos de compliance."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "farol-contratos-licitacoes-iffar",
@@ -4727,7 +4774,8 @@
     "output": {
       "title": "Pacote de decisão auditável",
       "desc": "Planilha auditada, relatório executivo, dashboard e índice de atas assinadas para a área de licitações e contratos."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "germina360-squad",
@@ -4848,7 +4896,8 @@
     "output": {
       "title": "Dossiê de demo day e graduação",
       "desc": "Relatório de impacto e checklist de graduação com a decisão de graduar, manter em incubação ou repetir o ciclo."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "gestor-projetos-iffar-squad",
@@ -4914,7 +4963,8 @@
     "output": {
       "title": "Relatório de gestão consolidado",
       "desc": "Squad em fase de planejamento; entregável previsto é o relatório de gestão de projetos e contratos para a Reitoria."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "integra-incubadora-ops-squad",
@@ -5011,7 +5061,8 @@
     "output": {
       "title": "Relatórios institucionais e dashboard de KPIs",
       "desc": "Conjunto de relatórios para SEBRAE, FINEP e Reitoria com dashboard de indicadores da incubadora."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "nucleo-prpi-iffar-squad",
@@ -5106,7 +5157,8 @@
     "output": {
       "title": "Relatórios e dossiês de fomento",
       "desc": "Editais, relatórios de triagem, cronograma de bolsas, produção científica e dossiês de prestação de contas, com aprovação humana final."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "orbita-incubadora-squad",
@@ -5211,7 +5263,8 @@
     "output": {
       "title": "Relatório executivo de incubação",
       "desc": "Síntese consolidada para gestores, comitês e parceiros, sujeita a revisão humana e jurídica antes de decisões institucionais."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "pdi-vivo-iffar-squad",
@@ -5372,7 +5425,8 @@
     "output": {
       "title": "Pacote auditável do PDI vivo",
       "desc": "Base de conhecimento, matriz de metas, dicionário de indicadores, matriz de riscos, relatório trimestral e painel HTML para consulta pública."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "prismaframe-executive-cinema-suite",
@@ -5513,7 +5567,8 @@
     "output": {
       "title": "Pacote de apresentação executiva premium",
       "desc": "Deck executivo, relatório visual e composição animada HTML-native, limpos de marcas de processo."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "projur-contracts-squad",
@@ -5726,7 +5781,8 @@
     "output": {
       "title": "Pacote de inteligência contratual",
       "desc": "Matriz de contratos, dicionário de cláusulas, alertas de vigência, indicadores, relatório executivo e quality_report auditável."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "squ-tesouraria-publica-squad",
@@ -5815,7 +5871,8 @@
     "output": {
       "title": "Relatório e painel de execução orçamentária",
       "desc": "Relatório Markdown, JSON auditável e painel de indicadores com registro de revisão humana."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "squad-docente-iffar",
@@ -5926,7 +5983,8 @@
     "output": {
       "title": "Artefato pedagógico homologado",
       "desc": "Plano de ensino, material didático, avaliação com rubrica ou dossiê de conselho de classe, homologado por humano."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "squad-pcfp",
@@ -6031,7 +6089,8 @@
     "output": {
       "title": "Planilha de Custos e Formação de Preços validada",
       "desc": "Planilha no layout do Anexo VII-D, relatório técnico fundamentado, checklist assinável e dashboard comparativo."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "themis-contratos-publicos-squad",
@@ -6126,7 +6185,8 @@
     "output": {
       "title": "Parecer técnico-jurídico consolidado",
       "desc": "Ficha de triagem, checklist de conformidade, matriz de riscos e parecer jurídico fundamentado, com revisão humana."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "vetorviveiro-squad",
@@ -6225,7 +6285,8 @@
     "output": {
       "title": "Pacote institucional da incubadora",
       "desc": "Regimentos revisados, sistema CERNE, editais, matrizes, painel de indicadores e site A4/PDF validado."
-    }
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
     "id": "universal-obsidian-knowledge-squad",
@@ -6376,7 +6437,8 @@
     "output": {
       "title": "Conhecimento pesquisável e citável do seu Obsidian",
       "desc": "Respostas com citações verificadas, mapas de conhecimento, digests e relatórios — gerados localmente, em read-only por padrão, a partir do seu vault."
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   },
   {
     "id": "allspark-talent-intelligence-squad",
@@ -6486,7 +6548,8 @@
     "output": {
       "title": "Relatório de Inteligência de Pessoas (People Intelligence…",
       "desc": "Mapa de Sucessão por nível e área · Playbook de Retenção com ações prioritárias · Dashboard de Métricas DEI auditável"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "cerebro-sales-intelligence-squad",
@@ -6586,7 +6649,8 @@
     "output": {
       "title": "ICP Playbook (Perfil de Cliente Ideal documentado)",
       "desc": "Guia de Inteligência de Conversas de Vendas · Relatório de Saúde do Pipeline · Relatório de Inteligência Win/Loss"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "darkhold-competitive-intelligence-squad",
@@ -6680,7 +6744,8 @@
     "output": {
       "title": "Dossier de Inteligência Competitiva (Competitive…",
       "desc": "Mapa de Ameaças (Threat Map) com probabilidade e impacto · Relatório de Cenários Adversariais com planos de resposta · Matriz de Oportunidades — Whitespace Matrix de mercados inexplorados"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "forge-of-solus-prime-cybersecurity-squad",
@@ -6776,7 +6841,8 @@
     "output": {
       "title": "Relatório de Inventário de Ativos e Superfície de Ataque",
       "desc": "Relatório de Modelagem de Ameaças (STRIDE + MITRE ATT&CK) · Scorecard de Postura de Segurança com prioridades CVSS · Pack de Políticas de Segurança (PSI, BYOD, Nuvem, Trabalho Remoto, Classificação…"
-    }
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   },
   {
     "id": "matrix-of-leadership-squad",
@@ -6876,7 +6942,8 @@
     "output": {
       "title": "Relatório DNA de Liderança (arquétipo + pontos cegos +…",
       "desc": "PDI — Plano de Desenvolvimento Individual com marcos e métricas · Executive Communication Playbook (narrativa, storytelling, comunicação C-suite) · Succession Readiness Score com gap analysis…"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "mobius-chair-strategic-foresight-squad",
@@ -6970,7 +7037,8 @@
     "output": {
       "title": "relatorio_inteligencia_de_futuros",
       "desc": "documento_quatro_cenarios · resultados_wind_tunnel · roadmap_estrategico"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "mother-box-experience-squad",
@@ -7074,7 +7142,8 @@
     "output": {
       "title": "Mapa de Jornada do Cliente (As-Is e To-Be)",
       "desc": "Blueprint de Serviço (frontstage e backstage) · CX Backlog priorizado com friction points · Relatório de Voz do Cliente sintetizado"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "omega-lock-crisis-management-squad",
@@ -7176,7 +7245,8 @@
     "output": {
       "title": "Crisis Response Playbook",
       "desc": "Kit de Comunicação para Stakeholders · Plano de Continuidade de Negócios (BCP) · Templates de Resposta à Mídia"
-    }
+    },
+    "category": "Negócios, Estratégia & Vendas"
   },
   {
     "id": "soulsword-personal-branding-squad",
@@ -7260,7 +7330,8 @@
     "output": {
       "title": "Documento de DNA de Marca (propósito, valores, voz,…",
       "desc": "Plano de Estratégia de Conteúdo 90 Dias (omnicanal) · Guia de Otimização de Perfil LinkedIn · Kit do Palestrante (bio, proposta de palestra, media kit)"
-    }
+    },
+    "category": "Conteúdo, Marketing & Visual"
   },
   {
     "id": "vector-sigma-data-forge-squad",
@@ -7396,6 +7467,7 @@
     "output": {
       "title": "Data Architecture Blueprint (modelo dimensional, ERD,…",
       "desc": "Data Pipeline Design Document (ETL/ELT com boas práticas) · Data Quality Scorecard com regras de validação · Árvore de Métricas (Metric Tree) com North Star e métricas derivadas"
-    }
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   }
 ]
