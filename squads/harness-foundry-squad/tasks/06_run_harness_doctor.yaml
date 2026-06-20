@@ -1,0 +1,13 @@
+id: 06_run_harness_doctor
+owner: harness-doctor-curator
+inputs:
+  - hermes_package_dir
+  - security_audit_report
+  - fit_report
+outputs:
+  - doctor_report
+acceptance_criteria:
+  - status_healthy_warn_ou_blocked_explicito
+  - avisos_listados_mesmo_quando_healthy
+  - template_vertical_iffar_disponivel_quando_aplicavel
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

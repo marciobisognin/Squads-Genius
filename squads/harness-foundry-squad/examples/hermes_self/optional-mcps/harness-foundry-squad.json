@@ -1,0 +1,9 @@
+{
+  "harness-foundry-squad": {
+    "command": "python3",
+    "args": [
+      "scripts/run_squad.py"
+    ],
+    "note": "Execução local; publique como pacote npm para habilitar 'npx'."
+  }
+}

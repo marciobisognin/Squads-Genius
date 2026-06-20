@@ -1,0 +1,12 @@
+id: 05_audit_security_policy
+owner: security-policy-auditor
+inputs:
+  - hermes_package_dir
+  - harnessspec_json
+outputs:
+  - security_audit_report
+acceptance_criteria:
+  - nenhuma_credencial_encontrada
+  - permissoes_explicitas_sem_wildcard
+  - artefatos_temporarios_isolados_em_output
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,16 @@
+model:
+  provider: auto
+agent:
+  personalities:
+    harness-intake-orchestrator: Recebe o squad/repositório alvo, define o host de
+      destino e bloqueia até ter squad.yaml válido.
+    harness-fit-analyst: Calcula fit, confiança de compilação, cobertura de tasks
+      e custo estimado por execução.
+    squad-to-harnessspec-adapter: Converte squad.yaml (agentes/tasks/workflows) em
+      um HarnessSpec portável.
+    hermes-package-builder: Gera cli-config.yaml, optional-mcps e SKILL.md para instalação
+      no Hermes.
+    security-policy-auditor: Valida policy default-deny, ausência de credenciais e
+      escopo de permissões do harness.
+    harness-doctor-curator: Roda o diagnóstico final (HEALTHY/WARN/BLOCKED) e mantém
+      o template vertical:iffar.

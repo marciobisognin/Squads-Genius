@@ -1,0 +1,14 @@
+id: 04_generate_hermes_package
+owner: hermes-package-builder
+inputs:
+  - harnessspec_json
+  - target_hosts
+outputs:
+  - cli_config_yaml
+  - optional_mcp_json
+  - skill_md
+acceptance_criteria:
+  - personalidades_correspondem_aos_agentes_do_harnessspec
+  - mcp_local_ou_npm_coerente_com_exposure_level
+  - skill_md_documenta_instalacao_e_execucao
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,13 @@
+id: 03_build_harnessspec_adapter
+owner: squad-to-harnessspec-adapter
+inputs:
+  - squad_path
+  - fit_report
+outputs:
+  - harnessspec_json
+  - gaps
+acceptance_criteria:
+  - capabilities_mapeadas_de_agentes
+  - commands_mapeados_de_tasks
+  - pipelines_mapeados_de_workflows
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

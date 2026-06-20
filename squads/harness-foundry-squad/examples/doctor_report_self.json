@@ -1,0 +1,7 @@
+{
+  "status": "WARN",
+  "blockers": [],
+  "warnings": [
+    "WARN .claude-plugin/plugin.json absent"
+  ]
+}
