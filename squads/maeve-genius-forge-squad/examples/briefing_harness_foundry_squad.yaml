@@ -1,0 +1,25 @@
+project_name: "Harness Foundry Squad"
+objective: "Criar squad que avalia, projeta e empacota qualquer squad do Squads-Genius (a partir de seu squad.yaml) como um harness de agente executável e instalável — CLI via npx, MCP local, integração Hermes (cli-config.yaml + optional-mcps), skills, policy default-deny e memória scoped — usando o motor externo agent-harness-generator (metaharness) sem vendorizar seu código, com um adapter squad.yaml -> HarnessSpec e um template institucional vertical:iffar para squads jurídicos/educacionais brasileiros"
+audience: "mantenedores do Squads-Genius, squads institucionais IFFar, usuários que querem instalar squads como CLI/MCP em Hermes, Claude Code, Codex e outros hosts de agentes"
+domain: "agent harness / packaging de squads / MCP / Hermes / scaffolding de agentes de codificação"
+desired_asset: "squad"
+references:
+  urls:
+    - "https://github.com/ruvnet/agent-harness-generator"
+  files:
+    - "ANALISE_AGENT_HARNESS_GENERATOR_MAEVE_1.md"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+success_criteria:
+  - "agente de avaliação roda o equivalente a 'metaharness score/analyze' sobre um squad e produz um relatório fit/risco antes de qualquer empacotamento"
+  - "adapter converte squad.yaml (agents/tasks/workflows) em um HarnessSpec compatível com o gerador externo, sem duplicar o motor dentro do repositório"
+  - "saída inclui ao menos um host real configurado (Hermes: cli-config.yaml + optional-mcps) e instruções para os principais LLMs de codificação"
+  - "template vertical:iffar entregue com agentes institucionais (analista-normativo, gestor-contratual, auditor-evidencias, redator-institucional, revisor-lgpd)"
+  - "policy default-deny documentada e validada antes de qualquer harness ser considerado pronto para instalação"
+  - "nenhum artefato gerado (repo-profile.json, harness-plan.json) é commitado fora de uma pasta de output isolada"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

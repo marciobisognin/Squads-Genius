@@ -1,0 +1,16 @@
+{
+  "squad": "harness-foundry-squad",
+  "harness_fit": 100,
+  "breakdown": {
+    "harness_fit": 100,
+    "compile_confidence": 100,
+    "task_coverage": 100,
+    "tool_safety": 100,
+    "memory_usefulness": 100
+  },
+  "est_cost_per_run_usd": 0.09,
+  "recommended_mode": "CLI + MCP",
+  "constraints": [],
+  "gaps": [],
+  "go_no_go": "go"
+}

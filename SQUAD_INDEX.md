@@ -13,6 +13,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Orquestrador de Execução Durável para Squads](squads/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — versão `1.0.0` — runtime durável para workflows multiagentes com checkpoints, sinais humanos, compensações e auditoria
 - [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
 - [germina360-squad](IFFar-Squads/squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
+- [Harness Foundry Squad](squads/harness-foundry-squad/README.md) — `harness-foundry-squad` — versão `1.0.0` — avalia, converte e empacota squads do Squads-Genius como harnesses executáveis (CLI, MCP, Hermes) com policy default-deny e template institucional vertical:iffar
 - [Hefesto Forja Licitatória](IFFar-Squads/squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes
 - [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
 - [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`

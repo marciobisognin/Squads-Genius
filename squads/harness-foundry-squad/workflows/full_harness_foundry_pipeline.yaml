@@ -1,0 +1,23 @@
+id: full_harness_foundry_pipeline
+human_in_loop: true
+steps:
+  - order: 1
+    name: intake
+    task: 01_intake_harness_request
+  - order: 2
+    name: fit_analysis
+    task: 02_score_squad_fit
+    gate: "score >= 40 ou no-go"
+  - order: 3
+    name: harnessspec_adapter
+    task: 03_build_harnessspec_adapter
+  - order: 4
+    name: hermes_package
+    task: 04_generate_hermes_package
+  - order: 5
+    name: security_audit
+    task: 05_audit_security_policy
+    gate: "checklist default-deny sem bloqueios"
+  - order: 6
+    name: doctor_and_release
+    task: 06_run_harness_doctor

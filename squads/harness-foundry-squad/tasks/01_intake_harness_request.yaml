@@ -1,0 +1,14 @@
+id: 01_intake_harness_request
+owner: harness-intake-orchestrator
+inputs:
+  - squad_path
+  - target_hosts
+  - exposure_level
+outputs:
+  - intake_summary
+  - gaps
+acceptance_criteria:
+  - squad_yaml_lido_e_valido
+  - hosts_de_destino_confirmados
+  - policy_de_seguranca_confirmada
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

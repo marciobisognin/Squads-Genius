@@ -1,0 +1,124 @@
+{
+  "name": "harness-foundry-squad",
+  "commercial_name": "Harness Foundry Squad",
+  "version": "1.0.0",
+  "license": "MIT",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
+  "capabilities": [
+    {
+      "id": "harness-intake-orchestrator",
+      "description": "Recebe o squad/repositório alvo, define o host de destino e bloqueia até ter squad.yaml válido.",
+      "persona_file": "agents/harness-intake-orchestrator.md"
+    },
+    {
+      "id": "harness-fit-analyst",
+      "description": "Calcula fit, confiança de compilação, cobertura de tasks e custo estimado por execução.",
+      "persona_file": "agents/harness-fit-analyst.md"
+    },
+    {
+      "id": "squad-to-harnessspec-adapter",
+      "description": "Converte squad.yaml (agentes/tasks/workflows) em um HarnessSpec portável.",
+      "persona_file": "agents/squad-to-harnessspec-adapter.md"
+    },
+    {
+      "id": "hermes-package-builder",
+      "description": "Gera cli-config.yaml, optional-mcps e SKILL.md para instalação no Hermes.",
+      "persona_file": "agents/hermes-package-builder.md"
+    },
+    {
+      "id": "security-policy-auditor",
+      "description": "Valida policy default-deny, ausência de credenciais e escopo de permissões do harness.",
+      "persona_file": "agents/security-policy-auditor.md"
+    },
+    {
+      "id": "harness-doctor-curator",
+      "description": "Roda o diagnóstico final (HEALTHY/WARN/BLOCKED) e mantém o template vertical:iffar.",
+      "persona_file": "agents/harness-doctor-curator.md"
+    }
+  ],
+  "commands": [
+    {
+      "id": "01_intake_harness_request",
+      "owner": "harness-intake-orchestrator",
+      "inputs": [
+        "squad_path",
+        "target_hosts",
+        "exposure_level"
+      ],
+      "outputs": [
+        "intake_summary",
+        "gaps"
+      ]
+    },
+    {
+      "id": "02_score_squad_fit",
+      "owner": "harness-fit-analyst",
+      "inputs": [
+        "squad_path"
+      ],
+      "outputs": [
+        "fit_report"
+      ]
+    },
+    {
+      "id": "03_build_harnessspec_adapter",
+      "owner": "squad-to-harnessspec-adapter",
+      "inputs": [
+        "squad_path",
+        "fit_report"
+      ],
+      "outputs": [
+        "harnessspec_json",
+        "gaps"
+      ]
+    },
+    {
+      "id": "04_generate_hermes_package",
+      "owner": "hermes-package-builder",
+      "inputs": [
+        "harnessspec_json",
+        "target_hosts"
+      ],
+      "outputs": [
+        "cli_config_yaml",
+        "optional_mcp_json",
+        "skill_md"
+      ]
+    },
+    {
+      "id": "05_audit_security_policy",
+      "owner": "security-policy-auditor",
+      "inputs": [
+        "hermes_package_dir",
+        "harnessspec_json"
+      ],
+      "outputs": [
+        "security_audit_report"
+      ]
+    },
+    {
+      "id": "06_run_harness_doctor",
+      "owner": "harness-doctor-curator",
+      "inputs": [
+        "hermes_package_dir",
+        "security_audit_report",
+        "fit_report"
+      ],
+      "outputs": [
+        "doctor_report"
+      ]
+    }
+  ],
+  "pipelines": [
+    {
+      "id": "full_harness_foundry_pipeline",
+      "file": "workflows/full_harness_foundry_pipeline.yaml"
+    }
+  ],
+  "policy": {
+    "default": "deny",
+    "exceptions": []
+  },
+  "gaps": [],
+  "source_squad_path": "."
+}

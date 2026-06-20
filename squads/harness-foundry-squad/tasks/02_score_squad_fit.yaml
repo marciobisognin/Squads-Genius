@@ -1,0 +1,11 @@
+id: 02_score_squad_fit
+owner: harness-fit-analyst
+inputs:
+  - squad_path
+outputs:
+  - fit_report
+acceptance_criteria:
+  - score_calculado_com_breakdown
+  - constraints_duras_listadas
+  - go_no_go_explicito
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

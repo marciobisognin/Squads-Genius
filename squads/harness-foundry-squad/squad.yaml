@@ -1,0 +1,87 @@
+name: harness-foundry-squad
+commercial_name: Harness Foundry Squad
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+positioning: >
+  Avalia, projeta e funde qualquer squad do Squads-Genius em um harness de
+  agente executável e instalável (CLI, MCP, Hermes, skills, policy
+  default-deny), sem vendorizar motores externos.
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+engine_dependency:
+  name: agent-harness-generator
+  alias: metaharness
+  source: "https://github.com/ruvnet/agent-harness-generator"
+  vendored: false
+  note: >
+    O squad não copia o código do gerador. Os scripts deste squad produzem
+    um HarnessSpec e um pacote Hermes próprios; quando o usuário tiver o
+    metaharness instalado localmente, os mesmos artefatos podem alimentar
+    `metaharness score|analyze|build`.
+
+agents:
+  - id: harness-intake-orchestrator
+    file: agents/harness-intake-orchestrator.md
+    role: Recebe o squad/repositório alvo, define o host de destino e bloqueia até ter squad.yaml válido.
+  - id: harness-fit-analyst
+    file: agents/harness-fit-analyst.md
+    role: Calcula fit, confiança de compilação, cobertura de tasks e custo estimado por execução.
+  - id: squad-to-harnessspec-adapter
+    file: agents/squad-to-harnessspec-adapter.md
+    role: Converte squad.yaml (agentes/tasks/workflows) em um HarnessSpec portável.
+  - id: hermes-package-builder
+    file: agents/hermes-package-builder.md
+    role: Gera cli-config.yaml, optional-mcps e SKILL.md para instalação no Hermes.
+  - id: security-policy-auditor
+    file: agents/security-policy-auditor.md
+    role: Valida policy default-deny, ausência de credenciais e escopo de permissões do harness.
+  - id: harness-doctor-curator
+    file: agents/harness-doctor-curator.md
+    role: Roda o diagnóstico final (HEALTHY/WARN/BLOCKED) e mantém o template vertical:iffar.
+
+tasks:
+  - id: 01_intake_harness_request
+    file: tasks/01_intake_harness_request.yaml
+    owner: harness-intake-orchestrator
+  - id: 02_score_squad_fit
+    file: tasks/02_score_squad_fit.yaml
+    owner: harness-fit-analyst
+  - id: 03_build_harnessspec_adapter
+    file: tasks/03_build_harnessspec_adapter.yaml
+    owner: squad-to-harnessspec-adapter
+  - id: 04_generate_hermes_package
+    file: tasks/04_generate_hermes_package.yaml
+    owner: hermes-package-builder
+  - id: 05_audit_security_policy
+    file: tasks/05_audit_security_policy.yaml
+    owner: security-policy-auditor
+  - id: 06_run_harness_doctor
+    file: tasks/06_run_harness_doctor.yaml
+    owner: harness-doctor-curator
+
+workflows:
+  - id: full_harness_foundry_pipeline
+    file: workflows/full_harness_foundry_pipeline.yaml
+
+quality_gates:
+  - fit_score_minimo
+  - harnessspec_valido
+  - policy_default_deny
+  - doctor_healthy_ou_warn_aceitavel
+
+outputs:
+  - output/<squad>/fit_report.json
+  - output/<squad>/harnessspec.json
+  - output/<squad>/hermes/cli-config.yaml
+  - output/<squad>/hermes/optional-mcps/<squad>.json
+  - output/<squad>/hermes/SKILL.md
+  - output/<squad>/security_audit.json
+  - output/<squad>/doctor_report.json
+
+templates:
+  - id: vertical-iffar
+    path: templates/vertical-iffar/
+    description: Template institucional para squads jurídicos/educacionais brasileiros (LGPD, contratos, normas).
