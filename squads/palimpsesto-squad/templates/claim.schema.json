@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Claim",
+  "description": "Contrato agente da Camada 1 (ou AGON) -> ELENCHUS.",
+  "type": "object",
+  "required": ["agent", "statement", "layer", "preliminary_certainty", "risk"],
+  "properties": {
+    "agent": {
+      "type": "string",
+      "enum": ["CHRONOS", "TERRA", "VERBUM", "ETHOS", "KRATOS", "NUMEN", "NOUS", "AGON"]
+    },
+    "statement": { "type": "string" },
+    "layer": { "type": "string" },
+    "preliminary_certainty": { "type": "number", "minimum": 0, "maximum": 1 },
+    "source_hint": { "type": "string" },
+    "risk": { "type": "string", "enum": ["baixo", "medio", "alto"] },
+    "origin": { "type": "string", "description": "Presente quando origem != agente padrao da trilha, ex.: AGON." }
+  }
+}

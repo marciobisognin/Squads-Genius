@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VerifiedClaim",
+  "description": "Contrato ELENCHUS -> O Tecelao.",
+  "type": "object",
+  "required": ["statement", "certainty", "status", "anachronism_check"],
+  "properties": {
+    "statement": { "type": "string" },
+    "certainty": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["consenso", "majoritario", "disputado", "hipotese", "reconstrucao_plausivel", "desconhecido"]
+    },
+    "source": { "type": "string" },
+    "schools_in_dispute": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "anachronism_check": { "type": "string", "enum": ["pass", "fail"] },
+    "elenchus_note": { "type": "string" }
+  }
+}

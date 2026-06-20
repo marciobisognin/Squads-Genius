@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dossier",
+  "description": "Contrato O Tecelao -> AEDO/PONTE.",
+  "type": "object",
+  "required": ["verified_claims", "tensions", "certainty_graph", "depth"],
+  "properties": {
+    "verified_claims": {
+      "type": "object",
+      "description": "VerifiedClaim[] agrupados por camada (chronos, terra, verbum, ethos, kratos, numen, nous, agon).",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "verified-claim.schema.json" }
+      }
+    },
+    "tensions": {
+      "type": "array",
+      "description": "Divergencias interpretativas preservadas, nunca achatadas.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topic": { "type": "string" },
+          "versions": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "certainty_graph": { "type": "object" },
+    "depth": { "type": "integer", "enum": [1, 2, 3] }
+  }
+}
