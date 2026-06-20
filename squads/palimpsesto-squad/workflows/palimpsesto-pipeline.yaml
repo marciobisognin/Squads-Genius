@@ -1,0 +1,91 @@
+name: palimpsesto-pipeline
+version: 1.1
+description: >-
+  Camada antes de conclusao -> Camada 1 reconstroi -> AGON pluraliza ->
+  ELENCHUS verifica e poda -> Camada 3 narra. A imersao jamais ocorre sobre
+  material nao verificado, e a reconstrucao nunca repousa numa unica
+  perspectiva.
+human_in_loop: true
+rollback: "retornar ao ultimo gate reprovado (HITL ou ELENCHUS)"
+nodes:
+  triador:
+    agent: agents/triador.md
+    outputs: [sacp_in]
+  chronos:
+    agent: agents/chronos.md
+    depends_on: [triador]
+    condition: "CHRONOS in sacp_in.tracks"
+    outputs: [claims_chronos]
+  terra:
+    agent: agents/terra.md
+    depends_on: [triador]
+    condition: "TERRA in sacp_in.tracks"
+    outputs: [claims_terra]
+  verbum:
+    agent: agents/verbum.md
+    depends_on: [triador]
+    condition: "VERBUM in sacp_in.tracks"
+    outputs: [claims_verbum]
+  ethos:
+    agent: agents/ethos.md
+    depends_on: [triador]
+    condition: "ETHOS in sacp_in.tracks"
+    outputs: [claims_ethos]
+  kratos:
+    agent: agents/kratos.md
+    depends_on: [triador]
+    condition: "KRATOS in sacp_in.tracks"
+    outputs: [claims_kratos]
+  numen:
+    agent: agents/numen.md
+    depends_on: [triador]
+    condition: "NUMEN in sacp_in.tracks"
+    outputs: [claims_numen]
+  nous:
+    agent: agents/nous.md
+    depends_on: [triador]
+    condition: "NOUS in sacp_in.tracks"
+    outputs: [claims_nous]
+  agon:
+    agent: agents/agon.md
+    depends_on: [chronos, terra, verbum, ethos, kratos, numen, nous]
+    outputs: [claims_agon, tensions]
+  elenchus:
+    agent: agents/elenchus.md
+    depends_on: [agon]
+    outputs: [verified_claims]
+  hitl_gate:
+    type: human_review
+    depends_on: [elenchus]
+    condition: "sacp_in.sensitivity_flag is not null"
+    on_reject: "retornar a elenchus com observacoes humanas"
+  tecelao:
+    agent: agents/tecelao.md
+    depends_on: [elenchus, hitl_gate]
+    outputs: [dossier]
+  aedo:
+    agent: agents/aedo.md
+    depends_on: [tecelao]
+    outputs: [travessia_e_narracao]
+  ponte:
+    agent: agents/ponte.md
+    depends_on: [tecelao, aedo]
+    outputs: [ponte_presente]
+depth_routing:
+  1:
+    tracks_forcadas: [CHRONOS, TERRA, VERBUM]
+    saida: "abertura imersiva curta (Reels/Manim) + 3 camadas-chave"
+  2:
+    tracks_forcadas: "todas as pertinentes ao SACP-IN"
+    saida: "narracao completa em 9 secoes (ver formato-entrega.md) + ponte"
+  3:
+    tracks_forcadas: "todas as camadas"
+    saida: "narracao completa + aparato de fontes + divergencias de escola + notas filologicas extensas"
+safeguards:
+  aedo_so_usa_material_verificado: true
+  elenchus_poder_de_veto: true
+  na_duvida_rebaixar: true
+  preservar_divergencias_legitimas: true
+observability:
+  tool: Langfuse/LangSmith
+  trace_fields: [custo, latencia, claims_rebaixados_por_elenchus]

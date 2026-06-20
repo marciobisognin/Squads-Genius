@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SACP-IN",
+  "description": "Contrato Triador -> Camada 1 (plano de escavacao).",
+  "type": "object",
+  "required": ["object", "object_type", "depth", "tracks", "tracks_excluded"],
+  "properties": {
+    "object": { "type": "string", "description": "Objeto de conhecimento recebido." },
+    "object_type": {
+      "type": "string",
+      "enum": ["texto_sagrado", "evento", "personalidade", "conceito_ideia", "lugar", "objeto_material", "processo_longa_duracao"]
+    },
+    "depth": { "type": "integer", "enum": [1, 2, 3] },
+    "tracks": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["CHRONOS", "TERRA", "VERBUM", "ETHOS", "KRATOS", "NUMEN", "NOUS"] }
+    },
+    "tracks_excluded": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tentative_window": {
+      "type": "object",
+      "properties": {
+        "event": { "type": "string" },
+        "register": { "type": "string" },
+        "region": { "type": "string" }
+      }
+    },
+    "sensitivity_flag": {
+      "type": ["string", "null"],
+      "enum": ["religiao_viva", "genocidio", "disputa_identitaria", "politica_contemporanea", null]
+    },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "object": "Mt 5,5 — 'Bem-aventurados os mansos, porque herdarão a terra'",
+  "object_type": "texto_sagrado",
+  "depth": 2,
+  "tracks": ["CHRONOS", "TERRA", "VERBUM", "ETHOS", "KRATOS", "NUMEN", "NOUS"],
+  "tracks_excluded": [],
+  "tentative_window": {
+    "event": "séc. I d.C.",
+    "register": "c. 80–90 d.C.",
+    "region": "Galileia / Síria romana"
+  },
+  "sensitivity_flag": "religiao_viva",
+  "notes": "Ativar regra dos três tempos; foco filológico em 'praÿs' e 'gē'."
+}

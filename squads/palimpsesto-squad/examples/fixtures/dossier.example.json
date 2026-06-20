@@ -1,0 +1,28 @@
+{
+  "verified_claims": {
+    "verbum": [
+      {
+        "statement": "O grego 'praÿs' não significa 'fraco', mas força contida / domada.",
+        "certainty": 0.85,
+        "status": "majoritario",
+        "source": "léxico do grego koiné",
+        "schools_in_dispute": [],
+        "anachronism_check": "pass",
+        "elenchus_note": "Mantido; conotação bem atestada no koiné."
+      }
+    ]
+  },
+  "tensions": [
+    {
+      "topic": "Natureza da bem-aventurança (espiritual vs. política)",
+      "versions": [
+        "Leitura puramente espiritual (consolo individual)",
+        "Leitura política (reversão da ordem tributária romano-herodiana)"
+      ]
+    }
+  ],
+  "certainty_graph": {
+    "verbum.praÿs": 0.85
+  },
+  "depth": 2
+}
