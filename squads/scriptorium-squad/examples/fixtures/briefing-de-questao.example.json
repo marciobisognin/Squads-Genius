@@ -1,0 +1,16 @@
+{
+  "pergunta_pesquisa": "Em que medida o uso de copilotos de IA com gates de integridade reduz a alucinação de citações em manuscritos de pós-graduação?",
+  "subperguntas": [
+    "Quais modos de falha de pipelines autônomos são mais frequentes sem human-in-the-loop?",
+    "A verificação determinística 4-índices reduz citações inexistentes na saída final?"
+  ],
+  "tipo_artefato": "IMRaD",
+  "idioma": "bilingue",
+  "metodo_proposto": "Estudo quase-experimental comparando manuscritos com e sem gates de integridade, com gold set humano de 20 tuplas alegação↔fonte.",
+  "hierarquia_evidencia": ["revisão sistemática", "ensaio controlado", "estudo observacional", "opinião de especialista"],
+  "criterios_inclusao_exclusao": ["incluir: 2018–2026, peer-reviewed ou pré-print indexado", "excluir: sem método descrito"],
+  "cynefin": "Complicated",
+  "modo_investigacao": "revisão-sistemática-PRISMA",
+  "premissas": ["O autor possui um corpus pré-curado de ~40 PDFs."],
+  "lacunas_declaradas": ["[LACUNA DE MATERIAL] dados primários ainda não coletados na fase de briefing."]
+}

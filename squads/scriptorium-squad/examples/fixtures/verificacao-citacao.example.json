@@ -1,0 +1,19 @@
+{
+  "chave_citacao": "lu2026autonomous",
+  "titulo": "Failure modes of autonomous research systems",
+  "autores": ["Lu, X.", "et al."],
+  "ano": 2026,
+  "doi": "10.1038/s41586-026-00000-0",
+  "arxiv_id": null,
+  "status_existencia": "verificada",
+  "indices_consultados": ["semantic_scholar", "openalex", "crossref", "arxiv"],
+  "indices_com_match": ["crossref", "openalex", "semantic_scholar"],
+  "fuzzy_score_titulo": 97.4,
+  "ancora_fidelidade": {
+    "quote": "...autonomous pipelines inherit recurring failure modes including hallucinated citations and framing lock...",
+    "page": "915",
+    "section": "Results"
+  },
+  "cache_hit": false,
+  "override_humano": null
+}

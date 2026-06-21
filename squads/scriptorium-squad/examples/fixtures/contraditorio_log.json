@@ -1,0 +1,5 @@
+[
+  { "rodada": 1, "ataque": "A amostra de 13 alegações é pequena demais para sustentar a conclusão geral.", "replica_autor": "Adicionei verificação de 30% do corpus com mínimo de 10, conforme protocolo, e reportei o intervalo.", "pontuacao": 4, "acao": "concede" },
+  { "rodada": 2, "ataque": "A definição de 'alegação não-sustentada' é circular.", "replica_autor": "Acho que está claro o suficiente.", "pontuacao": 2, "acao": "mantem" },
+  { "rodada": 3, "ataque": "Não há grupo de controle sem gates de integridade.", "replica_autor": "Incluí um braço de controle e a comparação pré-registrada com o gold set humano de 20 tuplas.", "pontuacao": 5, "acao": "concede" }
+]

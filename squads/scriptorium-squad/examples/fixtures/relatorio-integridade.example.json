@@ -1,0 +1,30 @@
+{
+  "gate": "2.5",
+  "modos_falha": [
+    { "modo": "M1", "descricao": "bug que passa pela auto-revisão", "status": "OK", "evidencia": "sem código executável neste manuscrito." },
+    { "modo": "M2", "descricao": "citação alucinada", "status": "SUSPEITO", "evidencia": "1 referência ficou 'nao-resolvida' (regional, não-indexada)." },
+    { "modo": "M3", "descricao": "resultado experimental fabricado", "status": "OK", "evidencia": "declaracao_experimentos = sem_experimentos." },
+    { "modo": "M4", "descricao": "dependência de atalho", "status": "OK", "evidencia": "" },
+    { "modo": "M5", "descricao": "bug reenquadrado como insight", "status": "OK", "evidencia": "" },
+    { "modo": "M6", "descricao": "metodologia fabricada", "status": "OK", "evidencia": "método rastreável ao Briefing de Questão." },
+    { "modo": "M7", "descricao": "trava de enquadramento", "status": "OK", "evidencia": "contraditório explorou premissas fora do frame." }
+  ],
+  "verificacao_alegacoes": {
+    "cobertura_percentual": 30.0,
+    "total_alegacoes": 42,
+    "amostradas": 13,
+    "sustentadas": 12,
+    "nao_sustentadas": 1,
+    "referencias_fabricadas": 0,
+    "violacoes_de_restricao": 0
+  },
+  "cross_model": {
+    "ativo": true,
+    "modelo_local": "qwen2.5:14b (Ollama)",
+    "divergencia_pontos": 1.0,
+    "reportada": true
+  },
+  "veredito": "FALHOU",
+  "ack_humano": false,
+  "tentativas_auto_cura": 1
+}

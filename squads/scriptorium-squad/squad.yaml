@@ -1,0 +1,273 @@
+name: scriptorium-squad
+commercial_name: SCRIPTORIUM
+version: 1.0.0
+status: production-ready
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+language: pt-BR / EN / bilíngue
+description: >-
+  Sistema multiagente de produção acadêmica fim-a-fim com integridade
+  verificável. Conduz um manuscrito da pergunta de pesquisa ao artefato
+  publicável (Markdown / DOCX / PDF tipografado), passando por revisão por pares
+  simulada multi-perspectiva e dois gates de integridade não-puláveis. Princípio
+  não-autônomo: o pesquisador humano é o piloto; o squad faz o trabalho braçal
+  verificável (rastrear referências, formatar citações, checar consistência,
+  validar existência de fontes contra índices reais) e se recusa a preencher
+  lacunas com memória paramétrica — toda alegação não-fundamentada vira
+  [LACUNA DE MATERIAL].
+baseline_architecture: >-
+  OMNISCIENT v7.0 (Cynefin Classifier no gate de entrada, contratos SACP em
+  pydantic, Turing Guild de auto-cura, observabilidade Langfuse/LangSmith,
+  orquestração LangGraph StateGraph).
+orchestrator_internal_name: MAESTRO
+roster_summary: >-
+  5 guildas / 29 agentes de guilda + 2 papéis transversais de gate
+  (TRIADOR-CYNEFIN na entrada e AUDITOR-DE-INTEGRIDADE compartilhado G0/G3).
+principles:
+  - a IA é copiloto, nunca piloto (não-autônomo por design)
+  - materiais da sessão têm prioridade absoluta sobre a memória paramétrica
+  - alegação não-fundamentada vira [LACUNA DE MATERIAL], nunca prosa inventada
+  - existência de citação é verificada deterministicamente antes de qualquer LLM
+  - fidelidade alegação↔fonte é auditada (a fonte realmente diz o que a frase afirma?)
+  - anti-bajulação no contraditório (concessão só acima de limiar de evidência)
+  - gates de integridade 2.5 e 4.5 são não-puláveis e de tolerância zero
+  - precisão sobre recall em citação (regionais/não-indexadas viram não-resolvida, não inexistente)
+  - o Dossiê de Proveniência permite retomar a execução em sessão nova
+agents:
+  # G0 — Guilda de Maestria (transversal)
+  - id: maestro
+    file: agents/maestro.md
+    guild: G0
+    role: Orquestrador LangGraph; resolve conditional edges e aplica caps de loop.
+  - id: rastreador-de-estado
+    file: agents/rastreador-de-estado.md
+    guild: G0
+    role: Mantém o Dossiê de Proveniência; serializa/desserializa estado entre sessões.
+  - id: guarda-de-auto-cura
+    file: agents/guarda-de-auto-cura.md
+    guild: G0
+    role: Loop Turing; diagnostica falha de gate e regenera artefato (máx. 3 tentativas).
+  - id: observador-de-colaboracao
+    file: agents/observador-de-colaboracao.md
+    guild: G0
+    role: Pontua profundidade da colaboração humano-IA (4 dimensões); consultivo, nunca bloqueia.
+  - id: sentinela-de-conformidade
+    file: agents/sentinela-de-conformidade.md
+    guild: G0
+    role: Roda checklists de conformidade (PRISMA, diretrizes de divulgação de IA por venue).
+  # Gate de entrada (transversal)
+  - id: triador-cynefin
+    file: agents/triador-cynefin.md
+    guild: gate
+    role: Classifica a demanda (Clear/Complicated/Complex/Chaotic) e roteia o modo de operação.
+  # G1 — Guilda de Investigação (acesso a dados: bruto)
+  - id: arquiteto-da-questao
+    file: agents/arquiteto-da-questao.md
+    guild: G1
+    role: Refina a pergunta de pesquisa por diálogo maiêutico; produz Briefing de Questão.
+  - id: cartografo-metodologico
+    file: agents/cartografo-metodologico.md
+    guild: G1
+    role: Desenha o blueprint metodológico e a hierarquia de evidência.
+  - id: curador-bibliografico
+    file: agents/curador-bibliografico.md
+    guild: G1
+    role: Busca/triagem da literatura; corpus-primeiro, busca preenche lacuna.
+  - id: verificador-de-fontes
+    file: agents/verificador-de-fontes.md
+    guild: G1
+    role: Verificação determinística de existência de citação (4 índices).
+  - id: sintetizador
+    file: agents/sintetizador.md
+    guild: G1
+    role: Síntese narrativa anti-vazamento; etiqueta [LACUNA DE MATERIAL].
+  - id: meta-analista
+    file: agents/meta-analista.md
+    guild: G1
+    role: Análise quantitativa/qualitativa agregada quando aplicável.
+  - id: critico-adversarial
+    file: agents/critico-adversarial.md
+    guild: G1
+    role: Contraditório com Protocolo de Limiar de Concessão (anti-bajulação).
+  - id: auditor-de-vieses
+    file: agents/auditor-de-vieses.md
+    guild: G1
+    role: Avalia risco de viés e lacunas éticas das fontes.
+  # G2 — Guilda de Escrita (acesso a dados: redigido)
+  - id: triador-de-entrada
+    file: agents/triador-de-entrada.md
+    guild: G2
+    role: Classifica a demanda de escrita e configura o registro do artigo.
+  - id: arquiteto-de-estrutura
+    file: agents/arquiteto-de-estrutura.md
+    guild: G2
+    role: Constrói o esqueleto (IMRaD, revisão temática, estudo de caso, policy brief).
+  - id: construtor-de-argumentos
+    file: agents/construtor-de-argumentos.md
+    guild: G2
+    role: Mapa de argumentos; encadeamento lógico.
+  - id: redator
+    file: agents/redator.md
+    guild: G2
+    role: Escreve o draft com calibração de estilo na voz do autor.
+  - id: conformador-de-citacoes
+    file: agents/conformador-de-citacoes.md
+    guild: G2
+    role: Conversão entre formatos (APA 7 / IEEE / Chicago / MLA / Vancouver) via CSL.
+  - id: resumista-bilingue
+    file: agents/resumista-bilingue.md
+    guild: G2
+    role: Abstract bilíngue (PT-BR + EN).
+  - id: ilustrador-de-dados
+    file: agents/ilustrador-de-dados.md
+    guild: G2
+    role: Gera figuras; verificação visual (VLM) de fidelidade caption↔dados.
+  - id: calibrador-de-estilo
+    file: agents/calibrador-de-estilo.md
+    guild: G2
+    role: Aprende a voz do autor; Writing Quality Check (detecta padrões "de máquina").
+  - id: treinador-de-revisao
+    file: agents/treinador-de-revisao.md
+    guild: G2
+    role: Coaching maiêutico para incorporar pareceres.
+  # G3 — Guilda de Parecer (acesso a dados: somente-verificado)
+  - id: analista-de-dominio
+    file: agents/analista-de-dominio.md
+    guild: G3
+    role: Autodetecta a área e configura 3 pareceristas adaptativos.
+  - id: editor-chefe
+    file: agents/editor-chefe.md
+    guild: G3
+    role: Conduz a decisão editorial e o coaching de revisão.
+  - id: parecerista-metodologico
+    file: agents/parecerista-metodologico.md
+    guild: G3
+    role: Rigor de método, validade, estatística.
+  - id: parecerista-de-dominio
+    file: agents/parecerista-de-dominio.md
+    guild: G3
+    role: Contribuição e estado da arte da área.
+  - id: parecerista-interdisciplinar
+    file: agents/parecerista-interdisciplinar.md
+    guild: G3
+    role: Perspectiva transversal e generalização.
+  - id: contraditor-editorial
+    file: agents/contraditor-editorial.md
+    guild: G3
+    role: Ataque adversarial ao manuscrito, com intensidade preservada entre rodadas.
+  - id: sintetizador-editorial
+    file: agents/sintetizador-editorial.md
+    guild: G3
+    role: Protocolo mecânico de 3 passos para consolidar pareceres em decisão.
+  # Guilda de Integridade (compartilhada G0/G3) — gates 2.5 e 4.5
+  - id: auditor-de-integridade
+    file: agents/auditor-de-integridade.md
+    guild: integridade
+    role: Checklist de 7 Modos de Falha + auditoria de fidelidade alegação↔fonte.
+workflows:
+  - id: scriptorium-pipeline
+    file: workflows/scriptorium-pipeline.yaml
+tasks:
+  - id: 00-triagem-cynefin
+    file: tasks/00-triagem-cynefin.md
+    owner: triador-cynefin
+  - id: 01-investigar
+    file: tasks/01-investigar.md
+    owner: G1
+  - id: 02-escrever
+    file: tasks/02-escrever.md
+    owner: G2
+  - id: 02.5-integridade
+    file: tasks/02.5-integridade.md
+    owner: auditor-de-integridade
+  - id: 03-parecer
+    file: tasks/03-parecer.md
+    owner: G3
+  - id: 03-04-coaching
+    file: tasks/03-04-coaching.md
+    owner: editor-chefe
+  - id: 04-revisar
+    file: tasks/04-revisar.md
+    owner: G2
+  - id: 03l-re-parecer
+    file: tasks/03l-re-parecer.md
+    owner: G3
+  - id: 04l-re-revisar
+    file: tasks/04l-re-revisar.md
+    owner: G2
+  - id: 04.5-integridade-final
+    file: tasks/04.5-integridade-final.md
+    owner: auditor-de-integridade
+  - id: 05-finalizar
+    file: tasks/05-finalizar.md
+    owner: G2
+  - id: 06-dossie-processo
+    file: tasks/06-dossie-processo.md
+    owner: G0
+contracts:
+  - templates/passaporte-dossie.schema.json
+  - templates/briefing-de-questao.schema.json
+  - templates/verificacao-citacao.schema.json
+  - templates/relatorio-integridade.schema.json
+  - templates/contrato-de-parecer.schema.json
+  - templates/matriz-de-rastreabilidade.schema.json
+state_machine:
+  type: LangGraph StateGraph
+  stages: 10
+  loop_cap: "máx. 2 loops de revisão (1 re-revisão)"
+  conditional_edges: [Aceitar, "Revisão Menor", "Revisão Maior", Rejeitar]
+  non_skippable_gates: ["2.5 INTEGRIDADE", "4.5 INTEGRIDADE FINAL"]
+honesty_primitives:
+  - verificacao_deterministica_4_indices: "Semantic Scholar + OpenAlex + Crossref + arXiv; cache SQLite TTL 90d."
+  - auditoria_fidelidade_alegacao_fonte: "âncora de 3 camadas (quote/page/section) + LLM-como-juiz."
+  - limiar_de_concessao: "concessão só com pontuação >=4; sem concessões consecutivas."
+  - anti_vazamento: "materiais da sessão > memória paramétrica; ausente vira [LACUNA DE MATERIAL]."
+  - checklist_7_modos_de_falha: "M1..M7; qualquer modo SUSPEITO falha o gate."
+  - cross_model: "SCR_CROSS_MODEL=1 -> modelo local (Ollama) re-audita; divergência >2 é reportada."
+modes:
+  investigacao: [completo, rápido, maiêutico, revisão, revisão-de-literatura, scan-comparativo, checagem-de-fatos, revisão-sistemática-PRISMA]
+  escrita: [completo, plano, só-esboço, revisão, coach-de-revisão, só-abstract, revisão-de-literatura, conversão-de-formato, checagem-de-citação, declaração-de-IA, auditoria-de-réplica]
+  parecer: [completo, re-revisão, rápido, foco-método, guiado, calibração]
+  pipeline: [orquestrador, "retomar_de_passaporte=<hash>", "SCR_CLAIM_AUDIT=1", camada-de-verificação-temporal]
+open_source_stack:
+  indices: [Semantic Scholar API, OpenAlex, Crossref, arXiv API]
+  tipografia: [Pandoc, Tectonic, Typst, CSL/citeproc]
+  extracao_pdf: [GROBID, PyMuPDF, Marker, Nougat, Unpaywall API]
+  matching: [sentence-transformers, RapidFuzz]
+  vector_store: [Chroma, Qdrant, FAISS]
+  orquestracao_obs: [LangGraph, Langfuse]
+  cross_model: [Ollama]
+  avaliacao: [Ragas, DeepEval]
+  outros: [Zotero translation-server, LanguageTool, Manim, gitleaks, OpenReview API]
+guardrails:
+  - gates_integridade_nao_pulaveis: "2.5 e 4.5 obrigatórios; OBSERVADOR-DE-COLABORAÇÃO é silenciado neles."
+  - tolerancia_zero_em_4_5: "qualquer modo SUSPEITO em 2.5 deve estar RESOLVIDO em 4.5."
+  - recusa_terminal_no_formatador: "saída com alegação não-sustentada pendente é recusada na finalização."
+  - sem_segredos: "nunca publicar .env, tokens, chaves ou credenciais; gitleaks no CI."
+  - repro_lock_e_documentacao: "repro_lock documenta, não garante replay byte-a-byte."
+observability:
+  tool: Langfuse/LangSmith
+  trace_fields: [custo_por_token, custo_por_estagio, taxa_de_concessao, risco_bajulacao, trajetoria_de_pontuacao, claims_rebaixados]
+metrics:
+  - nome: verificacao_de_citacao
+    metrica: "% de referências que passam pela checagem 4-índices"
+    meta_v1: "100% (nenhuma 'inexistente' na saída sem override humano registrado)"
+  - nome: auditoria_de_fidelidade
+    metrica: "FNR / FPR contra gold set de 20 tuplas (quando ligada)"
+    meta_v1: "FNR < 0,15 e FPR < 0,10"
+  - nome: anti_bajulacao
+    metrica: "concessões com pontuação < 4"
+    meta_v1: "0 (zero)"
+  - nome: integridade
+    metrica: "modos SUSPEITOS de 2.5 ainda pendentes em 4.5"
+    meta_v1: "0 (tolerância zero)"
+  - nome: reprodutibilidade_de_processo
+    metrica: "execução retomável a partir do ledger do Dossiê"
+    meta_v1: "sim"
+  - nome: custo
+    metrica: "US$ por artigo de ~15k palavras no pipeline completo"
+    meta_v1: "~US$ 4–6 (calibrar com Langfuse)"
+references:
+  - references/PRD_Squad_SCRIPTORIUM_v1.0.md
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

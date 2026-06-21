@@ -1,0 +1,197 @@
+name: scriptorium-pipeline
+version: 1.0
+description: >-
+  Máquina de estados LangGraph de 10 estágios: TRIADOR-CYNEFIN classifica ->
+  G1 investiga (corpus-primeiro + verificação 4-índices + contraditório) ->
+  G2 escreve -> GATE 2.5 integridade (não-pulável) -> G3 parecer (sprint
+  contract cego) -> coaching -> G2 revisa -> re-parecer (matriz de
+  rastreabilidade) -> re-revisão -> GATE 4.5 integridade final (tolerância
+  zero) -> finalização (recusa terminal) -> Dossiê-Processo. A imersão na
+  prosa jamais ocorre sobre material não verificado.
+orchestrator: agents/maestro.md
+state_contract: templates/passaporte-dossie.schema.json
+human_in_loop: true
+loop_cap:
+  revisao_total: 2
+  re_revisao: 1
+non_skippable_gates: ["2.5", "4.5"]
+rollback: "retornar ao último gate reprovado; auto-cura (máx. 3) antes de escalar ao humano."
+conditional_edges: [Aceitar, "Revisao-Menor", "Revisao-Maior", Rejeitar]
+
+nodes:
+  triador_cynefin:
+    agent: agents/triador-cynefin.md
+    stage: 0
+    outputs: [dominio_cynefin, semente_briefing]
+    checkpoint_humano: "confirma classificação e modo de operação"
+
+  investigar:
+    stage: 1
+    guild: G1
+    depends_on: [triador_cynefin]
+    agents:
+      - agents/arquiteto-da-questao.md
+      - agents/cartografo-metodologico.md
+      - agents/curador-bibliografico.md
+      - agents/verificador-de-fontes.md
+      - agents/sintetizador.md
+      - agents/meta-analista.md
+      - agents/critico-adversarial.md
+      - agents/auditor-de-vieses.md
+    outputs: [briefing_de_questao, blueprint_metodologico, bibliografia_verificada, relatorio_sintese, log_contraditorio]
+    deterministico: [scripts/verify_citations.py, scripts/concession_audit.py]
+    checkpoint_humano: "confirma pergunta + método"
+    gate_robotico: "verificação 4-índices; hierarquia de evidência; anti-bajulação no contraditório"
+
+  escrever:
+    stage: 2
+    guild: G2
+    depends_on: [investigar]
+    agents:
+      - agents/triador-de-entrada.md
+      - agents/arquiteto-de-estrutura.md
+      - agents/construtor-de-argumentos.md
+      - agents/redator.md
+      - agents/conformador-de-citacoes.md
+      - agents/resumista-bilingue.md
+      - agents/ilustrador-de-dados.md
+      - agents/calibrador-de-estilo.md
+    outputs: [esqueleto, mapa_argumentos, draft, abstract_bilingue, figuras, lista_citacoes]
+    checkpoint_humano: "aprova esqueleto antes da redação"
+    gate_robotico: "anti-vazamento; verificação VLM de figura; calibração de estilo"
+
+  gate_integridade_2_5:
+    type: integrity_gate
+    stage: 2.5
+    skippable: false
+    agent: agents/auditor-de-integridade.md
+    depends_on: [escrever]
+    observador_colaboracao: silenciado
+    outputs: [passaporte_dossie, relatorio_verificacao_alegacoes]
+    cobertura_alegacoes: "amostra 30% (mín. 10)"
+    on_fail: auto_cura
+    checkpoint_humano: "ack de integridade (✓ Checklist 7 Modos)"
+
+  auto_cura:
+    agent: agents/guarda-de-auto-cura.md
+    type: turing_loop
+    max_tentativas: 3
+    on_exhaust: "escalar ao humano (MAESTRO)"
+
+  parecer:
+    stage: 3
+    guild: G3
+    depends_on: [gate_integridade_2_5]
+    agents:
+      - agents/analista-de-dominio.md
+      - agents/parecerista-metodologico.md
+      - agents/parecerista-de-dominio.md
+      - agents/parecerista-interdisciplinar.md
+      - agents/contraditor-editorial.md
+      - agents/sintetizador-editorial.md
+      - agents/editor-chefe.md
+    sprint_contract: templates/contrato-de-parecer.schema.json
+    fase_cega: true
+    outputs: [pacote_pareceres, decisao_editorial, roteiro_revisao]
+    checkpoint_humano: "revê decisão editorial"
+    gate_robotico: "limiar de concessão; parecer cego antes de ver o manuscrito"
+
+  coaching_3_4:
+    agent: agents/editor-chefe.md
+    stage: "3->4"
+    depends_on: [parecer]
+    max_rodadas: 8
+    outputs: [estrategia_revisao]
+    checkpoint_humano: "pode dizer 'só conserte' e pular"
+
+  revisar:
+    stage: 4
+    guild: G2
+    depends_on: [coaching_3_4]
+    agents: [agents/treinador-de-revisao.md, agents/redator.md, agents/conformador-de-citacoes.md]
+    outputs: [resposta_ponto_a_ponto, draft_revisado, relatorio_deltas]
+    checkpoint_humano: "confirma mudanças"
+    gate_robotico: "rastreamento de trajetória de pontuação (regressão é sinalizada)"
+
+  re_parecer:
+    stage: "3'"
+    guild: G3
+    depends_on: [revisar]
+    condition: "decisao_editorial in [Revisao-Menor, Revisao-Maior]"
+    agents: [agents/editor-chefe.md, agents/parecerista-metodologico.md, agents/contraditor-editorial.md]
+    contract: templates/matriz-de-rastreabilidade.schema.json
+    outputs: [checklist_resposta, matriz_rastreabilidade]
+    loop_cap: "máx. 1 re-revisão, 2 loops no total"
+    checkpoint_humano: "revê"
+
+  coaching_3l_4l:
+    agent: agents/editor-chefe.md
+    stage: "3'->4'"
+    depends_on: [re_parecer]
+    max_rodadas: 5
+    checkpoint_humano: "pode pular"
+
+  re_revisar:
+    stage: "4'"
+    guild: G2
+    depends_on: [coaching_3l_4l]
+    agents: [agents/redator.md, agents/treinador-de-revisao.md]
+    outputs: [draft_final]
+    checkpoint_humano: "confirma congelamento; sem novo loop"
+
+  gate_integridade_4_5:
+    type: integrity_gate
+    stage: 4.5
+    skippable: false
+    tolerancia: zero
+    agent: agents/auditor-de-integridade.md
+    depends_on: [re_revisar]
+    observador_colaboracao: silenciado
+    outputs: [passaporte_dossie_verificado, verificacao_alegacoes_100]
+    cobertura_alegacoes: "100%"
+    regra: "qualquer suspeita pendente de 2.5 deve estar RESOLVIDA"
+    on_fail: auto_cura
+    checkpoint_humano: "ack de integridade final"
+
+  auditoria_fidelidade:
+    type: opt_in
+    stage: "4->5"
+    condition: "SCR_CLAIM_AUDIT=1"
+    agent: agents/auditor-de-integridade.md
+    depends_on: [gate_integridade_4_5]
+    outputs: [auditoria_por_citacao, deriva_de_alegacao, afirmacoes_nao_citadas]
+    gate: "LLM-como-juiz por citação contra excerto recuperado; gate terminal no formatador"
+
+  finalizar:
+    stage: 5
+    guild: G2
+    depends_on: [gate_integridade_4_5]
+    agents: [agents/conformador-de-citacoes.md, agents/sentinela-de-conformidade.md]
+    formatos: [Markdown, "DOCX (Pandoc)", "LaTeX/Typst", "PDF (Tectonic)"]
+    outputs: [artefato_publicavel, declaracao_uso_ia]
+    gate_terminal: "recusa saída com alegação não-sustentada pendente"
+    checkpoint_humano: "escolhe formato"
+
+  dossie_processo:
+    stage: 6
+    guild: G0
+    depends_on: [finalizar]
+    agents: [agents/rastreador-de-estado.md, agents/observador-de-colaboracao.md]
+    outputs: [registro_do_processo, auto_reflexao, capitulo_profundidade_colaboracao]
+    checkpoint_humano: "confirma idioma e revê qualidade da colaboração"
+
+safeguards:
+  gates_2_5_e_4_5_nao_pulaveis: true
+  tolerancia_zero_em_4_5: true
+  recusa_terminal_no_formatador: true
+  anti_vazamento_material_da_sessao: true
+  na_duvida_etiqueta_lacuna_de_material: true
+  precisao_sobre_recall_em_citacao: true
+
+observability:
+  tool: Langfuse/LangSmith
+  trace_fields: [custo_por_token, custo_por_estagio, taxa_de_concessao, risco_bajulacao, trajetoria_de_pontuacao, claims_rebaixados]
+
+retomada:
+  via: "MAESTRO *resume <hash>"
+  fonte: templates/passaporte-dossie.schema.json
