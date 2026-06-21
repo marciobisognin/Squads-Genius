@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VerificacaoCitacao",
+  "description": "Resultado da verificação determinística de existência de uma citação contra os 4 índices, antes de qualquer revisão por LLM.",
+  "type": "object",
+  "required": ["chave_citacao", "titulo", "status_existencia"],
+  "properties": {
+    "chave_citacao": { "type": "string", "description": "Chave bibtex/CSL." },
+    "titulo": { "type": "string" },
+    "autores": { "type": "array", "items": { "type": "string" } },
+    "ano": { "type": "integer" },
+    "doi": { "type": ["string", "null"] },
+    "arxiv_id": { "type": ["string", "null"] },
+    "status_existencia": {
+      "type": "string",
+      "enum": ["verificada", "nao-resolvida", "inexistente"],
+      "description": "inexistente APENAS quando um DOI/arXiv-ID exato falha; regionais/não-indexadas ficam nao-resolvida e não bloqueiam."
+    },
+    "indices_consultados": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["semantic_scholar", "openalex", "crossref", "arxiv"] }
+    },
+    "indices_com_match": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["semantic_scholar", "openalex", "crossref", "arxiv"] }
+    },
+    "fuzzy_score_titulo": { "type": ["number", "null"], "description": "0–100 (RapidFuzz)." },
+    "ancora_fidelidade": {
+      "type": "object",
+      "description": "Âncora de 3 camadas para a auditoria de fidelidade alegação↔fonte.",
+      "properties": {
+        "quote": { "type": ["string", "null"] },
+        "page": { "type": ["string", "null"] },
+        "section": { "type": ["string", "null"] }
+      }
+    },
+    "cache_hit": { "type": "boolean" },
+    "override_humano": { "type": ["string", "null"], "description": "Justificativa registrada se uma 'inexistente' for mantida." }
+  }
+}

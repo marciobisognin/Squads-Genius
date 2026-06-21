@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MatrizDeRastreabilidade",
+  "description": "Contrato do estágio 3' (re-parecer). Verifica cada alegação do autor na resposta ponto-a-ponto.",
+  "type": "object",
+  "required": ["entradas"],
+  "properties": {
+    "entradas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["alegacao_autor", "referencia", "verificado", "metodo_recuperacao"],
+        "properties": {
+          "alegacao_autor": { "type": "string" },
+          "referencia": { "type": "string" },
+          "verificado": { "type": "boolean" },
+          "metodo_recuperacao": { "type": "string", "enum": ["quote", "page", "section", "none"] },
+          "nota": { "type": "string" }
+        }
+      }
+    },
+    "loop_atual": { "type": "integer", "description": "Cap rígido: máx. 1 re-revisão, 2 loops no total." }
+  }
+}

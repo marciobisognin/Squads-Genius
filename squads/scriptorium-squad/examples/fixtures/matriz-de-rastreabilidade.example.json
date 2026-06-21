@@ -1,0 +1,19 @@
+{
+  "entradas": [
+    {
+      "alegacao_autor": "Adicionei a referência Zhao et al. (2026) para sustentar a magnitude do problema de citação.",
+      "referencia": "zhao2026corpus",
+      "verificado": true,
+      "metodo_recuperacao": "quote",
+      "nota": "Excerto ancorado confirma a estimativa de dezenas de milhares/ano."
+    },
+    {
+      "alegacao_autor": "Reescrevi a discussão para remover a generalização excessiva apontada pelo parecerista interdisciplinar.",
+      "referencia": "n/a",
+      "verificado": true,
+      "metodo_recuperacao": "none",
+      "nota": "Mudança textual confirmada no Relatório de Deltas."
+    }
+  ],
+  "loop_atual": 1
+}

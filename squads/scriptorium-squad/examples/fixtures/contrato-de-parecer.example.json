@@ -1,0 +1,17 @@
+{
+  "tamanho_painel": 5,
+  "dimensoes_aceite": ["rigor metodológico", "contribuição original", "clareza", "integridade de citação", "reprodutibilidade"],
+  "condicoes_falha": [
+    { "condicao": "alegações não-sustentadas no manuscrito", "severidade": "critica", "quantificador": ">0 sem etiqueta [LACUNA DE MATERIAL]" },
+    { "condicao": "referência inexistente sem override humano", "severidade": "critica", "quantificador": ">0" },
+    { "condicao": "ausência de descrição de método", "severidade": "alta", "quantificador": "seção de método < 1 parágrafo" }
+  ],
+  "procedimento_medicao": "Verificação 4-índices + auditoria de fidelidade por amostra antes de pontuar cada dimensão (1–5).",
+  "fase_cega": true,
+  "decisao": "Revisao-Maior",
+  "limiar_de_concessao": {
+    "concessao_minima_permitida": 4,
+    "concessoes_consecutivas_proibidas": true,
+    "taxa_de_concessao": 0.22
+  }
+}

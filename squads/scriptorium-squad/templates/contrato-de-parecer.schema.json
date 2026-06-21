@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContratoDeParecer",
+  "description": "Sprint contract do estágio 3 (G3). Comprometido ANTES de ver o manuscrito (fase cega), estilo SACP.",
+  "type": "object",
+  "required": ["tamanho_painel", "dimensoes_aceite", "condicoes_falha", "procedimento_medicao", "fase_cega"],
+  "properties": {
+    "tamanho_painel": { "type": "integer" },
+    "dimensoes_aceite": { "type": "array", "items": { "type": "string" } },
+    "condicoes_falha": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["condicao", "severidade", "quantificador"],
+        "properties": {
+          "condicao": { "type": "string" },
+          "severidade": { "type": "string", "enum": ["baixa", "media", "alta", "critica"] },
+          "quantificador": { "type": "string", "description": "Limiar mensurável (ex.: '>2 alegações não-sustentadas')." }
+        }
+      }
+    },
+    "procedimento_medicao": { "type": "string" },
+    "fase_cega": { "type": "boolean", "description": "true = contrato fechado antes da leitura do manuscrito." },
+    "decisao": {
+      "type": "string",
+      "enum": ["Aceitar", "Revisao-Menor", "Revisao-Maior", "Rejeitar"]
+    },
+    "limiar_de_concessao": {
+      "type": "object",
+      "properties": {
+        "concessao_minima_permitida": { "type": "integer", "enum": [4] },
+        "concessoes_consecutivas_proibidas": { "type": "boolean" },
+        "taxa_de_concessao": { "type": ["number", "null"] }
+      }
+    }
+  }
+}

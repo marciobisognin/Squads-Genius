@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PassaporteDossie",
+  "description": "Estado global versionado (Dossiê de Proveniência). Serializado entre sessões pelo RASTREADOR-DE-ESTADO; permite retomar a execução em sessão nova a partir do ledger.",
+  "type": "object",
+  "required": ["versao_schema", "questao_pesquisa", "status_verificacao", "declaracao_experimentos"],
+  "properties": {
+    "versao_schema": { "type": "string" },
+    "hash_passaporte": { "type": "string", "description": "Usado em retomar_de_passaporte=<hash>." },
+    "questao_pesquisa": { "$ref": "briefing-de-questao.schema.json" },
+    "corpus_literatura": {
+      "type": "array",
+      "description": "Input-port opcional (corpus-primeiro). Cada entrada é uma EntradaCorpus.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "titulo": { "type": "string" },
+          "fonte_arquivo": { "type": "string" },
+          "verificacao": { "$ref": "verificacao-citacao.schema.json" }
+        }
+      }
+    },
+    "log_rejeicao": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": { "type": "string" },
+          "motivo": { "type": "string" },
+          "estagio": { "type": "string" }
+        }
+      }
+    },
+    "status_verificacao": { "type": "string", "enum": ["PENDENTE", "VERIFICADO"] },
+    "declaracao_experimentos": { "type": "string", "enum": ["sem_experimentos", "experimentos_declarados"] },
+    "historico_integridade": {
+      "type": "array",
+      "items": { "$ref": "relatorio-integridade.schema.json" }
+    },
+    "trajetoria_pontuacao": {
+      "type": "array",
+      "description": "PontoTrajetoria[] — regressão de pontuação entre rodadas é sinalizada.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "estagio": { "type": "string" },
+          "rodada": { "type": "integer" },
+          "pontuacao": { "type": "number" }
+        }
+      }
+    },
+    "ledger_fronteira_reset": {
+      "type": "array",
+      "description": "EntradaReset[] — pontos de retomada em sessão nova.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "estagio": { "type": "string" },
+          "timestamp": { "type": "string" },
+          "resumo_estado": { "type": "string" }
+        }
+      }
+    },
+    "repro_lock": {
+      "type": ["object", "null"],
+      "description": "Documentação pós-hoc, NÃO garantia de replay byte-a-byte.",
+      "properties": {
+        "modelos": { "type": "array", "items": { "type": "string" } },
+        "versoes_ferramentas": { "type": "object" },
+        "seeds": { "type": "array", "items": { "type": "integer" } }
+      }
+    }
+  }
+}

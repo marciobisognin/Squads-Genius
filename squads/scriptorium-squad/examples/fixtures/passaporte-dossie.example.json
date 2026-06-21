@@ -1,0 +1,39 @@
+{
+  "versao_schema": "1.0.0",
+  "hash_passaporte": "scr-7f3a91c2",
+  "questao_pesquisa": {
+    "pergunta_pesquisa": "Em que medida o uso de copilotos de IA com gates de integridade reduz a alucinação de citações em manuscritos de pós-graduação?",
+    "tipo_artefato": "IMRaD",
+    "idioma": "bilingue",
+    "metodo_proposto": "Estudo quase-experimental com gold set humano de 20 tuplas."
+  },
+  "corpus_literatura": [
+    {
+      "id": "corpus-001",
+      "titulo": "Failure modes of autonomous research systems",
+      "fonte_arquivo": "corpus/lu2026.pdf",
+      "verificacao": {
+        "chave_citacao": "lu2026autonomous",
+        "titulo": "Failure modes of autonomous research systems",
+        "status_existencia": "verificada"
+      }
+    }
+  ],
+  "log_rejeicao": [
+    { "item": "fonte de blog sem revisão", "motivo": "abaixo da hierarquia de evidência mínima", "estagio": "01-investigar" }
+  ],
+  "status_verificacao": "PENDENTE",
+  "declaracao_experimentos": "sem_experimentos",
+  "historico_integridade": [],
+  "trajetoria_pontuacao": [
+    { "estagio": "03-parecer", "rodada": 1, "pontuacao": 3.4 }
+  ],
+  "ledger_fronteira_reset": [
+    { "estagio": "02.5-integridade", "timestamp": "2026-06-21T14:02:00Z", "resumo_estado": "draft v1 + bibliografia verificada; aguardando ack humano." }
+  ],
+  "repro_lock": {
+    "modelos": ["claude (principal)", "qwen2.5:14b (cross-model, Ollama)"],
+    "versoes_ferramentas": { "pandoc": "3.x", "tectonic": "0.15.x" },
+    "seeds": [42]
+  }
+}

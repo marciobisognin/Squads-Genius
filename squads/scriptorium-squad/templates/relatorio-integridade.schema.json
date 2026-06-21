@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RelatorioIntegridade",
+  "description": "Saída do AUDITOR-DE-INTEGRIDADE nos gates 2.5 e 4.5. Checklist de 7 Modos de Falha + auditoria de fidelidade alegação↔fonte.",
+  "type": "object",
+  "required": ["gate", "modos_falha", "verificacao_alegacoes", "veredito"],
+  "properties": {
+    "gate": { "type": "string", "enum": ["2.5", "4.5", "auditoria-de-fidelidade"] },
+    "modos_falha": {
+      "type": "array",
+      "description": "Checklist M1..M7 derivado de Lu et al. (2026), reformulado.",
+      "items": {
+        "type": "object",
+        "required": ["modo", "status"],
+        "properties": {
+          "modo": { "type": "string", "enum": ["M1", "M2", "M3", "M4", "M5", "M6", "M7"] },
+          "descricao": { "type": "string" },
+          "status": { "type": "string", "enum": ["OK", "SUSPEITO", "RESOLVIDO"] },
+          "evidencia": { "type": "string" }
+        }
+      }
+    },
+    "verificacao_alegacoes": {
+      "type": "object",
+      "description": "Amostra 30% (mín. 10) em 2.5; 100% em 4.5.",
+      "properties": {
+        "cobertura_percentual": { "type": "number" },
+        "total_alegacoes": { "type": "integer" },
+        "amostradas": { "type": "integer" },
+        "sustentadas": { "type": "integer" },
+        "nao_sustentadas": { "type": "integer" },
+        "referencias_fabricadas": { "type": "integer" },
+        "violacoes_de_restricao": { "type": "integer" }
+      }
+    },
+    "cross_model": {
+      "type": "object",
+      "properties": {
+        "ativo": { "type": "boolean" },
+        "modelo_local": { "type": ["string", "null"] },
+        "divergencia_pontos": { "type": ["number", "null"] },
+        "reportada": { "type": "boolean" }
+      }
+    },
+    "veredito": { "type": "string", "enum": ["PASSOU", "FALHOU"] },
+    "ack_humano": { "type": "boolean" },
+    "tentativas_auto_cura": { "type": "integer", "description": "Loop Turing; máx. 3." }
+  }
+}

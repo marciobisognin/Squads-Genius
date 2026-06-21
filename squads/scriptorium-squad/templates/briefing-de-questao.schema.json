@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BriefingDeQuestao",
+  "description": "Contrato ARQUITETO-DA-QUESTAO -> pipeline. Fixa pergunta, escopo e método antes de qualquer redação.",
+  "type": "object",
+  "required": ["pergunta_pesquisa", "tipo_artefato", "idioma", "metodo_proposto"],
+  "properties": {
+    "pergunta_pesquisa": { "type": "string" },
+    "subperguntas": { "type": "array", "items": { "type": "string" } },
+    "tipo_artefato": {
+      "type": "string",
+      "enum": ["IMRaD", "revisao-tematica", "revisao-sistematica", "estudo-de-caso", "policy-brief", "ensaio", "outro"]
+    },
+    "idioma": { "type": "string", "enum": ["pt-BR", "en", "bilingue"] },
+    "metodo_proposto": { "type": "string" },
+    "hierarquia_evidencia": { "type": "array", "items": { "type": "string" } },
+    "criterios_inclusao_exclusao": { "type": "array", "items": { "type": "string" } },
+    "cynefin": { "type": "string", "enum": ["Clear", "Complicated", "Complex", "Chaotic"] },
+    "modo_investigacao": { "type": "string" },
+    "premissas": { "type": "array", "items": { "type": "string" } },
+    "lacunas_declaradas": { "type": "array", "items": { "type": "string" } }
+  }
+}
