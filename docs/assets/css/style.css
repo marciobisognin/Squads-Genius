@@ -213,6 +213,72 @@ section.block h2 small { display: block; color: var(--text-dim); font-size: 13px
 
 footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-dim); font-size: 13px; }
 
+/* ---------- boot intro ---------- */
+.boot-intro {
+  position: fixed; inset: 0; z-index: 999;
+  background: radial-gradient(circle at 50% 30%, #161226 0%, #0b0d12 70%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+.boot-intro.boot-intro--done { opacity: 0; visibility: hidden; pointer-events: none; }
+.boot-grid {
+  position: absolute; inset: -2px;
+  background-image:
+    linear-gradient(var(--accent-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-soft) 1px, transparent 1px);
+  background-size: 38px 38px;
+  opacity: .35;
+  mask-image: radial-gradient(circle at 50% 40%, black 0%, transparent 75%);
+}
+.boot-scan {
+  position: absolute; left: 0; right: 0; height: 140px;
+  background: linear-gradient(to bottom, transparent, var(--accent-soft) 45%, transparent);
+  animation: boot-scan-move 2.6s linear infinite;
+  opacity: .8;
+}
+@keyframes boot-scan-move {
+  0% { top: -140px; }
+  100% { top: 100%; }
+}
+.boot-content { position: relative; text-align: center; padding: 0 24px; }
+.boot-logo { position: relative; width: 86px; height: 86px; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; }
+.boot-logo .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 22px 6px var(--accent); animation: boot-pulse 1.6s ease-in-out infinite; }
+.boot-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: boot-spin 1.8s linear infinite;
+}
+.boot-ring--2 { inset: 14px; border-top-color: transparent; border-right-color: var(--accent); animation-duration: 1.3s; animation-direction: reverse; }
+@keyframes boot-spin { to { transform: rotate(360deg); } }
+@keyframes boot-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.25); opacity: .7; } }
+.boot-title {
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 26px; font-weight: 700; letter-spacing: .12em; color: var(--text);
+  text-shadow: 0 0 18px var(--accent-soft);
+  margin-bottom: 18px;
+}
+.boot-title span { color: var(--accent); }
+.boot-terminal {
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 12.5px; color: var(--text-dim);
+  min-height: 78px; text-align: left;
+  max-width: 320px; margin: 0 auto 18px;
+}
+.boot-terminal div { opacity: 0; transform: translateY(4px); animation: boot-line-in .3s ease forwards; }
+.boot-terminal div b { color: var(--accent); }
+@keyframes boot-line-in { to { opacity: 1; transform: translateY(0); } }
+.boot-progress { max-width: 280px; margin: 0 auto; }
+.boot-progress-track { height: 4px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); overflow: hidden; }
+.boot-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), #fff); box-shadow: 0 0 10px var(--accent); transition: width .12s linear; }
+.boot-progress-label { display: block; margin-top: 10px; font-size: 11px; letter-spacing: .08em; color: var(--text-dim); font-family: "SF Mono", Consolas, monospace; }
+.boot-progress-label b { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-intro { display: none; }
+}
+
 @media (max-width: 640px) {
   .hero h1 { font-size: 28px; }
   .squad-hero h1 { font-size: 24px; }
