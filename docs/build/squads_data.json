@@ -7469,5 +7469,231 @@
       "desc": "Data Pipeline Design Document (ETL/ELT com boas práticas) · Data Quality Scorecard com regras de validação · Árvore de Métricas (Metric Tree) com North Star e métricas derivadas"
     },
     "category": "Conhecimento, Pesquisa & Dados"
+  },
+  {
+    "id": "harness-foundry-squad",
+    "name": "Harness Foundry Squad",
+    "tagline": "Avalia, projeta e funde qualquer squad do Squads-Genius em um harness de agente executável e instalável (CLI, MCP, Hermes, skills, policy default-deny), sem vendorizar motores externos.",
+    "color": "#475569",
+    "card_icon": "builder",
+    "agents": [
+      {
+        "name": "Harness Intake Orchestrator",
+        "role": "Orquestrador",
+        "desc": "Recebe o squad/repositório alvo, define o host de destino e bloqueia até ter squad.yaml válido.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Harness Fit Analyst",
+        "role": "Analista",
+        "desc": "Calcula fit, confiança de compilação, cobertura de tasks e custo estimado por execução.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Squad-to-HarnessSpec Adapter",
+        "role": "Arquiteto",
+        "desc": "Converte squad.yaml (agentes/tasks/workflows) em um HarnessSpec portável.",
+        "icon": "architect"
+      },
+      {
+        "name": "Hermes Package Builder",
+        "role": "Construtor",
+        "desc": "Gera cli-config.yaml, optional-mcps e SKILL.md para instalação no Hermes.",
+        "icon": "factory"
+      },
+      {
+        "name": "Security Policy Auditor",
+        "role": "Auditor",
+        "desc": "Valida policy default-deny, ausência de credenciais e escopo de permissões do harness.",
+        "icon": "auditor"
+      },
+      {
+        "name": "Harness Doctor Curator",
+        "role": "Validador",
+        "desc": "Roda o diagnóstico final (HEALTHY/WARN/BLOCKED) e mantém o template vertical:iffar.",
+        "icon": "validator"
+      }
+    ],
+    "tools": [
+      {
+        "file": "score_squad_fit.py",
+        "desc": "Calcula fit score, confiança de compilação e custo estimado do harness"
+      },
+      {
+        "file": "squad_to_harnessspec.py",
+        "desc": "Converte squad.yaml em HarnessSpec portável"
+      },
+      {
+        "file": "generate_hermes_package.py",
+        "desc": "Gera o pacote Hermes (cli-config, optional-mcps, SKILL.md)"
+      },
+      {
+        "file": "harness_doctor.py",
+        "desc": "Roda o diagnóstico final HEALTHY/WARN/BLOCKED do harness"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake do squad alvo",
+        "desc": "Recebe o squad/repositório, define o host de destino e exige squad.yaml válido."
+      },
+      {
+        "title": "Score de fit",
+        "desc": "Calcula fit, confiança de compilação, cobertura de tasks e custo estimado."
+      },
+      {
+        "title": "Adaptação para HarnessSpec",
+        "desc": "Converte agentes, tasks e workflows em um HarnessSpec portável."
+      },
+      {
+        "title": "Empacotamento Hermes",
+        "desc": "Gera cli-config.yaml, optional-mcps e SKILL.md para instalação."
+      },
+      {
+        "title": "Auditoria de segurança",
+        "desc": "Valida policy default-deny, ausência de credenciais e escopo de permissões."
+      },
+      {
+        "title": "Diagnóstico final",
+        "desc": "Harness Doctor classifica o resultado como HEALTHY, WARN ou BLOCKED."
+      }
+    ],
+    "output": {
+      "title": "Harness instalável e auditado",
+      "desc": "HarnessSpec, pacote Hermes (cli-config.yaml, optional-mcps, SKILL.md), relatório de auditoria de segurança e diagnóstico HEALTHY/WARN/BLOCKED, sem vendorizar motores externos."
+    },
+    "category": "Construção de Squads & Sistemas de IA"
+  },
+  {
+    "id": "palimpsesto-squad",
+    "name": "PALIMPSESTO",
+    "tagline": "Reconstrução contextual imersiva (Filosofia × História × Geografia × Política) de um objeto histórico-cultural, narrada em segunda pessoa, sem anacronismo e com grau de certeza explícito.",
+    "color": "#92400e",
+    "card_icon": "scientist",
+    "agents": [
+      {
+        "name": "Triador",
+        "role": "Classificador",
+        "desc": "Classifica o objeto de conhecimento e monta o plano de escavação (SACP-IN).",
+        "icon": "router"
+      },
+      {
+        "name": "Chronos",
+        "role": "Estratígrafo do tempo",
+        "desc": "Separa tempo do evento, do registro e da recepção.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Terra",
+        "role": "Cartógrafo",
+        "desc": "Reconstrói geografia física e humana como vetor de causalidade.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Verbum",
+        "role": "Filólogo",
+        "desc": "Língua original, campo semântico e o que a tradução apaga.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Ethos",
+        "role": "Etnógrafo do cotidiano",
+        "desc": "Mentalidades, vida material, história dos Annales.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Kratos",
+        "role": "Analista de poder",
+        "desc": "Estrutura política, econômica e interesses materiais.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Numen",
+        "role": "Historiador das religiões",
+        "desc": "Sistemas de crença, ritual e sagrado.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Nous",
+        "role": "Historiador das ideias",
+        "desc": "A episteme/cosmovisão que tornava o objeto dizível.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Agon",
+        "role": "Advogado dos vencidos",
+        "desc": "Contra-perspectiva, contrafactuais e viés de fonte.",
+        "icon": "reviewer"
+      },
+      {
+        "name": "Elenchus",
+        "role": "Guardião das fontes",
+        "desc": "Audita, atribui certeza, poda anacronismo e alucinação.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Tecelão",
+        "role": "Curador-editor",
+        "desc": "Funde o dossiê verificado e o grafo de certeza, orquestrando as camadas.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Aedo",
+        "role": "Imersor",
+        "desc": "Narra em 2ª pessoa, presente histórico, apenas com material verificado.",
+        "icon": "composer"
+      },
+      {
+        "name": "Ponte",
+        "role": "Conexão com o presente",
+        "desc": "Ressonâncias e herança sem anacronismo retroativo.",
+        "icon": "communicator"
+      }
+    ],
+    "tools": [
+      {
+        "file": "validate_contracts.py",
+        "desc": "Valida os contratos SACP (claim, verified-claim, dossier) contra os schemas"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Triagem e roteamento",
+        "desc": "Classifica o objeto e monta o plano de escavação por camadas."
+      },
+      {
+        "title": "Reconstrução em camadas",
+        "desc": "Chronos, Terra, Verbum, Ethos, Kratos, Numen e Nous reconstroem o mundo em paralelo."
+      },
+      {
+        "title": "Contra-perspectiva",
+        "desc": "Agon levanta o olhar dos vencidos e contrafactuais."
+      },
+      {
+        "title": "Verificação",
+        "desc": "Elenchus audita fontes, atribui grau de certeza e poda anacronismo."
+      },
+      {
+        "title": "HITL gate de sensibilidade",
+        "desc": "Tecelão aciona revisão humana em temas sensíveis antes da curadoria final."
+      },
+      {
+        "title": "Curadoria",
+        "desc": "Tecelão funde o dossiê verificado e o grafo de certeza."
+      },
+      {
+        "title": "Imersão",
+        "desc": "Aedo narra em segunda pessoa, presente histórico, só com material verificado."
+      },
+      {
+        "title": "Ponte com o presente",
+        "desc": "Ponte traça ressonâncias e herança sem anacronismo retroativo."
+      }
+    ],
+    "output": {
+      "title": "Dossiê verificado e narrativa imersiva",
+      "desc": "Reconstrução histórico-cultural em até 3 níveis de profundidade, com grafo de certeza, contra-perspectiva e narração em segunda pessoa sem anacronismo."
+    },
+    "category": "Conhecimento, Pesquisa & Dados"
   }
 ]
