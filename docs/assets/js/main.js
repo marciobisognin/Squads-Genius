@@ -22,7 +22,18 @@
     var terminal = el.querySelector("#boot-terminal");
     var fill = el.querySelector("#boot-fill");
     var pct = el.querySelector("#boot-pct");
+    var content = el.querySelector(".boot-content");
+    var breach = el.querySelector("#boot-breach");
+    var bars = el.querySelector("#boot-breach-bars");
     document.body.style.overflow = "hidden";
+
+    if (breach && bars) {
+      for (var i = 0; i < 8; i++) {
+        var span = document.createElement("span");
+        span.style.top = (i * 13) + "%";
+        bars.appendChild(span);
+      }
+    }
 
     lines.forEach(function (line, i) {
       var div = document.createElement("div");
@@ -41,6 +52,10 @@
       pct.textContent = value + "%";
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else if (breach) {
+        content.classList.add("fading");
+        setTimeout(function () { breach.classList.add("active"); }, 200);
+        setTimeout(function () { finishBoot(el); }, 3500);
       } else {
         finishBoot(el);
       }
