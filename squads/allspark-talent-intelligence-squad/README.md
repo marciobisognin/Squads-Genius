@@ -1,5 +1,12 @@
 # ⚡ AllSpark Talent Intelligence Squad
 
+<div align="center">
+
+![version](https://img.shields.io/badge/vers%C3%A3o-1.0.0-2b6cb0?style=for-the-badge) ![status](https://img.shields.io/badge/status-premium--ready-2f855a?style=for-the-badge) ![license](https://img.shields.io/badge/licen%C3%A7a-MIT-805ad5?style=for-the-badge) ![lang](https://img.shields.io/badge/idioma-pt--BR-dd6b20?style=for-the-badge)
+
+</div>
+
+
 ## Visão Geral
 
 O AllSpark Talent Intelligence Squad é um sistema multiagente de inteligência de pessoas projetado para transformar dados brutos de RH em insights estratégicos acionáveis. Ele mapeia competências, detecta riscos de retenção, projeta sucessão, audita DEI, personaliza jornadas de onboarding e realiza benchmarking salarial — tudo em um pipeline orquestrado com quality gates e humano no loop nos momentos críticos.
@@ -108,5 +115,108 @@ Ao final do pipeline completo, o squad entrega:
 Este squad utiliza dados de pessoas e, portanto, exige conformidade estrita com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018). Dados demográficos devem ser coletados com consentimento documentado. Perfis psicométricos devem ser revisados por profissional habilitado antes de qualquer circulação. Nenhum dado pessoal identificável deve constar em relatórios de distribuição ampla. O uso deste squad não substitui a avaliação clínica, o diagnóstico psicológico formal nem a consultoria jurídica trabalhista. Resultados devem ser contextualizados por profissionais de RH antes de embasar decisões de promoção, demissão ou remuneração.
 
 ---
+
+---
+
+## 🤝 Como usar nos principais LLMs de codificação
+
+> [!NOTE]
+> **O padrão de ativação é o mesmo em qualquer ferramenta:**
+> 1. **Dê contexto** ao assistente apontando os arquivos do squad (especialmente `squads/allspark-talent-intelligence-squad/squad.yaml` e `squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml`).
+> 2. **Peça que ele assuma a persona do orquestrador** definido em `squads/allspark-talent-intelligence-squad/agents/talent-orchestrator.md`.
+> 3. **Conduza o fluxo** respeitando os checkpoints humanos e validando cada handoff/contrato.
+>
+> **Prompt de ativação** (copie, cole e ajuste o briefing):
+> ```text
+> Assuma a persona do orquestrador do squad definido em `squads/allspark-talent-intelligence-squad/agents/talent-orchestrator.md`
+> e conduza o fluxo definido em `squads/allspark-talent-intelligence-squad/`. Siga `squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml`.
+> Valide cada handoff/contrato e respeite os checkpoints humanos.
+> Meu briefing é: <descreva seu objetivo, materiais e formato de saída>.
+> ```
+
+<details open>
+<summary><b>🟣 Claude Code (CLI / Web / IDE) — recomendado</b></summary>
+
+<br>
+
+```bash
+# No terminal, dentro do repositório
+claude
+
+> Leia @squads/allspark-talent-intelligence-squad/squad.yaml e assuma a persona do orquestrador do squad.
+  Siga @squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml. Conduza o fluxo para o briefing: <...>
+```
+- Use **`@caminho/arquivo`** para dar contexto preciso (autocompleta no prompt).
+- Disponível em **CLI, app desktop/web (claude.ai/code) e extensões VS Code / JetBrains**.
+
+</details>
+
+<details>
+<summary><b>🟦 Cursor</b></summary>
+
+<br>
+
+1. Abra a pasta do repositório no Cursor.
+2. No **Chat / Composer (⌘/Ctrl + I)**, referencie os arquivos com `@`:
+   ```text
+   @squads/allspark-talent-intelligence-squad/squad.yaml @squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml
+   Assuma a persona do orquestrador e conduza o fluxo para o briefing: <...>
+   ```
+3. **Persistente:** crie um `.cursorrules` na raiz apontando para `squads/allspark-talent-intelligence-squad/` como squad ativo.
+
+</details>
+
+<details>
+<summary><b>⬛ GitHub Copilot (VS Code Chat)</b></summary>
+
+<br>
+
+```text
+@workspace #file:squads/allspark-talent-intelligence-squad/squad.yaml #file:squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml
+Assuma a persona do orquestrador deste squad e conduza o fluxo para: <...>
+```
+Para regras persistentes, crie **`.github/copilot-instructions.md`** com o prompt de ativação.
+
+</details>
+
+<details>
+<summary><b>🟩 Windsurf (Cascade)</b></summary>
+
+<br>
+
+```text
+@squads/allspark-talent-intelligence-squad/squad.yaml @squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml
+Atue como o orquestrador deste squad e execute o fluxo para: <briefing>.
+```
+Fixe as regras em **`.windsurfrules`** (raiz do projeto).
+
+</details>
+
+<details>
+<summary><b>🟧 Cline / Roo Code (VS Code)</b></summary>
+
+<br>
+
+```text
+Leia squads/allspark-talent-intelligence-squad/squad.yaml e assuma a persona do orquestrador.
+Conduza o fluxo do squad e execute os scripts em squads/allspark-talent-intelligence-squad/scripts/ quando o passo pedir.
+Briefing: <...>
+```
+O Cline/Roo pode **executar os scripts** do squad e ler a saída — aprove a execução quando solicitado.
+
+</details>
+
+<details>
+<summary><b>🟨 Continue.dev / Aider / Zed AI / chats web</b></summary>
+
+<br>
+
+- **Continue.dev:** use `@file` para `squads/allspark-talent-intelligence-squad/squad.yaml`; cole o prompt de ativação.
+- **Aider:** `aider squads/allspark-talent-intelligence-squad/squad.yaml` e instrua o orquestrador.
+- **ChatGPT / Gemini (sem acesso a arquivos):** copie o conteúdo de `squads/allspark-talent-intelligence-squad/squad.yaml` e `squads/allspark-talent-intelligence-squad/workflows/talent-intelligence-pipeline.yaml` para o chat, cole o prompt de ativação e rode eventuais scripts localmente, colando a saída de volta.
+
+</details>
+
+
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
