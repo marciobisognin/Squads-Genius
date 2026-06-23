@@ -1,5 +1,107 @@
 [
   {
+    "id": "primus-meta-orchestrator-super-squad",
+    "name": "Primus — Meta-Orquestrador de Squads",
+    "tagline": "Super agente acima de todos os squads: indexa qualquer pasta de squads, cria um wiki de acesso rápido, roteia cada tarefa ao agente certo, cria squads novos quando há lacunas e evolui um sistema mental a cada interação.",
+    "color": "#f59e0b",
+    "card_icon": "orchestrator",
+    "agents": [
+      {
+        "name": "Primus Prime Orchestrator",
+        "role": "Super Agente",
+        "desc": "Governa o ecossistema: decide reusar, combinar ou criar e aciona os demais agentes.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Squad Cartographer",
+        "role": "Cartógrafo",
+        "desc": "Varre a pasta de squads e gera o índice e o wiki de acesso rápido por capacidade.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Task Router Oracle",
+        "role": "Roteador",
+        "desc": "Recomenda o squad/agente ideal para cada tarefa, com justificativa e alternativas.",
+        "icon": "router"
+      },
+      {
+        "name": "Gap Detector Architect",
+        "role": "Arquiteto",
+        "desc": "Detecta lacunas e cria agentes e squads novos, encaminhando o refino ao Forge.",
+        "icon": "architect"
+      },
+      {
+        "name": "Mnemosyne Memory Keeper",
+        "role": "Memória",
+        "desc": "Sistema mental que evolui: reforça conceitos, mede desempenho e deriva aprendizados.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Aegis Governance Sentinel",
+        "role": "Sentinela",
+        "desc": "Garante originalidade, segurança, autoria e o veredito go/no-go de qualidade.",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [
+      {
+        "file": "index_squads.py",
+        "desc": "Indexa squads e gera o wiki de acesso rápido"
+      },
+      {
+        "file": "route_task.py",
+        "desc": "Roteia a tarefa ao melhor agente; sinaliza lacunas"
+      },
+      {
+        "file": "memory_system.py",
+        "desc": "Cérebro evolutivo (record/recall/evolve/stats)"
+      },
+      {
+        "file": "scaffold_squad.py",
+        "desc": "Cria o esqueleto válido de um squad novo"
+      },
+      {
+        "file": "validate_squad.py",
+        "desc": "Quality gate go/no-go"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake e escopo",
+        "desc": "Entende o pedido, a pasta de squads alvo e o resultado esperado."
+      },
+      {
+        "title": "Índice de squads",
+        "desc": "Varre a pasta e indexa todos os squads e agentes."
+      },
+      {
+        "title": "Wiki de acesso rápido",
+        "desc": "Gera o guia: qual agente usar para cada tipo de tarefa."
+      },
+      {
+        "title": "Roteamento",
+        "desc": "Recomenda o squad/agente ideal para a tarefa pedida."
+      },
+      {
+        "title": "Detecção de lacunas",
+        "desc": "Quando falta cobertura, propõe e cria agentes/squads novos."
+      },
+      {
+        "title": "Evolução da memória",
+        "desc": "Registra a decisão e faz o sistema mental aprender."
+      },
+      {
+        "title": "Governança",
+        "desc": "Valida estrutura, segurança e autoria; emite go/no-go."
+      }
+    ],
+    "output": {
+      "title": "Wiki, roteamento e memória viva",
+      "desc": "Índice estruturado e wiki de acesso rápido dos squads, recomendação de agente por tarefa, esqueletos de squads novos e um cérebro que melhora as recomendações a cada uso."
+    },
+    "category": "Construção de Squads & Sistemas de IA"
+  },
+  {
     "id": "maeve-genius-forge-squad",
     "name": "Maeve Genius Forge",
     "tagline": "Fábrica que transforma um briefing livre em um squad completo: pesquisa, oferta, design system, agentes, workflows, scripts e publicação.",
