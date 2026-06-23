@@ -1,0 +1,47 @@
+id: pcfp_repactuacao_reajuste
+name: "PCFP — Repactuação / Reajuste"
+description: "Atualiza uma planilha vigente: repactuação (mão de obra, nova CCT) e/ou reajuste (insumos, índice), preservando as fórmulas vivas e gerando diff auditável."
+human_in_loop: true
+rollback: "retornar à planilha vigente se a atualização não for homologada"
+entrypoint: 03_classify_cbo_cct_regime
+steps:
+  - order: 1
+    task: 03_classify_cbo_cct_regime
+    agent: pcfp-classifier
+    note: "Identifica a nova CCT/data-base (repactuação) — distinta do reajuste de insumos (art. 55 IN 05)."
+    gate_required: true
+    gate: hitl_gate_1_cbo_cct
+  - order: 2
+    task: 04_resolve_ruleset
+    agent: pcfp-rules-engine
+    note: "Atualiza RuleSet: novo piso/benefícios (repactuação) e/ou índice (reajuste). Não confundir as datas-base."
+    depends_on: [03_classify_cbo_cct_regime]
+    gate_required: false
+  - order: 3
+    task: 05_calculate_planilha
+    agent: pcfp-calculator
+    depends_on: [04_resolve_ruleset]
+    gate_required: false
+  - order: 4
+    task: 06_validate_planilha
+    agent: pcfp-validator
+    note: "Valida coerência repactuação vs reajuste e datas-base distintas."
+    depends_on: [05_calculate_planilha]
+    gate_required: true
+    gate: validator_no_blocks
+  - order: 5
+    task: 07_generate_xlsx
+    agent: pcfp-xlsx-generator
+    note: "Gera nova versão preservando fórmulas vivas + diff vs versão anterior."
+    depends_on: [06_validate_planilha]
+    gate_required: false
+  - order: 6
+    task: 08_hitl_homologacao
+    agent: pcfp-hitl-homologacao
+    depends_on: [07_generate_xlsx]
+    gate_required: true
+    gate: hitl_homologacao_final
+success_conditions:
+  - "Repactuação e reajuste tratados com datas-base distintas (art. 55 IN 05)."
+  - "Diff auditável entre versões."
+  - "Nova versão homologada por servidor."

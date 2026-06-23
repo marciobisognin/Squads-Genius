@@ -1,0 +1,21 @@
+id: 08_hitl_homologacao
+description: "Homologação humana final (invariante) antes de marcar a planilha como definitiva."
+assigned_agent: pcfp-hitl-homologacao
+dependencies: [07_generate_xlsx]
+inputs:
+  - planilha.xlsx
+  - validation_report
+  - premissas e fontes (RuleSet, ClassifiedSpec)
+outputs:
+  - decisao_homologacao (aprovar | ajustar | rejeitar)
+  - registro_homologacao (autor, data, decisão)
+  - planilha marcada como final (somente se aprovada)
+acceptance_criteria:
+  - "Nenhuma saída marcada 'final' sem registro de homologação humana."
+  - "Ajuste reexecuta o pipeline com novo parâmetro."
+  - "Rejeição registra justificativa."
+validation_rules:
+  - "registro_homologacao presente antes de 'final'"
+  - "sem publicação/integração externa sem homologação"
+human_approval: true
+failure_behavior: "manter status não-final e devolver ao fluxo com a justificativa"

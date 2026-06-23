@@ -1,0 +1,62 @@
+id: pcfp_full_pipeline
+name: "PCFP — Elaboração nova (edital/resumo → planilha homologada)"
+description: "Pipeline completo do PRD: Cynefin → Extractor → Classifier → Rules → Calculator → Validator → XLSX → HITL."
+human_in_loop: true
+max_iterations: 3
+rollback: "retornar ao último gate reprovado (Turing loop)"
+entrypoint: 01_cynefin_classify_and_route
+steps:
+  - order: 1
+    task: 01_cynefin_classify_and_route
+    agent: pcfp-orchestrator
+    gate_required: true
+    gate: cynefin_routing
+  - order: 2
+    task: 02_extract_spec
+    agent: pcfp-extractor
+    depends_on: [01_cynefin_classify_and_route]
+    gate_required: false
+  - order: 3
+    task: 03_classify_cbo_cct_regime
+    agent: pcfp-classifier
+    depends_on: [02_extract_spec]
+    gate_required: true
+    gate: hitl_gate_1_cbo_cct
+  - order: 4
+    task: 04_resolve_ruleset
+    agent: pcfp-rules-engine
+    depends_on: [03_classify_cbo_cct_regime]
+    gate_required: false
+  - order: 5
+    task: 05_calculate_planilha
+    agent: pcfp-calculator
+    depends_on: [04_resolve_ruleset]
+    gate_required: false
+  - order: 6
+    task: 06_validate_planilha
+    agent: pcfp-validator
+    depends_on: [05_calculate_planilha]
+    gate_required: true
+    gate: validator_no_blocks
+    on_block: "Turing loop → 04_resolve_ruleset / 05_calculate_planilha (até max_iterations)"
+  - order: 7
+    task: 07_generate_xlsx
+    agent: pcfp-xlsx-generator
+    depends_on: [06_validate_planilha]
+    gate_required: false
+  - order: 8
+    task: 08_hitl_homologacao
+    agent: pcfp-hitl-homologacao
+    depends_on: [07_generate_xlsx]
+    gate_required: true
+    gate: hitl_homologacao_final
+failure_paths:
+  turing_loop:
+    description: "BLOQUEIO do Validador devolve ao Rules/Calculator com diagnóstico."
+    max_iterations: 3
+    on_exhaust: "escalar ao HITL"
+success_conditions:
+  - "Planilha reproduz os casos-ouro dentro de tolerância de arredondamento."
+  - "0 IRPJ/CSLL; incidências do 2.2 corretas em 100% dos testes."
+  - "Toda rubrica cita fundamento legal."
+  - "Homologação humana registrada."

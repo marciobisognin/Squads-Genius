@@ -1,0 +1,18 @@
+id: 03_classify_cbo_cct_regime
+description: "Mapear CBO/CCT/regime e confirmar via HITL Gate 1."
+assigned_agent: pcfp-classifier
+dependencies: [02_extract_spec]
+inputs:
+  - ExtractedSpec
+  - base_normativa (RAG)
+outputs:
+  - ClassifiedSpec (cbo, cct_id, piso_salarial, beneficios_cct, custo_minimo_in176, regime, fontes)
+acceptance_criteria:
+  - "Cada posto mapeado a CBO e CCT vigente com fonte (sindicato, vigência)."
+  - "Piso ≥ custos mínimos IN 176/2024."
+  - "HITL Gate 1 confirmado antes de avançar."
+validation_rules:
+  - "cct_id e cbo não podem ser null após o gate"
+  - "toda classificação cita fonte"
+human_approval: true
+failure_behavior: "rotear a Complex/HITL quando a CCT não for localizável"

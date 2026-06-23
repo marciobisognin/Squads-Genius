@@ -1,0 +1,39 @@
+{
+  "fonte": "resumo",
+  "resumo_objeto": "Contratação de serviços contínuos de limpeza e conservação e de vigilância armada, com dedicação exclusiva de mão de obra, para campus de instituto federal.",
+  "parametros": {
+    "regime": "lei14133_in98",
+    "municipio_uf": "Frederico Westphalen/RS",
+    "garantia_trabalhista": "conta_vinculada",
+    "data_base_proposta": "2026-06-01",
+    "meses_execucao": 12,
+    "desoneracao_folha": false,
+    "cct_id": "SIEMACO-RS-2026 (A_CONFIRMAR via HITL Gate 1)",
+    "piso_cct": 1550.0,
+    "custo_minimo_in176": 1518.0
+  },
+  "postos": [
+    {
+      "nome": "Auxiliar de limpeza (diurno 44h)",
+      "cbo": "5143-20",
+      "quantidade": 12,
+      "salario_base": 1600.0,
+      "vale_transporte_custo": 220.0,
+      "auxilio_alimentacao": 500.0,
+      "uniformes": 30.0,
+      "epis": 15.0
+    },
+    {
+      "nome": "Vigilante (12x36 noturno)",
+      "cbo": "5173-30",
+      "quantidade": 8,
+      "salario_base": 2200.0,
+      "periculosidade": true,
+      "adicional_noturno": 320.0,
+      "vale_transporte_custo": 260.0,
+      "auxilio_alimentacao": 600.0,
+      "uniformes": 45.0,
+      "epis": 25.0
+    }
+  ]
+}

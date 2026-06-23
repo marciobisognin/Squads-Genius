@@ -1,0 +1,26 @@
+project_name: "Squad PCFP"
+objective: "Implementar como squad do repositório o PRD Squad PCFP v1.0 (anexo do usuário): squad multi-agente para elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços em contratos com dedicação exclusiva de mão de obra (administração pública federal), com cálculo determinístico, rastreabilidade por rubrica e HITL nos pontos jurídicos"
+audience: "equipes de planejamento (ETP/TR) de IFEs e órgãos federais, agentes de contratação e pregoeiros, fiscais e gestores de contrato, auditoria interna"
+domain: "contratações públicas federais / terceirização com dedicação exclusiva / IN SEGES 05/2017 Anexo VII-D"
+desired_asset: "squad"
+references:
+  urls:
+    - "https://www.gov.br/compras/pt-br"
+    - "https://repositorio.cgu.gov.br"
+    - "https://pncp.gov.br"
+  files:
+    - "PRD_Squad_PCFP.pdf (anexo do usuário — fonte primária da arquitetura)"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+success_criteria:
+  - "8 agentes do PRD (A1-A8) com contratos de entrada/saída em JSON schema-first"
+  - "engine de cálculo determinística: nenhum valor monetário gerado por LLM"
+  - "cada rubrica com valor, fórmula, fundamento legal, fonte e flags (renovável, conta vinculada)"
+  - "HITL Gate 1 (enquadramento sindical) e Gate 2 (aprovação final / repactuação)"
+  - "fluxos: elaboração nova, análise de proposta de licitante e repactuação/reajuste"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
