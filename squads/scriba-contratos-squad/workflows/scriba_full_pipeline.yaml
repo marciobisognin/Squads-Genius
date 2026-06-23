@@ -1,0 +1,77 @@
+id: scriba_full_pipeline
+name: "SCRIBA — Pipeline completo (entrada estruturada → instrumento homologado)"
+description: "Pipeline completo do PRD: Cynefin → Extractor → RAG normativo → Router → Template Selector → HITL Gate A → Calculator → Drafter → Validator → HITL Gate B → Doc Generator/Explainer."
+human_in_loop: true
+max_iterations: 3
+rollback: "retornar ao último gate reprovado (Turing loop)"
+entrypoint: 01_classificar_cynefin
+steps:
+  - order: 1
+    task: 01_classificar_cynefin
+    agent: scriba-cynefin-classifier
+    gate_required: true
+    gate: cynefin_routing
+  - order: 2
+    task: 02_extrair_contract_facts
+    agent: scriba-extractor
+    depends_on: [01_classificar_cynefin]
+    gate_required: false
+  - order: 3
+    task: 03_recuperar_legal_refs
+    agent: scriba-normative-rag
+    depends_on: [02_extrair_contract_facts]
+    gate_required: false
+  - order: 4
+    task: 04_rotear_instrumento
+    agent: scriba-instrument-router
+    depends_on: [02_extrair_contract_facts]
+    gate_required: false
+  - order: 5
+    task: 05_selecionar_template
+    agent: scriba-template-selector
+    depends_on: [04_rotear_instrumento]
+    gate_required: false
+  - order: 6
+    task: 06_hitl_gate_a_instrumento_cct
+    agent: scriba-orchestrator
+    depends_on: [05_selecionar_template]
+    gate_required: true
+    gate: hitl_gate_a_instrumento_cct
+  - order: 7
+    task: 07_calcular_motor_deterministico
+    agent: scriba-calculator
+    depends_on: [06_hitl_gate_a_instrumento_cct]
+    gate_required: false
+  - order: 8
+    task: 08_redigir_clausulas
+    agent: scriba-drafter
+    depends_on: [07_calcular_motor_deterministico, 03_recuperar_legal_refs]
+    gate_required: false
+  - order: 9
+    task: 09_validar_conformidade
+    agent: scriba-validator
+    depends_on: [08_redigir_clausulas]
+    gate_required: true
+    gate: validator_no_blocks
+    on_block: "Turing loop → 07_calcular_motor_deterministico / 08_redigir_clausulas (até max_iterations)"
+  - order: 10
+    task: 10_hitl_gate_b_homologacao
+    agent: scriba-orchestrator
+    depends_on: [09_validar_conformidade]
+    gate_required: true
+    gate: hitl_gate_b_homologacao
+  - order: 11
+    task: 11_gerar_pacote_final
+    agent: scriba-doc-generator
+    depends_on: [10_hitl_gate_b_homologacao]
+    gate_required: false
+failure_paths:
+  turing_loop:
+    description: "BLOQUEIO do Validador devolve ao Calculator/Drafter com diagnóstico."
+    max_iterations: 3
+    on_exhaust: "escalar ao HITL Gate B"
+success_conditions:
+  - "Instrumento roteado com rationale e legal_refs válidos."
+  - "Nenhum valor monetário gerado por LLM (100% engine determinística)."
+  - "Toda cláusula cita fundamento legal."
+  - "HITL Gate A e Gate B homologados antes do pacote final."

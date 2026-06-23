@@ -1,0 +1,16 @@
+id: 03_recuperar_legal_refs
+description: "Recuperar legal_refs aplicáveis ao caso (Lei/IN/AGU/acórdãos)."
+assigned_agent: scriba-normative-rag
+dependencies: [02_extrair_contract_facts]
+inputs:
+  - contract_facts (normalizado)
+  - instrument_type (quando já disponível)
+outputs:
+  - legal_refs (lista de {fonte, dispositivo, resumo})
+acceptance_criteria:
+  - "Toda referência aponta para fonte oficial verificável."
+  - "Sem fundamento localizável, retorna lista vazia + alerta (nunca inventa dispositivo)."
+validation_rules:
+  - "fonte ∈ {Lei 14.133/2021, IN SEGES/MPDG 05/2017, modelo AGU/CNMLC, acórdão TCU}"
+human_approval: false
+failure_behavior: "sinalizar alerta de fundamentação insuficiente ao Validator"

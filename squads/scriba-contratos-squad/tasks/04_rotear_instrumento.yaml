@@ -1,0 +1,18 @@
+id: 04_rotear_instrumento
+description: "Decidir instrument_type + rationale pela tabela-decisão determinística."
+assigned_agent: scriba-instrument-router
+dependencies: [02_extrair_contract_facts]
+inputs:
+  - contract_facts (normalizado)
+outputs:
+  - instrument_decision.json ({instrument_type, rationale, legal_refs, needs_hitl, hitl_gate})
+acceptance_criteria:
+  - "Decisão determinística (mesma entrada → mesma saída)."
+  - "Toda decisão cita o dispositivo que a fundamenta."
+  - "Sem situação correspondente → erro + sinal Cynefin Complex/Chaotic."
+validation_rules:
+  - "instrument_type ∈ {minuta_inicial, termo_aditivo, apostilamento, repactuacao}"
+  - "ordem de avaliação respeita a regra de ouro (compêndio §3.1)"
+human_approval: false
+failure_behavior: "levantar erro e escalar ao Orchestrator para reclassificação Cynefin"
+script: scripts/scriba_router.py

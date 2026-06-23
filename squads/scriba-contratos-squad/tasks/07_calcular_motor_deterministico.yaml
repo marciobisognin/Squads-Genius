@@ -1,0 +1,18 @@
+id: 07_calcular_motor_deterministico
+description: "Calcular reajuste/repactuação/limites de aditivo/conta vinculada via engine Python."
+assigned_agent: scriba-calculator
+dependencies: [06_hitl_gate_a_instrumento_cct]
+inputs:
+  - dados de reajuste/aditivo/repactuação/conta_vinculada/prorrogacao (conforme situação ativa)
+outputs:
+  - calc_results.json ({valor, formula, fundamento, flags} por cálculo)
+acceptance_criteria:
+  - "Nenhum valor monetário produzido por LLM."
+  - "Determinismo: mesma entrada → mesma saída."
+  - "Alerta de preclusão de repactuação emitido quando aplicável (art. 57, §7º IN 05/2017)."
+validation_rules:
+  - "limites de aditivo respeitam 25%/50% sem compensação entre eles (art. 125, §1º)"
+  - "toda saída cita fórmula e fundamento"
+human_approval: false
+failure_behavior: "devolver ao Orchestrator com diagnóstico se entrada incompleta para o cálculo"
+script: scripts/scriba_engine.py

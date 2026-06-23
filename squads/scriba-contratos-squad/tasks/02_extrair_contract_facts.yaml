@@ -1,0 +1,18 @@
+id: 02_extrair_contract_facts
+description: "Normalizar contract_facts e listar pendências (datas, CNPJ, valores)."
+assigned_agent: scriba-extractor
+dependencies: [01_classificar_cynefin]
+inputs:
+  - entrada estruturada bruta
+outputs:
+  - contract_facts (normalizado)
+  - pendencias (lista de campos faltantes/inconsistentes)
+acceptance_criteria:
+  - "Nenhum campo numérico/data aceito fora do formato esperado."
+  - "Pendências bloqueantes sinalizadas ao Orchestrator."
+validation_rules:
+  - "datas em formato ISO 8601"
+  - "valores monetários não-negativos"
+  - "nenhuma inferência silenciosa de valor ausente"
+human_approval: false
+failure_behavior: "listar pendências e devolver ao Orchestrator para nova rodada de coleta"

@@ -1,0 +1,17 @@
+id: 08_redigir_clausulas
+description: "Preencher cláusulas do template com calc_results e legal_refs, citando fonte por cláusula."
+assigned_agent: scriba-drafter
+dependencies: [07_calcular_motor_deterministico, 03_recuperar_legal_refs]
+inputs:
+  - template_id
+  - calc_results.json
+  - legal_refs
+outputs:
+  - draft_clauses ([{id, texto, fundamento}])
+acceptance_criteria:
+  - "Toda cláusula cita a fonte (artigo/modelo AGU/acórdão)."
+  - "Sem citação válida, cláusula é bloqueada e sinalizada ao Validator."
+validation_rules:
+  - "nenhuma cláusula sem campo fundamento preenchido"
+human_approval: false
+failure_behavior: "bloquear cláusula sem fundamento e sinalizar ao Validator"

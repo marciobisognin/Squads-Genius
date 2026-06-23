@@ -1,0 +1,20 @@
+id: 09_validar_conformidade
+description: "Validar checklist AGU + riscos TCU; bloqueio aciona Turing Guild."
+assigned_agent: scriba-validator
+dependencies: [08_redigir_clausulas]
+inputs:
+  - draft_clauses
+  - calc_results.json
+  - instrument_decision.json
+outputs:
+  - relatorio_validacao (OK | ALERTA | BLOQUEIO por regra; json + md)
+acceptance_criteria:
+  - "Cláusulas obrigatórias do art. 92 100% presentes."
+  - "Limites de aditivo e preclusão de repactuação checados."
+  - "BLOQUEIO aciona Turing loop; ALERTA segue com nota."
+validation_rules:
+  - "cada checagem cita fundamento (norma/acórdão)"
+  - "checagens 100% determinísticas"
+human_approval: false
+failure_behavior: "devolver ao Calculator/Drafter com diagnóstico até max_iterations"
+script: scripts/scriba_validator.py
