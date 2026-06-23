@@ -7785,5 +7785,119 @@
       "desc": "Reconstrução histórico-cultural em até 3 níveis de profundidade, com grafo de certeza, contra-perspectiva e narração em segunda pessoa sem anacronismo."
     },
     "category": "Conhecimento, Pesquisa & Dados"
+  },
+  {
+    "id": "farol-pcfp-squad",
+    "name": "Farol PCFP — Planilha de Custos",
+    "tagline": "Do edital à Planilha de Custos e Formação de Preços (Anexo VII-D da IN 05/2017 + Lei 14.133/2021): Módulos 1–6 com cálculo determinístico, memória rastreável por rubrica e validação contra a jurisprudência do TCU.",
+    "color": "#1f3a5f",
+    "card_icon": "guardian",
+    "agents": [
+      {
+        "name": "Orchestrator",
+        "role": "Orquestrador",
+        "desc": "Coordena o StateGraph, aplica o roteamento Cynefin, gerencia o Turing loop e consolida o handoff SACP. Não calcula nada.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Extractor",
+        "role": "Extração / OCR",
+        "desc": "Lê edital, TR e CCT e extrai postos, jornada, adicionais e insumos. Campo ausente vira null + requer_hitl — nunca inventa.",
+        "icon": "input"
+      },
+      {
+        "name": "Classifier",
+        "role": "CBO / CCT / Regime",
+        "desc": "Mapeia cada posto à CBO e à CCT vigente e determina o regime, acionando o HITL Gate 1 de enquadramento.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Rules Engine",
+        "role": "Regras & Parâmetros",
+        "desc": "Resolve o RuleSet (alíquotas do 2.2, desoneração, custos mínimos, tributos, conta vinculada vs fato gerador) com fundamento legal.",
+        "icon": "planner"
+      },
+      {
+        "name": "Calculator",
+        "role": "Motor de cálculo",
+        "desc": "Engine determinística em Python puro: Módulos 1–6 com a ordem de incidência correta. Nenhum valor monetário vem do LLM.",
+        "icon": "builder"
+      },
+      {
+        "name": "Validator",
+        "role": "Validador",
+        "desc": "Checagens determinísticas + jurisprudência TCU embarcada (OK/ALERTA/BLOQUEIO); bloqueio aciona o Turing loop.",
+        "icon": "validator"
+      },
+      {
+        "name": "XLSX Generator",
+        "role": "Gerador de artefatos",
+        "desc": "Gera a planilha .xlsx com fórmulas vivas espelhando o Anexo VII-D, com memória e base normativa (fallback CSV).",
+        "icon": "composer"
+      },
+      {
+        "name": "HITL Homologação",
+        "role": "Gate humano final",
+        "desc": "Invariante: nenhuma planilha é final sem homologação humana registrada. Aprova, ajusta parâmetro e reexecuta, ou rejeita.",
+        "icon": "guardian"
+      }
+    ],
+    "tools": [
+      {
+        "file": "pcfp_rules.py",
+        "desc": "RuleSet: percentuais, bases de incidência e fundamentos legais (Submódulo 2.2, tributos, desoneração)."
+      },
+      {
+        "file": "pcfp_engine.py",
+        "desc": "Engine determinística dos Módulos 1–6: 2.2 sobre M1+2.1, rescisão recebe 2.2, VT por custo efetivo, tributos por gross-up, sem IRPJ/CSLL."
+      },
+      {
+        "file": "pcfp_validator.py",
+        "desc": "Validador determinístico + jurisprudência TCU: estrutura, incidência, pisos, exequibilidade e coerência de regime."
+      },
+      {
+        "file": "xlsx_generator.py",
+        "desc": "Gera a planilha .xlsx com fórmulas vivas (openpyxl); fallback CSV em ambiente mínimo."
+      },
+      {
+        "file": "run_pcfp.py",
+        "desc": "Orquestrador CLI determinístico que encadeia RuleSet → engine → validador e emite os relatórios."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Roteamento Cynefin",
+        "desc": "Classifica a complexidade (Clear/Complicated/Complex) e define o caminho do pipeline."
+      },
+      {
+        "title": "Extração da especificação",
+        "desc": "Lê edital/TR/CCT (ou o resumo) e monta o ExtractedSpec, marcando lacunas para HITL."
+      },
+      {
+        "title": "CBO / CCT / Regime (HITL 1)",
+        "desc": "Mapeia CBO e CCT vigente e confirma o enquadramento com aprovação humana."
+      },
+      {
+        "title": "Resolução do RuleSet",
+        "desc": "Define alíquotas, desoneração, custos mínimos, tributos e a variante CV/PFG, cada item com fundamento."
+      },
+      {
+        "title": "Cálculo determinístico",
+        "desc": "Calcula Módulos 1–6 e o quadro-resumo via engine, com valor, fórmula e fundamento por rubrica."
+      },
+      {
+        "title": "Validação e exequibilidade",
+        "desc": "Confere incidências, pisos e vedações (sem IRPJ/CSLL); bloqueio volta ao cálculo (Turing loop)."
+      },
+      {
+        "title": "Planilha e homologação (HITL 2)",
+        "desc": "Gera o .xlsx com fórmulas vivas e exige homologação humana antes de marcar como final."
+      }
+    ],
+    "output": {
+      "title": "Planilha de Custos e Formação de Preços auditável (.xlsx)",
+      "desc": "Planilha por posto (Módulos 1–6) com fórmulas vivas, Quadro-Resumo, memória de cálculo e base normativa, mais o relatório de validação contra a IN 05/2017, a IN 98/2022 e a jurisprudência do TCU."
+    },
+    "category": "Jurídico, Risco, Finanças & Segurança"
   }
 ]

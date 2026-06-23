@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farol PCFP — Planilha de Custos — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#1f3a5f;--accent-soft:#1f3a5f26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></span> Farol PCFP — Planilha de Custos</h1>
+  <p class="tagline">Do edital à Planilha de Custos e Formação de Preços (Anexo VII-D da IN 05/2017 + Lei 14.133/2021): Módulos 1–6 com cálculo determinístico, memória rastreável por rubrica e validação contra a jurisprudência do TCU.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>Orchestrator</h4><p>Coordena o StateGraph, aplica o roteamento Cynefin, gerencia o Turing loop e consolida o handoff SACP. Não calcula nada.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-input"/></svg></div>
+        <div><div class="role">Extração / OCR</div><h4>Extractor</h4><p>Lê edital, TR e CCT e extrai postos, jornada, adicionais e insumos. Campo ausente vira null + requer_hitl — nunca inventa.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">CBO / CCT / Regime</div><h4>Classifier</h4><p>Mapeia cada posto à CBO e à CCT vigente e determina o regime, acionando o HITL Gate 1 de enquadramento.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-planner"/></svg></div>
+        <div><div class="role">Regras &amp; Parâmetros</div><h4>Rules Engine</h4><p>Resolve o RuleSet (alíquotas do 2.2, desoneração, custos mínimos, tributos, conta vinculada vs fato gerador) com fundamento legal.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Motor de cálculo</div><h4>Calculator</h4><p>Engine determinística em Python puro: Módulos 1–6 com a ordem de incidência correta. Nenhum valor monetário vem do LLM.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">Validador</div><h4>Validator</h4><p>Checagens determinísticas + jurisprudência TCU embarcada (OK/ALERTA/BLOQUEIO); bloqueio aciona o Turing loop.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-composer"/></svg></div>
+        <div><div class="role">Gerador de artefatos</div><h4>XLSX Generator</h4><p>Gera a planilha .xlsx com fórmulas vivas espelhando o Anexo VII-D, com memória e base normativa (fallback CSV).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Gate humano final</div><h4>HITL Homologação</h4><p>Invariante: nenhuma planilha é final sem homologação humana registrada. Aprova, ajusta parâmetro e reexecuta, ou rejeita.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>pcfp_rules.py</code><span>RuleSet: percentuais, bases de incidência e fundamentos legais (Submódulo 2.2, tributos, desoneração).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>pcfp_engine.py</code><span>Engine determinística dos Módulos 1–6: 2.2 sobre M1+2.1, rescisão recebe 2.2, VT por custo efetivo, tributos por gross-up, sem IRPJ/CSLL.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>pcfp_validator.py</code><span>Validador determinístico + jurisprudência TCU: estrutura, incidência, pisos, exequibilidade e coerência de regime.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>xlsx_generator.py</code><span>Gera a planilha .xlsx com fórmulas vivas (openpyxl); fallback CSV em ambiente mínimo.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>run_pcfp.py</code><span>Orquestrador CLI determinístico que encadeia RuleSet → engine → validador e emite os relatórios.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Roteamento Cynefin</h4><p>Classifica a complexidade (Clear/Complicated/Complex) e define o caminho do pipeline.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Extração da especificação</h4><p>Lê edital/TR/CCT (ou o resumo) e monta o ExtractedSpec, marcando lacunas para HITL.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>CBO / CCT / Regime (HITL 1)</h4><p>Mapeia CBO e CCT vigente e confirma o enquadramento com aprovação humana.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Resolução do RuleSet</h4><p>Define alíquotas, desoneração, custos mínimos, tributos e a variante CV/PFG, cada item com fundamento.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Cálculo determinístico</h4><p>Calcula Módulos 1–6 e o quadro-resumo via engine, com valor, fórmula e fundamento por rubrica.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Validação e exequibilidade</h4><p>Confere incidências, pisos e vedações (sem IRPJ/CSLL); bloqueio volta ao cálculo (Turing loop).</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Planilha e homologação (HITL 2)</h4><p>Gera o .xlsx com fórmulas vivas e exige homologação humana antes de marcar como final.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Planilha de Custos e Formação de Preços auditável (.xlsx)</strong><span>Planilha por posto (Módulos 1–6) com fórmulas vivas, Quadro-Resumo, memória de cálculo e base normativa, mais o relatório de validação contra a IN 05/2017, a IN 98/2022 e a jurisprudência do TCU.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
