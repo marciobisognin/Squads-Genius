@@ -6093,6 +6093,96 @@
     "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
+    "id": "argus-conta-vinculada-squad",
+    "name": "Árgus — Conta Vinculada",
+    "tagline": "Gera e mantém a planilha da Conta-Depósito Vinculada (Anexo XII da IN 05/2017; art. 121 da Lei 14.133/2021): provisão mensal, saldo, liberações e conferência do FGTS, com cálculo determinístico e gates humanos.",
+    "color": "#16324f",
+    "card_icon": "guardian",
+    "agents": [
+      {
+        "name": "A1 Orquestrador Árgus",
+        "role": "Orquestrador",
+        "desc": "Classifica a demanda, monta o grafo de execução, gerencia os gates HITL e consolida a saída.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "A2 Extrator Documental",
+        "role": "Extrator / OCR",
+        "desc": "Lê contracheques e o relatório do FGTS Digital (e SEFIP) em registros normalizados, marcando o que é ilegível.",
+        "icon": "input"
+      },
+      {
+        "name": "A3 Regras & Parâmetros",
+        "role": "Enquadramento",
+        "desc": "Resolve regime tributário, SAT/RAT/FAP, jornada e multa (4/5%), acionando o gate humano de parâmetros jurídicos.",
+        "icon": "planner"
+      },
+      {
+        "name": "A4 Engine de Cálculo",
+        "role": "Motor de cálculo",
+        "desc": "Opera a engine determinística: provisão mensal, saldo, avos e liberações por evento, com memória de cálculo.",
+        "icon": "builder"
+      },
+      {
+        "name": "A5 Validador de Conformidade",
+        "role": "Validador",
+        "desc": "Confere o FGTS 8% devido vs recolhido e bloqueia liberações irregulares (fail-closed).",
+        "icon": "validator"
+      },
+      {
+        "name": "A6 Gerador de Planilha",
+        "role": "Gerador de artefatos",
+        "desc": "Monta a planilha .xlsx multi-abas com fórmulas e o relatório de inconsistências, acionando o gate de autorização.",
+        "icon": "composer"
+      }
+    ],
+    "tools": [
+      {
+        "file": "conta_vinculada_core.py",
+        "desc": "Engine determinística da provisão mensal (13º, férias+1/3, multa, incidência 2.2), saldo e liberações, com golden tests do item 14."
+      },
+      {
+        "file": "validar_conta_vinculada.py",
+        "desc": "Conferência determinística: CPF, FGTS 8% devido vs recolhido, regras de liberação e saldo nunca negativo."
+      },
+      {
+        "file": "gerar_planilha_xlsx.py",
+        "desc": "Gera a planilha .xlsx multi-abas usando apenas a biblioteca padrão, com fallback CSV por aba."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Classificação da demanda",
+        "desc": "Identifica o tipo de demanda (montagem, provisão, liberação ou conferência) e monta o plano."
+      },
+      {
+        "title": "Parâmetros do contrato (HITL 1)",
+        "desc": "Confirma multa, regime tributário, SAT/FAP e jornada com aprovação humana."
+      },
+      {
+        "title": "Extração documental",
+        "desc": "Lê contracheques e o relatório do FGTS Digital em registros normalizados."
+      },
+      {
+        "title": "Provisão mensal",
+        "desc": "Calcula 13º, férias+1/3, multa, incidência 2.2, total e saldo via engine determinística."
+      },
+      {
+        "title": "Conferência e validação",
+        "desc": "Confere o FGTS 8% e aplica as regras de negócio, bloqueando o que for irregular."
+      },
+      {
+        "title": "Planilha e autorização (HITL 2)",
+        "desc": "Gera a planilha .xlsx e o relatório de inconsistências; a liberação exige autorização humana."
+      }
+    ],
+    "output": {
+      "title": "Planilha de Conta Vinculada auditável (.xlsx)",
+      "desc": "Planilha multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) com memória de cálculo e relatório de inconsistências."
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
+  },
+  {
     "id": "themis-contratos-publicos-squad",
     "name": "Themis Contratos Públicos",
     "tagline": "Equipe jurídica de IA que analisa contratos administrativos com fundamentação alinhada a CGU e Tribunais de Contas, para apoiar procuradorias e gestores.",
