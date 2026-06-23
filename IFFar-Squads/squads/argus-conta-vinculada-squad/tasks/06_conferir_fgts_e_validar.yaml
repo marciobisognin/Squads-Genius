@@ -1,0 +1,14 @@
+id: "06_conferir_fgts_e_validar"
+owner: "a5-validador-conformidade"
+objective: "Conferir FGTS 8% (devido vs recolhido por competência), aplicar as regras de negócio de liberação e bloquear o que for irregular; emitir o ConferenciaReport."
+inputs:
+  - "ProvisaoMensal[] e/ou LiberacaoEvento"
+  - "FgtsRecord[]"
+  - "planilha de custos do contrato (quando houver)"
+outputs:
+  - "ConferenciaReport com go/no-go por trabalhador e por liberação"
+acceptance_criteria:
+  - "FGTS irregular em qualquer competência do período BLOQUEIA a liberação (fail-closed, gate fgts_regular_para_liberacao)"
+  - "justa causa não libera; rescisão > 1 ano exige homologação sindical; férias no mês subsequente"
+  - "CPF válido, soma de avos ≤ 12, saldo nunca negativo verificados"
+  - "campo responsavel_validacao preenchido"

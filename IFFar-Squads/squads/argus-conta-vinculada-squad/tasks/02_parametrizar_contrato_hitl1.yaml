@@ -1,0 +1,17 @@
+id: "02_parametrizar_contrato_hitl1"
+owner: "a3-regras-parametros"
+objective: "Resolver e validar os parâmetros jurídico-tributários do contrato (multa 4/5%, regime tributário, SAT/RAT/FAP, jornada 40/44h) e obter a confirmação humana (HITL Gate 1)."
+inputs:
+  - "dados do contrato/edital"
+  - "decisões da Procuradoria/AGU local (quando houver)"
+  - "tabela de percentuais vigente"
+outputs:
+  - "ContratoParams JSON validado com fundamento e vigência por percentual"
+acceptance_criteria:
+  - "multa, regime tributário e SAT/FAP presentes como decisão humana registrada, nunca default silencioso (gate hitl1_parametros_juridicos)"
+  - "regime Simples Nacional sinalizado com destaque (incidência 2.2 = só FGTS 8%)"
+  - "cada percentual com fonte e data de vigência"
+hitl:
+  gate: "hitl1_parametros_juridicos"
+  bloqueante: true
+  pergunta: "Confirmar multa (4% ou 5%), regime tributário, SAT/RAT/FAP e jornada antes de calcular."

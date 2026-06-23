@@ -1,0 +1,13 @@
+id: "08_atualizar_parametros_normativos"
+owner: "a3-regras-parametros"
+objective: "Rotina recorrente: monitorar DOU / Portal de Compras / FGTS Digital e versionar a tabela de percentuais quando houver alteração relevante."
+inputs:
+  - "tabela de percentuais vigente (scripts/conta_vinculada_core.py: CONFIG)"
+  - "fontes oficiais (Caderno de Logística, Orientações do Portal de Compras, Notas FGTS Digital)"
+outputs:
+  - "tabela de percentuais atualizada com frontmatter de vigência e changelog"
+acceptance_criteria:
+  - "cada alteração registra norma, data de vigência e impacto (ex.: multa 5%→4%, reoneração Lei 14.973/2024, jornada 40h)"
+  - "mudança de formato de extrato (SEFIP→FGTS Digital, corte 03/2024) tratada"
+  - "nenhuma alteração silenciosa de percentual sem fonte"
+recorrencia: "mensal ou a cada publicação relevante no DOU"

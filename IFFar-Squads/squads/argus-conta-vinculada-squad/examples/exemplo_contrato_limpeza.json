@@ -1,0 +1,46 @@
+{
+  "contrato": {
+    "orgao": "IFFar — Campus Exemplo",
+    "contrato": "00123/2026",
+    "empresa": "Limpeza & Cia Ltda",
+    "cnpj": "00.000.000/0001-00",
+    "regime": "lucro_real_presumido",
+    "sat": "1",
+    "fap": "1.0",
+    "multa_modo": "atual",
+    "jornada": 40,
+    "banco": "Banco do Brasil",
+    "agencia": "0000-0",
+    "conta_vinculada": "00000-0",
+    "vigencia": "2026-01-01 a 2026-12-31",
+    "indice_remuneracao": "poupança pro rata die"
+  },
+  "trabalhadores": [
+    {
+      "nome": "Maria da Silva",
+      "cpf": "529.982.247-25",
+      "cbo": "5143-20",
+      "admissao": "2026-01-01",
+      "inicio_contrato": "2026-01-01",
+      "salario_base": "1620.00",
+      "adicionais": "0.00",
+      "remuneracao": "1620.00",
+      "competencia": "2026-01",
+      "competencias": ["2026-01", "2026-02", "2026-03"],
+      "jornada": 40
+    },
+    {
+      "nome": "João Souza",
+      "cpf": "168.995.350-09",
+      "cbo": "5143-20",
+      "admissao": "2025-07-15",
+      "inicio_contrato": "2026-01-01",
+      "salario_base": "1620.00",
+      "adicionais": "324.00",
+      "remuneracao": "1944.00",
+      "competencia": "2026-01",
+      "competencias": ["2026-01", "2026-02", "2026-03"],
+      "jornada": 40
+    }
+  ]
+}

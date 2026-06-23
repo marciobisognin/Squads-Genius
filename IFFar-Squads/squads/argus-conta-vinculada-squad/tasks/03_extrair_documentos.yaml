@@ -1,0 +1,14 @@
+id: "03_extrair_documentos"
+owner: "a2-extrator-documental"
+objective: "Extrair TrabalhadorRecord (contracheque) e FgtsRecord (FGTS Digital / SEFIP) normalizados, com confiança e marcação de campos ilegíveis."
+inputs:
+  - "contracheques (PDF/imagem)"
+  - "relatório do FGTS Digital (Relatório por Trabalhador) e/ou extrato SEFIP < 03/2024"
+outputs:
+  - "TrabalhadorRecord[] normalizado"
+  - "FgtsRecord[] com origem (fgts_digital|sefip), depósitos por competência, saldo e status"
+acceptance_criteria:
+  - "campos ilegíveis vão para campos_ilegiveis[] com confiança baixa — nada é inventado"
+  - "CPF, valores e competência normalizados (dígitos / decimal com ponto / MM-AAAA)"
+  - "origem do extrato FGTS identificada explicitamente (corte de 01/03/2024)"
+  - "nenhum segredo/credencial copiado dos documentos"

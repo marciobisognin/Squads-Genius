@@ -1,0 +1,11 @@
+id: "01_classificar_demanda_e_plano"
+owner: "a1-orquestrador-argus"
+objective: "Classificar a demanda (montagem completa / provisão mensal / liberação por evento / conferência) e montar o plano de execução com agentes, ordem e gates HITL."
+inputs:
+  - "pedido do usuário e materiais disponíveis (parâmetros do contrato, contracheques, relatório FGTS)"
+outputs:
+  - "PlanoExecucao com tipo de demanda, sequência de agentes e gates aplicáveis"
+acceptance_criteria:
+  - "demanda classificada em um dos quatro tipos suportados (gate demanda_classificada)"
+  - "pré-condições verificadas: existência mínima de ContratoParams e ao menos um TrabalhadorRecord para cálculo"
+  - "gates HITL1/HITL2 marcados conforme a demanda envolver parâmetro novo e/ou liberação"

@@ -1,0 +1,16 @@
+{
+  "nome": "Árgus — Conta Vinculada",
+  "conceito": "Árgus Panoptes, o guardião de cem olhos que nunca dorme — vigilância total sobre a conta bloqueada.",
+  "tom": "institucional, sóbrio, auditável, sem promessas absolutas (automação não é parecer)",
+  "paleta": {
+    "azul_cofre": "#16324F",
+    "verde_regular": "#1E7A46",
+    "ambar_atencao": "#C77D11",
+    "vermelho_bloqueio": "#9E2B25",
+    "cinza_neutro": "#5B6770",
+    "fundo_claro": "#F5F7FA"
+  },
+  "tipografia": {"titulos": "serifada institucional", "corpo": "sans-serif legível", "numeros": "tabular monospaced"},
+  "semantica_status": {"regular": "verde", "atencao": "âmbar", "irregular_bloqueio": "vermelho"},
+  "originalidade": "identidade própria; não reutiliza marca, layout ou ativo de órgãos/instituições citados."
+}

@@ -85,3 +85,4 @@ Squads publicados no repositório `Squads-Genius`.
 
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
 - [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.
+- [Árgus — Conta Vinculada](IFFar-Squads/squads/argus-conta-vinculada-squad/README.md) — `argus-conta-vinculada-squad` — versão `1.0.0` — geração e manutenção automática da planilha da Conta-Depósito Vinculada (Anexo XII da IN 05/2017; art. 121 da Lei 14.133/2021): extração de contracheque e FGTS Digital, provisão mensal/saldo/liberações (13º, férias, rescisão), conferência FGTS 8% e planilha .xlsx auditável, com engine determinística (golden tests) e gates humanos
