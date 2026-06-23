@@ -1,0 +1,52 @@
+{
+  "id": "montagem_planilha_completa",
+  "description": "Fluxo de ponta a ponta: dos parâmetros do contrato + contracheques + relatório FGTS até a planilha .xlsx completa com conferência. Caso de primeira montagem.",
+  "human_in_loop": true,
+  "rollback": "lacuna de dados volta ao A2 (extração); achado de conferência volta ao A4; gates HITL reprovados pausam o fluxo",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Classificação da demanda e plano",
+      "task": "01_classificar_demanda_e_plano",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Parâmetros do contrato (multa, regime, SAT/FAP, jornada)",
+      "task": "02_parametrizar_contrato_hitl1",
+      "gate_required": true,
+      "gate": "hitl1_parametros_juridicos",
+      "note": "BLOQUEANTE: confirmação humana dos parâmetros jurídico-tributários."
+    },
+    {
+      "order": 3,
+      "name": "Extração de contracheques e FGTS",
+      "task": "03_extrair_documentos",
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "name": "Provisão mensal (engine)",
+      "task": "04_calcular_provisao_mensal",
+      "gate_required": true,
+      "gate": "provisao_sem_valor_de_llm",
+      "note": "Nenhum valor monetário gerado por LLM."
+    },
+    {
+      "order": 5,
+      "name": "Conferência FGTS/INSS e validação",
+      "task": "06_conferir_fgts_e_validar",
+      "gate_required": true,
+      "gate": "fgts_regular_para_liberacao",
+      "note": "Fail-closed: FGTS irregular impede liberação."
+    },
+    {
+      "order": 6,
+      "name": "Geração da planilha .xlsx e relatório",
+      "task": "07_gerar_planilha_e_relatorio_hitl2",
+      "gate_required": true,
+      "gate": "hitl2_autorizacao_liberacao",
+      "note": "BLOQUEANTE quando houver liberação: autorização humana registrada (responsável + data)."
+    }
+  ]
+}

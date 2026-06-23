@@ -1,0 +1,31 @@
+{
+  "id": "liberacao_evento",
+  "description": "Liberação por evento (13º, férias, rescisão ou encerramento), sempre mediante comprovação documental, conferência de FGTS regular e autorização do órgão.",
+  "human_in_loop": true,
+  "rollback": "pendência documental ou FGTS irregular BLOQUEIA e retorna ao solicitante; valor acima do saldo volta ao A4",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Cálculo da liberação (avos / proporcional / multa rescisória)",
+      "task": "05_calcular_liberacao_evento",
+      "gate_required": true,
+      "gate": "provisao_sem_valor_de_llm"
+    },
+    {
+      "order": 2,
+      "name": "Conferência e regras de negócio (fail-closed)",
+      "task": "06_conferir_fgts_e_validar",
+      "gate_required": true,
+      "gate": "fgts_regular_para_liberacao",
+      "note": "BLOQUEANTE: justa causa não libera; rescisão > 1 ano exige homologação sindical; FGTS regular obrigatório."
+    },
+    {
+      "order": 3,
+      "name": "Registro da liberação e autorização do órgão",
+      "task": "07_gerar_planilha_e_relatorio_hitl2",
+      "gate_required": true,
+      "gate": "hitl2_autorizacao_liberacao",
+      "note": "BLOQUEANTE: autoridade autoriza; banco emite ordem bancária; empresa comprova em até 3 dias úteis."
+    }
+  ]
+}

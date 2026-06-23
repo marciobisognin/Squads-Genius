@@ -1,0 +1,17 @@
+id: "07_gerar_planilha_e_relatorio_hitl2"
+owner: "a6-gerador-planilha"
+objective: "Gerar a planilha .xlsx multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) e o relatório de inconsistências, e obter a autorização humana da liberação (HITL Gate 2)."
+inputs:
+  - "ContratoParams, TrabalhadorRecord[], ProvisaoMensal[], LiberacaoEvento, ConferenciaReport"
+outputs:
+  - "planilha .xlsx (com fallback CSV por aba)"
+  - "relatorio_inconsistencias (FGTS irregular, divergências, pendências documentais)"
+acceptance_criteria:
+  - "as 5 abas presentes, com memória de cálculo nas células calculadas"
+  - "liberação só consta como autorizada com responsável + data (gate hitl2_autorizacao_liberacao)"
+  - "planilha gerada apenas com biblioteca padrão; arquivo .xlsx válido"
+  - "relatório encerra com o footer obrigatório"
+hitl:
+  gate: "hitl2_autorizacao_liberacao"
+  bloqueante: true
+  pergunta: "Autorizar a liberação registrada (responsável + data), após conferência sem bloqueios."

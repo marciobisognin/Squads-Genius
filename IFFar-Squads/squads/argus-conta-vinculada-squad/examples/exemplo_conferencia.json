@@ -1,0 +1,34 @@
+{
+  "competencia": "2026-03",
+  "responsavel_validacao": "Fiscal Administrativo — Portaria 000/2026",
+  "trabalhadores": [
+    {
+      "nome": "Maria da Silva",
+      "cpf": "529.982.247-25",
+      "evento": "férias",
+      "avos": 12,
+      "remuneracao": "1620.00",
+      "fgts_competencias": [
+        {"competencia": "2026-01", "deposito": "129.60", "status": "regular"},
+        {"competencia": "2026-02", "deposito": "129.60", "status": "regular"},
+        {"competencia": "2026-03", "deposito": "129.60", "status": "regular"}
+      ],
+      "documentos": ["folha_pagamento", "fgts_digital", "gps_inss", "recibo_ferias"],
+      "saldo_apos_liberacao": "100.00"
+    },
+    {
+      "nome": "João Souza",
+      "cpf": "168.995.350-09",
+      "evento": "rescisão",
+      "tempo_de_casa_meses": 20,
+      "motivo_rescisao": "sem_justa_causa",
+      "remuneracao": "1944.00",
+      "fgts_competencias": [
+        {"competencia": "2026-01", "deposito": "155.52", "status": "regular"},
+        {"competencia": "2026-02", "deposito": "120.00", "status": "irregular"}
+      ],
+      "documentos": ["folha_pagamento", "fgts_digital", "gps_inss"],
+      "homologacao_sindical": false
+    }
+  ]
+}

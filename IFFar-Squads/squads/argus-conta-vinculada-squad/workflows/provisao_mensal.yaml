@@ -1,0 +1,36 @@
+{
+  "id": "provisao_mensal",
+  "description": "Retenção mensal: ao atestar a NF/fatura, calcular o total a destacar para a conta-vinculada (≈31,82–33,25% da remuneração por empregado) e conferir o FGTS da competência.",
+  "human_in_loop": true,
+  "rollback": "divergência de remuneração volta ao A2; parâmetro alterado volta ao A3",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Extração da competência (contracheque + FGTS do mês)",
+      "task": "03_extrair_documentos",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Provisão mensal por trabalhador (engine)",
+      "task": "04_calcular_provisao_mensal",
+      "gate_required": true,
+      "gate": "provisao_sem_valor_de_llm"
+    },
+    {
+      "order": 3,
+      "name": "Conferência do FGTS 8% da competência",
+      "task": "06_conferir_fgts_e_validar",
+      "gate_required": true,
+      "gate": "fgts_regular_para_liberacao",
+      "note": "FGTS irregular não impede a retenção, mas é registrado e notificado para acompanhamento."
+    },
+    {
+      "order": 4,
+      "name": "Atualização da aba Provisão mensal e do saldo",
+      "task": "07_gerar_planilha_e_relatorio_hitl2",
+      "gate_required": false,
+      "note": "Sem liberação nesta competência: Gate 2 não bloqueia; apenas atualiza saldo."
+    }
+  ]
+}

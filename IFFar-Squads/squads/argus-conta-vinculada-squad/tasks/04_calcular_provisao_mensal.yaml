@@ -1,0 +1,13 @@
+id: "04_calcular_provisao_mensal"
+owner: "a4-engine-calculo"
+objective: "Executar scripts/conta_vinculada_core.py para preencher a provisão mensal por trabalhador (B 13º, C férias+1/3, D multa, E incidência 2.2 e total) e o saldo acumulado."
+inputs:
+  - "ContratoParams (pós Gate 1)"
+  - "TrabalhadorRecord[]"
+outputs:
+  - "ProvisaoMensal[] com memória de cálculo por rubrica"
+acceptance_criteria:
+  - "nenhum valor monetário produzido fora da engine (gate provisao_sem_valor_de_llm)"
+  - "cada rubrica com valor, fórmula, percentual, fundamento e fonte"
+  - "incidência 2.2 coerente com o regime/SAT/FAP do ContratoParams"
+  - "arredondamento a 2 casas explicitado; saldo acumulado nunca negativo"

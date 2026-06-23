@@ -1,0 +1,61 @@
+project_name: "Árgus — Conta Vinculada"
+slug: "argus-conta-vinculada-squad"
+objective: >
+  Automatizar a geração e a manutenção da planilha da Conta-Depósito Vinculada
+  (conta-vinculada) na administração pública federal: a partir dos parâmetros do
+  contrato + contracheques + relatório do FGTS Digital, calcular provisão mensal,
+  saldo, liberações por evento (13º, férias, rescisão, encerramento) e conferência
+  FGTS/INSS, exportando uma planilha .xlsx auditável e um relatório de inconsistências.
+audience:
+  - "TAE / fiscal administrativo de contratos"
+  - "gestor de contrato"
+  - "setor financeiro / orçamento (execução SIAFI / ordem bancária)"
+domain: >
+  Contratos de serviços com dedicação exclusiva de mão de obra (terceirização)
+  sob a Lei 8.666/1993 (IN SEGES/MPDG 05/2017, Anexo XII) e a Lei 14.133/2021
+  (art. 121, §3º III e §4º; IN SEGES/ME 98/2022 "no que couber"). Contexto IFFar.
+desired_asset: "full_system"
+references:
+  document: "Dossiê Normativo + Estrutura da Planilha + PRD (material do usuário, jun/2026)"
+  urls:
+    - "https://www.gov.br/compras/pt-br/agente-publico/cadernos-de-logistica/midia/caderno_logistica_conta_vinculada.pdf"
+    - "https://www.in.gov.br/materia/-/asset_publisher/Kujrw0TZC2Mb/content/id/20239255 (IN 05/2017)"
+    - "https://www.gov.br/compras/pt-br/acesso-a-informacao/legislacao/instrucoes-normativas/instrucao-normativa-seges-me-no-98-de-26-de-dezembro-de-2022"
+    - "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm (art. 121)"
+    - "https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub; Python 3.11+ stdlib (sem dependências externas)"
+  budget: "low-token; cálculo determinístico, LLM só em decisão/raciocínio"
+  publish: "não publicar release/PR sem autorização humana explícita"
+parametros_default:
+  multa_fgts_aviso: "4% (atual, pós Lei 13.932/2019 / Orientação nº 26); flag 5% literal"
+  regime_tributario: "lucro_real_presumido (Simples Nacional como variante: só FGTS 8%)"
+  sat_rat: "configurável 1/2/3% × FAP (0,5–2,0)"
+  jornada: "configurável 40h (Decreto 12.174/2024) ou 44h"
+success_criteria:
+  - "Provisão mensal por trabalhador idêntica à memória do Anexo XII (item 14) ± centavos"
+  - "Nenhum valor monetário produzido por LLM — toda conta vem da engine Python testável"
+  - "Liberação bloqueada quando FGTS irregular / documentação incompleta / justa causa"
+  - "Planilha .xlsx multi-abas válida (Cadastro, Trabalhadores, Provisão, Liberações, Conferência)"
+  - "validate_squad.py → go_no_go: go"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"
+
+# Separação epistêmica (regra do construtor):
+observado:
+  - "Tabela do item 14 do Anexo XII: 13º 8,33%; férias+1/3 12,10%; multa s/ aviso 5% (literal)."
+  - "Lei 13.932/2019 art. 12 extinguiu a contribuição social de 10% do FGTS a partir de 01/01/2020."
+  - "FGTS Digital em produção desde 01/03/2024 (GFD, vencimento dia 20, PIX/QR Code)."
+inferido:
+  - "Percentuais e fluxo são idênticos nos regimes 8.666 e 14.133 (IN 98/2022 manda aplicar a 05/2017)."
+  - "Incidência do Submódulo 2.2 = total_2.2 × 21,19% (13º a 1/11 + férias+1/3)."
+hipotese:
+  - "IFFar opera majoritariamente contratos no Lucro Real/Presumido; confirmar por contrato."
+recomendacao:
+  - "Adotar multa 4% como default, parametrizável; confirmar com a Procuradoria/AGU local."
+risco:
+  - "Divergência 5% vs 4%; Simples Nacional zera encargos de terceiros do 2.2;"
+  - "Migração SEFIP→FGTS Digital (formatos de extrato distintos antes/depois de 03/2024)."
