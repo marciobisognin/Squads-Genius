@@ -1,0 +1,28 @@
+project_name: "Squad SCRIBA"
+objective: "Implementar como squad do repositório o PRD Squad SCRIBA v1.0 (anexo do usuário): squad multi-agente para geração assistida de instrumentos contratuais (minuta inicial, termo aditivo, apostilamento, repactuação/reajuste) na Administração Pública Federal, com motor de cálculo determinístico, citação obrigatória de fundamento por cláusula e HITL nos pontos jurídicos críticos"
+audience: "CLCFW e procuradorias de IFs/universidades federais, gestores e fiscais de contrato, agentes de contratação"
+domain: "contratos administrativos federais / Lei 14.133/2021 + IN SEGES/MPDG 05/2017 / IFFar-CLCFW"
+desired_asset: "squad"
+references:
+  urls:
+    - "https://www.gov.br/compras/pt-br"
+    - "https://www.gov.br/agu/pt-br/composicao/cgu/cgu/modelos/licitacoesecontratos/14133"
+    - "https://licitacoesecontratos.tcu.gov.br"
+    - "https://pncp.gov.br"
+  files:
+    - "PRD_Squad_SCRIBA_Contratos.md (anexo do usuário — fonte primária da arquitetura)"
+    - "Compendio_Contratos_AdmPublica_Federal.md (anexo do usuário — base normativa/RAG)"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+success_criteria:
+  - "11 agentes do PRD (Orchestrator a Explainer + Turing Guild) com contratos de entrada/saída SACP"
+  - "motor determinístico: nenhum valor monetário ou decisão de instrumento gerado por LLM"
+  - "HITL Gate A (instrumento × CCT) e Gate B (homologação final) como invariantes"
+  - "tabela-decisão do Instrument Router (§11 do compêndio) implementada em regras puras"
+  - "alerta crítico de preclusão de repactuação (art. 57, §7º da IN 05/2017)"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

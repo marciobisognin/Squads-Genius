@@ -1,0 +1,61 @@
+id: scriba_apostilamento_reajuste
+name: "SCRIBA — Apostilamento de reajuste por índice"
+description: "Variante do pipeline completo focada em apostilamento decorrente de reajuste já previsto em cláusula contratual (índice)."
+human_in_loop: true
+max_iterations: 3
+rollback: "retornar ao último gate reprovado (Turing loop)"
+entrypoint: 01_classificar_cynefin
+base_workflow: scriba_full_pipeline
+focus_inputs:
+  - reajuste (valor_base, indice_inicial, indice_final, indice_nome)
+  - justificativa_indice
+expected_instrument: apostilamento
+steps:
+  - order: 1
+    task: 01_classificar_cynefin
+    agent: scriba-cynefin-classifier
+    gate_required: true
+    gate: cynefin_routing
+  - order: 2
+    task: 02_extrair_contract_facts
+    agent: scriba-extractor
+    depends_on: [01_classificar_cynefin]
+  - order: 3
+    task: 04_rotear_instrumento
+    agent: scriba-instrument-router
+    depends_on: [02_extrair_contract_facts]
+  - order: 4
+    task: 06_hitl_gate_a_instrumento_cct
+    agent: scriba-orchestrator
+    depends_on: [04_rotear_instrumento]
+    gate_required: true
+    gate: hitl_gate_a_instrumento_cct
+  - order: 5
+    task: 07_calcular_motor_deterministico
+    agent: scriba-calculator
+    depends_on: [06_hitl_gate_a_instrumento_cct]
+  - order: 6
+    task: 08_redigir_clausulas
+    agent: scriba-drafter
+    depends_on: [07_calcular_motor_deterministico]
+  - order: 7
+    task: 09_validar_conformidade
+    agent: scriba-validator
+    depends_on: [08_redigir_clausulas]
+    gate_required: true
+    gate: validator_no_blocks
+    on_block: "Turing loop → 07_calcular_motor_deterministico / 08_redigir_clausulas"
+  - order: 8
+    task: 10_hitl_gate_b_homologacao
+    agent: scriba-orchestrator
+    depends_on: [09_validar_conformidade]
+    gate_required: true
+    gate: hitl_gate_b_homologacao
+  - order: 9
+    task: 11_gerar_pacote_final
+    agent: scriba-doc-generator
+    depends_on: [10_hitl_gate_b_homologacao]
+success_conditions:
+  - "Validator exige justificativa_indice coerente com a heurística do compêndio (§6)."
+  - "Apostilamento usado apenas quando o efeito já decorre de cláusula preexistente."
+  - "HITL Gate A e Gate B homologados."

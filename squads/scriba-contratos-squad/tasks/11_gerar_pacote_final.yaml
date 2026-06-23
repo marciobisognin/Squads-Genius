@@ -1,0 +1,20 @@
+id: 11_gerar_pacote_final
+description: "Gerar o instrumento final (DOCX/MD) + memória explicativa (Explainer)."
+assigned_agent: scriba-doc-generator
+dependencies: [10_hitl_gate_b_homologacao]
+inputs:
+  - draft_clauses (homologado)
+  - relatorio_validacao
+  - calc_results.json
+  - instrument_decision.json
+outputs:
+  - "contrato.docx / termo_aditivo.docx / apostilamento.docx"
+  - memoria.md (via scriba-explainer)
+acceptance_criteria:
+  - "Documento final só é gerado com Gate B homologado."
+  - "Memória explicativa separa observado/inferido/hipótese/recomendação/risco."
+  - "Footer obrigatório presente no documento e na memória."
+validation_rules:
+  - "geração condicionada a decisao_homologacao == aprovar"
+human_approval: false
+failure_behavior: "bloquear geração e devolver ao Gate B se homologação ausente"

@@ -1,0 +1,18 @@
+id: 06_hitl_gate_a_instrumento_cct
+description: "HITL Gate A: confirmar instrumento e, se DEMO, a classificação de CCT."
+assigned_agent: scriba-orchestrator
+dependencies: [05_selecionar_template]
+inputs:
+  - instrument_decision.json
+  - template_id
+  - classificação de CCT (quando aplicável a repactuação DEMO)
+outputs:
+  - decisao_gate_a (aprovar | ajustar | rejeitar)
+  - registro_gate_a (autor, data, decisão)
+acceptance_criteria:
+  - "Nenhuma redação avança sem aprovação humana do instrumento."
+  - "Ajuste devolve ao Instrument Router/Template Selector com novo parâmetro."
+validation_rules:
+  - "registro_gate_a presente antes de avançar ao Calculator/Drafter"
+human_approval: true
+failure_behavior: "manter pipeline pausado e devolver com a justificativa do ajuste/rejeição"

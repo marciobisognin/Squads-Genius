@@ -1,0 +1,5 @@
+# Router, engine, validador e orquestrador são Python puro (stdlib) — sem dependências obrigatórias.
+# Opcionais:
+python-docx>=1.1   # geração do instrumento final em DOCX (sem ele, o gerador cai em fallback Markdown)
+pyyaml>=6.0        # leitura de squad.yaml em ferramentas externas / validate_squad.py
+pytest>=7.0        # execução da suíte de casos-ouro com pytest (opcional; há runner embutido)

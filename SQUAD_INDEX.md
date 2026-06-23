@@ -81,6 +81,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Soulsword Personal Branding Squad](squads/soulsword-personal-branding-squad/README.md) — `soulsword-personal-branding-squad` — versão `1.0.0` — Forjar a marca pessoal autêntica do profissional a partir da sua própria essência — diagnosticando propósito, posicionando autoridade, construindo…
 - [Vector Sigma Data Forge Squad](squads/vector-sigma-data-forge-squad/README.md) — `vector-sigma-data-forge-squad` — versão `1.0.0` — Transformar dados brutos em inteligência de negócio viva: arquitetar dados, forjar pipelines, garantir qualidade, construir métricas e narrar…
 - [SCRIPTORIUM Squad](squads/scriptorium-squad/README.md) — `scriptorium-squad` — versão `1.0.0` — produção acadêmica fim-a-fim com integridade verificável: 5 guildas / 29 agentes + 2 gates, máquina de estados de 10 estágios (LangGraph), verificação determinística de citação (4 índices), auditoria de fidelidade alegação↔fonte, anti-bajulação e dois gates de integridade não-puláveis (HITL)
+- [SCRIBA — Geração Assistida de Instrumentos Contratuais](squads/scriba-contratos-squad/README.md) — `scriba-contratos-squad` — versão `1.0.0` — geração de minuta inicial, termo aditivo, apostilamento e repactuação/reajuste para contratos administrativos federais (Lei 14.133/2021 + IN SEGES/MPDG 05/2017), com router e engine determinísticos, citação obrigatória por cláusula e HITL Gates A/B
 
 ---
 

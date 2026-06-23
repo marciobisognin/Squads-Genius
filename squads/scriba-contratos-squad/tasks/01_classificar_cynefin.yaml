@@ -1,0 +1,19 @@
+id: 01_classificar_cynefin
+description: "Classificar a complexidade do caso (Cynefin) e abortar com pedido de dados se Chaotic."
+assigned_agent: scriba-cynefin-classifier
+dependencies: []
+inputs:
+  - entrada estruturada (contract_facts + dados do caso)
+outputs:
+  - cynefin (Clear | Complicated | Complex | Chaotic)
+  - routing_hint
+  - handoff_SACP.json (inicial)
+acceptance_criteria:
+  - "Banda Cynefin definida com motivos."
+  - "Chaotic → pipeline abortado com pedido de dados ao usuário."
+  - "Handoff inicial válido por schema."
+validation_rules:
+  - "cynefin ∈ {Clear, Complicated, Complex, Chaotic}"
+  - "routing_hint coerente com a banda"
+human_approval: false
+failure_behavior: "abortar e solicitar dados adicionais se Chaotic"

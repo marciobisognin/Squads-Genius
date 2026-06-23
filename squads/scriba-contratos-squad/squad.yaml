@@ -1,0 +1,149 @@
+name: scriba-contratos-squad
+commercial_name: "SCRIBA — Geração Assistida de Instrumentos Contratuais"
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+project: "IFFar / CLCFW"
+framework_base: "OMNISCIENT v7.0"
+domain: "Contratos administrativos da Administração Pública Federal — universidades e institutos federais"
+positioning: "Dado um tipo de contrato, produz o instrumento pronto para assinatura (minuta inicial · termo aditivo · apostilamento · repactuação/reajuste) + memória explicativa, com motor determinístico, citação obrigatória por cláusula e HITL nos pontos jurídicos críticos."
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+regime: "dual (Lei 14.133/2021 + legado IN SEGES/MPDG 05/2017)"
+
+principles:
+  - "Determinismo no cálculo, criatividade zero no número: todo valor sai do motor Python, nunca da geração livre do LLM."
+  - "Texto rastreável: cada cláusula cita a fonte (artigo/modelo AGU/acórdão); sem citação válida, bloqueio."
+  - "HITL como invariante: classificação de CCT, escolha aditivo×apostila e homologação final nunca são automáticas."
+  - "Segregação de funções: quem calcula (Engine) ≠ quem valida (Validator) ≠ quem redige (Drafter)."
+  - "Anti-sycophancy: o Validator é adversarial, procura motivos para reprovar."
+  - "Separar observado, inferido, hipótese, recomendação e risco."
+  - "Não copiar marca, prompt ou material proprietário; nunca incluir segredos."
+
+agents:
+  - id: scriba-orchestrator
+    file: agents/scriba-orchestrator.md
+    role: "Coordena o StateGraph (S0-S11), aplica o roteamento Cynefin, gerencia o Turing Guild e consolida o handoff SACP."
+  - id: scriba-cynefin-classifier
+    file: agents/scriba-cynefin-classifier.md
+    role: "Classifica o domínio do caso (Clear/Complicated/Complex/Chaotic) e define o routing_hint."
+  - id: scriba-extractor
+    file: agents/scriba-extractor.md
+    role: "Normaliza e valida os campos da entrada estruturada; resolve pendências; checa coerência."
+  - id: scriba-normative-rag
+    file: agents/scriba-normative-rag.md
+    role: "Recupera dispositivos aplicáveis (Lei 14.133, IN 05/2017, modelo AGU, acórdãos TCU)."
+  - id: scriba-instrument-router
+    file: agents/scriba-instrument-router.md
+    role: "Decide o artefato a gerar pela tabela-decisão (§11 do compêndio); regras puras."
+  - id: scriba-template-selector
+    file: agents/scriba-template-selector.md
+    role: "Escolhe a minuta AGU/CNMLC vigente por objeto e regime; guarda de vigência."
+  - id: scriba-calculator
+    file: agents/scriba-calculator.md
+    role: "Engine determinística (Python puro). Calcula reajuste, limites de aditivo, repactuação e conta vinculada/PFG."
+  - id: scriba-drafter
+    file: agents/scriba-drafter.md
+    role: "Preenche os blocos do template com os valores calculados e anota citação por cláusula."
+  - id: scriba-validator
+    file: agents/scriba-validator.md
+    role: "Checklist AGU (art. 92) + quadro de riscos TCU; adversarial; aciona o Turing Guild."
+  - id: scriba-doc-generator
+    file: agents/scriba-doc-generator.md
+    role: "Gera o instrumento final em DOCX/Markdown com identidade institucional."
+  - id: scriba-explainer
+    file: agents/scriba-explainer.md
+    role: "Gera a memória explicativa: decisões, fundamentos por cláusula e memória de cálculo."
+
+tasks:
+  - id: 01_classificar_cynefin
+    file: tasks/01_classificar_cynefin.yaml
+    owner: scriba-cynefin-classifier
+    objective: "Classificar a complexidade do caso e abortar com pedido de dados se Chaotic."
+  - id: 02_extrair_contract_facts
+    file: tasks/02_extrair_contract_facts.yaml
+    owner: scriba-extractor
+    objective: "Normalizar contract_facts e listar pendências (datas, CNPJ, valores)."
+  - id: 03_recuperar_legal_refs
+    file: tasks/03_recuperar_legal_refs.yaml
+    owner: scriba-normative-rag
+    objective: "Recuperar legal_refs aplicáveis ao caso (Lei/IN/AGU/acórdãos)."
+  - id: 04_rotear_instrumento
+    file: tasks/04_rotear_instrumento.yaml
+    owner: scriba-instrument-router
+    objective: "Decidir instrument_type + rationale pela tabela-decisão determinística."
+  - id: 05_selecionar_template
+    file: tasks/05_selecionar_template.yaml
+    owner: scriba-template-selector
+    objective: "Selecionar a minuta AGU vigente por objeto/regime, com guarda de vigência."
+  - id: 06_hitl_gate_a_instrumento_cct
+    file: tasks/06_hitl_gate_a_instrumento_cct.yaml
+    owner: scriba-orchestrator
+    objective: "HITL Gate A: confirmar instrumento e, se DEMO, a classificação de CCT."
+  - id: 07_calcular_motor_deterministico
+    file: tasks/07_calcular_motor_deterministico.yaml
+    owner: scriba-calculator
+    objective: "Calcular reajuste/repactuação/limites de aditivo/conta vinculada via engine Python."
+  - id: 08_redigir_clausulas
+    file: tasks/08_redigir_clausulas.yaml
+    owner: scriba-drafter
+    objective: "Preencher cláusulas do template com calc_results e legal_refs, citando fonte por cláusula."
+  - id: 09_validar_conformidade
+    file: tasks/09_validar_conformidade.yaml
+    owner: scriba-validator
+    objective: "Validar checklist AGU + riscos TCU; bloqueio aciona Turing Guild."
+  - id: 10_hitl_gate_b_homologacao
+    file: tasks/10_hitl_gate_b_homologacao.yaml
+    owner: scriba-orchestrator
+    objective: "HITL Gate B: homologação humana final da peça redigida."
+  - id: 11_gerar_pacote_final
+    file: tasks/11_gerar_pacote_final.yaml
+    owner: scriba-doc-generator
+    objective: "Gerar o instrumento final (DOCX/MD) + memória explicativa (Explainer)."
+
+workflows:
+  - id: scriba_full_pipeline
+    file: workflows/scriba_full_pipeline.yaml
+  - id: scriba_termo_aditivo_prorrogacao
+    file: workflows/scriba_termo_aditivo_prorrogacao.yaml
+  - id: scriba_apostilamento_reajuste
+    file: workflows/scriba_apostilamento_reajuste.yaml
+  - id: scriba_repactuacao_demo
+    file: workflows/scriba_repactuacao_demo.yaml
+
+scripts:
+  - file: scripts/scriba_router.py
+    description: "Instrument Router — tabela-decisão determinística (§11 do compêndio)."
+  - file: scripts/scriba_engine.py
+    description: "Engine determinística: reajuste, limites de aditivo, repactuação, conta vinculada/PFG, prorrogação."
+  - file: scripts/scriba_validator.py
+    description: "Validador determinístico — checklist AGU (art. 92) + riscos TCU embarcados."
+  - file: scripts/run_scriba.py
+    description: "Orquestrador CLI determinístico (router + engine + validator) ponta a ponta."
+
+quality_gates:
+  - cynefin_routing
+  - hitl_gate_a_instrumento_cct
+  - validator_no_blocks
+  - hitl_gate_b_homologacao
+
+outputs:
+  - instrument_decision.json
+  - calc_results.json
+  - relatorio_validacao.json
+  - relatorio_validacao.md
+  - contrato.docx / termo_aditivo.docx / apostilamento.docx
+  - memoria.md
+
+tags:
+  - licitacoes
+  - contratos-publicos
+  - lei-14133
+  - in-05-2017
+  - termo-aditivo
+  - apostilamento
+  - repactuacao
+  - tcu
+  - agu

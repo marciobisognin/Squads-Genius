@@ -1,0 +1,15 @@
+{
+  "contract_facts": {
+    "acrescimo_supressao_quantitativo": true
+  },
+  "aditivo": {
+    "valor_inicial_atualizado": 1200000.00,
+    "acrescimo": 250000.00,
+    "supressao": 0.0,
+    "reforma_edificio_equipamento": false
+  },
+  "prorrogacao": {
+    "meses_ja_executados": 24,
+    "meses_prorrogacao": 12
+  }
+}

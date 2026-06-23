@@ -1,0 +1,12 @@
+{
+  "contract_facts": {
+    "reajuste_indice_ja_previsto": true
+  },
+  "reajuste": {
+    "valor_base": 1200000.00,
+    "indice_inicial": 100.0,
+    "indice_final": 104.5,
+    "indice_nome": "IPCA"
+  },
+  "justificativa_indice": "IPCA é o índice oficial de inflação e retrata a variação de custos de serviço sem dedicação de mão de obra (heurística do compêndio §6)."
+}

@@ -1,0 +1,28 @@
+{
+  "contract_facts": {
+    "repactuacao_com_demonstracao_analitica": true
+  },
+  "repactuacao": {
+    "data_referencia": "2026-06-23",
+    "data_fim_vigencia": "2026-07-15",
+    "solicitada": false,
+    "componentes": [
+      {
+        "nome": "mao_de_obra",
+        "data_base_anterior": "2025-05-01",
+        "valor_atual": 850000.00,
+        "valor_negociado": 905000.00
+      },
+      {
+        "nome": "insumos",
+        "data_base_anterior": "2025-03-10",
+        "valor_atual": 120000.00,
+        "valor_negociado": 124800.00
+      }
+    ]
+  },
+  "conta_vinculada": {
+    "salario_base": 1700.00,
+    "modo": "conta_vinculada"
+  }
+}

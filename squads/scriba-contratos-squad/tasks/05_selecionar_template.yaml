@@ -1,0 +1,19 @@
+id: 05_selecionar_template
+description: "Selecionar a minuta AGU vigente por objeto/regime, com guarda de vigência."
+assigned_agent: scriba-template-selector
+dependencies: [04_rotear_instrumento]
+inputs:
+  - instrument_type
+  - objeto do contrato
+  - regime (dual: Lei 14.133/2021 | legado IN 05/2017)
+outputs:
+  - template_id
+  - template_version
+  - vigente (true | false)
+acceptance_criteria:
+  - "Minuta selecionada é a vigente confirmada para o objeto/regime."
+  - "Minuta desatualizada/revogada nunca é selecionada sem alerta."
+validation_rules:
+  - "vigente == true antes de seguir para o Drafter"
+human_approval: false
+failure_behavior: "alerta + HITL se vigência não puder ser confirmada"

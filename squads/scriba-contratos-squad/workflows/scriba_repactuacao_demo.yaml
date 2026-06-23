@@ -1,0 +1,62 @@
+id: scriba_repactuacao_demo
+name: "SCRIBA — Repactuação com demonstração analítica (DEMO)"
+description: "Variante do pipeline completo focada em repactuação que exige demonstração analítica por componente, com alerta crítico de preclusão (art. 57, §7º da IN 05/2017)."
+human_in_loop: true
+max_iterations: 3
+rollback: "retornar ao último gate reprovado (Turing loop)"
+entrypoint: 01_classificar_cynefin
+base_workflow: scriba_full_pipeline
+focus_inputs:
+  - repactuacao (data_referencia, data_fim_vigencia, solicitada, componentes)
+  - conta_vinculada (salario_base, modo)
+expected_instrument: repactuacao
+steps:
+  - order: 1
+    task: 01_classificar_cynefin
+    agent: scriba-cynefin-classifier
+    gate_required: true
+    gate: cynefin_routing
+  - order: 2
+    task: 02_extrair_contract_facts
+    agent: scriba-extractor
+    depends_on: [01_classificar_cynefin]
+  - order: 3
+    task: 04_rotear_instrumento
+    agent: scriba-instrument-router
+    depends_on: [02_extrair_contract_facts]
+  - order: 4
+    task: 06_hitl_gate_a_instrumento_cct
+    agent: scriba-orchestrator
+    depends_on: [04_rotear_instrumento]
+    gate_required: true
+    gate: hitl_gate_a_instrumento_cct
+    note: "DEMO exige classificação manual de CCT no Gate A."
+  - order: 5
+    task: 07_calcular_motor_deterministico
+    agent: scriba-calculator
+    depends_on: [06_hitl_gate_a_instrumento_cct]
+  - order: 6
+    task: 08_redigir_clausulas
+    agent: scriba-drafter
+    depends_on: [07_calcular_motor_deterministico]
+  - order: 7
+    task: 09_validar_conformidade
+    agent: scriba-validator
+    depends_on: [08_redigir_clausulas]
+    gate_required: true
+    gate: validator_no_blocks
+    on_block: "Turing loop → 07_calcular_motor_deterministico / 08_redigir_clausulas"
+  - order: 8
+    task: 10_hitl_gate_b_homologacao
+    agent: scriba-orchestrator
+    depends_on: [09_validar_conformidade]
+    gate_required: true
+    gate: hitl_gate_b_homologacao
+  - order: 9
+    task: 11_gerar_pacote_final
+    agent: scriba-doc-generator
+    depends_on: [10_hitl_gate_b_homologacao]
+success_conditions:
+  - "Alerta crítico de preclusão emitido quando aplicável (art. 57, §7º da IN 05/2017)."
+  - "Cada componente de repactuação tem anualidade calculada a partir da data_base_anterior."
+  - "HITL Gate A (com CCT) e Gate B homologados."
