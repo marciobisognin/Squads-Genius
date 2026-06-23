@@ -1,0 +1,28 @@
+# Template de entrada para uma execução do Farol PCFP Squad.
+# Preencha e use com: python3 scripts/run_pcfp.py --input <este_arquivo>.json
+# (converta para JSON ou adapte run_pcfp.py para YAML conforme necessidade).
+fonte: "edital | resumo"
+arquivos: []                       # ["edital.pdf", "tr.pdf", "cct.pdf"]
+resumo_objeto: ""                  # quando fonte=resumo
+parametros:
+  regime: "auto | in05_8666 | lei14133_in98"
+  municipio_uf: ""
+  garantia_trabalhista: "auto | conta_vinculada | fato_gerador"
+  data_base_proposta: "AAAA-MM-DD"
+  meses_execucao: 12
+  desoneracao_folha: false
+  cct_id: "A_CONFIRMAR (HITL Gate 1)"
+  piso_cct: 0.0
+  custo_minimo_in176: 0.0
+postos:
+  - nome: ""
+    cbo: ""
+    quantidade: 1
+    salario_base: 0.0
+    periculosidade: false
+    insalubridade_grau: 0.0          # 0.10 / 0.20 / 0.40
+    adicional_noturno: 0.0
+    vale_transporte_custo: 0.0
+    auxilio_alimentacao: 0.0
+    uniformes: 0.0
+    epis: 0.0

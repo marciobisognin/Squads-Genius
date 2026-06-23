@@ -1,0 +1,42 @@
+id: pcfp_analise_proposta
+name: "PCFP — Análise de proposta de licitante (exequibilidade)"
+description: "Recebe a planilha de um licitante e verifica exequibilidade, incidências e vedações contra a referência da Administração."
+human_in_loop: true
+rollback: "retornar ao parecer com pontos a sanear"
+entrypoint: 02_extract_spec
+steps:
+  - order: 1
+    task: 02_extract_spec
+    agent: pcfp-extractor
+    note: "Extrai a planilha/proposta do licitante (postos, valores declarados)."
+    gate_required: false
+  - order: 2
+    task: 04_resolve_ruleset
+    agent: pcfp-rules-engine
+    note: "Resolve o RuleSet de referência (regime, CCT, tributos)."
+    depends_on: [02_extract_spec]
+    gate_required: false
+  - order: 3
+    task: 05_calculate_planilha
+    agent: pcfp-calculator
+    note: "Recalcula a referência determinística para comparação."
+    depends_on: [04_resolve_ruleset]
+    gate_required: false
+  - order: 4
+    task: 06_validate_planilha
+    agent: pcfp-validator
+    note: "Compara declarado vs referência; aplica Ac. 1.214/2013, 839/2020, 2.186/2013."
+    depends_on: [05_calculate_planilha]
+    gate_required: true
+    gate: validator_no_blocks
+  - order: 5
+    task: 08_hitl_homologacao
+    agent: pcfp-hitl-homologacao
+    note: "Parecer de exequibilidade homologado por servidor (diligência/desclassificação)."
+    depends_on: [06_validate_planilha]
+    gate_required: true
+    gate: hitl_homologacao_final
+success_conditions:
+  - "Parecer aponta componentes zerados/irrisórios e divergências de incidência."
+  - "Exequibilidade avaliada por risco real de inexecução (não por lucro zero)."
+  - "Decisão homologada por servidor."

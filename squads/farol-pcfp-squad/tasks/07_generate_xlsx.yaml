@@ -1,0 +1,20 @@
+id: 07_generate_xlsx
+description: "Gerar XLSX com fórmulas vivas, memória de cálculo e base normativa."
+assigned_agent: pcfp-xlsx-generator
+dependencies: [06_validate_planilha]
+inputs:
+  - calc_result (validado OK/ALERTA)
+  - validation_report
+outputs:
+  - planilha.xlsx (fórmulas vivas; abas Discriminação, postos, Quadro-Resumo, Memória, Base Normativa)
+  - memoria_calculo.md
+acceptance_criteria:
+  - "Células de totais são fórmulas, não valores estáticos."
+  - "Toda rubrica cita fundamento legal na aba Base Normativa."
+  - "Fallback CSV quando openpyxl ausente."
+validation_rules:
+  - "arquivo gerado e não vazio"
+  - "sem dados sensíveis/segredos"
+human_approval: false
+failure_behavior: "gerar fallback CSV e sinalizar ausência de openpyxl"
+script: scripts/xlsx_generator.py

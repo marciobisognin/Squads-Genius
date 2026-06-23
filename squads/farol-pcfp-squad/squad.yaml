@@ -1,0 +1,125 @@
+name: farol-pcfp-squad
+commercial_name: "Farol PCFP — Planilha de Custos e Formação de Preços"
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+project: "Farol Contratos"
+framework_base: "OMNISCIENT v7.0"
+domain: "Licitações e contratos — serviços contínuos com dedicação exclusiva de mão de obra (Administração Pública Federal)"
+positioning: "Do edital à Planilha de Custos e Formação de Preços (XLSX com fórmulas vivas), com cálculo determinístico, memória rastreável e validação contra IN 05/2017, IN 98/2022 e jurisprudência TCU."
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+
+regime: "dual (IN 05/2017 + Lei 14.133/2021)"
+
+principles:
+  - "Anti-alucinação: todo valor monetário vem da engine determinística em Python, nunca do LLM."
+  - "Cada rubrica carrega valor, fórmula e fundamento legal (rastreabilidade)."
+  - "HITL como invariante: nenhuma planilha é final sem homologação humana."
+  - "Separar observado, inferido, hipótese, recomendação e risco."
+  - "Fórmulas vivas no XLSX: o servidor audita e repactua as células depois."
+  - "Não copiar marca, prompt ou material proprietário; nunca incluir segredos."
+
+agents:
+  - id: pcfp-orchestrator
+    file: agents/pcfp-orchestrator.md
+    role: "Coordena o StateGraph, aplica o roteamento Cynefin, gerencia retries, self-healing (Turing loop) e consolida o handoff_SACP."
+  - id: pcfp-extractor
+    file: agents/pcfp-extractor.md
+    role: "Lê edital/TR/CCT (PDF/OCR), extrai postos, quantidades, jornada, adicionais e insumos. Campos não encontrados viram null + requer_hitl."
+  - id: pcfp-classifier
+    file: agents/pcfp-classifier.md
+    role: "Mapeia CBO e CCT/ACT vigente e determina o regime. Aciona o HITL Gate 1 (confirmação CBO/CCT)."
+  - id: pcfp-rules-engine
+    file: agents/pcfp-rules-engine.md
+    role: "Resolve quais regras incidem (alíquotas 2.2, desoneração, IN 176/2024, tributos, CV/PFG) e produz o RuleSet com fundamento legal."
+  - id: pcfp-calculator
+    file: agents/pcfp-calculator.md
+    role: "Engine determinística (Python puro). Implementa Módulos 1–6 com a ordem de incidência correta. Não usa LLM."
+  - id: pcfp-validator
+    file: agents/pcfp-validator.md
+    role: "Checagens determinísticas + jurisprudência TCU embarcada. Resultado OK/ALERTA/BLOQUEIO; bloqueio aciona Turing loop."
+  - id: pcfp-xlsx-generator
+    file: agents/pcfp-xlsx-generator.md
+    role: "Gera o XLSX com fórmulas vivas (openpyxl) espelhando o Anexo VII-D, abas de memória e base normativa."
+  - id: pcfp-hitl-homologacao
+    file: agents/pcfp-hitl-homologacao.md
+    role: "Gate final humano: apresenta resumo, alertas e diffs; o servidor aprova, ajusta parâmetro e reexecuta, ou rejeita."
+
+tasks:
+  - id: 01_cynefin_classify_and_route
+    file: tasks/01_cynefin_classify_and_route.yaml
+    owner: pcfp-orchestrator
+    objective: "Classificar complexidade (Clear/Complicated/Complex) e rotear o pipeline."
+  - id: 02_extract_spec
+    file: tasks/02_extract_spec.yaml
+    owner: pcfp-extractor
+    objective: "Extrair ExtractedSpec do edital/TR/CCT ou do resumo do objeto."
+  - id: 03_classify_cbo_cct_regime
+    file: tasks/03_classify_cbo_cct_regime.yaml
+    owner: pcfp-classifier
+    objective: "Mapear CBO/CCT/regime e confirmar via HITL Gate 1 (ClassifiedSpec)."
+  - id: 04_resolve_ruleset
+    file: tasks/04_resolve_ruleset.yaml
+    owner: pcfp-rules-engine
+    objective: "Resolver o RuleSet (percentuais, bases de incidência, flags) com fundamento legal."
+  - id: 05_calculate_planilha
+    file: tasks/05_calculate_planilha.yaml
+    owner: pcfp-calculator
+    objective: "Calcular Módulos 1–6 e quadros-resumo via engine determinística."
+  - id: 06_validate_planilha
+    file: tasks/06_validate_planilha.yaml
+    owner: pcfp-validator
+    objective: "Validar estrutura, incidência, pisos, exequibilidade e regime."
+  - id: 07_generate_xlsx
+    file: tasks/07_generate_xlsx.yaml
+    owner: pcfp-xlsx-generator
+    objective: "Gerar XLSX com fórmulas vivas, memória de cálculo e base normativa."
+  - id: 08_hitl_homologacao
+    file: tasks/08_hitl_homologacao.yaml
+    owner: pcfp-hitl-homologacao
+    objective: "Homologação humana final (invariante) antes de marcar a planilha como definitiva."
+
+workflows:
+  - id: pcfp_full_pipeline
+    file: workflows/pcfp_full_pipeline.yaml
+  - id: pcfp_analise_proposta
+    file: workflows/pcfp_analise_proposta.yaml
+  - id: pcfp_repactuacao_reajuste
+    file: workflows/pcfp_repactuacao_reajuste.yaml
+
+scripts:
+  - file: scripts/pcfp_rules.py
+    description: "RuleSet — percentuais, bases de incidência e fundamentos legais."
+  - file: scripts/pcfp_engine.py
+    description: "Engine determinística dos Módulos 1–6 (Calculator)."
+  - file: scripts/pcfp_validator.py
+    description: "Validador determinístico + jurisprudência TCU embarcada."
+  - file: scripts/xlsx_generator.py
+    description: "Gerador de XLSX com fórmulas vivas (fallback CSV sem openpyxl)."
+  - file: scripts/run_pcfp.py
+    description: "Orquestrador CLI determinístico (pipeline ponta a ponta)."
+
+quality_gates:
+  - cynefin_routing
+  - hitl_gate_1_cbo_cct
+  - validator_no_blocks
+  - hitl_homologacao_final
+
+outputs:
+  - planilha.xlsx
+  - relatorio_validacao.json
+  - relatorio_validacao.md
+  - memoria_calculo.md
+  - handoff_SACP.json
+
+tags:
+  - licitacoes
+  - contratos-publicos
+  - planilha-de-custos
+  - dedicacao-exclusiva
+  - in-05-2017
+  - lei-14133
+  - tcu
+  - terceirizacao

@@ -1,0 +1,19 @@
+id: 01_cynefin_classify_and_route
+description: "Classificar a complexidade do pedido (Cynefin) e rotear o pipeline."
+assigned_agent: pcfp-orchestrator
+dependencies: []
+inputs:
+  - PCFPInput (fonte, arquivos, resumo_objeto, parametros)
+outputs:
+  - cynefin_band (Clear | Complicated | Complex)
+  - rota_selecionada
+  - handoff_SACP.json (inicial)
+acceptance_criteria:
+  - "Banda Cynefin definida com justificativa."
+  - "Complex → HITL antecipado acionado."
+  - "Handoff inicial válido por schema."
+validation_rules:
+  - "cynefin_band ∈ {Clear, Complicated, Complex}"
+  - "rota coerente com a banda"
+human_approval: false
+failure_behavior: "registrar diagnóstico e escalar ao HITL se entrada inconsistente"

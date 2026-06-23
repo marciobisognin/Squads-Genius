@@ -1,0 +1,20 @@
+id: 06_validate_planilha
+description: "Validar estrutura, incidência, pisos, exequibilidade e coerência de regime."
+assigned_agent: pcfp-validator
+dependencies: [05_calculate_planilha]
+inputs:
+  - calc_result
+  - RuleSet
+  - piso_cct, custo_minimo_in176
+outputs:
+  - validation_report (OK | ALERTA | BLOQUEIO por regra; json + md)
+acceptance_criteria:
+  - "0 ocorrências de IRPJ/CSLL."
+  - "Incidências do 2.2 corretas em 100% dos postos."
+  - "BLOQUEIO aciona Turing loop; ALERTA segue com nota."
+validation_rules:
+  - "cada checagem cita fundamento (norma/acórdão)"
+  - "checagens 100% determinísticas"
+human_approval: false
+failure_behavior: "devolver ao Calculator/Rules com diagnóstico até max_iterations"
+script: scripts/pcfp_validator.py

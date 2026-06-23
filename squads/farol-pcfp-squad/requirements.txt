@@ -1,0 +1,5 @@
+# Engine, validador e orquestrador são Python puro (stdlib) — sem dependências obrigatórias.
+# Opcionais:
+openpyxl>=3.1   # geração de XLSX com fórmulas vivas (sem ele, o gerador cai em fallback CSV)
+pyyaml>=6.0     # leitura de squad.yaml em ferramentas externas / validate_squad.py
+pytest>=7.0     # execução da suíte de casos-ouro com pytest (opcional; há runner embutido)

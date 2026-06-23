@@ -11,6 +11,7 @@ Squads publicados no repositório `Squads-Genius`.
 - [Canto Memória Viva](squads/canto-memoria-viva/README.md) — `canto-memoria-viva` — versão `1.0.0` — composição musical autoral com agentes para letra, voz, arranjo e originalidade
 - [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
 - [Orquestrador de Execução Durável para Squads](squads/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — versão `1.0.0` — runtime durável para workflows multiagentes com checkpoints, sinais humanos, compensações e auditoria
+- [Farol PCFP Squad](squads/farol-pcfp-squad/README.md) — `farol-pcfp-squad` — versão `1.0.0` — do edital à Planilha de Custos e Formação de Preços (Anexo VII-D, IN 05/2017 + Lei 14.133/2021) com engine determinística, validação contra jurisprudência do TCU e HITL
 - [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
 - [germina360-squad](IFFar-Squads/squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
 - [Harness Foundry Squad](squads/harness-foundry-squad/README.md) — `harness-foundry-squad` — versão `1.0.0` — avalia, converte e empacota squads do Squads-Genius como harnesses executáveis (CLI, MCP, Hermes) com policy default-deny e template institucional vertical:iffar

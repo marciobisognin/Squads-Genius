@@ -1,0 +1,18 @@
+id: 04_resolve_ruleset
+description: "Resolver o RuleSet (percentuais, bases de incidência, flags) com fundamento legal."
+assigned_agent: pcfp-rules-engine
+dependencies: [03_classify_cbo_cct_regime]
+inputs:
+  - ClassifiedSpec
+  - parametros (desoneracao, garantia_trabalhista)
+outputs:
+  - RuleSet (mapeia scripts/pcfp_rules.py::RuleSet) com fundamento_legal por item
+acceptance_criteria:
+  - "Submódulo 2.2 com alíquotas e cronograma de desoneração corretos."
+  - "Escolha CV/PFG justificada (art. 18, §2º)."
+  - "Tributos sem IRPJ/CSLL; regime PIS/COFINS e ISS definidos."
+validation_rules:
+  - "cada parâmetro carrega fundamento_legal e vigência"
+  - "desoneração somente dentro do cronograma da Lei 14.973/2024"
+human_approval: false
+failure_behavior: "sinalizar parâmetro sem fundamento e devolver à classificação"

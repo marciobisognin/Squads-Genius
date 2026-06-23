@@ -1,0 +1,18 @@
+id: 02_extract_spec
+description: "Extrair a especificação da contratação do edital/TR/CCT ou do resumo do objeto."
+assigned_agent: pcfp-extractor
+dependencies: [01_cynefin_classify_and_route]
+inputs:
+  - PCFPInput
+  - cynefin_band
+outputs:
+  - ExtractedSpec (postos, municipio_uf, data_base, indicios_regime, indicios_cct)
+acceptance_criteria:
+  - "Postos, quantidades e jornada extraídos do material."
+  - "Campos não encontrados marcados null + requer_hitl (nunca inventados)."
+  - "Indícios de regime e CCT registrados com a origem."
+validation_rules:
+  - "nenhum campo preenchido por suposição"
+  - "flags requer_hitl presentes onde houver lacuna"
+human_approval: false
+failure_behavior: "preservar extração parcial e sinalizar lacunas ao HITL"

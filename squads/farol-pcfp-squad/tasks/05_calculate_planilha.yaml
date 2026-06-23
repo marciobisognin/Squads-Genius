@@ -1,0 +1,19 @@
+id: 05_calculate_planilha
+description: "Calcular Módulos 1–6 e quadros-resumo via engine determinística (Python puro)."
+assigned_agent: pcfp-calculator
+dependencies: [04_resolve_ruleset]
+inputs:
+  - ClassifiedSpec
+  - RuleSet
+outputs:
+  - calc_result (estrutura numérica por posto + global; cada célula com valor/formula/refs)
+acceptance_criteria:
+  - "Ordem de incidência correta (2.2 sobre M1+2.1; rescisão recebe 2.2; VT custo efetivo)."
+  - "Tributos por gross-up; sem IRPJ/CSLL."
+  - "Suíte de casos-ouro passa (tests/test_golden_cases.py)."
+validation_rules:
+  - "nenhum valor monetário gerado por LLM"
+  - "mesma entrada → mesma saída (determinismo)"
+human_approval: false
+failure_behavior: "abortar e devolver diagnóstico ao Rules Engine (Turing loop)"
+script: scripts/pcfp_engine.py
