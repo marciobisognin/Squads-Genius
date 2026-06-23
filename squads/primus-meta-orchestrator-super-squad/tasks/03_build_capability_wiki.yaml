@@ -1,0 +1,14 @@
+id: 03_build_capability_wiki
+title: "Gerar o wiki de acesso rápido por capacidade e catálogo de squads."
+owner: squad-cartographer
+objective: "Produzir output/SQUAD_WIKI.md com tabela de capacidades e catálogo navegável."
+inputs:
+  - squad_index
+outputs:
+  - capability_wiki
+acceptance_criteria:
+  - "Tabela de acesso rápido capacidade -> squads/agentes presente"
+  - "Catálogo lista cada squad com seus agentes e papéis"
+  - "Footer obrigatório incluído"
+script: "scripts/index_squads.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

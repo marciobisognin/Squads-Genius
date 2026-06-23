@@ -1,0 +1,17 @@
+id: 02_scan_and_index_squads
+title: "Varrer a pasta e produzir índice estruturado de squads e agentes."
+owner: squad-cartographer
+objective: "Ler cada squad.yaml e agentes da pasta e gerar output/squad_index.json."
+inputs:
+  - squads_root_path
+  - self_name
+outputs:
+  - squad_index
+  - capability_map
+  - risks
+acceptance_criteria:
+  - "Todos os squads com squad.yaml foram indexados"
+  - "Cada agente tem id, papel e squad de origem"
+  - "Caminho relativo registrado para rastreabilidade"
+script: "scripts/index_squads.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

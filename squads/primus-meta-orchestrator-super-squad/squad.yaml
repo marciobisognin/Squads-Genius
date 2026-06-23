@@ -1,0 +1,114 @@
+name: primus-meta-orchestrator-super-squad
+commercial_name: "Primus — Super Agente Meta-Orquestrador de Squads"
+version: "1.0.0"
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+positioning: >-
+  Super agente acima de todos os squads: indexa qualquer pasta de squads, cria
+  um wiki de acesso rápido (qual agente usar para cada tipo de tarefa), roteia
+  demandas ao melhor agente, cria agentes e squads novos quando há lacunas e
+  mantém um sistema mental que evolui a cada interação.
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+principles:
+  - "separar observado, inferido, hipótese, recomendação e risco"
+  - "priorizar scripts determinísticos quando não houver necessidade de LLM"
+  - "reutilizar agentes existentes antes de criar novos"
+  - "registrar toda decisão de roteamento na memória evolutiva"
+  - "não copiar marcas, prompts ou materiais proprietários"
+  - "validar antes de publicar e nunca expor segredos"
+agents:
+  - id: primus-prime-orchestrator
+    file: agents/primus-prime-orchestrator.md
+    role: >-
+      Super agente que coordena todo o ecossistema de squads: decide reusar ou
+      criar, aciona os demais agentes, consolida outputs e governa quality gates.
+  - id: squad-cartographer
+    file: agents/squad-cartographer.md
+    role: >-
+      Varre a pasta de squads, lê cada squad.yaml e agentes, e gera o índice
+      estruturado e o wiki de acesso rápido por capacidade.
+  - id: task-router-oracle
+    file: agents/task-router-oracle.md
+    role: >-
+      Recebe a tarefa do usuário e recomenda o squad/agente ideal por
+      similaridade e memória; explica o porquê e aponta alternativas.
+  - id: gap-detector-architect
+    file: agents/gap-detector-architect.md
+    role: >-
+      Detecta quando nenhum agente atende à demanda e projeta agentes/squads
+      novos, gerando o esqueleto e encaminhando ao Maeve Genius Forge.
+  - id: mnemosyne-memory-keeper
+    file: agents/mnemosyne-memory-keeper.md
+    role: >-
+      Mantém o sistema mental evolutivo: registra interações, reforça conceitos,
+      acompanha desempenho de agentes, deriva aprendizados e acumula lacunas.
+  - id: aegis-governance-sentinel
+    file: agents/aegis-governance-sentinel.md
+    role: >-
+      Garante originalidade, segurança, rastreabilidade, footer obrigatório e
+      go/no-go de qualidade em todo squad gerenciado ou criado.
+tasks:
+  - id: 01_intake_and_scope
+    file: tasks/01_intake_and_scope.yaml
+    owner: primus-prime-orchestrator
+    objective: "Entender o pedido, a pasta de squads alvo e o resultado esperado."
+  - id: 02_scan_and_index_squads
+    file: tasks/02_scan_and_index_squads.yaml
+    owner: squad-cartographer
+    objective: "Varrer a pasta e produzir índice estruturado de squads e agentes."
+  - id: 03_build_capability_wiki
+    file: tasks/03_build_capability_wiki.yaml
+    owner: squad-cartographer
+    objective: "Gerar o wiki de acesso rápido por capacidade e catálogo de squads."
+  - id: 04_route_task_to_agent
+    file: tasks/04_route_task_to_agent.yaml
+    owner: task-router-oracle
+    objective: "Recomendar o squad/agente ideal para a tarefa, com justificativa."
+  - id: 05_detect_gaps_and_propose
+    file: tasks/05_detect_gaps_and_propose.yaml
+    owner: gap-detector-architect
+    objective: "Identificar lacunas e propor agentes/squads novos quando faltar cobertura."
+  - id: 06_create_new_agent_or_squad
+    file: tasks/06_create_new_agent_or_squad.yaml
+    owner: gap-detector-architect
+    objective: "Gerar o esqueleto do novo squad/agente e encaminhar ao Forge."
+  - id: 07_update_memory_system
+    file: tasks/07_update_memory_system.yaml
+    owner: mnemosyne-memory-keeper
+    objective: "Registrar a interação, evoluir pesos e atualizar aprendizados."
+  - id: 08_governance_and_validation
+    file: tasks/08_governance_and_validation.yaml
+    owner: aegis-governance-sentinel
+    objective: "Validar estrutura, segurança e autoria; emitir go/no-go."
+workflows:
+  - id: full_meta_orchestration
+    file: workflows/full_meta_orchestration.yaml
+  - id: quick_routing
+    file: workflows/quick_routing.yaml
+  - id: index_refresh
+    file: workflows/index_refresh.yaml
+  - id: memory_evolution_cycle
+    file: workflows/memory_evolution_cycle.yaml
+quality_gates:
+  - intake
+  - index
+  - wiki
+  - routing
+  - gap_creation
+  - governance
+outputs:
+  - squad_index
+  - capability_wiki
+  - routing_recommendation
+  - gap_proposal
+  - new_squad_skeleton
+  - memory_brain
+  - quality_report
+scripts:
+  - scripts/index_squads.py
+  - scripts/route_task.py
+  - scripts/memory_system.py
+  - scripts/scaffold_squad.py
+  - scripts/validate_squad.py

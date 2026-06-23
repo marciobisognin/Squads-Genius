@@ -1,0 +1,24 @@
+# Exemplo de briefing para o Primus Meta-Orchestrator
+# Use com: o agente primus-prime-orchestrator (ativação manual) ou os scripts.
+
+objetivo: >-
+  Mapear todos os squads do repositório e descobrir qual agente usar para cada
+  tipo de tarefa, criando squads novos quando houver lacuna.
+
+pasta_de_squads: "../.."           # raiz que contém os squads (cada um com squad.yaml)
+self_name: "primus-meta-orchestrator-super-squad"   # excluído do índice
+
+tarefas_para_rotear:
+  - "criar carrossel premium para Instagram em pt-BR"
+  - "analisar contrato administrativo federal"
+  - "treinar modelo de visão computacional para drones agrícolas"   # provável GAP
+
+preferencias:
+  reusar_antes_de_criar: true
+  limiar_de_gap: 2.0
+  registrar_na_memoria: true
+
+restricoes:
+  - "não copiar marca, prompt ou ativo proprietário de terceiros"
+  - "não publicar segredos"
+  - "publicar no GitHub apenas com autorização humana"

@@ -1,0 +1,18 @@
+id: 04_route_task_to_agent
+title: "Recomendar o squad/agente ideal para a tarefa, com justificativa."
+owner: task-router-oracle
+objective: "Rankear agentes por similaridade + memória e justificar a escolha."
+inputs:
+  - task_description
+  - squad_index
+  - memory_brain
+outputs:
+  - routing_recommendation
+  - gap_signal
+  - assumptions
+acceptance_criteria:
+  - "Top-N de recomendações com score e termos que casaram"
+  - "GAP sinalizado quando o melhor score fica abaixo do limiar"
+  - "Separa observado (matches) de inferido (score)"
+script: "scripts/route_task.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

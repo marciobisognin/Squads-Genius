@@ -1,0 +1,19 @@
+id: index_refresh
+description: >-
+  Reindexa a pasta de squads e regenera o wiki de acesso rápido. Use quando
+  novos squads forem adicionados ou alterados.
+human_in_loop: false
+rollback: "manter o índice anterior se a varredura falhar"
+steps:
+  - order: 1
+    name: "Varredura e índice de squads"
+    owner: squad-cartographer
+    gate_required: false
+  - order: 2
+    name: "Wiki de acesso rápido"
+    owner: squad-cartographer
+    gate_required: true
+  - order: 3
+    name: "Governança do índice"
+    owner: aegis-governance-sentinel
+    gate_required: false
