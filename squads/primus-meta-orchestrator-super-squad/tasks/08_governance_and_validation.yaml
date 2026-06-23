@@ -1,0 +1,16 @@
+id: 08_governance_and_validation
+title: "Validar estrutura, segurança e autoria; emitir go/no-go."
+owner: aegis-governance-sentinel
+objective: "Aplicar quality gate determinístico e bloquear publicação se houver risco."
+inputs:
+  - target_squad_path
+  - generated_artifacts
+outputs:
+  - quality_report
+  - go_no_go
+acceptance_criteria:
+  - "Sem segredos, sem arquivos ausentes, manifesto válido"
+  - "Footer obrigatório e créditos presentes"
+  - "Publicação só após autorização humana"
+script: "scripts/validate_squad.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

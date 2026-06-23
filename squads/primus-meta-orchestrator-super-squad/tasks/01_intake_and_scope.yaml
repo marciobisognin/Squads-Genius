@@ -1,0 +1,16 @@
+id: 01_intake_and_scope
+title: "Entender o pedido, a pasta de squads alvo e o resultado esperado."
+owner: primus-prime-orchestrator
+objective: "Capturar objetivo, pasta-alvo de squads e tipo de entrega (wiki, roteamento, criação)."
+inputs:
+  - user_request
+  - squads_root_path
+outputs:
+  - scoped_request
+  - assumptions
+  - risks
+acceptance_criteria:
+  - "Objetivo e resultado esperado explícitos"
+  - "Pasta-alvo de squads identificada (ou solicitada)"
+  - "Separa observado, inferido, hipótese e recomendação quando aplicável"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

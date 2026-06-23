@@ -1,0 +1,15 @@
+id: 06_create_new_agent_or_squad
+title: "Gerar o esqueleto do novo squad/agente e encaminhar ao Forge."
+owner: gap-detector-architect
+objective: "Criar estrutura mínima válida e listar próximos passos no Maeve Genius Forge."
+inputs:
+  - gap_proposal
+outputs:
+  - new_squad_skeleton
+  - next_actions
+acceptance_criteria:
+  - "Esqueleto passa em validate_squad.py (go)"
+  - "Footer e créditos de autoria presentes"
+  - "Encaminhamento ao /criar-squad documentado"
+script: "scripts/scaffold_squad.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

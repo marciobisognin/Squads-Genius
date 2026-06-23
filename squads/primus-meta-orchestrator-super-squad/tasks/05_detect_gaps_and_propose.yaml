@@ -1,0 +1,17 @@
+id: 05_detect_gaps_and_propose
+title: "Identificar lacunas e propor agentes/squads novos quando faltar cobertura."
+owner: gap-detector-architect
+objective: "Confirmar lacuna, decidir estender x criar e desenhar a solução."
+inputs:
+  - gap_signal
+  - squad_index
+  - memory_brain
+outputs:
+  - gap_proposal
+  - assumptions
+  - risks
+acceptance_criteria:
+  - "Decisão reusar/estender/criar justificada"
+  - "Capacidades-alvo e agentes propostos listados"
+  - "Lacuna registrada na memória para detectar recorrência"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

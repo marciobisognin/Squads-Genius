@@ -1,0 +1,24 @@
+id: memory_evolution_cycle
+description: >-
+  Ciclo de evolução do sistema mental: consolida interações recentes, aplica
+  decaimento, recomputa aprendizados e promove lacunas recorrentes a propostas
+  de novos squads.
+human_in_loop: true
+rollback: "restaurar o brain.json anterior"
+steps:
+  - order: 1
+    name: "Consolidar interações e estatísticas"
+    owner: mnemosyne-memory-keeper
+    gate_required: false
+  - order: 2
+    name: "Evoluir (decaimento + aprendizados)"
+    owner: mnemosyne-memory-keeper
+    gate_required: false
+  - order: 3
+    name: "Promover lacunas recorrentes a propostas"
+    owner: gap-detector-architect
+    gate_required: true
+  - order: 4
+    name: "Revisão humana dos aprendizados"
+    owner: primus-prime-orchestrator
+    gate_required: true

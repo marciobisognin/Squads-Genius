@@ -1,0 +1,17 @@
+id: 07_update_memory_system
+title: "Registrar a interação, evoluir pesos e atualizar aprendizados."
+owner: mnemosyne-memory-keeper
+objective: "Persistir a decisão de roteamento e fazer o cérebro evoluir."
+inputs:
+  - routing_recommendation
+  - outcome
+  - gap_proposal
+outputs:
+  - memory_brain
+  - learnings
+acceptance_criteria:
+  - "Interação registrada com tarefa, agente e resultado"
+  - "Pesos de conceitos e desempenho de agentes atualizados"
+  - "Nenhum segredo ou dado sensível persistido"
+script: "scripts/memory_system.py"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

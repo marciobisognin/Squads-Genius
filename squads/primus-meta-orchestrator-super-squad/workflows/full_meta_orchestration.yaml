@@ -1,0 +1,39 @@
+id: full_meta_orchestration
+description: >-
+  Pipeline completo do Primus: do pedido à recomendação/criação, com governança
+  e evolução da memória.
+human_in_loop: true
+rollback: "retornar ao último gate reprovado"
+steps:
+  - order: 1
+    name: "Intake e escopo"
+    owner: primus-prime-orchestrator
+    gate_required: false
+  - order: 2
+    name: "Varredura e índice de squads"
+    owner: squad-cartographer
+    gate_required: true
+  - order: 3
+    name: "Wiki de acesso rápido"
+    owner: squad-cartographer
+    gate_required: false
+  - order: 4
+    name: "Roteamento da tarefa"
+    owner: task-router-oracle
+    gate_required: true
+  - order: 5
+    name: "Detecção de lacuna e proposta"
+    owner: gap-detector-architect
+    gate_required: true
+  - order: 6
+    name: "Criação de novo agente/squad (se necessário)"
+    owner: gap-detector-architect
+    gate_required: true
+  - order: 7
+    name: "Atualização do sistema mental"
+    owner: mnemosyne-memory-keeper
+    gate_required: false
+  - order: 8
+    name: "Governança e go/no-go"
+    owner: aegis-governance-sentinel
+    gate_required: true

@@ -1,0 +1,4 @@
+# Artefatos gerados sob demanda (regeneráveis)
+output/
+__pycache__/
+*.pyc

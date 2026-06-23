@@ -1,0 +1,19 @@
+id: quick_routing
+description: >-
+  Atalho: dada uma tarefa, recomenda o melhor agente usando o índice já gerado e
+  a memória, e registra a decisão. Sem recriar o índice.
+human_in_loop: false
+rollback: "reexecutar o roteamento com limiar ajustado"
+steps:
+  - order: 1
+    name: "Roteamento da tarefa"
+    owner: task-router-oracle
+    gate_required: false
+  - order: 2
+    name: "Sinalização de lacuna (se houver)"
+    owner: gap-detector-architect
+    gate_required: false
+  - order: 3
+    name: "Registro na memória"
+    owner: mnemosyne-memory-keeper
+    gate_required: false
