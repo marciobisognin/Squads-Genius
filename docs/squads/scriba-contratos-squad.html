@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCRIBA — Instrumentos Contratuais — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#5f3a8a;--accent-soft:#5f3a8a26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></span> SCRIBA — Instrumentos Contratuais</h1>
+  <p class="tagline">Dado um tipo de contrato, produz o instrumento pronto para assinatura (minuta inicial · termo aditivo · apostilamento · repactuação/reajuste) com motor determinístico, citação obrigatória por cláusula e HITL nos pontos jurídicos críticos.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>Orchestrator</h4><p>Coordena o StateGraph (S0-S11), aplica o roteamento Cynefin, gerencia os HITL Gates A/B e o Turing loop. Não calcula, não decide instrumento e não redige.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Roteamento de complexidade</div><h4>Cynefin Classifier</h4><p>Classifica o caso em Clear/Complicated/Complex/Chaotic e define o routing_hint consumido pelo Orchestrator.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-input"/></svg></div>
+        <div><div class="role">Normalização de entrada</div><h4>Extractor</h4><p>Normaliza e valida os campos de contract_facts, resolve pendências (datas, CNPJ, valores) e nunca infere valor ausente.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Recuperação normativa</div><h4>Normative RAG</h4><p>Recupera os dispositivos aplicáveis (Lei 14.133, IN 05/2017, modelos AGU/CNMLC, acórdãos TCU) com fonte rastreável.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Decisão determinística</div><h4>Instrument Router</h4><p>Decide o instrumento a gerar pela tabela-decisão do compêndio (§11), em regras puras, sem julgamento subjetivo do LLM.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-planner"/></svg></div>
+        <div><div class="role">Minuta vigente</div><h4>Template Selector</h4><p>Escolhe a minuta AGU/CNMLC vigente por objeto e regime, com guarda de vigência contra minutas desatualizadas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Motor de cálculo</div><h4>Calculator</h4><p>Engine determinística em Python puro: reajuste, limites de aditivo (25%/50%), repactuação por componente e conta vinculada/PFG.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></div>
+        <div><div class="role">Redator de cláusulas</div><h4>Drafter</h4><p>Preenche os blocos do template com os valores calculados e anota a citação obrigatória de fundamento por cláusula.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">Validador adversarial</div><h4>Validator</h4><p>Checklist AGU (art. 92) + quadro de riscos TCU; adversarial — procura motivos para reprovar; bloqueio aciona o Turing Guild.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-composer"/></svg></div>
+        <div><div class="role">Gerador de artefatos</div><h4>Doc Generator</h4><p>Gera o instrumento final em DOCX/Markdown com identidade institucional, condicionado à homologação do Gate B.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Memória explicativa</div><h4>Explainer</h4><p>Gera a memória explicativa: decisões de roteamento, fundamentos por cláusula e memória de cálculo, separando observado/inferido/risco.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scriba_router.py</code><span>Instrument Router determinístico: tabela-decisão do compêndio (§11) entre minuta inicial, aditivo, apostilamento e repactuação.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scriba_engine.py</code><span>Engine determinística: reajuste por índice, limites de aditivo (25%/50% sem compensação), repactuação por componente com alerta de preclusão, conta vinculada/PFG e prorrogação (teto de 60 meses).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scriba_validator.py</code><span>Validador determinístico: checklist AGU (art. 92), limites de aditivo, coerência repactuação×instrumento e alerta crítico de preclusão.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>run_scriba.py</code><span>Orquestrador CLI determinístico ponta a ponta: router → engine → validador, com saída em JSON/Markdown.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Roteamento Cynefin</h4><p>Classifica a complexidade do caso (Clear/Complicated/Complex/Chaotic); Chaotic aborta com pedido de dados.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Extração de contract_facts</h4><p>Normaliza a entrada estruturada e lista pendências (datas, CNPJ, valores) antes de seguir.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Recuperação normativa</h4><p>Busca os dispositivos aplicáveis (Lei 14.133, IN 05/2017, AGU, TCU) para citação por cláusula.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Roteamento do instrumento</h4><p>Decide minuta inicial, termo aditivo, apostilamento ou repactuação pela tabela-decisão determinística.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Seleção de template (HITL Gate A)</h4><p>Escolhe a minuta AGU/CNMLC vigente e exige confirmação humana do instrumento e, se DEMO, da CCT.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Cálculo determinístico</h4><p>Engine Python calcula reajuste, limites de aditivo, repactuação e conta vinculada, cada valor com fórmula e fundamento.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Redação das cláusulas</h4><p>Preenche o template com os valores calculados, citando a fonte legal em cada cláusula.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>Validação e homologação (HITL Gate B)</h4><p>Checklist AGU + riscos TCU; bloqueio aciona o Turing Guild; homologação humana final antes do pacote definitivo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Instrumento contratual pronto para assinatura + memória explicativa</strong><span>Minuta inicial, termo aditivo, apostilamento ou repactuação/reajuste (DOCX/Markdown) com citação obrigatória por cláusula, relatório de validação contra o checklist AGU e a jurisprudência do TCU, e memória explicativa com a memória de cálculo.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

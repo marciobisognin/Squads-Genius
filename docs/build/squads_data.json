@@ -7899,5 +7899,137 @@
       "desc": "Planilha por posto (Módulos 1–6) com fórmulas vivas, Quadro-Resumo, memória de cálculo e base normativa, mais o relatório de validação contra a IN 05/2017, a IN 98/2022 e a jurisprudência do TCU."
     },
     "category": "Instituto Federal Farroupilha (IFFar)"
+  },
+  {
+    "id": "scriba-contratos-squad",
+    "name": "SCRIBA — Instrumentos Contratuais",
+    "tagline": "Dado um tipo de contrato, produz o instrumento pronto para assinatura (minuta inicial · termo aditivo · apostilamento · repactuação/reajuste) com motor determinístico, citação obrigatória por cláusula e HITL nos pontos jurídicos críticos.",
+    "color": "#5f3a8a",
+    "card_icon": "writer",
+    "agents": [
+      {
+        "name": "Orchestrator",
+        "role": "Orquestrador",
+        "desc": "Coordena o StateGraph (S0-S11), aplica o roteamento Cynefin, gerencia os HITL Gates A/B e o Turing loop. Não calcula, não decide instrumento e não redige.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Cynefin Classifier",
+        "role": "Roteamento de complexidade",
+        "desc": "Classifica o caso em Clear/Complicated/Complex/Chaotic e define o routing_hint consumido pelo Orchestrator.",
+        "icon": "router"
+      },
+      {
+        "name": "Extractor",
+        "role": "Normalização de entrada",
+        "desc": "Normaliza e valida os campos de contract_facts, resolve pendências (datas, CNPJ, valores) e nunca infere valor ausente.",
+        "icon": "input"
+      },
+      {
+        "name": "Normative RAG",
+        "role": "Recuperação normativa",
+        "desc": "Recupera os dispositivos aplicáveis (Lei 14.133, IN 05/2017, modelos AGU/CNMLC, acórdãos TCU) com fonte rastreável.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Instrument Router",
+        "role": "Decisão determinística",
+        "desc": "Decide o instrumento a gerar pela tabela-decisão do compêndio (§11), em regras puras, sem julgamento subjetivo do LLM.",
+        "icon": "router"
+      },
+      {
+        "name": "Template Selector",
+        "role": "Minuta vigente",
+        "desc": "Escolhe a minuta AGU/CNMLC vigente por objeto e regime, com guarda de vigência contra minutas desatualizadas.",
+        "icon": "planner"
+      },
+      {
+        "name": "Calculator",
+        "role": "Motor de cálculo",
+        "desc": "Engine determinística em Python puro: reajuste, limites de aditivo (25%/50%), repactuação por componente e conta vinculada/PFG.",
+        "icon": "builder"
+      },
+      {
+        "name": "Drafter",
+        "role": "Redator de cláusulas",
+        "desc": "Preenche os blocos do template com os valores calculados e anota a citação obrigatória de fundamento por cláusula.",
+        "icon": "writer"
+      },
+      {
+        "name": "Validator",
+        "role": "Validador adversarial",
+        "desc": "Checklist AGU (art. 92) + quadro de riscos TCU; adversarial — procura motivos para reprovar; bloqueio aciona o Turing Guild.",
+        "icon": "validator"
+      },
+      {
+        "name": "Doc Generator",
+        "role": "Gerador de artefatos",
+        "desc": "Gera o instrumento final em DOCX/Markdown com identidade institucional, condicionado à homologação do Gate B.",
+        "icon": "composer"
+      },
+      {
+        "name": "Explainer",
+        "role": "Memória explicativa",
+        "desc": "Gera a memória explicativa: decisões de roteamento, fundamentos por cláusula e memória de cálculo, separando observado/inferido/risco.",
+        "icon": "communicator"
+      }
+    ],
+    "tools": [
+      {
+        "file": "scriba_router.py",
+        "desc": "Instrument Router determinístico: tabela-decisão do compêndio (§11) entre minuta inicial, aditivo, apostilamento e repactuação."
+      },
+      {
+        "file": "scriba_engine.py",
+        "desc": "Engine determinística: reajuste por índice, limites de aditivo (25%/50% sem compensação), repactuação por componente com alerta de preclusão, conta vinculada/PFG e prorrogação (teto de 60 meses)."
+      },
+      {
+        "file": "scriba_validator.py",
+        "desc": "Validador determinístico: checklist AGU (art. 92), limites de aditivo, coerência repactuação×instrumento e alerta crítico de preclusão."
+      },
+      {
+        "file": "run_scriba.py",
+        "desc": "Orquestrador CLI determinístico ponta a ponta: router → engine → validador, com saída em JSON/Markdown."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Roteamento Cynefin",
+        "desc": "Classifica a complexidade do caso (Clear/Complicated/Complex/Chaotic); Chaotic aborta com pedido de dados."
+      },
+      {
+        "title": "Extração de contract_facts",
+        "desc": "Normaliza a entrada estruturada e lista pendências (datas, CNPJ, valores) antes de seguir."
+      },
+      {
+        "title": "Recuperação normativa",
+        "desc": "Busca os dispositivos aplicáveis (Lei 14.133, IN 05/2017, AGU, TCU) para citação por cláusula."
+      },
+      {
+        "title": "Roteamento do instrumento",
+        "desc": "Decide minuta inicial, termo aditivo, apostilamento ou repactuação pela tabela-decisão determinística."
+      },
+      {
+        "title": "Seleção de template (HITL Gate A)",
+        "desc": "Escolhe a minuta AGU/CNMLC vigente e exige confirmação humana do instrumento e, se DEMO, da CCT."
+      },
+      {
+        "title": "Cálculo determinístico",
+        "desc": "Engine Python calcula reajuste, limites de aditivo, repactuação e conta vinculada, cada valor com fórmula e fundamento."
+      },
+      {
+        "title": "Redação das cláusulas",
+        "desc": "Preenche o template com os valores calculados, citando a fonte legal em cada cláusula."
+      },
+      {
+        "title": "Validação e homologação (HITL Gate B)",
+        "desc": "Checklist AGU + riscos TCU; bloqueio aciona o Turing Guild; homologação humana final antes do pacote definitivo."
+      }
+    ],
+    "output": {
+      "title": "Instrumento contratual pronto para assinatura + memória explicativa",
+      "desc": "Minuta inicial, termo aditivo, apostilamento ou repactuação/reajuste (DOCX/Markdown) com citação obrigatória por cláusula, relatório de validação contra o checklist AGU e a jurisprudência do TCU, e memória explicativa com a memória de cálculo."
+    },
+    "category": "Instituto Federal Farroupilha (IFFar)"
   }
 ]
