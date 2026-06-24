@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KÊRYX — O Arauto — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#1FA87E;--accent-soft:#1FA87E26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-factory"/></svg></span> KÊRYX — O Arauto</h1>
+  <p class="tagline">Gera carrosséis educativos para Instagram a partir de um pedido mínimo, em dois trilhos: infográfico determinístico (HTML→PNG) e quadrinho de conhecimento com arte gated e texto vetorial.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>HEGEMON</h4><p>Normaliza o pedido em CarouselBrief, classifica via Cynefin, roteia o trilho e opera o gate HITL final.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Curadoria aleatória</div><h4>KLEROS</h4><p>Sorteia tema, formato e estilo com pesos e anti-repetição, de forma reprodutível por seed.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Pesquisa de conteúdo</div><h4>HISTOR</h4><p>Gera dicas e mini-tutoriais ancorados no gancho de cotidiano; checa fatos verificáveis.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-architect"/></svg></div>
+        <div><div class="role">Estruturação</div><h4>TAXIS</h4><p>Organiza o conteúdo em colunas, seções e bullets conforme o schema do slide.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></div>
+        <div><div class="role">Copywriter</div><h4>LACONICUS</h4><p>Reescreve bullets em imperativo curto e escolhe o emoji do título, na voz PT-BR.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-designer"/></svg></div>
+        <div><div class="role">Direção de arte</div><h4>APELLES</h4><p>Seleciona o sistema baoyu (layout×estilo), paleta de acento, ícones e slot de branding.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-factory"/></svg></div>
+        <div><div class="role">Render determinístico</div><h4>HEPHAISTOS</h4><p>Forja os PNGs/PDF via HTML+CSS→Playwright (sem IA) e letteriza balões vetoriais no Trilho B.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">QA visual</div><h4>KANON</h4><p>Mede overflow, contraste e grid; dispara o loop de auto-fit até zerar estouros.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">QA factual &amp; anti-sycophancy</div><h4>MOMUS</h4><p>Caça clichê, exagero e erro factual; exige ação concreta por slide.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-composer"/></svg></div>
+        <div><div class="role">Roteirista (Trilho B)</div><h4>RHAPSODOS</h4><p>Converte o tema em storyboard ohmsha: 1 tese visual por página, conceito vira gadget/ambiente.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-designer"/></svg></div>
+        <div><div class="role">Character sheet (Trilho B)</div><h4>EIDOLON</h4><p>Define o personagem-guia e a style bible para consistência visual entre painéis.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-scientist"/></svg></div>
+        <div><div class="role">Ilustrador (Trilho B)</div><h4>ZEUXIS</h4><p>Gera a arte por painel a partir do character sheet, original e sem texto embutido (seed quando suportado).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/kleros_curation.py</code><span>Curadoria aleatória determinística (seed + anti-repetição) de tema, formato e estilo.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>render/tokens.py</code><span>Design system: fonte única da verdade visual (canvas, tipografia, cores, ritmo).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>render/engine.py</code><span>Render do Trilho A: Jinja2→HTML/CSS→Playwright→PNG+PDF com render_hash determinístico.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>render/letterer.py</code><span>Letterização vetorial do Trilho B: balões/legendas nítidos sobre a arte generativa.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/validate_carousel_spec.py</code><span>Valida o CarouselSpec contra as regras editoriais do padrão.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Intake + Cynefin</h4><p>HEGEMON normaliza o pedido mínimo e classifica a complexidade, definindo modo e formato.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Curadoria</h4><p>KLEROS sorteia tema(s), formato e estilo com seed reprodutível e anti-repetição.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Conteúdo</h4><p>HISTOR gera a matéria-prima ancorada no gancho de cotidiano.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Estrutura + copy</h4><p>TAXIS organiza os cards e LACONICUS reescreve em imperativo curto.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Direção de arte</h4><p>APELLES seleciona o estilo baoyu, paleta de acento e branding do usuário.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Render / Quadrinho</h4><p>HEPHAISTOS renderiza o infográfico (Trilho A) ou letteriza o quadrinho (Trilho B).</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>QA + self-healing</h4><p>KANON zera overflow e MOMUS audita conteúdo; fix_requests reentram nos agentes.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>Gate HITL + entrega</h4><p>Homologação humana e entrega de PNGs 1080×1350 + PDF + manifest.json.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Carrossel pronto-para-publicar</strong><span>PNGs 1080×1350 + carrossel.pdf (ou comic.pdf) + manifest.json, reprodutíveis por seed e auditáveis por render_hash.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
