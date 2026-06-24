@@ -1,0 +1,29 @@
+id: "comic_track"
+description: "Trilho B — Quadrinho de conhecimento (baoyu-comic): estrutura determinística + arte generativa gated."
+human_in_loop: true
+deterministic: false  # apenas o bitmap da ilustração é não-determinístico (isolado)
+steps:
+  - {order: 1, name: "Storyboard (ohmsha)",       owner: rhapsodos,  task: 07b_comic_storyboard}
+  - {order: 2, name: "QA fidelidade do roteiro",  owner: momus,      task: 09_qa_factual_anti_sycophancy}
+  - {order: 3, name: "HITL #1 — roteiro",         owner: hegemon,    gate_required: true, gate: hitl_roteiro_comic,
+     note: "aprovar o roteiro ANTES de gastar geração de imagem"}
+  - {order: 4, name: "Character sheet",           owner: eidolon,    task: 07c_comic_character_sheet}
+  - {order: 5, name: "Geração de arte (ZEUXIS)",  owner: zeuxis,     task: 07d_comic_arte_e_letterizacao}
+  - {order: 6, name: "HITL #2 — arte",            owner: hegemon,    gate_required: true, gate: hitl_arte_comic,
+     note: "aprovar a arte ANTES da letterização final"}
+  - {order: 7, name: "Letterização vetorial",     owner: hephaistos, task: 07d_comic_arte_e_letterizacao,
+     note: "balões/legendas nítidas nos panel_boxes com o texto exato do ComicScript"}
+  - {order: 8, name: "QA legibilidade balões",    owner: kanon,      task: 08_qa_visual, gate_required: true, gate: qa_visual_kanon}
+  - {order: 9, name: "HITL final + entrega",      owner: hegemon,    task: 10_gate_hitl_e_entrega, gate_required: true, gate: hitl_entrega}
+determinism_boundary:
+  deterministic: ["roteiro", "divisão de painéis", "posição/conteúdo dos balões", "tipografia", "montagem"]
+  non_deterministic_isolated: ["bitmap da ilustração (ZEUXIS)"]
+  render_hash_scope: "camada de texto + composição (não o bitmap da arte)"
+mitigations:
+  - "seed por painel"
+  - "character sheet obrigatório (EIDOLON)"
+  - "dois gates HITL (roteiro e arte)"
+  - "geração em lote + cache por seed+prompt"
+outputs:
+  - "outputs/comic/characters.png + page_01..NN.png + comic.pdf"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

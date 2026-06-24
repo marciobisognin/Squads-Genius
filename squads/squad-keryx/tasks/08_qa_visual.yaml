@@ -1,0 +1,19 @@
+id: "08_qa_visual"
+owner: kanon
+objective: "QA visual: overflow, contraste, grid, safe zones; dispara loop de auto-fit (Trilho A)."
+cynefin: deterministic
+inputs:
+  - "RenderManifest (+ página renderizada para medição)"
+outputs:
+  - "QAVisual (overflow, min_contrast_ratio, grid_ok, issues, fix_request)"
+steps:
+  - "Medir bounding boxes de cada elemento."
+  - "Se overflow: reduzir font-size (19-23px) -> rebalancear -> re-paginar -> fix_request a LACONICUS."
+  - "Conferir contraste e aderência ao checklist do design system."
+  - "Trilho B: conferir legibilidade dos balões letterizados."
+acceptance_criteria:
+  - "Overflow = 0 em todos os slides entregues"
+  - "Aderência >=95% ao checklist do design system"
+gate_required: true
+gate: "qa_visual_kanon"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,20 @@
+id: "06_direcao_de_arte"
+owner: apelles
+objective: "Selecionar sistema baoyu (layout x estilo), paleta de acento, ícones e slot de branding."
+cynefin: clear
+inputs:
+  - "CarouselSpec (texto final)"
+  - "ThemePlan"
+  - "config/baoyu_presets.json"
+outputs:
+  - "CarouselSpec + art (baoyu, accent_color, branding_slot por slide)"
+steps:
+  - "Selecionar baoyu.layout e baoyu.style (heurística domínio->estilo ou referendar KLEROS)."
+  - "Definir accent_color por tema."
+  - "Aplicar slot de branding do usuário (nunca marca de terceiros)."
+  - "Garantir que tokens da seção 8 prevalecem sobre a estética baoyu."
+acceptance_criteria:
+  - "baoyu.layout e baoyu.style existem na biblioteca (render/templates x render/styles)"
+  - "Contraste do accent_color compatível com o checklist do KANON"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

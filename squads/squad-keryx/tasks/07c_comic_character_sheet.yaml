@@ -1,0 +1,18 @@
+id: "07c_comic_character_sheet"
+owner: eidolon
+objective: "[Trilho B] Definir CharacterSheet + style bible para continuidade visual entre painéis."
+cynefin: complicated
+inputs:
+  - "ComicScript (aprovado em HITL #1)"
+  - "baoyu_style.comic referendado por APELLES"
+outputs:
+  - "CharacterSheet (JSON + characters.png)"
+steps:
+  - "Especificar personagem-guia com consistency_tokens reutilizáveis."
+  - "Fixar art_style e palette coerentes com o estilo baoyu."
+  - "Gerar character sheet de referência (characters.png)."
+acceptance_criteria:
+  - "consistency_tokens suficientes para reprodutibilidade entre painéis"
+  - "Personagem original (sem imitar artista vivo nomeado)"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

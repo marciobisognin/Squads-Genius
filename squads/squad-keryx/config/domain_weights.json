@@ -1,0 +1,16 @@
+{
+  "description": "Pesos de sorteio por domínio (KLEROS). Default uniforme. RNG com seed -> reprodutível.",
+  "weights": {
+    "tecnologia": 1.0,
+    "produtividade": 1.0,
+    "gestao_vida": 1.0,
+    "livros": 1.0
+  },
+  "livros_subdominios": {
+    "literatura": 1.0,
+    "ficcao_cientifica": 1.0,
+    "filosofia": 1.0,
+    "matematica": 1.0,
+    "fisica": 1.0
+  }
+}

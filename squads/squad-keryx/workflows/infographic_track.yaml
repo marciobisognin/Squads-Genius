@@ -1,0 +1,20 @@
+id: "infographic_track"
+description: "Trilho A — Cards/Infográfico 100% determinístico (baoyu-infographic: layout x estilo)."
+human_in_loop: true
+deterministic: true
+steps:
+  - {order: 1, name: "Estruturação em cards", owner: taxis,      task: 04_estruturacao_cards}
+  - {order: 2, name: "Copy imperativa",       owner: laconicus,  task: 05_copy_imperativa}
+  - {order: 3, name: "Direção de arte",       owner: apelles,    task: 06_direcao_de_arte}
+  - {order: 4, name: "Render HTML->PNG+PDF",  owner: hephaistos, task: 07a_render_infografico}
+  - {order: 5, name: "QA visual + auto-fit",  owner: kanon,      task: 08_qa_visual, gate_required: true, gate: qa_visual_kanon}
+  - {order: 6, name: "QA factual",            owner: momus,      task: 09_qa_factual_anti_sycophancy, gate_required: true, gate: qa_factual_momus}
+  - {order: 7, name: "HITL + entrega",        owner: hegemon,    task: 10_gate_hitl_e_entrega, gate_required: true, gate: hitl_entrega}
+auto_fit_loop:
+  - "reduzir font-size dos bullets (19-23px)"
+  - "rebalancear seções entre colunas"
+  - "re-paginar (slide de continuação)"
+  - "fix_request a LACONICUS para encurtar bullets"
+outputs:
+  - "outputs/infographic/slide_01..NN.png + carrossel.pdf"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

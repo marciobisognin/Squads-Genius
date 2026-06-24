@@ -1,0 +1,22 @@
+id: "07d_comic_arte_e_letterizacao"
+owner: zeuxis
+objective: "[Trilho B] Gerar arte por painel (sem texto) e letterizar balões/legendas vetoriais."
+cynefin: nao-deterministico-isolado
+inputs:
+  - "ComicScript + CharacterSheet"
+outputs:
+  - "ComicAssets (arte por página + panel_boxes)"
+  - "Páginas letterizadas (page_01..NN.png) + comic.pdf"
+steps:
+  - "ZEUXIS monta prompts por painel a partir do character sheet e gera arte (seed quando suportado)."
+  - "Arte original, SEM texto embutido; panel_boxes limpos."
+  - "HITL #2 aprova a arte ANTES da letterização."
+  - "HEPHAISTOS sobrepõe balões/legendas vetoriais (texto exato do ComicScript) nos panel_boxes."
+  - "Compor páginas e montar comic.pdf."
+acceptance_criteria:
+  - "0 texto embutido na arte (texto 100% vetorial, nítido e correto)"
+  - "Personagem consistente entre painéis"
+  - "deterministic_pixels=false esperado; render_hash cobre camada de texto + composição"
+gate_required: true
+gate: "hitl_arte_comic"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

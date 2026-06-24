@@ -1,0 +1,23 @@
+id: "01_intake_e_roteamento_cynefin"
+owner: hegemon
+objective: "Normalizar o pedido bruto em CarouselBrief, classificar via Cynefin e rotear o trilho."
+cynefin: gate
+inputs:
+  - "RawRequest (texto livre; mínimo n_slides)"
+  - "config/defaults.json"
+  - "config/domain_weights.json"
+outputs:
+  - "CarouselBrief (JSON validado por Pydantic)"
+steps:
+  - "Extrair n_slides (obrigatório) e opcionais (output_format, mode, domains, seed, tom, branding, estilos baoyu)."
+  - "Gerar request_id e seed se ausentes."
+  - "Classificar Cynefin: clear | complicated | complex | confuso."
+  - "Definir mode (single_theme/combined/random_mix) e output_format (ou auto -> KLEROS)."
+  - "Aplicar defaults seguros em ambiguidade; nunca travar o usuário."
+acceptance_criteria:
+  - "CarouselBrief 100% válido contra schemas/sacp_schemas.py"
+  - "cynefin_class registrado e justificado"
+  - ">=90% dos pedidos resolvidos sem rodada extra"
+gate_required: true
+gate: "briefing_cynefin"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

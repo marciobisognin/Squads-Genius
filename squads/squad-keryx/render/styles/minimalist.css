@@ -1,0 +1,84 @@
+/* KÊRYX — estilo baoyu `minimalist` (= cards de referência).
+   Canvas limpo, muito whitespace, ícones/emoji simples, sem texturas pesadas.
+   Tokens governados por render/tokens.py (fonte única da verdade). */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { width: 1080px; height: 1350px; }
+
+body {
+  background: #FFFFFF;
+  color: #2B2B2B;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  padding: 72px;            /* margin token */
+}
+
+.slide-header { display: flex; justify-content: space-between; align-items: flex-start; }
+
+.slide-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #111111;
+  max-width: 820px;
+}
+
+.title-emoji { color: var(--accent); }
+
+.branding { width: 96px; height: 96px; flex: 0 0 96px; }
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;          /* gutter token */
+  margin-top: 40px;          /* space_title_to_first_header */
+}
+
+.divider {
+  position: absolute;
+  top: 200px; bottom: 72px; left: 50%;
+  width: 1.5px;
+  background: #1A1A1A;
+  opacity: 0.18;
+  transform: translateX(-0.75px);
+}
+
+.module + .module { margin-top: 36px; }   /* space_between_sections */
+
+.module-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #111111;
+  margin-bottom: 16px;       /* space_header_to_bullets */
+}
+
+.bullets { list-style: none; }
+
+.bullet {
+  position: relative;
+  font-size: 22px;
+  line-height: 1.35;
+  color: #2B2B2B;
+  padding-left: 22px;
+  margin-bottom: 12px;       /* space_between_bullets */
+}
+
+.bullet::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #BDBDBD;        /* muted marker */
+}

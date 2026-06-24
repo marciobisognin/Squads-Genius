@@ -1,0 +1,17 @@
+id: "04_estruturacao_cards"
+owner: taxis
+objective: "Converter ContentDraft no esqueleto do CarouselSpec (colunas, seções, bullets)."
+cynefin: clear
+inputs:
+  - "ContentDraft"
+outputs:
+  - "CarouselSpec* (parcial: estrutura de slides em two_column)"
+steps:
+  - "Definir título do slide (UPPERCASE) e layout (default two_column)."
+  - "Balancear seções entre as 2 colunas."
+  - "Respeitar limites viáveis de seções/bullets por coluna (sinalizar risco de overflow a KANON)."
+acceptance_criteria:
+  - "0 campos obrigatórios ausentes no schema parcial"
+  - "Distribuição equilibrada entre colunas"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,22 @@
+{
+  "format_weights": {"infographic": 0.7, "comic": 0.3},
+  "infographic": {
+    "layouts": ["dense-modules", "bento-grid", "timeline", "comparison", "hierarchical-layers", "winding-roadmap", "structural-breakdown"],
+    "styles": ["minimalist", "craft-handmade", "morandi-journal", "chalkboard", "corporate", "technical-schematic", "bold-graphic", "sketch-notes", "pop-laboratory"],
+    "default": {"layout": "dense-modules", "style": "minimalist"}
+  },
+  "comic": {
+    "art": ["ligne-claire", "manga", "realistic", "ink-brush", "chalk", "minimalist"],
+    "tone": ["neutral", "warm", "dramatic", "energetic", "vintage", "action"],
+    "layout": ["standard", "cinematic", "dense", "splash", "mixed", "webtoon"],
+    "preset": ["ohmsha", null],
+    "default": {"art": "ligne-claire", "tone": "warm", "layout": "standard", "preset": "ohmsha"}
+  },
+  "domain_style_heuristic": {
+    "tecnologia": {"infographic": {"layout": "dense-modules", "style": "technical-schematic"}, "comic": {"art": "ligne-claire", "tone": "neutral"}},
+    "produtividade": {"infographic": {"layout": "dense-modules", "style": "minimalist"}, "comic": {"art": "ligne-claire", "tone": "warm", "preset": "ohmsha"}},
+    "gestao_vida": {"infographic": {"layout": "bento-grid", "style": "craft-handmade"}, "comic": {"art": "chalk", "tone": "warm"}},
+    "livros": {"infographic": {"layout": "timeline", "style": "morandi-journal"}, "comic": {"art": "ink-brush", "tone": "dramatic"}}
+  },
+  "anti_repeticao_estilo": true
+}

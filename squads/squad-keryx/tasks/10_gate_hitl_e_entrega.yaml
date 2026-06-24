@@ -1,0 +1,20 @@
+id: "10_gate_hitl_e_entrega"
+owner: hegemon
+objective: "Gate HITL final (homologação humana) e entrega dos artefatos."
+cynefin: gate
+inputs:
+  - "RenderManifest + QAVisual + QAContent"
+outputs:
+  - "outputs/infographic/slide_01..NN.png + carrossel.pdf (Trilho A)"
+  - "outputs/comic/page_01..NN.png + comic.pdf (Trilho B)"
+  - "outputs/manifest.json"
+steps:
+  - "Exibir preview: thumbnails dos PNGs + textos por slide + flags de MOMUS/KANON."
+  - "Ações do humano: aprovar | pedir ajuste (texto livre -> reentra no agente certo) | regenerar (nova seed)."
+  - "Em aprovação, consolidar manifest.json e atualizar store/historico.db (anti-repetição)."
+acceptance_criteria:
+  - "HITL com preview funcional; nenhuma entrega sem homologação"
+  - "manifest.json completo (paths, hashes, fontes, seed)"
+gate_required: true
+gate: "hitl_entrega"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

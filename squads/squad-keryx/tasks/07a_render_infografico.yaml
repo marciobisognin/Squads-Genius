@@ -1,0 +1,19 @@
+id: "07a_render_infografico"
+owner: hephaistos
+objective: "[Trilho A] Render determinístico HTML+CSS -> PNG 1080x1350 + PDF, com render_hash."
+cynefin: deterministic
+inputs:
+  - "CarouselSpec + art"
+  - "render/tokens.py + render/templates/<layout>.html.j2 + render/styles/<style>.css"
+outputs:
+  - "RenderManifest (PNGs + carrossel.pdf + render_hash por slide)"
+steps:
+  - "Jinja2 (template = baoyu.layout) + tokens CSS (baoyu.style)."
+  - "Playwright Chromium headless viewport 1080x1350; screenshot por slide."
+  - "Montar PDF multipágina (Pillow/img2pdf)."
+  - "Calcular render_hash (SHA-256) por slide; fontes embutidas (sem rede em runtime)."
+acceptance_criteria:
+  - "PNGs 1080x1350 + carrossel.pdf gerados em outputs/infographic/"
+  - "Mesma seed+spec+tokens => mesmo render_hash (determinismo)"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

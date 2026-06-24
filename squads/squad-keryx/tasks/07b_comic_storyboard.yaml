@@ -1,0 +1,21 @@
+id: "07b_comic_storyboard"
+owner: rhapsodos
+objective: "[Trilho B] Converter o conteúdo em ComicScript (painéis, beats, tese visual ohmsha)."
+cynefin: complicated
+inputs:
+  - "ContentDraft"
+  - "baoyu_style.comic (art x tone x layout x preset)"
+outputs:
+  - "ComicScript (JSON, text_layer_only=true)"
+steps:
+  - "Estruturar N páginas; 1 tese visual por página."
+  - "Preset ohmsha: conceito vira gadget/ação/ambiente; proibido 'cabeça falante'."
+  - "Definir painéis (shot, scene_description, metaphor, dialogue/caption)."
+  - "Personagem-guia recorrente; texto esparso."
+acceptance_criteria:
+  - "1 tese visual por página; 0 painéis 'cabeça falante'"
+  - "text_layer_only=true"
+gate_required: true
+gate: "hitl_roteiro_comic"
+notes: "MOMUS valida fidelidade; HITL #1 aprova o roteiro ANTES de gerar imagem."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

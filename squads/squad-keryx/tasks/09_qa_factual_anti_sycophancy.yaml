@@ -1,0 +1,19 @@
+id: "09_qa_factual_anti_sycophancy"
+owner: momus
+objective: "QA factual + anti-sycophancy: caçar clichê, exagero, erro factual e motivação vazia."
+cynefin: complicated
+inputs:
+  - "CarouselSpec (Trilho A) ou ComicScript (Trilho B)"
+outputs:
+  - "QAContent (factual_flags, cliché_flags, sycophancy_flags, verdict, fix_request)"
+steps:
+  - "Marcar clichê vazio e promessas exageradas."
+  - "Checar factualidade (autores/datas/números); acionar web_search quando aplicável."
+  - "Garantir ação concreta por slide."
+  - "Emitir veredicto pass|revise + fix_request direcionado."
+acceptance_criteria:
+  - "<=1 bullet reprovado por carrossel após convergência"
+  - "0 flags factuais críticas na entrega"
+gate_required: true
+gate: "qa_factual_momus"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
