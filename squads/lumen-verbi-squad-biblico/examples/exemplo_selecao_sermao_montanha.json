@@ -1,0 +1,40 @@
+{
+  "consulta": "Qual o significado do Sermao da Montanha e quem o proferiu?",
+  "personas_primarias": [
+    {
+      "id": "persona-jesus",
+      "nome": "Jesus Cristo",
+      "testamento": "Novo",
+      "score": 5,
+      "motivos": [
+        "conhecimento:sermao da montanha",
+        "eventos:sermao da montanha"
+      ]
+    }
+  ],
+  "historiadores_complementares": [
+    {
+      "id": "historiador-novo-testamento",
+      "nome": "Historiador do Novo Testamento",
+      "score": 2,
+      "motivos": [
+        "eventos:sermao da montanha"
+      ]
+    }
+  ],
+  "ranking_completo": [
+    {
+      "id": "persona-jesus",
+      "nome": "Jesus Cristo",
+      "testamento": "Novo",
+      "score": 5,
+      "motivos": [
+        "conhecimento:sermao da montanha",
+        "eventos:sermao da montanha"
+      ]
+    }
+  ],
+  "sugere_multiplas_perspectivas": false,
+  "fallback": false,
+  "nota": ""
+}

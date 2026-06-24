@@ -1,0 +1,15 @@
+id: 02_analise_pln_entidades_intencao
+owner: mestre-escriba-orquestrador
+objective: Extrair entidades (personagens, livros, capitulos, versiculos, locais), classificar a intencao e identificar temas/doutrinas.
+inputs:
+  - consulta_normalizada
+outputs:
+  - entidades_extraidas
+  - intencao_classificada
+  - temas_identificados
+  - referencias_biblicas
+acceptance_criteria:
+  - referencias_extraidas_com_parse_referencia_biblica
+  - intencao_em_uma_de_teologica_historica_interpretativa_ou_combinada
+deterministic_support: scripts/parse_referencia_biblica.py
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

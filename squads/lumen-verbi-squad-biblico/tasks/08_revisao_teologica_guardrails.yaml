@@ -1,0 +1,16 @@
+id: 08_revisao_teologica_guardrails
+owner: guardiao-teologico
+objective: Validar a resposta composta contra os guardrails (referencias, disclaimer, neutralidade, footer) antes da exibicao.
+inputs:
+  - resposta_composta
+outputs:
+  - resposta_validada
+  - relatorio_guardrails
+acceptance_criteria:
+  - disclaimer_de_representacao_didatica_presente
+  - referencias_biblicas_presentes
+  - footer_presente
+  - go_no_go_explicito
+deterministic_support: scripts/validar_fidelidade.py
+gate: "go_no_go == go"
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

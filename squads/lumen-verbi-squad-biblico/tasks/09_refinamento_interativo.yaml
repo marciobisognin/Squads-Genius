@@ -1,0 +1,17 @@
+id: 09_refinamento_interativo
+owner: mestre-escriba-orquestrador
+objective: Tratar pedidos de acompanhamento (mais detalhe a um agente, outra perspectiva, contexto historico, termos-chave).
+inputs:
+  - resposta_validada
+  - pedido_refinamento
+outputs:
+  - nova_resposta
+acceptance_criteria:
+  - tipo_de_refinamento_identificado
+  - novo_ciclo_reusa_o_pipeline
+opcoes_suportadas:
+  - perguntar_mais_a_agente
+  - obter_outra_perspectiva
+  - ver_contexto_historico
+  - explorar_termos_chave
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

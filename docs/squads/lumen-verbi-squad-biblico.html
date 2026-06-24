@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen Verbi — Squad Bíblico de IA — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#B8860B;--accent-soft:#B8860B26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></span> Lumen Verbi — Squad Bíblico de IA</h1>
+  <p class="tagline">Squad multiagente que personifica figuras bíblicas e historiadores para explicar a Palavra de Deus com perspectiva teológica e contexto histórico, sob guardrails de fidelidade.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador (MSCA)</div><h4>mestre-escriba-orquestrador</h4><p>Analisa a consulta (PLN), seleciona e combina os agentes e compõe a resposta final coesa.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Curador da Base de Conhecimento</div><h4>curador-bdc</h4><p>Recupera versículos, contexto histórico-cultural e definições da BDC, sempre citando a fonte.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Guardião de Fidelidade</div><h4>guardiao-teologico</h4><p>Quality gate de guardrails: representação didática, sem citações inventadas e neutralidade denominacional.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Persona Bíblica (Novo)</div><h4>persona-jesus</h4><p>Ensina o Reino de Deus, amor, perdão e graça a partir dos Evangelhos.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-planner"/></svg></div>
+        <div><div class="role">Persona Bíblica (Antigo)</div><h4>persona-moises</h4><p>Explica o Êxodo, a Lei Mosaica e a aliança do Sinai com tom legal e narrativo.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></div>
+        <div><div class="role">Persona Bíblica (Novo)</div><h4>persona-paulo</h4><p>Argumenta as doutrinas da graça, fé e justificação a partir das epístolas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-composer"/></svg></div>
+        <div><div class="role">Persona Bíblica (Antigo)</div><h4>persona-davi</h4><p>Conduz adoração, lamento e arrependimento pela voz dos Salmos.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Persona Bíblica (Novo)</div><h4>persona-maria</h4><p>Testemunha a Anunciação, o Magnificat e a encarnação com fé e humildade.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Persona Bíblica (Novo)</div><h4>persona-pedro</h4><p>Narra Atos, a negação e restauração, sofrimento e esperança da Igreja primitiva.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-strategist"/></svg></div>
+        <div><div class="role">Persona Bíblica (Antigo)</div><h4>persona-salomao</h4><p>Reflete sabedoria, temor do Senhor e vaidade em Provérbios e Eclesiastes.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-scientist"/></svg></div>
+        <div><div class="role">Historiador (AT)</div><h4>historiador-antigo-testamento</h4><p>Contextualiza o Antigo Oriente Próximo, arqueologia bíblica e o Israel antigo.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-scientist"/></svg></div>
+        <div><div class="role">Historiador (NT)</div><h4>historiador-novo-testamento</h4><p>Esclarece o Segundo Templo, o mundo greco-romano e a vida no século I.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">Crítico Textual</div><h4>critico-textual</h4><p>Analisa manuscritos, variantes, línguas originais, autoria, datação e cânon.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/selecionar_agentes.py</code><span>Recomendação determinística de personas e historiadores (núcleo do MSCA).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/parse_referencia_biblica.py</code><span>Extrai referências bíblicas estruturadas (livro capítulo:versículo) de texto livre.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/montar_prompt_persona.py</code><span>Monta o prompt de sistema de uma persona/historiador já com os guardrails.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/validar_fidelidade.py</code><span>Valida guardrails da resposta: referências, disclaimer e footer obrigatório.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Intake da consulta</h4><p>Recebe a pergunta em linguagem natural e confirma o escopo bíblico.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Análise de PLN</h4><p>Extrai entidades, referências e temas e classifica a intenção (teológica, histórica ou combinada).</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Recuperação na BDC</h4><p>O curador busca versículos, contexto histórico-cultural e definições, citando fontes.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Seleção e combinação</h4><p>Ranqueia personas primárias e historiadores complementares de forma determinística.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Resposta da persona</h4><p>A persona bíblica explica no próprio estilo, citando referências.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Contexto histórico</h4><p>Quando pertinente, o historiador acrescenta o pano de fundo factual.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Composição</h4><p>O orquestrador combina os trechos com atribuição por agente e ordem lógica.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>Guardrails e registro</h4><p>O guardião valida fidelidade (gate) e a interação é registrada para as métricas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Resposta bíblica multiagente validada</strong><span>Explicação coesa que combina perspectiva teológica da persona com contexto histórico, com referências citadas, disclaimer de representação didática e separação entre texto, história e interpretação.</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

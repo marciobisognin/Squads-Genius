@@ -8133,5 +8133,149 @@
       "desc": "Minuta inicial, termo aditivo, apostilamento ou repactuação/reajuste (DOCX/Markdown) com citação obrigatória por cláusula, relatório de validação contra o checklist AGU e a jurisprudência do TCU, e memória explicativa com a memória de cálculo."
     },
     "category": "Instituto Federal Farroupilha (IFFar)"
+  },
+  {
+    "id": "lumen-verbi-squad-biblico",
+    "name": "Lumen Verbi — Squad Bíblico de IA",
+    "tagline": "Squad multiagente que personifica figuras bíblicas e historiadores para explicar a Palavra de Deus com perspectiva teológica e contexto histórico, sob guardrails de fidelidade.",
+    "color": "#B8860B",
+    "card_icon": "writer",
+    "agents": [
+      {
+        "name": "mestre-escriba-orquestrador",
+        "role": "Orquestrador (MSCA)",
+        "desc": "Analisa a consulta (PLN), seleciona e combina os agentes e compõe a resposta final coesa.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "curador-bdc",
+        "role": "Curador da Base de Conhecimento",
+        "desc": "Recupera versículos, contexto histórico-cultural e definições da BDC, sempre citando a fonte.",
+        "icon": "researcher"
+      },
+      {
+        "name": "guardiao-teologico",
+        "role": "Guardião de Fidelidade",
+        "desc": "Quality gate de guardrails: representação didática, sem citações inventadas e neutralidade denominacional.",
+        "icon": "guardian"
+      },
+      {
+        "name": "persona-jesus",
+        "role": "Persona Bíblica (Novo)",
+        "desc": "Ensina o Reino de Deus, amor, perdão e graça a partir dos Evangelhos.",
+        "icon": "communicator"
+      },
+      {
+        "name": "persona-moises",
+        "role": "Persona Bíblica (Antigo)",
+        "desc": "Explica o Êxodo, a Lei Mosaica e a aliança do Sinai com tom legal e narrativo.",
+        "icon": "planner"
+      },
+      {
+        "name": "persona-paulo",
+        "role": "Persona Bíblica (Novo)",
+        "desc": "Argumenta as doutrinas da graça, fé e justificação a partir das epístolas.",
+        "icon": "writer"
+      },
+      {
+        "name": "persona-davi",
+        "role": "Persona Bíblica (Antigo)",
+        "desc": "Conduz adoração, lamento e arrependimento pela voz dos Salmos.",
+        "icon": "composer"
+      },
+      {
+        "name": "persona-maria",
+        "role": "Persona Bíblica (Novo)",
+        "desc": "Testemunha a Anunciação, o Magnificat e a encarnação com fé e humildade.",
+        "icon": "communicator"
+      },
+      {
+        "name": "persona-pedro",
+        "role": "Persona Bíblica (Novo)",
+        "desc": "Narra Atos, a negação e restauração, sofrimento e esperança da Igreja primitiva.",
+        "icon": "communicator"
+      },
+      {
+        "name": "persona-salomao",
+        "role": "Persona Bíblica (Antigo)",
+        "desc": "Reflete sabedoria, temor do Senhor e vaidade em Provérbios e Eclesiastes.",
+        "icon": "strategist"
+      },
+      {
+        "name": "historiador-antigo-testamento",
+        "role": "Historiador (AT)",
+        "desc": "Contextualiza o Antigo Oriente Próximo, arqueologia bíblica e o Israel antigo.",
+        "icon": "scientist"
+      },
+      {
+        "name": "historiador-novo-testamento",
+        "role": "Historiador (NT)",
+        "desc": "Esclarece o Segundo Templo, o mundo greco-romano e a vida no século I.",
+        "icon": "scientist"
+      },
+      {
+        "name": "critico-textual",
+        "role": "Crítico Textual",
+        "desc": "Analisa manuscritos, variantes, línguas originais, autoria, datação e cânon.",
+        "icon": "analyst"
+      }
+    ],
+    "tools": [
+      {
+        "file": "scripts/selecionar_agentes.py",
+        "desc": "Recomendação determinística de personas e historiadores (núcleo do MSCA)."
+      },
+      {
+        "file": "scripts/parse_referencia_biblica.py",
+        "desc": "Extrai referências bíblicas estruturadas (livro capítulo:versículo) de texto livre."
+      },
+      {
+        "file": "scripts/montar_prompt_persona.py",
+        "desc": "Monta o prompt de sistema de uma persona/historiador já com os guardrails."
+      },
+      {
+        "file": "scripts/validar_fidelidade.py",
+        "desc": "Valida guardrails da resposta: referências, disclaimer e footer obrigatório."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake da consulta",
+        "desc": "Recebe a pergunta em linguagem natural e confirma o escopo bíblico."
+      },
+      {
+        "title": "Análise de PLN",
+        "desc": "Extrai entidades, referências e temas e classifica a intenção (teológica, histórica ou combinada)."
+      },
+      {
+        "title": "Recuperação na BDC",
+        "desc": "O curador busca versículos, contexto histórico-cultural e definições, citando fontes."
+      },
+      {
+        "title": "Seleção e combinação",
+        "desc": "Ranqueia personas primárias e historiadores complementares de forma determinística."
+      },
+      {
+        "title": "Resposta da persona",
+        "desc": "A persona bíblica explica no próprio estilo, citando referências."
+      },
+      {
+        "title": "Contexto histórico",
+        "desc": "Quando pertinente, o historiador acrescenta o pano de fundo factual."
+      },
+      {
+        "title": "Composição",
+        "desc": "O orquestrador combina os trechos com atribuição por agente e ordem lógica."
+      },
+      {
+        "title": "Guardrails e registro",
+        "desc": "O guardião valida fidelidade (gate) e a interação é registrada para as métricas."
+      }
+    ],
+    "output": {
+      "title": "Resposta bíblica multiagente validada",
+      "desc": "Explicação coesa que combina perspectiva teológica da persona com contexto histórico, com referências citadas, disclaimer de representação didática e separação entre texto, história e interpretação."
+    },
+    "category": "Saúde, Bem-estar & Expressão"
   }
 ]

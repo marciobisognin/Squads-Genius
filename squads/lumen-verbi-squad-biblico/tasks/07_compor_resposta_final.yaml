@@ -1,0 +1,13 @@
+id: 07_compor_resposta_final
+owner: mestre-escriba-orquestrador
+objective: Combinar as respostas dos agentes em uma narrativa coesa, com atribuicao por agente e ordem logica.
+inputs:
+  - resposta_persona
+  - resposta_historiador
+outputs:
+  - resposta_composta
+acceptance_criteria:
+  - cada_trecho_atribuido_ao_agente
+  - ordem_teologica_antes_de_historica
+  - sem_contradicoes_nao_sinalizadas
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

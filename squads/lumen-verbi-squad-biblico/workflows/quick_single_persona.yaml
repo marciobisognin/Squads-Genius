@@ -1,0 +1,22 @@
+id: quick_single_persona
+description: Resposta rapida de uma unica persona, sem historiador, para perguntas diretas e devocionais.
+human_in_loop: true
+rollback: retornar ao gate de guardrails
+steps:
+  - order: 1
+    name: intake
+    task: 01_intake_consulta
+  - order: 2
+    name: analise_pln
+    task: 02_analise_pln_entidades_intencao
+  - order: 3
+    name: selecionar
+    task: 04_selecionar_combinar_agentes
+    gate: "exatamente uma persona primaria"
+  - order: 4
+    name: resposta_persona
+    task: 05_gerar_resposta_persona
+  - order: 5
+    name: guardrails
+    task: 08_revisao_teologica_guardrails
+    gate: "go_no_go == go"

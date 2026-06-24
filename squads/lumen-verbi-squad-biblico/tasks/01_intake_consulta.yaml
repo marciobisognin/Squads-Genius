@@ -1,0 +1,12 @@
+id: 01_intake_consulta
+owner: mestre-escriba-orquestrador
+objective: Receber a consulta do usuario em linguagem natural e normaliza-la para o pipeline.
+inputs:
+  - consulta_usuario
+  - historico_conversa
+outputs:
+  - consulta_normalizada
+acceptance_criteria:
+  - consulta_nao_vazia_registrada
+  - idioma_e_escopo_biblico_confirmados
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
