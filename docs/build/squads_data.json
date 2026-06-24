@@ -8277,5 +8277,147 @@
       "desc": "Explicação coesa que combina perspectiva teológica da persona com contexto histórico, com referências citadas, disclaimer de representação didática e separação entre texto, história e interpretação."
     },
     "category": "Saúde, Bem-estar & Expressão"
+  },
+  {
+    "id": "squad-keryx",
+    "name": "KÊRYX — O Arauto",
+    "tagline": "Gera carrosséis educativos para Instagram a partir de um pedido mínimo, em dois trilhos: infográfico determinístico (HTML→PNG) e quadrinho de conhecimento com arte gated e texto vetorial.",
+    "color": "#1FA87E",
+    "card_icon": "factory",
+    "agents": [
+      {
+        "name": "HEGEMON",
+        "role": "Orquestrador",
+        "desc": "Normaliza o pedido em CarouselBrief, classifica via Cynefin, roteia o trilho e opera o gate HITL final.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "KLEROS",
+        "role": "Curadoria aleatória",
+        "desc": "Sorteia tema, formato e estilo com pesos e anti-repetição, de forma reprodutível por seed.",
+        "icon": "router"
+      },
+      {
+        "name": "HISTOR",
+        "role": "Pesquisa de conteúdo",
+        "desc": "Gera dicas e mini-tutoriais ancorados no gancho de cotidiano; checa fatos verificáveis.",
+        "icon": "researcher"
+      },
+      {
+        "name": "TAXIS",
+        "role": "Estruturação",
+        "desc": "Organiza o conteúdo em colunas, seções e bullets conforme o schema do slide.",
+        "icon": "architect"
+      },
+      {
+        "name": "LACONICUS",
+        "role": "Copywriter",
+        "desc": "Reescreve bullets em imperativo curto e escolhe o emoji do título, na voz PT-BR.",
+        "icon": "writer"
+      },
+      {
+        "name": "APELLES",
+        "role": "Direção de arte",
+        "desc": "Seleciona o sistema baoyu (layout×estilo), paleta de acento, ícones e slot de branding.",
+        "icon": "designer"
+      },
+      {
+        "name": "HEPHAISTOS",
+        "role": "Render determinístico",
+        "desc": "Forja os PNGs/PDF via HTML+CSS→Playwright (sem IA) e letteriza balões vetoriais no Trilho B.",
+        "icon": "factory"
+      },
+      {
+        "name": "KANON",
+        "role": "QA visual",
+        "desc": "Mede overflow, contraste e grid; dispara o loop de auto-fit até zerar estouros.",
+        "icon": "validator"
+      },
+      {
+        "name": "MOMUS",
+        "role": "QA factual & anti-sycophancy",
+        "desc": "Caça clichê, exagero e erro factual; exige ação concreta por slide.",
+        "icon": "auditor"
+      },
+      {
+        "name": "RHAPSODOS",
+        "role": "Roteirista (Trilho B)",
+        "desc": "Converte o tema em storyboard ohmsha: 1 tese visual por página, conceito vira gadget/ambiente.",
+        "icon": "composer"
+      },
+      {
+        "name": "EIDOLON",
+        "role": "Character sheet (Trilho B)",
+        "desc": "Define o personagem-guia e a style bible para consistência visual entre painéis.",
+        "icon": "designer"
+      },
+      {
+        "name": "ZEUXIS",
+        "role": "Ilustrador (Trilho B)",
+        "desc": "Gera a arte por painel a partir do character sheet, original e sem texto embutido (seed quando suportado).",
+        "icon": "scientist"
+      }
+    ],
+    "tools": [
+      {
+        "file": "scripts/kleros_curation.py",
+        "desc": "Curadoria aleatória determinística (seed + anti-repetição) de tema, formato e estilo."
+      },
+      {
+        "file": "render/tokens.py",
+        "desc": "Design system: fonte única da verdade visual (canvas, tipografia, cores, ritmo)."
+      },
+      {
+        "file": "render/engine.py",
+        "desc": "Render do Trilho A: Jinja2→HTML/CSS→Playwright→PNG+PDF com render_hash determinístico."
+      },
+      {
+        "file": "render/letterer.py",
+        "desc": "Letterização vetorial do Trilho B: balões/legendas nítidos sobre a arte generativa."
+      },
+      {
+        "file": "scripts/validate_carousel_spec.py",
+        "desc": "Valida o CarouselSpec contra as regras editoriais do padrão."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake + Cynefin",
+        "desc": "HEGEMON normaliza o pedido mínimo e classifica a complexidade, definindo modo e formato."
+      },
+      {
+        "title": "Curadoria",
+        "desc": "KLEROS sorteia tema(s), formato e estilo com seed reprodutível e anti-repetição."
+      },
+      {
+        "title": "Conteúdo",
+        "desc": "HISTOR gera a matéria-prima ancorada no gancho de cotidiano."
+      },
+      {
+        "title": "Estrutura + copy",
+        "desc": "TAXIS organiza os cards e LACONICUS reescreve em imperativo curto."
+      },
+      {
+        "title": "Direção de arte",
+        "desc": "APELLES seleciona o estilo baoyu, paleta de acento e branding do usuário."
+      },
+      {
+        "title": "Render / Quadrinho",
+        "desc": "HEPHAISTOS renderiza o infográfico (Trilho A) ou letteriza o quadrinho (Trilho B)."
+      },
+      {
+        "title": "QA + self-healing",
+        "desc": "KANON zera overflow e MOMUS audita conteúdo; fix_requests reentram nos agentes."
+      },
+      {
+        "title": "Gate HITL + entrega",
+        "desc": "Homologação humana e entrega de PNGs 1080×1350 + PDF + manifest.json."
+      }
+    ],
+    "output": {
+      "title": "Carrossel pronto-para-publicar",
+      "desc": "PNGs 1080×1350 + carrossel.pdf (ou comic.pdf) + manifest.json, reprodutíveis por seed e auditáveis por render_hash."
+    },
+    "category": "Conteúdo, Marketing & Visual"
   }
 ]
