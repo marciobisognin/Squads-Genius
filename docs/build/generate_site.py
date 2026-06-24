@@ -37,7 +37,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <div class="wrap squad-hero">
   <a class="back" href="../index.html">← voltar para a galeria</a>
   <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-{card_icon}"/></svg></span> {name}</h1>
-  <p class="tagline">{tagline}</p>
+  <p class="tagline">{tagline}</p>{links_html}
 </div>
 
 <section class="block">
@@ -90,6 +90,8 @@ AGENT_CARD = """      <div class="agent-card"><div class="avatar"><svg><use href
 TOOL_CARD = """      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>{file}</code><span>{desc}</span></div></div>"""
 
 STEP_CARD = """      <div class="step"><div class="num">{n}</div><div class="body"><h4>{title}</h4><p>{desc}</p></div></div>"""
+
+LINK_CHIP = """      <a class="squad-link" href="{url}" target="_blank" rel="noopener">{label}</a>"""
 
 CARD_TEMPLATE = """      <a class="squad-card" href="squads/{id}.html" style="--accent-card:{color};--accent-soft-card:{color}26">
         <div class="badge"><svg><use href="assets/icons/sprite.svg#icon-{card_icon}"/></svg></div>
@@ -148,12 +150,19 @@ def render_squad_page(sq):
         STEP_CARD.format(n=i + 1, title=esc(s.get("title")), desc=esc(s.get("desc")))
         for i, s in enumerate(sq.get("steps", []))
     )
+    links = sq.get("links", [])
+    if links:
+        chips = "\n".join(LINK_CHIP.format(url=esc(l.get("url")), label=esc(l.get("label"))) for l in links)
+        links_html = f'\n  <div class="squad-links">\n{chips}\n  </div>'
+    else:
+        links_html = ""
     out = sq.get("output", {})
     html = PAGE_TEMPLATE.format(
         name=esc(sq["name"]),
         color=sq.get("color", "#7c5cff"),
         card_icon=safe_icon(sq.get("card_icon")),
         tagline=esc(sq.get("tagline")),
+        links_html=links_html,
         agents_html=agents_html,
         tools_html=tools_html,
         steps_html=steps_html,

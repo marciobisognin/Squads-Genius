@@ -8418,6 +8418,24 @@
       "title": "Carrossel pronto-para-publicar",
       "desc": "PNGs 1080×1350 + carrossel.pdf (ou comic.pdf) + manifest.json, reprodutíveis por seed e auditáveis por render_hash."
     },
-    "category": "Conteúdo, Marketing & Visual"
+    "category": "Conteúdo, Marketing & Visual",
+    "links": [
+      {
+        "label": "📂 Ver no GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/squad-keryx"
+      },
+      {
+        "label": "📖 README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-keryx/README.md"
+      },
+      {
+        "label": "⚙️ Manifesto (squad.yaml)",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-keryx/squad.yaml"
+      },
+      {
+        "label": "📚 Manual operacional",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-keryx/docs/manual_operacional.md"
+      }
+    ]
   }
 ]

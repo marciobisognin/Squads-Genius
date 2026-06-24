@@ -351,3 +351,13 @@ footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: cente
   .hero h1 { font-size: 28px; }
   .squad-hero h1 { font-size: 24px; }
 }
+
+/* Links de acesso na página do squad (chips) */
+.squad-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.squad-links a.squad-link {
+  font-size: 13px; font-weight: 600; line-height: 1;
+  padding: 9px 14px; border-radius: 999px;
+  border: 1px solid var(--accent); color: var(--accent);
+  background: var(--accent-soft); transition: all .15s ease;
+}
+.squad-links a.squad-link:hover { background: var(--accent); color: #fff; }
