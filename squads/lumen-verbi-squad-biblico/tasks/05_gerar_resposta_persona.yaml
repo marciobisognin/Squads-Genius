@@ -1,0 +1,15 @@
+id: 05_gerar_resposta_persona
+owner: persona-jesus
+objective: A(s) persona(s) biblica(s) selecionada(s) gera(m) a explicacao teologica/narrativa no proprio estilo, citando referencias.
+inputs:
+  - plano_orquestracao
+  - contexto_recuperado
+outputs:
+  - resposta_persona
+acceptance_criteria:
+  - prompt_montado_por_montar_prompt_persona
+  - resposta_cita_referencias
+  - resposta_no_estilo_do_perfil
+deterministic_support: scripts/montar_prompt_persona.py
+note: owner indicado e exemplo; o agente real e definido pelo plano_orquestracao (qualquer persona-*).
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

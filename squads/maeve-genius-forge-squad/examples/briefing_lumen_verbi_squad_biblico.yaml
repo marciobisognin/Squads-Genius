@@ -1,0 +1,29 @@
+project_name: "Lumen Verbi - Squad Biblico de IA"
+objective: "Criar um squad multiagente que personifica figuras biblicas (Jesus, Moises, Paulo, Davi, Maria, Pedro, Salomao) e historiadores especializados (Antigo Testamento, Novo Testamento, Critico Textual) para explicar passagens, temas teologicos e contexto historico-cultural da Biblia, com um orquestrador (MSCA) que faz PLN da consulta, seleciona e combina agentes, e compoe uma resposta coesa apoiada em uma Base de Dados de Conhecimento (BDC) e em guardrails teologicos."
+audience: "Estudantes da Biblia, lideres e membros de igrejas, professores de ensino religioso, criadores de conteudo cristao e pesquisadores leigos em teologia/historia biblica."
+domain: "Educacao teologica / estudo biblico assistido por IA / personas historicas / RAG sobre textos sagrados"
+desired_asset: "squad"
+references:
+  urls: []
+  files:
+    - "prd_squad_biblico.md"
+    - "prd_squad_biblico_arquitetura.md"
+constraints:
+  language: "pt-BR"
+  platform: "Termux/Android + GitHub"
+  budget: "low-token"
+  guardrails:
+    - "As personas sao representacoes didaticas de IA, nunca a voz real das figuras sagradas; exigir disclaimer."
+    - "Nunca inventar citacoes biblicas; toda citacao deve referenciar livro:capitulo:versiculo."
+    - "Manter neutralidade denominacional e sinalizar quando uma interpretacao for controversa."
+    - "Separar texto biblico, consenso historico-academico e interpretacao teologica."
+success_criteria:
+  - "Orquestrador (MSCA) analisa a consulta (entidades, intencao, temas) e seleciona o(s) agente(s) mais relevante(s)."
+  - "Resposta combina perspectiva da persona biblica com contexto historico quando pertinente, de forma coesa."
+  - "Toda resposta cita referencias biblicas e inclui disclaimer/guardrails do guardiao-teologico."
+  - "Selecao de agentes possui caminho deterministico (script de recomendacao a partir de um registro de perfis)."
+  - "Squad valida com go_no_go: go no validate_squad.py."
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

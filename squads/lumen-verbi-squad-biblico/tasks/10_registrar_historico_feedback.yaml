@@ -1,0 +1,18 @@
+id: 10_registrar_historico_feedback
+owner: curador-bdc
+objective: Registrar a interacao no historico e coletar feedback para as metricas de sucesso.
+inputs:
+  - resposta_validada
+  - feedback_usuario
+outputs:
+  - registro_historico
+  - metricas_atualizadas
+acceptance_criteria:
+  - interacao_persistida_com_agentes_acionados
+  - metricas_relevancia_e_tempo_registradas
+metricas:
+  - taxa_resposta_relevante
+  - tempo_medio_resposta
+  - engajamento_por_sessao
+  - satisfacao_usuario
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

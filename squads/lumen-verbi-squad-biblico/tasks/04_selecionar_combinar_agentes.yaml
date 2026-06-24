@@ -1,0 +1,15 @@
+id: 04_selecionar_combinar_agentes
+owner: mestre-escriba-orquestrador
+objective: Ranquear e selecionar personas biblicas primarias e historiadores complementares, decidindo a combinacao.
+inputs:
+  - entidades_extraidas
+  - temas_identificados
+  - intencao_classificada
+outputs:
+  - plano_orquestracao
+acceptance_criteria:
+  - selecao_gerada_por_selecionar_agentes
+  - personas_primarias_e_historiadores_definidos
+  - fallback_para_curador_quando_sem_match
+deterministic_support: scripts/selecionar_agentes.py
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

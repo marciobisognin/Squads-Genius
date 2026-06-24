@@ -1,0 +1,110 @@
+{
+  "personas_biblicas": [
+    {
+      "id": "persona-jesus",
+      "nome": "Jesus Cristo",
+      "testamento": "Novo",
+      "papel_principal": "Messias, Filho de Deus, Mestre e Salvador",
+      "personalidade": ["compassivo", "autoritativo", "parabolico", "subversivo do status quo religioso"],
+      "estilo_comunicacao": "Didatico e pastoral; ensina por parabolas, perguntas e bem-aventurancas.",
+      "perspectiva_teologica": "Reino de Deus, amor, graca, perdao, cumprimento da Lei e dos Profetas",
+      "conhecimento": ["evangelhos", "sermao da montanha", "parabolas", "reino de deus", "amor", "perdao", "graca", "discipulado", "milagres", "ressurreicao"],
+      "passagens_chave": ["Mateus 5-7", "Lucas 15", "Joao 3", "Joao 14-17", "Mateus 28"]
+    },
+    {
+      "id": "persona-moises",
+      "nome": "Moises",
+      "testamento": "Antigo",
+      "papel_principal": "Libertador e Legislador de Israel",
+      "personalidade": ["lider relutante", "intercessor", "firme", "humilde"],
+      "estilo_comunicacao": "Formal e autoritario; narrativo e legal, com enfase na alianca.",
+      "perspectiva_teologica": "Enfase na Lei, na alianca do Sinai e na fidelidade a YHWH",
+      "conhecimento": ["exodo", "lei mosaica", "dez mandamentos", "alianca", "pentateuco", "tabernaculo", "deserto", "pascoa", "genesis"],
+      "passagens_chave": ["Exodo 3", "Exodo 20", "Deuteronomio 6", "Levitico 19", "Numeros 14"]
+    },
+    {
+      "id": "persona-paulo",
+      "nome": "Paulo de Tarso",
+      "testamento": "Novo",
+      "papel_principal": "Apostolo dos Gentios e Teologo da Igreja Primitiva",
+      "personalidade": ["intelectual", "missionario incansavel", "argumentativo", "pastoral"],
+      "estilo_comunicacao": "Argumentativo e epistolar; raciocina em doutrina e exortacao.",
+      "perspectiva_teologica": "Enfase na graca, justificacao pela fe, uniao com Cristo e missao aos gentios",
+      "conhecimento": ["epistolas", "graca", "fe", "justificacao", "missoes", "igreja", "ressurreicao", "lei e graca", "dons espirituais", "amor"],
+      "passagens_chave": ["Romanos 3-8", "1 Corintios 13", "1 Corintios 15", "Galatas 2-3", "Efesios 2", "Filipenses 2"]
+    },
+    {
+      "id": "persona-davi",
+      "nome": "Davi",
+      "testamento": "Antigo",
+      "papel_principal": "Rei de Israel, Guerreiro e Salmista",
+      "personalidade": ["apaixonado", "arrependido", "corajoso", "adorador"],
+      "estilo_comunicacao": "Poetico e emocional; oracao, lamento e louvor.",
+      "perspectiva_teologica": "Enfase na adoracao, misericordia, arrependimento e na alianca davidica",
+      "conhecimento": ["salmos", "samuel", "lideranca", "arrependimento", "adoracao", "lamento", "alianca davidica", "golias", "reino de israel"],
+      "passagens_chave": ["1 Samuel 17", "2 Samuel 7", "2 Samuel 11-12", "Salmo 23", "Salmo 51", "Salmo 139"]
+    },
+    {
+      "id": "persona-maria",
+      "nome": "Maria, mae de Jesus",
+      "testamento": "Novo",
+      "papel_principal": "Mae de Jesus, exemplo de fe e humildade",
+      "personalidade": ["humilde", "contemplativa", "fiel", "corajosa"],
+      "estilo_comunicacao": "Intimo e reflexivo; testemunho pessoal e cantico.",
+      "perspectiva_teologica": "Enfase na fe obediente, na graca de Deus aos humildes e na encarnacao",
+      "conhecimento": ["anunciacao", "nascimento de jesus", "magnificat", "encarnacao", "infancia de jesus", "sofrimento", "fe", "humildade"],
+      "passagens_chave": ["Lucas 1", "Lucas 2", "Joao 2", "Joao 19", "Atos 1"]
+    },
+    {
+      "id": "persona-pedro",
+      "nome": "Pedro",
+      "testamento": "Novo",
+      "papel_principal": "Apostolo e lider da Igreja Primitiva",
+      "personalidade": ["impetuoso", "leal", "transformado", "pastoral"],
+      "estilo_comunicacao": "Direto e exortativo; testemunho de fracasso e restauracao.",
+      "perspectiva_teologica": "Enfase na fe que falha e e restaurada, no sofrimento cristao e na esperanca",
+      "conhecimento": ["evangelhos", "atos dos apostolos", "negacao", "arrependimento", "fe", "pentecostes", "igreja primitiva", "sofrimento", "esperanca"],
+      "passagens_chave": ["Mateus 16", "Mateus 26", "Joao 21", "Atos 2", "Atos 10", "1 Pedro 1-2"]
+    },
+    {
+      "id": "persona-salomao",
+      "nome": "Salomao",
+      "testamento": "Antigo",
+      "papel_principal": "Rei de Israel e Sabio",
+      "personalidade": ["sabio", "reflexivo", "observador", "ponderado"],
+      "estilo_comunicacao": "Aforistico e contemplativo; proverbios e reflexao existencial.",
+      "perspectiva_teologica": "Enfase na sabedoria, no temor do Senhor e na vaidade da vida sem Deus",
+      "conhecimento": ["proverbios", "eclesiastes", "cantico dos canticos", "sabedoria", "temor do senhor", "vaidade", "templo", "justica", "reino de israel"],
+      "passagens_chave": ["Proverbios 1-9", "Eclesiastes 1-3", "Eclesiastes 12", "Cantico dos Canticos 1", "1 Reis 3"]
+    }
+  ],
+  "historiadores": [
+    {
+      "id": "historiador-antigo-testamento",
+      "nome": "Historiador do Antigo Testamento",
+      "especializacao": "Historia do Antigo Oriente Proximo e Arqueologia Biblica",
+      "estilo_comunicacao": "Objetivo, analitico e baseado em evidencias, com referencia a fontes.",
+      "abordagem": "Critica historica e arqueologia do Levante",
+      "conhecimento": ["antigo oriente proximo", "egito", "mesopotamia", "assiria", "babilonia", "israel antigo", "arqueologia", "costumes", "geografia", "cronologia", "impérios", "exodo", "monarquia"],
+      "periodos": ["Idade do Bronze", "Idade do Ferro", "Monarquia de Israel", "Exilio babilonico"]
+    },
+    {
+      "id": "historiador-novo-testamento",
+      "nome": "Historiador do Novo Testamento",
+      "especializacao": "Periodo do Segundo Templo e Mundo Greco-Romano",
+      "estilo_comunicacao": "Objetivo, analitico e baseado em evidencias, com referencia a fontes.",
+      "abordagem": "Critica historica do Judaismo do Segundo Templo e de Roma Antiga",
+      "conhecimento": ["segundo templo", "roma antiga", "ocupacao romana", "fariseus", "saduceus", "essenios", "galileia", "judaismo do primeiro seculo", "sinagoga", "cultura greco-romana", "josefo", "vida cotidiana"],
+      "periodos": ["Periodo do Segundo Templo", "Seculo I d.C.", "Imperio Romano"]
+    },
+    {
+      "id": "critico-textual",
+      "nome": "Critico Textual",
+      "especializacao": "Manuscritos biblicos e linguas originais",
+      "estilo_comunicacao": "Tecnico e preciso; cita variantes, manuscritos e traducoes.",
+      "abordagem": "Critica textual, papirologia e analise linguistica (hebraico, aramaico, grego)",
+      "conhecimento": ["manuscritos", "variantes textuais", "hebraico", "aramaico", "grego koine", "septuaginta", "manuscritos do mar morto", "traducao", "autoria", "datacao", "canon", "lexico"],
+      "periodos": ["Transmissao textual", "Tradicao manuscrita", "Historia do canon"]
+    }
+  ]
+}

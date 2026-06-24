@@ -1,0 +1,15 @@
+id: 03_recuperar_contexto_bdc
+owner: curador-bdc
+objective: Recuperar da BDC os versiculos, dados historico-culturais e definicoes de termos pertinentes a consulta.
+inputs:
+  - entidades_extraidas
+  - temas_identificados
+  - referencias_biblicas
+outputs:
+  - contexto_recuperado
+  - fontes_citadas
+acceptance_criteria:
+  - cada_trecho_tem_fonte
+  - ausencia_de_versiculos_inventados
+  - lacunas_marcadas_como_hipotese
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

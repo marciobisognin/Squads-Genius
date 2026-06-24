@@ -1,0 +1,14 @@
+id: 06_complementar_contexto_historico
+owner: historiador-novo-testamento
+objective: Quando a intencao tem componente historico/cultural/textual, o historiador acrescenta contexto factual.
+inputs:
+  - plano_orquestracao
+  - contexto_recuperado
+outputs:
+  - resposta_historiador
+acceptance_criteria:
+  - consenso_hipotese_e_debate_separados
+  - fontes_citadas_quando_possivel
+condicional: aciona somente se historiadores_complementares nao estiver vazio
+note: owner indicado e exemplo; pode ser historiador-antigo-testamento ou critico-textual conforme o plano.
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

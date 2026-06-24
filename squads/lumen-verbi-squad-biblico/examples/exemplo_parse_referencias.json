@@ -1,0 +1,22 @@
+{
+  "texto": "Explique Mateus 5:1-12 e tambem Joao 3:16",
+  "referencias": [
+    {
+      "livro": "Mateus",
+      "testamento": "Novo",
+      "capitulo": 5,
+      "versiculo_inicial": 1,
+      "versiculo_final": 12,
+      "referencia_normalizada": "Mateus 5:1-12"
+    },
+    {
+      "livro": "Joao",
+      "testamento": "Novo",
+      "capitulo": 3,
+      "versiculo_inicial": 16,
+      "versiculo_final": 16,
+      "referencia_normalizada": "Joao 3:16"
+    }
+  ],
+  "total": 2
+}

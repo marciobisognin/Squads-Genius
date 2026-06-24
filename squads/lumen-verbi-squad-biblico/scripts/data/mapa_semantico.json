@@ -1,0 +1,51 @@
+{
+  "descricao": "Mapeamento semantico: associa temas, doutrinas e eventos biblicos aos agentes de maior afinidade. Usado pelo MSCA para recomendacao deterministica.",
+  "temas": {
+    "amor": ["persona-jesus", "persona-paulo"],
+    "graca": ["persona-paulo", "persona-jesus"],
+    "fe": ["persona-paulo", "persona-pedro", "persona-maria"],
+    "lei": ["persona-moises", "persona-paulo"],
+    "alianca": ["persona-moises", "persona-davi"],
+    "sabedoria": ["persona-salomao"],
+    "arrependimento": ["persona-davi", "persona-pedro"],
+    "adoracao": ["persona-davi"],
+    "perdao": ["persona-jesus", "persona-pedro"],
+    "sofrimento": ["persona-pedro", "persona-maria", "persona-jesus"],
+    "esperanca": ["persona-pedro", "persona-paulo"],
+    "humildade": ["persona-maria", "persona-jesus"],
+    "lideranca": ["persona-davi", "persona-moises", "persona-pedro"],
+    "missao": ["persona-paulo", "persona-pedro"],
+    "reino de deus": ["persona-jesus"],
+    "justica": ["persona-moises", "persona-salomao", "persona-jesus"],
+    "vaidade": ["persona-salomao"]
+  },
+  "doutrinas": {
+    "salvacao": ["persona-paulo", "persona-jesus"],
+    "justificacao": ["persona-paulo"],
+    "encarnacao": ["persona-maria", "persona-paulo"],
+    "ressurreicao": ["persona-paulo", "persona-pedro", "persona-jesus"],
+    "escatologia": ["persona-paulo", "persona-jesus"],
+    "trindade": ["persona-jesus", "persona-paulo"],
+    "criacao": ["persona-moises"],
+    "santificacao": ["persona-paulo", "persona-pedro"]
+  },
+  "eventos": {
+    "exodo": ["persona-moises", "historiador-antigo-testamento"],
+    "criacao": ["persona-moises"],
+    "sermao da montanha": ["persona-jesus", "historiador-novo-testamento"],
+    "crucificacao": ["persona-jesus", "persona-maria", "historiador-novo-testamento"],
+    "ressurreicao": ["persona-jesus", "persona-pedro", "persona-paulo"],
+    "pentecostes": ["persona-pedro", "historiador-novo-testamento"],
+    "nascimento de jesus": ["persona-maria", "historiador-novo-testamento"],
+    "anunciacao": ["persona-maria"],
+    "davi e golias": ["persona-davi", "historiador-antigo-testamento"],
+    "construcao do templo": ["persona-salomao", "historiador-antigo-testamento"],
+    "viagens missionarias": ["persona-paulo", "historiador-novo-testamento"],
+    "exilio babilonico": ["historiador-antigo-testamento"]
+  },
+  "gatilhos_historiador": {
+    "antigo": ["contexto historico", "arqueologia", "cultura", "costume", "geografia", "imperio", "egito", "babilonia", "assiria", "antigo oriente", "cronologia", "datacao do antigo testamento"],
+    "novo": ["contexto historico", "roma", "romano", "segundo templo", "fariseu", "saduceu", "essenio", "galileia", "sinagoga", "primeiro seculo", "judaismo", "josefo", "greco-romano"],
+    "textual": ["manuscrito", "variante", "traducao", "hebraico", "aramaico", "grego", "septuaginta", "mar morto", "autoria", "canon", "lexico", "original"]
+  }
+}

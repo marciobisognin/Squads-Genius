@@ -1,0 +1,39 @@
+id: full_biblical_consultation_pipeline
+description: Pipeline completo de consulta biblica, do intake a resposta validada e ao registro.
+human_in_loop: true
+rollback: retornar ao ultimo gate reprovado
+steps:
+  - order: 1
+    name: intake
+    task: 01_intake_consulta
+  - order: 2
+    name: analise_pln
+    task: 02_analise_pln_entidades_intencao
+  - order: 3
+    name: recuperar_bdc
+    task: 03_recuperar_contexto_bdc
+  - order: 4
+    name: selecionar_combinar
+    task: 04_selecionar_combinar_agentes
+    gate: "ha pelo menos uma persona ou fallback definido"
+  - order: 5
+    name: resposta_persona
+    task: 05_gerar_resposta_persona
+  - order: 6
+    name: contexto_historico
+    task: 06_complementar_contexto_historico
+    condicional: "somente se historiadores_complementares nao vazio"
+  - order: 7
+    name: compor_resposta
+    task: 07_compor_resposta_final
+  - order: 8
+    name: guardrails
+    task: 08_revisao_teologica_guardrails
+    gate: "go_no_go == go"
+  - order: 9
+    name: refinamento
+    task: 09_refinamento_interativo
+    condicional: "somente se houver pedido de refinamento"
+  - order: 10
+    name: registro
+    task: 10_registrar_historico_feedback
