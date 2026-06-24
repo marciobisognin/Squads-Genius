@@ -1,0 +1,21 @@
+{
+  "request": "gerar carrossel, 5 slides",
+  "expected_brief": {
+    "request_id": "demo-infografico",
+    "n_slides": 5,
+    "output_format": "infographic",
+    "mode": "single_theme",
+    "domains": ["produtividade"],
+    "seed": 42,
+    "tom": "default",
+    "branding_slot": "user_logo_v1",
+    "cynefin_class": "clear",
+    "baoyu_style": {"infographic": {"layout": "dense-modules", "style": "minimalist"}}
+  },
+  "expected_outputs": [
+    "outputs/infographic/slide_01.png",
+    "outputs/infographic/slide_05.png",
+    "outputs/infographic/carrossel.pdf",
+    "outputs/manifest.json"
+  ]
+}

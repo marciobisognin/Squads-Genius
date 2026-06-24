@@ -1,0 +1,36 @@
+id: "full_keryx_pipeline"
+description: "Pipeline completo do KÊRYX, do pedido mínimo ao carrossel homologado (Trilhos A e B)."
+human_in_loop: true
+rollback: "retornar ao último gate reprovado (Turing loop com max_retries + circuit breaker)"
+observability: "Langfuse observa todo o grafo (input/output SACP, tokens, latência, custo, veredictos)"
+steps:
+  - {order: 1,  name: "Intake + Cynefin entry gate", owner: hegemon,   task: 01_intake_e_roteamento_cynefin, gate_required: true}
+  - {order: 2,  name: "Curadoria aleatória",          owner: kleros,    task: 02_curadoria_aleatoria,         gate_required: false}
+  - {order: 3,  name: "Pesquisa/ideação",             owner: histor,    task: 03_pesquisa_conteudo,           gate_required: false}
+  - {order: 4,  name: "Bifurcação de trilho",         owner: hegemon,   branch: "output_format", gate_required: false,
+     routes: {infographic: "infographic_track", comic: "comic_track"}}
+  # --- Trilho A (infográfico) ---
+  - {order: 5,  name: "Estruturação em cards",        owner: taxis,     task: 04_estruturacao_cards,          track: A, gate_required: false}
+  - {order: 6,  name: "Copy imperativa",              owner: laconicus, task: 05_copy_imperativa,             track: A, gate_required: false}
+  - {order: 7,  name: "Direção de arte",              owner: apelles,   task: 06_direcao_de_arte,             track: A, gate_required: false}
+  - {order: 8,  name: "Render infográfico",           owner: hephaistos,task: 07a_render_infografico,         track: A, gate_required: false}
+  # --- Trilho B (quadrinho) ---
+  - {order: 9,  name: "Storyboard (ohmsha)",          owner: rhapsodos, task: 07b_comic_storyboard,           track: B, gate_required: true, gate: hitl_roteiro_comic}
+  - {order: 10, name: "Character sheet",              owner: eidolon,   task: 07c_comic_character_sheet,      track: B, gate_required: false}
+  - {order: 11, name: "Arte + letterização",          owner: zeuxis,    task: 07d_comic_arte_e_letterizacao,  track: B, gate_required: true, gate: hitl_arte_comic}
+  # --- QA convergente (ambos os trilhos) ---
+  - {order: 12, name: "QA visual (auto-fit)",         owner: kanon,     task: 08_qa_visual,                   gate_required: true, gate: qa_visual_kanon}
+  - {order: 13, name: "QA factual + anti-sycophancy", owner: momus,     task: 09_qa_factual_anti_sycophancy,  gate_required: true, gate: qa_factual_momus}
+  - {order: 14, name: "Self-healing (Turing loop)",   owner: hegemon,   gate_required: false,
+     note: "fix_request tipado reentra no agente responsável; escala ao HITL se não convergir"}
+  - {order: 15, name: "Gate HITL + entrega",          owner: hegemon,   task: 10_gate_hitl_e_entrega,         gate_required: true, gate: hitl_entrega}
+quality_gates:
+  - briefing_cynefin
+  - hitl_roteiro_comic
+  - hitl_arte_comic
+  - qa_visual_kanon
+  - qa_factual_momus
+  - hitl_entrega
+outputs:
+  - "PNGs 1080x1350 + carrossel.pdf/comic.pdf + manifest.json em outputs/"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

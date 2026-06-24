@@ -1,0 +1,41 @@
+{
+  "carousel_id": "demo-burnout",
+  "n_slides": 1,
+  "slides": [
+    {
+      "slide_index": 1,
+      "title": "COMO EVITAR O BURNOUT",
+      "title_emoji": "🔋",
+      "layout": "two_column",
+      "baoyu": {"layout": "dense-modules", "style": "minimalist", "palette": null},
+      "accent_color": "#3FB950",
+      "branding_slot": "user_logo_v1",
+      "columns": [
+        {
+          "sections": [
+            {
+              "header": "REGRA DOS 2 MINUTOS",
+              "bullets": [
+                "se levar menos de 2 minutos, faça agora",
+                "evite acumular pequenos pendentes",
+                "reduza a carga mental do dia"
+              ]
+            }
+          ]
+        },
+        {
+          "sections": [
+            {
+              "header": "LISTA DO NÃO-FAZER",
+              "bullets": [
+                "corte tarefas que não movem nada",
+                "diga não a reuniões vazias",
+                "proteja seu bloco de foco"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

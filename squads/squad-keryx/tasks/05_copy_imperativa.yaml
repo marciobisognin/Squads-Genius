@@ -1,0 +1,20 @@
+id: "05_copy_imperativa"
+owner: laconicus
+objective: "Reescrever bullets em imperativo curto e escolher o emoji do título (voz PT-BR)."
+cynefin: clear
+inputs:
+  - "CarouselSpec* (de TAXIS)"
+  - "fix_request de KANON (opcional, encurtar bullets)"
+outputs:
+  - "CarouselSpec (texto final, antes da arte)"
+steps:
+  - "Reescrever cada bullet em imperativo de 3-7 palavras, no máx. 2 linhas."
+  - "Escolher 1 emoji para o título; 0 emoji nos bullets."
+  - "Manter gancho de cotidiano por slide."
+  - "Atender fix_request de overflow encurtando bullets (self-healing)."
+acceptance_criteria:
+  - "100% dos bullets dentro do limite de palavras/linhas"
+  - "Exatamente 1 emoji por título; 0 nos bullets"
+  - "Nenhuma afirmação factual nova introduzida"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

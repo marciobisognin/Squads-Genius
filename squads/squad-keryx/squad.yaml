@@ -1,0 +1,227 @@
+name: "KÊRYX"
+code: "squad-keryx"
+commercial_name: "KÊRYX — O Arauto"
+version: "1.1.0"
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+slashPrefix: keryx
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+description: >
+  Squad multi-agente (LangGraph StateGraph) que transforma um pedido mínimo
+  ("quero um carrossel com N posts") em carrosséis educativos prontos-para-publicar
+  no Instagram. Dois trilhos de saída: (A) Cards/Infográfico determinístico
+  (HTML+CSS → Playwright → PNG 1080x1350 + PDF) e (B) Quadrinho de conhecimento
+  (storyboard determinístico + ilustração generativa isolada e homologada +
+  letterização vetorial). Princípio-mestre: o LLM gera conteúdo estruturado (JSON);
+  design, layout e texto final são determinísticos, auditáveis e reprodutíveis.
+
+positioning: >
+  Um "arauto" autônomo que, com um pedido de uma linha, devolve um carrossel
+  pronto-para-publicar, visualmente fiel ao padrão de referência, factualmente
+  checado e homologável.
+
+ecosystem: "OMNISCIENT v7.0"
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+domains:
+  - tecnologia
+  - produtividade
+  - gestao_vida
+  - livros
+
+principles:
+  - "o LLM gera conteúdo estruturado (JSON); design e render são determinísticos"
+  - "separar observado, inferido, hipótese, recomendação e risco"
+  - "a única etapa não-determinística (arte do Trilho B) é isolada, com seed e gate humano"
+  - "o texto educativo nunca é renderizado pela IA de imagem (camada vetorial nítida)"
+  - "slot de branding do próprio usuário; nunca copiar marca de terceiros"
+  - "estilos baoyu (MIT) usados como vocabulário de design e reimplementados"
+
+components:
+  agents:
+    - agents/hegemon.md
+    - agents/kleros.md
+    - agents/infographic/histor.md
+    - agents/infographic/taxis.md
+    - agents/infographic/laconicus.md
+    - agents/infographic/apelles.md
+    - agents/hephaistos.md
+    - agents/kanon.md
+    - agents/momus.md
+    - agents/comic/rhapsodos.md
+    - agents/comic/eidolon.md
+    - agents/comic/zeuxis.md
+  tasks:
+    - tasks/01_intake_e_roteamento_cynefin.yaml
+    - tasks/02_curadoria_aleatoria.yaml
+    - tasks/03_pesquisa_conteudo.yaml
+    - tasks/04_estruturacao_cards.yaml
+    - tasks/05_copy_imperativa.yaml
+    - tasks/06_direcao_de_arte.yaml
+    - tasks/07a_render_infografico.yaml
+    - tasks/07b_comic_storyboard.yaml
+    - tasks/07c_comic_character_sheet.yaml
+    - tasks/07d_comic_arte_e_letterizacao.yaml
+    - tasks/08_qa_visual.yaml
+    - tasks/09_qa_factual_anti_sycophancy.yaml
+    - tasks/10_gate_hitl_e_entrega.yaml
+  workflows:
+    - workflows/full_keryx_pipeline.yaml
+    - workflows/infographic_track.yaml
+    - workflows/comic_track.yaml
+  scripts:
+    - scripts/kleros_curation.py
+    - scripts/validate_carousel_spec.py
+  render:
+    - render/tokens.py
+    - render/engine.py
+    - render/letterer.py
+  schemas:
+    - schemas/sacp_schemas.py
+  templates:
+    - render/templates/dense-modules.html.j2
+    - render/styles/minimalist.css
+  config:
+    - config/defaults.json
+    - config/domain_weights.json
+    - config/baoyu_presets.json
+
+# Manifesto compatível com validate_squad.py (Maeve Genius Forge)
+agents:
+  - id: hegemon
+    file: agents/hegemon.md
+    role: "Orquestrador + Cynefin entry gate; normaliza brief, define mode, roteia"
+    cynefin: gate
+    model: opus
+  - id: kleros
+    file: agents/kleros.md
+    role: "Curadoria aleatória: sorteia domínio(s)/tópico(s) com pesos + anti-repetição"
+    cynefin: clear-complicated
+    model: "python+haiku"
+  - id: histor
+    file: agents/infographic/histor.md
+    role: "Gera/coleta dicas, mini-tutoriais; ancora no cotidiano_hook"
+    cynefin: complicated
+    model: sonnet
+  - id: taxis
+    file: agents/infographic/taxis.md
+    role: "Estrutura o draft em colunas/seções/bullets conforme o schema do slide"
+    cynefin: clear
+    model: sonnet
+  - id: laconicus
+    file: agents/infographic/laconicus.md
+    role: "Reescreve bullets para imperativo curto; escolhe emoji do título; voz PT-BR"
+    cynefin: clear
+    model: sonnet
+  - id: apelles
+    file: agents/infographic/apelles.md
+    role: "Direção de arte: seleciona sistema baoyu (layout x estilo), paleta, acentos"
+    cynefin: clear
+    model: sonnet
+  - id: hephaistos
+    file: agents/hephaistos.md
+    role: "Render determinístico Trilho A (Jinja2->HTML/CSS->Playwright->PNG; PDF) + letterização Trilho B"
+    cynefin: deterministic
+    model: "sem LLM"
+  - id: kanon
+    file: agents/kanon.md
+    role: "QA visual: bounding boxes, overflow, contraste, grid, safe zones"
+    cynefin: deterministic
+    model: "sem LLM (Playwright/Python)"
+  - id: momus
+    file: agents/momus.md
+    role: "QA factual + anti-sycophancy: caça clichê, erro, exagero, promessa falsa"
+    cynefin: complicated
+    model: opus
+  - id: rhapsodos
+    file: agents/comic/rhapsodos.md
+    role: "[Trilho B] Roteirista/storyboard: tema -> painéis, beats, tese visual (ohmsha)"
+    cynefin: complicated
+    model: opus
+    track: comic
+  - id: eidolon
+    file: agents/comic/eidolon.md
+    role: "[Trilho B] Character sheet + style bible; continuidade visual entre painéis"
+    cynefin: complicated
+    model: sonnet
+    track: comic
+  - id: zeuxis
+    file: agents/comic/zeuxis.md
+    role: "[Trilho B] Ilustrador: prompts por painel + geração de arte (sem texto embutido)"
+    cynefin: nao-deterministico-isolado
+    model: "backend de imagem"
+    track: comic
+
+tasks:
+  - id: 01_intake_e_roteamento_cynefin
+    file: tasks/01_intake_e_roteamento_cynefin.yaml
+    owner: hegemon
+  - id: 02_curadoria_aleatoria
+    file: tasks/02_curadoria_aleatoria.yaml
+    owner: kleros
+  - id: 03_pesquisa_conteudo
+    file: tasks/03_pesquisa_conteudo.yaml
+    owner: histor
+  - id: 04_estruturacao_cards
+    file: tasks/04_estruturacao_cards.yaml
+    owner: taxis
+  - id: 05_copy_imperativa
+    file: tasks/05_copy_imperativa.yaml
+    owner: laconicus
+  - id: 06_direcao_de_arte
+    file: tasks/06_direcao_de_arte.yaml
+    owner: apelles
+  - id: 07a_render_infografico
+    file: tasks/07a_render_infografico.yaml
+    owner: hephaistos
+  - id: 07b_comic_storyboard
+    file: tasks/07b_comic_storyboard.yaml
+    owner: rhapsodos
+  - id: 07c_comic_character_sheet
+    file: tasks/07c_comic_character_sheet.yaml
+    owner: eidolon
+  - id: 07d_comic_arte_e_letterizacao
+    file: tasks/07d_comic_arte_e_letterizacao.yaml
+    owner: zeuxis
+  - id: 08_qa_visual
+    file: tasks/08_qa_visual.yaml
+    owner: kanon
+  - id: 09_qa_factual_anti_sycophancy
+    file: tasks/09_qa_factual_anti_sycophancy.yaml
+    owner: momus
+  - id: 10_gate_hitl_e_entrega
+    file: tasks/10_gate_hitl_e_entrega.yaml
+    owner: hegemon
+
+workflows:
+  - id: full_keryx_pipeline
+    file: workflows/full_keryx_pipeline.yaml
+  - id: infographic_track
+    file: workflows/infographic_track.yaml
+  - id: comic_track
+    file: workflows/comic_track.yaml
+
+quality_gates:
+  - briefing_cynefin
+  - qa_visual_kanon
+  - qa_factual_momus
+  - hitl_roteiro_comic
+  - hitl_arte_comic
+  - hitl_entrega
+
+outputs:
+  required:
+    - "outputs/infographic/slide_01.png ... slide_NN.png"
+    - "outputs/infographic/carrossel.pdf"
+    - "outputs/manifest.json"
+  optional:
+    - "outputs/comic/characters.png"
+    - "outputs/comic/page_01_art.png ... page_NN.png"
+    - "outputs/comic/comic.pdf"
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

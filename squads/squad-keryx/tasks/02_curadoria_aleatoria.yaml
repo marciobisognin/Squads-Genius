@@ -1,0 +1,23 @@
+id: "02_curadoria_aleatoria"
+owner: kleros
+objective: "Sortear domínio(s)/tópico(s) com pesos e anti-repetição; sortear formato/estilo quando auto."
+cynefin: clear-complicated
+inputs:
+  - "CarouselBrief"
+  - "store/historico.db (anti-repetição)"
+  - "config/domain_weights.json"
+  - "config/baoyu_presets.json"
+outputs:
+  - "ThemePlan (JSON com slots e cotidiano_hook por slide)"
+steps:
+  - "Filtrar banco de domínios; aplicar anti-repetição (janela configurável)."
+  - "Sortear com pesos via RNG com seed (reprodutível)."
+  - "Se output_format=auto, sortear infographic/comic (default 70/30)."
+  - "Propor par de estilo baoyu por heurística (APELLES referenda)."
+  - "Garantir cotidiano_hook por slot."
+acceptance_criteria:
+  - "Mesma seed + mesmo banco => mesmo ThemePlan"
+  - "Nenhum tópico dentro da janela de anti-repetição"
+  - "Determinístico: executável por scripts/kleros_curation.py sem LLM"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

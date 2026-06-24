@@ -1,0 +1,13 @@
+{
+  "output_format": "auto",
+  "mode": "auto",
+  "domains": ["tecnologia", "produtividade", "gestao_vida", "livros"],
+  "tom": "default",
+  "branding_slot": "user_logo_v1",
+  "seed_strategy": "random_if_absent",
+  "default_baoyu_infographic": {"layout": "dense-modules", "style": "minimalist"},
+  "default_baoyu_comic": {"art": "ligne-claire", "tone": "warm", "layout": "standard", "preset": "ohmsha"},
+  "max_retries_per_node": 3,
+  "circuit_breaker": "escala ao HITL se não convergir",
+  "anti_repeticao_janela": 30
+}

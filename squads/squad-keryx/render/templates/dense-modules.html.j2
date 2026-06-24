@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <style>{{ css }}</style>
+</head>
+<body class="layout-dense-modules" style="--accent: {{ slide.accent_color or '#3FB950' }};">
+  <main class="slide">
+    <header class="slide-header">
+      <h1 class="slide-title">{{ slide.title }} <span class="title-emoji">{{ slide.title_emoji or '' }}</span></h1>
+      <div class="branding" data-slot="{{ slide.branding_slot or 'user_logo_v1' }}"></div>
+    </header>
+
+    <section class="columns">
+      {% for column in slide.columns %}
+      <div class="column">
+        {% for sec in column.sections %}
+        <div class="module">
+          <h2 class="module-header">{{ sec.header }}</h2>
+          <ul class="bullets">
+            {% for b in sec.bullets %}<li class="bullet">{{ b }}</li>{% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </section>
+
+    <div class="divider"></div>
+  </main>
+</body>
+</html>

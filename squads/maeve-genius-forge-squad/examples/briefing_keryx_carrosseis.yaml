@@ -1,0 +1,62 @@
+project_name: "KÊRYX"
+objective: >
+  Squad multi-agente que transforma um pedido mínimo ("quero um carrossel com N posts")
+  em carrosséis educativos prontos-para-publicar no Instagram, em dois trilhos visuais:
+  (A) Cards/Infográfico determinístico (HTML+CSS → Playwright → PNG 1080x1350 + PDF) e
+  (B) Quadrinho de conhecimento (storyboard determinístico + ilustração generativa isolada
+  e homologada + letterização vetorial). O LLM gera conteúdo estruturado (JSON); design,
+  layout e texto final são determinísticos, auditáveis e reprodutíveis.
+problem: >
+  Produzir carrosséis educativos consistentes é trabalhoso e não escala: exige curadoria de
+  tema, redação enxuta, design fiel a um padrão visual e exportação no formato certo, hoje
+  tudo manual. Modelos de imagem ainda erram texto (garbled) e não garantem reprodutibilidade.
+target_audience: >
+  Criador/curador de conteúdo educativo para Instagram (Tecnologia, Produtividade, Gestão da
+  vida, Livros & Clássicos) que quer disparar a produção com esforço mínimo e apenas homologar.
+expected_outputs:
+  - "squad.yaml"
+  - "README.md"
+  - "agentes: HEGEMON, KLEROS, HISTOR, TAXIS, LACONICUS, APELLES, HEPHAISTOS, KANON, MOMUS, RHAPSODOS, EIDOLON, ZEUXIS"
+  - "tasks atômicas por etapa (intake → curadoria → conteúdo → estrutura → copy → arte → render → QA → HITL → entrega)"
+  - "workflows com gates Cynefin, HITL e bifurcação de trilho A/B"
+  - "scripts Python determinísticos (curadoria com seed, tokens de design, validação)"
+  - "schemas SACP (Pydantic) documentados"
+  - "PNGs 1080x1350 + carrossel.pdf + manifest.json em outputs"
+constraints:
+  language: "pt-BR"
+  rendering: "Trilho A 100% determinístico (fontes embutidas, sem rede em runtime, render hash SHA-256)"
+  ip: "Slot de branding do próprio usuário; estilos baoyu (MIT) reimplementados sob arquitetura própria; nunca copiar marca, artista vivo ou ativo de terceiros"
+  image_ai: "No Trilho B a IA gera apenas a arte; todo texto é vetorial sobreposto (letterer determinístico)"
+  runtime: "Python local; modo --no-llm determinístico para curadoria/render"
+integrations:
+  - "LangGraph StateGraph (orquestração e roteamento Cynefin)"
+  - "Pydantic (contratos SACP)"
+  - "Jinja2 + Playwright (Chromium headless) + Pillow/img2pdf (render Trilho A)"
+  - "SQLite (histórico anti-repetição de tema e estilo)"
+  - "Langfuse (observabilidade por nó)"
+  - "Backend de geração de imagem plugável (Trilho B, ZEUXIS)"
+security_level: "standard"
+human_approval_requirements:
+  - "Gate HITL obrigatório antes da entrega (preview de PNGs + textos + flags)"
+  - "Trilho B: HITL #1 sobre o roteiro/storyboard antes de gerar imagem"
+  - "Trilho B: HITL #2 sobre a arte gerada antes da letterização final"
+  - "Publicação no GitHub somente com autorização humana explícita"
+success_metrics:
+  - "≥90% dos pedidos resolvidos sem rodada extra de input"
+  - "≥95% de aderência ao design system (checklist KANON)"
+  - "≤1 bullet reprovado por MOMUS por carrossel"
+  - "100% de reprodutibilidade pixel-a-pixel com mesma seed+spec (Trilho A)"
+  - "Zero overflow nos slides entregues"
+  - "Tempo médio ≤90s para carrossel de 5 slides"
+  - "validate_squad.py retorna go"
+budget_limit: "baixo custo; curadoria e render sem chamadas externas; LLM apenas em conteúdo/roteiro/QA"
+preferred_models:
+  - "Opus para HEGEMON, MOMUS e RHAPSODOS"
+  - "Sonnet para HISTOR, TAXIS, LACONICUS, APELLES, EIDOLON"
+  - "Haiku+Python para KLEROS"
+  - "Sem LLM para HEPHAISTOS e KANON (Python/Playwright)"
+  - "Backend de imagem plugável para ZEUXIS"
+footer_required: true
+license: "MIT"
+creator: "Marcio Bisognin"
+instagram: "@marciobisognin"

@@ -1,0 +1,19 @@
+id: "03_pesquisa_conteudo"
+owner: histor
+objective: "Gerar matéria-prima de conteúdo (dicas, mini-tutoriais, sequências) ancorada no cotidiano_hook."
+cynefin: complicated
+inputs:
+  - "ThemePlan"
+outputs:
+  - "ContentDraft (JSON: 3-6 seções por slide com bullets de ação concreta)"
+steps:
+  - "Para cada slot, gerar 3-6 seções (header UPPERCASE + 3-4 bullets de ação)."
+  - "Ancorar todos os bullets no cotidiano_hook."
+  - "Checar fatos verificáveis (datas/autores/números); acionar web_search se necessário."
+  - "Registrar fonte_opcional em afirmações verificáveis."
+acceptance_criteria:
+  - "Toda afirmação verificável é rastreável ou marcada como inferência"
+  - "Cada slide entrega ação concreta, não motivação genérica"
+  - "PT-BR sem jargão acadêmico"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

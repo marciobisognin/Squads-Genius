@@ -1,0 +1,23 @@
+{
+  "request": "gerar carrossel, 4 slides, comic",
+  "tema_sorteado": "livros/ficcao_cientifica / o problema dos 3 corpos",
+  "expected_brief": {
+    "request_id": "demo-comic",
+    "n_slides": 4,
+    "output_format": "comic",
+    "mode": "single_theme",
+    "seed": 42,
+    "baoyu_style": {"comic": {"art": "ligne-claire", "tone": "neutral", "layout": "standard", "preset": "ohmsha"}}
+  },
+  "gates": [
+    "HITL #1 — aprova o roteiro (ComicScript) antes de gerar imagem",
+    "HITL #2 — aprova a arte (ComicAssets) antes da letterização",
+    "HITL final — aprova a entrega"
+  ],
+  "expected_outputs": [
+    "outputs/comic/characters.png",
+    "outputs/comic/page_01_art.png",
+    "outputs/comic/page_01.png",
+    "outputs/comic/comic.pdf"
+  ]
+}
