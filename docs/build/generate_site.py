@@ -16,6 +16,23 @@ ROOT = Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs"
 SQUADS_DIR = DOCS / "squads"
 
+REPO_BASE_URL = "https://github.com/marciobisognin/Squads-Genius/tree/main"
+
+# IDs cujo diretório real no repositório difere do id usado no site (ex.:
+# versionamento no nome da pasta).
+REPO_FOLDER_OVERRIDES = {
+    "atlas-visual-reports-squad": "atlas-visual-reports-squad-v1.2.0",
+}
+
+
+def resolve_repo_url(sq_id):
+    folder = REPO_FOLDER_OVERRIDES.get(sq_id, sq_id)
+    if (ROOT / "squads" / folder).is_dir():
+        return f"{REPO_BASE_URL}/squads/{folder}"
+    if (ROOT / "IFFar-Squads" / "squads" / folder).is_dir():
+        return f"{REPO_BASE_URL}/IFFar-Squads/squads/{folder}"
+    return None
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -78,6 +95,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 </section>
 
+{repo_link_html}
 <footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
 <script src="../assets/js/main.js"></script>
 </body>
@@ -92,6 +110,15 @@ TOOL_CARD = """      <div class="tool-card"><div class="tool-icon"><svg><use hre
 STEP_CARD = """      <div class="step"><div class="num">{n}</div><div class="body"><h4>{title}</h4><p>{desc}</p></div></div>"""
 
 LINK_CHIP = """      <a class="squad-link" href="{url}" target="_blank" rel="noopener">{label}</a>"""
+
+REPO_LINK_SECTION = """<section class="block alt">
+  <div class="wrap">
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div>
+      <div><strong>Repositório do squad</strong><span><a href="{url}" target="_blank" rel="noopener">Ver {id} no GitHub →</a></span></div>
+    </div>
+  </div>
+</section>"""
 
 CARD_TEMPLATE = """      <a class="squad-card" href="squads/{id}.html" style="--accent-card:{color};--accent-soft-card:{color}26">
         <div class="badge"><svg><use href="assets/icons/sprite.svg#icon-{card_icon}"/></svg></div>
@@ -157,6 +184,8 @@ def render_squad_page(sq):
     else:
         links_html = ""
     out = sq.get("output", {})
+    repo_url = resolve_repo_url(sq["id"])
+    repo_link_html = REPO_LINK_SECTION.format(url=esc(repo_url), id=esc(sq["id"])) if repo_url else ""
     html = PAGE_TEMPLATE.format(
         name=esc(sq["name"]),
         color=sq.get("color", "#7c5cff"),
@@ -168,6 +197,7 @@ def render_squad_page(sq):
         steps_html=steps_html,
         output_title=esc(out.get("title")),
         output_desc=esc(out.get("desc")),
+        repo_link_html=repo_link_html,
     )
     (SQUADS_DIR / f"{sq['id']}.html").write_text(html, encoding="utf-8")
 
