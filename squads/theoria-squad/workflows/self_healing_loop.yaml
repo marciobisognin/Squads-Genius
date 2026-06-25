@@ -1,0 +1,23 @@
+id: "self_healing_loop"
+description: "Loop de auto-cura S10: falha de render/QA -> diagnóstico -> correção no estágio de origem -> re-render."
+human_in_loop: "apenas se não convergir (circuit breaker)"
+deterministic: true
+max_retries: 3
+circuit_breaker: "escala ao humano após max_retries"
+defect_routing:
+  off_canvas: STORYBOARD
+  sobreposicao: CINEMATOGRAPHY
+  contraste: CINEMATOGRAPHY
+  jitter: SYNTHESIS
+  sync: TIMING
+  compilacao: HEFESTO
+steps:
+  - {order: 1, name: "ÁRGOS QA por frame", owner: argos, script: "scripts/qa_frame_checks.py", out: "QAReport (defeitos tipados)"}
+  - {order: 2, name: "Agrupar por estágio", owner: argos, note: "agrupa defeitos por estagio_responsavel"}
+  - {order: 3, name: "Reabrir estágio",     owner: demiurgo, note: "fix_request tipado reentra no agente responsável"}
+  - {order: 4, name: "Re-render",           owner: argos, note: "preview barato primeiro; full 1080p só após convergência"}
+  - {order: 5, name: "Convergência",        owner: argos, exit_when: "aprovado: true OU circuit breaker -> humano"}
+exit_criteria:
+  - "QAReport.aprovado: true"
+  - "ou escalonamento ao humano após max_retries"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

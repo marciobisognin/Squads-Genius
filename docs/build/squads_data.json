@@ -8437,5 +8437,173 @@
         "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-keryx/docs/manual_operacional.md"
       }
     ]
+  },
+  {
+    "id": "theoria-squad",
+    "name": "THEORÍA — Estúdio Cinematográfico em Manim",
+    "tagline": "Transforma uma ideia em vídeo educacional 1080p estilo 3Blue1Brown: LLM gera só JSON; timing, compilação Manim, QA por frame e mux são Python determinístico e reproduzível.",
+    "color": "#3B82F6",
+    "card_icon": "orchestrator",
+    "agents": [
+      {
+        "name": "DEMIURGO",
+        "role": "Orquestrador",
+        "desc": "Liga o StateGraph (S0→S13), mantém estado e dispara gates e loops.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "KRITES",
+        "role": "Classificador",
+        "desc": "Classifica domínio/complexidade e define profundidade (Gate A).",
+        "icon": "router"
+      },
+      {
+        "name": "NOÉSIS",
+        "role": "Conceptor",
+        "desc": "Extrai a ideia-núcleo e o momento aha.",
+        "icon": "analyst"
+      },
+      {
+        "name": "PAIDEIA",
+        "role": "Pedagoga",
+        "desc": "Constrói o arco didático: gancho→intuição→formalização→recompensa.",
+        "icon": "planner"
+      },
+      {
+        "name": "ELENCHUS",
+        "role": "Verificador",
+        "desc": "Checagem factual/matemática anti-alucinação antes do render.",
+        "icon": "auditor"
+      },
+      {
+        "name": "RAPSODO",
+        "role": "Roteirista",
+        "desc": "Narração pt-BR por beat na voz conversacional-mas-precisa.",
+        "icon": "writer"
+      },
+      {
+        "name": "CHRONOS",
+        "role": "Diretor de pacing",
+        "desc": "Timeline mestra determinística + reconciliação narração↔animação.",
+        "icon": "script"
+      },
+      {
+        "name": "SCENOGRAPHO",
+        "role": "Cenógrafo",
+        "desc": "Scene-graph JSON sobre primitivas vetadas da DSL.",
+        "icon": "designer"
+      },
+      {
+        "name": "CHROMA",
+        "role": "Cinematógrafo",
+        "desc": "Paleta semântica, câmera intencional e hierarquia visual.",
+        "icon": "designer"
+      },
+      {
+        "name": "MOTOR MANIM",
+        "role": "Compilador",
+        "desc": "Traduz scene-graph em código Manim (núcleo determinístico).",
+        "icon": "factory"
+      },
+      {
+        "name": "HEFESTO",
+        "role": "Forjador",
+        "desc": "Escape hatch: codegen de novas primitivas sob sandbox + heal.",
+        "icon": "builder"
+      },
+      {
+        "name": "EChÓ",
+        "role": "Voz",
+        "desc": "Orquestra TTS pt-BR e devolve durações reais para CHRONOS.",
+        "icon": "composer"
+      },
+      {
+        "name": "ÁRGOS",
+        "role": "QA",
+        "desc": "Render + QA por frame e self-healing tipado.",
+        "icon": "validator"
+      },
+      {
+        "name": "HARMONIA",
+        "role": "Editor",
+        "desc": "Mux vídeo+áudio (FFmpeg), 1080p no formato e manifesto.",
+        "icon": "output"
+      },
+      {
+        "name": "AISTHÉSIS",
+        "role": "Juiz estético",
+        "desc": "Rubrica 3b1b anti-sycophancy (Gate C de homologação).",
+        "icon": "reviewer"
+      }
+    ],
+    "tools": [
+      {
+        "file": "primitive_library.py",
+        "desc": "Catálogo de primitivas Manim vetadas (DSL de cena)"
+      },
+      {
+        "file": "chronos_timing.py",
+        "desc": "Cálculo determinístico de tempo e reconciliação de sync"
+      },
+      {
+        "file": "manim_compiler.py",
+        "desc": "Compila scene-graph JSON em código Manim"
+      },
+      {
+        "file": "validate_scene_graph.py",
+        "desc": "Valida o scene-graph contra a DSL vetada"
+      },
+      {
+        "file": "render_config.py",
+        "desc": "Gera comandos Manim/FFmpeg por formato/1080p"
+      },
+      {
+        "file": "qa_frame_checks.py",
+        "desc": "QA determinístico por frame (ÁRGOS)"
+      },
+      {
+        "file": "assemble_av.py",
+        "desc": "Plano de mux + manifesto de artefatos (HARMONIA)"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Classificação",
+        "desc": "Domínio, complexidade e banda de duração (Gate A)."
+      },
+      {
+        "title": "Concepção",
+        "desc": "Ideia-núcleo, arco didático e verificação factual."
+      },
+      {
+        "title": "Roteiro & timing",
+        "desc": "Narração pt-BR e linha do tempo determinística."
+      },
+      {
+        "title": "Storyboard & cor",
+        "desc": "Scene-graph sobre primitivas vetadas + paleta semântica."
+      },
+      {
+        "title": "Síntese Manim",
+        "desc": "Compilação determinística do scene-graph em código."
+      },
+      {
+        "title": "Voz & reconciliação",
+        "desc": "TTS pt-BR e loop de sincronia narração↔animação."
+      },
+      {
+        "title": "Render, QA & self-healing",
+        "desc": "QA por frame e auto-cura até passar."
+      },
+      {
+        "title": "Assembly & homologação",
+        "desc": "Mux 1080p, manifesto e Gate C estético."
+      }
+    ],
+    "output": {
+      "title": "MP4 1080p + manifesto auditável",
+      "desc": "Vídeo educacional no formato escolhido (16:9/9:16/1:1) com narração pt-BR sincronizada, mais todos os artefatos intermediários (brief, insight, arco, roteiro, timeline, scene-graphs, código, QA) e manifesto hasheado para reprodutibilidade."
+    },
+    "category": "Educação & Desenvolvimento Cognitivo"
   }
 ]

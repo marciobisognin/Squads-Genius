@@ -1,0 +1,20 @@
+id: "10_render_qa"
+stage: "S10"
+owner: argos
+objective: "Renderizar e aplicar QA por frame; disparar self-healing até passar."
+inputs:
+  - "outputs/theoria_scene.py + RenderJob (preview) + frames amostrados"
+outputs:
+  - "QAReport (defeitos tipados + estágios a reabrir)"
+deterministic_script: "scripts/qa_frame_checks.py"
+steps:
+  - "Render preview em baixa qualidade (mitiga custo)."
+  - "Checar off_canvas, sobreposicao, contraste, jitter, sync por frame amostrado."
+  - "Se reprovado, agrupar defeitos por estágio e reabrir via fix_request (max_retries + circuit breaker)."
+  - "Full 1080p só após convergência do QA."
+acceptance_criteria:
+  - ">=70% dos renders passam QA na 1a tentativa"
+  - ">=85% de sucesso do self-healing antes de escalar ao humano"
+gate_required: false
+self_healing_loop: "S10 -> SYNTHESIS | STORYBOARD | CINEMATOGRAPHY | TIMING"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

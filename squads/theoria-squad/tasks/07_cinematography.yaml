@@ -1,0 +1,18 @@
+id: "07_cinematography"
+stage: "S7"
+owner: chroma
+objective: "Aplicar paleta semântica, movimentos de câmera e hierarquia visual ao scene-graph."
+inputs:
+  - "SceneGraph[] (de SCENOGRAPHO)"
+outputs:
+  - "SceneGraph[] enriquecido com camera e paleta_ref"
+steps:
+  - "Atribuir cor por função semântica (azul=neutro, amarelo=foco, vermelho=alerta, verde=ok)."
+  - "Definir movimentos de câmera intencionais (catálogo fechado: static/pan/zoom)."
+  - "Garantir contraste mínimo (WCAG AA) onde há texto."
+acceptance_criteria:
+  - "Toda cor mapeada a uma semântica; câmera dentro do catálogo"
+  - "Contraste >= 4.5 nas áreas com texto"
+gate_required: false
+gate_optional: "gate_b_storyboard (preview textual/esquemático antes da síntese de código)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

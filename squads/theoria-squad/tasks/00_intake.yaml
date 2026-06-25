@@ -1,0 +1,18 @@
+id: "00_intake"
+stage: "S0"
+owner: demiurgo
+objective: "Receber o brief (ideia, formato, nível, banda de duração, TTS on/off) e abrir o job."
+inputs:
+  - "RawRequest (texto livre; mínimo: ideia)"
+outputs:
+  - "VideoBrief (JSON validado por Pydantic)"
+  - "job_id + seed determinístico"
+steps:
+  - "Extrair ideia (obrigatória) e opcionais (formato, nivel_audiencia, banda_duracao_s, tts_habilitado)."
+  - "Aplicar defaults seguros: formato=16:9, nivel=medio, banda=(120,360), tts=true, idioma=pt-BR."
+  - "Gerar job_id e seed se ausentes; abrir o JobState e o diretório de artefatos."
+acceptance_criteria:
+  - "VideoBrief 100% válido contra schemas/theoria_schemas.py"
+  - "job_id e seed registrados para reprodutibilidade"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

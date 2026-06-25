@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THEORÍA — Estúdio Cinematográfico em Manim — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#3B82F6;--accent-soft:#3B82F626;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></span> THEORÍA — Estúdio Cinematográfico em Manim</h1>
+  <p class="tagline">Transforma uma ideia em vídeo educacional 1080p estilo 3Blue1Brown: LLM gera só JSON; timing, compilação Manim, QA por frame e mux são Python determinístico e reproduzível.</p>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>DEMIURGO</h4><p>Liga o StateGraph (S0→S13), mantém estado e dispara gates e loops.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-router"/></svg></div>
+        <div><div class="role">Classificador</div><h4>KRITES</h4><p>Classifica domínio/complexidade e define profundidade (Gate A).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-analyst"/></svg></div>
+        <div><div class="role">Conceptor</div><h4>NOÉSIS</h4><p>Extrai a ideia-núcleo e o momento aha.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-planner"/></svg></div>
+        <div><div class="role">Pedagoga</div><h4>PAIDEIA</h4><p>Constrói o arco didático: gancho→intuição→formalização→recompensa.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Verificador</div><h4>ELENCHUS</h4><p>Checagem factual/matemática anti-alucinação antes do render.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-writer"/></svg></div>
+        <div><div class="role">Roteirista</div><h4>RAPSODO</h4><p>Narração pt-BR por beat na voz conversacional-mas-precisa.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div>
+        <div><div class="role">Diretor de pacing</div><h4>CHRONOS</h4><p>Timeline mestra determinística + reconciliação narração↔animação.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-designer"/></svg></div>
+        <div><div class="role">Cenógrafo</div><h4>SCENOGRAPHO</h4><p>Scene-graph JSON sobre primitivas vetadas da DSL.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-designer"/></svg></div>
+        <div><div class="role">Cinematógrafo</div><h4>CHROMA</h4><p>Paleta semântica, câmera intencional e hierarquia visual.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-factory"/></svg></div>
+        <div><div class="role">Compilador</div><h4>MOTOR MANIM</h4><p>Traduz scene-graph em código Manim (núcleo determinístico).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Forjador</div><h4>HEFESTO</h4><p>Escape hatch: codegen de novas primitivas sob sandbox + heal.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-composer"/></svg></div>
+        <div><div class="role">Voz</div><h4>EChÓ</h4><p>Orquestra TTS pt-BR e devolve durações reais para CHRONOS.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">QA</div><h4>ÁRGOS</h4><p>Render + QA por frame e self-healing tipado.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+        <div><div class="role">Editor</div><h4>HARMONIA</h4><p>Mux vídeo+áudio (FFmpeg), 1080p no formato e manifesto.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-reviewer"/></svg></div>
+        <div><div class="role">Juiz estético</div><h4>AISTHÉSIS</h4><p>Rubrica 3b1b anti-sycophancy (Gate C de homologação).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>primitive_library.py</code><span>Catálogo de primitivas Manim vetadas (DSL de cena)</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>chronos_timing.py</code><span>Cálculo determinístico de tempo e reconciliação de sync</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>manim_compiler.py</code><span>Compila scene-graph JSON em código Manim</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>validate_scene_graph.py</code><span>Valida o scene-graph contra a DSL vetada</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>render_config.py</code><span>Gera comandos Manim/FFmpeg por formato/1080p</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>qa_frame_checks.py</code><span>QA determinístico por frame (ÁRGOS)</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>assemble_av.py</code><span>Plano de mux + manifesto de artefatos (HARMONIA)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>Classificação</h4><p>Domínio, complexidade e banda de duração (Gate A).</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Concepção</h4><p>Ideia-núcleo, arco didático e verificação factual.</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>Roteiro &amp; timing</h4><p>Narração pt-BR e linha do tempo determinística.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>Storyboard &amp; cor</h4><p>Scene-graph sobre primitivas vetadas + paleta semântica.</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Síntese Manim</h4><p>Compilação determinística do scene-graph em código.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Voz &amp; reconciliação</h4><p>TTS pt-BR e loop de sincronia narração↔animação.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>Render, QA &amp; self-healing</h4><p>QA por frame e auto-cura até passar.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>Assembly &amp; homologação</h4><p>Mux 1080p, manifesto e Gate C estético.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>MP4 1080p + manifesto auditável</strong><span>Vídeo educacional no formato escolhido (16:9/9:16/1:1) com narração pt-BR sincronizada, mais todos os artefatos intermediários (brief, insight, arco, roteiro, timeline, scene-graphs, código, QA) e manifesto hasheado para reprodutibilidade.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div>
+      <div><strong>Repositório do squad</strong><span><a href="https://github.com/marciobisognin/Squads-Genius/tree/main/squads/theoria-squad" target="_blank" rel="noopener">Ver theoria-squad no GitHub →</a></span></div>
+    </div>
+  </div>
+</section>
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

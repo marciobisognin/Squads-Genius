@@ -1,0 +1,215 @@
+name: "THEORÍA"
+code: "theoria-squad"
+commercial_name: "THEORÍA — Estúdio Cinematográfico de Vídeos Educacionais em Manim"
+version: "1.0.0"
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+slashPrefix: theoria
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+description: >
+  Squad multiagente (LangGraph StateGraph) que transforma uma ideia mínima
+  (ideia + formato + nível de audiência) em um vídeo educacional de nível
+  cinematográfico, renderizado em Manim com a gramática visual do padrão
+  3Blue1Brown: intuição construída visualmente, hierarquia limpa, transformações
+  suaves, cor com semântica e narração pt-BR sincronizada ao milissegundo.
+  Invariante central: LLMs geram apenas conteúdo estruturado (JSON); todo cálculo
+  de tempo, compilação de código e renderização são Python determinístico —
+  auditável, reproduzível e versionado. Arquitetura DSL-first: os agentes emitem
+  um grafo de cena que referencia uma biblioteca de primitivas Manim vetadas; um
+  compilador determinístico (Motor MANIM) traduz o grafo em código renderizável.
+
+positioning: >
+  Da ideia ao vídeo cinematográfico em ~25 min: 13 estágios, 15 agentes, três
+  gates humanos e dois loops determinísticos (reconciliação de tempo e
+  self-healing de render). O mesmo scene-graph JSON sempre produz o mesmo vídeo.
+
+ecosystem: "OMNISCIENT"
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+domains:
+  - matematica
+  - fisica
+  - linguistica
+  - computacao
+  - filosofia
+  - educacao
+
+principles:
+  - "o LLM gera conteúdo estruturado (JSON); tempo, compilação e render são determinísticos"
+  - "DSL-first: SCENOGRAPHO só referencia primitivas vetadas; codegen livre só via HEFESTO (sandbox)"
+  - "duração derivada do conteúdo, limitada pela banda do brief — sem números mágicos"
+  - "todo handoff é envelope JSON validado por Pydantic (schema + proveniência + checagem)"
+  - "reprodutibilidade: Manim pinado + DSL versionada + seed -> output idêntico (frames)"
+  - "anti-sycophancy na validação estética; gates humanos em classificação e homologação"
+  - "100% dos artefatos intermediários persistidos para auditoria"
+
+components:
+  schemas:
+    - schemas/theoria_schemas.py
+  scripts:
+    - scripts/primitive_library.py
+    - scripts/chronos_timing.py
+    - scripts/validate_scene_graph.py
+    - scripts/manim_compiler.py
+    - scripts/render_config.py
+    - scripts/qa_frame_checks.py
+    - scripts/assemble_av.py
+    - scripts/validate_squad.py
+
+# --- Manifesto compatível com validate_squad.py (Maeve Genius Forge) ---
+agents:
+  - id: demiurgo
+    file: agents/demiurgo.md
+    role: "Orquestrador do StateGraph: mantém estado, despacha guildas, dispara gates e loops"
+    tier: orquestrador
+    model: opus
+  - id: krites
+    file: agents/krites.md
+    role: "Classificador de domínio/complexidade; define profundidade e banda (HITL Gate A)"
+    tier: gate
+    model: sonnet
+  - id: noesis
+    file: agents/noesis.md
+    role: "Extrai ideia-núcleo e momento aha; objetivo de aprendizagem único"
+    tier: concepcao
+    model: opus
+  - id: paideia
+    file: agents/paideia.md
+    role: "Constrói o arco didático (gancho->intuicao->formalizacao->recompensa) e misconceptions"
+    tier: concepcao
+    model: sonnet
+  - id: elenchus
+    file: agents/elenchus.md
+    role: "Verificação factual/matemática anti-alucinação; bloqueia erro antes do render"
+    tier: qa_epistemico
+    model: opus
+  - id: rapsodo
+    file: agents/rapsodo.md
+    role: "Narração pt-BR por beat na voz conversacional-mas-precisa do estilo 3b1b"
+    tier: roteiro
+    model: sonnet
+  - id: chronos
+    file: agents/chronos.md
+    role: "Pacing determinístico-assistido: timeline mestra + loop de reconciliação S5<->S9"
+    tier: timing
+    model: "python + sonnet"
+  - id: scenographo
+    file: agents/scenographo.md
+    role: "Scene-graph JSON por beat referenciando primitivas vetadas da DSL"
+    tier: visual
+    model: sonnet
+  - id: chroma
+    file: agents/chroma.md
+    role: "Cinematografia/colorimetria: paleta semântica, câmera intencional, hierarquia"
+    tier: visual
+    model: sonnet
+  - id: motor-manim
+    file: agents/motor-manim.md
+    role: "Compilador determinístico scene-graph -> código Manim (núcleo auditável)"
+    tier: deterministico
+    model: "sem LLM"
+  - id: hefesto
+    file: agents/hefesto.md
+    role: "Escape hatch: codegen de novas primitivas sob lint+sandbox+render-validate-heal"
+    tier: codegen_controlada
+    model: opus
+  - id: echo
+    file: agents/echo.md
+    role: "Orquestra TTS pt-BR plugável; devolve durações reais para CHRONOS"
+    tier: deterministico
+    model: "sem LLM"
+  - id: argos
+    file: agents/argos.md
+    role: "Render via Manim CLI + QA por frame; dispara self-healing tipado"
+    tier: "deterministico + qa"
+    model: "python + sonnet"
+  - id: harmonia
+    file: agents/harmonia.md
+    role: "Mux vídeo+áudio (FFmpeg), formato/1080p e manifesto de artefatos"
+    tier: deterministico
+    model: "sem LLM"
+  - id: aisthesis
+    file: agents/aisthesis.md
+    role: "Validador estético anti-sycophancy contra rubrica 3b1b (HITL Gate C)"
+    tier: validacao
+    model: opus
+
+tasks:
+  - id: 00_intake
+    file: tasks/00_intake.yaml
+    owner: demiurgo
+  - id: 01_classification
+    file: tasks/01_classification.yaml
+    owner: krites
+  - id: 02_insight
+    file: tasks/02_insight.yaml
+    owner: noesis
+  - id: 03_pedagogy
+    file: tasks/03_pedagogy.yaml
+    owner: paideia
+  - id: 04_script
+    file: tasks/04_script.yaml
+    owner: rapsodo
+  - id: 05_timing
+    file: tasks/05_timing.yaml
+    owner: chronos
+  - id: 06_storyboard
+    file: tasks/06_storyboard.yaml
+    owner: scenographo
+  - id: 07_cinematography
+    file: tasks/07_cinematography.yaml
+    owner: chroma
+  - id: 08_synthesis
+    file: tasks/08_synthesis.yaml
+    owner: motor-manim
+  - id: 09_voice
+    file: tasks/09_voice.yaml
+    owner: echo
+  - id: 10_render_qa
+    file: tasks/10_render_qa.yaml
+    owner: argos
+  - id: 11_assembly
+    file: tasks/11_assembly.yaml
+    owner: harmonia
+  - id: 12_aesthetic_validation
+    file: tasks/12_aesthetic_validation.yaml
+    owner: aisthesis
+  - id: 13_delivery
+    file: tasks/13_delivery.yaml
+    owner: demiurgo
+
+workflows:
+  - id: full_theoria_pipeline
+    file: workflows/full_theoria_pipeline.yaml
+  - id: reconciliation_loop
+    file: workflows/reconciliation_loop.yaml
+  - id: self_healing_loop
+    file: workflows/self_healing_loop.yaml
+
+quality_gates:
+  - gate_a_classificacao
+  - gate_b_storyboard
+  - gate_c_homologacao
+
+outputs:
+  required:
+    - "outputs/theoria_<formato>.mp4 (1080p: 1920x1080 | 1080x1920 | 1080x1080)"
+    - "outputs/manifest.json (manifesto de artefatos, hasheado)"
+  intermediate:
+    - "brief.json, insight.json, arco_didatico.json, roteiro.json"
+    - "timeline.json, scene_graphs.json, theoria_scene.py, qa_report.json"
+
+stack:
+  orquestracao: "Python 3.12, LangGraph, Pydantic v2"
+  llm: "Anthropic Claude (saída JSON estruturada)"
+  render: "Manim Community (pinned), FFmpeg (H.264 yuv420p)"
+  tts: "provedor plugável (ElevenLabs / Azure Neural / Coqui)"
+  observabilidade: "Langfuse"
+  isolamento: "Docker (sandbox de render e codegen)"
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

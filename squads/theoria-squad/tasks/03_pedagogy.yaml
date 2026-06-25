@@ -1,0 +1,19 @@
+id: "03_pedagogy"
+stage: "S3"
+owner: paideia
+verifier: elenchus
+objective: "Construir o arco didático (gancho->intuicao->formalizacao->recompensa) e verificá-lo."
+inputs:
+  - "CoreInsight"
+outputs:
+  - "Beat[] (estrutura do arco, sem tempos)"
+  - "VerificationReport (ELENCHUS)"
+steps:
+  - "PAIDEIA: definir os 4 beats funcionais, pré-requisitos e misconceptions a desarmar."
+  - "ELENCHUS: verificar correção factual/matemática do arco; bloquear erros de alta severidade."
+  - "Se bloqueado, reabrir S2/S3 com achados tipados."
+acceptance_criteria:
+  - "Arco completo e sem saltos lógicos"
+  - "Zero erros factuais de alta severidade aprovados"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

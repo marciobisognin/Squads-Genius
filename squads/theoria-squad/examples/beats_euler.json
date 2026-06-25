@@ -1,0 +1,41 @@
+{
+  "banda_duracao_s": [180, 300],
+  "beats": [
+    {
+      "id": "b1",
+      "funcao_didatica": "gancho",
+      "narracao": "O que significa elevar um número a uma potência imaginária? Parece sem sentido, mas existe uma resposta visual surpreendentemente simples.",
+      "palavras": 24,
+      "primitivas": [{"primitiva": "TitleReveal", "params": {"texto": "Por que e^{i\\\\pi} = -1?"}, "run_time_s": 1.2}]
+    },
+    {
+      "id": "b2",
+      "funcao_didatica": "intuicao",
+      "narracao": "Pense no plano complexo. Multiplicar por e elevado a i theta não estica o número: ele apenas gira o vetor por um ângulo theta, mantendo o comprimento.",
+      "palavras": 30,
+      "primitivas": [
+        {"primitiva": "ComplexPlaneReveal", "params": {}, "run_time_s": 1.2},
+        {"primitiva": "ComplexPlaneSpiral", "params": {"theta": 1.5708, "cor": "YELLOW"}, "run_time_s": 1.6}
+      ]
+    },
+    {
+      "id": "b3",
+      "funcao_didatica": "formalizacao",
+      "narracao": "Então andar pi radianos é girar exatamente meia volta no círculo unitário. O vetor que apontava para o um agora aponta para o lado oposto.",
+      "palavras": 28,
+      "primitivas": [
+        {"primitiva": "ComplexPlaneSpiral", "params": {"theta": 3.14159, "cor": "YELLOW"}, "run_time_s": 2.0}
+      ]
+    },
+    {
+      "id": "b4",
+      "funcao_didatica": "recompensa",
+      "narracao": "E meia volta a partir do um nos leva exatamente a menos um. Por isso e elevado a i pi é igual a menos um.",
+      "palavras": 26,
+      "primitivas": [
+        {"primitiva": "HighlightFocus", "params": {"ponto": [-1, 0], "cor": "YELLOW"}, "run_time_s": 0.8},
+        {"primitiva": "TransformEquation", "params": {"de": "e^{i\\\\pi}", "para": "-1"}, "run_time_s": 1.4}
+      ]
+    }
+  ]
+}

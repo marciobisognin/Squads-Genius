@@ -1,0 +1,38 @@
+{
+  "scenes": [
+    {
+      "beat_id": "b1",
+      "primitivas": [
+        {"primitiva": "TitleReveal", "params": {"texto": "Por que e^{i\\pi} = -1?"}, "run_time_s": 1.2}
+      ],
+      "camera": {"movimento": "static"},
+      "paleta_ref": "semantica_padrao"
+    },
+    {
+      "beat_id": "b2",
+      "primitivas": [
+        {"primitiva": "ComplexPlaneReveal", "params": {}, "run_time_s": 1.2},
+        {"primitiva": "ComplexPlaneSpiral", "params": {"theta": 1.5708, "cor": "YELLOW"}, "run_time_s": 1.6}
+      ],
+      "camera": {"movimento": "static"},
+      "paleta_ref": "semantica_padrao"
+    },
+    {
+      "beat_id": "b3",
+      "primitivas": [
+        {"primitiva": "ComplexPlaneSpiral", "params": {"theta": 3.14159, "cor": "YELLOW"}, "run_time_s": 2.0}
+      ],
+      "camera": {"movimento": "zoom_in", "alvo": [-1, 0], "run_time_s": 1.2},
+      "paleta_ref": "semantica_padrao"
+    },
+    {
+      "beat_id": "b4",
+      "primitivas": [
+        {"primitiva": "HighlightFocus", "params": {"ponto": [-1, 0], "cor": "YELLOW"}, "run_time_s": 0.8},
+        {"primitiva": "TransformEquation", "params": {"de": "e^{i\\pi}", "para": "-1"}, "run_time_s": 1.4}
+      ],
+      "camera": {"movimento": "static"},
+      "paleta_ref": "semantica_padrao"
+    }
+  ]
+}

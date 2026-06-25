@@ -1,0 +1,19 @@
+id: "04_script"
+stage: "S4"
+owner: rapsodo
+verifier: elenchus
+objective: "Escrever a narração pt-BR por beat na voz conversacional-mas-precisa; verificar fatos."
+inputs:
+  - "Beat[] (do arco) + CoreInsight"
+outputs:
+  - "Beat[] enriquecido com narracao e palavras"
+  - "VerificationReport (ELENCHUS)"
+steps:
+  - "RAPSODO: escrever narração falável por beat; contar palavras com precisão."
+  - "Marcar ênfases e termos técnicos que pedem sincronização com a animação."
+  - "ELENCHUS: reverificar afirmações do texto final antes do custo de render."
+acceptance_criteria:
+  - "Cada beat falável dentro da sua função didática"
+  - "Contagem de palavras exata (insumo de CHRONOS)"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

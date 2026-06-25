@@ -1,0 +1,19 @@
+id: "08_synthesis"
+stage: "S8"
+owner: motor-manim
+escape_hatch: hefesto
+objective: "Compilar deterministicamente o scene-graph em código Manim renderizável."
+inputs:
+  - "SceneGraph[] (validado, com câmera/paleta)"
+outputs:
+  - "outputs/theoria_scene.py (código Manim) + relatório de compilação"
+deterministic_script: "scripts/manim_compiler.py"
+steps:
+  - "Validar scene-graph; resolver params (defaults da primitiva)."
+  - "Renderizar templates das primitivas em uma classe Scene, em ordem dos beats."
+  - "Se faltar primitiva, acionar HEFESTO (sandbox + render-validate-heal + promoção)."
+acceptance_criteria:
+  - "Código 100% determinístico (hash estável para o mesmo input)"
+  - "Zero código fora do catálogo de primitivas"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

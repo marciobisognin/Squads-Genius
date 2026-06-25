@@ -1,0 +1,17 @@
+id: "02_insight"
+stage: "S2"
+owner: noesis
+objective: "Extrair a ideia-núcleo e o momento aha; definir o objetivo de aprendizagem único."
+inputs:
+  - "VideoBrief + Classificacao"
+outputs:
+  - "CoreInsight (JSON validado)"
+steps:
+  - "Destilar o conceito a um único objetivo de aprendizagem verificável."
+  - "Nomear explicitamente o momento aha (a virada de compreensão)."
+  - "Listar pré-requisitos mínimos para PAIDEIA."
+acceptance_criteria:
+  - "Um único objetivo de aprendizagem, observável e ensinável em < 4 min"
+  - "Momento aha explícito e ligado ao objetivo"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

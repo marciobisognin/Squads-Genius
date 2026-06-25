@@ -1,0 +1,19 @@
+id: "05_timing"
+stage: "S5"
+owner: chronos
+objective: "Calcular deterministicamente a linha do tempo mestra; validar contra a banda."
+inputs:
+  - "Beat[] (com palavras) + banda_duracao_s"
+outputs:
+  - "Timeline (linha do tempo mestra)"
+deterministic_script: "scripts/chronos_timing.py"
+steps:
+  - "Rodar chronos_timing.py: dur_narracao, pausa_absorcao, run_time_anim por beat."
+  - "Somar duracao_total e validar contra banda_duracao_s."
+  - "Sinalizar se o conteúdo estoura a banda (enxugar/aprofundar)."
+acceptance_criteria:
+  - "Timeline reprodutível (mesmas palavras -> mesma timeline)"
+  - "duracao_total dentro da banda ou aviso explícito"
+gate_required: false
+reconciliation_loop: "S5<->S9 com EChÓ (tolerância default 200 ms/beat)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
