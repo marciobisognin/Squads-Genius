@@ -1,0 +1,20 @@
+id: "12_aesthetic_validation"
+stage: "S12"
+owner: aisthesis
+objective: "Julgar o vídeo contra a rubrica 3b1b (anti-sycophancy) e conduzir o Gate C."
+inputs:
+  - "MP4 final + manifesto + QAReport"
+outputs:
+  - "AestheticVerdict (score por eixo + ressalvas + roteamento)"
+steps:
+  - "Pontuar clareza, composição, cor, pacing, sincronia e reprodutibilidade (0-10)."
+  - "Recusar notas infladas; cada nota com evidência."
+  - "Se score < 8 ou reprovado, indicar o estágio responsável (roteia de volta)."
+  - "Apresentar vídeo + rubrica ao humano (Gate C)."
+acceptance_criteria:
+  - "Score >= 8/10 para entrega"
+  - "<= 2 edições humanas por vídeo"
+gate_required: true
+gate: "gate_c_homologacao"
+gate_note: "Humano aprova, reprova com motivo (roteia de volta) ou aprova com ressalvas."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

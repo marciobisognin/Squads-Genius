@@ -1,0 +1,8 @@
+{
+  "ideia": "Explique por que e^(iπ) = -1 de forma intuitiva: multiplicar por e^(iθ) é girar no plano complexo, e andar π radianos é dar meia volta até -1.",
+  "formato": "9:16",
+  "nivel_audiencia": "medio_avancado",
+  "banda_duracao_s": [180, 300],
+  "tts_habilitado": true,
+  "idioma": "pt-BR"
+}

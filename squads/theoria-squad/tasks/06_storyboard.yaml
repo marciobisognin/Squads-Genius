@@ -1,0 +1,20 @@
+id: "06_storyboard"
+stage: "S6"
+owner: scenographo
+objective: "Produzir o scene-graph JSON por beat, referenciando apenas primitivas vetadas da DSL."
+inputs:
+  - "Beat[] + catálogo de primitivas (primitive_library.py)"
+outputs:
+  - "SceneGraph[] (validado por validate_scene_graph.py)"
+deterministic_script: "scripts/validate_scene_graph.py"
+steps:
+  - "Compor layout limpo por beat (hierarquia, espaço negativo)."
+  - "Selecionar primitivas e parâmetros coerentes com o objetivo do beat."
+  - "Abrir ticket para HEFESTO se faltar primitiva; nunca improvisar código."
+  - "Validar: 100% das primitivas existem (primitivas_existentes: true)."
+acceptance_criteria:
+  - "Scene-graph válido contra validate_scene_graph.py"
+  - "Zero referências a primitivas inexistentes"
+gate_required: false
+gate_optional: "gate_b_storyboard (configurável; default ligado para complexo/profundidade>=4)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

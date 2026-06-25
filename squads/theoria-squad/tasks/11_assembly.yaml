@@ -1,0 +1,19 @@
+id: "11_assembly"
+stage: "S11"
+owner: harmonia
+objective: "Mux determinístico vídeo+áudio, aplicar formato/1080p e gerar manifesto."
+inputs:
+  - "vídeo Manim (full 1080p) + áudio EChÓ + Timeline + formato"
+outputs:
+  - "MP4 final em 1080p no formato escolhido"
+  - "manifesto de artefatos (hasheado)"
+deterministic_script: "scripts/assemble_av.py"
+steps:
+  - "Alinhar áudio<->vídeo pelos timestamps da timeline mestra; normalizar áudio."
+  - "Aplicar scale/pad para o aspecto alvo sem distorção; encode H.264 yuv420p."
+  - "Emitir manifesto com hashes (timeline, mux) para auditoria."
+acceptance_criteria:
+  - "Saída 1080p no formato correto (16:9/9:16/1:1)"
+  - "Manifesto completo e hasheado (RNF2)"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

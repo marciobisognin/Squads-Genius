@@ -1,0 +1,54 @@
+project_name: "THEORÍA"
+objective: >
+  Transformar uma ideia mínima (ideia + formato + nível de audiência) em um vídeo
+  educacional de nível cinematográfico, renderizado em Manim com a gramática visual
+  do padrão 3Blue1Brown, com narração pt-BR sincronizada ao milissegundo e entrega
+  em 1080p no formato escolhido (16:9, 9:16 ou 1:1).
+problem: >
+  Produzir um vídeo estilo 3b1b manualmente exige domínio simultâneo de pedagogia,
+  roteiro, design de movimento, cor, timing e programação Manim. O gargalo não é a
+  renderização (Manim já é determinístico) — é a composição de cena e a sincronia
+  narração↔animação. Geração ingênua de código Manim por LLM falha em renderizar,
+  sobrepõe objetos, estoura a tela e dessincroniza áudio e vídeo.
+target_audience: >
+  Criadores de conteúdo educacional (Reels/YouTube em pt-BR), educadores e professores
+  que precisam de material visual a partir de um conceito, e squads parceiros que
+  orquestram pipelines Manim e carrosséis compartilhando a camada de identidade visual.
+expected_outputs:
+  - "MP4 final em 1080p no formato escolhido (16:9 / 9:16 / 1:1)"
+  - "Scene-graph JSON validado por beat"
+  - "Linha do tempo mestra (timing determinístico)"
+  - "Código Manim compilado a partir das primitivas vetadas"
+  - "Relatório de QA por frame"
+  - "Manifesto de artefatos para auditoria"
+  - "squad.yaml, README.md, agents, tasks, workflows, scripts, schemas, docs"
+constraints:
+  language: "pt-BR"
+  determinismo: "LLMs geram apenas JSON estruturado; tempo, compilação e render são Python determinístico"
+  dsl_first: "SCENOGRAPHO só referencia primitivas existentes; codegen livre só via HEFESTO sob sandbox"
+  reprodutibilidade: "Manim pinado + DSL versionada + seed → output idêntico (frames) ou perceptualmente idêntico (com TTS)"
+  nao_objetivos: "sem 3D complexo, sem trilha musical, sem multilíngue na v1.0"
+integrations:
+  - "Manim Community (versão pinada)"
+  - "FFmpeg (mux/encode H.264 yuv420p)"
+  - "TTS pt-BR plugável (ElevenLabs / Azure Neural / Coqui)"
+  - "LangGraph StateGraph (orquestração)"
+  - "Pydantic v2 (contratos de handoff)"
+  - "Langfuse (observabilidade)"
+  - "Docker (sandbox de render e codegen)"
+security_level: "elevated"
+human_approval_requirements:
+  - "Gate A — Classificação (domínio, profundidade, banda de duração) antes de gastar tokens/render"
+  - "Gate B — Storyboard (opcional, default ligado para alta complexidade)"
+  - "Gate C — Homologação estética (AISTHÉSIS apresenta vídeo + rubrica)"
+success_metrics:
+  - "≥70% dos renders passam QA na 1ª tentativa"
+  - "≥85% de sucesso do self-healing"
+  - "≤2 edições humanas por vídeo (Gate C)"
+  - "Erro de sincronia narração↔animação < 150 ms/segmento"
+  - "100% de reprodutibilidade sem TTS"
+  - "Score AISTHÉSIS ≥ 8/10"
+  - "Tempo médio ideia→entrega (sem HITL) < 25 min para vídeo de ~3 min"
+budget_limit: "low-token (LLM só para JSON; render/timing/mux determinísticos)"
+preferred_models:
+  - "Anthropic Claude (saída JSON estruturada)"

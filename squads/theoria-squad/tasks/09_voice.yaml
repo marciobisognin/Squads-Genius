@@ -1,0 +1,19 @@
+id: "09_voice"
+stage: "S9"
+owner: echo
+objective: "Sintetizar a narração pt-BR e devolver durações reais para reconciliar com CHRONOS."
+inputs:
+  - "Beat[] (com narracao) + TTSConfig"
+outputs:
+  - "VoiceAssets (wav por beat) + duracoes_para_chronos"
+steps:
+  - "Sintetizar por beat com voz/seed fixos via provedor plugável."
+  - "Medir a duração real de cada áudio."
+  - "Devolver durações a CHRONOS; se |Δ| > tolerância, disparar loop S5<->S9."
+  - "Fallback para legendas/cartelas se TTS off (RF6)."
+acceptance_criteria:
+  - "Durações reais entregues para 100% dos beats"
+  - "Após reconciliação, erro de sync < 150 ms/segmento"
+gate_required: false
+reconciliation_loop: "S9->S5 (CHRONOS reajusta run_time e pausas)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

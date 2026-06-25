@@ -1,0 +1,20 @@
+id: "01_classification"
+stage: "S1"
+owner: krites
+objective: "Classificar a requisição por domínio e complexidade; definir profundidade e banda. Gate A."
+inputs:
+  - "VideoBrief"
+outputs:
+  - "Classificacao (JSON validado)"
+steps:
+  - "Identificar domínio (matematica, fisica, linguistica, cs, filosofia...)."
+  - "Classificar complexidade: simples | complicado | complexo, com justificativa."
+  - "Derivar profundidade (1-5) de complexidade x nivel_audiencia."
+  - "Propor banda de duração coerente; recomendar Gate B se complexo ou profundidade>=4."
+acceptance_criteria:
+  - "Classe e profundidade justificadas e dentro do catálogo"
+  - ">=90% das requisições resolvidas sem rodada extra"
+gate_required: true
+gate: "gate_a_classificacao"
+gate_note: "Humano confirma domínio, profundidade e banda antes de gastar tokens/render."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,28 @@
+id: "full_theoria_pipeline"
+description: "Pipeline completo THEORÍA (StateGraph), da ideia ao MP4 1080p homologado."
+human_in_loop: true
+rollback: "retornar ao estágio responsável pelo defeito (loops S5<->S9 e self-healing S10)"
+observability: "Langfuse: job -> estágio -> agente -> chamada LLM/ferramenta; span dedicado ao render"
+invariante: "LLM gera apenas JSON; timing, compilação e render são Python determinístico"
+steps:
+  - {order: 0,  stage: S0,  name: "Intake",                owner: demiurgo,    task: 00_intake,                gate_required: false}
+  - {order: 1,  stage: S1,  name: "Classificação",          owner: krites,      task: 01_classification,        gate_required: true, gate: gate_a_classificacao}
+  - {order: 2,  stage: S2,  name: "Insight",                owner: noesis,      task: 02_insight,               gate_required: false}
+  - {order: 3,  stage: S3,  name: "Pedagogia (+ELENCHUS)",  owner: paideia,     task: 03_pedagogy,              gate_required: false}
+  - {order: 4,  stage: S4,  name: "Roteiro (+ELENCHUS)",    owner: rapsodo,     task: 04_script,                gate_required: false}
+  - {order: 5,  stage: S5,  name: "Timing (determinístico)",owner: chronos,     task: 05_timing,                gate_required: false}
+  - {order: 6,  stage: S6,  name: "Storyboard",             owner: scenographo, task: 06_storyboard,            gate_required: false}
+  - {order: 7,  stage: S7,  name: "Cinematografia",         owner: chroma,      task: 07_cinematography,        gate_required: false, gate_optional: gate_b_storyboard}
+  - {order: 8,  stage: S8,  name: "Síntese (Motor MANIM)",  owner: motor-manim, task: 08_synthesis,             gate_required: false, escape_hatch: hefesto}
+  - {order: 9,  stage: S9,  name: "Voz (EChÓ)",             owner: echo,        task: 09_voice,                 gate_required: false, loop: "S9->S5 se Δ>tolerância"}
+  - {order: 10, stage: S10, name: "Render & QA + Healing",  owner: argos,       task: 10_render_qa,             gate_required: false, loop: "self_healing até passar"}
+  - {order: 11, stage: S11, name: "Assembly (HARMONIA)",    owner: harmonia,    task: 11_assembly,              gate_required: false}
+  - {order: 12, stage: S12, name: "Validação estética",     owner: aisthesis,   task: 12_aesthetic_validation,  gate_required: true, gate: gate_c_homologacao}
+  - {order: 13, stage: S13, name: "Delivery",               owner: demiurgo,    task: 13_delivery,              gate_required: false}
+quality_gates:
+  - gate_a_classificacao
+  - gate_b_storyboard
+  - gate_c_homologacao
+outputs:
+  - "outputs/theoria_<formato>.mp4 (1080p) + manifesto de artefatos"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

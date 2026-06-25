@@ -1,0 +1,18 @@
+id: "13_delivery"
+stage: "S13"
+owner: demiurgo
+objective: "Entregar o MP4 final + manifesto de artefatos, com trilha de auditoria completa."
+inputs:
+  - "AestheticVerdict aprovado (Gate C) + MP4 final + manifesto"
+outputs:
+  - "outputs/theoria_<formato>.mp4"
+  - "manifesto de artefatos (brief, insight, arco, roteiro, timeline, scene-graphs, código, QA)"
+steps:
+  - "Consolidar todos os artefatos intermediários persistidos (RNF2)."
+  - "Registrar trace final (job -> estágio -> agente) para Langfuse."
+  - "Entregar o MP4 e o manifesto; encerrar o job com status auditável."
+acceptance_criteria:
+  - "100% dos handoffs persistidos como JSON validado"
+  - "Manifesto reprodutível liga input -> output bit-a-bit (sem TTS)"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

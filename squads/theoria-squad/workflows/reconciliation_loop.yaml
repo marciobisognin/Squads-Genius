@@ -1,0 +1,14 @@
+id: "reconciliation_loop"
+description: "Loop de reconciliação narração↔animação (S5<->S9): tempo planejado vs. duração real do TTS."
+human_in_loop: false
+tolerance_default_ms: 200
+deterministic: true
+steps:
+  - {order: 1, name: "CHRONOS planeja",   owner: chronos, script: "scripts/chronos_timing.py", out: "Timeline planejada"}
+  - {order: 2, name: "EChÓ sintetiza",    owner: echo,    out: "duracoes_para_chronos (reais)"}
+  - {order: 3, name: "Confronto Δ",       owner: chronos, script: "scripts/chronos_timing.py --reconcile", note: "se |Δ| > tolerância por beat, reajusta run_time e pausas"}
+  - {order: 4, name: "Convergência",      owner: chronos, exit_when: "todos os beats dentro da tolerância (convergiu: true)"}
+exit_criteria:
+  - "erro de sincronia < 150 ms/segmento"
+  - "convergiu: true (sem ajustes pendentes)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

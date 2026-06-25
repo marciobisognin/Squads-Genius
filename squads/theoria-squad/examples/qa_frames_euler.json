@@ -1,0 +1,8 @@
+{
+  "canvas": [1080, 1920],
+  "tolerancia_sync_s": 0.15,
+  "frames": [
+    {"beat_id": "b2", "t": 1.2, "mobjects": [{"id": "plano", "bbox": [60, 100, 1020, 1820]}, {"id": "vetor", "bbox": [500, 900, 700, 1000]}], "min_contrast_ratio": 7.1, "sync_drift_s": 0.04},
+    {"beat_id": "b4", "t": 2.0, "mobjects": [{"id": "foco", "bbox": [300, 850, 420, 970]}, {"id": "eq", "bbox": [350, 880, 500, 1000]}], "min_contrast_ratio": 3.9, "sync_drift_s": 0.22}
+  ]
+}
