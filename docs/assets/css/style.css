@@ -210,6 +210,8 @@ section.block h2 small { display: block; color: var(--text-dim); font-size: 13px
 .output-box .tool-icon { background: var(--bg); }
 .output-box strong { display: block; margin-bottom: 4px; }
 .output-box span { color: var(--text-dim); font-size: 13.5px; }
+.output-box span a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.output-box span a:hover { text-decoration: underline; }
 
 footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-dim); font-size: 13px; }
 
