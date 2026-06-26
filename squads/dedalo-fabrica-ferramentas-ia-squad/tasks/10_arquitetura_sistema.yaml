@@ -1,0 +1,19 @@
+id: "10_arquitetura_sistema"
+owner: ai_systems_architect
+estado: S9
+objective: "Desenhar a arquitetura técnica e o backlog inicial da ferramenta-cliente."
+cynefin: complicated
+inputs:
+  - "ToolPRD + DataMap + KnowledgeModel"
+outputs:
+  - "ArchitectureSpec (stack, data_model, apis, automation_flows, ai_layer, deployment, build_vs_buy)"
+  - "output/architecture.md + output/backlog.md"
+steps:
+  - "Definir stack 'boring-but-reliable'; comprar o que não é diferencial (auth, billing)."
+  - "Aplicar o invariante LLM/Python DENTRO da ferramenta-cliente; preferir local-first."
+  - "Produzir backlog inicial implementável e decisões build-vs-buy."
+acceptance_criteria:
+  - "Arquitetura coerente com o PRD; backlog implementável"
+  - "Decisões build-vs-buy explícitas; opção local-first considerada"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

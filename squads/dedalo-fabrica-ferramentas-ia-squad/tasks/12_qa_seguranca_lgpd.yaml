@@ -1,0 +1,21 @@
+id: "12_qa_seguranca_lgpd"
+owner: qa_safety_reviewer
+estado: S11
+objective: "Validar qualidade, segurança e LGPD; exigir humano no loop em setores regulados."
+cynefin: complicated
+inputs:
+  - "ToolPRD + ArchitectureSpec + RedTeamReport"
+outputs:
+  - "ValidationReport (quality_checks, security_flags, lgpd, human_in_loop_required, disclaimer)"
+  - "output/validation_report.md"
+steps:
+  - "Verificar LGPD: base legal, minimização, anonimização/consentimento."
+  - "Saúde/jurídico/financeiro => human_in_loop_required = true."
+  - "Escanear por segredos/credenciais expostos; blocking se houver."
+  - "Incluir disclaimer (alerta, não parecer jurídico)."
+acceptance_criteria:
+  - "LGPD coberta; 0 segredos expostos; setores regulados sinalizados"
+gate_required: true
+gate: "qa_lgpd_nomos"
+hitl: "Alimenta HITL#2 e HITL#3"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

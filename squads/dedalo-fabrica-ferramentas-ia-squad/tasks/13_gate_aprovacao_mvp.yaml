@@ -1,0 +1,19 @@
+id: "13_gate_aprovacao_mvp"
+owner: orchestrator
+estado: S12
+objective: "Gate humano (HITL#2): aprovar PRD, escopo do MVP, esforço e dependências antes de construir."
+cynefin: gate
+inputs:
+  - "ToolPRD + ArchitectureSpec + RedTeamReport + ValidationReport"
+outputs:
+  - "Decisão registrada em hitl_gates (approved | rejected) + justificativa + identidade + timestamp"
+steps:
+  - "Apresentar diff legível (não JSON cru) do PRD + escopo MVP."
+  - "Humano aprova, pede ajustes (retorna a TÉLOS) ou rejeita."
+  - "Só com 'approved' o HÉPHAISTOS pode construir."
+acceptance_criteria:
+  - "Decisão humana registrada com justificativa, identidade e timestamp"
+gate_required: true
+gate: "scope_approval_mvp"
+hitl: "HITL#2 — aprovação de PRD + escopo MVP"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

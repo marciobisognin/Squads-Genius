@@ -1,0 +1,19 @@
+id: "09_prd_ferramenta"
+owner: product_manager
+estado: S8
+objective: "Redigir o PRD da ferramenta com matriz de rastreabilidade fonte->requisito->feature."
+cynefin: complicated
+inputs:
+  - "ProcessModel + KnowledgeModel + DataMap + ScoredOpportunities"
+outputs:
+  - "ToolPRD (objetivo, personas, RF/RNF, features MoSCoW, mvp_cut, traceability_matrix)"
+  - "output/prd.md"
+steps:
+  - "Definir objetivo, personas, casos de uso, RF/RNF."
+  - "Cortar o MVP (MoSCoW): menor conjunto 'must' que resolve a dor #1 ponta a ponta."
+  - "Produzir a matriz de rastreabilidade: nenhuma feature órfã."
+acceptance_criteria:
+  - "Matriz fonte->requisito->feature completa"
+  - "MVP enxuto e ponta a ponta; toda feature com origem"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

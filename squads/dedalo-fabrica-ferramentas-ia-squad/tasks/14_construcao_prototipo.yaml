@@ -1,0 +1,19 @@
+id: "14_construcao_prototipo"
+owner: builder_engineer
+estado: S13
+objective: "Construir o protótipo/MVP após HITL#2 e rodar smoke test local em ambiente real."
+cynefin: complicated
+inputs:
+  - "ToolPRD + ArchitectureSpec aprovados (HITL#2)"
+outputs:
+  - "PrototypeArtifact (files, run_command, squad_yaml, smoke_test_result, readme)"
+  - "output/prototype/ + output/squad.yaml"
+steps:
+  - "Construir o MENOR artefato executável que prova a dor #1 (app/CLI/MCP/script/HTML/SQLite)."
+  - "Gerar squad.yaml compatível com o orquestrador de destino."
+  - "Rodar smoke test local e reportar resultado real (não simulado)."
+acceptance_criteria:
+  - "Artefato roda localmente; smoke test verde; squad.yaml portável"
+gate_required: false
+note: "Só executa após HITL#2 aprovado."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,21 @@
+id: "15_sintese_entrega"
+owner: delivery_writer
+estado: S14
+objective: "Compor o pacote de entrega (docs, README, plano de evolução, go/no-go) e homologar (HITL#3)."
+cynefin: complicated
+inputs:
+  - "Todas as fatias do GlobalState (PRD, arquitetura, red-team, validação, protótipo)"
+outputs:
+  - "DeliveryPackage (readme, usage_guide, evolution_plan, go_no_go, full_provenance)"
+  - "output/delivery_package.md"
+steps:
+  - "Integrar as fatias SEM inventar; carregar TODAS as ressalvas de ELENCHUS e NÓMOS."
+  - "Definir go/no-go espelhando o veredito do red-team (bloqueado => no_go/conditional_go)."
+  - "Abrir HITL#3 (homologação final) antes do export."
+acceptance_criteria:
+  - "Pacote completo; ressalvas preservadas; go/no-go justificado"
+  - "Arquivos salvos no diretório esperado e consistentes"
+gate_required: true
+gate: "final_homologation"
+hitl: "HITL#3 — homologação final go/no-go"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,24 @@
+# Template de OpportunityMap (KAIRÓS). Notas 1-5 são PREMISSAS; o ranking é Python (engine/scoring.py).
+opportunities:
+  - name: "<nome da oportunidade>"
+    niche: "<nicho/setor>"
+    pain: "<dor canônica>"
+    user: "<usuário final>"
+    archetype: "market_intel | content_analyzer | knowledge_base | crm_churn | legal_rag | clinic_triage | construction_control | distributor_sales | micro_saas"
+    data_needed: ["<dado 1>", "<dado 2>"]
+    automations: ["<automação 1>"]
+    agents: ["<agente sugerido>"]
+    integrations: ["<integração>"]
+    mvp_sketch: "<esboço do MVP>"
+    scoring_assumptions:        # premissas 1-5 -> motor Python
+      impact_value_1to5: 5
+      effort_1to5: 3
+      risk_1to5: 4
+      data_availability_1to5: 2
+      repetition_1to5: 5
+    maps_to_evidence: ["<source_ref@timestamp>"]   # rastreabilidade obrigatória
+provenance:
+  agent: "KAIROS"
+  evidence_type: "hipotese"
+  confidence: 0.0
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

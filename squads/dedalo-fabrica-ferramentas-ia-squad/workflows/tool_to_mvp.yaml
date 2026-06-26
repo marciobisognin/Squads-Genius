@@ -1,0 +1,13 @@
+id: "tool_to_mvp"
+description: "Trilho de construção: de um PRD aprovado a um protótipo/MVP funcional com smoke test."
+human_in_loop: true
+output_mode: "prd_plus_mvp"
+observability: "Langfuse por nó"
+steps:
+  - {order: 0, name: "Aprovação humana do MVP", owner: orchestrator,      task: 13_gate_aprovacao_mvp,    gate_required: true, gate: scope_approval_mvp}
+  - {order: 1, name: "Construção do protótipo", owner: builder_engineer,  task: 14_construcao_prototipo,  gate_required: false}
+  - {order: 2, name: "Síntese + entrega",       owner: delivery_writer,   task: 15_sintese_entrega,       gate_required: true, gate: final_homologation}
+note: "HÉPHAISTOS só constrói após HITL#2 aprovado; smoke test em ambiente real."
+outputs:
+  - "output/prototype/, output/squad.yaml, output/delivery_package.md"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

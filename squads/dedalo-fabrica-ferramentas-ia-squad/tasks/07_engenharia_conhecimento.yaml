@@ -1,0 +1,17 @@
+id: "07_engenharia_conhecimento"
+owner: knowledge_engineer
+estado: S6
+objective: "Estruturar o capital intelectual em ontologia consultável + agentes especialistas."
+cynefin: complicated
+inputs:
+  - "ProcessModel + SourcePackage + materiais internos do cliente"
+outputs:
+  - "KnowledgeModel (ontology, knowledge_sources, specialist_agent_prompts, retrieval_strategy)"
+steps:
+  - "Capturar decisões, critérios, tom e frameworks como estrutura viva."
+  - "Definir ontologia e estratégia de recuperação (rag | rules | hybrid)."
+  - "Marcar conhecimento tácito não capturável como lacuna para entrevista de especialista."
+acceptance_criteria:
+  - "Conhecimento consultável e recuperável; nenhuma fonte de conhecimento órfã"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,12 @@
+id: "qa_review"
+description: "Trilho de validação convergente: red-team adversarial + QA/segurança/LGPD + self-healing."
+human_in_loop: true
+observability: "Langfuse por nó"
+steps:
+  - {order: 0, name: "Red-team adversarial", owner: redteam_auditor,    task: 11_redteam_adversarial, gate_required: true, gate: redteam_elenchus}
+  - {order: 1, name: "QA / Segurança / LGPD", owner: qa_safety_reviewer, task: 12_qa_seguranca_lgpd,   gate_required: true, gate: qa_lgpd_nomos}
+  - {order: 2, name: "Self-healing (Turing)", owner: self_healing,       task: 16_self_healing,        gate_required: false}
+note: "ELENCHUS tem poder de bloqueio; bloqueado => retorna ao PRD/arquitetura."
+outputs:
+  - "output/validation_report.md (+ healing_log no GlobalState)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

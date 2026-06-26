@@ -1,0 +1,17 @@
+id: "06_arquitetura_processo"
+owner: process_architect
+estado: S5
+objective: "Mapear o processo da oportunidade vencedora e sinalizar o que não automatizar."
+cynefin: complicated
+inputs:
+  - "ScoredOpportunities (oportunidade #1) + SourcePackage"
+outputs:
+  - "ProcessModel (steps, decisions, exceptions, owners, anti_automation_flags)"
+steps:
+  - "Mapear entrada, saída, decisões, exceções e responsáveis do fluxo real."
+  - "Sinalizar processos ruins que NÃO devem ser automatizados antes de corrigidos."
+acceptance_criteria:
+  - "Fluxo com exceções e responsáveis, não só caminho feliz"
+  - "anti_automation_flags explícitos quando aplicável"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

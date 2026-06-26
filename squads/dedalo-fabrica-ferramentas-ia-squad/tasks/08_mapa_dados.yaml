@@ -1,0 +1,18 @@
+id: "08_mapa_dados"
+owner: data_analyst
+estado: S7
+objective: "Produzir o data map (dados, fontes, KPIs) e o plano de instrumentação; marcar data_gaps."
+cynefin: deterministic
+inputs:
+  - "OpportunityMap + ProcessModel + KnowledgeModel"
+outputs:
+  - "DataMap (required_data, sources, kpis, instrumentation_plan, data_gaps, computed_metrics)"
+steps:
+  - "Listar dados, fontes e KPIs como ESTRUTURA — não calcular no texto."
+  - "Computar métricas-base via engine/metrics.py (Python puro, seeded)."
+  - "Marcar data_gaps; se houver gap, forçar fase de data discovery antes do MVP."
+acceptance_criteria:
+  - "computed_by = python_engine_v1; nenhuma aritmética no LLM"
+  - "data_gaps explícitos quando faltar dado real"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
