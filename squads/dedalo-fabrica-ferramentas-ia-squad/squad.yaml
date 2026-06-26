@@ -1,0 +1,312 @@
+name: "DÉDALO"
+code: "dedalo-fabrica-ferramentas-ia-squad"
+commercial_name: "DÉDALO — Fábrica de Ferramentas IA"
+version: "3.0.0"
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+slashPrefix: dedalo
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+description: >
+  Squad meta-fábrica multi-agente (LangGraph StateGraph) que transforma vídeos, briefings,
+  dores operacionais e processos de negócio em ferramentas digitais/IA operacionais. Recebe
+  uma fonte; classifica via Cynefin; minera evidências; identifica e prioriza oportunidades por
+  motor Python determinístico; gera PRD rastreável, arquitetura, backlog, protótipo e squad.yaml
+  agnóstico de plataforma. Invariante-mestre: o LLM emite SOMENTE JSON estruturado; toda
+  aritmética/scoring/priorização roda em Python puro, jamais no LLM — garantindo reprodutibilidade,
+  auditabilidade e rastreabilidade fonte → requisito → feature.
+
+positioning: >
+  Uma "fábrica de ativos de software" autônoma e auditável: de um vídeo ou processo a uma
+  primeira versão funcional da ferramenta, com red-team adversarial obrigatório, self-healing de
+  schema e três gates de aprovação humana.
+
+ecosystem: "OMNISCIENT v7.0"
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+domains:
+  - inteligencia_de_mercado
+  - capital_intelectual
+  - decisao_por_dados
+  - operacional_de_nicho
+  - micro_saas
+
+principles:
+  - "o LLM emite SOMENTE JSON estruturado; Python computa todo número (scoring/priorização/métricas)"
+  - "determinismo: mesmo input + seed => diff numérico zero"
+  - "rastreabilidade radical: nenhuma feature órfã; evidência separada de hipótese"
+  - "Cynefin entry gate roteia profundidade adaptativa do pipeline"
+  - "red-team adversarial (ELENCHUS) obrigatório, com poder de bloqueio"
+  - "self-healing (Guilda de Turing): valida schema, repara e faz retry antes de escalar"
+  - "fontes inacessíveis marcadas explicitamente, nunca inventadas"
+  - "local-first e portabilidade: Markdown, YAML, SQLite/CSV"
+  - "nunca expor segredos/credenciais; LGPD com base legal, minimização e anonimização"
+  - "saúde/jurídico/financeiro exigem humano no loop"
+
+invariants:
+  llm_emits: json_only
+  deterministic_compute: python
+  entry_gate: cynefin
+
+observability:
+  provider: langfuse
+  trace_per_run: true
+  hooks: observability/langfuse_hooks.py
+
+hitl_gates:
+  - intake
+  - scope_approval
+  - final_homologation
+
+components:
+  agents:
+    - agents/orchestrator.md
+    - agents/cynefin_classifier.md
+    - agents/source_miner.md
+    - agents/opportunity_strategist.md
+    - agents/process_architect.md
+    - agents/knowledge_engineer.md
+    - agents/data_analyst.md
+    - agents/product_manager.md
+    - agents/ai_systems_architect.md
+    - agents/builder_engineer.md
+    - agents/redteam_auditor.md
+    - agents/qa_safety_reviewer.md
+    - agents/delivery_writer.md
+    - agents/self_healing.md
+  tasks:
+    - tasks/01_intake_normalizacao.yaml
+    - tasks/02_classificacao_cynefin.yaml
+    - tasks/03_mineracao_fontes.yaml
+    - tasks/04_estrategia_oportunidades.yaml
+    - tasks/05_scoring_priorizacao.yaml
+    - tasks/06_arquitetura_processo.yaml
+    - tasks/07_engenharia_conhecimento.yaml
+    - tasks/08_mapa_dados.yaml
+    - tasks/09_prd_ferramenta.yaml
+    - tasks/10_arquitetura_sistema.yaml
+    - tasks/11_redteam_adversarial.yaml
+    - tasks/12_qa_seguranca_lgpd.yaml
+    - tasks/13_gate_aprovacao_mvp.yaml
+    - tasks/14_construcao_prototipo.yaml
+    - tasks/15_sintese_entrega.yaml
+    - tasks/16_self_healing.yaml
+  workflows:
+    - workflows/full_dedalo_pipeline.yaml
+    - workflows/video_to_prd.yaml
+    - workflows/process_to_tool.yaml
+    - workflows/tool_to_mvp.yaml
+    - workflows/qa_review.yaml
+  scripts:
+    - scripts/extract_sources.py
+    - scripts/build_prd.py
+    - scripts/score_opportunities.py
+    - scripts/validate_delivery.py
+  engine:
+    - engine/scoring.py
+    - engine/metrics.py
+    - engine/weights.py
+  schemas:
+    - schemas/global_state.py
+    - schemas/sacp_envelope.py
+    - schemas/agent_payloads.py
+  observability:
+    - observability/langfuse_hooks.py
+
+# Manifesto compatível com validate_squad.py (Maeve Genius Forge)
+agents:
+  - id: orchestrator
+    file: agents/orchestrator.md
+    codename: HEGEMON
+    guild: orchestration
+    role: "Conduz o StateGraph, roteia por Cynefin, gere gates HITL e retries de Turing"
+    cynefin: gate
+    model: opus
+  - id: cynefin_classifier
+    file: agents/cynefin_classifier.md
+    codename: HOROS
+    guild: orchestration
+    role: "Classifica o intake em Cynefin e define profundidade adaptativa; HITL#1"
+    cynefin: gate
+    model: opus
+  - id: source_miner
+    file: agents/source_miner.md
+    codename: SKOPOS
+    guild: discovery
+    role: "Extrai/transcreve vídeos, prints e docs; pacote de evidências com timestamps"
+    cynefin: complicated
+    model: "ferramentas+sonnet"
+  - id: opportunity_strategist
+    file: agents/opportunity_strategist.md
+    codename: KAIROS
+    guild: discovery
+    role: "Identifica oportunidades, casa com arquétipos A-E e propõe premissas de scoring"
+    cynefin: complex
+    model: opus
+  - id: process_architect
+    file: agents/process_architect.md
+    codename: TECHNE
+    guild: diagnosis
+    role: "Mapeia o processo; sinaliza o que NÃO automatizar antes de corrigir"
+    cynefin: complicated
+    model: sonnet
+  - id: knowledge_engineer
+    file: agents/knowledge_engineer.md
+    codename: MNEMON
+    guild: diagnosis
+    role: "Captura capital intelectual em ontologia/base consultável + agentes especialistas"
+    cynefin: complicated
+    model: sonnet
+  - id: data_analyst
+    file: agents/data_analyst.md
+    codename: LOGISTES
+    guild: diagnosis
+    role: "Data map + KPIs; roda todo cálculo determinístico (núcleo Python)"
+    cynefin: deterministic
+    model: "python+sonnet"
+    deterministic: true
+  - id: product_manager
+    file: agents/product_manager.md
+    codename: TELOS
+    guild: design
+    role: "Redige o PRD da ferramenta com matriz de rastreabilidade fonte→requisito→feature"
+    cynefin: complicated
+    model: opus
+  - id: ai_systems_architect
+    file: agents/ai_systems_architect.md
+    codename: DEMIOURGOS
+    guild: design
+    role: "Arquitetura: stack, dados, APIs, automação, RAG, local-first vs SaaS, build-vs-buy"
+    cynefin: complicated
+    model: opus
+  - id: builder_engineer
+    file: agents/builder_engineer.md
+    codename: HEPHAISTOS
+    guild: build
+    role: "Constrói o protótipo/MVP após HITL#2; roda smoke test local; gera squad.yaml"
+    cynefin: complicated
+    model: sonnet
+    gated_by: HITL_2
+  - id: redteam_auditor
+    file: agents/redteam_auditor.md
+    codename: ELENCHUS
+    guild: validation
+    role: "Red-team adversarial: caça requisitos alucinados; poder de bloqueio"
+    cynefin: complicated
+    model: opus
+    blocking: true
+  - id: qa_safety_reviewer
+    file: agents/qa_safety_reviewer.md
+    codename: NOMOS
+    guild: validation
+    role: "QA, segurança, LGPD; exige humano no loop em saúde/jurídico/financeiro"
+    cynefin: complicated
+    model: sonnet
+  - id: delivery_writer
+    file: agents/delivery_writer.md
+    codename: SYNTHETES
+    guild: synthesis
+    role: "Compõe o pacote de entrega; carrega ressalvas; go/no-go; HITL#3"
+    cynefin: complicated
+    model: opus
+    gate: HITL_3
+  - id: self_healing
+    file: agents/self_healing.md
+    codename: TURING
+    guild: turing
+    role: "Valida schema, checa ranges/consistência, repara e faz retry antes de escalar"
+    cynefin: deterministic
+    model: "python+haiku"
+    transversal: true
+
+tasks:
+  - id: 01_intake_normalizacao
+    file: tasks/01_intake_normalizacao.yaml
+    owner: orchestrator
+  - id: 02_classificacao_cynefin
+    file: tasks/02_classificacao_cynefin.yaml
+    owner: cynefin_classifier
+  - id: 03_mineracao_fontes
+    file: tasks/03_mineracao_fontes.yaml
+    owner: source_miner
+  - id: 04_estrategia_oportunidades
+    file: tasks/04_estrategia_oportunidades.yaml
+    owner: opportunity_strategist
+  - id: 05_scoring_priorizacao
+    file: tasks/05_scoring_priorizacao.yaml
+    owner: data_analyst
+  - id: 06_arquitetura_processo
+    file: tasks/06_arquitetura_processo.yaml
+    owner: process_architect
+  - id: 07_engenharia_conhecimento
+    file: tasks/07_engenharia_conhecimento.yaml
+    owner: knowledge_engineer
+  - id: 08_mapa_dados
+    file: tasks/08_mapa_dados.yaml
+    owner: data_analyst
+  - id: 09_prd_ferramenta
+    file: tasks/09_prd_ferramenta.yaml
+    owner: product_manager
+  - id: 10_arquitetura_sistema
+    file: tasks/10_arquitetura_sistema.yaml
+    owner: ai_systems_architect
+  - id: 11_redteam_adversarial
+    file: tasks/11_redteam_adversarial.yaml
+    owner: redteam_auditor
+  - id: 12_qa_seguranca_lgpd
+    file: tasks/12_qa_seguranca_lgpd.yaml
+    owner: qa_safety_reviewer
+  - id: 13_gate_aprovacao_mvp
+    file: tasks/13_gate_aprovacao_mvp.yaml
+    owner: orchestrator
+  - id: 14_construcao_prototipo
+    file: tasks/14_construcao_prototipo.yaml
+    owner: builder_engineer
+  - id: 15_sintese_entrega
+    file: tasks/15_sintese_entrega.yaml
+    owner: delivery_writer
+  - id: 16_self_healing
+    file: tasks/16_self_healing.yaml
+    owner: self_healing
+
+workflows:
+  - id: full_dedalo_pipeline
+    file: workflows/full_dedalo_pipeline.yaml
+  - id: video_to_prd
+    file: workflows/video_to_prd.yaml
+  - id: process_to_tool
+    file: workflows/process_to_tool.yaml
+  - id: tool_to_mvp
+    file: workflows/tool_to_mvp.yaml
+  - id: qa_review
+    file: workflows/qa_review.yaml
+
+engine:
+  scoring: engine/scoring.py:rank_opportunities
+  weights: engine/weights.py:WEIGHTS_V1
+
+quality_gates:
+  - intake_cynefin
+  - redteam_elenchus
+  - qa_lgpd_nomos
+  - scope_approval_mvp
+  - final_homologation
+
+outputs:
+  required:
+    - "output/sources.md"
+    - "output/opportunity_map.yaml"
+    - "output/prd.md"
+    - "output/architecture.md"
+    - "output/backlog.md"
+    - "output/squad.yaml"
+    - "output/validation_report.md"
+  optional:
+    - "output/prototype/ (app/CLI/MCP/script + smoke_test)"
+    - "output/delivery_package.md"
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

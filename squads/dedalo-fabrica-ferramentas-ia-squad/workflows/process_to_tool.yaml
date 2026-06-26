@@ -1,0 +1,16 @@
+id: "process_to_tool"
+description: "Trilho de diagnóstico: de um processo/dor operacional a uma especificação de ferramenta."
+human_in_loop: true
+observability: "Langfuse por nó"
+steps:
+  - {order: 0, name: "Intake + Cynefin",         owner: cynefin_classifier,    task: 02_classificacao_cynefin,   gate_required: true, gate: intake_cynefin}
+  - {order: 1, name: "Arquitetura de processo",  owner: process_architect,     task: 06_arquitetura_processo,    gate_required: false}
+  - {order: 2, name: "Engenharia de conhecimento", owner: knowledge_engineer,  task: 07_engenharia_conhecimento, gate_required: false}
+  - {order: 3, name: "Mapa de dados",            owner: data_analyst,          task: 08_mapa_dados,              gate_required: false}
+  - {order: 4, name: "PRD da ferramenta",        owner: product_manager,       task: 09_prd_ferramenta,          gate_required: false}
+  - {order: 5, name: "Arquitetura do sistema",   owner: ai_systems_architect,  task: 10_arquitetura_sistema,     gate_required: false}
+  - {order: 6, name: "Red-team",                 owner: redteam_auditor,       task: 11_redteam_adversarial,     gate_required: true, gate: redteam_elenchus}
+note: "Gate de diagnóstico: não automatizar processo ruim antes de corrigir (anti_automation_flags)."
+outputs:
+  - "output/architecture.md, output/backlog.md, output/prd.md"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

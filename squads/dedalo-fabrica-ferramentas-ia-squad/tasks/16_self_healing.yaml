@@ -1,0 +1,21 @@
+id: "16_self_healing"
+owner: self_healing
+estado: transversal
+objective: "Validar schema, checar ranges/consistência, reparar e fazer retry antes de escalar."
+cynefin: deterministic
+inputs:
+  - "Output de qualquer nó + schema Pydantic correspondente"
+outputs:
+  - "HealingResult (node, action: passed | repaired | escalated, details)"
+  - "Atualização de GlobalState.healing_log"
+steps:
+  - "Schema gate: output não-parseável => re-prompt com erro anexado (N tentativas)."
+  - "Sanity gate: valores impossíveis (nota fora 1-5, confidence>1) => devolve ao agente."
+  - "Consistency gate: contradição entre fatias => reconcilia ou escala."
+  - "Esgotado => healing_log + HITL."
+acceptance_criteria:
+  - ">=90% das falhas de schema reparadas sem humano"
+  - "0 valores impossíveis na entrega final"
+gate_required: false
+note: "Transversal a todos os nós do StateGraph."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

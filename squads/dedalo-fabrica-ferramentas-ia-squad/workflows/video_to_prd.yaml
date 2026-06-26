@@ -1,0 +1,16 @@
+id: "video_to_prd"
+description: "Trilho de descoberta: de um vídeo/transcrição a um PRD auditável (sem construção)."
+human_in_loop: true
+output_mode: "prd_only"
+observability: "Langfuse por nó"
+steps:
+  - {order: 0, name: "Intake + Cynefin",          owner: cynefin_classifier,    task: 02_classificacao_cynefin,    gate_required: true, gate: intake_cynefin}
+  - {order: 1, name: "Mineração de fontes",        owner: source_miner,          task: 03_mineracao_fontes,         gate_required: false}
+  - {order: 2, name: "Oportunidades + arquétipos", owner: opportunity_strategist, task: 04_estrategia_oportunidades, gate_required: false}
+  - {order: 3, name: "Scoring determinístico",     owner: data_analyst,          task: 05_scoring_priorizacao,      gate_required: false}
+  - {order: 4, name: "PRD + rastreabilidade",      owner: product_manager,       task: 09_prd_ferramenta,           gate_required: false}
+  - {order: 5, name: "Red-team",                   owner: redteam_auditor,       task: 11_redteam_adversarial,      gate_required: true, gate: redteam_elenchus}
+  - {order: 6, name: "QA / LGPD",                  owner: qa_safety_reviewer,    task: 12_qa_seguranca_lgpd,        gate_required: true, gate: qa_lgpd_nomos}
+outputs:
+  - "output/sources.md, output/opportunity_map.yaml, output/prd.md, output/validation_report.md"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

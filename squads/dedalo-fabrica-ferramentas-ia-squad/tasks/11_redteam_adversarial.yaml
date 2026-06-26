@@ -1,0 +1,21 @@
+id: "11_redteam_adversarial"
+owner: redteam_auditor
+estado: S10
+objective: "Red-team adversarial do PRD e arquitetura; caçar requisitos alucinados; poder de bloqueio."
+cynefin: complicated
+inputs:
+  - "ToolPRD + ArchitectureSpec + SourcePackage"
+outputs:
+  - "RedTeamReport (verdict, attacks, hallucinated_requirements, kill_shot, required_fixes)"
+steps:
+  - "Atacar: requisitos sem fonte, oportunidades fracas, scoring otimista, MVP inchado."
+  - "Marcar automação sobre processo ruim como severidade 'alta'."
+  - "Verdict 'aprovado' só sem ataque alto/fatal pendente."
+  - "Cynefin complexo => 2 ciclos de red-team."
+acceptance_criteria:
+  - ">=1 ataque concreto por revisão"
+  - "Plano com requisito alucinado é bloqueado (verdict=bloqueado)"
+gate_required: true
+gate: "redteam_elenchus"
+note: "Anti-sycophancy by design. bloqueado => HEGEMÓN devolve a TÉLOS/DÉMIOURGÓS."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

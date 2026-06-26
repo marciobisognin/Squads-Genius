@@ -1,0 +1,21 @@
+id: "01_intake_normalizacao"
+owner: orchestrator
+estado: S0
+objective: "Normalizar a fonte bruta (vídeo/briefing/dor/processo) em um IntakeSpec válido."
+cynefin: gate
+inputs:
+  - "Fonte primária: link, arquivo ou texto livre"
+  - "Objetivo, nicho/setor, usuário final, output_mode (prd_only | prd_plus_mvp)"
+outputs:
+  - "IntakeSpec (JSON validado por Pydantic)"
+  - "run_id e seed (42 por padrão)"
+steps:
+  - "Capturar primary_source, objective, niche_sector, end_user, output_mode."
+  - "Se faltar contexto que ALTERE materialmente a solução, formular perguntas objetivas (via HITL#1)."
+  - "Caso contrário, prosseguir com suposições explícitas em IntakeSpec.explicit_assumptions."
+  - "Gerar run_id e seed; inicializar GlobalState."
+acceptance_criteria:
+  - "IntakeSpec 100% válido contra schemas/global_state.py"
+  - "Suposições explícitas registradas quando não houver pergunta ao humano"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

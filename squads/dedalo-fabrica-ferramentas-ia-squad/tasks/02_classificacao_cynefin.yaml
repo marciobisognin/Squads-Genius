@@ -1,0 +1,21 @@
+id: "02_classificacao_cynefin"
+owner: cynefin_classifier
+estado: S1
+objective: "Classificar o intake em Cynefin e definir a profundidade adaptativa do pipeline."
+cynefin: gate
+inputs:
+  - "IntakeSpec"
+outputs:
+  - "CynefinClassification (domain, rationale, depth_params, ambiguity_flags)"
+steps:
+  - "Classificar em obvio | complicado | complexo | caotico."
+  - "Mapear domain -> depth_params por tabela fixa em Python (iterações, ciclos red-team, cenários, data discovery)."
+  - "Listar ambiguity_flags quando o domínio não for inequívoco."
+  - "Caotico (fonte inacessível / dor incoerente) bloqueia avanço e força reformulação."
+acceptance_criteria:
+  - "Domínio justificado em <= 60 palavras"
+  - "depth_params coerente com a tabela de roteamento"
+gate_required: true
+gate: "intake_cynefin"
+hitl: "HITL#1 — humano confirma domínio Cynefin e escopo de intake"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

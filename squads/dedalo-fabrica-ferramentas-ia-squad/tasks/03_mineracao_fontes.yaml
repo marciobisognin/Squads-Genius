@@ -1,0 +1,20 @@
+id: "03_mineracao_fontes"
+owner: source_miner
+estado: S2
+objective: "Extrair evidências das fontes com timestamps e confiança; marcar fontes inacessíveis."
+cynefin: complicated
+inputs:
+  - "IntakeSpec.primary_source + materiais anexados"
+outputs:
+  - "SourcePackage (transcripts, key_quotes, cited_tools, inaccessible_sources)"
+  - "output/sources.md"
+steps:
+  - "Baixar/transcrever vídeo (yt-dlp/ffprobe/whisper); OCR de prints; ler PDFs."
+  - "Estruturar evidências em JSON com source_ref e timestamp."
+  - "Separar 'ferramenta citada' de 'ferramenta inferida'."
+  - "Marcar fontes protegidas/vazias em inaccessible_sources — nunca inventar."
+acceptance_criteria:
+  - "0 afirmações sem source_ref"
+  - "Fontes inacessíveis explicitamente marcadas"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

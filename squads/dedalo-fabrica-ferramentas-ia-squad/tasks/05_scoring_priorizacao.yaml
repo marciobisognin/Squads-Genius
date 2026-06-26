@@ -1,0 +1,19 @@
+id: "05_scoring_priorizacao"
+owner: data_analyst
+estado: S4
+objective: "Priorizar oportunidades via motor Python determinístico (diff zero entre runs iguais)."
+cynefin: deterministic
+inputs:
+  - "OpportunityMap.scoring_assumptions (premissas 1-5)"
+outputs:
+  - "ScoredOpportunities (ranking determinístico)"
+steps:
+  - "Chamar engine/scoring.py:rank_opportunities com WEIGHTS_V1 (engine/weights.py)."
+  - "Computar score por oportunidade: pura função seeded, sem aleatoriedade."
+  - "Marcar oportunidades abaixo do limiar 0.45 como exigindo justificativa explícita."
+acceptance_criteria:
+  - "Mesma entrada => mesma ordem (determinismo verificável)"
+  - "computed_by = python_engine_v1; nenhum cálculo no LLM"
+gate_required: false
+note: "Etapa 100% Python. O LLM não participa do cálculo."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

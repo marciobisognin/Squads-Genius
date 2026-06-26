@@ -1,0 +1,51 @@
+project_name: "DÉDALO — Fábrica de Ferramentas IA"
+objective: >
+  Transformar vídeos, briefings, dores operacionais e processos de negócio em
+  ferramentas digitais/IA operacionais — entregando diagnóstico, PRD rastreável,
+  arquitetura, backlog, protótipo e squad.yaml agnóstico de plataforma, com
+  determinismo, rastreabilidade fonte→requisito→feature e red-team obrigatório.
+problem: >
+  Empresas dependem de softwares genéricos, consultorias e achismo. O conhecimento
+  interno (decisões, critérios, padrões) vira "cemitério de arquivos" em vez de
+  ativo vivo. Falta um mecanismo auditável que converta conhecimento e processos em
+  ferramentas próprias, mensuráveis e evolutivas, sem alucinação de requisitos.
+target_audience: >
+  Empreendedores, operações e times de produto que querem construir ativos de
+  software/IA próprios a partir de conteúdo, processos e capital intelectual.
+expected_outputs:
+  - "sources.md (pacote de evidências com timestamps e confiança)"
+  - "opportunity_map.yaml (oportunidades casadas a arquétipos)"
+  - "PRD da ferramenta (.md) com matriz de rastreabilidade fonte→requisito→feature"
+  - "architecture.md + backlog.md"
+  - "squad.yaml da ferramenta-cliente (agnóstico de plataforma)"
+  - "protótipo/MVP funcional (app/CLI/MCP/script) com smoke test local"
+  - "validation_report.md (QA/LGPD/segurança)"
+constraints:
+  - "LLM emite exclusivamente JSON estruturado; toda aritmética/scoring roda em Python puro"
+  - "Determinismo: mesmo input + seed => diff numérico zero no scoring/priorização"
+  - "Rastreabilidade radical: nenhuma feature órfã; evidência separada de hipótese"
+  - "Local-first e portabilidade: Markdown, YAML, SQLite/CSV"
+  - "Idioma pt-BR; Licença MIT; nunca expor segredos/credenciais"
+  - "Fontes inacessíveis marcadas explicitamente, nunca inventadas"
+integrations:
+  - "LangGraph StateGraph (orquestração) — referência de arquitetura"
+  - "Langfuse (observabilidade por nó: span/custo/latência/score)"
+  - "yt-dlp, ffprobe, whisper/captions, OCR, leitor de PDF (extração de fontes)"
+  - "GitHub (publicação de squad e protótipo, quando autorizado)"
+security_level: "elevated"
+human_approval_requirements:
+  - "HITL#1 — confirmação do domínio Cynefin e escopo de intake"
+  - "HITL#2 — aprovação de PRD + escopo do MVP antes de construir"
+  - "HITL#3 — homologação final go/no-go antes do export"
+  - "Saúde/jurídico/financeiro exigem humano no loop (NÓMOS)"
+success_metrics:
+  - ">=3 oportunidades por fonte, cada uma casada a arquétipo e a uma evidência"
+  - "priorização determinística (diff zero entre runs idênticos)"
+  - "ELENCHUS produz >=1 ataque concreto e bloqueia plano com requisito alucinado"
+  - "TURING repara >=90% das falhas de schema sem intervenção humana"
+  - "PRD com matriz de rastreabilidade completa e squad.yaml válido/portável"
+budget_limit: "low-token (LLM só JSON; cálculo em Python)"
+preferred_models:
+  - "opus (orquestração, red-team, PRD)"
+  - "sonnet (mineração, estratégia, arquitetura)"
+  - "python-only (scoring, métricas, validação — sem LLM)"

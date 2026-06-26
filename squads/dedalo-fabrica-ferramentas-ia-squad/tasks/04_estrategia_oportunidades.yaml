@@ -1,0 +1,19 @@
+id: "04_estrategia_oportunidades"
+owner: opportunity_strategist
+estado: S3
+objective: "Identificar >=3 oportunidades, casar com arquétipos A-E e propor premissas de scoring."
+cynefin: complex
+inputs:
+  - "SourcePackage + biblioteca archetypes/*.md"
+outputs:
+  - "OpportunityMap (>=3 oportunidades com scoring_assumptions e maps_to_evidence)"
+  - "output/opportunity_map.yaml"
+steps:
+  - "Para cada oportunidade, casar com UM arquétipo (market_intel, clinic_triage, micro_saas, ...)."
+  - "Rastrear cada oportunidade a >=1 evidência de SKOPÓS (sem órfã)."
+  - "Fornecer notas 1-5 (impacto/esforço/risco/disponibilidade de dados/repetição) como PREMISSAS."
+acceptance_criteria:
+  - ">=3 oportunidades, cada uma casada a arquétipo e a evidência"
+  - "Notas 1-5 dentro do intervalo; nenhuma oportunidade órfã"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

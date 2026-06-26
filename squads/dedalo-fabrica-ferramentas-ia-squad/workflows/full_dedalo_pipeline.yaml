@@ -1,0 +1,39 @@
+id: "full_dedalo_pipeline"
+description: "Pipeline completo do DÉDALO, do intake (vídeo/briefing/dor/processo) à entrega da ferramenta + squad.yaml."
+human_in_loop: true
+rollback: "S10 bloqueado retorna a S8/S9; Turing pode reabrir qualquer nó (max_retries + circuit breaker)"
+observability: "Langfuse observa todo o StateGraph (input/output SACP, tokens, custo, latência, veredictos)"
+invariant: "LLM emite SOMENTE JSON; toda aritmética/scoring roda em Python (engine/)."
+steps:
+  - {order: 0,  estado: S0,  name: "Intake + normalização",        owner: orchestrator,         task: 01_intake_normalizacao,      gate_required: false}
+  - {order: 1,  estado: S1,  name: "Classificação Cynefin",        owner: cynefin_classifier,   task: 02_classificacao_cynefin,    gate_required: true, gate: intake_cynefin}
+  - {order: 2,  estado: S2,  name: "Mineração de fontes",          owner: source_miner,         task: 03_mineracao_fontes,         gate_required: false}
+  - {order: 3,  estado: S3,  name: "Estratégia de oportunidades",  owner: opportunity_strategist, task: 04_estrategia_oportunidades, gate_required: false}
+  - {order: 4,  estado: S4,  name: "Scoring/priorização (Python)", owner: data_analyst,         task: 05_scoring_priorizacao,      gate_required: false}
+  - {order: 5,  estado: S5,  name: "Arquitetura de processo",      owner: process_architect,    task: 06_arquitetura_processo,     gate_required: false}
+  - {order: 6,  estado: S6,  name: "Engenharia de conhecimento",   owner: knowledge_engineer,   task: 07_engenharia_conhecimento,  gate_required: false}
+  - {order: 7,  estado: S7,  name: "Mapa de dados (+ discovery)",  owner: data_analyst,         task: 08_mapa_dados,               gate_required: false}
+  - {order: 8,  estado: S8,  name: "PRD da ferramenta",            owner: product_manager,      task: 09_prd_ferramenta,           gate_required: false}
+  - {order: 9,  estado: S9,  name: "Arquitetura do sistema",       owner: ai_systems_architect, task: 10_arquitetura_sistema,      gate_required: false}
+  - {order: 10, estado: S10, name: "Red-team adversarial",         owner: redteam_auditor,      task: 11_redteam_adversarial,      gate_required: true, gate: redteam_elenchus}
+  - {order: 11, estado: S11, name: "QA / Segurança / LGPD",        owner: qa_safety_reviewer,   task: 12_qa_seguranca_lgpd,        gate_required: true, gate: qa_lgpd_nomos}
+  - {order: 12, estado: S12, name: "Aprovação humana do MVP",      owner: orchestrator,         task: 13_gate_aprovacao_mvp,       gate_required: true, gate: scope_approval_mvp}
+  - {order: 13, estado: S13, name: "Construção do protótipo",      owner: builder_engineer,     task: 14_construcao_prototipo,     gate_required: false}
+  - {order: 14, estado: S14, name: "Síntese + entrega",            owner: delivery_writer,      task: 15_sintese_entrega,          gate_required: true, gate: final_homologation}
+  - {order: 99, estado: transversal, name: "Self-healing (Turing)", owner: self_healing,        task: 16_self_healing,             gate_required: false,
+     note: "valida schema, repara e faz retry em qualquer nó; escala ao HITL se não convergir"}
+loops:
+  - "S10 bloqueado => retorna a S8/S9"
+  - "Cynefin complexo => 2a passagem em S10 + S7 data discovery obrigatório"
+  - "Turing pode reabrir qualquer nó"
+quality_gates:
+  - intake_cynefin
+  - redteam_elenchus
+  - qa_lgpd_nomos
+  - scope_approval_mvp
+  - final_homologation
+outputs:
+  - "output/sources.md, output/opportunity_map.yaml, output/prd.md"
+  - "output/architecture.md, output/backlog.md, output/squad.yaml"
+  - "output/validation_report.md, output/prototype/ (quando prd_plus_mvp)"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

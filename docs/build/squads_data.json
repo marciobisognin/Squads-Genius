@@ -8605,5 +8605,185 @@
       "desc": "Vídeo educacional no formato escolhido (16:9/9:16/1:1) com narração pt-BR sincronizada, mais todos os artefatos intermediários (brief, insight, arco, roteiro, timeline, scene-graphs, código, QA) e manifesto hasheado para reprodutibilidade."
     },
     "category": "Educação & Desenvolvimento Cognitivo"
+  },
+  {
+    "id": "dedalo-fabrica-ferramentas-ia-squad",
+    "name": "DÉDALO — Fábrica de Ferramentas IA",
+    "tagline": "Meta-fábrica multi-agente que transforma vídeos, briefings, dores e processos de negócio em ferramentas digitais/IA: diagnóstico, PRD rastreável, arquitetura, protótipo e squad.yaml — com scoring determinístico em Python, red-team adversarial e self-healing.",
+    "color": "#7C3AED",
+    "card_icon": "factory",
+    "agents": [
+      {
+        "name": "HEGEMÓN",
+        "role": "Orquestrador",
+        "desc": "Conduz o StateGraph, roteia por Cynefin, gere os gates HITL e os retries da Guilda de Turing.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "HÓROS",
+        "role": "Classificador Cynefin",
+        "desc": "Classifica o intake (óbvio/complicado/complexo/caótico) e define a profundidade do pipeline; entry gate HITL#1.",
+        "icon": "router"
+      },
+      {
+        "name": "SKOPÓS",
+        "role": "Minerador de fontes",
+        "desc": "Extrai e transcreve vídeos, prints e docs com timestamps; marca fontes inacessíveis sem inventar.",
+        "icon": "researcher"
+      },
+      {
+        "name": "KAIRÓS",
+        "role": "Estrategista de oportunidades",
+        "desc": "Identifica oportunidades, casa com arquétipos A–E e propõe as premissas 1–5 para o motor Python.",
+        "icon": "strategist"
+      },
+      {
+        "name": "TÉCHNE",
+        "role": "Arquiteto de processo",
+        "desc": "Mapeia o fluxo operacional real e sinaliza o que NÃO automatizar antes de corrigir.",
+        "icon": "architect"
+      },
+      {
+        "name": "MNÉMON",
+        "role": "Engenheiro de conhecimento",
+        "desc": "Transforma capital intelectual em ontologia consultável e agentes especialistas.",
+        "icon": "analyst"
+      },
+      {
+        "name": "LOGISTÉS",
+        "role": "Analista de dados",
+        "desc": "Data map e KPIs; roda todo o cálculo determinístico (scoring/métricas) em Python puro.",
+        "icon": "analyst"
+      },
+      {
+        "name": "TÉLOS",
+        "role": "Product manager",
+        "desc": "Redige o PRD com matriz de rastreabilidade fonte→requisito→feature; nenhuma feature órfã.",
+        "icon": "writer"
+      },
+      {
+        "name": "DÉMIOURGÓS",
+        "role": "Arquiteto de sistemas de IA",
+        "desc": "Desenha stack, dados, APIs, RAG e deployment local-first vs SaaS, com decisões build-vs-buy.",
+        "icon": "architect"
+      },
+      {
+        "name": "HÉPHAISTOS",
+        "role": "Engenheiro construtor",
+        "desc": "Após HITL#2, constrói o menor protótipo executável e roda smoke test local; gera squad.yaml.",
+        "icon": "builder"
+      },
+      {
+        "name": "ELENCHUS",
+        "role": "Red-team adversarial",
+        "desc": "Ataca o plano e caça requisitos alucinados; tem poder de bloqueio (anti-sycophancy by design).",
+        "icon": "auditor"
+      },
+      {
+        "name": "NÓMOS",
+        "role": "QA, segurança & LGPD",
+        "desc": "Valida qualidade, privacidade e LGPD; exige humano no loop em saúde/jurídico/financeiro.",
+        "icon": "guardian"
+      },
+      {
+        "name": "SYNTHÉTES",
+        "role": "Redator de entrega",
+        "desc": "Compõe o pacote final, carrega ressalvas e decide go/no-go; homologação HITL#3.",
+        "icon": "composer"
+      },
+      {
+        "name": "TURING",
+        "role": "Self-healing",
+        "desc": "Valida schema, checa ranges/consistência, repara e faz retry antes de escalar (transversal).",
+        "icon": "failsafe"
+      }
+    ],
+    "tools": [
+      {
+        "file": "engine/scoring.py",
+        "desc": "Motor determinístico de priorização: o LLM dá notas 1–5, o Python computa o ranking (diff zero)."
+      },
+      {
+        "file": "engine/weights.py",
+        "desc": "Pesos versionados (semver) do scoring; mudança de peso é mudança de versão auditável."
+      },
+      {
+        "file": "engine/metrics.py",
+        "desc": "Métricas-base puras (impacto/esforço, cobertura, rastreabilidade) com sanity checks."
+      },
+      {
+        "file": "scripts/extract_sources.py",
+        "desc": "Esboça o SourcePackage e marca fontes inacessíveis — nunca inventa conteúdo."
+      },
+      {
+        "file": "scripts/build_prd.py",
+        "desc": "Renderiza o PRD em Markdown com matriz de rastreabilidade e detecta features órfãs."
+      },
+      {
+        "file": "scripts/validate_delivery.py",
+        "desc": "Valida presença e consistência dos artefatos finais (go/no-go de entrega)."
+      },
+      {
+        "file": "schemas/sacp_envelope.py",
+        "desc": "Envelope SACP tipado de handoff; confidence<0.6 aciona auditoria de ELENCHUS."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake + Cynefin",
+        "desc": "HEGEMÓN normaliza a fonte e HÓROS classifica a complexidade, definindo a profundidade (HITL#1)."
+      },
+      {
+        "title": "Mineração de fontes",
+        "desc": "SKOPÓS extrai evidências com timestamps e confiança; marca fontes inacessíveis."
+      },
+      {
+        "title": "Oportunidades + scoring",
+        "desc": "KAIRÓS casa oportunidades a arquétipos; o motor Python prioriza de forma determinística."
+      },
+      {
+        "title": "Diagnóstico",
+        "desc": "TÉCHNE mapeia o processo, MNÉMON estrutura o conhecimento e LOGISTÉS monta o data map."
+      },
+      {
+        "title": "PRD + arquitetura",
+        "desc": "TÉLOS escreve o PRD rastreável e DÉMIOURGÓS desenha a arquitetura e o backlog."
+      },
+      {
+        "title": "Red-team + QA/LGPD",
+        "desc": "ELENCHUS ataca o plano (poder de bloqueio) e NÓMOS valida segurança e LGPD."
+      },
+      {
+        "title": "Aprovação + construção",
+        "desc": "Após HITL#2, HÉPHAISTOS constrói o protótipo e roda smoke test local."
+      },
+      {
+        "title": "Síntese + entrega",
+        "desc": "SYNTHÉTES compõe o pacote, decide go/no-go e abre a homologação final HITL#3."
+      }
+    ],
+    "output": {
+      "title": "Pacote de ferramenta auditável",
+      "desc": "sources.md, opportunity_map.yaml, PRD com matriz de rastreabilidade, architecture.md, backlog.md, squad.yaml portável, protótipo com smoke test e validation_report.md."
+    },
+    "category": "Construção de Squads & Sistemas de IA",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/dedalo-fabrica-ferramentas-ia-squad"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/dedalo-fabrica-ferramentas-ia-squad/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/dedalo-fabrica-ferramentas-ia-squad/squad.yaml"
+      },
+      {
+        "label": "PRD",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/dedalo-fabrica-ferramentas-ia-squad/PRD.md"
+      }
+    ]
   }
 ]
