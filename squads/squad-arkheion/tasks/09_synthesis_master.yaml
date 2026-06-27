@@ -1,0 +1,15 @@
+id: "09_synthesis_master"
+stage: "S9"
+owner: synthesis
+objective: "Montar o master: concat com glitch, passe global de grão/scanline, mix de áudio, encerramento, export 2160/1080."
+inputs:
+  - "N x Cena10 (aprovadas) + AudioSpec + encerramento"
+outputs:
+  - "DossieMaster (JSON) + master_2160.mp4 + entrega_1080.mp4"
+steps:
+  - "synthesis_plan.py: ordem, cortes, silêncios, comandos FFmpeg."
+  - "Aplicar passe global; anexar card de encerramento; exportar master e entrega."
+acceptance_criteria:
+  - "Master no tamanho escolhido, 1:1, 24fps, contador coerente, moldura fixa"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

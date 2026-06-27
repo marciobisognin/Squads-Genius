@@ -1,0 +1,16 @@
+id: "00_intake"
+stage: "S0"
+owner: hegemon
+objective: "Normalizar o briefing e resolver o tamanho do vídeo em nº de CENA-10, contadores e funções."
+inputs:
+  - "Briefing (tema, marca, protocolo, cta, duracao_total_s, encerramento, fonte_titulo, ativos)"
+outputs:
+  - "JobState inicial + PlanoDuracao (n_cenas, contadores, funcoes)"
+steps:
+  - "Gerar job_id e seed determinístico se ausentes."
+  - "Resolver duracao_total_s via canon.resolver_duracao (30/60/90 -> 3/6/9 cenas)."
+  - "Validar campos mínimos do Briefing (schema SACP)."
+acceptance_criteria:
+  - "PlanoDuracao coerente; contadores NN/TT corretos para o tamanho escolhido"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

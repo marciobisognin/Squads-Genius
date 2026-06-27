@@ -1,0 +1,17 @@
+id: "02_plano_sequencial"
+stage: "S2"
+owner: mythos
+objective: "Story -> N beats (PlanoSequencial), 1 por CENA-10. Gate 2 (aprova antes de gastar render)."
+inputs:
+  - "Briefing + Classificacao + PlanoDuracao"
+outputs:
+  - "PlanoSequencial (JSON validado)"
+steps:
+  - "Para cada beat: titulo (CAIXA ALTA, <=4 palavras), texto_digitado (1-4 linhas), ancoras_visuais, dataviz no beat de prova."
+  - "Respeitar contadores e funcoes recebidos (imutáveis); arco tensão->resolução."
+acceptance_criteria:
+  - "N beats coerentes com o tamanho; prova_visual com dataviz; sem tom de propaganda"
+gate_required: true
+gate: "gate_2_roteiro"
+gate_note: "Humano aprova/edita os títulos + textos digitados ANTES de gastar render."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

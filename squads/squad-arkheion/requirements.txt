@@ -1,0 +1,7 @@
+# Núcleo (arkheion/) e scripts rodam só com a stdlib do Python 3.11+.
+# As dependências abaixo são opcionais — habilitam o caminho completo de produção.
+pydantic>=2.0      # contratos SACP (fallback: dataclasses)
+langgraph>=0.2     # orquestração StateGraph
+playwright>=1.40   # captura frame-a-frame do HUD
+moviepy>=1.0       # compositing/montagem
+langfuse>=2.0      # observabilidade

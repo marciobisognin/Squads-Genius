@@ -1,0 +1,17 @@
+id: "11_homologacao_entrega"
+stage: "S11"
+owner: hegemon
+objective: "Homologação humana do master e entrega com trace Langfuse. Gate 3."
+inputs:
+  - "DossieMaster + vereditos"
+outputs:
+  - "Entrega final + langfuse_trace_id + manifesto specs<->checksums"
+steps:
+  - "Apresentar master ao humano (Gate 3): aprova ou pede regeneração de cena(s)."
+  - "Flush do trace Langfuse; linkar specs e checksums (auditoria TCU-grade)."
+acceptance_criteria:
+  - "Homologação registrada; trace completo; specs<->checksums linkados"
+gate_required: true
+gate: "gate_3_homologacao"
+gate_note: "Humano aprova a entrega final ou solicita regeneração por cena."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

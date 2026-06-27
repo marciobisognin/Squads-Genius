@@ -1,0 +1,58 @@
+{
+  "titulo_dossie": "DOSSIÊ — INFRAESTRUTURA DE IA",
+  "marca": "NOUS LAB",
+  "protocolo": "ARK-TEC-001",
+  "tamanho_s": 60,
+  "n_cenas": 6,
+  "beats": [
+    {
+      "indice": 1,
+      "funcao": "pergunta_tensao",
+      "contador": "01 / 06",
+      "titulo": "O PROBLEMA",
+      "texto_digitado": ["modelos crescem.", "a infraestrutura não acompanha."],
+      "ancoras_visuais": ["servidores", "cabos"]
+    },
+    {
+      "indice": 2,
+      "funcao": "restricao_contexto",
+      "contador": "02 / 06",
+      "titulo": "ACESSO LIMITADO",
+      "texto_digitado": ["poucos enxergam", "o que roda por baixo."],
+      "ancoras_visuais": ["telas", "código"]
+    },
+    {
+      "indice": 3,
+      "funcao": "solucao_metodo",
+      "contador": "03 / 06",
+      "titulo": "O MÉTODO",
+      "texto_digitado": ["orquestração determinística", "cada etapa auditável."],
+      "ancoras_visuais": ["circuitos", "protótipos"]
+    },
+    {
+      "indice": 4,
+      "funcao": "processo",
+      "contador": "04 / 06",
+      "titulo": "EM MOVIMENTO",
+      "texto_digitado": ["o sistema executa", "em tempo real."],
+      "ancoras_visuais": ["servidores", "telas"]
+    },
+    {
+      "indice": 5,
+      "funcao": "prova_visual",
+      "contador": "05 / 06",
+      "titulo": "DADOS REAIS",
+      "texto_digitado": ["latência reduzida.", "custo sob controle."],
+      "ancoras_visuais": ["gráficos", "telas"],
+      "dataviz": {"tipo": "numero", "rotulo": "REDUCAO DE LATENCIA", "valor": "63%"}
+    },
+    {
+      "indice": 6,
+      "funcao": "conclusao_cta",
+      "contador": "06 / 06",
+      "titulo": "EM OPERAÇÃO",
+      "texto_digitado": ["o arquivo está aberto.", "a operação começou."],
+      "ancoras_visuais": ["servidores", "cabos"]
+    }
+  ]
+}

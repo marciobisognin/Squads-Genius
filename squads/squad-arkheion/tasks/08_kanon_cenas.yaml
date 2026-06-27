@@ -1,0 +1,15 @@
+id: "08_kanon_cenas"
+stage: "S8"
+owner: kanon
+objective: "Validar cada CENA-10 renderizada contra o Cânone (fidelidade técnica). Regenera só a cena reprovada."
+inputs:
+  - "N x Cena10"
+outputs:
+  - "vereditos KÁNŌN por cena"
+steps:
+  - "Checar duração 10s, grade, geometria/timing por cena."
+  - "Reprovação -> regenerar APENAS a cena (TURING), sem refazer o vídeo."
+acceptance_criteria:
+  - "Todas as cenas aprovadas individualmente"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

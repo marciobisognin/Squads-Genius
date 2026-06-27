@@ -1,0 +1,15 @@
+id: "05_audio_spec"
+stage: "S5"
+owner: phone
+objective: "Produzir AudioSpec: drone industrial, cues de SFX e silêncio estratégico antes do beat final."
+inputs:
+  - "PlanoSequencial"
+outputs:
+  - "AudioSpec (JSON)"
+steps:
+  - "Definir mood do drone por beat; mapear SFX aos beats."
+  - "Posicionar silêncio(s) ~0.8s antes do último beat; locução opcional (default ausente)."
+acceptance_criteria:
+  - "Sem música épica/pop/corporativa; silêncio estratégico presente"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

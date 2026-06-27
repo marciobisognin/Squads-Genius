@@ -1,0 +1,15 @@
+id: "10_validacao_final"
+stage: "S10"
+owner: elenchus
+objective: "Validação final paralela: ELENCHUS (tom/coerência) + KÁNŌN (fidelidade técnica do master)."
+inputs:
+  - "DossieMaster + PlanoSequencial"
+outputs:
+  - "veredito ELENCHUS + veredito KÁNŌN do master"
+steps:
+  - "ELENCHUS: história única, tom de dossiê (não propaganda), CTA sem hype."
+  - "KÁNŌN: duração total, contadores, grade global."
+acceptance_criteria:
+  - "ELENCHUS sem objeção de tom propaganda; KÁNŌN aprovado"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

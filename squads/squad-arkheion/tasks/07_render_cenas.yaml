@@ -1,0 +1,17 @@
+id: "07_render_cenas"
+stage: "S7"
+owner: tekton
+objective: "Renderizar N x CENA-10: HUD frame-a-frame (Trilho A) + footage gradeado (Trilho B), compor A sobre B."
+inputs:
+  - "N x CardInterface + N x FootageSpec (aprovados)"
+outputs:
+  - "N x Cena10 (.mp4 + checksum)"
+steps:
+  - "Gerar plano de HUD (hud_plan.py) e capturar frames (HTML/CSS+Playwright)."
+  - "Invocar API text-to-video; aplicar grade (grade.py); compor overlay alfa; cortar em 10s."
+  - "Falha de API/render -> TURING (retry/backoff/regeneração isolada)."
+acceptance_criteria:
+  - "6 cenas independentes de 10s exatos com checksum"
+gate_required: false
+escape_hatch: turing
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

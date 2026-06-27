@@ -1,0 +1,12 @@
+id: "cena10_regeneration_loop"
+description: "Loop de regeneração por CENA-10: reprovar a cena N não refaz o vídeo inteiro."
+human_in_loop: false
+trigger: "KÁNŌN reprova uma Cena10 em S8 (ou humano pede regeneração de cena no Gate 3)"
+steps:
+  - {order: 0, name: "Identificar cena reprovada", owner: kanon,    detail: "veredito com idx + motivos"}
+  - {order: 1, name: "Diagnóstico e roteamento",   owner: turing,   detail: "decide alvo: TYPOS (card) / SKIAGRAPHOS (footage) / TEKTON (render)"}
+  - {order: 2, name: "Regenerar spec/cena",        owner: tekton,   detail: "re-render APENAS a CENA-N (átomo de 10s)"}
+  - {order: 3, name: "Revalidar",                  owner: kanon,    detail: "reaprovar a cena isolada"}
+  - {order: 4, name: "Re-montar master",           owner: synthesis, detail: "substituir a cena no concat; passe global"}
+exit_condition: "cena aprovada por KÁNŌN; após >=2 falhas persistentes escala a HITL"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
