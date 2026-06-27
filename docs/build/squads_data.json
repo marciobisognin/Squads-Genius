@@ -8785,5 +8785,163 @@
         "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/dedalo-fabrica-ferramentas-ia-squad/PRD.md"
       }
     ]
+  },
+  {
+    "id": "squad-arkheion",
+    "name": "ARKHEION — Dossiês Visuais em Vídeo",
+    "tagline": "Transforma um tema + tamanho de vídeo (30/60/90s) em um dossiê audiovisual estética 'arquivo confidencial': cenas atômicas de 10s (CENA-10) montadas deterministicamente, onde o contador NN/TT da interface é a espinha dorsal do roteiro.",
+    "color": "#94E4F2",
+    "card_icon": "factory",
+    "agents": [
+      {
+        "name": "HÉGEMŌN",
+        "role": "Orquestrador",
+        "desc": "Conduz o StateGraph, mantém o estado SACP, resolve o tamanho do vídeo em CENA-10 e aplica os 3 gates HITL.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "DIAÍRESIS",
+        "role": "Triagem",
+        "desc": "Classifica o briefing no domínio Cynefin e valida a completude mínima (tema, marca, CTA, tamanho).",
+        "icon": "router"
+      },
+      {
+        "name": "MŶTHOS",
+        "role": "Narrativa",
+        "desc": "Gera o PlanoSequencial: N beats mapeados às CENA-10, com título, texto digitado e dataviz no beat de prova.",
+        "icon": "writer"
+      },
+      {
+        "name": "SKIÁGRAPHOS",
+        "role": "Direção visual (footage)",
+        "desc": "Descreve o FootageSpec investigativo por cena: plano, movimento, iluminação e prompts positivo/negativo.",
+        "icon": "designer"
+      },
+      {
+        "name": "TÝPOS",
+        "role": "Direção visual (interface)",
+        "desc": "Descreve o CardInterface (HUD) por cena: título, linhas, contador, rodapé e dataviz — sem liberdade estética.",
+        "icon": "architect"
+      },
+      {
+        "name": "PHŌNĒ",
+        "role": "Sonora",
+        "desc": "Produz o AudioSpec: drone industrial, cues de SFX e silêncio estratégico antes do beat final.",
+        "icon": "composer"
+      },
+      {
+        "name": "KÁNŌN",
+        "role": "Validação (Cânone)",
+        "desc": "Valida numericamente specs e renders contra o Cânone (hex/fonte/geometria/grade/timing). Gate bloqueante.",
+        "icon": "validator"
+      },
+      {
+        "name": "TÉKTŌN",
+        "role": "Render determinístico",
+        "desc": "Renderiza o HUD frame-a-frame (HTML/CSS+Playwright) e o footage gradeado (FFmpeg), compondo a CENA-10.",
+        "icon": "factory"
+      },
+      {
+        "name": "SÝNTHESIS",
+        "role": "Montagem",
+        "desc": "Concatena as cenas com glitch, aplica passe global de grão/scanline, mixa áudio e anexa o encerramento.",
+        "icon": "builder"
+      },
+      {
+        "name": "ELENCHUS",
+        "role": "Anti-sycophancy",
+        "desc": "Desafia a coerência narrativa e bloqueia a deriva para tom de propaganda — o dossiê parece prova, não anúncio.",
+        "icon": "auditor"
+      },
+      {
+        "name": "TURING",
+        "role": "Self-healing",
+        "desc": "Retry com backoff em APIs, repair de JSON e regeneração de cena isolada; escala a HITL após N falhas.",
+        "icon": "failsafe"
+      }
+    ],
+    "tools": [
+      {
+        "file": "arkheion/canon.py",
+        "desc": "O Cânone como código: paleta, geometria, tipografia, timing, grade FFmpeg e resolução do tamanho do vídeo."
+      },
+      {
+        "file": "arkheion/schemas.py",
+        "desc": "Contratos SACP (Pydantic v2 com fallback dataclasses)."
+      },
+      {
+        "file": "scripts/kanon.py",
+        "desc": "Validador determinístico do Cânone (KÁNŌN) — gate bloqueante."
+      },
+      {
+        "file": "scripts/plano_builder.py",
+        "desc": "Andaime canônico do PlanoSequencial a partir do tema + tamanho."
+      },
+      {
+        "file": "scripts/grade.py",
+        "desc": "Cadeia de grade FFmpeg + scanlines (look soberano, code-enforced)."
+      },
+      {
+        "file": "scripts/hud_plan.py",
+        "desc": "Plano de frames do HUD: digitação a 25 cps, cursor e glitch."
+      },
+      {
+        "file": "scripts/synthesis_plan.py",
+        "desc": "Plano de montagem do master + comandos FFmpeg."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake + tamanho",
+        "desc": "HÉGEMŌN normaliza o briefing e resolve o tamanho (30/60/90s) em nº de CENA-10, contadores e funções."
+      },
+      {
+        "title": "Triagem (Gate 1)",
+        "desc": "DIAÍRESIS classifica via Cynefin; o humano confirma tema, marca, CTA e injeta ativos."
+      },
+      {
+        "title": "Roteiro (Gate 2)",
+        "desc": "MŶTHOS gera os N beats; o humano aprova títulos e textos antes de gastar render."
+      },
+      {
+        "title": "Specs paralelas",
+        "desc": "SKIÁGRAPHOS (footage), TÝPOS (interface) e PHŌNĒ (áudio) emitem JSON por cena."
+      },
+      {
+        "title": "Validação do Cânone",
+        "desc": "KÁNŌN reprova numericamente qualquer spec fora do padrão antes de renderizar."
+      },
+      {
+        "title": "Render CENA-10",
+        "desc": "TÉKTŌN compõe HUD sobre footage gradeado; falhas vão ao self-healing (TURING)."
+      },
+      {
+        "title": "Montagem + homologação (Gate 3)",
+        "desc": "SÝNTHESIS monta o master; ELENCHUS checa o tom; o humano homologa a entrega."
+      }
+    ],
+    "output": {
+      "title": "Dossiê audiovisual pronto",
+      "desc": "master_2160.mp4 (1:1, 24fps) + entrega_1080.mp4, com manifesto specs↔checksums e trace Langfuse auditável."
+    },
+    "category": "Conteúdo, Marketing & Visual",
+    "links": [
+      {
+        "label": "📂 Ver no GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/squad-arkheion"
+      },
+      {
+        "label": "📖 README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-arkheion/README.md"
+      },
+      {
+        "label": "⚙️ Manifesto (squad.yaml)",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-arkheion/squad.yaml"
+      },
+      {
+        "label": "📘 Manual",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/squad-arkheion/docs/manual_operacional.md"
+      }
+    ]
   }
 ]
