@@ -1,0 +1,51 @@
+project_name: "ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)"
+objective: >
+  Transformar qualquer assunto/tema informado pelo usuário em um dossiê visual de
+  alta tecnologia com estética analógica investigativa ("arquivo confidencial"),
+  produzido como cenas atômicas de 10s (CENA-10) que se montam deterministicamente
+  em um vídeo narrativo cujo tamanho é escolhido pelo usuário (30s/60s/90s; default 60s).
+problem: >
+  Produzir vídeos curtos com identidade visual consistente e auditável é caro e
+  inconsistente: a marca "vaza" quando o look fica a cargo de um modelo generativo.
+  ARKHEION resolve isso tornando a identidade (cor, geometria, fonte, timing, grade)
+  CÓDIGO determinístico — o LLM apenas descreve em JSON o conteúdo; o código desenha.
+target_audience: >
+  Criadores, estúdios e marcas que precisam de dossiês audiovisuais investigativos
+  reproduzíveis (educação/história, moda, arquitetura, direito, saúde, negócios,
+  tecnologia), com fidelidade de marca code-enforced e auditoria TCU-grade.
+expected_outputs:
+  - "squad.yaml e README premium"
+  - "Cânone como código (canon.py) e contratos SACP (schemas.py)"
+  - "Agentes greco-latinos (HÉGEMŌN, DIAÍRESIS, MŶTHOS, SKIÁGRAPHOS, TÝPOS, PHŌNĒ, KÁNŌN, TÉKTŌN, SÝNTHESIS, ELENCHUS, TURING)"
+  - "Tasks atômicas e workflows LangGraph com 3 gates HITL"
+  - "Scripts determinísticos: validador do Cânone, builder de plano sequencial, grade FFmpeg, plano de montagem e plano de HUD"
+  - "Testes que reprovam specs fora do Cânone"
+  - "Documentação (PRD, arquitetura, manual operacional, limitações)"
+constraints:
+  - "Idioma operacional pt-BR"
+  - "LLMs emitem APENAS JSON estruturado; todo cálculo (tipografia, geometria, timing, grade, montagem, áudio) roda em Python"
+  - "Aspecto 1:1, 24fps, master 2160² / entrega 1080²; CENA-10 = 10s exatos"
+  - "Cânone imutável: zero cores saturadas, zero neon, zero dourado, zero estética gamer"
+  - "Fontes restritas a famílias de licença aberta (Oxanium/Chakra Petch/Tektur/Orbitron/Share Tech Mono/Space Mono/IBM Plex Mono)"
+  - "Não copiar marcas, logos, prompts ou ativos proprietários de terceiros — apenas a lógica de composição"
+  - "Scripts rodam com a stdlib do Python 3.11+; dependências pesadas (pydantic/playwright/ffmpeg) são opcionais com fallback"
+integrations:
+  - "LangGraph (StateGraph) + Pydantic v2"
+  - "HTML/CSS + Playwright (HUD frame-a-frame)"
+  - "API text-to-video plugável (Kling/Runway/Veo/Luma)"
+  - "FFmpeg + MoviePy (grade/compositing/montagem)"
+  - "Langfuse (observabilidade)"
+security_level: "standard"
+human_approval_requirements:
+  - "Gate 1 · Triagem (confirma domínio Cynefin, tema, marca, CTA, ativos)"
+  - "Gate 2 · Roteiro (aprova os 6 títulos + textos digitados antes de gastar render)"
+  - "Gate 3 · Homologação (aprova entrega final ou pede regeneração de cena)"
+success_metrics:
+  - "6× CENA-10 aprovadas individualmente por KÁNŌN (hex/fonte/geometria/grade/timing)"
+  - "Master no tamanho escolhido, 1:1, 24fps, contador NN/TT coerente e moldura fixa"
+  - "Veredito ELENCHUS sem objeção de tom 'propaganda'"
+  - "Trace Langfuse completo com specs ↔ checksums linkados"
+budget_limit: "low-token (LLM só em JSON; render é o único custo variável, aprovado no Gate 2)"
+preferred_models:
+  - "opus (orquestração/narrativa)"
+  - "sonnet (specs de cena)"

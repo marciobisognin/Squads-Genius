@@ -1,0 +1,15 @@
+id: "03_footage_specs"
+stage: "S3"
+owner: skiagraphos
+objective: "Para cada cena, produzir FootageSpec (Trilho B) com prompt positivo e negativo canônicos."
+inputs:
+  - "PlanoSequencial (beats)"
+outputs:
+  - "N x FootageSpec (JSON)"
+steps:
+  - "Escolher plano e movimento canônicos; ancorar no tema e ativos do usuário."
+  - "Incluir prompt_negativo canônico (sem cor saturada/neon/3D/look corporativo)."
+acceptance_criteria:
+  - "Plano/movimento válidos; duração 10s; sem estética proibida"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

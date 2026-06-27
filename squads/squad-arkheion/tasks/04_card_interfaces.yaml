@@ -1,0 +1,15 @@
+id: "04_card_interfaces"
+stage: "S4"
+owner: typos
+objective: "Para cada cena, produzir CardInterface (Trilho A) — conteúdo do HUD, sem liberdade estética."
+inputs:
+  - "PlanoSequencial (beats)"
+outputs:
+  - "N x CardInterface (JSON)"
+steps:
+  - "Copiar contador e titulo do beat; montar rodape e metadados (geometria 2.4)."
+  - "No beat prova_visual, definir dataviz (barra/numero/comparacao/timeline)."
+acceptance_criteria:
+  - "Contador NN/TT coerente; titulo CAIXA ALTA <=4 palavras; fonte permitida"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

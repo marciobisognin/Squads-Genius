@@ -1,0 +1,31 @@
+id: "full_arkheion_pipeline"
+description: "Pipeline completo ARKHEION (LangGraph StateGraph): do tema + tamanho ao dossiê master homologado."
+human_in_loop: true
+invariante: "LLM gera apenas JSON; tipografia, geometria, timing, grade, montagem e áudio são Python determinístico"
+rollback: "reprovação KÁNŌN volta ao agente; falha de render regenera só a cena (TURING)"
+observability: "Langfuse: job -> estágio -> agente -> CENA-10; specs <-> checksums linkados"
+canone: "A imagem é a prova. O LLM descreve; o código desenha; o silêncio acusa."
+steps:
+  - {order: 0,  stage: S0,  name: "Intake + resolução do tamanho", owner: hegemon,     task: 00_intake,              gate_required: false}
+  - {order: 1,  stage: S1,  name: "Triagem Cynefin",               owner: diairesis,   task: 01_triagem_cynefin,     gate_required: true, gate: gate_1_triagem}
+  - {order: 2,  stage: S2,  name: "Plano sequencial (N beats)",    owner: mythos,      task: 02_plano_sequencial,    gate_required: true, gate: gate_2_roteiro}
+  - {order: 3,  stage: S3,  name: "Footage specs (Trilho B) xN",   owner: skiagraphos, task: 03_footage_specs,       gate_required: false, fan_out: true}
+  - {order: 4,  stage: S4,  name: "Card interfaces (Trilho A) xN", owner: typos,       task: 04_card_interfaces,     gate_required: false, fan_out: true}
+  - {order: 5,  stage: S5,  name: "Audio spec",                    owner: phone,       task: 05_audio_spec,          gate_required: false}
+  - {order: 6,  stage: S6,  name: "KÁNŌN specs (bloqueante)",      owner: kanon,       task: 06_kanon_specs,         gate_required: false, loop: "reprova -> agente correspondente"}
+  - {order: 7,  stage: S7,  name: "Render CENA-10 xN",             owner: tekton,      task: 07_render_cenas,        gate_required: false, escape_hatch: turing}
+  - {order: 8,  stage: S8,  name: "KÁNŌN cenas",                   owner: kanon,       task: 08_kanon_cenas,         gate_required: false, loop: "reprova -> regenera só a cena"}
+  - {order: 9,  stage: S9,  name: "Síntese do master",            owner: synthesis,   task: 09_synthesis_master,    gate_required: false}
+  - {order: 10, stage: S10, name: "Validação final (ELENCHUS+KÁNŌN)", owner: elenchus, task: 10_validacao_final,    gate_required: false}
+  - {order: 11, stage: S11, name: "Homologação + entrega",         owner: hegemon,     task: 11_homologacao_entrega, gate_required: true, gate: gate_3_homologacao}
+quality_gates:
+  - gate_1_triagem
+  - gate_2_roteiro
+  - gate_3_homologacao
+failure_policy:
+  json_malformado: "repair + retry (máx 2)"
+  erro_api: "backoff exponencial (máx 3: 2s, 4s, 8s)"
+  kanon_persistente: "escala a HITL após >=2 reprovações com diagnóstico"
+outputs:
+  - "outputs/master_2160.mp4 + outputs/entrega_1080.mp4 + manifesto de artefatos"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

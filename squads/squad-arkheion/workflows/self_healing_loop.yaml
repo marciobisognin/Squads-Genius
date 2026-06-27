@@ -1,0 +1,12 @@
+id: "self_healing_loop"
+description: "Loop de self-healing (TURING) que envolve todos os nós do StateGraph."
+human_in_loop: false
+trigger: "qualquer falha de nó (JSON malformado, erro de API, reprovação KÁNŌN)"
+steps:
+  - {order: 0, name: "Captura do evento de falha", owner: turing, detail: "nó, tipo, payload"}
+  - {order: 1, name: "Classificar falha",          owner: turing, detail: "json | api | kanon"}
+  - {order: 2, name: "Aplicar política",           owner: turing, detail: "repair+retry (json, máx 2) / backoff (api, máx 3) / escalar (kanon >=2)"}
+  - {order: 3, name: "Re-despachar ou escalar",    owner: hegemon, detail: "retoma o nó ou aciona HITL com diagnóstico"}
+exit_condition: "nó conclui com envelope válido OU escalonamento a HITL"
+observability: "toda decisão de healing é logada no trace Langfuse"
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

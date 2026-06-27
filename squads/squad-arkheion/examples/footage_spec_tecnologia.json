@@ -1,0 +1,10 @@
+{
+  "cena_idx": 1,
+  "assunto": "corredor de servidores em data center, luzes pontuais",
+  "plano": "close",
+  "movimento": "push_lento",
+  "iluminacao": "luzes pontuais, pretos esmagados, reflexo frio em metal",
+  "prompt_positivo": "close investigativo de rack de servidores, cabos organizados, leds discretos, atmosfera analógica de arquivo confidencial, granulação de filme, alto contraste, quase preto e branco",
+  "prompt_negativo": "cor saturada, neon, 3D, holograma, look corporativo, branco digital puro, transição TikTok",
+  "duracao_s": 10
+}

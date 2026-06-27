@@ -1,0 +1,18 @@
+id: "01_triagem_cynefin"
+stage: "S1"
+owner: diairesis
+objective: "Classificar o briefing no domínio Cynefin e validar completude. Gate 1."
+inputs:
+  - "Briefing + JobState"
+outputs:
+  - "Classificacao (JSON validado)"
+steps:
+  - "Determinar domínio Cynefin (obvio/complicado/complexo/caotico) com justificativa."
+  - "Listar faltantes; caótico/insuficiente -> bounce ao usuário."
+  - "Complicado -> requer_pesquisa=true (sub-passo em MYTHOS)."
+acceptance_criteria:
+  - "Domínio justificado; faltantes explícitos quando houver"
+gate_required: true
+gate: "gate_1_triagem"
+gate_note: "Humano confirma domínio, tema, marca, CTA, tamanho e injeta ativos."
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

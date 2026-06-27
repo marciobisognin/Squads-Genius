@@ -1,0 +1,10 @@
+{
+  "cena_idx": 5,
+  "contador": "05 / 06",
+  "titulo": "DADOS REAIS",
+  "linhas_texto": ["latência reduzida.", "custo sob controle."],
+  "rodape": "NOUS LAB / ARK-TEC-001",
+  "metadados_topo_esq": "NOUS LAB · PROTOCOLO ARK-TEC-001",
+  "fonte_titulo": "Oxanium",
+  "dataviz": {"tipo": "numero", "rotulo": "REDUCAO DE LATENCIA", "valor": "63%"}
+}

@@ -1,0 +1,15 @@
+id: "06_kanon_specs"
+stage: "S6"
+owner: kanon
+objective: "Validar numericamente todas as specs contra o Cânone antes de gastar render. Gate bloqueante."
+inputs:
+  - "PlanoSequencial + N x FootageSpec + N x CardInterface"
+outputs:
+  - "vereditos KÁNŌN (JSON) por artefato"
+steps:
+  - "Rodar scripts/kanon.py em plano, cards e footage."
+  - "Reprovação -> devolver ao agente correspondente (MYTHOS/SKIAGRAPHOS/TYPOS)."
+acceptance_criteria:
+  - "Todos os artefatos aprovados (motivos vazios) antes de S7"
+gate_required: false
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

@@ -1,0 +1,10 @@
+# Briefing de exemplo ARKHEION — o usuário informa o tema e o tamanho do vídeo.
+tema: "infraestrutura de IA"
+marca: "NOUS LAB"
+protocolo: "ARK-TEC-001"          # topo-esquerda (máx 24 chars)
+cta: "o arquivo está aberto. a operação começou."
+duracao_total_s: 60                # tamanho do vídeo: 30 | 60 | 90 (default 60)
+encerramento: "escuro"             # escuro | branco
+fonte_titulo: "Oxanium"
+duracao_por_cena_s: 10
+ativos_disponiveis: []             # b-roll/logos do usuário (injetados no Gate 1)

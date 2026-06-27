@@ -1,0 +1,6 @@
+{
+  "mood_drone": "industrial escuro, graves discretos, pulso lento crescente até o beat 06",
+  "cues_sfx": ["teclado@beat1", "cursor@beat2", "impacto_seco@beat5", "interferencia_fita@beat6"],
+  "silencios_s": [49.2],
+  "script_locucao": null
+}
