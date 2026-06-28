@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/sacp_contract.schema.json",
+  "title": "Contrato SACP (handoff do Anel da Forja)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contrato_id", "emissor", "receptor", "estrato", "ato", "timestamp", "payload", "schema_ref"],
+  "properties": {
+    "contrato_id": {"type": "string"},
+    "emissor": {"type": "string"},
+    "receptor": {"type": "string"},
+    "estrato": {"type": "string", "enum": ["telos", "logos", "organon", "kyklos", "mneme"]},
+    "ato": {"type": "string", "enum": ["noesis", "boule", "diairesis", "praxis", "elenchos", "krisis", "anamnesis"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "payload": {"type": "object"},
+    "schema_ref": {"type": "string"},
+    "evidencias": {"type": "array", "items": {"type": "string"}},
+    "veredito": {"type": "string", "enum": ["aprovado", "reprovado", "revisar", "escalar"]},
+    "custo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tokens_estimados": {"type": "integer"},
+        "tokens_reais": {"type": "integer"},
+        "chamadas_ferramenta": {"type": "integer"},
+        "custo_monetario": {"type": ["number", "string"]}
+      }
+    },
+    "requer_humano": {"type": "boolean"}
+  }
+}

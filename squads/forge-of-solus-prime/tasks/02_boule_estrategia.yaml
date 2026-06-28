@@ -1,0 +1,26 @@
+id: 02_boule_estrategia
+act: boule
+assigned_agent: "OPTIMUS PRIME"
+description: >
+  Decidir estratégia, nível de autonomia (L1/L2/L3) e topologia de agentes a partir da classe Cynefin.
+dependencies:
+  - "01_noesis_intake"
+inputs:
+  - "briefing.normalizado.yaml"
+  - "cynefin.json"
+outputs:
+  - "plano de execução"
+  - "roteamento de modelos (token_budget parcial)"
+validation_rules:
+  - "autonomia derivada da classe Cynefin"
+  - "chaotic nunca acima de L1"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: true
+failure_behavior: escalate
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,110 @@
+{
+  "status": "pass",
+  "score": 90,
+  "cynefin": "complex",
+  "autonomy_level": "L1",
+  "files_generated": [
+    "briefing.normalizado.yaml",
+    "cynefin.json",
+    "grafo_requisitos.json",
+    "tool_evaluation.json",
+    "squad.yaml",
+    "AGENTS.md",
+    "LOOP.md",
+    "CONVENTIONS.md",
+    "run_state.json",
+    "token_budget.json",
+    "evidence.md",
+    "quality_report.json"
+  ],
+  "validations": [
+    {
+      "gate": "briefing",
+      "ok": true
+    },
+    {
+      "gate": "cynefin",
+      "ok": true
+    },
+    {
+      "gate": "pesquisa",
+      "ok": true
+    },
+    {
+      "gate": "arquitetura",
+      "ok": true
+    },
+    {
+      "gate": "tarefa",
+      "ok": true
+    }
+  ],
+  "tests": [],
+  "pathologies_checked": [
+    "pseudo_telos",
+    "opacidade",
+    "dispendio",
+    "abdicacao",
+    "metastase",
+    "deriva"
+  ],
+  "risks": [
+    "L1 report-only: nenhuma ação externa/destrutiva executada"
+  ],
+  "human_review_items": [
+    "aprovar subida de autonomia, se desejada",
+    "aprovar integração de instrumentos de risco médio/alto"
+  ],
+  "tool_evaluations": [
+    {
+      "tool": "Pydantic v2",
+      "score": 0.9175,
+      "decision": "incorporate"
+    },
+    {
+      "tool": "pytest",
+      "score": 0.915,
+      "decision": "incorporate"
+    },
+    {
+      "tool": "LangGraph",
+      "score": 0.905,
+      "decision": "incorporate"
+    },
+    {
+      "tool": "jsonschema",
+      "score": 0.8475,
+      "decision": "incorporate"
+    },
+    {
+      "tool": "ripgrep",
+      "score": 0.8375,
+      "decision": "incorporate"
+    },
+    {
+      "tool": "Langfuse",
+      "score": 0.8125,
+      "decision": "incorporate"
+    }
+  ],
+  "token_economy": {
+    "estimated_token_budget": 200000,
+    "usage": 14200
+  },
+  "learnings": [
+    {
+      "tipo": "pattern",
+      "destino": "knowledge/patterns/",
+      "titulo": "Roteamento complex → L1",
+      "conteudo": "Briefings classificados como 'complex' roteiam para L1; registrar como padrão de decomposição de microtarefas."
+    },
+    {
+      "tipo": "connector",
+      "destino": "knowledge/connectors/",
+      "titulo": "Instrumentos aprovados nesta run",
+      "conteudo": "Pydantic v2, pytest, LangGraph, jsonschema, ripgrep, Langfuse"
+    }
+  ],
+  "recommendation": "ship",
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

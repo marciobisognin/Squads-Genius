@@ -1,0 +1,24 @@
+id: 04_jazz_pesquisa
+act: praxis
+assigned_agent: "JAZZ"
+description: >
+  Pesquisar instrumentos candidatos (offline no MVP) e propor métricas qualitativas.
+dependencies:
+  - "03_diairesis_decomposicao"
+inputs:
+  - "necessidades técnicas do grafo"
+outputs:
+  - "tool_candidates.json"
+validation_rules:
+  - ">=3 candidatas quando aplicável"
+  - "sem rede sem gate HITL"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: false
+failure_behavior: skip_with_report
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

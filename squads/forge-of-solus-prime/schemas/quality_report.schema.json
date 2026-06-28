@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/quality_report.schema.json",
+  "title": "Relatório de qualidade (estrato KÝKLOS)",
+  "type": "object",
+  "required": ["status", "pathologies_checked", "recommendation"],
+  "properties": {
+    "status": {"type": "string", "enum": ["pass", "warn", "fail"]},
+    "score": {"type": "number"},
+    "cynefin": {"type": "string", "enum": ["clear", "complicated", "complex", "chaotic"]},
+    "autonomy_level": {"type": "string", "enum": ["L1", "L2", "L3"]},
+    "files_generated": {"type": "array", "items": {"type": "string"}},
+    "validations": {"type": "array"},
+    "tests": {"type": "array"},
+    "pathologies_checked": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["pseudo_telos", "opacidade", "dispendio", "abdicacao", "metastase", "deriva"]},
+      "minItems": 6
+    },
+    "risks": {"type": "array"},
+    "human_review_items": {"type": "array"},
+    "tool_evaluations": {"type": "array"},
+    "token_economy": {"type": "object"},
+    "learnings": {"type": "array"},
+    "recommendation": {"type": "string", "enum": ["ship", "revise", "block"]}
+  },
+  "additionalProperties": true
+}

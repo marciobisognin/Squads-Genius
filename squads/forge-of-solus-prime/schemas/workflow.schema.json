@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/workflow.schema.json",
+  "title": "Workflow do Anel da Forja",
+  "type": "object",
+  "required": ["id", "steps"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "autonomy_level": {"type": "string", "enum": ["L1", "L2", "L3"]},
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["act", "agent"],
+        "properties": {
+          "act": {"type": "string"},
+          "agent": {"type": "string"},
+          "gate": {"type": "string"},
+          "human_approval": {"type": "boolean"}
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

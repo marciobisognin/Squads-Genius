@@ -1,0 +1,27 @@
+id: 10_anamnesis_consolidacao
+act: anamnesis
+assigned_agent: "ALPHA TRION"
+description: >
+  Consolidar >=1 aprendizado reutilizável em knowledge/ (ou descarte justificado) e empacotar a entrega.
+dependencies:
+  - "09_krisis_revisao"
+inputs:
+  - "logs, reviews, resultados"
+  - "run_state.json"
+outputs:
+  - "patches de knowledge/ (report-only)"
+  - "evidence.md"
+  - "pack.zip"
+validation_rules:
+  - "Lei da Anámnēsis: >=1 aprendizado ou descarte explícito"
+  - "6 patologias verificadas"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: true
+failure_behavior: escalate
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

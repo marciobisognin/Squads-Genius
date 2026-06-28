@@ -1,0 +1,25 @@
+id: 01_noesis_intake
+act: noesis
+assigned_agent: "BLASTER"
+description: >
+  Normalizar a intenção em briefing estruturado com critérios de aceite e classificar o Portão de Cynefin.
+dependencies:
+  []
+inputs:
+  - "texto livre / YAML / JSON do operador"
+outputs:
+  - "briefing.normalizado.yaml"
+  - "cynefin.json"
+validation_rules:
+  - "briefing valida contra schemas/briefing.schema.json"
+  - "classe Cynefin registrada com justificativa"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: true
+failure_behavior: escalate
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

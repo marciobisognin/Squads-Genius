@@ -1,0 +1,10 @@
+# Forge of Solus Prime — dependências OPCIONAIS.
+# Em modo L1 report-only o squad roda só com a stdlib do Python 3.11+.
+# Habilite conforme a necessidade da run (gates HITL para rede/observabilidade).
+
+pydantic>=2.0        # contratos SACP tipados (fallback: dataclasses)
+pyyaml>=6.0          # leitura de briefings YAML (fallback: mini-parser interno)
+pytest>=7.0          # Lei do Élenchos: testes como evidência
+langgraph>=0.2       # StateGraph do Anel da Forja (opcional)
+langfuse>=2.0        # observabilidade por span (opcional)
+jsonschema>=4.0      # validação de payloads SACP (opcional)
