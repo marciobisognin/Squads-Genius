@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/agent.schema.json",
+  "title": "Agente do Anel da Forja",
+  "type": "object",
+  "required": ["id", "nome", "funcao", "ato"],
+  "properties": {
+    "id": {"type": "string"},
+    "nome": {"type": "string"},
+    "personagem": {"type": "string"},
+    "funcao": {"type": "string"},
+    "ato": {"type": "string", "enum": ["noesis", "boule", "diairesis", "praxis", "elenchos", "krisis", "anamnesis", "transversal"]},
+    "estrato": {"type": "string", "enum": ["telos", "logos", "organon", "kyklos", "mneme"]},
+    "tipo": {"type": "string", "enum": ["llm", "python", "hibrido"]},
+    "entrada_sacp": {"type": "string"},
+    "saida_sacp": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,135 @@
+name: "Forge of Solus Prime"
+code: "forge-of-solus-prime"
+commercial_name: "Forge of Solus Prime — O Martelo dos Primes"
+version: "1.0.0"
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: "@marciobisognin"
+slashPrefix: forja
+required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+framework: "Disciplina FORJA (metodologia autoral)"
+description: >
+  Meta-squad soberano cuja entrega são outros squads. Recebe uma intenção em
+  português, classifica-a pelo Portão de Cynefin, pesquisa e avalia instrumentos
+  com motor determinístico, projeta o time de agentes, decompõe o trabalho em
+  microtarefas contratuais (SACP), executa o Anel da Forja (NÓESIS → BOULḖ →
+  DIAÍRESIS → PRÂXIS → ÉLENCHOS → KRÍSIS → ANÁMNĒSIS), refuta e julga em sessão
+  fria, empacota um squad portável e consolida aprendizado reutilizável. Invariante:
+  o LLM só emite JSON; todo número, veredito e orçamento é Python puro e auditável.
+
+positioning: >
+  Uma ordem em português entra. Um squad validado, auditável e portável sai — e o
+  sistema fica mais inteligente a cada ordem. A forja que melhora a si mesma a
+  cada peça que forja.
+
+ecosystem: "OMNISCIENT"
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+domains:
+  - construcao_de_squads
+  - sistemas_de_ia
+  - engenharia_de_agentes
+  - automacao
+  - pesquisa
+
+principles:
+  - "Lei da Fronteira Determinística: o LLM só emite JSON; todo cálculo é Python (Decimal)"
+  - "Lei do Contrato: todo handoff é um contrato SACP tipado (extra=forbid)"
+  - "Lei do Portão de Cynefin: classificar antes de agir; caos nunca roda autônomo"
+  - "Lei do Mínimo Suficiente: agente novo só por responsabilidade exclusiva"
+  - "Lei do Élenchos: nada é 'pronto' sem evidência verificável"
+  - "Lei da Crise Independente: revisão fria, separada do executor"
+  - "Lei da Anámnēsis: todo ciclo deixa >=1 aprendizado ou descarte explícito"
+
+estratos:
+  - {nome: TELOS,   etimo: "τέλος — fim/propósito",     artefatos: "briefing.normalizado.yaml, cynefin.json"}
+  - {nome: LOGOS,   etimo: "λόγος — razão/contrato",    artefatos: "grafo_requisitos.json, contratos SACP"}
+  - {nome: ORGANON, etimo: "ὄργανον — instrumento",     artefatos: "agents/*, allowlist, tool_evaluation.json"}
+  - {nome: KYKLOS,  etimo: "κύκλος — ciclo",            artefatos: "LOOP.md, run_state.json, quality_report.json"}
+  - {nome: MNEME,   etimo: "μνήμη — memória",           artefatos: "knowledge/ (padrões, anti-padrões, templates)"}
+
+stack:
+  orquestracao: "LangGraph (StateGraph) + Python 3.11+"
+  contratos: "Pydantic v2 (fallback dataclasses)"
+  pontuacao: "Decimal (Python stdlib) — auditável e reproduzível"
+  observabilidade: "Langfuse (spans por ato)"
+  testes: "pytest"
+  portabilidade: "stdlib-first; roda sem dependências externas em modo report-only"
+
+agents:
+  - {id: optimus,      file: agents/optimus.md,      ato: boule,      role: "Orquestra o Anel, decide rota, autonomia e topologia."}
+  - {id: blaster,      file: agents/blaster.md,      ato: noesis,     role: "Normaliza a intenção em briefing estruturado."}
+  - {id: hound,        file: agents/hound.md,        ato: noesis,     role: "Monta contexto mínimo suficiente (evidence.md)."}
+  - {id: grapple,      file: agents/grapple.md,      ato: diairesis,  role: "Define harness e arquitetura do squad."}
+  - {id: prowl,        file: agents/prowl.md,        ato: diairesis,  role: "Decompõe objetivo em 3-7 tarefas contratuais."}
+  - {id: jazz,         file: agents/jazz.md,         ato: praxis,     role: "Pesquisa instrumentos (offline no MVP)."}
+  - {id: perceptor,    file: agents/perceptor.md,    ato: praxis,     role: "Pontua instrumentos com motor Decimal."}
+  - {id: wheeljack,    file: agents/wheeljack.md,    ato: praxis,     role: "Gera agentes com contratos completos."}
+  - {id: ratchet,      file: agents/ratchet.md,      ato: praxis,     role: "Gera scripts determinísticos e conectores."}
+  - {id: kup,          file: agents/kup.md,          ato: boule,      role: "Economia de tokens e orçamento por run."}
+  - {id: red-alert,    file: agents/red-alert.md,    ato: transversal, role: "Monitora as 6 patologias da Forja."}
+  - {id: ironhide,     file: agents/ironhide.md,     ato: praxis,     role: "Executa as microtarefas permitidas."}
+  - {id: hoist,        file: agents/hoist.md,        ato: elenchos,   role: "Refuta 'pronto': testes, schema, evidência."}
+  - {id: ultra-magnus, file: agents/ultra-magnus.md, ato: krisis,     role: "Revisão fria e adversarial independente."}
+  - {id: alpha-trion,  file: agents/alpha-trion.md,  ato: anamnesis,  role: "Consolida aprendizado em knowledge/."}
+  - {id: bumblebee,    file: agents/bumblebee.md,    ato: praxis,     role: "Empacota o squad portável (manifesto neutro)."}
+
+tasks:
+  - {id: "01_noesis_intake",          file: tasks/01_noesis_intake.yaml,          owner: BLASTER}
+  - {id: "02_boule_estrategia",       file: tasks/02_boule_estrategia.yaml,       owner: "OPTIMUS PRIME"}
+  - {id: "03_diairesis_decomposicao", file: tasks/03_diairesis_decomposicao.yaml, owner: PROWL}
+  - {id: "04_jazz_pesquisa",          file: tasks/04_jazz_pesquisa.yaml,          owner: JAZZ}
+  - {id: "05_perceptor_avaliacao",    file: tasks/05_perceptor_avaliacao.yaml,    owner: PERCEPTOR}
+  - {id: "06_grapple_arquitetura",    file: tasks/06_grapple_arquitetura.yaml,    owner: GRAPPLE}
+  - {id: "07_praxis_geracao",         file: tasks/07_praxis_geracao.yaml,         owner: IRONHIDE}
+  - {id: "08_elenchos_verificacao",   file: tasks/08_elenchos_verificacao.yaml,   owner: HOIST}
+  - {id: "09_krisis_revisao",         file: tasks/09_krisis_revisao.yaml,         owner: "ULTRA MAGNUS"}
+  - {id: "10_anamnesis_consolidacao", file: tasks/10_anamnesis_consolidacao.yaml, owner: "ALPHA TRION"}
+
+workflows:
+  - {id: anel_completo,            file: workflows/anel_completo.yaml}
+  - {id: apenas_pesquisa,          file: workflows/apenas_pesquisa.yaml}
+  - {id: forja_deterministica,     file: workflows/forja_deterministica.yaml}
+  - {id: execucao_assistida,       file: workflows/execucao_assistida.yaml}
+  - {id: consolidacao_aprendizado, file: workflows/consolidacao_aprendizado.yaml}
+
+scripts:
+  - {file: scripts/forge.py,                 desc: "CLI principal: plan / init / validate."}
+  - {file: scripts/forge_graph.py,           desc: "StateGraph + topologia dos sete atos."}
+  - {file: scripts/sacp.py,                  desc: "Contratos SACP (Pydantic v2, fallback dataclasses)."}
+  - {file: scripts/cynefin_gate.py,          desc: "Portão de Cynefin (roteamento determinístico)."}
+  - {file: scripts/discover_tools.py,        desc: "JAZZ — descoberta offline de instrumentos."}
+  - {file: scripts/evaluate_tool.py,         desc: "PERCEPTOR — motor de pontuação Decimal."}
+  - {file: scripts/token_budget.py,          desc: "KUP — orçamento de tokens por run."}
+  - {file: scripts/validate_squad.py,        desc: "Gates dos 5 estratos + 6 patologias."}
+  - {file: scripts/build_pack.py,            desc: "BUMBLEBEE — manifesto neutro + ZIP."}
+  - {file: scripts/consolidate_learning.py,  desc: "ALPHA TRION — consolidação (report-only)."}
+  - {file: scripts/forge_common.py,          desc: "Utilidades compartilhadas (loader YAML/JSON)."}
+
+quality_gates:
+  - gate_briefing
+  - gate_cynefin
+  - gate_pesquisa
+  - gate_arquitetura
+  - gate_tarefa
+  - gate_contrato
+  - gate_workflow
+  - gate_script
+  - gate_teste
+  - gate_seguranca
+  - gate_custo
+  - gate_compreensao
+  - gate_aprendizado
+
+patologias:
+  - {nome: PSEUDO-TELOS,           controle: "Lei do Élenchos: gate de evidência obrigatório"}
+  - {nome: OPACIDADE-PROGRESSIVA,  controle: "Resumo humano + ADR + comentário de diff por ciclo"}
+  - {nome: DISPENDIO-DESGOVERNADO, controle: "Orçamento por run + parada após 2 falhas iguais"}
+  - {nome: ABDICACAO,              controle: "Gates HITL + explicabilidade + L3 só allowlisted"}
+  - {nome: METASTASE-DE-AGENTES,   controle: "Lei do Mínimo Suficiente: responsabilidade exclusiva"}
+  - {nome: DERIVA-DE-CONTRATO,     controle: "Schema SACP em todo handoff + extra=forbid + append-only"}
+
+footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."

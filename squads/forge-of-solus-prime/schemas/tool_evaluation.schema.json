@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/tool_evaluation.schema.json",
+  "title": "Avaliação de instrumento (PERCEPTOR)",
+  "type": "object",
+  "required": ["tool", "metrics", "fit_score", "decision"],
+  "properties": {
+    "tool": {"type": "string"},
+    "url": {"type": "string"},
+    "license": {"type": "string"},
+    "use_case": {"type": "string"},
+    "metrics": {
+      "type": "object",
+      "required": ["fit", "licenca", "manutencao", "seguranca", "instalacao", "testabilidade", "interop_agente"],
+      "properties": {
+        "fit": {"type": "number", "minimum": 0, "maximum": 1},
+        "licenca": {"type": "number", "minimum": 0, "maximum": 1},
+        "manutencao": {"type": "number", "minimum": 0, "maximum": 1},
+        "seguranca": {"type": "number", "minimum": 0, "maximum": 1},
+        "instalacao": {"type": "number", "minimum": 0, "maximum": 1},
+        "testabilidade": {"type": "number", "minimum": 0, "maximum": 1},
+        "interop_agente": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "fit_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "risk_level": {"type": "string", "enum": ["low", "medium", "high"]},
+    "integration_mode": {"type": "string", "enum": ["cli", "api", "mcp", "library", "reference_only"]},
+    "decision": {"type": "string", "enum": ["incorporate", "adapt", "reject", "watch", "pending"]},
+    "evidence": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

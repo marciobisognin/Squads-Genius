@@ -1,0 +1,19 @@
+id: apenas_pesquisa
+name: "Apenas pesquisa (Modo 0/2 — Blueprint)"
+description: >
+  Descobre e avalia instrumentos e propõe arquitetura, sem gerar código. Saídas:
+  matriz de fontes, tool_evaluation.json, proposta de arquitetura, roadmap e
+  riscos. Útil para decisão estratégica antes de construir.
+autonomy_level: L1
+steps:
+  - {act: noesis,    agent: BLASTER,   gate: "briefing normalizado",        human_approval: false}
+  - {act: noesis,    agent: HOUND,     gate: "evidence.md + mapa de fontes", human_approval: false}
+  - {act: praxis,    agent: JAZZ,      gate: "tool_candidates.json",         human_approval: false}
+  - {act: praxis,    agent: PERCEPTOR, gate: "tool_evaluation.json",         human_approval: false}
+  - {act: diairesis, agent: GRAPPLE,   gate: "proposta de arquitetura",      human_approval: true}
+outputs:
+  - "matriz de fontes"
+  - "tool_evaluation.json"
+  - "proposta de arquitetura + roadmap + riscos"
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

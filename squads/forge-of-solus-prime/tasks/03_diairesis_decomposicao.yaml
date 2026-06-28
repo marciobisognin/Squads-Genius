@@ -1,0 +1,25 @@
+id: 03_diairesis_decomposicao
+act: diairesis
+assigned_agent: "PROWL"
+description: >
+  Decompor o objetivo em 3–7 tarefas com microtarefas contratuais (entrada/saída/validação/custo/falha).
+dependencies:
+  - "02_boule_estrategia"
+inputs:
+  - "briefing.normalizado.yaml"
+  - "plano de execução"
+outputs:
+  - "grafo_requisitos.json"
+validation_rules:
+  - "cada tarefa tem contrato completo"
+  - "3<=n_tarefas<=7"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: false
+failure_behavior: retry
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

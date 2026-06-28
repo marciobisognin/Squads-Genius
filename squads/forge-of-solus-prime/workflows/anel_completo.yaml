@@ -1,0 +1,28 @@
+id: anel_completo
+name: "Anel completo da Forja"
+description: >
+  Travessia integral dos cinco estratos e dos sete atos do Anel: do briefing à
+  entrega empacotada, com refutação, juízo independente e consolidação de
+  aprendizado. Padrão do produto em L1 report-only.
+autonomy_level: L1
+steps:
+  - {act: noesis,    agent: BLASTER,       gate: "briefing normalizado + Cynefin", human_approval: false}
+  - {act: boule,     agent: "OPTIMUS PRIME", gate: "nível L1/L2/L3 definido",        human_approval: true}
+  - {act: diairesis, agent: PROWL,         gate: "3-7 tarefas contratuais",         human_approval: false}
+  - {act: praxis,    agent: JAZZ,          gate: "tool_candidates.json",            human_approval: false}
+  - {act: praxis,    agent: PERCEPTOR,     gate: "tool_evaluation.json (Decimal)",  human_approval: false}
+  - {act: diairesis, agent: GRAPPLE,       gate: "arquitetura sem sobreposição",    human_approval: false}
+  - {act: praxis,    agent: WHEELJACK,     gate: "agents/* gerados",                human_approval: false}
+  - {act: praxis,    agent: RATCHET,       gate: "scripts compilam",                human_approval: false}
+  - {act: boule,     agent: KUP,           gate: "token_budget.json",               human_approval: false}
+  - {act: praxis,    agent: IRONHIDE,      gate: "artefato + log + custo",          human_approval: false}
+  - {act: elenchos,  agent: HOIST,         gate: "validação verde + evidência",     human_approval: false}
+  - {act: krisis,    agent: "ULTRA MAGNUS", gate: "veredito do revisor independente", human_approval: true}
+  - {act: praxis,    agent: BUMBLEBEE,     gate: "pacote + manifesto neutro",       human_approval: true}
+  - {act: anamnesis, agent: "ALPHA TRION", gate: ">=1 aprendizado consolidado",     human_approval: false}
+self_healing:
+  max_retries: 2
+  rule: "falha idêntica 2x consecutivas -> escala para humano (HITL)"
+supervisor: "RED ALERT monitora as 6 patologias durante todo o Anel"
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

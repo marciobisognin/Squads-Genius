@@ -1,0 +1,25 @@
+id: 09_krisis_revisao
+act: krisis
+assigned_agent: "ULTRA MAGNUS"
+description: >
+  Julgar em sessão fria e adversarial, separada do executor: escopo, risco, incoerência e autoengano.
+dependencies:
+  - "08_elenchos_verificacao"
+inputs:
+  - "diff/artefatos validados (sem racional do executor)"
+outputs:
+  - "veredito + correções exigidas"
+  - "quality_report.json"
+validation_rules:
+  - "revisor não participou da implementação"
+  - "falha 2x igual => escala humano"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: true
+failure_behavior: escalate
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

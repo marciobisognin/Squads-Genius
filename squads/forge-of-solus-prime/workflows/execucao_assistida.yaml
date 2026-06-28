@@ -1,0 +1,21 @@
+id: execucao_assistida
+name: "Execução assistida (Modo 3 — L2)"
+description: >
+  Executa com IRONHIDE/HOIST/ULTRA MAGNUS e corrige até o limite. Pode criar
+  commit local; NUNCA faz push sem autorização humana registrada. Pré-requisito:
+  autorização para construir.
+autonomy_level: L2
+steps:
+  - {act: praxis,    agent: IRONHIDE,      gate: "artefatos + logs",            human_approval: false}
+  - {act: elenchos,  agent: HOIST,         gate: "testes verdes + schema",      human_approval: false}
+  - {act: krisis,    agent: "ULTRA MAGNUS", gate: "veredito independente",       human_approval: true}
+  - {act: praxis,    agent: BUMBLEBEE,     gate: "ZIP + commit local (sem push)", human_approval: true}
+outputs:
+  - "squad gerado + testes + exemplo executado"
+  - "quality_report.json"
+  - "ZIP + commit local OU PR pronto (sem push automático)"
+self_healing:
+  max_retries: 2
+  rule: "falha idêntica 2x -> escala para humano"
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,26 @@
+id: 06_grapple_arquitetura
+act: diairesis
+assigned_agent: "GRAPPLE"
+description: >
+  Definir a arquitetura do squad: agentes sem sobreposição, allowlist de ferramentas e critérios de pronto.
+dependencies:
+  - "05_perceptor_avaliacao"
+inputs:
+  - "grafo_requisitos.json"
+  - "tool_evaluation.json"
+outputs:
+  - "squad.yaml"
+  - "AGENTS.md"
+validation_rules:
+  - "agentes sem sobreposição (anti-METÁSTASE)"
+  - "allowlist explícita"
+retry_policy:
+  max_attempts: 2
+  stop_on_same_failure: 2
+human_approval: false
+failure_behavior: escalate
+cost_ceiling:
+  tokens: 30000
+  tool_calls: 10
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,24 @@
+id: consolidacao_aprendizado
+name: "Consolidação de aprendizado (ANÁMNĒSIS)"
+description: >
+  Executado ao fim de toda run. ALPHA TRION responde às perguntas obrigatórias e
+  registra >=1 aprendizado em knowledge/ (ou justifica o descarte). Fecha a Lei
+  da Anámnēsis.
+autonomy_level: L1
+steps:
+  - {act: anamnesis, agent: "ALPHA TRION", gate: ">=1 aprendizado ou descarte", human_approval: false}
+perguntas_obrigatorias:
+  - "o que falhou?"
+  - "o que foi resolvido de forma reutilizável?"
+  - "que checklist/template/script deve nascer?"
+  - "que skill criar/atualizar?"
+  - "que padrão evitar?"
+  - "que economia de tokens foi identificada?"
+destinos:
+  - knowledge/patterns/
+  - knowledge/anti_patterns/
+  - knowledge/templates/
+  - knowledge/connectors/
+  - knowledge/skills/
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

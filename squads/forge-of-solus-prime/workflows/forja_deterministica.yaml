@@ -1,0 +1,17 @@
+id: forja_deterministica
+name: "Forja determinística (Modo 1 — --no-llm)"
+description: >
+  Gera a estrutura do squad com templates e regras locais, sem chamadas a LLM.
+  Custo baixo, reprodutibilidade alta. Indicado para intenções classificadas
+  como Clear (rotina conhecida) ou para regeneração reprodutível.
+autonomy_level: L3
+steps:
+  - {act: noesis,    agent: BLASTER,  gate: "briefing carregado",          human_approval: false}
+  - {act: diairesis, agent: PROWL,    gate: "grafo determinístico",        human_approval: false}
+  - {act: praxis,    agent: RATCHET,  gate: "scripts/estrutura gerados",   human_approval: false}
+  - {act: elenchos,  agent: HOIST,    gate: "validate_squad --root run",   human_approval: false}
+notes:
+  - "L3 só é permitido aqui por escopo fechado e allowlisted (Clear)."
+  - "Nenhuma rede; nenhuma credencial; 100% reproduzível."
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

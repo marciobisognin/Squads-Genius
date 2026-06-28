@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://squads-genius/forge-of-solus-prime/task.schema.json",
+  "title": "Contrato de tarefa (estrato LÓGOS)",
+  "type": "object",
+  "required": ["id", "description", "assigned_agent", "act"],
+  "properties": {
+    "id": {"type": "string"},
+    "description": {"type": "string"},
+    "assigned_agent": {"type": "string"},
+    "act": {"type": "string", "enum": ["noesis", "boule", "diairesis", "praxis", "elenchos", "krisis", "anamnesis"]},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "input_schema": {"type": "object"},
+    "output_schema": {"type": "object"},
+    "validation_rules": {"type": "array", "items": {"type": "string"}},
+    "timeout_minutes": {"type": "integer"},
+    "retry_policy": {
+      "type": "object",
+      "properties": {
+        "max_attempts": {"type": "integer"},
+        "stop_on_same_failure": {"type": "integer"}
+      }
+    },
+    "human_approval": {"type": "boolean"},
+    "failure_behavior": {"type": "string", "enum": ["escalate", "retry", "rollback", "skip_with_report"]},
+    "cost_ceiling": {
+      "type": "object",
+      "properties": {
+        "tokens": {"type": "integer"},
+        "tool_calls": {"type": "integer"}
+      }
+    }
+  },
+  "additionalProperties": true
+}

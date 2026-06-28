@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forge-of-solus-prime"
+version = "1.0.0"
+description = "Meta-squad soberano que forja outros squads sob a Disciplina FORJA."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Marcio Bisognin" }]
+keywords = ["squad", "agents", "langgraph", "forja", "cynefin", "sacp"]
+
+# Dependências opcionais — o núcleo report-only roda só com a stdlib.
+dependencies = []
+
+[project.optional-dependencies]
+full = ["pydantic>=2.0", "pyyaml>=6.0", "langgraph>=0.2", "langfuse>=2.0", "jsonschema>=4.0"]
+test = ["pytest>=7.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

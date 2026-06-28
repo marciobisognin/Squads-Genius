@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forge of Solus Prime — O Martelo dos Primes — Squads Genius</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>:root{--accent:#f0529c;--accent-soft:#f0529c26;}</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Squads Genius</div>
+    <nav><a href="../index.html">← Todos os squads</a></nav>
+  </div>
+</header>
+
+<div class="wrap squad-hero">
+  <a class="back" href="../index.html">← voltar para a galeria</a>
+  <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-factory"/></svg></span> Forge of Solus Prime — O Martelo dos Primes</h1>
+  <p class="tagline">Meta-squad soberano cuja entrega são outros squads. Uma ordem em português entra; um squad validado, auditável e portável sai — e o sistema fica mais inteligente a cada ordem. Sob a Disciplina FORJA (autoral): o LLM só emite JSON; todo número, veredito e orçamento é Python determinístico.</p>
+  <div class="squad-links">
+      <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/tree/main/squads/forge-of-solus-prime" target="_blank" rel="noopener">📂 Ver no GitHub</a>
+      <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/blob/main/squads/forge-of-solus-prime/README.md" target="_blank" rel="noopener">📖 README</a>
+      <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/blob/main/squads/forge-of-solus-prime/squad.yaml" target="_blank" rel="noopener">⚙️ Manifesto (squad.yaml)</a>
+      <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/blob/main/squads/forge-of-solus-prime/docs/manual_operacional.md" target="_blank" rel="noopener">📘 Manual</a>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Agentes</h2>
+    <div class="agents">
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-orchestrator"/></svg></div>
+        <div><div class="role">Orquestrador</div><h4>OPTIMUS PRIME</h4><p>Conduz o Anel da Forja, decide rota, nível de autonomia (L1/L2/L3) e topologia; único que escala autonomia, sempre com gate HITL.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Intake (NÓESIS)</div><h4>BLASTER</h4><p>Normaliza a intenção bruta (texto/YAML/JSON) em briefing estruturado com critérios de aceite verificáveis.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Reconhecimento</div><h4>HOUND</h4><p>Monta o contexto mínimo suficiente (evidence.md) sem inflar tokens; mapeia e dedupica fontes.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-planner"/></svg></div>
+        <div><div class="role">Decomposição (DIAÍRESIS)</div><h4>PROWL</h4><p>Converte o objetivo em grafo de 3–7 tarefas com microtarefas contratuais (entrada/saída/validação/custo/falha).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-architect"/></svg></div>
+        <div><div class="role">Arquiteto</div><h4>GRAPPLE</h4><p>Define o harness e a arquitetura: ferramentas permitidas, permissões, schemas e critérios de pronto (anti-METÁSTASE).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-researcher"/></svg></div>
+        <div><div class="role">Pesquisa de instrumentos</div><h4>JAZZ</h4><p>Descobre ferramentas, CLIs, MCPs e padrões aplicáveis (offline no MVP); propõe métricas, nunca o score.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-scientist"/></svg></div>
+        <div><div class="role">Avaliação determinística</div><h4>PERCEPTOR</h4><p>Pontua instrumentos com motor Decimal (fit/licença/manutenção/risco/instalação/interop); risco alto nunca incorpora.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Gerador de agentes</div><h4>WHEELJACK</h4><p>Gera os agentes do squad-alvo com contratos completos (missão, étimo, schemas I/O, regras, comandos).</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-factory"/></svg></div>
+        <div><div class="role">Gerador de scripts</div><h4>RATCHET</h4><p>Fabrica scripts determinísticos, CLIs, adaptadores e conectores reais que compilam e tratam erro.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-strategist"/></svg></div>
+        <div><div class="role">Economia de tokens</div><h4>KUP</h4><p>Decide script vs. modelo barato/forte vs. cache vs. subagente; consolida o orçamento por run a partir dos spans.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Supervisor de patologias</div><h4>RED ALERT</h4><p>Monitora transversalmente as seis patologias da Forja e bloqueia/escalona quando um controle é violado.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-builder"/></svg></div>
+        <div><div class="role">Execução (PRÂXIS)</div><h4>IRONHIDE</h4><p>Executa as microtarefas permitidas, produzindo artefatos com log e custo registrados.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-validator"/></svg></div>
+        <div><div class="role">Refutação (ÉLENCHOS)</div><h4>HOIST</h4><p>Refuta 'pronto': roda testes, valida schema, abre arquivos e confere outputs. Sem evidência = falha.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-reviewer"/></svg></div>
+        <div><div class="role">Juízo (KRÍSIS)</div><h4>ULTRA MAGNUS</h4><p>Revisão fria e adversarial, em sessão separada do executor: escopo, risco, incoerência e autoengano.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-auditor"/></svg></div>
+        <div><div class="role">Memória (ANÁMNĒSIS)</div><h4>ALPHA TRION</h4><p>Consolida ≥1 aprendizado reutilizável em knowledge/ (padrões, anti-padrões, templates) ou descarte justificado.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
+        <div><div class="role">Empacotamento</div><h4>BUMBLEBEE</h4><p>Empacota o squad validado em ZIP com manifesto neutro instalável em qualquer runtime de agente compatível.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Ferramentas e scripts</h2>
+    <div class="tools">
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/forge.py</code><span>CLI principal: plan / init / validate. Percorre os cinco estratos em L1 report-only.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/cynefin_gate.py</code><span>Portão de Cynefin: classificação lexical + roteamento determinístico de autonomia/topologia.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/evaluate_tool.py</code><span>PERCEPTOR: motor de pontuação Decimal com pesos canônicos versionados (auditável e reproduzível).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/discover_tools.py</code><span>JAZZ: descoberta offline de instrumentos a partir dos termos do briefing.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/sacp.py</code><span>Contratos SACP tipados (Pydantic v2 com fallback dataclasses) — extra=forbid contra DERIVA.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/token_budget.py</code><span>KUP: orçamento de tokens por run derivado dos spans (números do Python, não do LLM).</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/validate_squad.py</code><span>Gates dos cinco estratos + verificação das seis patologias.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>scripts/build_pack.py</code><span>BUMBLEBEE: manifesto neutro + ZIP portável com checksums sha256.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Jornada <small>do briefing à entrega final</small></h2>
+    <div class="journey">
+      <div class="line"><div class="fill"></div></div>
+      <div class="step"><div class="num">1</div><div class="body"><h4>NÓESIS — Intake</h4><p>BLASTER normaliza a intenção em briefing; HOUND levanta o contexto mínimo suficiente.</p></div></div>
+      <div class="step"><div class="num">2</div><div class="body"><h4>Portão de Cynefin</h4><p>Classifica clear/complicated/complex/chaotic e deriva o nível de autonomia (caos nunca passa de L1).</p></div></div>
+      <div class="step"><div class="num">3</div><div class="body"><h4>BOULḖ — Estratégia</h4><p>OPTIMUS PRIME decide rota, autonomia e topologia; KUP estima o orçamento e roteia modelos.</p></div></div>
+      <div class="step"><div class="num">4</div><div class="body"><h4>DIAÍRESIS — Decomposição</h4><p>PROWL decompõe o objetivo em 3–7 tarefas com microtarefas contratuais (SACP).</p></div></div>
+      <div class="step"><div class="num">5</div><div class="body"><h4>Pesquisa + avaliação</h4><p>JAZZ descobre instrumentos; PERCEPTOR pontua com motor Decimal e decide incorporar/adaptar/rejeitar.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Arquitetura + geração</h4><p>GRAPPLE projeta o harness; WHEELJACK e RATCHET geram agentes e scripts determinísticos.</p></div></div>
+      <div class="step"><div class="num">7</div><div class="body"><h4>PRÂXIS — Execução</h4><p>IRONHIDE executa as microtarefas permitidas em modo report-only, com log e custo.</p></div></div>
+      <div class="step"><div class="num">8</div><div class="body"><h4>ÉLENCHOS — Refutação</h4><p>HOIST roda testes, valida schemas e confere outputs; ausência de evidência é tratada como falha.</p></div></div>
+      <div class="step"><div class="num">9</div><div class="body"><h4>KRÍSIS — Juízo</h4><p>ULTRA MAGNUS revisa em sessão fria e adversarial, separada do executor; self-healing com retries limitados.</p></div></div>
+      <div class="step"><div class="num">10</div><div class="body"><h4>ANÁMNĒSIS — Memória</h4><p>ALPHA TRION consolida ≥1 aprendizado em knowledge/ e BUMBLEBEE empacota o squad portável.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Entrega final</h2>
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
+      <div><strong>Squad portável e auditável</strong><span>Agentes + tarefas + workflows + scripts + docs com manifesto neutro, run_state.json, quality_report.json (6 patologias verificadas), token_budget.json e ≥1 aprendizado consolidado — empacotado em ZIP instalável em qualquer runtime de agente compatível.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="output-box">
+      <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div>
+      <div><strong>Repositório do squad</strong><span><a href="https://github.com/marciobisognin/Squads-Genius/tree/main/squads/forge-of-solus-prime" target="_blank" rel="noopener">Ver forge-of-solus-prime no GitHub →</a></span></div>
+    </div>
+  </div>
+</section>
+<footer>Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
