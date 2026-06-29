@@ -12,10 +12,19 @@ squads/
 ├── conteúdo-marketing-e-visual/                    (11 squads)
 ├── educação-e-desenvolvimento-cognitivo/           (9 squads)
 ├── jurídico-risco-finanças-e-segurança/           (7 squads)
-└── saúde-bem-estar-e-expressão/                    (7 squads)
+├── saúde-bem-estar-e-expressão/                    (7 squads)
+└── instituto-federal-farroupilha-iffar/            (18 squads)
 ```
 
-**Total: 67 squads não-IFFar** (+ 17 squads IFFar em `IFFar-Squads/squads/`)
+**Total: 85 squads** (67 gerais + 18 IFFar, todos em um único local)
+
+---
+
+## 🎓 Categoria Institucional IFFar
+
+Squads especializados para o Instituto Federal Farroupilha (IFFar), com soluções em compliance, gestão acadêmica e operacional.
+
+**18 squads IFFar** agora centralizados em `squads/instituto-federal-farroupilha-iffar/`
 
 ---
 
@@ -137,6 +146,34 @@ Squads para saúde mental, bem-estar e expressão pessoal.
 
 ---
 
+<<<<<<< HEAD
+=======
+### 8️⃣ Instituto Federal Farroupilha (IFFar) (18 squads)
+
+Squads especializados para o Instituto Federal Farroupilha, em compliance, gestão, inovação e operações.
+
+- 🎓 **Bussola Acadêmica IFFar** — Orientação e planejamento acadêmico
+- 🏛️ **Squad Docente IFFar** — Desenvolvimento e gestão docente
+- 📋 **Compliance IA IFFar** — Conformidade com IA
+- ⚖️ **Farol Contratos & Licitações IFFar** — Gestão de contratos e licitações
+- 📊 **Tesouraria Pública Squad** — Gestão de tesouraria pública
+- 📋 **Themis Contratos Públicos** — Análise de contratos públicos
+- 🎯 **Gestor Projetos IFFar** — Gestão de projetos institucional
+- 🔐 **Compliance IA IFFar** — Segurança e compliance
+- 📱 **PDI Vivo IFFar** — Plano de Desenvolvimento Institucional vivo
+- 🌱 **Germina 360** — Incubação e inovação
+- 🚀 **Orbita Incubadora** — Aceleração de projetos
+- 🤝 **Integra Incubadora Ops** — Operações de incubadora
+- 🧬 **Núcleo PRPI IFFar** — Pesquisa, Pós-graduação e Inovação
+- 🎬 **Prismaframe Executive Cinema Suite** — Apresentações executivas
+- 💰 **Argus Conta Vinculada** — Gestão de contas vinculadas
+- ⚖️ **Projur Contracts** — Análise jurídica de contratos
+- 🏗️ **Hefesto Forja Licitatória** — Forja de processos licitatórios
+- 🌿 **Vetorviveiro** — Viveiro de vetores (educação ambiental)
+
+---
+
+>>>>>>> claude/squad-repo-organization-9aedq5
 ## 🔗 Links e Referências
 
 - **Site oficial:** https://marciobisognin.github.io/Squads-Genius/
@@ -148,10 +185,19 @@ Squads para saúde mental, bem-estar e expressão pessoal.
 
 ## 📌 Notas sobre a Organização
 
+<<<<<<< HEAD
 1. **Estrutura determinística**: Os diretórios de categoria seguem nomenclatura em kebab-case para compatibilidade máxima
 2. **Links atualizados**: Todos os squads com links no `docs/build/squads_data.json` já foram atualizados para refletir os novos caminhos
 3. **Squads IFFar**: Mantidos separados em `IFFar-Squads/squads/` conforme política de organização institucional
 4. **Escalabilidade**: Estrutura pronta para novas categorias e squads sem refatoração
+=======
+1. **Estrutura centralizada**: Todos os squads (85 total) agora estão em `squads/`, organizados por 8 categorias
+2. **Nomenclatura determinística**: Os diretórios de categoria seguem padrão em kebab-case para compatibilidade máxima
+3. **Links atualizados**: Todos os squads com links no `docs/build/squads_data.json` foram atualizados para refletir os novos caminhos
+4. **Categoria IFFar integrada**: Os 18 squads institucionais estão em `instituto-federal-farroupilha-iffar/`, mesma estrutura das demais categorias
+5. **Escalabilidade**: Estrutura pronta para novas categorias e squads sem refatoração
+6. **Retrocompatibilidade**: O diretório `IFFar-Squads/` pode ser descontinuado ou mantido como referência
+>>>>>>> claude/squad-repo-organization-9aedq5
 
 ---
 
