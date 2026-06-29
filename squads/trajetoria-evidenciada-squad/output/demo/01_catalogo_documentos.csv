@@ -1,4 +1,0 @@
-id_documento,arquivo_origem,paginas,tipo,numero,data,assunto,emissor,confianca,status
-Doc. 01,portaria_123_2022.pdf,1,portaria,123/2022,2022-05-10,Designação para comissão de planejamento,,alta,classificado
-Doc. 02,certificado_evento_2021.pdf,1,certificado,,2021-09-20,Curso de gestão pública 40h,,alta,classificado
-Doc. 03,documento_duvidoso.pdf,1,indefinido,,,Documento com metadados insuficientes,,baixa,revisao_manual
