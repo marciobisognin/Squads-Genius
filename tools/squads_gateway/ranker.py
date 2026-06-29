@@ -28,7 +28,7 @@ def _tokenize(text: str) -> list[str]:
     out: list[str] = []
     for tok in tokens:
         tok = tok.strip()
-        if len(tok) >= 3 and tok not in STOPWORDS:
+        if len(tok) >= 2 and tok not in STOPWORDS:  # Reduzido de 3 para 2 chars
             out.append(tok)
     return out
 
@@ -52,46 +52,75 @@ def rank_squads(query: str, index_data: dict[str, Any], top_n: int = 5) -> list[
 
     squads = index_data.get("squads", [])
     for squad in squads:
+        # Combina todos os campos de busca do squad (em ordem de relevância)
+        squad_name_tokens = set(_tokenize(squad.get("name", "")))
+        squad_display_tokens = set(_tokenize(squad.get("display_name", "")))
         squad_keywords = set(squad.get("keywords", []))
+        squad_purpose_tokens = set(_tokenize(squad.get("purpose", "")))
+        squad_path_tokens = set(_tokenize(squad.get("path", "")))
 
         # Agentes como sub-pontuação
         agents = squad.get("agents", [])
-        for agent in agents:
-            agent_id = agent.get("id", "")
-            agent_role = agent.get("role", "")
-            agent_tokens = set(_tokenize(f"{agent_id} {agent_role}"))
 
-            # Scoring: agente (peso 2.0) + squad (peso 1.0)
-            direct_match = query_tokens & agent_tokens
-            context_match = (query_tokens & squad_keywords) - direct_match
+        if agents:
+            # Com agentes: prioriza match em agentes, depois squad
+            for agent in agents:
+                agent_id = agent.get("id", "")
+                agent_role = agent.get("role", "")
+                agent_tokens = set(_tokenize(f"{agent_id} {agent_role}"))
 
-            base_score = 2.0 * len(direct_match) + 1.0 * len(context_match)
+                # Scoring estruturado:
+                direct_match = query_tokens & agent_tokens  # Match em agente
+                name_match = (query_tokens & squad_name_tokens) - direct_match  # Match em nome
+                display_match = (query_tokens & squad_display_tokens) - direct_match - name_match
+                keyword_match = (query_tokens & squad_keywords) - direct_match - name_match - display_match
+                other_match = (query_tokens & (squad_purpose_tokens | squad_path_tokens)) - direct_match - name_match - display_match - keyword_match
+
+                # Pesos: agent (4.0) > nome (3.5) > display (3.0) > keywords (1.5) > outros (0.5)
+                base_score = (
+                    4.0 * len(direct_match) +
+                    3.5 * len(name_match) +
+                    3.0 * len(display_match) +
+                    1.5 * len(keyword_match) +
+                    0.5 * len(other_match)
+                )
+
+                if base_score > 0:
+                    matched = sorted(direct_match | name_match | display_match | keyword_match | other_match)
+                    evidence = f"Agent: {agent_id} | Match: {', '.join(matched[:3])}"
+
+                    results.append({
+                        "score": round(base_score, 2),
+                        "squad": squad.get("name", ""),
+                        "display_name": squad.get("display_name", ""),
+                        "path": squad.get("path", ""),
+                        "domain": squad.get("domain", ""),
+                        "agent": agent_id if agent_id else None,
+                        "agent_role": agent_role,
+                        "matched_keywords": matched,
+                        "evidence": evidence,
+                    })
+        else:
+            # Sem agentes: prioriza match em nome do squad
+            name_match = query_tokens & squad_name_tokens
+            display_match = (query_tokens & squad_display_tokens) - name_match
+            keyword_match = (query_tokens & squad_keywords) - name_match - display_match
+            other_match = (query_tokens & (squad_purpose_tokens | squad_path_tokens)) - name_match - display_match - keyword_match
+
+            # Pesos aumentados para squads sem agentes (para balancear)
+            base_score = (
+                4.0 * len(name_match) +
+                3.0 * len(display_match) +
+                1.5 * len(keyword_match) +
+                0.5 * len(other_match)
+            )
 
             if base_score > 0:
-                matched = sorted(direct_match | context_match)
-                evidence = f"Match: {', '.join(matched[:3])}"
+                matched = sorted(name_match | display_match | keyword_match | other_match)
+                evidence = f"Squad: {squad.get('name', '')} | Match: {', '.join(matched[:3])}"
 
                 results.append({
                     "score": round(base_score, 2),
-                    "squad": squad.get("name", ""),
-                    "display_name": squad.get("display_name", ""),
-                    "path": squad.get("path", ""),
-                    "domain": squad.get("domain", ""),
-                    "agent": agent_id if agent_id else None,
-                    "agent_role": agent_role,
-                    "matched_keywords": matched,
-                    "evidence": evidence,
-                })
-
-        # Se squad sem agentes, ainda contribui
-        if not agents:
-            squad_match = query_tokens & squad_keywords
-            if squad_match:
-                matched = sorted(squad_match)
-                evidence = f"Palavras-chave do squad: {', '.join(matched[:3])}"
-
-                results.append({
-                    "score": round(1.0 * len(squad_match), 2),
                     "squad": squad.get("name", ""),
                     "display_name": squad.get("display_name", ""),
                     "path": squad.get("path", ""),

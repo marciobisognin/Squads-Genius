@@ -19,6 +19,7 @@ from .indexer import (
     generate_audit_report,
 )
 from .ranker import rank_squads
+from .contract_builder import build_activation_contract, print_activation_contract, export_activation_contract
 
 
 def cmd_index(args) -> int:
@@ -115,6 +116,50 @@ def cmd_route(args) -> int:
     return 0
 
 
+def cmd_activate(args) -> int:
+    """Comando: activate — Gera contrato de ativação para um squad."""
+    index_path = Path(args.index)
+
+    if not index_path.exists():
+        print(f"❌ Índice não encontrado: {index_path}", file=sys.stderr)
+        return 2
+
+    with open(index_path, "r", encoding="utf-8") as f:
+        index_data = json.load(f)
+
+    # Encontra o squad pelo nome
+    target_squad = None
+    for squad in index_data.get("squads", []):
+        if squad.get("name") == args.squad or squad.get("display_name") == args.squad:
+            target_squad = squad
+            break
+
+    if not target_squad:
+        print(f"❌ Squad não encontrado: {args.squad}", file=sys.stderr)
+        print(f"\n💡 Use 'search' para encontrar o squad correto:")
+        print(f"   python3 -m tools.squads_gateway search --index {index_path} --term '{args.squad}'")
+        return 2
+
+    # Constrói contrato
+    contract = build_activation_contract(target_squad)
+
+    # Output: visualmente no console ou JSON
+    if args.output_json:
+        print(json.dumps(export_activation_contract(contract), ensure_ascii=False, indent=2))
+    else:
+        print_activation_contract(contract)
+
+    # Salva em arquivo se solicitado
+    if args.save:
+        save_path = Path(args.save)
+        save_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(export_activation_contract(contract), f, ensure_ascii=False, indent=2)
+        print(f"📄 Contrato salvo: {save_path}")
+
+    return 0
+
+
 def main():
     """Entry point da CLI."""
     parser = argparse.ArgumentParser(
@@ -150,6 +195,14 @@ Exemplos:
     route_parser.add_argument("--top", type=int, default=3, help="Top-N recomendações (default: 3)")
     route_parser.add_argument("--threshold", type=float, default=2.0, help="Score mínimo (default: 2.0)")
     route_parser.set_defaults(func=cmd_route)
+
+    # Comando: activate
+    activate_parser = subparsers.add_parser("activate", help="Gera contrato de ativação para um squad")
+    activate_parser.add_argument("--index", required=True, help="Caminho do índice JSON")
+    activate_parser.add_argument("--squad", required=True, help="Nome do squad a ativar")
+    activate_parser.add_argument("--output-json", action="store_true", help="Saída em JSON (default: texto)")
+    activate_parser.add_argument("--save", help="Salvar contrato em arquivo JSON")
+    activate_parser.set_defaults(func=cmd_activate)
 
     args = parser.parse_args()
 
