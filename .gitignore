@@ -5,3 +5,7 @@ output/
 .cache/
 *.tmp
 .DS_Store
+
+# Squads Gateway (gerados dinamicamente)
+squads_index.json
+gateway_audit.json
