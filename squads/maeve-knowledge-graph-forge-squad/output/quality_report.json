@@ -1,9 +1,0 @@
-{
-  "go_no_go": "go",
-  "issues": [],
-  "checks": {
-    "agents": 10,
-    "tasks": 12,
-    "workflows": 4
-  }
-}

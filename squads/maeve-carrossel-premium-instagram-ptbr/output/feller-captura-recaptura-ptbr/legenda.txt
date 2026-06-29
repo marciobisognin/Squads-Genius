@@ -1,7 +1,0 @@
-Como estimar uma população que você não consegue contar diretamente?
-
-O problema de captura-recaptura, apresentado por Feller, mostra uma resposta elegante: marcar uma primeira amostra, misturar novamente no ambiente e observar quantos marcados reaparecem na segunda captura.
-
-A intuição é simples: se muitos marcados voltam, a população tende a ser menor; se poucos voltam, ela tende a ser maior. Por trás disso está a distribuição hipergeométrica, que modela retiradas sem reposição em uma população finita.
-
-Salve este infográfico para revisar estatística e probabilidade de um jeito visual.
