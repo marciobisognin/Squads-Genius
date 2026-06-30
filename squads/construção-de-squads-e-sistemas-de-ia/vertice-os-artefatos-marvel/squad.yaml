@@ -1,122 +1,121 @@
 name: vertice-os-artefatos-marvel
-display_name: "VÉRTICE-OS | Artefatos Marvel"
-version: "2.1.0"
+display_name: VÉRTICE-OS | Artefatos Marvel
+version: 2.1.0
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
-scope: "uso interno"
-purpose: >
-  Recriar o VÉRTICE-OS exatamente como definido no PRD de arquitetura interna temática,
-  preservando os IDs técnicos, codinomes, funções, contratos, gates, roadmap e fluxo ponta a ponta.
+instagram: '@marciobisognin'
+scope: uso interno
+purpose: |
+  Recriar o VÉRTICE-OS exatamente como definido no PRD de arquitetura interna temática, preservando os IDs técnicos, codinomes, funções, contratos, gates, roadmap e fluxo ponta a ponta.
 source_document:
   filename: PRD_VERTICE_OS_Artefatos_Marvel.pdf
   extracted_pages: 22
   extracted_chars: 34186
-  date: "2026-06-15"
+  date: '2026-06-15'
 naming_principles:
-  - P1 Sem personagens
-  - P2 Artefato + função
-  - P3 IDs imutáveis
-  - P4 Sem antropomorfização
-  - P5 Tema interno
+- P1 Sem personagens
+- P2 Artefato + função
+- P3 IDs imutáveis
+- P4 Sem antropomorfização
+- P5 Tema interno
 agents:
-  - id: "CTL-00"
-    codename: "MANOPLA DO INFINITO"
-    function: "Orquestrador soberano"
-    file: "agents/ctl-00-manopla-do-infinito.md"
-  - id: "CTX-00"
-    codename: "NEXUS DE TODAS AS REALIDADES"
-    function: "Estado global e contexto"
-    file: "agents/ctx-00-nexus-de-todas-as-realidades.md"
-  - id: "CORE-01"
-    codename: "PEDRA DA MENTE"
-    function: "Intenção e planejamento"
-    file: "agents/core-01-pedra-da-mente.md"
-  - id: "CORE-02"
-    codename: "TESSERACT"
-    function: "Roteamento e capacidades"
-    file: "agents/core-02-tesseract.md"
-  - id: "CORE-03"
-    codename: "PEDRA DO TEMPO"
-    function: "Runtime durável"
-    file: "agents/core-03-pedra-do-tempo.md"
-  - id: "CORE-04"
-    codename: "AETHER"
-    function: "Síntese e composição"
-    file: "agents/core-04-aether.md"
-  - id: "CORE-05"
-    codename: "ORBE DO PODER"
-    function: "Recursos e orçamento"
-    file: "agents/core-05-orbe-do-poder.md"
-  - id: "CORE-06"
-    codename: "PEDRA DA ALMA"
-    function: "Governança e HITL"
-    file: "agents/core-06-pedra-da-alma.md"
-  - id: "OPS-01"
-    codename: "VIBRANIUM VAULT"
-    function: "Memória e artefatos"
-    file: "agents/ops-01-vibranium-vault.md"
-  - id: "OPS-02"
-    codename: "ADAMANTIUM SEAL"
-    function: "Contratos e integridade"
-    file: "agents/ops-02-adamantium-seal.md"
-  - id: "OPS-03"
-    codename: "BIFROST BRIDGE"
-    function: "Mensageria e handoffs"
-    file: "agents/ops-03-bifrost-bridge.md"
-  - id: "OPS-04"
-    codename: "QUANTUM REALM"
-    function: "Sandbox e simulação"
-    file: "agents/ops-04-quantum-realm.md"
-  - id: "SEC-01"
-    codename: "NEGATIVE ZONE"
-    function: "Quarentena e contenção"
-    file: "agents/sec-01-negative-zone.md"
-  - id: "QA-01"
-    codename: "BOOK OF VISHANTI"
-    function: "Evidência e factualidade"
-    file: "agents/qa-01-book-of-vishanti.md"
-  - id: "OBS-01"
-    codename: "M'KRAAN CRYSTAL"
-    function: "Observabilidade e lineage"
-    file: "agents/obs-01-mkraan-crystal.md"
-  - id: "GATE-01"
-    codename: "SIEGE PERILOUS"
-    function: "Gate de aprovação"
-    file: "agents/gate-01-siege-perilous.md"
-  - id: "SAFE-01"
-    codename: "ULTIMATE NULLIFIER"
-    function: "Kill switch e rollback"
-    file: "agents/safe-01-ultimate-nullifier.md"
-  - id: "POL-01"
-    codename: "NORN STONES"
-    function: "Policy packs e regras"
-    file: "agents/pol-01-norn-stones.md"
-  - id: "ADP-01"
-    codename: "QUANTUM BANDS"
-    function: "Adapters de ferramentas e modelos"
-    file: "agents/adp-01-quantum-bands.md"
-  - id: "META-01"
-    codename: "COSMIC CUBE FORGE"
-    function: "Fábrica de agentes e squads"
-    file: "agents/meta-01-cosmic-cube-forge.md"
-  - id: "RED-01"
-    codename: "DARKHOLD CHAMBER"
-    function: "Red team e testes adversariais"
-    file: "agents/red-01-darkhold-chamber.md"
+- id: CTL-00
+  codename: MANOPLA DO INFINITO
+  function: Orquestrador soberano
+  file: agents/ctl-00-manopla-do-infinito.md
+- id: CTX-00
+  codename: NEXUS DE TODAS AS REALIDADES
+  function: Estado global e contexto
+  file: agents/ctx-00-nexus-de-todas-as-realidades.md
+- id: CORE-01
+  codename: PEDRA DA MENTE
+  function: Intenção e planejamento
+  file: agents/core-01-pedra-da-mente.md
+- id: CORE-02
+  codename: TESSERACT
+  function: Roteamento e capacidades
+  file: agents/core-02-tesseract.md
+- id: CORE-03
+  codename: PEDRA DO TEMPO
+  function: Runtime durável
+  file: agents/core-03-pedra-do-tempo.md
+- id: CORE-04
+  codename: AETHER
+  function: Síntese e composição
+  file: agents/core-04-aether.md
+- id: CORE-05
+  codename: ORBE DO PODER
+  function: Recursos e orçamento
+  file: agents/core-05-orbe-do-poder.md
+- id: CORE-06
+  codename: PEDRA DA ALMA
+  function: Governança e HITL
+  file: agents/core-06-pedra-da-alma.md
+- id: OPS-01
+  codename: VIBRANIUM VAULT
+  function: Memória e artefatos
+  file: agents/ops-01-vibranium-vault.md
+- id: OPS-02
+  codename: ADAMANTIUM SEAL
+  function: Contratos e integridade
+  file: agents/ops-02-adamantium-seal.md
+- id: OPS-03
+  codename: BIFROST BRIDGE
+  function: Mensageria e handoffs
+  file: agents/ops-03-bifrost-bridge.md
+- id: OPS-04
+  codename: QUANTUM REALM
+  function: Sandbox e simulação
+  file: agents/ops-04-quantum-realm.md
+- id: SEC-01
+  codename: NEGATIVE ZONE
+  function: Quarentena e contenção
+  file: agents/sec-01-negative-zone.md
+- id: QA-01
+  codename: BOOK OF VISHANTI
+  function: Evidência e factualidade
+  file: agents/qa-01-book-of-vishanti.md
+- id: OBS-01
+  codename: M'KRAAN CRYSTAL
+  function: Observabilidade e lineage
+  file: agents/obs-01-mkraan-crystal.md
+- id: GATE-01
+  codename: SIEGE PERILOUS
+  function: Gate de aprovação
+  file: agents/gate-01-siege-perilous.md
+- id: SAFE-01
+  codename: ULTIMATE NULLIFIER
+  function: Kill switch e rollback
+  file: agents/safe-01-ultimate-nullifier.md
+- id: POL-01
+  codename: NORN STONES
+  function: Policy packs e regras
+  file: agents/pol-01-norn-stones.md
+- id: ADP-01
+  codename: QUANTUM BANDS
+  function: Adapters de ferramentas e modelos
+  file: agents/adp-01-quantum-bands.md
+- id: META-01
+  codename: COSMIC CUBE FORGE
+  function: Fábrica de agentes e squads
+  file: agents/meta-01-cosmic-cube-forge.md
+- id: RED-01
+  codename: DARKHOLD CHAMBER
+  function: Red team e testes adversariais
+  file: agents/red-01-darkhold-chamber.md
 tasks:
-  - tasks/01_processar_ordem_ponta_a_ponta.md
-  - tasks/02_validar_contrato_canonico.md
-  - tasks/03_aplicar_seguranca_e_hitl.md
-  - tasks/04_revisar_qa_evalops_gates.md
+- tasks/01_processar_ordem_ponta_a_ponta.md
+- tasks/02_validar_contrato_canonico.md
+- tasks/03_aplicar_seguranca_e_hitl.md
+- tasks/04_revisar_qa_evalops_gates.md
 workflows:
-  - workflows/order_lifecycle.yaml
-  - workflows/security_governance.yaml
+- workflows/order_lifecycle.yaml
+- workflows/security_governance.yaml
 scripts:
-  - scripts/vertice_os_blueprint.py
-  - scripts/validate_squad.py
+- scripts/vertice_os_blueprint.py
+- scripts/validate_squad.py
 metadata:
   exact_prd_recreation: true
-  thematic_layer: "Artefatos Marvel conforme PRD enviado por Marcio"
+  thematic_layer: Artefatos Marvel conforme PRD enviado por Marcio
   stable_ids: true
-  response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+  response_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

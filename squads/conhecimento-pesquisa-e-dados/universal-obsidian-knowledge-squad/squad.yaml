@@ -4,107 +4,102 @@ version: 1.0.0
 language: pt-BR
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
-positioning: >
-  Transforma qualquer vault Obsidian em base de conhecimento pesquisável,
-  citável e auditável, portável entre usuários, agentes e CLI.
+instagram: '@marciobisognin'
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+positioning: |
+  Transforma qualquer vault Obsidian em base de conhecimento pesquisável, citável e auditável, portável entre usuários, agentes e CLI.
 default_mode: read_only
 principles:
-  - separar observado, inferido, hipótese, recomendação e risco
-  - priorizar scripts determinísticos quando a etapa não exigir LLM
-  - citações verificáveis (path > heading > trecho) obrigatórias
-  - read-only por padrão; escrita só com autorização explícita
-  - nunca indexar segredos; índice local; nada de vault no repositório
-
+- separar observado, inferido, hipótese, recomendação e risco
+- priorizar scripts determinísticos quando a etapa não exigir LLM
+- citações verificáveis (path > heading > trecho) obrigatórias
+- read-only por padrão; escrita só com autorização explícita
+- nunca indexar segredos; índice local; nada de vault no repositório
 agents:
-  - id: vault-orchestrator
-    file: agents/vault-orchestrator.md
-    role: Coordena a execução do squad e escolhe workflows.
-  - id: user-profile-resolver
-    file: agents/user-profile-resolver.md
-    role: Lê configuração do usuário, idioma, vault e modo.
-  - id: note-indexer
-    file: agents/note-indexer.md
-    role: Varre o vault e cria índice de notas (script determinístico).
-  - id: metadata-extractor
-    file: agents/metadata-extractor.md
-    role: Extrai frontmatter, tags, headings e datas (determinístico).
-  - id: lexical-retriever
-    file: agents/lexical-retriever.md
-    role: Busca por texto via SQLite FTS5 (determinístico).
-  - id: semantic-retriever
-    file: agents/semantic-retriever.md
-    role: Busca por embeddings quando disponível (opcional).
-  - id: citation-guardian
-    file: agents/citation-guardian.md
-    role: Garante rastreabilidade e verifica as citações.
-  - id: knowledge-synthesizer
-    file: agents/knowledge-synthesizer.md
-    role: Produz sínteses, relatórios e materiais (LLM).
-  - id: graph-mapper
-    file: agents/graph-mapper.md
-    role: Mapeia links, backlinks, clusters e lacunas (determinístico).
-  - id: note-curator
-    file: agents/note-curator.md
-    role: Sugere curadoria; escrita só com autorização.
-  - id: quality-auditor
-    file: agents/quality-auditor.md
-    role: Verifica integridade, citações e segurança.
-
+- id: vault-orchestrator
+  file: agents/vault-orchestrator.md
+  role: Coordena a execução do squad e escolhe workflows.
+- id: user-profile-resolver
+  file: agents/user-profile-resolver.md
+  role: Lê configuração do usuário, idioma, vault e modo.
+- id: note-indexer
+  file: agents/note-indexer.md
+  role: Varre o vault e cria índice de notas (script determinístico).
+- id: metadata-extractor
+  file: agents/metadata-extractor.md
+  role: Extrai frontmatter, tags, headings e datas (determinístico).
+- id: lexical-retriever
+  file: agents/lexical-retriever.md
+  role: Busca por texto via SQLite FTS5 (determinístico).
+- id: semantic-retriever
+  file: agents/semantic-retriever.md
+  role: Busca por embeddings quando disponível (opcional).
+- id: citation-guardian
+  file: agents/citation-guardian.md
+  role: Garante rastreabilidade e verifica as citações.
+- id: knowledge-synthesizer
+  file: agents/knowledge-synthesizer.md
+  role: Produz sínteses, relatórios e materiais (LLM).
+- id: graph-mapper
+  file: agents/graph-mapper.md
+  role: Mapeia links, backlinks, clusters e lacunas (determinístico).
+- id: note-curator
+  file: agents/note-curator.md
+  role: Sugere curadoria; escrita só com autorização.
+- id: quality-auditor
+  file: agents/quality-auditor.md
+  role: Verifica integridade, citações e segurança.
 tasks:
-  - id: t01_setup_profile
-    file: tasks/t01_setup_profile.yaml
-    owner: user-profile-resolver
-  - id: t02_scan_vault
-    file: tasks/t02_scan_vault.yaml
-    owner: note-indexer
-  - id: t03_build_index
-    file: tasks/t03_build_index.yaml
-    owner: note-indexer
-  - id: t04_query_knowledge
-    file: tasks/t04_query_knowledge.yaml
-    owner: lexical-retriever
-  - id: t05_generate_citations
-    file: tasks/t05_generate_citations.yaml
-    owner: citation-guardian
-  - id: t06_synthesize_answer
-    file: tasks/t06_synthesize_answer.yaml
-    owner: knowledge-synthesizer
-  - id: t07_map_backlinks
-    file: tasks/t07_map_backlinks.yaml
-    owner: graph-mapper
-  - id: t08_detect_duplicates
-    file: tasks/t08_detect_duplicates.yaml
-    owner: graph-mapper
-  - id: t09_generate_digest
-    file: tasks/t09_generate_digest.yaml
-    owner: knowledge-synthesizer
-  - id: t10_quality_gate
-    file: tasks/t10_quality_gate.yaml
-    owner: quality-auditor
-
+- id: t01_setup_profile
+  file: tasks/t01_setup_profile.yaml
+  owner: user-profile-resolver
+- id: t02_scan_vault
+  file: tasks/t02_scan_vault.yaml
+  owner: note-indexer
+- id: t03_build_index
+  file: tasks/t03_build_index.yaml
+  owner: note-indexer
+- id: t04_query_knowledge
+  file: tasks/t04_query_knowledge.yaml
+  owner: lexical-retriever
+- id: t05_generate_citations
+  file: tasks/t05_generate_citations.yaml
+  owner: citation-guardian
+- id: t06_synthesize_answer
+  file: tasks/t06_synthesize_answer.yaml
+  owner: knowledge-synthesizer
+- id: t07_map_backlinks
+  file: tasks/t07_map_backlinks.yaml
+  owner: graph-mapper
+- id: t08_detect_duplicates
+  file: tasks/t08_detect_duplicates.yaml
+  owner: graph-mapper
+- id: t09_generate_digest
+  file: tasks/t09_generate_digest.yaml
+  owner: knowledge-synthesizer
+- id: t10_quality_gate
+  file: tasks/t10_quality_gate.yaml
+  owner: quality-auditor
 workflows:
-  - id: setup_user
-    file: workflows/setup_user.yaml
-  - id: build_index
-    file: workflows/build_index.yaml
-  - id: update_index
-    file: workflows/update_index.yaml
-  - id: ask_vault
-    file: workflows/ask_vault.yaml
-  - id: generate_knowledge_map
-    file: workflows/generate_knowledge_map.yaml
-  - id: vault_digest
-    file: workflows/vault_digest.yaml
-  - id: curate_notes
-    file: workflows/curate_notes.yaml
-  - id: export_context
-    file: workflows/export_context.yaml
-
+- id: setup_user
+  file: workflows/setup_user.yaml
+- id: build_index
+  file: workflows/build_index.yaml
+- id: update_index
+  file: workflows/update_index.yaml
+- id: ask_vault
+  file: workflows/ask_vault.yaml
+- id: generate_knowledge_map
+  file: workflows/generate_knowledge_map.yaml
+- id: vault_digest
+  file: workflows/vault_digest.yaml
+- id: curate_notes
+  file: workflows/curate_notes.yaml
+- id: export_context
+  file: workflows/export_context.yaml
 outputs:
-  - quality_report.json
-  - knowledge_map.md
-  - gap_report.md
-  - weekly_digest.md
-  - answer_with_citations.md
+- quality_report.json
+- knowledge_map.md
+- gap_report.md
+- weekly_digest.md
+- answer_with_citations.md

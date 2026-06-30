@@ -1,72 +1,83 @@
 name: allspark-talent-intelligence-squad
-display_name: "⚡ AllSpark Talent Intelligence Squad"
-version: "1.0.0"
+display_name: ⚡ AllSpark Talent Intelligence Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Inteligência de talentos, aquisição, mapeamento de competências, sucessão, DEI e saúde organizacional"
+domain: |-
+  Inteligência de talentos, aquisição, mapeamento de competências, sucessão, DEI e saúde organizacional
 visual_style: dark-neon-layered-architecture
-objective: "Transformar dados brutos de RH em inteligência de talentos viva: mapear competências, identificar riscos de retenção, projetar sucessão, auditar DEI e personalizar jornadas de desenvolvimento e onboarding."
+objective: |-
+  Transformar dados brutos de RH em inteligência de talentos viva: mapear competências, identificar riscos de retenção, projetar sucessão, auditar DEI e personalizar jornadas de desenvolvimento e onboarding.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
 inputs:
-  - Perfis de colaboradores (dados estruturados ou texto livre)
-  - Resultados de avaliações de desempenho
-  - Dados de pesquisa de clima organizacional
-  - Histórico de rotatividade e absenteísmo
-  - Benchmarks salariais de mercado
-  - Relatórios de entrevistas de desligamento
-  - Dados demográficos e de diversidade
+- Perfis de colaboradores (dados estruturados ou texto livre)
+- Resultados de avaliações de desempenho
+- Dados de pesquisa de clima organizacional
+- Histórico de rotatividade e absenteísmo
+- Benchmarks salariais de mercado
+- Relatórios de entrevistas de desligamento
+- Dados demográficos e de diversidade
 outputs:
-  - Relatório de Inteligência de Pessoas (People Intelligence Report)
-  - Mapa de Sucessão por nível e área
-  - Playbook de Retenção com ações prioritárias
-  - Dashboard de Métricas DEI auditável
-  - Plano de Onboarding personalizado por perfil
-  - Análise de lacunas de competência por squad/área
+- Relatório de Inteligência de Pessoas (People Intelligence Report)
+- Mapa de Sucessão por nível e área
+- Playbook de Retenção com ações prioritárias
+- Dashboard de Métricas DEI auditável
+- Plano de Onboarding personalizado por perfil
+- Análise de lacunas de competência por squad/área
 agents:
-  - id: talent-orchestrator
-    file: agents/talent-orchestrator.md
-    role: "Coordenador central: roteia inputs, gerencia o pipeline, aciona quality gates e consolida os outputs finais."
-  - id: talent-mapper
-    file: agents/talent-mapper.md
-    role: "Mapeia inventário de competências, identifica lacunas organizacionais e alinha perfis a estratégias de negócio."
-  - id: psychometric-profiler
-    file: agents/psychometric-profiler.md
-    role: "Sintetiza avaliações comportamentais (DISC, Big Five, CliftonStrengths) em perfis acionáveis."
-  - id: market-salary-intel
-    file: agents/market-salary-intel.md
-    role: "Benchmarking salarial, inteligência de employer branding e análise competitiva de remuneração."
-  - id: culture-fit-analyst
-    file: agents/culture-fit-analyst.md
-    role: "Avalia alinhamento cultural, diagnostica clima organizacional e identifica gaps de cultura."
-  - id: succession-architect
-    file: agents/succession-architect.md
-    role: "Projeta planos de sucessão e trajetórias de carreira com critérios objetivos e priorização de risco."
-  - id: dei-metrics-auditor
-    file: agents/dei-metrics-auditor.md
-    role: "Audita métricas de diversidade, equidade e inclusão com KPIs verificáveis e conformidade LGPD."
-  - id: onboarding-designer
-    file: agents/onboarding-designer.md
-    role: "Desenha jornadas de onboarding personalizadas por perfil comportamental, cargo e área."
-  - id: retention-risk-sentinel
-    file: agents/retention-risk-sentinel.md
-    role: "Detecta sinais de risco de turnover e emite alertas com planos de retenção individualizados."
+- id: talent-orchestrator
+  file: agents/talent-orchestrator.md
+  role: |-
+    Coordenador central: roteia inputs, gerencia o pipeline, aciona quality gates e consolida os outputs finais.
+- id: talent-mapper
+  file: agents/talent-mapper.md
+  role: |-
+    Mapeia inventário de competências, identifica lacunas organizacionais e alinha perfis a estratégias de negócio.
+- id: psychometric-profiler
+  file: agents/psychometric-profiler.md
+  role: |-
+    Sintetiza avaliações comportamentais (DISC, Big Five, CliftonStrengths) em perfis acionáveis.
+- id: market-salary-intel
+  file: agents/market-salary-intel.md
+  role: |-
+    Benchmarking salarial, inteligência de employer branding e análise competitiva de remuneração.
+- id: culture-fit-analyst
+  file: agents/culture-fit-analyst.md
+  role: |-
+    Avalia alinhamento cultural, diagnostica clima organizacional e identifica gaps de cultura.
+- id: succession-architect
+  file: agents/succession-architect.md
+  role: |-
+    Projeta planos de sucessão e trajetórias de carreira com critérios objetivos e priorização de risco.
+- id: dei-metrics-auditor
+  file: agents/dei-metrics-auditor.md
+  role: |-
+    Audita métricas de diversidade, equidade e inclusão com KPIs verificáveis e conformidade LGPD.
+- id: onboarding-designer
+  file: agents/onboarding-designer.md
+  role: |-
+    Desenha jornadas de onboarding personalizadas por perfil comportamental, cargo e área.
+- id: retention-risk-sentinel
+  file: agents/retention-risk-sentinel.md
+  role: |-
+    Detecta sinais de risco de turnover e emite alertas com planos de retenção individualizados.
 workflows:
-  - workflows/talent-intelligence-pipeline.yaml
-  - workflows/quality-gates.yaml
+- workflows/talent-intelligence-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/talent-analysis.md
-  - tasks/succession-planning.md
+- tasks/talent-analysis.md
+- tasks/succession-planning.md
 quality_gates:
-  - intake_validado
-  - competencias_mapeadas
-  - perfis_comportamentais_revisados
-  - benchmarks_verificados
-  - plano_sucessao_aprovado
-  - metricas_dei_auditadas
-  - onboarding_personalizado_entregue
-  - riscos_retencao_sinalizados
-final_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- intake_validado
+- competencias_mapeadas
+- perfis_comportamentais_revisados
+- benchmarks_verificados
+- plano_sucessao_aprovado
+- metricas_dei_auditadas
+- onboarding_personalizado_entregue
+- riscos_retencao_sinalizados
+final_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

@@ -4,74 +4,68 @@ version: 0.1.0
 license: MIT
 creator: Marcio Bisognin
 status: operational-prototype
-purpose: Sistema vivo de indexação, busca, roteamento e ativação de squads com auditoria, aprendizagem contínua e contratos estruturados. Descoberta determinística sem LLM.
+purpose: |-
+  Sistema vivo de indexação, busca, roteamento e ativação de squads com auditoria, aprendizagem contínua e contratos estruturados. Descoberta determinística sem LLM.
 domain: Construção de Squads & Sistemas de IA
 language: pt-BR
 entry_point: gateway-orchestrator
-
 agents:
-  - id: gateway-orchestrator
-    file: agents/gateway-orchestrator.yaml
-  - id: index-keeper
-    file: agents/index-keeper.yaml
-  - id: router-agent
-    file: agents/router-agent.yaml
-  - id: contract-builder
-    file: agents/contract-builder.yaml
-  - id: feedback-recorder
-    file: agents/feedback-recorder.yaml
-  - id: audit-guardian
-    file: agents/audit-guardian.yaml
-
+- id: gateway-orchestrator
+  file: agents/gateway-orchestrator.yaml
+- id: index-keeper
+  file: agents/index-keeper.yaml
+- id: router-agent
+  file: agents/router-agent.yaml
+- id: contract-builder
+  file: agents/contract-builder.yaml
+- id: feedback-recorder
+  file: agents/feedback-recorder.yaml
+- id: audit-guardian
+  file: agents/audit-guardian.yaml
 tasks:
-  - id: index-all-squads
-    file: tasks/index-all-squads.yaml
-  - id: route-demand
-    file: tasks/route-demand.yaml
-  - id: activate-squad
-    file: tasks/activate-squad.yaml
-  - id: record-feedback
-    file: tasks/record-feedback.yaml
-  - id: generate-audit-report
-    file: tasks/generate-audit-report.yaml
-  - id: memory-stats
-    file: tasks/memory-stats.yaml
-
+- id: index-all-squads
+  file: tasks/index-all-squads.yaml
+- id: route-demand
+  file: tasks/route-demand.yaml
+- id: activate-squad
+  file: tasks/activate-squad.yaml
+- id: record-feedback
+  file: tasks/record-feedback.yaml
+- id: generate-audit-report
+  file: tasks/generate-audit-report.yaml
+- id: memory-stats
+  file: tasks/memory-stats.yaml
 workflows:
-  - id: full-orchestration-pipeline
-    file: workflows/full-orchestration-pipeline.yaml
-  - id: discovery-route
-    file: workflows/discovery-route.yaml
-
+- id: full-orchestration-pipeline
+  file: workflows/full-orchestration-pipeline.yaml
+- id: discovery-route
+  file: workflows/discovery-route.yaml
 scripts:
-  - tools/squads_gateway/cli.py
-  - tools/squads_gateway/indexer.py
-  - tools/squads_gateway/ranker.py
-  - tools/squads_gateway/router.py
-  - tools/squads_gateway/contract_builder.py
-  - tools/squads_gateway/audit_logger.py
-  - tools/squads_gateway/memory_store.py
-  - tools/squads_gateway/hitl_gate.py
-  - tools/squads_gateway/schemas.py
-
+- tools/squads_gateway/cli.py
+- tools/squads_gateway/indexer.py
+- tools/squads_gateway/ranker.py
+- tools/squads_gateway/router.py
+- tools/squads_gateway/contract_builder.py
+- tools/squads_gateway/audit_logger.py
+- tools/squads_gateway/memory_store.py
+- tools/squads_gateway/hitl_gate.py
+- tools/squads_gateway/schemas.py
 examples:
-  - examples/briefing_sample.yaml
-  - examples/activation_contract_sample.json
-  - examples/audit_report_sample.json
-
+- examples/briefing_sample.yaml
+- examples/activation_contract_sample.json
+- examples/audit_report_sample.json
 quality_gates:
-  - cli_commands_operational
-  - indexing_validated
-  - routing_accuracy_tested
-  - audit_logged
-  - zero_external_dependencies
-
+- cli_commands_operational
+- indexing_validated
+- routing_accuracy_tested
+- audit_logged
+- zero_external_dependencies
 tags:
-  - gateway
-  - descoberta
-  - roteamento
-  - auditoria
-  - memória
-  - orquestração
-  - determinístico
-  - sem-llm
+- gateway
+- descoberta
+- roteamento
+- auditoria
+- memória
+- orquestração
+- determinístico
+- sem-llm

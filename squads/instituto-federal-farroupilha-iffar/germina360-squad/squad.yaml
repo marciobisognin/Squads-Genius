@@ -1,103 +1,75 @@
-{
-  "name": "germina360-squad",
-  "display_name": "Germina360 Squad",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "description": "Squad premium para mapear empresas, ideias e projetos incubáveis e conduzir cada oportunidade da prospecção territorial até MVP, produto, modelo de negócio, PDE, validação, captação e graduação.",
-  "metadata": {
-    "source_document": "projeto_integrado_incubadora_iffar_fw_a4.pdf",
-    "domain": "incubadora, prospecção, pré-incubação, produto, mercado, CERNE, empreendedorismo tecnológico",
-    "readme_style": "dark-neon-layered-architecture"
-  },
-  "agents": [
-    {
-      "id": "radar-territorial",
-      "name": "Radar Territorial de Oportunidades",
-      "file": "agents/radar-territorial.md"
-    },
-    {
-      "id": "triador-incubabilidade",
-      "name": "Triador de Incubabilidade",
-      "file": "agents/triador-incubabilidade.md"
-    },
-    {
-      "id": "arquiteto-problema-solucao",
-      "name": "Arquiteto Problema–Solução",
-      "file": "agents/arquiteto-problema-solucao.md"
-    },
-    {
-      "id": "pesquisador-mercado-usuario",
-      "name": "Pesquisador de Mercado e Usuário",
-      "file": "agents/pesquisador-mercado-usuario.md"
-    },
-    {
-      "id": "engenheiro-mvp-produto",
-      "name": "Engenheiro de MVP e Produto",
-      "file": "agents/engenheiro-mvp-produto.md"
-    },
-    {
-      "id": "mentor-negocio-modelo",
-      "name": "Mentor de Negócio e Modelo Econômico",
-      "file": "agents/mentor-negocio-modelo.md"
-    },
-    {
-      "id": "guardiao-pi-lgpd-regulatorio",
-      "name": "Guardião de PI, LGPD e Regulação",
-      "file": "agents/guardiao-pi-lgpd-regulatorio.md"
-    },
-    {
-      "id": "orquestrador-pde-incubacao",
-      "name": "Orquestrador PDE e Incubação",
-      "file": "agents/orquestrador-pde-incubacao.md"
-    },
-    {
-      "id": "captador-recursos-parcerias",
-      "name": "Captador de Recursos e Parcerias",
-      "file": "agents/captador-recursos-parcerias.md"
-    },
-    {
-      "id": "validador-demo-graduacao",
-      "name": "Validador de Demo, Impacto e Graduação",
-      "file": "agents/validador-demo-graduacao.md"
-    }
-  ],
-  "tasks": [
-    "tasks/01-prospeccao-territorial.md",
-    "tasks/02-triagem-incubabilidade.md",
-    "tasks/03-descoberta-problema-solucao.md",
-    "tasks/04-validacao-mercado-usuario.md",
-    "tasks/05-arquitetura-mvp-produto.md",
-    "tasks/06-modelo-negocio-captacao.md",
-    "tasks/07-pde-incubacao-execucao.md",
-    "tasks/08-demo-graduacao-impacto.md"
-  ],
-  "workflows": [
-    "workflows/pipeline-ideia-ao-produto.yaml",
-    "workflows/pipeline-radar-incubaveis.yaml"
-  ],
-  "templates": [
-    "templates/ficha-oportunidade.md",
-    "templates/matriz-incubabilidade.csv",
-    "templates/canvas-problema-solucao.md",
-    "templates/roteiro-entrevistas.md",
-    "templates/backlog-mvp.md",
-    "templates/pde-produto-incubado.md",
-    "templates/radar-fomento-parcerias.md",
-    "templates/checklist-demo-graduacao.md"
-  ],
-  "scripts": [
-    "scripts/germina360_cli.py",
-    "scripts/smoke_test.py",
-    "scripts/validate_package.py"
-  ],
-  "examples": [
-    "examples/demo_input.json"
-  ],
-  "validation": [
-    "validation/smoke-test-report.json",
-    "validation/package-validation-report.json"
-  ]
-}
+name: germina360-squad
+display_name: Germina360 Squad
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+description: |-
+  Squad premium para mapear empresas, ideias e projetos incubáveis e conduzir cada oportunidade da prospecção territorial até MVP, produto, modelo de negócio, PDE, validação, captação e graduação.
+metadata:
+  source_document: projeto_integrado_incubadora_iffar_fw_a4.pdf
+  domain: |-
+    incubadora, prospecção, pré-incubação, produto, mercado, CERNE, empreendedorismo tecnológico
+  readme_style: dark-neon-layered-architecture
+agents:
+- id: radar-territorial
+  name: Radar Territorial de Oportunidades
+  file: agents/radar-territorial.md
+- id: triador-incubabilidade
+  name: Triador de Incubabilidade
+  file: agents/triador-incubabilidade.md
+- id: arquiteto-problema-solucao
+  name: Arquiteto Problema–Solução
+  file: agents/arquiteto-problema-solucao.md
+- id: pesquisador-mercado-usuario
+  name: Pesquisador de Mercado e Usuário
+  file: agents/pesquisador-mercado-usuario.md
+- id: engenheiro-mvp-produto
+  name: Engenheiro de MVP e Produto
+  file: agents/engenheiro-mvp-produto.md
+- id: mentor-negocio-modelo
+  name: Mentor de Negócio e Modelo Econômico
+  file: agents/mentor-negocio-modelo.md
+- id: guardiao-pi-lgpd-regulatorio
+  name: Guardião de PI, LGPD e Regulação
+  file: agents/guardiao-pi-lgpd-regulatorio.md
+- id: orquestrador-pde-incubacao
+  name: Orquestrador PDE e Incubação
+  file: agents/orquestrador-pde-incubacao.md
+- id: captador-recursos-parcerias
+  name: Captador de Recursos e Parcerias
+  file: agents/captador-recursos-parcerias.md
+- id: validador-demo-graduacao
+  name: Validador de Demo, Impacto e Graduação
+  file: agents/validador-demo-graduacao.md
+tasks:
+- tasks/01-prospeccao-territorial.md
+- tasks/02-triagem-incubabilidade.md
+- tasks/03-descoberta-problema-solucao.md
+- tasks/04-validacao-mercado-usuario.md
+- tasks/05-arquitetura-mvp-produto.md
+- tasks/06-modelo-negocio-captacao.md
+- tasks/07-pde-incubacao-execucao.md
+- tasks/08-demo-graduacao-impacto.md
+workflows:
+- workflows/pipeline-ideia-ao-produto.yaml
+- workflows/pipeline-radar-incubaveis.yaml
+templates:
+- templates/ficha-oportunidade.md
+- templates/matriz-incubabilidade.csv
+- templates/canvas-problema-solucao.md
+- templates/roteiro-entrevistas.md
+- templates/backlog-mvp.md
+- templates/pde-produto-incubado.md
+- templates/radar-fomento-parcerias.md
+- templates/checklist-demo-graduacao.md
+scripts:
+- scripts/germina360_cli.py
+- scripts/smoke_test.py
+- scripts/validate_package.py
+examples:
+- examples/demo_input.json
+validation:
+- validation/smoke-test-report.json
+- validation/package-validation-report.json

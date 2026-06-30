@@ -1,32 +1,33 @@
 name: ai-business-builder-squad
 version: 1.0.0
-description: "A comprehensive squad for end-to-end business construction, from ideation to strategic mentorship using open-source AI tools."
-author: "AIOS Squad Architect"
+description: |-
+  A comprehensive squad for end-to-end business construction, from ideation to strategic mentorship using open-source AI tools.
+author: AIOS Squad Architect
 license: MIT
 slashPrefix: biz
 aios:
-  minVersion: "2.1.0"
+  minVersion: 2.1.0
   type: squad
 components:
   agents:
-    - business-strategist.md
-    - market-analyst.md
-    - brand-architect.md
-    - content-strategist.md
-    - funnel-engineer.md
-    - copywriter-ai.md
-    - product-architect.md
-    - strategic-mentor.md
+  - business-strategist.md
+  - market-analyst.md
+  - brand-architect.md
+  - content-strategist.md
+  - funnel-engineer.md
+  - copywriter-ai.md
+  - product-architect.md
+  - strategic-mentor.md
   tasks:
-    - ideation-and-validation.md
-    - brand-identity-creation.md
-    - social-media-automation.md
-    - marketing-funnel-design.md
-    - product-conception-framework.md
-    - strategic-growth-mentorship.md
+  - ideation-and-validation.md
+  - brand-identity-creation.md
+  - social-media-automation.md
+  - marketing-funnel-design.md
+  - product-conception-framework.md
+  - strategic-growth-mentorship.md
   workflows:
-    - business-launch-pipeline.yaml
-    - content-to-conversion-flow.yaml
+  - business-launch-pipeline.yaml
+  - content-to-conversion-flow.yaml
 config:
   extends: extend
   coding-standards: config/coding-standards.md

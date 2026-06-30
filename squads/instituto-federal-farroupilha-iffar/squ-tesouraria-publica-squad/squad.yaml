@@ -4,8 +4,8 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 status: operational-prototype
-purpose: Apoio analítico e documental para execução orçamentária, prestação de contas, auditoria, convênios, editais,
-  pareceres e indicadores em instituições federais.
+purpose: |-
+  Apoio analítico e documental para execução orçamentária, prestação de contas, auditoria, convênios, editais, pareceres e indicadores em instituições federais.
 domain: setor-publico-federal
 language: pt-BR
 entry_point: orcamentista-chefe

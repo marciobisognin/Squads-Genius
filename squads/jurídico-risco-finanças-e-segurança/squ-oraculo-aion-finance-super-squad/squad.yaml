@@ -1,169 +1,115 @@
-{
-  "name": "SQU Oráculo de Aion — Super Squad de Inteligência Financeira Global",
-  "slug": "squ-oraculo-aion-finance-super-squad",
-  "version": "1.0.0",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "domain": "financial-intelligence-research",
-  "risk_level": "high",
-  "mode": "educational decision-support, not financial advice",
-  "source_document": "references/documento_fonte_extraido.txt",
-  "mission": "Transformar o PRD, prompt e sistema encódigo do SQU em um super squad de inteligência financeira global para pesquisa, análise de cenários, assimetria educacional, risco e entrega auditável, sem executar trades ou recomendações personalizadas definitivas.",
-  "agents": [
-    {
-      "id": "squ-geo",
-      "name": "Cavaleiro Avalon-Madripoor",
-      "symbolic_stack": "Avalon celta + Madripoor Marvel",
-      "role": "Geopolítica global, conflitos, sanções, eleições, risco-país, commodities e cadeias de suprimento"
-    },
-    {
-      "id": "squ-hist",
-      "name": "Cronista Mnemosyne-Kang",
-      "symbolic_stack": "Mnemosyne grega + Chronopolis/Kang como metáfora de ciclos",
-      "role": "História financeira, ciclos econômicos, crises, analogias e regimes macro"
-    },
-    {
-      "id": "squ-eventor",
-      "name": "Arauto Taranis-Pulse",
-      "symbolic_stack": "Roda de Taranis + tachyon pulse",
-      "role": "Eventos catalíticos, black swans, reações pós-evento e playbooks"
-    },
-    {
-      "id": "squ-libquant",
-      "name": "Bibliotecário Ogma-Archivist",
-      "symbolic_stack": "Ogham de Ogma + Archives of Kamar-Taj como símbolo",
-      "role": "Livros, cartas, papers, fatores, estratégias clássicas e assimetria validada"
-    },
-    {
-      "id": "squ-sysarch",
-      "name": "Engenheiro Hephaistos-Forge",
-      "symbolic_stack": "Hefesto + Forge mutante",
-      "role": "Sistemas institucionais, Bloomberg-like, Aladdin-like, HFT, microestrutura e simulações"
-    },
-    {
-      "id": "squ-forex",
-      "name": "Navegador Manannan-Excalibur",
-      "symbolic_stack": "Barco de Manannán + Excalibur/Otherworld",
-      "role": "Câmbio, DXY, carry trade, fluxos globais e moedas emergentes"
-    },
-    {
-      "id": "squ-equities",
-      "name": "Sentinela Nuada-Vibranium",
-      "symbolic_stack": "Lâmina de Nuada + vibranium como estabilidade",
-      "role": "Bolsas globais, rotação setorial, valuation relativo, ETFs e fluxos"
-    },
-    {
-      "id": "squ-central",
-      "name": "Custódio Ananke-Vault",
-      "symbolic_stack": "Ananke + Vault/Time Variance motifs",
-      "role": "Bancos centrais, curvas, liquidez, balanços, atas e política monetária"
-    },
-    {
-      "id": "squ-letters",
-      "name": "Leitor Brigid-BlackArchive",
-      "symbolic_stack": "Brigid + Black Archive como metáfora documental",
-      "role": "Cartas de fundos, 13F, linguagem implícita, consenso/divergência de gestores"
-    },
-    {
-      "id": "squ-deriva",
-      "name": "Tecelão Ariadne-Probability Loom",
-      "symbolic_stack": "Fio de Ariadne + Loom of Fate",
-      "role": "Opções, derivativos, volatilidade, payoff, gregas e assimetrias de estrutura"
-    },
-    {
-      "id": "squ-news",
-      "name": "Corvo Morrigan-Newswire",
-      "symbolic_stack": "Morrígan + rede de vigias",
-      "role": "Notícias, sentimento, narrativas emergentes, feeds regulatórios e alertas"
-    },
-    {
-      "id": "squ-bullbear",
-      "name": "Tribuno Eirene-Janus",
-      "symbolic_stack": "Eirene + Janus/Ianus como dupla face",
-      "role": "Debate adversarial Bull/Bear, confronto de teses e redução de viés"
-    },
-    {
-      "id": "squ-risk",
-      "name": "Juiz Nemesis-Aegis",
-      "symbolic_stack": "Nêmesis + Égide",
-      "role": "Risco, drawdown, VaR/CVaR, sizing, limites e bloqueios de segurança"
-    },
-    {
-      "id": "squ-strategy",
-      "name": "Oráculo Aion-MKraan",
-      "symbolic_stack": "Aion + M’Kraan Crystal",
-      "role": "Síntese estratégica, perguntas ao usuário, tese educacional e convergência de sinais"
-    },
-    {
-      "id": "squ-portfolio",
-      "name": "Guardião Cernunnos-Starbrand",
-      "symbolic_stack": "Cernunnos + Star Brand",
-      "role": "Construção de carteira-modelo, cenários, acompanhamento e rebalanceamento educacional"
-    },
-    {
-      "id": "squ-compliance",
-      "name": "Tribunal Themis-Nullifier",
-      "symbolic_stack": "Themis + Ultimate Nullifier como veto",
-      "role": "Conformidade, disclaimers, LGPD, CVM, suitability e revisão humana obrigatória"
-    }
-  ],
-  "internal_squads": [
-    {
-      "name": "Aion Macro Observatory",
-      "scope": "macro, geopolítica, bancos centrais, câmbio e ciclos"
-    },
-    {
-      "name": "Ogma Alpha Library",
-      "scope": "biblioteca de estratégias, papers, cartas e modelos"
-    },
-    {
-      "name": "Morrigan Market Pulse",
-      "scope": "notícias, sentimento, narrativas e eventos catalíticos"
-    },
-    {
-      "name": "Hephaistos Quant Lab",
-      "scope": "microestrutura, HFT, simulações, backtests e stress tests"
-    },
-    {
-      "name": "Ariadne Derivatives Loom",
-      "scope": "opções, volatilidade, payoff e proteção de cauda"
-    },
-    {
-      "name": "Nuada Global Equities Desk",
-      "scope": "bolsas, setores, ETFs, valuation e fluxos globais"
-    },
-    {
-      "name": "Eirene Adversarial Council",
-      "scope": "Bull/Bear, crítica, risco e síntese balanceada"
-    },
-    {
-      "name": "Themis Compliance Citadel",
-      "scope": "suitability, limites regulatórios, ética e auditoria"
-    },
-    {
-      "name": "Cernunnos Portfolio Grove",
-      "scope": "carteira-modelo, alocação, risco e acompanhamento"
-    },
-    {
-      "name": "Manannan Delivery Portal",
-      "scope": "dashboards, relatórios, alertas, APIs e execução em Claude/Gemini/Codex"
-    }
-  ],
-  "workflows": [
-    "workflows/aion-global-finance-dag.yaml",
-    "workflows/adversarial-risk-review.yaml",
-    "workflows/market-research-output-schema.yaml"
-  ],
-  "scripts": [
-    "scripts/squ_aion_demo.py",
-    "scripts/validate_squad.py"
-  ],
-  "guardrails": [
-    "Não executar trades",
-    "Não prometer lucro",
-    "Não dar recomendação financeira personalizada definitiva",
-    "Separar dado verificado, inferência e hipótese",
-    "Exigir revisão humana/profissional para decisão de investimento"
-  ]
-}
+name: SQU Oráculo de Aion — Super Squad de Inteligência Financeira Global
+slug: squ-oraculo-aion-finance-super-squad
+version: 1.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+domain: financial-intelligence-research
+risk_level: high
+mode: educational decision-support, not financial advice
+source_document: references/documento_fonte_extraido.txt
+mission: |-
+  Transformar o PRD, prompt e sistema encódigo do SQU em um super squad de inteligência financeira global para pesquisa, análise de cenários, assimetria educacional, risco e entrega auditável, sem executar trades ou recomendações personalizadas definitivas.
+agents:
+- id: squ-geo
+  name: Cavaleiro Avalon-Madripoor
+  symbolic_stack: Avalon celta + Madripoor Marvel
+  role: |-
+    Geopolítica global, conflitos, sanções, eleições, risco-país, commodities e cadeias de suprimento
+- id: squ-hist
+  name: Cronista Mnemosyne-Kang
+  symbolic_stack: Mnemosyne grega + Chronopolis/Kang como metáfora de ciclos
+  role: História financeira, ciclos econômicos, crises, analogias e regimes macro
+- id: squ-eventor
+  name: Arauto Taranis-Pulse
+  symbolic_stack: Roda de Taranis + tachyon pulse
+  role: Eventos catalíticos, black swans, reações pós-evento e playbooks
+- id: squ-libquant
+  name: Bibliotecário Ogma-Archivist
+  symbolic_stack: Ogham de Ogma + Archives of Kamar-Taj como símbolo
+  role: Livros, cartas, papers, fatores, estratégias clássicas e assimetria validada
+- id: squ-sysarch
+  name: Engenheiro Hephaistos-Forge
+  symbolic_stack: Hefesto + Forge mutante
+  role: |-
+    Sistemas institucionais, Bloomberg-like, Aladdin-like, HFT, microestrutura e simulações
+- id: squ-forex
+  name: Navegador Manannan-Excalibur
+  symbolic_stack: Barco de Manannán + Excalibur/Otherworld
+  role: Câmbio, DXY, carry trade, fluxos globais e moedas emergentes
+- id: squ-equities
+  name: Sentinela Nuada-Vibranium
+  symbolic_stack: Lâmina de Nuada + vibranium como estabilidade
+  role: Bolsas globais, rotação setorial, valuation relativo, ETFs e fluxos
+- id: squ-central
+  name: Custódio Ananke-Vault
+  symbolic_stack: Ananke + Vault/Time Variance motifs
+  role: Bancos centrais, curvas, liquidez, balanços, atas e política monetária
+- id: squ-letters
+  name: Leitor Brigid-BlackArchive
+  symbolic_stack: Brigid + Black Archive como metáfora documental
+  role: Cartas de fundos, 13F, linguagem implícita, consenso/divergência de gestores
+- id: squ-deriva
+  name: Tecelão Ariadne-Probability Loom
+  symbolic_stack: Fio de Ariadne + Loom of Fate
+  role: Opções, derivativos, volatilidade, payoff, gregas e assimetrias de estrutura
+- id: squ-news
+  name: Corvo Morrigan-Newswire
+  symbolic_stack: Morrígan + rede de vigias
+  role: Notícias, sentimento, narrativas emergentes, feeds regulatórios e alertas
+- id: squ-bullbear
+  name: Tribuno Eirene-Janus
+  symbolic_stack: Eirene + Janus/Ianus como dupla face
+  role: Debate adversarial Bull/Bear, confronto de teses e redução de viés
+- id: squ-risk
+  name: Juiz Nemesis-Aegis
+  symbolic_stack: Nêmesis + Égide
+  role: Risco, drawdown, VaR/CVaR, sizing, limites e bloqueios de segurança
+- id: squ-strategy
+  name: Oráculo Aion-MKraan
+  symbolic_stack: Aion + M’Kraan Crystal
+  role: |-
+    Síntese estratégica, perguntas ao usuário, tese educacional e convergência de sinais
+- id: squ-portfolio
+  name: Guardião Cernunnos-Starbrand
+  symbolic_stack: Cernunnos + Star Brand
+  role: |-
+    Construção de carteira-modelo, cenários, acompanhamento e rebalanceamento educacional
+- id: squ-compliance
+  name: Tribunal Themis-Nullifier
+  symbolic_stack: Themis + Ultimate Nullifier como veto
+  role: Conformidade, disclaimers, LGPD, CVM, suitability e revisão humana obrigatória
+internal_squads:
+- name: Aion Macro Observatory
+  scope: macro, geopolítica, bancos centrais, câmbio e ciclos
+- name: Ogma Alpha Library
+  scope: biblioteca de estratégias, papers, cartas e modelos
+- name: Morrigan Market Pulse
+  scope: notícias, sentimento, narrativas e eventos catalíticos
+- name: Hephaistos Quant Lab
+  scope: microestrutura, HFT, simulações, backtests e stress tests
+- name: Ariadne Derivatives Loom
+  scope: opções, volatilidade, payoff e proteção de cauda
+- name: Nuada Global Equities Desk
+  scope: bolsas, setores, ETFs, valuation e fluxos globais
+- name: Eirene Adversarial Council
+  scope: Bull/Bear, crítica, risco e síntese balanceada
+- name: Themis Compliance Citadel
+  scope: suitability, limites regulatórios, ética e auditoria
+- name: Cernunnos Portfolio Grove
+  scope: carteira-modelo, alocação, risco e acompanhamento
+- name: Manannan Delivery Portal
+  scope: dashboards, relatórios, alertas, APIs e execução em Claude/Gemini/Codex
+workflows:
+- workflows/aion-global-finance-dag.yaml
+- workflows/adversarial-risk-review.yaml
+- workflows/market-research-output-schema.yaml
+scripts:
+- scripts/squ_aion_demo.py
+- scripts/validate_squad.py
+guardrails:
+- Não executar trades
+- Não prometer lucro
+- Não dar recomendação financeira personalizada definitiva
+- Separar dado verificado, inferência e hipótese
+- Exigir revisão humana/profissional para decisão de investimento

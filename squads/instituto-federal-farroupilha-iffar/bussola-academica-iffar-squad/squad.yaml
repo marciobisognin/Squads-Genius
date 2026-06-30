@@ -1,145 +1,120 @@
-{
-  "name": "bussola-academica-iffar-squad",
-  "commercial_name": "Bússola Acadêmica IFFar",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "positioning": "Squad institucional que apoia secretarias e coordenações acadêmicas do IFFar no ciclo letivo completo: PPC/matriz curricular, integralização e equivalências, calendário e editais de matrícula, atas de conselho de classe, relatórios de aproveitamento/evasão e consistência dos dados enviados ao SISTEC e à Plataforma Nilo Peçanha.",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "disclaimer": "Os artefatos gerados são minutas e relatórios de apoio técnico-administrativo. Toda decisão pedagógica (aprovação de PPC, deferimento de matrícula, fechamento de ata de conselho de classe, envio oficial a SISTEC/PNP) é exclusiva da coordenação, do colegiado e da secretaria acadêmica. Revisão humana é obrigatória em todos os artefatos.",
-  "principles": [
-    "nenhuma decisão pedagógica é tomada pelo squad: ele prepara, audita e sinaliza, a decisão é sempre humana",
-    "regras curriculares (pré-requisitos, equivalências, carga horária) checadas por script determinístico, nunca por inferência do agente",
-    "separar observado, inferido, hipótese, recomendação e risco em todo artefato",
-    "registrar fontes e versões normativas (DCN, catálogo nacional de cursos, regulamento didático-pedagógico); marcar 'a confirmar' o que não foi verificado na fonte oficial",
-    "dados pessoais de estudantes tratados com minimização: apenas os campos necessários à tarefa, nunca replicados além do artefato solicitado",
-    "nunca incluir dados pessoais sensíveis ou segredos nos artefatos de exemplo/documentação"
-  ],
-  "agents": [
-    {
-      "id": "bussola-orchestrator",
-      "file": "agents/bussola-orchestrator.md",
-      "role": "Coordena o ciclo acadêmico de ponta a ponta: intake, roteamento por workflow, controle de gates e consolidação dos artefatos."
-    },
-    {
-      "id": "ppc-dcn-analyst",
-      "file": "agents/ppc-dcn-analyst.md",
-      "role": "Analisa e apoia a atualização de PPC e matriz curricular, verificando aderência às DCN e ao catálogo nacional de cursos técnicos."
-    },
-    {
-      "id": "curriculo-integralizacao-auditor",
-      "file": "agents/curriculo-integralizacao-auditor.md",
-      "role": "Audita pré-requisitos, equivalências e integralização curricular por aluno a partir do histórico escolar e da matriz curricular."
-    },
-    {
-      "id": "atas-editais-redator",
-      "file": "agents/atas-editais-redator.md",
-      "role": "Redige calendário acadêmico, editais de matrícula/rematrícula e minutas de atas de conselho de classe."
-    },
-    {
-      "id": "sistec-pnp-validador",
-      "file": "agents/sistec-pnp-validador.md",
-      "role": "Verifica a consistência dos dados acadêmicos antes do envio oficial ao SISTEC e à Plataforma Nilo Peçanha."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_intake_ciclo_academico",
-      "file": "tasks/01_intake_ciclo_academico.yaml",
-      "owner": "bussola-orchestrator",
-      "objective": "Identificar o tipo de demanda do ciclo acadêmico, documentos disponíveis e lacunas bloqueantes antes de rotear o workflow."
-    },
-    {
-      "id": "02_analise_ppc_e_matriz_curricular",
-      "file": "tasks/02_analise_ppc_e_matriz_curricular.yaml",
-      "owner": "ppc-dcn-analyst",
-      "objective": "Verificar aderência do PPC/matriz curricular às DCN e ao catálogo nacional de cursos técnicos, listando pendências e sugestões."
-    },
-    {
-      "id": "03_auditoria_curriculo_integralizacao",
-      "file": "tasks/03_auditoria_curriculo_integralizacao.yaml",
-      "owner": "curriculo-integralizacao-auditor",
-      "objective": "Auditar histórico escolar do aluno contra a matriz curricular: pré-requisitos, equivalências e percentual de integralização."
-    },
-    {
-      "id": "04_calendario_e_editais_matricula",
-      "file": "tasks/04_calendario_e_editais_matricula.yaml",
-      "owner": "atas-editais-redator",
-      "objective": "Elaborar calendário acadêmico e edital de matrícula/rematrícula, checando conflitos de datas e aderência ao regulamento didático-pedagógico."
-    },
-    {
-      "id": "05_atas_conselho_classe",
-      "file": "tasks/05_atas_conselho_classe.yaml",
-      "owner": "atas-editais-redator",
-      "objective": "Gerar minuta de ata de conselho de classe a partir dos dados de desempenho da turma, para validação do colegiado."
-    },
-    {
-      "id": "06_relatorio_aproveitamento_evasao",
-      "file": "tasks/06_relatorio_aproveitamento_evasao.yaml",
-      "owner": "curriculo-integralizacao-auditor",
-      "objective": "Consolidar indicadores de aproveitamento, retenção e evasão por turma/curso a partir dos dados de fechamento do período."
-    },
-    {
-      "id": "07_checklist_sistec_pnp",
-      "file": "tasks/07_checklist_sistec_pnp.yaml",
-      "owner": "sistec-pnp-validador",
-      "objective": "Checar consistência dos dados acadêmicos (situação de matrícula, carga horária, datas) antes do envio ao SISTEC e à Plataforma Nilo Peçanha."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "revisao_ppc",
-      "file": "workflows/revisao_ppc.yaml"
-    },
-    {
-      "id": "ciclo_matricula",
-      "file": "workflows/ciclo_matricula.yaml"
-    },
-    {
-      "id": "fechamento_periodo_letivo",
-      "file": "workflows/fechamento_periodo_letivo.yaml"
-    }
-  ],
-  "scripts": [
-    {
-      "id": "auditor_integralizacao",
-      "file": "scripts/auditor_integralizacao.py",
-      "purpose": "Confronta histórico escolar do aluno com a matriz curricular: identifica pré-requisitos não satisfeitos, componentes pendentes e percentual de integralização."
-    },
-    {
-      "id": "checklist_sistec_pnp",
-      "file": "scripts/checklist_sistec_pnp.py",
-      "purpose": "Verificação determinística dos campos obrigatórios de um registro acadêmico antes do envio ao SISTEC/Plataforma Nilo Peçanha."
-    },
-    {
-      "id": "conflito_calendario",
-      "file": "scripts/conflito_calendario.py",
-      "purpose": "Detecta sobreposição de datas e violação de prazos mínimos entre eventos do calendário acadêmico."
-    }
-  ],
-  "quality_gates": [
-    "ppc_aderente_dcn",
-    "integralizacao_auditada",
-    "calendario_sem_conflito",
-    "ata_aprovada_pelo_colegiado",
-    "dados_consistentes_sistec_pnp"
-  ],
-  "outputs": [
-    "relatorio_intake",
-    "relatorio_ppc_dcn",
-    "relatorio_integralizacao",
-    "calendario_academico",
-    "edital_matricula",
-    "ata_conselho_classe",
-    "relatorio_aproveitamento_evasao",
-    "checklist_sistec_pnp"
-  ],
-  "integrations": [
-    {
-      "squad": "compliance-ia-iffar-squad",
-      "use": "monitoramento de prazos e conformidade institucional cruzada com o calendário acadêmico"
-    }
-  ]
-}
+name: bussola-academica-iffar-squad
+commercial_name: Bússola Acadêmica IFFar
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Squad institucional que apoia secretarias e coordenações acadêmicas do IFFar no ciclo letivo completo: PPC/matriz curricular, integralização e equivalências, calendário e editais de matrícula, atas de conselho de classe, relatórios de aproveitamento/evasão e consistência dos dados enviados ao SISTEC e à Plataforma Nilo Peçanha.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Os artefatos gerados são minutas e relatórios de apoio técnico-administrativo. Toda decisão pedagógica (aprovação de PPC, deferimento de matrícula, fechamento de ata de conselho de classe, envio oficial a SISTEC/PNP) é exclusiva da coordenação, do colegiado e da secretaria acadêmica. Revisão humana é obrigatória em todos os artefatos.
+principles:
+- |-
+  nenhuma decisão pedagógica é tomada pelo squad: ele prepara, audita e sinaliza, a decisão é sempre humana
+- |-
+  regras curriculares (pré-requisitos, equivalências, carga horária) checadas por script determinístico, nunca por inferência do agente
+- separar observado, inferido, hipótese, recomendação e risco em todo artefato
+- |-
+  registrar fontes e versões normativas (DCN, catálogo nacional de cursos, regulamento didático-pedagógico); marcar 'a confirmar' o que não foi verificado na fonte oficial
+- |-
+  dados pessoais de estudantes tratados com minimização: apenas os campos necessários à tarefa, nunca replicados além do artefato solicitado
+- |-
+  nunca incluir dados pessoais sensíveis ou segredos nos artefatos de exemplo/documentação
+agents:
+- id: bussola-orchestrator
+  file: agents/bussola-orchestrator.md
+  role: |-
+    Coordena o ciclo acadêmico de ponta a ponta: intake, roteamento por workflow, controle de gates e consolidação dos artefatos.
+- id: ppc-dcn-analyst
+  file: agents/ppc-dcn-analyst.md
+  role: |-
+    Analisa e apoia a atualização de PPC e matriz curricular, verificando aderência às DCN e ao catálogo nacional de cursos técnicos.
+- id: curriculo-integralizacao-auditor
+  file: agents/curriculo-integralizacao-auditor.md
+  role: |-
+    Audita pré-requisitos, equivalências e integralização curricular por aluno a partir do histórico escolar e da matriz curricular.
+- id: atas-editais-redator
+  file: agents/atas-editais-redator.md
+  role: |-
+    Redige calendário acadêmico, editais de matrícula/rematrícula e minutas de atas de conselho de classe.
+- id: sistec-pnp-validador
+  file: agents/sistec-pnp-validador.md
+  role: |-
+    Verifica a consistência dos dados acadêmicos antes do envio oficial ao SISTEC e à Plataforma Nilo Peçanha.
+tasks:
+- id: 01_intake_ciclo_academico
+  file: tasks/01_intake_ciclo_academico.yaml
+  owner: bussola-orchestrator
+  objective: |-
+    Identificar o tipo de demanda do ciclo acadêmico, documentos disponíveis e lacunas bloqueantes antes de rotear o workflow.
+- id: 02_analise_ppc_e_matriz_curricular
+  file: tasks/02_analise_ppc_e_matriz_curricular.yaml
+  owner: ppc-dcn-analyst
+  objective: |-
+    Verificar aderência do PPC/matriz curricular às DCN e ao catálogo nacional de cursos técnicos, listando pendências e sugestões.
+- id: 03_auditoria_curriculo_integralizacao
+  file: tasks/03_auditoria_curriculo_integralizacao.yaml
+  owner: curriculo-integralizacao-auditor
+  objective: |-
+    Auditar histórico escolar do aluno contra a matriz curricular: pré-requisitos, equivalências e percentual de integralização.
+- id: 04_calendario_e_editais_matricula
+  file: tasks/04_calendario_e_editais_matricula.yaml
+  owner: atas-editais-redator
+  objective: |-
+    Elaborar calendário acadêmico e edital de matrícula/rematrícula, checando conflitos de datas e aderência ao regulamento didático-pedagógico.
+- id: 05_atas_conselho_classe
+  file: tasks/05_atas_conselho_classe.yaml
+  owner: atas-editais-redator
+  objective: |-
+    Gerar minuta de ata de conselho de classe a partir dos dados de desempenho da turma, para validação do colegiado.
+- id: 06_relatorio_aproveitamento_evasao
+  file: tasks/06_relatorio_aproveitamento_evasao.yaml
+  owner: curriculo-integralizacao-auditor
+  objective: |-
+    Consolidar indicadores de aproveitamento, retenção e evasão por turma/curso a partir dos dados de fechamento do período.
+- id: 07_checklist_sistec_pnp
+  file: tasks/07_checklist_sistec_pnp.yaml
+  owner: sistec-pnp-validador
+  objective: |-
+    Checar consistência dos dados acadêmicos (situação de matrícula, carga horária, datas) antes do envio ao SISTEC e à Plataforma Nilo Peçanha.
+workflows:
+- id: revisao_ppc
+  file: workflows/revisao_ppc.yaml
+- id: ciclo_matricula
+  file: workflows/ciclo_matricula.yaml
+- id: fechamento_periodo_letivo
+  file: workflows/fechamento_periodo_letivo.yaml
+scripts:
+- id: auditor_integralizacao
+  file: scripts/auditor_integralizacao.py
+  purpose: |-
+    Confronta histórico escolar do aluno com a matriz curricular: identifica pré-requisitos não satisfeitos, componentes pendentes e percentual de integralização.
+- id: checklist_sistec_pnp
+  file: scripts/checklist_sistec_pnp.py
+  purpose: |-
+    Verificação determinística dos campos obrigatórios de um registro acadêmico antes do envio ao SISTEC/Plataforma Nilo Peçanha.
+- id: conflito_calendario
+  file: scripts/conflito_calendario.py
+  purpose: |-
+    Detecta sobreposição de datas e violação de prazos mínimos entre eventos do calendário acadêmico.
+quality_gates:
+- ppc_aderente_dcn
+- integralizacao_auditada
+- calendario_sem_conflito
+- ata_aprovada_pelo_colegiado
+- dados_consistentes_sistec_pnp
+outputs:
+- relatorio_intake
+- relatorio_ppc_dcn
+- relatorio_integralizacao
+- calendario_academico
+- edital_matricula
+- ata_conselho_classe
+- relatorio_aproveitamento_evasao
+- checklist_sistec_pnp
+integrations:
+- squad: compliance-ia-iffar-squad
+  use: |-
+    monitoramento de prazos e conformidade institucional cruzada com o calendário acadêmico

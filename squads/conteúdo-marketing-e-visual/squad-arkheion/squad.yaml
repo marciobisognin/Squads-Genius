@@ -1,120 +1,178 @@
-name: "ARKHEION"
-code: "squad-arkheion"
-commercial_name: "ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)"
-version: "1.0.0"
+name: ARKHEION
+code: squad-arkheion
+commercial_name: ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)
+version: 1.0.0
 language: pt-BR
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
+instagram: '@marciobisognin'
 slashPrefix: arkheion
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
-family: "Produção Audiovisual (irmão de THEORÍA e KÊRYX)"
-description: >
-  Pipeline multiagente (LangGraph StateGraph) que transforma um tema + um tamanho de
-  vídeo (30s/60s/90s) em um dossiê audiovisual com estética "arquivo confidencial":
-  cenas atômicas de 10s (CENA-10) que se montam deterministicamente, onde o contador
-  NN/TT da interface É a espinha dorsal do roteiro. Dual-render em vídeo (HUD
-  determinístico HTML/CSS+Playwright sobre footage generativo gradeado por FFmpeg).
-  Invariante: o LLM gera apenas JSON; cor, geometria, fonte, timing, grade, montagem
-  e áudio são Python determinístico — a marca é código, não prompt.
-
-positioning: >
-  Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e
-  auditoria TCU-grade. O usuário informa o assunto e o tamanho; o squad faz o resto.
-
-canone: "A imagem é a prova. O LLM descreve; o código desenha; o silêncio acusa."
-
-ecosystem: "OMNISCIENT"
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+family: Produção Audiovisual (irmão de THEORÍA e KÊRYX)
+description: |
+  Pipeline multiagente (LangGraph StateGraph) que transforma um tema + um tamanho de vídeo (30s/60s/90s) em um dossiê audiovisual com estética "arquivo confidencial": cenas atômicas de 10s (CENA-10) que se montam deterministicamente, onde o contador NN/TT da interface É a espinha dorsal do roteiro. Dual-render em vídeo (HUD determinístico HTML/CSS+Playwright sobre footage generativo gradeado por FFmpeg). Invariante: o LLM gera apenas JSON; cor, geometria, fonte, timing, grade, montagem e áudio são Python determinístico — a marca é código, não prompt.
+positioning: |
+  Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e auditoria TCU-grade. O usuário informa o assunto e o tamanho; o squad faz o resto.
+canone: A imagem é a prova. O LLM descreve; o código desenha; o silêncio acusa.
+ecosystem: OMNISCIENT
 aios:
-  minVersion: "2.1.0"
+  minVersion: 2.1.0
   type: squad
-
 domains:
-  - producao_audiovisual
-  - design_de_interface
-  - storytelling_investigativo
-  - educacao
-  - tecnologia
-  - marketing
-
+- producao_audiovisual
+- design_de_interface
+- storytelling_investigativo
+- educacao
+- tecnologia
+- marketing
 principles:
-  - "o LLM gera apenas JSON estruturado; tipografia, geometria, timing, grade e montagem são determinísticos"
-  - "o Cânone (cor/geometria/fonte/timing/grade) vive em arkheion/canon.py, versionado — não em prompts"
-  - "CENA-10 é a unidade atômica: paralelizável, regenerável e auditável por cena"
-  - "o tamanho do vídeo é resolvido em nº de CENA-10 e contadores NN/TT pelo Cânone"
-  - "Gate 2 aprova o roteiro antes de gastar créditos de render (maior ROI)"
-  - "KÁNŌN reprova numericamente qualquer artefato fora do Cânone (gate bloqueante)"
-  - "ELENCHUS bloqueia deriva para tom de propaganda (anti-sycophancy)"
-  - "não copiar marcas/logos/prompts de terceiros — apenas a lógica de composição"
-
+- |-
+  o LLM gera apenas JSON estruturado; tipografia, geometria, timing, grade e montagem são determinísticos
+- |-
+  o Cânone (cor/geometria/fonte/timing/grade) vive em arkheion/canon.py, versionado — não em prompts
+- 'CENA-10 é a unidade atômica: paralelizável, regenerável e auditável por cena'
+- o tamanho do vídeo é resolvido em nº de CENA-10 e contadores NN/TT pelo Cânone
+- Gate 2 aprova o roteiro antes de gastar créditos de render (maior ROI)
+- KÁNŌN reprova numericamente qualquer artefato fora do Cânone (gate bloqueante)
+- ELENCHUS bloqueia deriva para tom de propaganda (anti-sycophancy)
+- não copiar marcas/logos/prompts de terceiros — apenas a lógica de composição
 inputs:
-  tema: "assunto do dossiê (string)"
-  tamanho_video_s: "30 | 60 | 90 (default 60) — resolvido em 3/6/9 CENA-10"
-  marca: "nome curto exibido no HUD"
-  protocolo: "código topo-esquerda (<=24 chars)"
-  cta: "frase do beat de conclusão"
-  encerramento: "escuro | branco"
-
+  tema: assunto do dossiê (string)
+  tamanho_video_s: 30 | 60 | 90 (default 60) — resolvido em 3/6/9 CENA-10
+  marca: nome curto exibido no HUD
+  protocolo: código topo-esquerda (<=24 chars)
+  cta: frase do beat de conclusão
+  encerramento: escuro | branco
 outputs:
-  - "master_2160.mp4 (1:1, 24fps) + entrega_1080.mp4"
-  - "PlanoSequencial, FootageSpec, CardInterface, AudioSpec (JSON auditáveis)"
-  - "vereditos KÁNŌN/ELENCHUS + manifesto specs<->checksums + trace Langfuse"
-
+- master_2160.mp4 (1:1, 24fps) + entrega_1080.mp4
+- PlanoSequencial, FootageSpec, CardInterface, AudioSpec (JSON auditáveis)
+- vereditos KÁNŌN/ELENCHUS + manifesto specs<->checksums + trace Langfuse
 stack:
-  orquestracao: "LangGraph (StateGraph) + Python 3.12"
-  contratos: "Pydantic v2 (fallback dataclasses)"
-  hud: "HTML + CSS + Playwright (captura frame-a-frame)"
-  video_generativo: "API text-to-video plugável (Kling/Runway/Veo/Luma)"
-  grade_montagem: "FFmpeg + MoviePy"
-  audio: "FFmpeg + biblioteca de loops/SFX + TTS opcional"
-  observabilidade: "Langfuse"
-
+  orquestracao: LangGraph (StateGraph) + Python 3.12
+  contratos: Pydantic v2 (fallback dataclasses)
+  hud: HTML + CSS + Playwright (captura frame-a-frame)
+  video_generativo: API text-to-video plugável (Kling/Runway/Veo/Luma)
+  grade_montagem: FFmpeg + MoviePy
+  audio: FFmpeg + biblioteca de loops/SFX + TTS opcional
+  observabilidade: Langfuse
 agents:
-  - {id: hegemon,     file: agents/hegemon.md,     guild: orquestracao, type: python, role: "Conduz o StateGraph, estado SACP, 3 gates HITL e traces."}
-  - {id: diairesis,   file: agents/diairesis.md,   guild: triagem,      type: llm,    role: "Classifica Cynefin e valida completude do briefing."}
-  - {id: mythos,      file: agents/mythos.md,      guild: narrativa,    type: llm,    role: "Gera o PlanoSequencial (N beats) mapeado às CENA-10."}
-  - {id: skiagraphos, file: agents/skiagraphos.md, guild: direcao,      type: llm,    role: "Gera FootageSpec (Trilho B) por cena."}
-  - {id: typos,       file: agents/typos.md,       guild: direcao,      type: llm,    role: "Gera CardInterface (Trilho A) por cena."}
-  - {id: phone,       file: agents/phone.md,       guild: sonora,       type: llm,    role: "Gera AudioSpec: drone, SFX e silêncios."}
-  - {id: kanon,       file: agents/kanon.md,       guild: validacao,    type: python, role: "Valida numericamente specs/renders contra o Cânone (bloqueante)."}
-  - {id: tekton,      file: agents/tekton.md,      guild: render,       type: python, role: "Renderiza HUD + footage gradeado -> CENA-10."}
-  - {id: synthesis,   file: agents/synthesis.md,   guild: render,       type: python, role: "Monta o master: concat, passe global, áudio, encerramento."}
-  - {id: elenchus,    file: agents/elenchus.md,    guild: validacao,    type: llm,    role: "Anti-sycophancy: coerência narrativa e tom de dossiê."}
-  - {id: turing,      file: agents/turing.md,      guild: turing,       type: python, role: "Self-healing: retry/backoff/repair/regeneração por cena."}
-
+- id: hegemon
+  file: agents/hegemon.md
+  guild: orquestracao
+  type: python
+  role: Conduz o StateGraph, estado SACP, 3 gates HITL e traces.
+- id: diairesis
+  file: agents/diairesis.md
+  guild: triagem
+  type: llm
+  role: Classifica Cynefin e valida completude do briefing.
+- id: mythos
+  file: agents/mythos.md
+  guild: narrativa
+  type: llm
+  role: Gera o PlanoSequencial (N beats) mapeado às CENA-10.
+- id: skiagraphos
+  file: agents/skiagraphos.md
+  guild: direcao
+  type: llm
+  role: Gera FootageSpec (Trilho B) por cena.
+- id: typos
+  file: agents/typos.md
+  guild: direcao
+  type: llm
+  role: Gera CardInterface (Trilho A) por cena.
+- id: phone
+  file: agents/phone.md
+  guild: sonora
+  type: llm
+  role: 'Gera AudioSpec: drone, SFX e silêncios.'
+- id: kanon
+  file: agents/kanon.md
+  guild: validacao
+  type: python
+  role: Valida numericamente specs/renders contra o Cânone (bloqueante).
+- id: tekton
+  file: agents/tekton.md
+  guild: render
+  type: python
+  role: Renderiza HUD + footage gradeado -> CENA-10.
+- id: synthesis
+  file: agents/synthesis.md
+  guild: render
+  type: python
+  role: 'Monta o master: concat, passe global, áudio, encerramento.'
+- id: elenchus
+  file: agents/elenchus.md
+  guild: validacao
+  type: llm
+  role: 'Anti-sycophancy: coerência narrativa e tom de dossiê.'
+- id: turing
+  file: agents/turing.md
+  guild: turing
+  type: python
+  role: 'Self-healing: retry/backoff/repair/regeneração por cena.'
 tasks:
-  - {id: "00_intake",              file: tasks/00_intake.yaml,              owner: hegemon}
-  - {id: "01_triagem_cynefin",     file: tasks/01_triagem_cynefin.yaml,     owner: diairesis}
-  - {id: "02_plano_sequencial",    file: tasks/02_plano_sequencial.yaml,    owner: mythos}
-  - {id: "03_footage_specs",       file: tasks/03_footage_specs.yaml,       owner: skiagraphos}
-  - {id: "04_card_interfaces",     file: tasks/04_card_interfaces.yaml,     owner: typos}
-  - {id: "05_audio_spec",          file: tasks/05_audio_spec.yaml,          owner: phone}
-  - {id: "06_kanon_specs",         file: tasks/06_kanon_specs.yaml,         owner: kanon}
-  - {id: "07_render_cenas",        file: tasks/07_render_cenas.yaml,        owner: tekton}
-  - {id: "08_kanon_cenas",         file: tasks/08_kanon_cenas.yaml,         owner: kanon}
-  - {id: "09_synthesis_master",    file: tasks/09_synthesis_master.yaml,    owner: synthesis}
-  - {id: "10_validacao_final",     file: tasks/10_validacao_final.yaml,     owner: elenchus}
-  - {id: "11_homologacao_entrega", file: tasks/11_homologacao_entrega.yaml, owner: hegemon}
-
+- id: 00_intake
+  file: tasks/00_intake.yaml
+  owner: hegemon
+- id: 01_triagem_cynefin
+  file: tasks/01_triagem_cynefin.yaml
+  owner: diairesis
+- id: 02_plano_sequencial
+  file: tasks/02_plano_sequencial.yaml
+  owner: mythos
+- id: 03_footage_specs
+  file: tasks/03_footage_specs.yaml
+  owner: skiagraphos
+- id: 04_card_interfaces
+  file: tasks/04_card_interfaces.yaml
+  owner: typos
+- id: 05_audio_spec
+  file: tasks/05_audio_spec.yaml
+  owner: phone
+- id: 06_kanon_specs
+  file: tasks/06_kanon_specs.yaml
+  owner: kanon
+- id: 07_render_cenas
+  file: tasks/07_render_cenas.yaml
+  owner: tekton
+- id: 08_kanon_cenas
+  file: tasks/08_kanon_cenas.yaml
+  owner: kanon
+- id: 09_synthesis_master
+  file: tasks/09_synthesis_master.yaml
+  owner: synthesis
+- id: 10_validacao_final
+  file: tasks/10_validacao_final.yaml
+  owner: elenchus
+- id: 11_homologacao_entrega
+  file: tasks/11_homologacao_entrega.yaml
+  owner: hegemon
 workflows:
-  - {id: full_arkheion_pipeline,    file: workflows/full_arkheion_pipeline.yaml}
-  - {id: cena10_regeneration_loop,  file: workflows/cena10_regeneration_loop.yaml}
-  - {id: self_healing_loop,         file: workflows/self_healing_loop.yaml}
-
+- id: full_arkheion_pipeline
+  file: workflows/full_arkheion_pipeline.yaml
+- id: cena10_regeneration_loop
+  file: workflows/cena10_regeneration_loop.yaml
+- id: self_healing_loop
+  file: workflows/self_healing_loop.yaml
 quality_gates:
-  - gate_1_triagem
-  - gate_2_roteiro
-  - gate_3_homologacao
-
+- gate_1_triagem
+- gate_2_roteiro
+- gate_3_homologacao
 scripts:
-  - {file: scripts/kanon.py,          desc: "Validador determinístico do Cânone (KÁNŌN)."}
-  - {file: scripts/plano_builder.py,  desc: "Andaime canônico do PlanoSequencial (tema + tamanho)."}
-  - {file: scripts/grade.py,          desc: "Cadeia de grade FFmpeg + scanlines."}
-  - {file: scripts/hud_plan.py,       desc: "Plano de frames do HUD (digitação/cursor/glitch)."}
-  - {file: scripts/synthesis_plan.py, desc: "Plano de montagem do master + comandos FFmpeg."}
-
+- file: scripts/kanon.py
+  desc: Validador determinístico do Cânone (KÁNŌN).
+- file: scripts/plano_builder.py
+  desc: Andaime canônico do PlanoSequencial (tema + tamanho).
+- file: scripts/grade.py
+  desc: Cadeia de grade FFmpeg + scanlines.
+- file: scripts/hud_plan.py
+  desc: Plano de frames do HUD (digitação/cursor/glitch).
+- file: scripts/synthesis_plan.py
+  desc: Plano de montagem do master + comandos FFmpeg.
 core:
-  - {file: arkheion/canon.py,   desc: "O Cânone como código (cor/geometria/fonte/timing/grade/duração)."}
-  - {file: arkheion/schemas.py, desc: "Contratos SACP (Pydantic v2 com fallback dataclasses)."}
-
-footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- file: arkheion/canon.py
+  desc: O Cânone como código (cor/geometria/fonte/timing/grade/duração).
+- file: arkheion/schemas.py
+  desc: Contratos SACP (Pydantic v2 com fallback dataclasses).
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

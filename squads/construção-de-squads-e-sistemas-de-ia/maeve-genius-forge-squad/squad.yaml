@@ -1,182 +1,138 @@
-{
-  "name": "maeve-genius-forge-squad",
-  "commercial_name": "Maeve Genius Forge",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "positioning": "Da ideia ao sistema: pesquisa, design, agentes, workflows, scripts e monetização em um único pipeline.",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "principles": [
-    "separar observado, inferido, hipótese e recomendação",
-    "priorizar scripts determinísticos quando não houver necessidade de LLM",
-    "não copiar marcas, prompts ou materiais proprietários",
-    "registrar decisões e fontes",
-    "validar antes de publicar"
-  ],
-  "agents": [
-    {
-      "id": "forge-orchestrator",
-      "file": "agents/forge-orchestrator.md",
-      "role": "Coordena o pipeline completo, decide ordem de execução, consolida outputs e aciona quality gates."
-    },
-    {
-      "id": "briefing-intelligence-analyst",
-      "file": "agents/briefing-intelligence-analyst.md",
-      "role": "Extrai requisitos, lacunas, hipóteses e critérios de sucesso do briefing inicial."
-    },
-    {
-      "id": "deep-research-strategist",
-      "file": "agents/deep-research-strategist.md",
-      "role": "Executa pesquisa profunda, organiza fontes, contexto, riscos e oportunidades com rastreabilidade."
-    },
-    {
-      "id": "business-model-architect",
-      "file": "agents/business-model-architect.md",
-      "role": "Transforma pesquisa em proposta de valor, oferta, modelo comercial, precificação e monetização."
-    },
-    {
-      "id": "design-system-forger",
-      "file": "agents/design-system-forger.md",
-      "role": "Cria design system original, tokens, componentes e guidelines visuais sem copiar marcas de terceiros."
-    },
-    {
-      "id": "workflow-engineer",
-      "file": "agents/workflow-engineer.md",
-      "role": "Mapeia processos, cria workflows, gates, rollback e trilhas humano-no-loop."
-    },
-    {
-      "id": "agent-architect",
-      "file": "agents/agent-architect.md",
-      "role": "Desenha agentes, papéis, comandos, responsabilidades, dependências e contratos de saída."
-    },
-    {
-      "id": "script-factory-engineer",
-      "file": "agents/script-factory-engineer.md",
-      "role": "Identifica tarefas determinísticas e gera scripts portáveis, testáveis e de baixo custo."
-    },
-    {
-      "id": "quality-audit-sentinel",
-      "file": "agents/quality-audit-sentinel.md",
-      "role": "Valida qualidade, segurança, autoria, rastreabilidade, executabilidade e completude."
-    },
-    {
-      "id": "github-release-publisher",
-      "file": "agents/github-release-publisher.md",
-      "role": "Empacota, cria README, prepara commit e publica no GitHub quando autorizado."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_intake_and_auto_clarify",
-      "file": "tasks/01_intake_and_auto_clarify.yaml",
-      "owner": "briefing-intelligence-analyst",
-      "objective": "Extrair objetivo, público, ativo desejado, lacunas e hipóteses explícitas."
-    },
-    {
-      "id": "02_research_market_and_context",
-      "file": "tasks/02_research_market_and_context.yaml",
-      "owner": "deep-research-strategist",
-      "objective": "Produzir pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança."
-    },
-    {
-      "id": "03_map_opportunity_and_offer",
-      "file": "tasks/03_map_opportunity_and_offer.yaml",
-      "owner": "business-model-architect",
-      "objective": "Converter contexto em proposta de valor, oferta mínima, público comprador e canais."
-    },
-    {
-      "id": "04_create_design_system",
-      "file": "tasks/04_create_design_system.yaml",
-      "owner": "design-system-forger",
-      "objective": "Criar identidade original, paleta, tipografia, tokens, componentes e aplicações."
-    },
-    {
-      "id": "05_extract_visual_reference_safely",
-      "file": "tasks/05_extract_visual_reference_safely.yaml",
-      "owner": "design-system-forger",
-      "objective": "Extrair padrões visuais de referências sem copiar marca, texto ou identidade proprietária."
-    },
-    {
-      "id": "06_design_squad_architecture",
-      "file": "tasks/06_design_squad_architecture.yaml",
-      "owner": "agent-architect",
-      "objective": "Definir estrutura de squad, agentes, responsabilidades, dependências e comandos."
-    },
-    {
-      "id": "07_generate_agents",
-      "file": "tasks/07_generate_agents.yaml",
-      "owner": "agent-architect",
-      "objective": "Gerar agentes especializados com contratos de entrada/saída e footer obrigatório."
-    },
-    {
-      "id": "08_generate_tasks_and_workflows",
-      "file": "tasks/08_generate_tasks_and_workflows.yaml",
-      "owner": "workflow-engineer",
-      "objective": "Gerar tasks atômicas e workflows com gates, rollback e humano no loop."
-    },
-    {
-      "id": "09_identify_deterministic_scripts",
-      "file": "tasks/09_identify_deterministic_scripts.yaml",
-      "owner": "script-factory-engineer",
-      "objective": "Separar tarefas que exigem LLM das tarefas convertíveis em scripts locais."
-    },
-    {
-      "id": "10_generate_and_test_scripts",
-      "file": "tasks/10_generate_and_test_scripts.yaml",
-      "owner": "script-factory-engineer",
-      "objective": "Gerar scripts com logs, dry-run, tratamento de erro e teste mínimo."
-    },
-    {
-      "id": "11_build_documentation_and_monetization_pack",
-      "file": "tasks/11_build_documentation_and_monetization_pack.yaml",
-      "owner": "business-model-architect",
-      "objective": "Gerar README, docs, proposta comercial, pitch e checklist de entrega."
-    },
-    {
-      "id": "12_package_validate_and_publish",
-      "file": "tasks/12_package_validate_and_publish.yaml",
-      "owner": "github-release-publisher",
-      "objective": "Validar manifesto, scan de segredos, empacotar ZIP e preparar publicação GitHub."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "full_forge_pipeline",
-      "file": "workflows/full_forge_pipeline.yaml"
-    },
-    {
-      "id": "design_system_only",
-      "file": "workflows/design_system_only.yaml"
-    },
-    {
-      "id": "script_automation_sprint",
-      "file": "workflows/script_automation_sprint.yaml"
-    },
-    {
-      "id": "github_release_pipeline",
-      "file": "workflows/github_release_pipeline.yaml"
-    }
-  ],
-  "quality_gates": [
-    "briefing",
-    "research",
-    "design",
-    "squad_architecture",
-    "scripts",
-    "publication"
-  ],
-  "outputs": [
-    "research_report",
-    "design_system",
-    "workflows",
-    "agents",
-    "scripts",
-    "README",
-    "monetization_pack",
-    "quality_report",
-    "cost_report",
-    "zip_package"
-  ]
-}
+name: maeve-genius-forge-squad
+commercial_name: Maeve Genius Forge
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Da ideia ao sistema: pesquisa, design, agentes, workflows, scripts e monetização em um único pipeline.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+principles:
+- separar observado, inferido, hipótese e recomendação
+- priorizar scripts determinísticos quando não houver necessidade de LLM
+- não copiar marcas, prompts ou materiais proprietários
+- registrar decisões e fontes
+- validar antes de publicar
+agents:
+- id: forge-orchestrator
+  file: agents/forge-orchestrator.md
+  role: |-
+    Coordena o pipeline completo, decide ordem de execução, consolida outputs e aciona quality gates.
+- id: briefing-intelligence-analyst
+  file: agents/briefing-intelligence-analyst.md
+  role: |-
+    Extrai requisitos, lacunas, hipóteses e critérios de sucesso do briefing inicial.
+- id: deep-research-strategist
+  file: agents/deep-research-strategist.md
+  role: |-
+    Executa pesquisa profunda, organiza fontes, contexto, riscos e oportunidades com rastreabilidade.
+- id: business-model-architect
+  file: agents/business-model-architect.md
+  role: |-
+    Transforma pesquisa em proposta de valor, oferta, modelo comercial, precificação e monetização.
+- id: design-system-forger
+  file: agents/design-system-forger.md
+  role: |-
+    Cria design system original, tokens, componentes e guidelines visuais sem copiar marcas de terceiros.
+- id: workflow-engineer
+  file: agents/workflow-engineer.md
+  role: Mapeia processos, cria workflows, gates, rollback e trilhas humano-no-loop.
+- id: agent-architect
+  file: agents/agent-architect.md
+  role: |-
+    Desenha agentes, papéis, comandos, responsabilidades, dependências e contratos de saída.
+- id: script-factory-engineer
+  file: agents/script-factory-engineer.md
+  role: |-
+    Identifica tarefas determinísticas e gera scripts portáveis, testáveis e de baixo custo.
+- id: quality-audit-sentinel
+  file: agents/quality-audit-sentinel.md
+  role: |-
+    Valida qualidade, segurança, autoria, rastreabilidade, executabilidade e completude.
+- id: github-release-publisher
+  file: agents/github-release-publisher.md
+  role: Empacota, cria README, prepara commit e publica no GitHub quando autorizado.
+tasks:
+- id: 01_intake_and_auto_clarify
+  file: tasks/01_intake_and_auto_clarify.yaml
+  owner: briefing-intelligence-analyst
+  objective: Extrair objetivo, público, ativo desejado, lacunas e hipóteses explícitas.
+- id: 02_research_market_and_context
+  file: tasks/02_research_market_and_context.yaml
+  owner: deep-research-strategist
+  objective: |-
+    Produzir pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança.
+- id: 03_map_opportunity_and_offer
+  file: tasks/03_map_opportunity_and_offer.yaml
+  owner: business-model-architect
+  objective: |-
+    Converter contexto em proposta de valor, oferta mínima, público comprador e canais.
+- id: 04_create_design_system
+  file: tasks/04_create_design_system.yaml
+  owner: design-system-forger
+  objective: Criar identidade original, paleta, tipografia, tokens, componentes e
+    aplicações.
+- id: 05_extract_visual_reference_safely
+  file: tasks/05_extract_visual_reference_safely.yaml
+  owner: design-system-forger
+  objective: |-
+    Extrair padrões visuais de referências sem copiar marca, texto ou identidade proprietária.
+- id: 06_design_squad_architecture
+  file: tasks/06_design_squad_architecture.yaml
+  owner: agent-architect
+  objective: Definir estrutura de squad, agentes, responsabilidades, dependências
+    e comandos.
+- id: 07_generate_agents
+  file: tasks/07_generate_agents.yaml
+  owner: agent-architect
+  objective: |-
+    Gerar agentes especializados com contratos de entrada/saída e footer obrigatório.
+- id: 08_generate_tasks_and_workflows
+  file: tasks/08_generate_tasks_and_workflows.yaml
+  owner: workflow-engineer
+  objective: Gerar tasks atômicas e workflows com gates, rollback e humano no loop.
+- id: 09_identify_deterministic_scripts
+  file: tasks/09_identify_deterministic_scripts.yaml
+  owner: script-factory-engineer
+  objective: Separar tarefas que exigem LLM das tarefas convertíveis em scripts locais.
+- id: 10_generate_and_test_scripts
+  file: tasks/10_generate_and_test_scripts.yaml
+  owner: script-factory-engineer
+  objective: Gerar scripts com logs, dry-run, tratamento de erro e teste mínimo.
+- id: 11_build_documentation_and_monetization_pack
+  file: tasks/11_build_documentation_and_monetization_pack.yaml
+  owner: business-model-architect
+  objective: Gerar README, docs, proposta comercial, pitch e checklist de entrega.
+- id: 12_package_validate_and_publish
+  file: tasks/12_package_validate_and_publish.yaml
+  owner: github-release-publisher
+  objective: Validar manifesto, scan de segredos, empacotar ZIP e preparar publicação
+    GitHub.
+workflows:
+- id: full_forge_pipeline
+  file: workflows/full_forge_pipeline.yaml
+- id: design_system_only
+  file: workflows/design_system_only.yaml
+- id: script_automation_sprint
+  file: workflows/script_automation_sprint.yaml
+- id: github_release_pipeline
+  file: workflows/github_release_pipeline.yaml
+quality_gates:
+- briefing
+- research
+- design
+- squad_architecture
+- scripts
+- publication
+outputs:
+- research_report
+- design_system
+- workflows
+- agents
+- scripts
+- README
+- monetization_pack
+- quality_report
+- cost_report
+- zip_package

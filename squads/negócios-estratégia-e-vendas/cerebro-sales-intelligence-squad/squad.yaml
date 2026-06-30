@@ -1,85 +1,88 @@
 name: cerebro-sales-intelligence-squad
-display_name: "🧠 Cerebro Sales Intelligence Squad"
-version: "1.0.0"
+display_name: 🧠 Cerebro Sales Intelligence Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Inteligência comercial, CRM analytics, pipeline de vendas e previsão de receita"
+domain: Inteligência comercial, CRM analytics, pipeline de vendas e previsão de receita
 visual_style: dark-neon-layered-architecture
-objective: >
-  Amplificar a inteligência de vendas da organização detectando oportunidades invisíveis ao olho
-  humano: perfil de cliente ideal, scoring de leads com sinais comportamentais, inteligência de
-  conversas, saúde do pipeline, análise win/loss, playbooks de vendas e forecast probabilístico
-  de receita — tudo com gate de privacidade LGPD integrado.
-inspiration: >
-  Cerebro (Marvel — X-Men): a máquina que amplifica a mente do Professor Xavier e detecta mutantes
-  em qualquer lugar do mundo. Este squad amplifica a inteligência comercial e detecta oportunidades
-  que seriam invisíveis ao olho humano.
+objective: |
+  Amplificar a inteligência de vendas da organização detectando oportunidades invisíveis ao olho humano: perfil de cliente ideal, scoring de leads com sinais comportamentais, inteligência de conversas, saúde do pipeline, análise win/loss, playbooks de vendas e forecast probabilístico de receita — tudo com gate de privacidade LGPD integrado.
+inspiration: |
+  Cerebro (Marvel — X-Men): a máquina que amplifica a mente do Professor Xavier e detecta mutantes em qualquer lugar do mundo. Este squad amplifica a inteligência comercial e detecta oportunidades que seriam invisíveis ao olho humano.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
   privacy_gate: LGPD
   human_in_loop: true
 inputs:
-  - "Dados de CRM (oportunidades, contatos, histórico de atividades)"
-  - "Gravações ou transcrições de chamadas de vendas"
-  - "Dados de engajamento de email e marketing (open rate, cliques, sequências)"
-  - "Dados firmográficos de leads (setor, porte, tecnologia, cargo)"
-  - "Histórico de negócios ganhos e perdidos (win/loss data)"
-  - "Dados financeiros: ARR, pipeline, quota, forecast histórico"
+- Dados de CRM (oportunidades, contatos, histórico de atividades)
+- Gravações ou transcrições de chamadas de vendas
+- Dados de engajamento de email e marketing (open rate, cliques, sequências)
+- Dados firmográficos de leads (setor, porte, tecnologia, cargo)
+- Histórico de negócios ganhos e perdidos (win/loss data)
+- 'Dados financeiros: ARR, pipeline, quota, forecast histórico'
 outputs:
-  - "ICP Playbook (Perfil de Cliente Ideal documentado)"
-  - "Guia de Inteligência de Conversas de Vendas"
-  - "Relatório de Saúde do Pipeline"
-  - "Relatório de Inteligência Win/Loss"
-  - "Forecast de Receita com cenários probabilísticos"
-  - "Sales Playbook por vertical, persona e tipo de objeção"
+- ICP Playbook (Perfil de Cliente Ideal documentado)
+- Guia de Inteligência de Conversas de Vendas
+- Relatório de Saúde do Pipeline
+- Relatório de Inteligência Win/Loss
+- Forecast de Receita com cenários probabilísticos
+- Sales Playbook por vertical, persona e tipo de objeção
 agents:
-  - id: cerebro-orchestrator
-    file: agents/cerebro-orchestrator.md
-    role: "Coordenador central com gate de privacidade LGPD, decide prioridade de análise, consolida insights e entrega relatório executivo"
-  - id: icp-profiler
-    file: agents/icp-profiler.md
-    role: "Define e refina o Perfil de Cliente Ideal com dados firmográficos, comportamentais e de engajamento"
-  - id: lead-scorer
-    file: agents/lead-scorer.md
-    role: "Executa scoring de leads com sinais comportamentais, demográficos e de engajamento em modelo ponderado"
-  - id: conversation-intelligence-analyst
-    file: agents/conversation-intelligence-analyst.md
-    role: "Analisa chamadas e e-mails de vendas identificando padrões vencedores, objeções recorrentes e gaps de discurso"
-  - id: pipeline-health-monitor
-    file: agents/pipeline-health-monitor.md
-    role: "Monitora saúde do pipeline: velocidade, taxas de conversão, deal slippage, distribuição de estágio e cobertura"
-  - id: win-loss-analyst
-    file: agents/win-loss-analyst.md
-    role: "Analisa negócios ganhos e perdidos com síntese de padrões, identificação de causa raiz e recomendações acionáveis"
-  - id: sales-playbook-engineer
-    file: agents/sales-playbook-engineer.md
-    role: "Gera playbooks de vendas por vertical, persona e tipo de objeção com scripts e frameworks testados"
-  - id: revenue-forecast-modeler
-    file: agents/revenue-forecast-modeler.md
-    role: "Modela forecast probabilístico de receita com análise de cenários conservador, realista e otimista"
+- id: cerebro-orchestrator
+  file: agents/cerebro-orchestrator.md
+  role: |-
+    Coordenador central com gate de privacidade LGPD, decide prioridade de análise, consolida insights e entrega relatório executivo
+- id: icp-profiler
+  file: agents/icp-profiler.md
+  role: |-
+    Define e refina o Perfil de Cliente Ideal com dados firmográficos, comportamentais e de engajamento
+- id: lead-scorer
+  file: agents/lead-scorer.md
+  role: |-
+    Executa scoring de leads com sinais comportamentais, demográficos e de engajamento em modelo ponderado
+- id: conversation-intelligence-analyst
+  file: agents/conversation-intelligence-analyst.md
+  role: |-
+    Analisa chamadas e e-mails de vendas identificando padrões vencedores, objeções recorrentes e gaps de discurso
+- id: pipeline-health-monitor
+  file: agents/pipeline-health-monitor.md
+  role: |-
+    Monitora saúde do pipeline: velocidade, taxas de conversão, deal slippage, distribuição de estágio e cobertura
+- id: win-loss-analyst
+  file: agents/win-loss-analyst.md
+  role: |-
+    Analisa negócios ganhos e perdidos com síntese de padrões, identificação de causa raiz e recomendações acionáveis
+- id: sales-playbook-engineer
+  file: agents/sales-playbook-engineer.md
+  role: |-
+    Gera playbooks de vendas por vertical, persona e tipo de objeção com scripts e frameworks testados
+- id: revenue-forecast-modeler
+  file: agents/revenue-forecast-modeler.md
+  role: |-
+    Modela forecast probabilístico de receita com análise de cenários conservador, realista e otimista
 workflows:
-  - workflows/sales-intelligence-pipeline.yaml
-  - workflows/quality-gates.yaml
+- workflows/sales-intelligence-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/icp-and-scoring.md
-  - tasks/pipeline-analysis.md
+- tasks/icp-and-scoring.md
+- tasks/pipeline-analysis.md
 quality_gates:
-  - "lgpd_privacy_check"
-  - "icp_validation"
-  - "scoring_calibration"
-  - "pipeline_accuracy"
-  - "forecast_confidence"
-  - "playbook_completeness"
+- lgpd_privacy_check
+- icp_validation
+- scoring_calibration
+- pipeline_accuracy
+- forecast_confidence
+- playbook_completeness
 tags:
-  - sales
-  - crm
-  - revenue-intelligence
-  - pipeline
-  - forecasting
-  - icp
-  - lgpd
-  - win-loss
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- sales
+- crm
+- revenue-intelligence
+- pipeline
+- forecasting
+- icp
+- lgpd
+- win-loss
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

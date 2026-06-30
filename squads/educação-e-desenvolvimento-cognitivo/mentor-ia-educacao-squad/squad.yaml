@@ -4,21 +4,21 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
-purpose: >
+purpose: |
   Squad multi-agente para planejamento de aula, geracao de material didatico adaptativo, quiz e feedback personalizado.
 agents:
-  - planner-aula
-  - gerador-material
-  - avaliador-quiz
-  - analista-dificuldades
-  - relatorio-turma
+- planner-aula
+- gerador-material
+- avaliador-quiz
+- analista-dificuldades
+- relatorio-turma
 workflows:
-  - main
+- main
 tasks:
-  - task-1
-  - task-2
-  - task-3
-  - task-4
-  - task-5
+- task-1
+- task-2
+- task-3
+- task-4
+- task-5
 scripts:
-  - run.py
+- run.py

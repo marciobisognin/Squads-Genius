@@ -1,400 +1,271 @@
-{
-  "name": "projur-contracts-squad",
-  "commercial_name": "PROJUR Contracts Squad",
-  "version": "2.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "positioning": "Camada de inteligência documental em lote e ciclo de vida (CLM) para contratos, convênios, acordos e termos de descentralização do IFFar. Extrai, classifica, normaliza, vincula e monitora instrumentos, gerando matriz, indicadores e alertas, e encaminha casos críticos para análise jurídica aprofundada (Themis), contratação (Farol) e custos (PCFP).",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "disclaimer": "Apoio técnico automatizado. Não substitui parecer da Procuradoria competente (art. 53 da Lei 14.133/2021). Dispositivos legais citados são referenciais e exigem verificação de vigência. Toda saída exige revisão humana qualificada.",
-  "principles": [
-    "separar observado, inferido, hipótese, recomendação e risco",
-    "nenhum valor numérico ou de conformidade gerado por LLM: o cálculo vem dos scripts",
-    "todo apontamento jurídico cita norma e indica vigência (verificar na fonte oficial)",
-    "LGPD by design: detectar e mascarar PII; minimização e trilha de auditoria",
-    "schema-first: handoffs JSON validados entre agentes",
-    "reprodutibilidade: checksums idênticos entre execuções",
-    "humano no loop: nenhuma decisão administrativa automática"
-  ],
-  "agents": [
-    {
-      "id": "projur-orchestrator",
-      "file": "agents/projur-orchestrator.md",
-      "role": "Coordena o pipeline em lote, aplica quality gates, aciona o HITL e consolida o quality_report."
-    },
-    {
-      "id": "intake-triagem",
-      "file": "agents/intake-triagem.md",
-      "role": "Recebe o lote, deduplica por hash, gera manifest e fila de processamento."
-    },
-    {
-      "id": "extrator-texto-juridico",
-      "file": "agents/extrator-texto-juridico.md",
-      "role": "Converte PDF nativo/DOCX/MD em texto limpo."
-    },
-    {
-      "id": "ocr-especialista",
-      "file": "agents/ocr-especialista.md",
-      "role": "Detecta PDF imagem e aplica OCR de fallback."
-    },
-    {
-      "id": "classificador-instrumento",
-      "file": "agents/classificador-instrumento.md",
-      "role": "Detecta o tipo do instrumento."
-    },
-    {
-      "id": "extrator-metadados",
-      "file": "agents/extrator-metadados.md",
-      "role": "Extrai número, partes, objeto, valor, vigência e base legal."
-    },
-    {
-      "id": "normalizador-partes",
-      "file": "agents/normalizador-partes.md",
-      "role": "Valida CNPJ/CPF e normaliza razão social."
-    },
-    {
-      "id": "analisador-clausulas",
-      "file": "agents/analisador-clausulas.md",
-      "role": "Segmenta cláusulas e verifica as essenciais (art. 92, Lei 14.133)."
-    },
-    {
-      "id": "vinculador-instrumentos",
-      "file": "agents/vinculador-instrumentos.md",
-      "role": "Liga aditivo↔contrato-pai, convênio↔TED e ata↔contratos."
-    },
-    {
-      "id": "sme-lei14133-conformidade",
-      "file": "agents/sme-lei14133-conformidade.md",
-      "role": "SME: contratos administrativos e cláusulas necessárias (Lei 14.133/2021; legado 8.666/93)."
-    },
-    {
-      "id": "sme-convenios-ted-transferencias",
-      "file": "agents/sme-convenios-ted-transferencias.md",
-      "role": "SME: convênios, termos de fomento/colaboração e TED."
-    },
-    {
-      "id": "sme-pdi-propriedade-intelectual",
-      "file": "agents/sme-pdi-propriedade-intelectual.md",
-      "role": "SME: cláusulas de PD&I, sigilo e titularidade de PI."
-    },
-    {
-      "id": "sme-lgpd-privacidade",
-      "file": "agents/sme-lgpd-privacidade.md",
-      "role": "SME: dados pessoais, base legal e minimização (LGPD)."
-    },
-    {
-      "id": "sme-licitacao-enquadramento",
-      "file": "agents/sme-licitacao-enquadramento.md",
-      "role": "SME: modalidade, dispensa/inexigibilidade e fundamentação."
-    },
-    {
-      "id": "sme-jurisprudencia-controle",
-      "file": "agents/sme-jurisprudencia-controle.md",
-      "role": "SME: confronto com TCU/TCE e CGU (handoff para Themis)."
-    },
-    {
-      "id": "validador-conformidade",
-      "file": "agents/validador-conformidade.md",
-      "role": "Aplica a rules engine versionada e consolida apontamentos."
-    },
-    {
-      "id": "auditor-vigencia-riscos",
-      "file": "agents/auditor-vigencia-riscos.md",
-      "role": "Alertas de vigência/renovação, limites de aditivo e anomalias de valor."
-    },
-    {
-      "id": "gerador-matriz-dicionario",
-      "file": "agents/gerador-matriz-dicionario.md",
-      "role": "Gera a matriz, o dicionário de cláusulas e os indicadores."
-    },
-    {
-      "id": "gerador-relatorio-executivo",
-      "file": "agents/gerador-relatorio-executivo.md",
-      "role": "Gera o relatório executivo (PDF/MD) com indicadores e alertas."
-    },
-    {
-      "id": "guardiao-evidencia",
-      "file": "agents/guardiao-evidencia.md",
-      "role": "Textos limpos, logs, checksums e trilha de auditoria."
-    },
-    {
-      "id": "quality-auditor",
-      "file": "agents/quality-auditor.md",
-      "role": "Verifica as saídas e gera o quality_report."
-    },
-    {
-      "id": "revisor-humano-hitl",
-      "file": "agents/revisor-humano-hitl.md",
-      "role": "Ponto de revisão humana obrigatório nos gates."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_intake_e_deduplicacao",
-      "file": "tasks/01_intake_e_deduplicacao.yaml",
-      "owner": "intake-triagem",
-      "objective": "Receber o lote, deduplicar por hash e gerar o manifest."
-    },
-    {
-      "id": "02_extracao_texto_e_ocr",
-      "file": "tasks/02_extracao_texto_e_ocr.yaml",
-      "owner": "extrator-texto-juridico",
-      "objective": "Extrair texto fiel; aplicar OCR quando o documento for imagem."
-    },
-    {
-      "id": "03_classificacao_instrumento",
-      "file": "tasks/03_classificacao_instrumento.yaml",
-      "owner": "classificador-instrumento",
-      "objective": "Detectar o tipo do instrumento e a confiança."
-    },
-    {
-      "id": "04_metadados_e_partes",
-      "file": "tasks/04_metadados_e_partes.yaml",
-      "owner": "extrator-metadados",
-      "objective": "Extrair metadados e normalizar/validar as partes (CNPJ/CPF)."
-    },
-    {
-      "id": "05_pii_lgpd",
-      "file": "tasks/05_pii_lgpd.yaml",
-      "owner": "sme-lgpd-privacidade",
-      "objective": "Detectar e mascarar dados pessoais; gerar relatório LGPD."
-    },
-    {
-      "id": "06_clausulas_essenciais",
-      "file": "tasks/06_clausulas_essenciais.yaml",
-      "owner": "analisador-clausulas",
-      "objective": "Segmentar cláusulas e checar as essenciais (art. 92)."
-    },
-    {
-      "id": "07_convenios_ted_pdi",
-      "file": "tasks/07_convenios_ted_pdi.yaml",
-      "owner": "sme-convenios-ted-transferencias",
-      "objective": "Aplicar regras específicas de convênios/TED e PD&I."
-    },
-    {
-      "id": "08_vinculo_instrumentos",
-      "file": "tasks/08_vinculo_instrumentos.yaml",
-      "owner": "vinculador-instrumentos",
-      "objective": "Relacionar aditivos, convênios, TEDs e atas."
-    },
-    {
-      "id": "09_conformidade_e_riscos",
-      "file": "tasks/09_conformidade_e_riscos.yaml",
-      "owner": "validador-conformidade",
-      "objective": "Aplicar rules engine, vigência, limites de aditivo e anomalias."
-    },
-    {
-      "id": "10_jurisprudencia_controle",
-      "file": "tasks/10_jurisprudencia_controle.yaml",
-      "owner": "sme-jurisprudencia-controle",
-      "objective": "Mapear red flags vs. TCU/CGU e indicar handoff ao Themis."
-    },
-    {
-      "id": "11_matriz_dicionario_indicadores",
-      "file": "tasks/11_matriz_dicionario_indicadores.yaml",
-      "owner": "gerador-matriz-dicionario",
-      "objective": "Consolidar matriz, dicionário e indicadores."
-    },
-    {
-      "id": "12_relatorio_executivo",
-      "file": "tasks/12_relatorio_executivo.yaml",
-      "owner": "gerador-relatorio-executivo",
-      "objective": "Gerar o relatório executivo (PDF/MD)."
-    },
-    {
-      "id": "13_evidencia_e_quality",
-      "file": "tasks/13_evidencia_e_quality.yaml",
-      "owner": "quality-auditor",
-      "objective": "Calcular checksums, trilha e quality_report."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "lote_completo",
-      "file": "workflows/lote_completo.json"
-    },
-    {
-      "id": "triagem_rapida_red_flags",
-      "file": "workflows/triagem_rapida_red_flags.json"
-    },
-    {
-      "id": "atualizacao_incremental",
-      "file": "workflows/atualizacao_incremental.json"
-    },
-    {
-      "id": "monitor_vigencia",
-      "file": "workflows/monitor_vigencia.json"
-    }
-  ],
-  "scripts": [
-    {
-      "id": "projur_common",
-      "file": "scripts/projur_common.py",
-      "purpose": "Funções compartilhadas: normalização de texto, parsing de valores/datas BR, validação de CNPJ/CPF, hashing e IO."
-    },
-    {
-      "id": "ingest",
-      "file": "scripts/ingest.py",
-      "purpose": "Lê o lote de entrada, deduplica por hash e gera o manifest determinístico."
-    },
-    {
-      "id": "extract_text",
-      "file": "scripts/extract_text.py",
-      "purpose": "Extrai texto de TXT/MD/PDF/DOCX (nativo) com degradação graciosa."
-    },
-    {
-      "id": "classify_instrument",
-      "file": "scripts/classify_instrument.py",
-      "purpose": "Classifica o tipo do instrumento por regras e palavras-chave."
-    },
-    {
-      "id": "extract_metadata",
-      "file": "scripts/extract_metadata.py",
-      "purpose": "Extrai número, partes, objeto, valor, vigência e base legal."
-    },
-    {
-      "id": "normalize_parties",
-      "file": "scripts/normalize_parties.py",
-      "purpose": "Valida dígito verificador de CNPJ/CPF e normaliza as partes."
-    },
-    {
-      "id": "detect_pii",
-      "file": "scripts/detect_pii.py",
-      "purpose": "Detecta e mascara CPF, CNPJ, e-mail, telefone e conta bancária (LGPD)."
-    },
-    {
-      "id": "extract_clauses",
-      "file": "scripts/extract_clauses.py",
-      "purpose": "Segmenta o texto em cláusulas rotuladas."
-    },
-    {
-      "id": "check_essential_clauses",
-      "file": "scripts/check_essential_clauses.py",
-      "purpose": "Verifica presença das cláusulas necessárias do art. 92 da Lei 14.133/2021."
-    },
-    {
-      "id": "rules_engine",
-      "file": "scripts/rules_engine.py",
-      "purpose": "Carrega regras.yaml e aplica as regras de conformidade de forma determinística."
-    },
-    {
-      "id": "validar_limites_aditivos",
-      "file": "scripts/validar_limites_aditivos.py",
-      "purpose": "Calcula o percentual de alteração contratual e compara com os limites legais (25%/50%)."
-    },
-    {
-      "id": "link_instruments",
-      "file": "scripts/link_instruments.py",
-      "purpose": "Liga aditivos, convênios/TED e atas aos instrumentos relacionados."
-    },
-    {
-      "id": "vigencia_alertas",
-      "file": "scripts/vigencia_alertas.py",
-      "purpose": "Calcula status de vigência, prazos de renovação e alertas do ciclo de vida."
-    },
-    {
-      "id": "value_anomaly",
-      "file": "scripts/value_anomaly.py",
-      "purpose": "Detecta anomalias de valor por mediana/IQR."
-    },
-    {
-      "id": "build_matrix",
-      "file": "scripts/build_matrix.py",
-      "purpose": "Consolida a matriz de instrumentos em CSV/JSON."
-    },
-    {
-      "id": "build_dictionary",
-      "file": "scripts/build_dictionary.py",
-      "purpose": "Gera o dicionário de cláusulas reutilizáveis."
-    },
-    {
-      "id": "compute_indicators",
-      "file": "scripts/compute_indicators.py",
-      "purpose": "Calcula indicadores de gestão (valor total, distribuição, taxa de renovação, % fora do padrão)."
-    },
-    {
-      "id": "generate_report",
-      "file": "scripts/generate_report.py",
-      "purpose": "Gera o relatório executivo em Markdown (e PDF quando disponível)."
-    },
-    {
-      "id": "manifest_checksums",
-      "file": "scripts/manifest_checksums.py",
-      "purpose": "Gera e confere checksums dos artefatos para reprodutibilidade."
-    },
-    {
-      "id": "quality_audit",
-      "file": "scripts/quality_audit.py",
-      "purpose": "Verifica as saídas e emite o quality_report."
-    },
-    {
-      "id": "gold_eval",
-      "file": "scripts/gold_eval.py",
-      "purpose": "Mede métricas (similaridade de extração e acerto de classificação) contra o gold set."
-    },
-    {
-      "id": "package_zip",
-      "file": "scripts/package_zip.py",
-      "purpose": "Empacota todos os artefatos da saída em um ZIP."
-    }
-  ],
-  "schemas": [
-    "schemas/instrumento.schema.json",
-    "schemas/parte.schema.json",
-    "schemas/clausula.schema.json",
-    "schemas/validacao.schema.json",
-    "schemas/regra.schema.json",
-    "schemas/matriz.schema.json",
-    "schemas/vinculo_instrumento.schema.json",
-    "schemas/alerta_vigencia.schema.json",
-    "schemas/pii_finding.schema.json",
-    "schemas/indicadores.schema.json",
-    "schemas/quality_report.schema.json"
-  ],
-  "quality_gates": [
-    "extracao_completa",
-    "metadados_e_partes_validados",
-    "pii_tratado",
-    "conformidade_aplicada",
-    "sem_valor_de_llm",
-    "revisao_humana_red_flags",
-    "quality_report_passed"
-  ],
-  "outputs": [
-    "manifest",
-    "matriz_contratos",
-    "dicionario_clausulas",
-    "alertas_vigencia",
-    "vinculos_instrumentos",
-    "relatorio_pii",
-    "indicadores",
-    "relatorio_executivo",
-    "quality_report",
-    "checksums",
-    "projur_contracts_squad_pacote"
-  ],
-  "handoffs": [
-    {
-      "para": "themis-contratos-publicos-squad",
-      "quando": "red flag jurídico exige parecer de mérito"
-    },
-    {
-      "para": "farol-contratos-licitacoes-iffar",
-      "quando": "item em fase de planejamento/contratação"
-    },
-    {
-      "para": "squad-pcfp",
-      "quando": "contrato com dedicação de mão de obra (planilha de custos)"
-    }
-  ],
-  "roadmap": [
-    "F0 Fundação: estrutura, squad.yaml, schemas, ingest, extract_text, gold_eval, regras.yaml inicial",
-    "F1 MVP: classificação + metadados + partes + matriz + indicadores + relatório",
-    "F2 Conformidade & LGPD: rules_engine, detect/redact PII, gates HITL, council SME",
-    "F3 CLM: vigencia_alertas, link_instruments, validar_limites_aditivos, monitor",
-    "F4 OCR & escala: OCR fallback, ingestão incremental, anomalias de valor",
-    "F5 Integração: handoff para Themis/Farol/PCFP e exportação para painel"
-  ]
-}
+name: projur-contracts-squad
+commercial_name: PROJUR Contracts Squad
+version: 2.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Camada de inteligência documental em lote e ciclo de vida (CLM) para contratos, convênios, acordos e termos de descentralização do IFFar. Extrai, classifica, normaliza, vincula e monitora instrumentos, gerando matriz, indicadores e alertas, e encaminha casos críticos para análise jurídica aprofundada (Themis), contratação (Farol) e custos (PCFP).
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Apoio técnico automatizado. Não substitui parecer da Procuradoria competente (art. 53 da Lei 14.133/2021). Dispositivos legais citados são referenciais e exigem verificação de vigência. Toda saída exige revisão humana qualificada.
+principles:
+- separar observado, inferido, hipótese, recomendação e risco
+- |-
+  nenhum valor numérico ou de conformidade gerado por LLM: o cálculo vem dos scripts
+- |-
+  todo apontamento jurídico cita norma e indica vigência (verificar na fonte oficial)
+- 'LGPD by design: detectar e mascarar PII; minimização e trilha de auditoria'
+- 'schema-first: handoffs JSON validados entre agentes'
+- 'reprodutibilidade: checksums idênticos entre execuções'
+- 'humano no loop: nenhuma decisão administrativa automática'
+agents:
+- id: projur-orchestrator
+  file: agents/projur-orchestrator.md
+  role: |-
+    Coordena o pipeline em lote, aplica quality gates, aciona o HITL e consolida o quality_report.
+- id: intake-triagem
+  file: agents/intake-triagem.md
+  role: Recebe o lote, deduplica por hash, gera manifest e fila de processamento.
+- id: extrator-texto-juridico
+  file: agents/extrator-texto-juridico.md
+  role: Converte PDF nativo/DOCX/MD em texto limpo.
+- id: ocr-especialista
+  file: agents/ocr-especialista.md
+  role: Detecta PDF imagem e aplica OCR de fallback.
+- id: classificador-instrumento
+  file: agents/classificador-instrumento.md
+  role: Detecta o tipo do instrumento.
+- id: extrator-metadados
+  file: agents/extrator-metadados.md
+  role: Extrai número, partes, objeto, valor, vigência e base legal.
+- id: normalizador-partes
+  file: agents/normalizador-partes.md
+  role: Valida CNPJ/CPF e normaliza razão social.
+- id: analisador-clausulas
+  file: agents/analisador-clausulas.md
+  role: Segmenta cláusulas e verifica as essenciais (art. 92, Lei 14.133).
+- id: vinculador-instrumentos
+  file: agents/vinculador-instrumentos.md
+  role: Liga aditivo↔contrato-pai, convênio↔TED e ata↔contratos.
+- id: sme-lei14133-conformidade
+  file: agents/sme-lei14133-conformidade.md
+  role: |-
+    SME: contratos administrativos e cláusulas necessárias (Lei 14.133/2021; legado 8.666/93).
+- id: sme-convenios-ted-transferencias
+  file: agents/sme-convenios-ted-transferencias.md
+  role: 'SME: convênios, termos de fomento/colaboração e TED.'
+- id: sme-pdi-propriedade-intelectual
+  file: agents/sme-pdi-propriedade-intelectual.md
+  role: 'SME: cláusulas de PD&I, sigilo e titularidade de PI.'
+- id: sme-lgpd-privacidade
+  file: agents/sme-lgpd-privacidade.md
+  role: 'SME: dados pessoais, base legal e minimização (LGPD).'
+- id: sme-licitacao-enquadramento
+  file: agents/sme-licitacao-enquadramento.md
+  role: 'SME: modalidade, dispensa/inexigibilidade e fundamentação.'
+- id: sme-jurisprudencia-controle
+  file: agents/sme-jurisprudencia-controle.md
+  role: 'SME: confronto com TCU/TCE e CGU (handoff para Themis).'
+- id: validador-conformidade
+  file: agents/validador-conformidade.md
+  role: Aplica a rules engine versionada e consolida apontamentos.
+- id: auditor-vigencia-riscos
+  file: agents/auditor-vigencia-riscos.md
+  role: Alertas de vigência/renovação, limites de aditivo e anomalias de valor.
+- id: gerador-matriz-dicionario
+  file: agents/gerador-matriz-dicionario.md
+  role: Gera a matriz, o dicionário de cláusulas e os indicadores.
+- id: gerador-relatorio-executivo
+  file: agents/gerador-relatorio-executivo.md
+  role: Gera o relatório executivo (PDF/MD) com indicadores e alertas.
+- id: guardiao-evidencia
+  file: agents/guardiao-evidencia.md
+  role: Textos limpos, logs, checksums e trilha de auditoria.
+- id: quality-auditor
+  file: agents/quality-auditor.md
+  role: Verifica as saídas e gera o quality_report.
+- id: revisor-humano-hitl
+  file: agents/revisor-humano-hitl.md
+  role: Ponto de revisão humana obrigatório nos gates.
+tasks:
+- id: 01_intake_e_deduplicacao
+  file: tasks/01_intake_e_deduplicacao.yaml
+  owner: intake-triagem
+  objective: Receber o lote, deduplicar por hash e gerar o manifest.
+- id: 02_extracao_texto_e_ocr
+  file: tasks/02_extracao_texto_e_ocr.yaml
+  owner: extrator-texto-juridico
+  objective: Extrair texto fiel; aplicar OCR quando o documento for imagem.
+- id: 03_classificacao_instrumento
+  file: tasks/03_classificacao_instrumento.yaml
+  owner: classificador-instrumento
+  objective: Detectar o tipo do instrumento e a confiança.
+- id: 04_metadados_e_partes
+  file: tasks/04_metadados_e_partes.yaml
+  owner: extrator-metadados
+  objective: Extrair metadados e normalizar/validar as partes (CNPJ/CPF).
+- id: 05_pii_lgpd
+  file: tasks/05_pii_lgpd.yaml
+  owner: sme-lgpd-privacidade
+  objective: Detectar e mascarar dados pessoais; gerar relatório LGPD.
+- id: 06_clausulas_essenciais
+  file: tasks/06_clausulas_essenciais.yaml
+  owner: analisador-clausulas
+  objective: Segmentar cláusulas e checar as essenciais (art. 92).
+- id: 07_convenios_ted_pdi
+  file: tasks/07_convenios_ted_pdi.yaml
+  owner: sme-convenios-ted-transferencias
+  objective: Aplicar regras específicas de convênios/TED e PD&I.
+- id: 08_vinculo_instrumentos
+  file: tasks/08_vinculo_instrumentos.yaml
+  owner: vinculador-instrumentos
+  objective: Relacionar aditivos, convênios, TEDs e atas.
+- id: 09_conformidade_e_riscos
+  file: tasks/09_conformidade_e_riscos.yaml
+  owner: validador-conformidade
+  objective: Aplicar rules engine, vigência, limites de aditivo e anomalias.
+- id: 10_jurisprudencia_controle
+  file: tasks/10_jurisprudencia_controle.yaml
+  owner: sme-jurisprudencia-controle
+  objective: Mapear red flags vs. TCU/CGU e indicar handoff ao Themis.
+- id: 11_matriz_dicionario_indicadores
+  file: tasks/11_matriz_dicionario_indicadores.yaml
+  owner: gerador-matriz-dicionario
+  objective: Consolidar matriz, dicionário e indicadores.
+- id: 12_relatorio_executivo
+  file: tasks/12_relatorio_executivo.yaml
+  owner: gerador-relatorio-executivo
+  objective: Gerar o relatório executivo (PDF/MD).
+- id: 13_evidencia_e_quality
+  file: tasks/13_evidencia_e_quality.yaml
+  owner: quality-auditor
+  objective: Calcular checksums, trilha e quality_report.
+workflows:
+- id: lote_completo
+  file: workflows/lote_completo.json
+- id: triagem_rapida_red_flags
+  file: workflows/triagem_rapida_red_flags.json
+- id: atualizacao_incremental
+  file: workflows/atualizacao_incremental.json
+- id: monitor_vigencia
+  file: workflows/monitor_vigencia.json
+scripts:
+- id: projur_common
+  file: scripts/projur_common.py
+  purpose: |-
+    Funções compartilhadas: normalização de texto, parsing de valores/datas BR, validação de CNPJ/CPF, hashing e IO.
+- id: ingest
+  file: scripts/ingest.py
+  purpose: Lê o lote de entrada, deduplica por hash e gera o manifest determinístico.
+- id: extract_text
+  file: scripts/extract_text.py
+  purpose: Extrai texto de TXT/MD/PDF/DOCX (nativo) com degradação graciosa.
+- id: classify_instrument
+  file: scripts/classify_instrument.py
+  purpose: Classifica o tipo do instrumento por regras e palavras-chave.
+- id: extract_metadata
+  file: scripts/extract_metadata.py
+  purpose: Extrai número, partes, objeto, valor, vigência e base legal.
+- id: normalize_parties
+  file: scripts/normalize_parties.py
+  purpose: Valida dígito verificador de CNPJ/CPF e normaliza as partes.
+- id: detect_pii
+  file: scripts/detect_pii.py
+  purpose: Detecta e mascara CPF, CNPJ, e-mail, telefone e conta bancária (LGPD).
+- id: extract_clauses
+  file: scripts/extract_clauses.py
+  purpose: Segmenta o texto em cláusulas rotuladas.
+- id: check_essential_clauses
+  file: scripts/check_essential_clauses.py
+  purpose: Verifica presença das cláusulas necessárias do art. 92 da Lei 14.133/2021.
+- id: rules_engine
+  file: scripts/rules_engine.py
+  purpose: Carrega regras.yaml e aplica as regras de conformidade de forma determinística.
+- id: validar_limites_aditivos
+  file: scripts/validar_limites_aditivos.py
+  purpose: |-
+    Calcula o percentual de alteração contratual e compara com os limites legais (25%/50%).
+- id: link_instruments
+  file: scripts/link_instruments.py
+  purpose: Liga aditivos, convênios/TED e atas aos instrumentos relacionados.
+- id: vigencia_alertas
+  file: scripts/vigencia_alertas.py
+  purpose: Calcula status de vigência, prazos de renovação e alertas do ciclo de vida.
+- id: value_anomaly
+  file: scripts/value_anomaly.py
+  purpose: Detecta anomalias de valor por mediana/IQR.
+- id: build_matrix
+  file: scripts/build_matrix.py
+  purpose: Consolida a matriz de instrumentos em CSV/JSON.
+- id: build_dictionary
+  file: scripts/build_dictionary.py
+  purpose: Gera o dicionário de cláusulas reutilizáveis.
+- id: compute_indicators
+  file: scripts/compute_indicators.py
+  purpose: |-
+    Calcula indicadores de gestão (valor total, distribuição, taxa de renovação, % fora do padrão).
+- id: generate_report
+  file: scripts/generate_report.py
+  purpose: Gera o relatório executivo em Markdown (e PDF quando disponível).
+- id: manifest_checksums
+  file: scripts/manifest_checksums.py
+  purpose: Gera e confere checksums dos artefatos para reprodutibilidade.
+- id: quality_audit
+  file: scripts/quality_audit.py
+  purpose: Verifica as saídas e emite o quality_report.
+- id: gold_eval
+  file: scripts/gold_eval.py
+  purpose: |-
+    Mede métricas (similaridade de extração e acerto de classificação) contra o gold set.
+- id: package_zip
+  file: scripts/package_zip.py
+  purpose: Empacota todos os artefatos da saída em um ZIP.
+schemas:
+- schemas/instrumento.schema.json
+- schemas/parte.schema.json
+- schemas/clausula.schema.json
+- schemas/validacao.schema.json
+- schemas/regra.schema.json
+- schemas/matriz.schema.json
+- schemas/vinculo_instrumento.schema.json
+- schemas/alerta_vigencia.schema.json
+- schemas/pii_finding.schema.json
+- schemas/indicadores.schema.json
+- schemas/quality_report.schema.json
+quality_gates:
+- extracao_completa
+- metadados_e_partes_validados
+- pii_tratado
+- conformidade_aplicada
+- sem_valor_de_llm
+- revisao_humana_red_flags
+- quality_report_passed
+outputs:
+- manifest
+- matriz_contratos
+- dicionario_clausulas
+- alertas_vigencia
+- vinculos_instrumentos
+- relatorio_pii
+- indicadores
+- relatorio_executivo
+- quality_report
+- checksums
+- projur_contracts_squad_pacote
+handoffs:
+- para: themis-contratos-publicos-squad
+  quando: red flag jurídico exige parecer de mérito
+- para: farol-contratos-licitacoes-iffar
+  quando: item em fase de planejamento/contratação
+- para: squad-pcfp
+  quando: contrato com dedicação de mão de obra (planilha de custos)
+roadmap:
+- |-
+  F0 Fundação: estrutura, squad.yaml, schemas, ingest, extract_text, gold_eval, regras.yaml inicial
+- 'F1 MVP: classificação + metadados + partes + matriz + indicadores + relatório'
+- 'F2 Conformidade & LGPD: rules_engine, detect/redact PII, gates HITL, council SME'
+- 'F3 CLM: vigencia_alertas, link_instruments, validar_limites_aditivos, monitor'
+- 'F4 OCR & escala: OCR fallback, ingestão incremental, anomalias de valor'
+- 'F5 Integração: handoff para Themis/Farol/PCFP e exportação para painel'

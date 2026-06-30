@@ -1,6 +1,35 @@
 # Squads Genius
 
+![Conformidade](https://img.shields.io/badge/Conformidade-100%25-brightgreen)
+![Squads](https://img.shields.io/badge/Squads-87-blue)
+![Licença](https://img.shields.io/badge/Licença-MIT-green)
+![Status](https://img.shields.io/badge/Status-Ativo-success)
+
 Repositório público de squads AIOS/OpenSquad criados e organizados por Marcio Bisognin para automação, governança, criação de conteúdo, análise estratégica e construção de negócios com IA.
+
+## 📊 Saúde do Repositório
+
+| Métrica | Status |
+|---------|--------|
+| **Squads Total** | 87 ✅ |
+| **Conformidade** | 100% (87/87 com 6/6 requisitos) |
+| **LICENSE Files** | 87/87 (100%) |
+| **Estrutura Completa** | 87/87 (agents/, tasks/, workflows/) |
+| **README Files** | 87/87 (100%) |
+| **Formato squad.yaml** | 100% YAML (sem JSON) |
+| **Versões Semver** | 100% (X.Y.Z) |
+
+### ✅ Checklist de Conformidade
+
+Cada squad valida:
+- ✅ `squad.yaml` (manifesto)
+- ✅ `README.md` (documentação)
+- ✅ `LICENSE` (MIT)
+- ✅ `agents/` (diretório)
+- ✅ `tasks/` (diretório)
+- ✅ `workflows/` (diretório)
+
+[Ver detalhes completos →](SQUAD_INDEX.md#resumo-de-conformidade)
 
 ## Site visual dos squads
 

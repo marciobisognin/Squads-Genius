@@ -4,138 +4,126 @@ version: 1.0.0
 language: pt-BR
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
-positioning: >
-  Squad multiagente que personifica figuras biblicas e historiadores
-  especializados para explicar a Palavra de Deus com perspectiva teologica e
-  contexto historico-cultural. Um orquestrador (MSCA) faz a analise de PLN da
-  consulta, seleciona e combina agentes a partir de uma Base de Dados de
-  Conhecimento (BDC) e compoe respostas coesas sob guardrails teologicos.
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
-
-disclaimer: >
-  As personas sao representacoes didaticas de IA, nunca a voz real das figuras
-  sagradas nem revelacao. Toda citacao biblica deve referenciar
-  livro:capitulo:versiculo. A ferramenta e educativa e nao substitui
-  aconselhamento pastoral, doutrinario ou academico.
-
+instagram: '@marciobisognin'
+positioning: |
+  Squad multiagente que personifica figuras biblicas e historiadores especializados para explicar a Palavra de Deus com perspectiva teologica e contexto historico-cultural. Um orquestrador (MSCA) faz a analise de PLN da consulta, seleciona e combina agentes a partir de uma Base de Dados de Conhecimento (BDC) e compoe respostas coesas sob guardrails teologicos.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |
+  As personas sao representacoes didaticas de IA, nunca a voz real das figuras sagradas nem revelacao. Toda citacao biblica deve referenciar livro:capitulo:versiculo. A ferramenta e educativa e nao substitui aconselhamento pastoral, doutrinario ou academico.
 knowledge_base:
-  descricao: Base de Dados de Conhecimento (BDC) - perfis, mapa semantico e indice de livros versionados; textos integrais ficam em fontes externas/publicas.
+  descricao: |-
+    Base de Dados de Conhecimento (BDC) - perfis, mapa semantico e indice de livros versionados; textos integrais ficam em fontes externas/publicas.
   arquivos:
-    - scripts/data/perfis_agentes.json
-    - scripts/data/mapa_semantico.json
-    - scripts/data/livros_biblia.json
-
+  - scripts/data/perfis_agentes.json
+  - scripts/data/mapa_semantico.json
+  - scripts/data/livros_biblia.json
 agents:
-  - id: mestre-escriba-orquestrador
-    file: agents/mestre-escriba-orquestrador.md
-    role: MSCA - interpreta a consulta (PLN), seleciona/combina agentes e compoe a resposta final.
-  - id: curador-bdc
-    file: agents/curador-bdc.md
-    role: Cuida da BDC e recupera contexto (versiculos, dados historicos, termos) para cada consulta.
-  - id: guardiao-teologico
-    file: agents/guardiao-teologico.md
-    role: Quality gate de fidelidade e guardrails (referencias, disclaimer, neutralidade, footer).
-  - id: persona-jesus
-    file: agents/persona-jesus.md
-    role: Persona biblica (Novo) - Evangelhos, Reino de Deus, amor, perdao, graca.
-  - id: persona-moises
-    file: agents/persona-moises.md
-    role: Persona biblica (Antigo) - Exodo, Lei Mosaica, alianca do Sinai.
-  - id: persona-paulo
-    file: agents/persona-paulo.md
-    role: Persona biblica (Novo) - epistolas, graca, fe, justificacao, missoes.
-  - id: persona-davi
-    file: agents/persona-davi.md
-    role: Persona biblica (Antigo) - Salmos, adoracao, arrependimento, lideranca.
-  - id: persona-maria
-    file: agents/persona-maria.md
-    role: Persona biblica (Novo) - Anunciacao, Magnificat, encarnacao, fe e humildade.
-  - id: persona-pedro
-    file: agents/persona-pedro.md
-    role: Persona biblica (Novo) - Evangelhos, Atos, negacao e restauracao, esperanca.
-  - id: persona-salomao
-    file: agents/persona-salomao.md
-    role: Persona biblica (Antigo) - Proverbios, Eclesiastes, sabedoria, temor do Senhor.
-  - id: historiador-antigo-testamento
-    file: agents/historiador-antigo-testamento.md
-    role: Historiador - Antigo Oriente Proximo, arqueologia biblica, Israel antigo.
-  - id: historiador-novo-testamento
-    file: agents/historiador-novo-testamento.md
-    role: Historiador - Segundo Templo, mundo greco-romano, seculo I d.C.
-  - id: critico-textual
-    file: agents/critico-textual.md
-    role: Manuscritos, variantes, linguas originais, autoria, datacao e canon.
-
+- id: mestre-escriba-orquestrador
+  file: agents/mestre-escriba-orquestrador.md
+  role: |-
+    MSCA - interpreta a consulta (PLN), seleciona/combina agentes e compoe a resposta final.
+- id: curador-bdc
+  file: agents/curador-bdc.md
+  role: |-
+    Cuida da BDC e recupera contexto (versiculos, dados historicos, termos) para cada consulta.
+- id: guardiao-teologico
+  file: agents/guardiao-teologico.md
+  role: |-
+    Quality gate de fidelidade e guardrails (referencias, disclaimer, neutralidade, footer).
+- id: persona-jesus
+  file: agents/persona-jesus.md
+  role: Persona biblica (Novo) - Evangelhos, Reino de Deus, amor, perdao, graca.
+- id: persona-moises
+  file: agents/persona-moises.md
+  role: Persona biblica (Antigo) - Exodo, Lei Mosaica, alianca do Sinai.
+- id: persona-paulo
+  file: agents/persona-paulo.md
+  role: Persona biblica (Novo) - epistolas, graca, fe, justificacao, missoes.
+- id: persona-davi
+  file: agents/persona-davi.md
+  role: Persona biblica (Antigo) - Salmos, adoracao, arrependimento, lideranca.
+- id: persona-maria
+  file: agents/persona-maria.md
+  role: Persona biblica (Novo) - Anunciacao, Magnificat, encarnacao, fe e humildade.
+- id: persona-pedro
+  file: agents/persona-pedro.md
+  role: Persona biblica (Novo) - Evangelhos, Atos, negacao e restauracao, esperanca.
+- id: persona-salomao
+  file: agents/persona-salomao.md
+  role: Persona biblica (Antigo) - Proverbios, Eclesiastes, sabedoria, temor do Senhor.
+- id: historiador-antigo-testamento
+  file: agents/historiador-antigo-testamento.md
+  role: Historiador - Antigo Oriente Proximo, arqueologia biblica, Israel antigo.
+- id: historiador-novo-testamento
+  file: agents/historiador-novo-testamento.md
+  role: Historiador - Segundo Templo, mundo greco-romano, seculo I d.C.
+- id: critico-textual
+  file: agents/critico-textual.md
+  role: Manuscritos, variantes, linguas originais, autoria, datacao e canon.
 tasks:
-  - id: 01_intake_consulta
-    file: tasks/01_intake_consulta.yaml
-    owner: mestre-escriba-orquestrador
-  - id: 02_analise_pln_entidades_intencao
-    file: tasks/02_analise_pln_entidades_intencao.yaml
-    owner: mestre-escriba-orquestrador
-  - id: 03_recuperar_contexto_bdc
-    file: tasks/03_recuperar_contexto_bdc.yaml
-    owner: curador-bdc
-  - id: 04_selecionar_combinar_agentes
-    file: tasks/04_selecionar_combinar_agentes.yaml
-    owner: mestre-escriba-orquestrador
-  - id: 05_gerar_resposta_persona
-    file: tasks/05_gerar_resposta_persona.yaml
-    owner: persona-jesus
-  - id: 06_complementar_contexto_historico
-    file: tasks/06_complementar_contexto_historico.yaml
-    owner: historiador-novo-testamento
-  - id: 07_compor_resposta_final
-    file: tasks/07_compor_resposta_final.yaml
-    owner: mestre-escriba-orquestrador
-  - id: 08_revisao_teologica_guardrails
-    file: tasks/08_revisao_teologica_guardrails.yaml
-    owner: guardiao-teologico
-  - id: 09_refinamento_interativo
-    file: tasks/09_refinamento_interativo.yaml
-    owner: mestre-escriba-orquestrador
-  - id: 10_registrar_historico_feedback
-    file: tasks/10_registrar_historico_feedback.yaml
-    owner: curador-bdc
-
+- id: 01_intake_consulta
+  file: tasks/01_intake_consulta.yaml
+  owner: mestre-escriba-orquestrador
+- id: 02_analise_pln_entidades_intencao
+  file: tasks/02_analise_pln_entidades_intencao.yaml
+  owner: mestre-escriba-orquestrador
+- id: 03_recuperar_contexto_bdc
+  file: tasks/03_recuperar_contexto_bdc.yaml
+  owner: curador-bdc
+- id: 04_selecionar_combinar_agentes
+  file: tasks/04_selecionar_combinar_agentes.yaml
+  owner: mestre-escriba-orquestrador
+- id: 05_gerar_resposta_persona
+  file: tasks/05_gerar_resposta_persona.yaml
+  owner: persona-jesus
+- id: 06_complementar_contexto_historico
+  file: tasks/06_complementar_contexto_historico.yaml
+  owner: historiador-novo-testamento
+- id: 07_compor_resposta_final
+  file: tasks/07_compor_resposta_final.yaml
+  owner: mestre-escriba-orquestrador
+- id: 08_revisao_teologica_guardrails
+  file: tasks/08_revisao_teologica_guardrails.yaml
+  owner: guardiao-teologico
+- id: 09_refinamento_interativo
+  file: tasks/09_refinamento_interativo.yaml
+  owner: mestre-escriba-orquestrador
+- id: 10_registrar_historico_feedback
+  file: tasks/10_registrar_historico_feedback.yaml
+  owner: curador-bdc
 workflows:
-  - id: full_biblical_consultation_pipeline
-    file: workflows/full_biblical_consultation_pipeline.yaml
-  - id: quick_single_persona
-    file: workflows/quick_single_persona.yaml
-  - id: historical_context_deep_dive
-    file: workflows/historical_context_deep_dive.yaml
-
+- id: full_biblical_consultation_pipeline
+  file: workflows/full_biblical_consultation_pipeline.yaml
+- id: quick_single_persona
+  file: workflows/quick_single_persona.yaml
+- id: historical_context_deep_dive
+  file: workflows/historical_context_deep_dive.yaml
 scripts:
-  - id: selecionar_agentes
-    file: scripts/selecionar_agentes.py
-    role: Recomendacao deterministica de personas e historiadores (nucleo do MSCA).
-  - id: parse_referencia_biblica
-    file: scripts/parse_referencia_biblica.py
-    role: Extrai referencias biblicas estruturadas de texto livre.
-  - id: montar_prompt_persona
-    file: scripts/montar_prompt_persona.py
-    role: Monta o prompt de sistema de uma persona/historiador com guardrails.
-  - id: validar_fidelidade
-    file: scripts/validar_fidelidade.py
-    role: Valida guardrails da resposta (referencias, disclaimer, footer).
-
+- id: selecionar_agentes
+  file: scripts/selecionar_agentes.py
+  role: Recomendacao deterministica de personas e historiadores (nucleo do MSCA).
+- id: parse_referencia_biblica
+  file: scripts/parse_referencia_biblica.py
+  role: Extrai referencias biblicas estruturadas de texto livre.
+- id: montar_prompt_persona
+  file: scripts/montar_prompt_persona.py
+  role: Monta o prompt de sistema de uma persona/historiador com guardrails.
+- id: validar_fidelidade
+  file: scripts/validar_fidelidade.py
+  role: Valida guardrails da resposta (referencias, disclaimer, footer).
 quality_gates:
-  - consulta_em_escopo_biblico
-  - selecao_de_agentes_definida
-  - guardrails_go_no_go
-  - documentacao_completa
-
+- consulta_em_escopo_biblico
+- selecao_de_agentes_definida
+- guardrails_go_no_go
+- documentacao_completa
 outputs:
-  - plano_orquestracao
-  - contexto_recuperado
-  - resposta_composta
-  - relatorio_guardrails
-  - registro_historico
-
+- plano_orquestracao
+- contexto_recuperado
+- resposta_composta
+- relatorio_guardrails
+- registro_historico
 metricas_sucesso:
-  - taxa_resposta_relevante
-  - tempo_medio_resposta
-  - engajamento_por_sessao
-  - satisfacao_usuario
+- taxa_resposta_relevante
+- tempo_medio_resposta
+- engajamento_por_sessao
+- satisfacao_usuario

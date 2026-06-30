@@ -1,8 +1,7 @@
 name: farol-contratos-licitacoes-iffar
 title: Farol Public Procurement Intelligence Platform
-description: Sistema auditável de inteligência para planejamento, pesquisa de preços,
-  qualidade de especificações, previsão de demanda e governança das contratações públicas
-  do IFFar.
+description: |-
+  Sistema auditável de inteligência para planejamento, pesquisa de preços, qualidade de especificações, previsão de demanda e governança das contratações públicas do IFFar.
 version: 3.1.0
 license: MIT
 creator: Marcio Bisognin
@@ -10,10 +9,10 @@ instagram: '@marciobisognin'
 institutional_context:
   institution: Instituto Federal Farroupilha
   area: Licitações e Contratos
-  scope: DFD, PCA, ETP, gestão de riscos, pesquisa de preços, TR, saneamento e pacote
-    de instrução processual
-  default_output: processo auditável com achados, evidências, memória de cálculo,
-    gestão de casos, relatório e dashboard
+  scope: |-
+    DFD, PCA, ETP, gestão de riscos, pesquisa de preços, TR, saneamento e pacote de instrução processual
+  default_output: |-
+    processo auditável com achados, evidências, memória de cálculo, gestão de casos, relatório e dashboard
 metadata:
   readme_style: institutional-intelligence-platform
   domain: public-procurement-contracts

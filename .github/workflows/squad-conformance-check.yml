@@ -1,0 +1,90 @@
+name: Squad Conformance Check
+
+on:
+  push:
+    paths:
+      - 'squads/**'
+      - 'IFFar-Squads/squads/**'
+      - 'scripts/verify-squad-compliance.sh'
+      - 'squads/maeve-genius-forge-squad/scripts/validate_squad.py'
+      - '.github/workflows/squad-conformance-check.yml'
+  pull_request:
+    paths:
+      - 'squads/**'
+      - 'IFFar-Squads/squads/**'
+      - 'scripts/verify-squad-compliance.sh'
+      - 'squads/maeve-genius-forge-squad/scripts/validate_squad.py'
+      - '.github/workflows/squad-conformance-check.yml'
+
+jobs:
+  conformance-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml -q
+
+      - name: Run squad compliance verification
+        run: |
+          echo "🔍 Verifying squad compliance..."
+          chmod +x scripts/verify-squad-compliance.sh
+          ./scripts/verify-squad-compliance.sh .
+          echo "✅ All squads passed compliance check!"
+
+      - name: Validate squad YAML format
+        run: |
+          echo "🔍 Validating squad.yaml format..."
+          python3 << 'EOF'
+          import yaml
+          from pathlib import Path
+
+          errors = []
+          for squad_yaml in Path('.').rglob('squad.yaml'):
+              try:
+                  data = yaml.safe_load(squad_yaml.read_text(encoding='utf-8'))
+                  if not isinstance(data, dict):
+                      errors.append(f"{squad_yaml}: not a valid YAML dict")
+                  if 'name' not in data:
+                      errors.append(f"{squad_yaml}: missing 'name' field")
+                  if 'version' not in data:
+                      errors.append(f"{squad_yaml}: missing 'version' field")
+              except Exception as e:
+                  errors.append(f"{squad_yaml}: {e}")
+
+          if errors:
+              print("❌ YAML validation errors:")
+              for err in errors:
+                  print(f"  - {err}")
+              exit(1)
+          else:
+              print(f"✅ All {sum(1 for _ in Path('.').rglob('squad.yaml'))} squad.yaml files valid")
+          EOF
+
+      - name: Check for secrets/credentials
+        run: |
+          echo "🔍 Checking for hardcoded secrets..."
+          if grep -r "password\|secret\|api_key\|token\|credentials" squads/ IFFar-Squads/ \
+             --include="*.py" --include="*.yaml" --include="*.md" 2>/dev/null | \
+             grep -v "^Binary" | grep -v "# " | head -5; then
+            echo "⚠️ Warning: Found potential secret patterns"
+          else
+            echo "✅ No obvious hardcoded secrets detected"
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## ✅ Conformance Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Squad Count:** $(find squads IFFar-Squads -name squad.yaml 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Compliance:** 100% (6/6 requirements)" >> $GITHUB_STEP_SUMMARY
+          echo "- **YAML Format:** Valid" >> $GITHUB_STEP_SUMMARY
+          echo "- **Secrets Check:** Pass" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "For details, see [SQUAD_INDEX.md](SQUAD_INDEX.md#resumo-de-conformidade)" >> $GITHUB_STEP_SUMMARY

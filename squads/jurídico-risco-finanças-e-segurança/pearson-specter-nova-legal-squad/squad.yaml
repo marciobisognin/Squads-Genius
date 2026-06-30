@@ -1,42 +1,40 @@
 name: pearson-specter-nova-legal-squad
 version: 1.0.0
-description: "Squad legal inteligente para orquestrar pipeline adversarial de argumentação e estratégia jurídica usando LLMs especializados em direito brasileiro e common law."
-author: "Adaptado do PRD Jurídico: Pearson Specter Nova"
+description: |-
+  Squad legal inteligente para orquestrar pipeline adversarial de argumentação e estratégia jurídica usando LLMs especializados em direito brasileiro e common law.
+author: 'Adaptado do PRD Jurídico: Pearson Specter Nova'
 license: Proprietary
 slashPrefix: psn
-
 aios:
-  minVersion: "2.1.0"
+  minVersion: 2.1.0
   type: squad
-
 components:
   agents:
-    - harvey.md
-    - mike.md
-    - louis.md
-    - jessica.md
-    - donna.md
-    - legal-orchestrator.md
+  - harvey.md
+  - mike.md
+  - louis.md
+  - jessica.md
+  - donna.md
+  - legal-orchestrator.md
   tasks:
-    - define-case.md
-    - intake-oracle.md
-    - deep-research.md
-    - financial-audit.md
-    - macro-alignment.md
-    - craft-strategy.md
-    - compile-case-report.md
+  - define-case.md
+  - intake-oracle.md
+  - deep-research.md
+  - financial-audit.md
+  - macro-alignment.md
+  - craft-strategy.md
+  - compile-case-report.md
   workflows:
-    - litigation-pipeline-loop.yaml
+  - litigation-pipeline-loop.yaml
   checklists:
-    - legal-squad-checklist.md
+  - legal-squad-checklist.md
   config:
-    - coding-standards.md
-    - tech-stack.md
-    - source-tree.md
-
+  - coding-standards.md
+  - tech-stack.md
+  - source-tree.md
 tags:
-  - legal
-  - jurimetria
-  - compliance
-  - litigation
-  - argumentation
+- legal
+- jurimetria
+- compliance
+- litigation
+- argumentation

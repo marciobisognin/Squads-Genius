@@ -1,65 +1,67 @@
-name: "Órbita Incubadora Squad"
-slug: "orbita-incubadora-squad"
-version: "1.0.0"
-type: "premium-institutional-incubator-squad"
-language: "pt-BR"
-license: "MIT"
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
-readme_style: "dark-neon-layered-architecture"
-summary: "Sistema multiagente para diagnosticar, estruturar e operar incubadoras com base em CERNE, Lean Startup, Canvas, TRL, OKR, BSC, inovação aberta e impacto territorial."
+name: Órbita Incubadora Squad
+slug: orbita-incubadora-squad
+version: 1.0.0
+type: premium-institutional-incubator-squad
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+readme_style: dark-neon-layered-architecture
+summary: |-
+  Sistema multiagente para diagnosticar, estruturar e operar incubadoras com base em CERNE, Lean Startup, Canvas, TRL, OKR, BSC, inovação aberta e impacto territorial.
 principles:
-  - "CERNE como eixo de maturidade institucional, sem alegar certificação automática."
-  - "Validação de mercado por evidências, não por opinião."
-  - "Governança pública, documentação auditável e melhoria contínua."
-  - "Impacto territorial medido por indicadores verificáveis."
+- CERNE como eixo de maturidade institucional, sem alegar certificação automática.
+- Validação de mercado por evidências, não por opinião.
+- Governança pública, documentação auditável e melhoria contínua.
+- Impacto territorial medido por indicadores verificáveis.
 agents:
-  - id: diagnostico-cerne
-    file: agents/diagnostico-cerne.md
-  - id: modelagem-negocios
-    file: agents/modelagem-negocios.md
-  - id: validacao-mercado
-    file: agents/validacao-mercado.md
-  - id: maturidade-tecnologica
-    file: agents/maturidade-tecnologica.md
-  - id: mentoria-jornada
-    file: agents/mentoria-jornada.md
-  - id: indicadores-impacto
-    file: agents/indicadores-impacto.md
-  - id: ecossistema-parcerias
-    file: agents/ecossistema-parcerias.md
-  - id: captacao-pitch
-    file: agents/captacao-pitch.md
+- id: diagnostico-cerne
+  file: agents/diagnostico-cerne.md
+- id: modelagem-negocios
+  file: agents/modelagem-negocios.md
+- id: validacao-mercado
+  file: agents/validacao-mercado.md
+- id: maturidade-tecnologica
+  file: agents/maturidade-tecnologica.md
+- id: mentoria-jornada
+  file: agents/mentoria-jornada.md
+- id: indicadores-impacto
+  file: agents/indicadores-impacto.md
+- id: ecossistema-parcerias
+  file: agents/ecossistema-parcerias.md
+- id: captacao-pitch
+  file: agents/captacao-pitch.md
 tasks:
-  - tasks/01-diagnostico-institucional.md
-  - tasks/02-modelagem-e-validacao.md
-  - tasks/03-maturidade-tecnologica.md
-  - tasks/04-mentoria-indicadores-impacto.md
-  - tasks/05-ecossistema-captacao-entrega.md
+- tasks/01-diagnostico-institucional.md
+- tasks/02-modelagem-e-validacao.md
+- tasks/03-maturidade-tecnologica.md
+- tasks/04-mentoria-indicadores-impacto.md
+- tasks/05-ecossistema-captacao-entrega.md
 workflows:
-  - workflows/incubacao-premium.yaml
+- workflows/incubacao-premium.yaml
 templates:
-  - templates/diagnostico-cerne.md
-  - templates/business-model-canvas.md
-  - templates/value-proposition-canvas.md
-  - templates/cartao-experimento.md
-  - templates/roteiro-entrevista-cliente.md
-  - templates/avaliacao-trl.md
-  - templates/plano-desenvolvimento-empreendimento.md
-  - templates/painel-indicadores.md
-  - templates/edital-selecao.md
-  - templates/matriz-avaliacao.md
-  - templates/relatorio-periodico.md
-  - templates/checklist-graduacao.md
+- templates/diagnostico-cerne.md
+- templates/business-model-canvas.md
+- templates/value-proposition-canvas.md
+- templates/cartao-experimento.md
+- templates/roteiro-entrevista-cliente.md
+- templates/avaliacao-trl.md
+- templates/plano-desenvolvimento-empreendimento.md
+- templates/painel-indicadores.md
+- templates/edital-selecao.md
+- templates/matriz-avaliacao.md
+- templates/relatorio-periodico.md
+- templates/checklist-graduacao.md
 scripts:
-  - scripts/smoke-test.cjs
-  - scripts/demo-generate-report.cjs
+- scripts/smoke-test.cjs
+- scripts/demo-generate-report.cjs
 outputs:
-  - "Diagnóstico de maturidade da incubadora"
-  - "Plano de Desenvolvimento do Empreendimento"
-  - "Mapa de validação de mercado"
-  - "Avaliação TRL e stage-gates"
-  - "Painel de indicadores e impacto territorial"
-  - "Roteiro de mentoria e captação"
-  - "Relatório executivo consolidado"
-disclaimer: "O squad gera minutas, diagnósticos e artefatos de apoio. Decisões institucionais, editais e alegações de conformidade devem passar por revisão humana e jurídica."
+- Diagnóstico de maturidade da incubadora
+- Plano de Desenvolvimento do Empreendimento
+- Mapa de validação de mercado
+- Avaliação TRL e stage-gates
+- Painel de indicadores e impacto territorial
+- Roteiro de mentoria e captação
+- Relatório executivo consolidado
+disclaimer: |-
+  O squad gera minutas, diagnósticos e artefatos de apoio. Decisões institucionais, editais e alegações de conformidade devem passar por revisão humana e jurídica.

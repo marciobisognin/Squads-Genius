@@ -4,21 +4,21 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
-purpose: >
+purpose: |
   Squad multi-agente para transformar artigos, teses e pesquisas em materiais didaticos: carrosseis, slides, roteiros de podcast e quizzes.
 agents:
-  - desmembrador-artigo
-  - gerador-carrossel
-  - criador-slides
-  - roteirista-podcast
-  - gerador-quiz
+- desmembrador-artigo
+- gerador-carrossel
+- criador-slides
+- roteirista-podcast
+- gerador-quiz
 workflows:
-  - main
+- main
 tasks:
-  - task-1
-  - task-2
-  - task-3
-  - task-4
-  - task-5
+- task-1
+- task-2
+- task-3
+- task-4
+- task-5
 scripts:
-  - run.py
+- run.py
