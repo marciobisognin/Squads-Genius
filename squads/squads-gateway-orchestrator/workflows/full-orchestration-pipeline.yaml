@@ -1,0 +1,149 @@
+id: full-orchestration-pipeline
+name: Full Orchestration Pipeline
+description: |
+  Pipeline completo de orquestração: Intake → Normalize → Rank → Validate → Handoff → HITL.
+  Integra indexação, roteamento, validação, contratos, auditoria e aprendizagem contínua
+  em uma máquina de estados determinística.
+version: 1.0.0
+type: state-machine
+
+stages:
+  - stage: 1
+    name: INTAKE
+    description: Validar entrada da demanda
+    responsible_agent: gateway-orchestrator
+    task: validate_input
+    transition:
+      on_success: NORMALIZE
+      on_failure: FAILED
+    timeout_seconds: 30
+    checks:
+      - task_not_empty
+      - task_length_min_5_chars
+      - context_optional
+
+  - stage: 2
+    name: NORMALIZE
+    description: Normalizar intenção (sem LLM)
+    responsible_agent: gateway-orchestrator
+    task: normalize_task
+    transition:
+      on_success: RANK
+      on_failure: FAILED
+    timeout_seconds: 10
+    operations:
+      - lowercase query
+      - remove punctuation
+      - tokenize
+
+  - stage: 3
+    name: RANK
+    description: Rankear squads por relevância
+    responsible_agent: router-agent
+    task: route-demand
+    transition:
+      on_success: VALIDATE
+      on_failure: FAILED
+    timeout_seconds: 30
+    parameters:
+      top_n: 5
+    includes:
+      - memory boost aplicado
+      - matched keywords extraídos
+      - evidence fornecida
+
+  - stage: 4
+    name: VALIDATE
+    description: Validar resultado de ranking
+    responsible_agent: gateway-orchestrator
+    task: validate_ranking
+    transition:
+      on_success: HANDOFF
+      on_failure: GAP_ANALYSIS
+    timeout_seconds: 10
+    checks:
+      - top_score_exists
+      - no_zero_scores
+      - matched_keywords_not_empty
+    alert_if:
+      - score < 1.0 "Score baixo - possível gap"
+
+  - stage: 5
+    name: HANDOFF
+    description: Preparar entrega e auditoria
+    responsible_agent: audit-guardian
+    task: generate-audit-report
+    transition:
+      on_success: HITL_CHECK
+      on_failure: FAILED
+    timeout_seconds: 10
+    logs:
+      - task description
+      - top match
+      - score
+      - matched keywords
+
+  - stage: 6
+    name: HITL_CHECK
+    description: "Gate de aprovação (condicional)"
+    responsible_agent: gateway-orchestrator
+    condition: require_hitl_approval == true
+    transition:
+      on_approved: COMPLETE
+      on_rejected: REJECTED
+      on_skip: COMPLETE
+    timeout_seconds: 300
+    parameters:
+      approval_level: REVIEW
+      action_description: "Ativar squad {{ top_match.squad }}"
+
+  - stage: 7
+    name: COMPLETE
+    description: Pipeline concluído com sucesso
+    exit: success
+
+  - stage: 8
+    name: GAP_ANALYSIS
+    description: Analisar gap e sugerir novo squad
+    responsible_agent: contract-builder
+    task: analyze_gap
+    transition:
+      on_success: COMPLETE
+      on_failure: FAILED
+    timeout_seconds: 10
+    output:
+      - suggested_squad_name
+      - suggested_capabilities
+      - next_steps
+
+  - stage: 9
+    name: FAILED
+    description: Pipeline falhou
+    exit: failure
+    log_event: true
+
+  - stage: 10
+    name: REJECTED
+    description: Usuário rejeitou ativação
+    exit: rejected
+    log_event: true
+
+entry_point: INTAKE
+timeout_total_seconds: 600
+allow_loops: false
+require_human_approval_on_exit: false
+
+outputs:
+  task_description: string
+  recommendations: array of MatchedEntry
+  top_match: MatchedEntry or null
+  gap_analysis: GapAnalysis or null
+  generated_at: ISO 8601 timestamp
+  pipeline_state: enum (COMPLETE|FAILED|REJECTED)
+  audit_hash: SHA256
+
+success_criteria:
+  - pipeline_state = COMPLETE
+  - top_match provided
+  - audit_hash generated
+  - all events logged

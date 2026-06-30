@@ -2,6 +2,7 @@
 
 Squads publicados no repositório `Squads-Genius`.
 
+- [Squads Gateway — Orquestrador de Descoberta e Roteamento](squads/squads-gateway-orchestrator/README.md) — `squads-gateway-orchestrator` — versão `0.1.0` — sistema vivo de indexação, busca, roteamento e ativação de squads com auditoria, aprendizagem contínua e contratos estruturados. Determinístico, sem LLM.
 - [ai-business-builder-squad](squads/ai-business-builder-squad/README.md) — `ai-business-builder-squad` — versão `1.0.0`
 - [Bigorna de Annwn — Super Sistema de Squads](squads/anvil-of-annwn-super-squad-system/README.md) — `anvil-of-annwn-super-squad-system` — versão `1.0.0` — forja AI Native para produto, oferta, MVP, validação e execução por squads
 - [apex-context-supreme](squads/apex-context-supreme/README.md) — `apex-context-supreme` — versão `1.1.0`

@@ -1,0 +1,14 @@
+# Squads Gateway Orchestrator
+# Python 3.11+ (stdlib only — zero external dependencies)
+#
+# Componentes utilizados:
+# - dataclasses (stdlib)
+# - json (stdlib)
+# - pathlib (stdlib)
+# - datetime (stdlib)
+# - enum (stdlib)
+# - typing (stdlib)
+# - hashlib (stdlib)
+# - re (stdlib)
+#
+# Nenhuma dependência externa necessária.

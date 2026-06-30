@@ -1,0 +1,85 @@
+id: record-feedback
+name: Registrar Feedback de Ativação
+responsible_agent: feedback-recorder
+objective: Capturar sucesso/falha de ativações e treinar memória do gateway.
+description: |
+  Registra feedback (success, failure, neutral) sobre roteamentos, extrai conceitos
+  da demanda, atualiza preferências por squad, aplica boost de memória para futuras
+  consultas e exporta relatório de aprendizagem.
+steps:
+  - step: 1
+    name: Validação de Entrada
+    description: Verificar task, squad e feedback fornecidos
+  - step: 2
+    name: Registro de Feedback
+    description: Adicionar entrada ao feedback_history com timestamp
+  - step: 3
+    name: Extração de Conceitos
+    description: Tokenizar task_description e extrair palavras-chave (3+ chars)
+  - step: 4
+    name: Atualização de Pesos
+    description: "Se success: aumentar concept_weights e squad successes; Se failure: aumentar squad failures"
+  - step: 5
+    name: Registro de Evento
+    description: Adicionar evento de aprendizagem (positive/negative reinforcement)
+  - step: 6
+    name: Persistência
+    description: Salvar memória em gateway_memory.json
+  - step: 7
+    name: Relatório
+    description: Retornar boost aplicado e estatísticas atualizadas
+preconditions:
+  - task_description_not_empty
+  - selected_squad_exists
+  - feedback_valid_enum
+  - memory_store_writable
+postconditions:
+  - feedback_recorded
+  - memory_updated
+  - boost_calculable
+  - memory_saved_to_disk
+input_schema:
+  type: object
+  required:
+    - task_description
+    - selected_squad
+    - feedback
+  properties:
+    task_description:
+      type: string
+    selected_squad:
+      type: string
+    feedback:
+      type: string
+      enum: ["success", "failure", "neutral"]
+    notes:
+      type: string
+output_schema:
+  type: object
+  properties:
+    feedback_recorded:
+      type: boolean
+    concepts_learned:
+      type: array
+      items:
+        type: string
+    updated_preference:
+      type: object
+      properties:
+        squad:
+          type: string
+        successes:
+          type: integer
+        failures:
+          type: integer
+        success_rate:
+          type: number
+    boost_applied:
+      type: number
+success_criteria:
+  - feedback_recorded = true
+  - concepts_learned não vazio (se success)
+  - squad_preferences atualizado
+  - memory_store persistido
+human_approval: false
+estimated_duration_minutes: 1

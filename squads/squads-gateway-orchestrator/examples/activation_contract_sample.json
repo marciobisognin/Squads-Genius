@@ -1,0 +1,119 @@
+{
+  "contract_id": "contract-001",
+  "generated_at": "2026-06-30T12:34:56Z",
+  "squad": {
+    "name": "maeve-carrossel-instagram-squad",
+    "display_name": "Maeve — Carrossel Visual Instagram Pro",
+    "purpose": "Gerar carrosseis Instagram otimizados com copy, design, CTA"
+  },
+  "activation_prompt": "Você é o squad Maeve — Carrossel Visual Instagram Pro.\n\nSua missão: Gerar carrosseis de Instagram de alta conversão com:\n- Copy persuasivo + CTA claro\n- Design system coeso\n- Timing de publicação otimizado\n- Adaptação para múltiplos segmentos\n\nAgentes disponíveis:\n- copywriter-squad (copy persuasivo)\n- design-system-squad (visual consistency)\n- cta-optimizer-squad (call-to-action)\n- publishing-scheduler-squad (timing)\n\nPrécondições:\n- Input: briefing da campanha\n- Contexto: público-alvo, histórico de performance\n- Saída: 3 opções de carrossel pronto para publicar\n\nInicie com: /ativar-maeve-carrossel \"briefing: {{ brief }}\"",
+  "dependencies": {
+    "agents": [
+      {
+        "id": "copywriter-squad",
+        "status": "found",
+        "path": "squads/maeve-carrossel-instagram-squad/agents/copywriter-squad.yaml"
+      },
+      {
+        "id": "design-system-squad",
+        "status": "found",
+        "path": "squads/maeve-carrossel-instagram-squad/agents/design-system-squad.yaml"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "generate-carousel",
+        "status": "found",
+        "path": "squads/maeve-carrossel-instagram-squad/tasks/generate-carousel.yaml"
+      }
+    ],
+    "workflows": [
+      {
+        "id": "full-carousel-pipeline",
+        "status": "found",
+        "path": "squads/maeve-carrossel-instagram-squad/workflows/full-carousel-pipeline.yaml"
+      }
+    ]
+  },
+  "pre_activation_checklist": [
+    {
+      "item": "Briefing da campanha em mãos (objetivo, público, tom)",
+      "required": true,
+      "status": "pending"
+    },
+    {
+      "item": "Histórico de performance anterior (se houver)",
+      "required": false,
+      "status": "optional"
+    },
+    {
+      "item": "Aprovação de brand guidelines",
+      "required": true,
+      "status": "pending"
+    },
+    {
+      "item": "Limite de iterações (ex: máximo 5 variações)",
+      "required": true,
+      "status": "pending"
+    },
+    {
+      "item": "Tamanho esperado de público-alvo",
+      "required": false,
+      "status": "optional"
+    }
+  ],
+  "input_contract": {
+    "required_fields": [
+      "campaign_brief",
+      "target_audience",
+      "brand_guidelines"
+    ],
+    "optional_fields": [
+      "historical_performance",
+      "max_iterations",
+      "tone_preferences"
+    ],
+    "schema": {
+      "campaign_brief": "string (min 20 chars)",
+      "target_audience": "string (ex: 'mulheres 25-40, mães, e-commerce')",
+      "brand_guidelines": "URL ou arquivo"
+    }
+  },
+  "output_contract": {
+    "deliverables": [
+      "3 opções de carrossel (copy + visual mockup)",
+      "análise de performance esperada",
+      "CTA recomendado com variações",
+      "timing de publicação otimizado"
+    ],
+    "schema": {
+      "carousels": "array de 3 items",
+      "each_carousel": {
+        "copy": "string",
+        "visual_description": "string",
+        "cta": "string",
+        "expected_ctr": "number"
+      }
+    }
+  },
+  "execution_context": {
+    "estimated_duration_minutes": 15,
+    "cost_estimate": "N/A",
+    "human_review_required": true,
+    "approval_level": "REVIEW"
+  },
+  "quality_gates": [
+    "copy sem erros ortográficos",
+    "CTA claro e acionável",
+    "visual coeso com brand guidelines",
+    "pelo menos 2 variações de CTA"
+  ],
+  "next_steps": [
+    "1. Preencher pre_activation_checklist",
+    "2. Copiar activation_prompt e executar em um agente Hermes",
+    "3. Fornecer briefing seguindo input_contract",
+    "4. Revisar 3 opções geradas",
+    "5. Publicar no Instagram após aprovação",
+    "6. Registrar feedback (sucesso/falha) com gateway para aprendizagem"
+  ]
+}

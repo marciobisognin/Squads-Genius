@@ -1,0 +1,82 @@
+id: discovery-route
+name: Discovery & Route
+description: |
+  Fluxo simplificado de descoberta e roteamento.
+  Sem HITL, sem auditoria pesada. Para consultas rápidas.
+version: 1.0.0
+type: sequence
+
+steps:
+  - step: 1
+    name: Index Load
+    agent: index-keeper
+    task: ensure-index-current
+    timeout: 5s
+    required_output: index_data
+    on_error: skip (use cached)
+
+  - step: 2
+    name: Query Normalize
+    agent: router-agent
+    task: normalize_query
+    input: task_description
+    output: normalized_query
+    timeout: 5s
+
+  - step: 3
+    name: Rank Squads
+    agent: router-agent
+    task: route-demand
+    input:
+      query: normalized_query
+      index_data: index_data
+      top_n: 3
+    output: ranked_results
+    timeout: 10s
+
+  - step: 4
+    name: Build Contract
+    agent: contract-builder
+    task: activate-squad
+    input:
+      squad_name: ranked_results[0].squad
+      format: json
+    output: activation_contract
+    timeout: 5s
+    optional: true
+
+  - step: 5
+    name: Return Results
+    format: JSON
+    include:
+      - task_description
+      - top_3_recommendations
+      - activation_contract
+      - timestamp
+
+exit_points:
+  success:
+    when: step 3 completed with top_3_results
+    output: results
+  partial:
+    when: step 3 completed but step 4 failed
+    output: results_without_contract
+  failed:
+    when: any critical step fails
+    output: error details
+
+performance_targets:
+  total_duration_max_seconds: 30
+  p95_latency_seconds: 15
+  index_cache_hit_rate: 80%
+
+error_handling:
+  index_not_found: use fallback list or return "index outdated"
+  query_too_short: return "query must be >= 5 chars"
+  no_matches: return gap analysis
+  malformed_input: return validation error
+
+logging:
+  log_all_steps: true
+  include_durations: true
+  include_match_evidence: true
