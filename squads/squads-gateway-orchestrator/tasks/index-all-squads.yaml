@@ -1,0 +1,68 @@
+id: index-all-squads
+name: Indexar Todos os Squads
+responsible_agent: index-keeper
+objective: Criar índice canônico completo de todos os 86+ squads do repositório.
+description: |
+  Varre o repositório em busca de squad.yaml, extrai metadados (nome, agentes, tarefas,
+  workflows, keywords), valida estrutura e gera squads_index.json com relatório de auditoria.
+steps:
+  - step: 1
+    name: Varredura de Diretórios
+    description: Encontrar todos os squad.yaml no repositório
+  - step: 2
+    name: Parsing YAML
+    description: Carregar e validar cada arquivo squad.yaml
+  - step: 3
+    name: Extração de Metadados
+    description: Extrair nome, agentes, tarefas, workflows, keywords
+  - step: 4
+    name: Validação de Links
+    description: Verificar se agents/*.yaml, tasks/*.yaml, workflows/*.yaml existem
+  - step: 5
+    name: Resolução de Conflitos
+    description: Detectar IDs duplicados, nomes ambíguos, atualizações
+  - step: 6
+    name: Geração do Índice
+    description: Salvar squads_index.json com 86+ entries
+  - step: 7
+    name: Auditoria
+    description: Gerar gateway_audit.json com relatório de indexação
+preconditions:
+  - repository_accessible
+  - squad_yaml_files_exist
+  - write_permission_on_output
+postconditions:
+  - squads_index_json_created
+  - audit_report_generated
+  - zero_validation_errors
+input_schema:
+  type: object
+  required:
+    - repo_root
+  properties:
+    repo_root:
+      type: string
+      description: Raiz do repositório
+    output_path:
+      type: string
+      description: "Caminho para salvar índice (default: squads_index.json)"
+output_schema:
+  type: object
+  properties:
+    total_count:
+      type: integer
+      description: Número de squads indexados
+    squads:
+      type: array
+    audit_path:
+      type: string
+    status:
+      type: string
+      enum: ["success", "partial", "failed"]
+success_criteria:
+  - total_count >= 86
+  - zero validation errors
+  - squads_index.json criado e válido
+  - audit report gerado
+human_approval: false
+estimated_duration_minutes: 5

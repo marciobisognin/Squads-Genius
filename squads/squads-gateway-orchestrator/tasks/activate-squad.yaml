@@ -1,0 +1,80 @@
+id: activate-squad
+name: Ativar Squad com Contrato
+responsible_agent: contract-builder
+objective: Gerar contrato de ativação estruturado com prompt pronto e checklist de pré-ativação.
+description: |
+  Recebe squad selecionado, valida dependências, gera ActivationContract com:
+  - Prompt de ativação pronto para copiar/colar
+  - Checklist de pré-ativação (inputs, contexto, credenciais)
+  - Validação de agentes, tasks, workflows
+  - Oferece múltiplos formatos (JSON, markdown, plaintext)
+steps:
+  - step: 1
+    name: Validação de Squad
+    description: Verificar se squad existe no índice
+  - step: 2
+    name: Validação de Dependências
+    description: Verificar se agentes, tasks, workflows referenciados existem
+  - step: 3
+    name: Extração de Metadados
+    description: Coletar nome, propósito, agentes, entrada/saída esperada
+  - step: 4
+    name: Geração de Prompt
+    description: Criar prompt estruturado pronto para ativação
+  - step: 5
+    name: Criação de Checklist
+    description: Listar pré-requisitos (credenciais, contexto, inputs)
+  - step: 6
+    name: Construção do Contrato
+    description: Estruturar ActivationContract com todos os campos
+  - step: 7
+    name: Serialização
+    description: Exportar em formato solicitado (JSON/markdown)
+preconditions:
+  - squad_name_provided
+  - squad_exists_in_index
+  - agent_files_readable
+postconditions:
+  - activation_contract_created
+  - prompt_copiavel
+  - checklist_completo
+input_schema:
+  type: object
+  required:
+    - squad_name
+  properties:
+    squad_name:
+      type: string
+    format:
+      type: string
+      enum: ["json", "markdown", "plaintext"]
+      default: "json"
+    save_to_file:
+      type: string
+      description: Opcional - salvar em arquivo
+output_schema:
+  type: object
+  properties:
+    contract:
+      type: object
+      properties:
+        squad:
+          type: string
+        activation_prompt:
+          type: string
+        pre_activation_checklist:
+          type: array
+        dependencies:
+          type: object
+    format:
+      type: string
+    file_path:
+      type: string
+      nullable: true
+success_criteria:
+  - contract.squad não vazio
+  - activation_prompt copiável e executável
+  - pre_activation_checklist completo (>=3 items)
+  - zero campos secretos
+human_approval: false
+estimated_duration_minutes: 2

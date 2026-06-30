@@ -1,0 +1,89 @@
+id: gateway-orchestrator
+name: Gateway Orchestrator
+role: Maestro central do pipeline de descoberta, roteamento e ativação
+objective: Coordenar o fluxo completo de intake, normalização, ranking, validação, handoff e aprovação HITL.
+responsibilities:
+  - Receber demandas textuais de descoberta de squads
+  - Orquestrar pipeline de 6 estados sem LLM (determinístico)
+  - Validar entrada e contexto da tarefa
+  - Integrar auditoria, memória e gate de aprovação
+  - Retornar recomendações estruturadas com scores e contrato
+  - Detectar gaps e sugerir novo squad quando necessário
+non_responsibilities:
+  - Não treina modelos de ML
+  - Não usa embeddings ou LLMs
+  - Não modifica ou deleta squads existentes sem aprovação
+  - Não recolhe dados pessoais além do necessário para roteamento
+allowed_tools:
+  - CLI squads-gateway
+  - indexação determinística
+  - ranking léxico ponderado
+  - audit logging JSONL
+  - HITL gate
+  - memory store
+denied_tools:
+  - modelos de LLM
+  - chamadas de API não auditadas
+  - escrita em arquivos de configuração crítica sem aprovação
+input_schema:
+  type: object
+  required:
+    - task_description
+  properties:
+    task_description:
+      type: string
+      description: Demanda textual (ex. "criar carrossel instagram")
+    context:
+      type: string
+      description: Contexto adicional (opcional)
+    preferred_domain:
+      type: string
+      description: Domínio preferido (opcional)
+    require_hitl_approval:
+      type: boolean
+      description: Exigir aprovação HITL antes de ativar
+output_schema:
+  type: object
+  required:
+    - task
+    - recommendations
+    - top_match
+    - generated_at
+  properties:
+    task:
+      type: string
+    recommendations:
+      type: array
+      items:
+        type: object
+        properties:
+          squad:
+            type: string
+          score:
+            type: number
+          agent:
+            type: string
+          matched_keywords:
+            type: array
+    top_match:
+      type: object
+      nullable: true
+    gap_analysis:
+      type: object
+      nullable: true
+    generated_at:
+      type: string
+      format: date-time
+memory_policy:
+  scope: conversation-local
+  retention: histórico de roteamentos, scores e feedback para aprendizagem
+  pii: não coleta PII, apenas demandas textuais
+escalation_policy:
+  - Escalar para HITL quando score < 1.0 ou usuário requer aprovação
+  - Escalar para Marcio quando conflito de domínio ou ambiguidade alta
+quality_criteria:
+  - ranking determinístico e reproduzível
+  - auditoria completa de cada decisão
+  - contrato estruturado com checklist
+  - sem halucinations ou recomendações inventadas
+human_review_required: false

@@ -1,5 +1,137 @@
 [
   {
+    "id": "squads-gateway-orchestrator",
+    "name": "Squads Gateway — Orquestrador de Descoberta e Roteamento",
+    "tagline": "Sistema vivo de indexação, busca, roteamento e ativação de squads com auditoria, aprendizagem contínua e contratos estruturados. Determinístico, sem LLM.",
+    "color": "#0ea5e9",
+    "card_icon": "router",
+    "agents": [
+      {
+        "name": "Gateway Orchestrator",
+        "role": "Maestro",
+        "desc": "Coordena o pipeline de 6 estados (Intake→Normalize→Rank→Validate→Handoff→HITL)",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Index Keeper",
+        "role": "Guardião",
+        "desc": "Mantém índice vivo de 86+ squads com metadados precisos",
+        "icon": "guardian"
+      },
+      {
+        "name": "Router Agent",
+        "role": "Roteador",
+        "desc": "Rankeia squads por relevância usando scoring léxico ponderado",
+        "icon": "router"
+      },
+      {
+        "name": "Contract Builder",
+        "role": "Construtor",
+        "desc": "Gera contratos de ativação com prompt pronto e checklist",
+        "icon": "builder"
+      },
+      {
+        "name": "Feedback Recorder",
+        "role": "Aprendiz",
+        "desc": "Registra feedback e treina memória para melhorar roteamentos",
+        "icon": "learner"
+      },
+      {
+        "name": "Audit Guardian",
+        "role": "Auditor",
+        "desc": "Mantém logs JSONL auditáveis com hashes SHA256",
+        "icon": "auditor"
+      }
+    ],
+    "tools": [
+      {
+        "file": "indexer.py",
+        "desc": "Varredura de squads.yaml, extração de metadados"
+      },
+      {
+        "file": "ranker.py",
+        "desc": "Ranking léxico com pesos estruturados"
+      },
+      {
+        "file": "contract_builder.py",
+        "desc": "Geração de contratos estruturados"
+      },
+      {
+        "file": "audit_logger.py",
+        "desc": "Auditoria com JSONL + SHA256"
+      },
+      {
+        "file": "memory_store.py",
+        "desc": "Aprendizagem de conceitos e preferências"
+      },
+      {
+        "file": "hitl_gate.py",
+        "desc": "Human-In-The-Loop para ações críticas"
+      },
+      {
+        "file": "router.py",
+        "desc": "Máquina de estados de orquestração"
+      },
+      {
+        "file": "cli.py",
+        "desc": "CLI de 8 comandos (index, search, route, activate, orchestrate, logs, memory)"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Indexação Determinística",
+        "desc": "Varre repo e indexa 86+ squads com metadados precisos"
+      },
+      {
+        "title": "Normalização",
+        "desc": "Normaliza query textual (sem LLM)"
+      },
+      {
+        "title": "Ranking Léxico",
+        "desc": "Rankeia squads com pesos estruturados (nome=4.0x, agent=2.0x)"
+      },
+      {
+        "title": "Memory Boost",
+        "desc": "Aplica boost de conceitos aprendidos de sucesso prévios"
+      },
+      {
+        "title": "Validação",
+        "desc": "Valida resultado e detecta gaps"
+      },
+      {
+        "title": "Contrato",
+        "desc": "Gera ActivationContract com prompt e checklist"
+      },
+      {
+        "title": "Auditoria",
+        "desc": "Registra decisão em JSONL com SHA256"
+      },
+      {
+        "title": "HITL Gate",
+        "desc": "Pede aprovação humana para ações críticas (opcional)"
+      }
+    ],
+    "output": {
+      "title": "Roteamento determinístico + Contrato + Auditoria",
+      "desc": "Top-3 recomendações com scores estruturados, contrato de ativação pronto para copiar, logs JSONL imutáveis e memória aprendida para melhorias contínuas."
+    },
+    "category": "Construção de Squads & Sistemas de IA",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/squads-gateway-orchestrator"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/squads-genius/blob/main/squads/squads-gateway-orchestrator/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/squads-genius/blob/main/squads/squads-gateway-orchestrator/squad.yaml"
+      }
+    ]
+  },
+  {
     "id": "primus-meta-orchestrator-super-squad",
     "name": "Primus — Meta-Orquestrador de Squads",
     "tagline": "Super agente acima de todos os squads: indexa qualquer pasta de squads, cria um wiki de acesso rápido, roteia cada tarefa ao agente certo, cria squads novos quando há lacunas e evolui um sistema mental a cada interação.",

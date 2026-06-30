@@ -1,0 +1,73 @@
+id: route-demand
+name: Rotear Demanda para Squads
+responsible_agent: router-agent
+objective: Rankear squads por relevância com base em query textual usando scoring léxico ponderado.
+description: |
+  Recebe demanda textual (ex: "criar carrossel instagram"), normaliza, tokeniza,
+  busca em nome/agente/keywords/propósito de squads, aplica pesos estruturados,
+  aplica boost de memória e retorna Top-3 recomendações com scores estruturados.
+steps:
+  - step: 1
+    name: Normalização de Query
+    description: Converter para lowercase, remover pontuação
+  - step: 2
+    name: Tokenização
+    description: Split em termos individuais
+  - step: 3
+    name: Busca Léxica
+    description: Buscar termos em nome (4.0x), agente (2.0x), keywords (1.0x), propósito (1.0x)
+  - step: 4
+    name: Scoring
+    description: Calcular score ponderado para cada squad
+  - step: 5
+    name: Memory Boost
+    description: Aplicar boost de conceitos aprendidos
+  - step: 6
+    name: Ranking
+    description: Ordenar por score descending
+  - step: 7
+    name: Retorno de Top-N
+    description: Retornar Top-3 com matched_keywords e evidence
+preconditions:
+  - squads_index_json_exists
+  - query_not_empty
+  - query_length >= 5_chars
+postconditions:
+  - top_3_returned
+  - scores_reproducible
+  - zero_hallucinations
+input_schema:
+  type: object
+  required:
+    - query
+    - index_data
+  properties:
+    query:
+      type: string
+      description: Demanda textual
+    index_data:
+      type: object
+      description: Índice de squads
+    top_n:
+      type: integer
+      default: 3
+output_schema:
+  type: array
+  items:
+    type: object
+    properties:
+      squad:
+        type: string
+      score:
+        type: number
+      matched_keywords:
+        type: array
+      evidence:
+        type: string
+success_criteria:
+  - top_n > 0
+  - scores >= 0.0
+  - matched_keywords não vazio
+  - determinismo (mesma query = mesmos resultados)
+human_approval: false
+estimated_duration_minutes: 1

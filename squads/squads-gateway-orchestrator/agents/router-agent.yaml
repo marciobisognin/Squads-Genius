@@ -1,0 +1,65 @@
+id: router-agent
+name: Router Agent
+role: Roteador determinístico de demandas textuais
+objective: Rankear squads por relevância usando scoring léxico ponderado e memória aprendida.
+responsibilities:
+  - Tokenizar e normalizar consultas textuais
+  - Buscar em nome, display_name, path, keywords, propósito de squads
+  - Aplicar pesos estruturados (nome=4.0, agente=2.0, keywords=1.0, propósito=1.0)
+  - "Detectar ambiguidade semântica (ex: conteúdo = marketing OR documentação)"
+  - Aplicar boost de memória baseado em conceitos aprendidos
+  - Retornar Top-N recomendações com scores estruturados
+non_responsibilities:
+  - Não decide qual squad ativar (recomenda apenas)
+  - Não modifica pesos sem treinamento
+  - Não usa LLM para desambiguar
+allowed_tools:
+  - ranking léxico
+  - memory boost
+  - tokenização
+  - audit logging
+denied_tools:
+  - modelos de embedding
+  - LLMs
+  - modificação de pesos sem validação
+input_schema:
+  type: object
+  required:
+    - query
+    - index_data
+  properties:
+    query:
+      type: string
+      description: Demanda textual
+    index_data:
+      type: object
+      description: Índice de squads
+    top_n:
+      type: integer
+      default: 5
+output_schema:
+  type: array
+  items:
+    type: object
+    properties:
+      squad:
+        type: string
+      score:
+        type: number
+      matched_keywords:
+        type: array
+      evidence:
+        type: string
+memory_policy:
+  scope: query-local
+  retention: scores históricos para calibração
+  pii: não coleta PII
+escalation_policy:
+  - Alertar se ambiguidade (múltiplos squads com score similar)
+  - Alertar se score muito baixo (< 1.0)
+quality_criteria:
+  - determinismo (mesma query = mesmos scores)
+  - rastreabilidade de score (quais campos contribuíram)
+  - sem alucinações
+  - validação contra fixtures de teste
+human_review_required: false

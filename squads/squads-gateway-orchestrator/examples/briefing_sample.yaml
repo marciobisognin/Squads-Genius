@@ -1,0 +1,54 @@
+project_name: Squads Gateway Orchestrator
+objective: Manter sistema vivo de descoberta e roteamento de squads
+problem: |
+  Repositório crescendo com 86+ squads.
+  Usuários precisam encontrar squad certo para cada demanda.
+  Sem semântica (LLM) disponível no ambiente.
+  Precisam rastrear cada decisão (auditoria).
+
+target_audience:
+  - Marcio Bisognin (criador de squads)
+  - Hermes (agente orquestrador de squads)
+  - Maeve Genius Forge Squad (construtor automático)
+
+expected_outputs:
+  - Índice JSON canônico com 86+ squads
+  - Top-3 recomendações por demanda textual
+  - Contrato de ativação estruturado com checklist
+  - Logs JSONL imutáveis com hashes SHA256
+  - Memória aprendida (conceitos + preferências por squad)
+  - Dashboard de auditoria e estatísticas
+
+constraints:
+  - Zero dependências externas (dataclasses + JSON)
+  - Determinístico (sem LLM, sem randomness)
+  - Sem banco de dados (JSON/JSONL apenas)
+  - CLI de 8 comandos
+  - Roteabilidade via agentes Hermes/Maeve
+
+integrations:
+  - tools/squads_gateway/ (CLI + lógica)
+  - squads-gateway-orchestrator (squad wrapper formal)
+  - SQUAD_INDEX.md (registro de squads)
+  - docs/build/squads_data.json (galeria do site)
+
+security_level: internal
+human_approval_requirements:
+  - HITL gate para ativar squad (opcional)
+  - Revisão humana de gap analysis
+  - Feedback para calibração de pesos
+
+success_metrics:
+  - Acurácia Top-3 >= 90% contra fixtures
+  - Latência média < 100ms por roteamento
+  - 100% de cobertura de auditoria
+  - Zero dependências externas
+
+budget_limit: N/A (open source)
+preferred_models: N/A (determinístico)
+
+implementation_phases:
+  - Phase 1: Indexação determinística (v0.1.0)
+  - Phase 2: Ranking léxico e contratos (v0.1.0)
+  - Phase 3: Auditoria, memória e HITL (v0.1.0)
+  - Phase 4: LLM embedding para desambiguar (futuro, não v0.1.0)

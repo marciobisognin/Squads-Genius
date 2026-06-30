@@ -1,0 +1,72 @@
+id: generate-audit-report
+name: Gerar Relatório de Auditoria
+responsible_agent: audit-guardian
+objective: Exportar logs de auditoria com rastreabilidade completa, hashes SHA256 e análise de eventos.
+description: |
+  Lê gateway_audit.log (JSONL), agrupa eventos por tipo/período/squad, gera
+  relatório com estatísticas, detecta anomalias e exporta em múltiplos formatos.
+steps:
+  - step: 1
+    name: Leitura de Logs
+    description: Carregar gateway_audit.log (JSONL)
+  - step: 2
+    name: Parsing de Eventos
+    description: Desserializar eventos JSON
+  - step: 3
+    name: Validação de Hashes
+    description: Verificar SHA256 de cada evento
+  - step: 4
+    name: Agregação
+    description: Agrupar por event_type, timestamp, squad
+  - step: 5
+    name: Análise
+    description: Contar eventos, calcular taxa de sucesso, detectar padrões
+  - step: 6
+    name: Detecção de Anomalias
+    description: Alertar se múltiplas falhas, tentativas suspeitas
+  - step: 7
+    name: Exportação
+    description: Gerar relatório em JSON/CSV/Markdown
+preconditions:
+  - gateway_audit_log_exists
+  - log_entries_valid_json
+  - read_permission
+postconditions:
+  - report_generated
+  - hashes_verified
+  - anomalies_detected
+input_schema:
+  type: object
+  properties:
+    log_path:
+      type: string
+      description: Caminho do audit log (default gateway_audit.log)
+    export_path:
+      type: string
+      description: Caminho para salvar relatório
+    period:
+      type: string
+      description: "Período de filtro: all|today|week|month"
+    group_by:
+      type: string
+      description: "Agrupar por: type|squad|hour"
+output_schema:
+  type: object
+  properties:
+    total_events:
+      type: integer
+    events_by_type:
+      type: object
+    success_rate:
+      type: number
+    anomalies:
+      type: array
+    report_path:
+      type: string
+success_criteria:
+  - total_events > 0
+  - hashes verificados
+  - anomalies array (pode estar vazio)
+  - relatório salvo se export_path fornecido
+human_approval: false
+estimated_duration_minutes: 3
