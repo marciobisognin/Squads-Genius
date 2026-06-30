@@ -1,145 +1,116 @@
-{
-  "name": "themis-contratos-publicos-squad",
-  "commercial_name": "Themis Contratos Públicos",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "positioning": "Equipe jurídica de IA para análise de contratos administrativos da administração pública, com conformidade fundamentada nas normas e entendimentos usados pela CGU e pelos Tribunais de Contas.",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "disclaimer": "Este squad produz apoio técnico-jurídico automatizado. Não substitui parecer de advogado, procurador ou órgão de assessoramento jurídico competente (art. 53 da Lei 14.133/2021). Toda saída exige revisão humana qualificada.",
-  "principles": [
-    "separar observado, inferido, hipótese, recomendação e risco",
-    "todo apontamento cita norma, súmula ou acórdão de referência",
-    "verificar vigência e atualização das normas antes de fundamentar",
-    "indicar grau de confiança e necessidade de revisão humana",
-    "não copiar texto proprietário; citar fontes oficiais públicas",
-    "nunca incluir dados pessoais sensíveis ou segredos nos artefatos"
-  ],
-  "agents": [
-    {
-      "id": "themis-orchestrator",
-      "file": "agents/themis-orchestrator.md",
-      "role": "Coordena o pipeline de análise, distribui documentos aos especialistas, consolida apontamentos e aciona quality gates."
-    },
-    {
-      "id": "intake-document-triager",
-      "file": "agents/intake-document-triager.md",
-      "role": "Triagem documental: identifica tipo de peça, regime legal aplicável, completude do processo e metadados do contrato."
-    },
-    {
-      "id": "legalidade-lei14133-analyst",
-      "file": "agents/legalidade-lei14133-analyst.md",
-      "role": "Analisa legalidade e formalização à luz da Lei 14.133/2021 (e regime legado quando aplicável), incluindo cláusulas necessárias."
-    },
-    {
-      "id": "jurisprudencia-tcu-researcher",
-      "file": "agents/jurisprudencia-tcu-researcher.md",
-      "role": "Confronta o caso com súmulas, acórdãos e entendimentos do TCU e dos Tribunais de Contas estaduais."
-    },
-    {
-      "id": "cgu-integridade-compliance-analyst",
-      "file": "agents/cgu-integridade-compliance-analyst.md",
-      "role": "Avalia integridade, transparência, gestão de riscos e controle interno segundo referenciais da CGU."
-    },
-    {
-      "id": "riscos-sobrepreco-auditor",
-      "file": "agents/riscos-sobrepreco-auditor.md",
-      "role": "Constrói matriz de riscos: sobrepreço, superfaturamento, jogo de planilha, aditivos irregulares e direcionamento."
-    },
-    {
-      "id": "parecer-relator-juridico",
-      "file": "agents/parecer-relator-juridico.md",
-      "role": "Redige o parecer técnico-jurídico consolidado, com fundamentação, classificação de apontamentos e recomendações."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_triagem_e_classificacao_documental",
-      "file": "tasks/01_triagem_e_classificacao_documental.yaml",
-      "owner": "intake-document-triager",
-      "objective": "Classificar o documento, identificar regime legal aplicável e mapear completude do processo."
-    },
-    {
-      "id": "02_checklist_formalizacao_contratual",
-      "file": "tasks/02_checklist_formalizacao_contratual.yaml",
-      "owner": "legalidade-lei14133-analyst",
-      "objective": "Verificar presença das cláusulas necessárias e requisitos formais do instrumento contratual."
-    },
-    {
-      "id": "03_analise_legalidade_e_fundamentacao",
-      "file": "tasks/03_analise_legalidade_e_fundamentacao.yaml",
-      "owner": "legalidade-lei14133-analyst",
-      "objective": "Analisar legalidade material: enquadramento, motivação, publicidade, vigência e garantias."
-    },
-    {
-      "id": "04_confronto_jurisprudencia_tcu",
-      "file": "tasks/04_confronto_jurisprudencia_tcu.yaml",
-      "owner": "jurisprudencia-tcu-researcher",
-      "objective": "Mapear súmulas e acórdãos aplicáveis ao caso e indicar aderência ou divergência."
-    },
-    {
-      "id": "05_verificacao_integridade_cgu",
-      "file": "tasks/05_verificacao_integridade_cgu.yaml",
-      "owner": "cgu-integridade-compliance-analyst",
-      "objective": "Verificar transparência, integridade, conflito de interesses, nepotismo e gestão de riscos."
-    },
-    {
-      "id": "06_matriz_riscos_e_sobrepreco",
-      "file": "tasks/06_matriz_riscos_e_sobrepreco.yaml",
-      "owner": "riscos-sobrepreco-auditor",
-      "objective": "Produzir matriz de riscos com severidade, probabilidade, indícios e referências de controle."
-    },
-    {
-      "id": "07_analise_aditivos_e_alteracoes",
-      "file": "tasks/07_analise_aditivos_e_alteracoes.yaml",
-      "owner": "riscos-sobrepreco-auditor",
-      "objective": "Analisar termos aditivos: limites legais, justificativa, equilíbrio econômico-financeiro e vedações."
-    },
-    {
-      "id": "08_parecer_juridico_consolidado",
-      "file": "tasks/08_parecer_juridico_consolidado.yaml",
-      "owner": "parecer-relator-juridico",
-      "objective": "Consolidar todos os apontamentos em parecer estruturado com conclusão e recomendações."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "analise_completa_contrato",
-      "file": "workflows/analise_completa_contrato.yaml"
-    },
-    {
-      "id": "triagem_rapida_red_flags",
-      "file": "workflows/triagem_rapida_red_flags.yaml"
-    }
-  ],
-  "scripts": [
-    {
-      "id": "checklist_clausulas",
-      "file": "scripts/checklist_clausulas.py",
-      "purpose": "Verificação heurística da presença de cláusulas necessárias em texto de contrato (pré-triagem determinística)."
-    },
-    {
-      "id": "validar_limites_aditivos",
-      "file": "scripts/validar_limites_aditivos.py",
-      "purpose": "Cálculo determinístico do percentual de alteração contratual e comparação com os limites legais."
-    }
-  ],
-  "quality_gates": [
-    "triagem_completa",
-    "fundamentacao_normativa_presente",
-    "jurisprudencia_referenciada",
-    "matriz_riscos_classificada",
-    "parecer_com_revisao_humana"
-  ],
-  "outputs": [
-    "ficha_triagem",
-    "checklist_conformidade",
-    "relatorio_legalidade",
-    "nota_jurisprudencia",
-    "relatorio_integridade",
-    "matriz_riscos",
-    "parecer_juridico"
-  ]
-}
+name: themis-contratos-publicos-squad
+commercial_name: Themis Contratos Públicos
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Equipe jurídica de IA para análise de contratos administrativos da administração pública, com conformidade fundamentada nas normas e entendimentos usados pela CGU e pelos Tribunais de Contas.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Este squad produz apoio técnico-jurídico automatizado. Não substitui parecer de advogado, procurador ou órgão de assessoramento jurídico competente (art. 53 da Lei 14.133/2021). Toda saída exige revisão humana qualificada.
+principles:
+- separar observado, inferido, hipótese, recomendação e risco
+- todo apontamento cita norma, súmula ou acórdão de referência
+- verificar vigência e atualização das normas antes de fundamentar
+- indicar grau de confiança e necessidade de revisão humana
+- não copiar texto proprietário; citar fontes oficiais públicas
+- nunca incluir dados pessoais sensíveis ou segredos nos artefatos
+agents:
+- id: themis-orchestrator
+  file: agents/themis-orchestrator.md
+  role: |-
+    Coordena o pipeline de análise, distribui documentos aos especialistas, consolida apontamentos e aciona quality gates.
+- id: intake-document-triager
+  file: agents/intake-document-triager.md
+  role: |-
+    Triagem documental: identifica tipo de peça, regime legal aplicável, completude do processo e metadados do contrato.
+- id: legalidade-lei14133-analyst
+  file: agents/legalidade-lei14133-analyst.md
+  role: |-
+    Analisa legalidade e formalização à luz da Lei 14.133/2021 (e regime legado quando aplicável), incluindo cláusulas necessárias.
+- id: jurisprudencia-tcu-researcher
+  file: agents/jurisprudencia-tcu-researcher.md
+  role: |-
+    Confronta o caso com súmulas, acórdãos e entendimentos do TCU e dos Tribunais de Contas estaduais.
+- id: cgu-integridade-compliance-analyst
+  file: agents/cgu-integridade-compliance-analyst.md
+  role: |-
+    Avalia integridade, transparência, gestão de riscos e controle interno segundo referenciais da CGU.
+- id: riscos-sobrepreco-auditor
+  file: agents/riscos-sobrepreco-auditor.md
+  role: |-
+    Constrói matriz de riscos: sobrepreço, superfaturamento, jogo de planilha, aditivos irregulares e direcionamento.
+- id: parecer-relator-juridico
+  file: agents/parecer-relator-juridico.md
+  role: |-
+    Redige o parecer técnico-jurídico consolidado, com fundamentação, classificação de apontamentos e recomendações.
+tasks:
+- id: 01_triagem_e_classificacao_documental
+  file: tasks/01_triagem_e_classificacao_documental.yaml
+  owner: intake-document-triager
+  objective: |-
+    Classificar o documento, identificar regime legal aplicável e mapear completude do processo.
+- id: 02_checklist_formalizacao_contratual
+  file: tasks/02_checklist_formalizacao_contratual.yaml
+  owner: legalidade-lei14133-analyst
+  objective: |-
+    Verificar presença das cláusulas necessárias e requisitos formais do instrumento contratual.
+- id: 03_analise_legalidade_e_fundamentacao
+  file: tasks/03_analise_legalidade_e_fundamentacao.yaml
+  owner: legalidade-lei14133-analyst
+  objective: |-
+    Analisar legalidade material: enquadramento, motivação, publicidade, vigência e garantias.
+- id: 04_confronto_jurisprudencia_tcu
+  file: tasks/04_confronto_jurisprudencia_tcu.yaml
+  owner: jurisprudencia-tcu-researcher
+  objective: Mapear súmulas e acórdãos aplicáveis ao caso e indicar aderência ou divergência.
+- id: 05_verificacao_integridade_cgu
+  file: tasks/05_verificacao_integridade_cgu.yaml
+  owner: cgu-integridade-compliance-analyst
+  objective: |-
+    Verificar transparência, integridade, conflito de interesses, nepotismo e gestão de riscos.
+- id: 06_matriz_riscos_e_sobrepreco
+  file: tasks/06_matriz_riscos_e_sobrepreco.yaml
+  owner: riscos-sobrepreco-auditor
+  objective: |-
+    Produzir matriz de riscos com severidade, probabilidade, indícios e referências de controle.
+- id: 07_analise_aditivos_e_alteracoes
+  file: tasks/07_analise_aditivos_e_alteracoes.yaml
+  owner: riscos-sobrepreco-auditor
+  objective: |-
+    Analisar termos aditivos: limites legais, justificativa, equilíbrio econômico-financeiro e vedações.
+- id: 08_parecer_juridico_consolidado
+  file: tasks/08_parecer_juridico_consolidado.yaml
+  owner: parecer-relator-juridico
+  objective: |-
+    Consolidar todos os apontamentos em parecer estruturado com conclusão e recomendações.
+workflows:
+- id: analise_completa_contrato
+  file: workflows/analise_completa_contrato.yaml
+- id: triagem_rapida_red_flags
+  file: workflows/triagem_rapida_red_flags.yaml
+scripts:
+- id: checklist_clausulas
+  file: scripts/checklist_clausulas.py
+  purpose: |-
+    Verificação heurística da presença de cláusulas necessárias em texto de contrato (pré-triagem determinística).
+- id: validar_limites_aditivos
+  file: scripts/validar_limites_aditivos.py
+  purpose: |-
+    Cálculo determinístico do percentual de alteração contratual e comparação com os limites legais.
+quality_gates:
+- triagem_completa
+- fundamentacao_normativa_presente
+- jurisprudencia_referenciada
+- matriz_riscos_classificada
+- parecer_com_revisao_humana
+outputs:
+- ficha_triagem
+- checklist_conformidade
+- relatorio_legalidade
+- nota_jurisprudencia
+- relatorio_integridade
+- matriz_riscos
+- parecer_juridico

@@ -4,49 +4,47 @@ slug: instagram-carrossel-visual-pro
 category: social-media
 slashPrefix: icv
 language: pt-BR
-description: "Squad para criar carrosséis premium de Instagram com PPT e vídeo Manim."
-
+description: Squad para criar carrosséis premium de Instagram com PPT e vídeo Manim.
 aios:
-  minVersion: "2.1.0"
+  minVersion: 2.1.0
   type: squad
-
 components:
   agents:
-    - agents/carousel-orchestrator.md
-    - agents/carousel-strategist.md
-    - agents/visual-director.md
-    - agents/typography-color-engineer.md
-    - agents/carousel-copywriter.md
-    - agents/ppt-producer.md
-    - agents/manim-video-producer.md
-    - agents/instagram-publisher.md
+  - agents/carousel-orchestrator.md
+  - agents/carousel-strategist.md
+  - agents/visual-director.md
+  - agents/typography-color-engineer.md
+  - agents/carousel-copywriter.md
+  - agents/ppt-producer.md
+  - agents/manim-video-producer.md
+  - agents/instagram-publisher.md
   tasks:
-    - tasks/collect-briefing.md
-    - tasks/design-narrative-arc.md
-    - tasks/build-visual-system.md
-    - tasks/write-carousel-copy.md
-    - tasks/produce-slide-assets.md
-    - tasks/build-ppt-deliverable.md
-    - tasks/build-manim-video.md
-    - tasks/assemble-publish-package.md
+  - tasks/collect-briefing.md
+  - tasks/design-narrative-arc.md
+  - tasks/build-visual-system.md
+  - tasks/write-carousel-copy.md
+  - tasks/produce-slide-assets.md
+  - tasks/build-ppt-deliverable.md
+  - tasks/build-manim-video.md
+  - tasks/assemble-publish-package.md
   workflows:
-    - workflows/carrossel_premium_pipeline.yaml
-    - workflows/rapid_restyle_pipeline.yaml
+  - workflows/carrossel_premium_pipeline.yaml
+  - workflows/rapid_restyle_pipeline.yaml
   checklists:
-    - checklists/quality-gate.md
-    - checklists/publish-gate.md
+  - checklists/quality-gate.md
+  - checklists/publish-gate.md
   templates:
-    - templates/briefing.md
-    - templates/slide-schema.md
-    - templates/legenda.txt
-    - templates/hashtags.txt
-    - templates/manim-scene-template.py
-    - templates/ppt-outline.md
+  - templates/briefing.md
+  - templates/slide-schema.md
+  - templates/legenda.txt
+  - templates/hashtags.txt
+  - templates/manim-scene-template.py
+  - templates/ppt-outline.md
   references:
-    - references/design-system.md
-    - references/instagram-best-practices.md
-    - references/manim-production-notes.md
-    - references/ppt-guidelines.md
+  - references/design-system.md
+  - references/instagram-best-practices.md
+  - references/manim-production-notes.md
+  - references/ppt-guidelines.md
   scripts:
-    - scripts/build-deliverables.cjs
-    - scripts/validate-package.cjs
+  - scripts/build-deliverables.cjs
+  - scripts/validate-package.cjs

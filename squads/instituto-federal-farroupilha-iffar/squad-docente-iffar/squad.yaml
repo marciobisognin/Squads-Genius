@@ -1,10 +1,7 @@
 name: squad-docente-iffar
 title: Squad Docente IFFar
-description: Sistema multiagente que assiste o docente do IFFar do planejamento de
-  ensino à avaliação — plano de ensino, materiais didáticos, avaliações e rubricas,
-  adaptação para AEE e consolidação para o conselho de classe — sempre validado
-  contra o PPC e o RDP, com homologação humana obrigatória antes de qualquer saída
-  oficial.
+description: |-
+  Sistema multiagente que assiste o docente do IFFar do planejamento de ensino à avaliação — plano de ensino, materiais didáticos, avaliações e rubricas, adaptação para AEE e consolidação para o conselho de classe — sempre validado contra o PPC e o RDP, com homologação humana obrigatória antes de qualquer saída oficial.
 version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
@@ -12,30 +9,26 @@ instagram: '@marciobisognin'
 institutional_context:
   institution: Instituto Federal Farroupilha
   area: Trabalho docente / organização de aulas e materiais didáticos
-  scope: classificação e roteamento de pedidos, verificação curricular (PPC/RDP),
-    plano de ensino, materiais didáticos, roteiros de animação (Manim), avaliações
-    e rubricas, adaptação para AEE/inclusão, consolidação para conselho de classe
-    e monitoramento de prazos da PROEN
-  default_output: plano de ensino estruturado, materiais didáticos exportáveis,
-    instrumentos de avaliação com rubrica, dossiê de conselho de classe e alertas
-    de conformidade — todos sujeitos a homologação humana
-  invariant: nenhuma saída se torna oficial sem revisão e homologação humana (docente,
-    Coordenação de Curso ou NDE)
+  scope: |-
+    classificação e roteamento de pedidos, verificação curricular (PPC/RDP), plano de ensino, materiais didáticos, roteiros de animação (Manim), avaliações e rubricas, adaptação para AEE/inclusão, consolidação para conselho de classe e monitoramento de prazos da PROEN
+  default_output: |-
+    plano de ensino estruturado, materiais didáticos exportáveis, instrumentos de avaliação com rubrica, dossiê de conselho de classe e alertas de conformidade — todos sujeitos a homologação humana
+  invariant: |-
+    nenhuma saída se torna oficial sem revisão e homologação humana (docente, Coordenação de Curso ou NDE)
 metadata:
   readme_style: institutional-multiagent-teaching-assistant
   domain: teaching-workflow-automation
   language: pt-BR
   maturity_target: campus-wide-adoption
 data_policy:
-  lgpd: dado de estudante só é tratado em ambiente controlado (Fase 3 do roadmap),
-    com minimização e inferência aderente à política institucional
-  external_models: proibido enviar dado sensível de estudante a modelos externos
-    sem autorização e ambiente controlado
-  evidence_integrity: toda recuperação normativa (PPC/RDP/resoluções) cita a fonte;
-    sem fonte, o agente sinaliza em vez de inventar
-  human_in_the_loop: toda saída que pode se tornar oficial (plano, material, avaliação,
-    adaptação, dossiê) exige homologação humana antes do lançamento nos sistemas
-    institucionais
+  lgpd: |-
+    dado de estudante só é tratado em ambiente controlado (Fase 3 do roadmap), com minimização e inferência aderente à política institucional
+  external_models: |-
+    proibido enviar dado sensível de estudante a modelos externos sem autorização e ambiente controlado
+  evidence_integrity: |-
+    toda recuperação normativa (PPC/RDP/resoluções) cita a fonte; sem fonte, o agente sinaliza em vez de inventar
+  human_in_the_loop: |-
+    toda saída que pode se tornar oficial (plano, material, avaliação, adaptação, dossiê) exige homologação humana antes do lançamento nos sistemas institucionais
 normative_bases:
 - Lei nº 9.394/1996 (LDB)
 - Lei nº 11.892/2008 (criação dos Institutos Federais)

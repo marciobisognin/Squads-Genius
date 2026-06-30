@@ -1,85 +1,89 @@
 name: darkhold-competitive-intelligence-squad
-display_name: "📖 Darkhold Competitive Intelligence Squad"
-version: "1.0.0"
+display_name: 📖 Darkhold Competitive Intelligence Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Inteligência competitiva estratégica, monitoramento de concorrentes, detecção de sinais fracos, cenários adversariais e mapeamento de oportunidades de mercado"
+domain: |-
+  Inteligência competitiva estratégica, monitoramento de concorrentes, detecção de sinais fracos, cenários adversariais e mapeamento de oportunidades de mercado
 visual_style: dark-neon-layered-architecture
-objective: "Revelar o que os concorrentes escondem — monitorando movimentos, detectando sinais fracos de disrupção, construindo cenários adversariais e mapeando oportunidades de mercado inexploradas para dar ao cliente vantagem estratégica comprovável e rastreável."
-
+objective: |-
+  Revelar o que os concorrentes escondem — monitorando movimentos, detectando sinais fracos de disrupção, construindo cenários adversariais e mapeando oportunidades de mercado inexploradas para dar ao cliente vantagem estratégica comprovável e rastreável.
 artifact_inspiration:
-  name: "Darkhold (Marvel Comics)"
-  description: "Grimório proibido de conhecimento absoluto forjado por Chthon — quem o lê conhece verdades que outros preferem ocultar. Este squad é o equivalente estratégico: revela o que concorrentes ocultam, antecipa movimentos e converte inteligência em vantagem competitiva."
-
+  name: Darkhold (Marvel Comics)
+  description: |-
+    Grimório proibido de conhecimento absoluto forjado por Chthon — quem o lê conhece verdades que outros preferem ocultar. Este squad é o equivalente estratégico: revela o que concorrentes ocultam, antecipa movimentos e converte inteligência em vantagem competitiva.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
   hitl_gates:
-    - "validação do escopo de monitoramento"
-    - "revisão do dossier competitivo antes da entrega"
-    - "aprovação de cenários adversariais críticos"
-    - "go/no-go de publicação do relatório estratégico"
-
+  - validação do escopo de monitoramento
+  - revisão do dossier competitivo antes da entrega
+  - aprovação de cenários adversariais críticos
+  - go/no-go de publicação do relatório estratégico
 inputs:
-  - "Nome da empresa cliente e setor de atuação"
-  - "Lista de concorrentes diretos e indiretos a monitorar"
-  - "Perguntas estratégicas prioritárias (ex: 'o que o concorrente X fará nos próximos 6 meses?')"
-  - "Fontes aprovadas para coleta (web, bases de patentes, redes sociais, vagas)"
-  - "Horizonte temporal da análise"
-  - "Mercados geográficos de interesse"
-
+- Nome da empresa cliente e setor de atuação
+- Lista de concorrentes diretos e indiretos a monitorar
+- |-
+  Perguntas estratégicas prioritárias (ex: 'o que o concorrente X fará nos próximos 6 meses?')
+- Fontes aprovadas para coleta (web, bases de patentes, redes sociais, vagas)
+- Horizonte temporal da análise
+- Mercados geográficos de interesse
 outputs:
-  - "Dossier de Inteligência Competitiva (Competitive Intelligence Dossier)"
-  - "Mapa de Ameaças (Threat Map) com probabilidade e impacto"
-  - "Relatório de Cenários Adversariais com planos de resposta"
-  - "Matriz de Oportunidades — Whitespace Matrix de mercados inexplorados"
-  - "SWOT expandido com fontes rastreáveis"
-  - "Relatório de Tendências Tecnológicas via Patentes"
-
+- Dossier de Inteligência Competitiva (Competitive Intelligence Dossier)
+- Mapa de Ameaças (Threat Map) com probabilidade e impacto
+- Relatório de Cenários Adversariais com planos de resposta
+- Matriz de Oportunidades — Whitespace Matrix de mercados inexplorados
+- SWOT expandido com fontes rastreáveis
+- Relatório de Tendências Tecnológicas via Patentes
 agents:
-  - id: darkhold-orchestrator
-    file: agents/darkhold-orchestrator.md
-    role: "Coordenador central com rastreabilidade completa de fontes; gerencia pipeline, gates HITL e consolidação do dossier final."
-  - id: competitor-radar
-    file: agents/competitor-radar.md
-    role: "Monitoramento contínuo de concorrentes via web, patentes, vagas de emprego, lançamentos e movimentos de pricing."
-  - id: weak-signal-detector
-    file: agents/weak-signal-detector.md
-    role: "Identificação de sinais fracos de disrupção e wildcards estratégicos antes de se tornarem tendências visíveis."
-  - id: swot-deep-analyst
-    file: agents/swot-deep-analyst.md
-    role: "SWOT expandido baseado em evidências com fontes rastreáveis e análise de confiança por afirmação."
-  - id: pricing-intel-agent
-    file: agents/pricing-intel-agent.md
-    role: "Análise de inteligência de precificação, posicionamento e estratégias comerciais dos concorrentes."
-  - id: adversarial-scenario-planner
-    file: agents/adversarial-scenario-planner.md
-    role: "Construção de cenários adversariais — 'o que os concorrentes farão a seguir?' — com análise de probabilidade e impacto."
-  - id: market-opportunity-mapper
-    file: agents/market-opportunity-mapper.md
-    role: "Mapeamento de espaços em branco e oportunidades não atendidas no mercado com potencial de captura."
-  - id: patent-trend-analyst
-    file: agents/patent-trend-analyst.md
-    role: "Análise de tendências tecnológicas via patentes e publicações técnicas para detectar direções estratégicas emergentes."
-  - id: red-team-strategist
-    file: agents/red-team-strategist.md
-    role: "Perspectiva do adversário — 'como eles nos atacariam?' — identificando vulnerabilidades próprias antes dos concorrentes."
-
+- id: darkhold-orchestrator
+  file: agents/darkhold-orchestrator.md
+  role: |-
+    Coordenador central com rastreabilidade completa de fontes; gerencia pipeline, gates HITL e consolidação do dossier final.
+- id: competitor-radar
+  file: agents/competitor-radar.md
+  role: |-
+    Monitoramento contínuo de concorrentes via web, patentes, vagas de emprego, lançamentos e movimentos de pricing.
+- id: weak-signal-detector
+  file: agents/weak-signal-detector.md
+  role: |-
+    Identificação de sinais fracos de disrupção e wildcards estratégicos antes de se tornarem tendências visíveis.
+- id: swot-deep-analyst
+  file: agents/swot-deep-analyst.md
+  role: |-
+    SWOT expandido baseado em evidências com fontes rastreáveis e análise de confiança por afirmação.
+- id: pricing-intel-agent
+  file: agents/pricing-intel-agent.md
+  role: |-
+    Análise de inteligência de precificação, posicionamento e estratégias comerciais dos concorrentes.
+- id: adversarial-scenario-planner
+  file: agents/adversarial-scenario-planner.md
+  role: |-
+    Construção de cenários adversariais — 'o que os concorrentes farão a seguir?' — com análise de probabilidade e impacto.
+- id: market-opportunity-mapper
+  file: agents/market-opportunity-mapper.md
+  role: |-
+    Mapeamento de espaços em branco e oportunidades não atendidas no mercado com potencial de captura.
+- id: patent-trend-analyst
+  file: agents/patent-trend-analyst.md
+  role: |-
+    Análise de tendências tecnológicas via patentes e publicações técnicas para detectar direções estratégicas emergentes.
+- id: red-team-strategist
+  file: agents/red-team-strategist.md
+  role: |-
+    Perspectiva do adversário — 'como eles nos atacariam?' — identificando vulnerabilidades próprias antes dos concorrentes.
 workflows:
-  - workflows/competitive-intelligence-pipeline.yaml
-  - workflows/quality-gates.yaml
-
+- workflows/competitive-intelligence-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/competitor-analysis.md
-  - tasks/adversarial-scenarios.md
-
+- tasks/competitor-analysis.md
+- tasks/adversarial-scenarios.md
 quality_gates:
-  - "Escopo de monitoramento validado pelo cliente antes do início"
-  - "Todas as afirmações do dossier devem ter fonte rastreável"
-  - "Cenários adversariais revisados por humano antes da entrega"
-  - "Mapa de ameaças com probabilidade e impacto preenchidos"
-  - "Relatório final sem informações confidenciais não autorizadas"
-
-footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- Escopo de monitoramento validado pelo cliente antes do início
+- Todas as afirmações do dossier devem ter fonte rastreável
+- Cenários adversariais revisados por humano antes da entrega
+- Mapa de ameaças com probabilidade e impacto preenchidos
+- Relatório final sem informações confidenciais não autorizadas
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

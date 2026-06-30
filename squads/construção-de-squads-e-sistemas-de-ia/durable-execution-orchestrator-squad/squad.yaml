@@ -4,9 +4,8 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 status: operational-prototype
-purpose: Squad para especificar, validar e operar um runtime durável para workflows
-  de squads multiagentes, com checkpoints, retomada após falhas, timers, sinais de
-  aprovação humana, compensações, auditoria, observabilidade e controle de custos.
+purpose: |-
+  Squad para especificar, validar e operar um runtime durável para workflows de squads multiagentes, com checkpoints, retomada após falhas, timers, sinais de aprovação humana, compensações, auditoria, observabilidade e controle de custos.
 source_prd: PRD.md
 agents:
 - id: workflow-architect

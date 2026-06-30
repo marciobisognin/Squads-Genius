@@ -1,7 +1,8 @@
 name: Prometheus Artis — Galeria dos Mestres
 slug: prometheus-artis-galeria-dos-mestres
 version: 1.0.0
-description: Squad multiagente de supergaleria de arte para transformar solicitações de usuários em prompts artísticos altamente detalhados, curados por agentes de escolas e mestres da história da arte.
+description: |-
+  Squad multiagente de supergaleria de arte para transformar solicitações de usuários em prompts artísticos altamente detalhados, curados por agentes de escolas e mestres da história da arte.
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
@@ -10,64 +11,65 @@ metadata:
   readme_style: dark-neon-layered-architecture
   total_main_agents: 16
   total_artist_agents: 32
-  final_artifact: prompt artístico detalhado + negative prompt + parâmetros + selo curatorial
+  final_artifact: prompt artístico detalhado + negative prompt + parâmetros + selo
+    curatorial
 agents:
-  - agents/diretor-da-galeria.md
-  - agents/leitor-intencao-artistica.md
-  - agents/historiador-primordios.md
-  - agents/curador-medieval-bizantino.md
-  - agents/curador-renascentista.md
-  - agents/curador-barroco.md
-  - agents/curador-romantico-simbolista.md
-  - agents/curador-impressionista-pos.md
-  - agents/curador-modernista.md
-  - agents/curador-contemporaneo.md
-  - agents/arquiteto-composicao.md
-  - agents/mestre-paleta-luz.md
-  - agents/mestre-tecnica-pictorica.md
-  - agents/engenheiro-prompt-visual.md
-  - agents/curador-critico.md
-  - agents/auditor-publicacao.md
+- agents/diretor-da-galeria.md
+- agents/leitor-intencao-artistica.md
+- agents/historiador-primordios.md
+- agents/curador-medieval-bizantino.md
+- agents/curador-renascentista.md
+- agents/curador-barroco.md
+- agents/curador-romantico-simbolista.md
+- agents/curador-impressionista-pos.md
+- agents/curador-modernista.md
+- agents/curador-contemporaneo.md
+- agents/arquiteto-composicao.md
+- agents/mestre-paleta-luz.md
+- agents/mestre-tecnica-pictorica.md
+- agents/engenheiro-prompt-visual.md
+- agents/curador-critico.md
+- agents/auditor-publicacao.md
 artist_agents:
-  - agents/artists/leonardo-da-vinci.md
-  - agents/artists/michelangelo.md
-  - agents/artists/rafael.md
-  - agents/artists/botticelli.md
-  - agents/artists/ticiano.md
-  - agents/artists/caravaggio.md
-  - agents/artists/rembrandt.md
-  - agents/artists/vermeer.md
-  - agents/artists/rubens.md
-  - agents/artists/velazquez.md
-  - agents/artists/goya.md
-  - agents/artists/turner.md
-  - agents/artists/delacroix.md
-  - agents/artists/caspar-david-friedrich.md
-  - agents/artists/odilon-redon.md
-  - agents/artists/monet.md
-  - agents/artists/degas.md
-  - agents/artists/van-gogh.md
-  - agents/artists/cezanne.md
-  - agents/artists/seurat.md
-  - agents/artists/picasso.md
-  - agents/artists/matisse.md
-  - agents/artists/kandinsky.md
-  - agents/artists/mondrian.md
-  - agents/artists/dali.md
-  - agents/artists/miro.md
-  - agents/artists/frida-kahlo.md
-  - agents/artists/rothko.md
-  - agents/artists/pollock.md
-  - agents/artists/warhol.md
-  - agents/artists/basquiat.md
-  - agents/artists/yayoi-kusama.md
+- agents/artists/leonardo-da-vinci.md
+- agents/artists/michelangelo.md
+- agents/artists/rafael.md
+- agents/artists/botticelli.md
+- agents/artists/ticiano.md
+- agents/artists/caravaggio.md
+- agents/artists/rembrandt.md
+- agents/artists/vermeer.md
+- agents/artists/rubens.md
+- agents/artists/velazquez.md
+- agents/artists/goya.md
+- agents/artists/turner.md
+- agents/artists/delacroix.md
+- agents/artists/caspar-david-friedrich.md
+- agents/artists/odilon-redon.md
+- agents/artists/monet.md
+- agents/artists/degas.md
+- agents/artists/van-gogh.md
+- agents/artists/cezanne.md
+- agents/artists/seurat.md
+- agents/artists/picasso.md
+- agents/artists/matisse.md
+- agents/artists/kandinsky.md
+- agents/artists/mondrian.md
+- agents/artists/dali.md
+- agents/artists/miro.md
+- agents/artists/frida-kahlo.md
+- agents/artists/rothko.md
+- agents/artists/pollock.md
+- agents/artists/warhol.md
+- agents/artists/basquiat.md
+- agents/artists/yayoi-kusama.md
 workflows:
-  - workflows/gerar-prompt-obra.yaml
-  - workflows/revisar-prompt-obra.yaml
-  - workflows/expandir-galeria-artistas.yaml
+- workflows/gerar-prompt-obra.yaml
+- workflows/revisar-prompt-obra.yaml
+- workflows/expandir-galeria-artistas.yaml
 tasks:
-  - tasks/intake-artistico.md
-  - tasks/selecionar-agentes-artistas.md
-  - tasks/gerar-direcao-curatorial.md
-  - tasks/compor-prompt-final.md
-  - tasks/validar-publicacao.md
+- tasks/intake-artistico.md
+- tasks/selecionar-agentes-artistas.md
+- tasks/gerar-direcao-curatorial.md
+- tasks/compor-prompt-final.md
+- tasks/validar-publicacao.md

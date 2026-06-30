@@ -1,7 +1,8 @@
 name: skeptic-protocol
 version: 2.1.0
-description: "Plataforma defensiva de red teaming de agentes e squads multiagentes, com biblioteca de ataques canários, runtime adapters, cenários reproduzíveis, evidências, regressão de segurança e CI."
-author: "Marcio Bisognin"
+description: |-
+  Plataforma defensiva de red teaming de agentes e squads multiagentes, com biblioteca de ataques canários, runtime adapters, cenários reproduzíveis, evidências, regressão de segurança e CI.
+author: Marcio Bisognin
 license: MIT
 aios:
   minVersion: 1.0.0
@@ -9,79 +10,79 @@ aios:
 slashPrefix: sk
 components:
   agents:
-    - failure-predictor.md
-    - test-engineer.md
-    - solution-implementer.md
-    - red-teamer.md
-    - skeptic-orchestrator.md
+  - failure-predictor.md
+  - test-engineer.md
+  - solution-implementer.md
+  - red-teamer.md
+  - skeptic-orchestrator.md
   tasks:
-    - generate-accusations.md
-    - write-failing-tests.md
-    - implement-trial-code.md
-    - execute-appeal.md
-    - run-agent-red-team.md
-    - generate-verdict-report.md
+  - generate-accusations.md
+  - write-failing-tests.md
+  - implement-trial-code.md
+  - execute-appeal.md
+  - run-agent-red-team.md
+  - generate-verdict-report.md
   workflows:
-    - skeptic-pipeline-execution.yaml
-    - red-team-feedback-loop.yaml
-    - agent-squad-red-team-platform.yaml
+  - skeptic-pipeline-execution.yaml
+  - red-team-feedback-loop.yaml
+  - agent-squad-red-team-platform.yaml
   scripts:
-    - skeptic_agent_redteam.py
+  - skeptic_agent_redteam.py
   data:
-    - agent_redteam_attack_library.json
+  - agent_redteam_attack_library.json
   docs:
-    - agent-red-team-platform.md
-    - runtime-adapters.md
-    - skeptic_protocol_v2_evolution_report.md
+  - agent-red-team-platform.md
+  - runtime-adapters.md
+  - skeptic_protocol_v2_evolution_report.md
   examples:
-    - runtime_adapters/safe_local_command_adapter.py
-    - runtime_adapters/vulnerable_local_command_adapter.py
+  - runtime_adapters/safe_local_command_adapter.py
+  - runtime_adapters/vulnerable_local_command_adapter.py
 config:
-  - coding-standards.md
-  - tech-stack.md
-  - source-tree.md
+- coding-standards.md
+- tech-stack.md
+- source-tree.md
 capabilities:
-  target: "qualquer squad por caminho, com scan estático e probes dinâmicos opcionais"
+  target: qualquer squad por caminho, com scan estático e probes dinâmicos opcionais
   runtime_adapters:
-    - static
-    - mock-safe
-    - mock-vulnerable
-    - local-command
+  - static
+  - mock-safe
+  - mock-vulnerable
+  - local-command
   exports:
-    - json
-    - markdown
-    - html
+  - json
+  - markdown
+  - html
   attack_classes:
-    - direct_prompt_injection
-    - indirect_prompt_injection_documents
-    - indirect_prompt_injection_web
-    - indirect_prompt_injection_email_search_mcp
-    - context_memory_credential_exfiltration
-    - privilege_escalation
-    - unauthorized_tool_use
-    - confused_deputy
-    - hallucinated_actions
-    - invalid_citations
-    - multiagent_infinite_loop
-    - multiagent_error_amplification
-    - human_approval_bypass
-    - excessive_token_tool_consumption
-    - improper_data_persistence
-    - evaluator_manipulation
+  - direct_prompt_injection
+  - indirect_prompt_injection_documents
+  - indirect_prompt_injection_web
+  - indirect_prompt_injection_email_search_mcp
+  - context_memory_credential_exfiltration
+  - privilege_escalation
+  - unauthorized_tool_use
+  - confused_deputy
+  - hallucinated_actions
+  - invalid_citations
+  - multiagent_infinite_loop
+  - multiagent_error_amplification
+  - human_approval_bypass
+  - excessive_token_tool_consumption
+  - improper_data_persistence
+  - evaluator_manipulation
 quality_gates:
-  - attack_library_integrity
-  - reproducible_scenarios
-  - evidence_report_json_markdown_html
-  - dynamic_runtime_probe
-  - security_regression_tests
-  - ci_execution
+- attack_library_integrity
+- reproducible_scenarios
+- evidence_report_json_markdown_html
+- dynamic_runtime_probe
+- security_regression_tests
+- ci_execution
 tags:
-  - red-team
-  - agent-security
-  - prompt-injection
-  - multiagent
-  - security-regression
-  - ci
-  - skeptic
-  - testing
-  - runtime-adapters
+- red-team
+- agent-security
+- prompt-injection
+- multiagent
+- security-regression
+- ci
+- skeptic
+- testing
+- runtime-adapters

@@ -1,55 +1,52 @@
-name: "Maeve Carrossel Premium Instagram PT-BR"
-code: "maeve-carrossel-premium-instagram-ptbr"
-version: "1.1.0"
-description: >
-  Squad Nirvana/AIOS para transformar uma solicitação do usuário em carrossel premium
-  para Instagram, com copy em pt-BR, tipografia elegante, elementos infográficos,
-  estrutura visual pixel/ASCII, geração de HTML por slide, conversão para PNG,
-  legenda e hashtags na mesma pasta final, além de vídeo vertical com voz Francisca.
+name: Maeve Carrossel Premium Instagram PT-BR
+code: maeve-carrossel-premium-instagram-ptbr
+version: 1.1.0
+description: |
+  Squad Nirvana/AIOS para transformar uma solicitação do usuário em carrossel premium para Instagram, com copy em pt-BR, tipografia elegante, elementos infográficos, estrutura visual pixel/ASCII, geração de HTML por slide, conversão para PNG, legenda e hashtags na mesma pasta final, além de vídeo vertical com voz Francisca.
 slashPrefix: carrossel-premium
 language: pt-BR
 aios:
-  minVersion: "2.1.0"
+  minVersion: 2.1.0
   type: squad
 components:
   agents:
-    - agents/briefing-strategist.md
-    - agents/copywriter-ptbr.md
-    - agents/visual-director.md
-    - agents/html-renderer.md
-    - agents/video-director-francisca.md
-    - agents/qa-publisher.md
+  - agents/briefing-strategist.md
+  - agents/copywriter-ptbr.md
+  - agents/visual-director.md
+  - agents/html-renderer.md
+  - agents/video-director-francisca.md
+  - agents/qa-publisher.md
   tasks:
-    - tasks/01-interpretar-solicitacao.md
-    - tasks/02-planejar-narrativa.md
-    - tasks/03-criar-copy-slides.md
-    - tasks/04-definir-direcao-visual.md
-    - tasks/05-gerar-html-e-png.md
-    - tasks/06-criar-legenda-hashtags.md
-    - tasks/07-validar-entrega.md
-    - tasks/08-criar-video-francisca-manim.md
+  - tasks/01-interpretar-solicitacao.md
+  - tasks/02-planejar-narrativa.md
+  - tasks/03-criar-copy-slides.md
+  - tasks/04-definir-direcao-visual.md
+  - tasks/05-gerar-html-e-png.md
+  - tasks/06-criar-legenda-hashtags.md
+  - tasks/07-validar-entrega.md
+  - tasks/08-criar-video-francisca-manim.md
   workflows:
-    - workflows/carrossel-premium-pipeline.yaml
+  - workflows/carrossel-premium-pipeline.yaml
   checklists:
-    - checklists/qualidade-carrossel-premium.md
+  - checklists/qualidade-carrossel-premium.md
   templates:
-    - templates/briefing-carrossel.yaml
-    - templates/design-system-premium.yaml
+  - templates/briefing-carrossel.yaml
+  - templates/design-system-premium.yaml
   tools:
-    - scripts/generate_premium_carousel.py
-    - scripts/generate_francisca_video.py
+  - scripts/generate_premium_carousel.py
+  - scripts/generate_francisca_video.py
   scripts:
-    - scripts/generate_premium_carousel.py
-    - scripts/generate_francisca_video.py
+  - scripts/generate_premium_carousel.py
+  - scripts/generate_francisca_video.py
 outputs:
   required:
-    - roteiro.md
-    - legenda.txt
-    - hashtags.txt
-    - manifest.json
-    - slides/slide-01.html
-    - slides/slide-01.png
-    - video/final_francisca.mp4
+  - roteiro.md
+  - legenda.txt
+  - hashtags.txt
+  - manifest.json
+  - slides/slide-01.html
+  - slides/slide-01.png
+  - video/final_francisca.mp4
 runtime:
-  default_command: >
+  default_command: |-
     python scripts/generate_premium_carousel.py --brief examples/demo-brief.yaml --output output/demo

@@ -4,41 +4,39 @@ kind: aios-squad
 language: pt-BR
 creator: Marcio Bisognin
 license: MIT
-instagram: "@marciobisognin"
-mission: >
-  Criar músicas autorais em português no território pop rock, rock romântico
-  e baladas emocionais, com letras, voz, instrumentos, tags e prompts prontos
-  para IA musical, a partir do DNA seguro de baladas rock/pop dos anos 80/90.
+instagram: '@marciobisognin'
+mission: |
+  Criar músicas autorais em português no território pop rock, rock romântico e baladas emocionais, com letras, voz, instrumentos, tags e prompts prontos para IA musical, a partir do DNA seguro de baladas rock/pop dos anos 80/90.
 metadata:
   readme_style: dark-neon-layered-architecture
   domain: pop-rock-romantic-ballads
   reference_profile: lost-in-your-eyes-safe-style-dna
   exclusions:
-    - religioso
-    - devocional
-    - culto
-    - oração
-    - gospel
-    - worship
-    - reflexivo-filosofico-como-eixo-principal
+  - religioso
+  - devocional
+  - culto
+  - oração
+  - gospel
+  - worship
+  - reflexivo-filosofico-como-eixo-principal
 agents:
-  - id: reference-dna-analyst
-    file: agents/reference-dna-analyst.md
-  - id: romantic-arc-architect
-    file: agents/romantic-arc-architect.md
-  - id: poprock-lyricist
-    file: agents/poprock-lyricist.md
-  - id: vocal-arrangement-producer
-    file: agents/vocal-arrangement-producer.md
-  - id: band-sound-director
-    file: agents/band-sound-director.md
-  - id: originality-impact-gate
-    file: agents/originality-impact-gate.md
+- id: reference-dna-analyst
+  file: agents/reference-dna-analyst.md
+- id: romantic-arc-architect
+  file: agents/romantic-arc-architect.md
+- id: poprock-lyricist
+  file: agents/poprock-lyricist.md
+- id: vocal-arrangement-producer
+  file: agents/vocal-arrangement-producer.md
+- id: band-sound-director
+  file: agents/band-sound-director.md
+- id: originality-impact-gate
+  file: agents/originality-impact-gate.md
 workflows:
-  - id: create-poprock-ballad
-    file: workflows/create-poprock-ballad.yaml
+- id: create-poprock-ballad
+  file: workflows/create-poprock-ballad.yaml
 commands:
-  - name: generate
-    script: scripts/create_poprock_ballad_blueprint.py
-  - name: smoke-test
-    script: scripts/smoke_test.py
+- name: generate
+  script: scripts/create_poprock_ballad_blueprint.py
+- name: smoke-test
+  script: scripts/smoke_test.py

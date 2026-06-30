@@ -1,21 +1,16 @@
 name: forge-of-solus-prime-cybersecurity-squad
-display_name: "🔱 Forge of Solus Prime — Cybersecurity Squad"
-version: "1.0.0"
+display_name: 🔱 Forge of Solus Prime — Cybersecurity Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Segurança da Informação — Avaliação, Conformidade e Defesa Digital"
+domain: Segurança da Informação — Avaliação, Conformidade e Defesa Digital
 visual_style: dark-neon-layered-architecture
-
 symbolic_origin:
-  artifact: "Forja de Solus Prime (Transformers Prime)"
-  description: >
-    A Forja de Solus Prime é uma relíquia sagrada capaz de criar armas e proteções indestrutíveis,
-    usada pelos Primais para fortalecer defensores. Este squad forja defesas digitais impenetráveis:
-    inventários de ativos, modelos de ameaça, políticas de segurança, playbooks de resposta a
-    incidentes e análises de conformidade — sempre do lado defensivo.
-
+  artifact: Forja de Solus Prime (Transformers Prime)
+  description: |
+    A Forja de Solus Prime é uma relíquia sagrada capaz de criar armas e proteções indestrutíveis, usada pelos Primais para fortalecer defensores. Este squad forja defesas digitais impenetráveis: inventários de ativos, modelos de ameaça, políticas de segurança, playbooks de resposta a incidentes e análises de conformidade — sempre do lado defensivo.
 scope_restriction: |
   ⚠️ ESCOPO ESTRITAMENTE DEFENSIVO ⚠️
   Este squad opera EXCLUSIVAMENTE em segurança defensiva autorizada:
@@ -24,95 +19,81 @@ scope_restriction: |
   NÃO são realizadas: testes de penetração reais, execução de exploits, criação de malware,
   ataques simulados sem autorização explícita documentada, ou qualquer técnica ofensiva ativa.
   Toda atividade pressupõe autorização prévia e documentada do proprietário dos ativos.
-
-objective: >
-  Fortalecer a postura de segurança digital de organizações por meio de inventário de ativos,
-  modelagem de ameaças (STRIDE/MITRE ATT&CK/Kill Chain), avaliação e priorização de vulnerabilidades
-  (CVSS), geração de políticas de segurança, playbooks de resposta a incidentes por tipo de ataque,
-  análise de lacunas de conformidade (LGPD/ISO 27001/SOC 2/NIST CSF), programas de conscientização,
-  análise de risco de cadeia de suprimentos e revisão adversarial conceitual para fortalecer defesas.
-
+objective: |
+  Fortalecer a postura de segurança digital de organizações por meio de inventário de ativos, modelagem de ameaças (STRIDE/MITRE ATT&CK/Kill Chain), avaliação e priorização de vulnerabilidades (CVSS), geração de políticas de segurança, playbooks de resposta a incidentes por tipo de ataque, análise de lacunas de conformidade (LGPD/ISO 27001/SOC 2/NIST CSF), programas de conscientização, análise de risco de cadeia de suprimentos e revisão adversarial conceitual para fortalecer defesas.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
   human_in_loop: true
   ethical_gate: solus-forge-orchestrator
-
 inputs:
-  - "Inventário parcial ou completo de ativos digitais da organização"
-  - "Contexto do setor e perfil de ameaças relevante"
-  - "Documentos de políticas e controles existentes"
-  - "Relatórios de auditorias ou avaliações anteriores"
-  - "Escopo de conformidade desejado (LGPD, ISO 27001, SOC 2, NIST CSF)"
-  - "Histórico ou relatos de incidentes anteriores"
-  - "Lista de fornecedores e parceiros críticos"
-
+- Inventário parcial ou completo de ativos digitais da organização
+- Contexto do setor e perfil de ameaças relevante
+- Documentos de políticas e controles existentes
+- Relatórios de auditorias ou avaliações anteriores
+- Escopo de conformidade desejado (LGPD, ISO 27001, SOC 2, NIST CSF)
+- Histórico ou relatos de incidentes anteriores
+- Lista de fornecedores e parceiros críticos
 outputs:
-  - "Relatório de Inventário de Ativos e Superfície de Ataque"
-  - "Relatório de Modelagem de Ameaças (STRIDE + MITRE ATT&CK)"
-  - "Scorecard de Postura de Segurança com prioridades CVSS"
-  - "Pack de Políticas de Segurança (PSI, BYOD, Nuvem, Trabalho Remoto, Classificação de Dados)"
-  - "Playbook de Resposta a Incidentes por tipo de ataque"
-  - "Relatório de Análise de Lacunas de Conformidade (LGPD/ISO 27001/SOC 2/NIST CSF)"
-  - "Plano de Treinamento e Conscientização em Segurança"
-  - "Relatório de Risco de Cadeia de Suprimentos Digitais"
-  - "Relatório de Perspectiva Adversarial para Fortalecimento Defensivo"
-
+- Relatório de Inventário de Ativos e Superfície de Ataque
+- Relatório de Modelagem de Ameaças (STRIDE + MITRE ATT&CK)
+- Scorecard de Postura de Segurança com prioridades CVSS
+- |-
+  Pack de Políticas de Segurança (PSI, BYOD, Nuvem, Trabalho Remoto, Classificação de Dados)
+- Playbook de Resposta a Incidentes por tipo de ataque
+- Relatório de Análise de Lacunas de Conformidade (LGPD/ISO 27001/SOC 2/NIST CSF)
+- Plano de Treinamento e Conscientização em Segurança
+- Relatório de Risco de Cadeia de Suprimentos Digitais
+- Relatório de Perspectiva Adversarial para Fortalecimento Defensivo
 agents:
-  - id: solus-forge-orchestrator
-    file: agents/solus-forge-orchestrator.md
-    role: "Coordenador central com gate ético mandatório de escopo defensivo; roteia missões e consolida entregas"
-  - id: asset-inventory-mapper
-    file: agents/asset-inventory-mapper.md
-    role: "Inventário de ativos digitais e mapeamento de superfície de ataque"
-  - id: threat-model-architect
-    file: agents/threat-model-architect.md
-    role: "Modelagem de ameaças com STRIDE, MITRE ATT&CK e Kill Chain"
-  - id: vulnerability-assessor
-    file: agents/vulnerability-assessor.md
-    role: "Avaliação e priorização de vulnerabilidades com pontuação CVSS (sem execução de exploits)"
-  - id: security-policy-writer
-    file: agents/security-policy-writer.md
-    role: "Geração de políticas de segurança: PSI, BYOD, nuvem, trabalho remoto, classificação de dados"
-  - id: incident-response-planner
-    file: agents/incident-response-planner.md
-    role: "Criação de playbooks de resposta a incidentes por tipo de ataque"
-  - id: lgpd-iso27001-auditor
-    file: agents/lgpd-iso27001-auditor.md
-    role: "Análise de lacunas para LGPD, ISO 27001, SOC 2, NIST CSF"
-  - id: security-awareness-designer
-    file: agents/security-awareness-designer.md
-    role: "Design de programas de conscientização e simulações conceituais de phishing"
-  - id: supply-chain-risk-analyst
-    file: agents/supply-chain-risk-analyst.md
-    role: "Avaliação de risco de terceiros e cadeia de suprimentos digitais"
-  - id: red-team-advisor
-    file: agents/red-team-advisor.md
-    role: "Perspectiva adversarial conceitual para fortalecer defesas (sem ataques reais)"
-
+- id: solus-forge-orchestrator
+  file: agents/solus-forge-orchestrator.md
+  role: |-
+    Coordenador central com gate ético mandatório de escopo defensivo; roteia missões e consolida entregas
+- id: asset-inventory-mapper
+  file: agents/asset-inventory-mapper.md
+  role: Inventário de ativos digitais e mapeamento de superfície de ataque
+- id: threat-model-architect
+  file: agents/threat-model-architect.md
+  role: Modelagem de ameaças com STRIDE, MITRE ATT&CK e Kill Chain
+- id: vulnerability-assessor
+  file: agents/vulnerability-assessor.md
+  role: |-
+    Avaliação e priorização de vulnerabilidades com pontuação CVSS (sem execução de exploits)
+- id: security-policy-writer
+  file: agents/security-policy-writer.md
+  role: |-
+    Geração de políticas de segurança: PSI, BYOD, nuvem, trabalho remoto, classificação de dados
+- id: incident-response-planner
+  file: agents/incident-response-planner.md
+  role: Criação de playbooks de resposta a incidentes por tipo de ataque
+- id: lgpd-iso27001-auditor
+  file: agents/lgpd-iso27001-auditor.md
+  role: Análise de lacunas para LGPD, ISO 27001, SOC 2, NIST CSF
+- id: security-awareness-designer
+  file: agents/security-awareness-designer.md
+  role: Design de programas de conscientização e simulações conceituais de phishing
+- id: supply-chain-risk-analyst
+  file: agents/supply-chain-risk-analyst.md
+  role: Avaliação de risco de terceiros e cadeia de suprimentos digitais
+- id: red-team-advisor
+  file: agents/red-team-advisor.md
+  role: Perspectiva adversarial conceitual para fortalecer defesas (sem ataques reais)
 workflows:
-  - workflows/cybersecurity-pipeline.yaml
-  - workflows/quality-gates.yaml
-
+- workflows/cybersecurity-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/security-posture-assessment.md
-  - tasks/compliance-gap-analysis.md
-
+- tasks/security-posture-assessment.md
+- tasks/compliance-gap-analysis.md
 quality_gates:
-  - "escopo_defensivo_confirmado"
-  - "autorizacao_documentada_verificada"
-  - "inventario_ativos_validado"
-  - "modelo_ameacas_revisado_por_humano"
-  - "politicas_aprovadas_pelo_cliente"
-  - "playbooks_testados_conceitualmente"
-  - "conformidade_gap_priorizado"
-  - "entrega_final_revisada_por_humano"
-
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
-
-disclaimer: >
-  Os artefatos gerados por este squad são documentos de suporte técnico para equipes de segurança
-  autorizadas. Nenhuma atividade ofensiva, exploit ou teste de penetração real é executado.
-  Toda recomendação pressupõe autorização prévia e documentada do proprietário dos ativos avaliados.
-  Revisão humana por profissional de segurança qualificado é obrigatória antes de implementação.
-  Este squad não substitui consultoria de segurança certificada (CISSP, CISM, CEH, OSCP).
+- escopo_defensivo_confirmado
+- autorizacao_documentada_verificada
+- inventario_ativos_validado
+- modelo_ameacas_revisado_por_humano
+- politicas_aprovadas_pelo_cliente
+- playbooks_testados_conceitualmente
+- conformidade_gap_priorizado
+- entrega_final_revisada_por_humano
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Os artefatos gerados por este squad são documentos de suporte técnico para equipes de segurança autorizadas. Nenhuma atividade ofensiva, exploit ou teste de penetração real é executado. Toda recomendação pressupõe autorização prévia e documentada do proprietário dos ativos avaliados. Revisão humana por profissional de segurança qualificado é obrigatória antes de implementação. Este squad não substitui consultoria de segurança certificada (CISSP, CISM, CEH, OSCP).

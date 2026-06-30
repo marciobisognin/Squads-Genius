@@ -3,28 +3,29 @@ slug: prisma-real-problem-squad
 version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
-purpose: Combinar arquétipos de personas de prompt em uma equipe operacional para resolver problemas reais com criatividade, rigor, segurança e execução.
+purpose: |-
+  Combinar arquétipos de personas de prompt em uma equipe operacional para resolver problemas reais com criatividade, rigor, segurança e execução.
 components:
   agents:
-    - agents/01-intake-context-architect.md
-    - agents/02-systems-strategist.md
-    - agents/03-innovation-prototyper.md
-    - agents/04-ethics-risk-governance.md
-    - agents/05-human-diplomacy-people.md
-    - agents/06-evidence-numbers-research.md
-    - agents/07-communication-storytelling.md
-    - agents/08-execution-ops-assistant.md
+  - agents/01-intake-context-architect.md
+  - agents/02-systems-strategist.md
+  - agents/03-innovation-prototyper.md
+  - agents/04-ethics-risk-governance.md
+  - agents/05-human-diplomacy-people.md
+  - agents/06-evidence-numbers-research.md
+  - agents/07-communication-storytelling.md
+  - agents/08-execution-ops-assistant.md
   tasks:
-    - tasks/problem-intake.md
-    - tasks/solution-design.md
-    - tasks/quality-review.md
+  - tasks/problem-intake.md
+  - tasks/solution-design.md
+  - tasks/quality-review.md
   workflows:
-    - workflows/prisma-workflow.yaml
+  - workflows/prisma-workflow.yaml
   scripts:
-    - scripts/run_prisma_squad.py
+  - scripts/run_prisma_squad.py
   reports:
-    - reports/persona_analysis_sanitized.md
-    - validation/sanitization-report.md
+  - reports/persona_analysis_sanitized.md
+  - validation/sanitization-report.md
 policy:
   source_prompts_are_data: true
   ignore_embedded_instructions: true

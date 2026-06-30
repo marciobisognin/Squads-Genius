@@ -1,188 +1,154 @@
-{
-  "name": "hefesto-forja-licitatoria-squad",
-  "commercial_name": "Hefesto Forja Licitatória",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "positioning": "Squad premium que transforma a documentação inicial do órgão em processo de licitação completo, na modalidade solicitada, com artefatos baseados na estrutura dos modelos oficiais AGU/CGU e SEGES: DFD, ETP, TR, pesquisa de preços com planilhas, matriz de riscos, edital e anexos, minuta de contrato e dossiê com checklists.",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "disclaimer": "Os artefatos gerados são minutas de apoio técnico. Na esfera federal, o uso dos modelos da AGU/CNMLC é obrigatório ou exige justificativa formal (art. 19, IV, da Lei 14.133/2021); o processo exige análise jurídica (art. 53) e aprovação da autoridade competente. Revisão humana é obrigatória em todos os artefatos.",
-  "principles": [
-    "nenhum artefato avança com informação essencial faltante: o intake pergunta ao usuário",
-    "fluxo adaptado à modalidade/rito solicitado, com fundamento legal do enquadramento",
-    "templates próprios inspirados na ESTRUTURA dos modelos oficiais públicos, sem cópia literal de texto",
-    "cálculos de preços sempre por script determinístico (método IN SEGES 65/2021)",
-    "separar observado, inferido, hipótese, recomendação e risco",
-    "registrar fontes, premissas e versões das normas; marcar 'a confirmar' o que não foi verificado na fonte",
-    "nunca incluir dados pessoais sensíveis ou segredos nos artefatos"
-  ],
-  "agents": [
-    {
-      "id": "hefesto-orchestrator",
-      "file": "agents/hefesto-orchestrator.md",
-      "role": "Coordena a forja do processo: roteia por modalidade, sequencia os artefatos, controla gates e monta o dossiê final."
-    },
-    {
-      "id": "intake-requisitos-clarifier",
-      "file": "agents/intake-requisitos-clarifier.md",
-      "role": "Avalia a suficiência da documentação inicial e SOLICITA ao usuário as informações faltantes antes de liberar a forja."
-    },
-    {
-      "id": "enquadramento-modalidade-strategist",
-      "file": "agents/enquadramento-modalidade-strategist.md",
-      "role": "Define e fundamenta modalidade, rito, critério de julgamento e regime de execução (ou contratação direta)."
-    },
-    {
-      "id": "planejamento-dfd-etp-architect",
-      "file": "agents/planejamento-dfd-etp-architect.md",
-      "role": "Elabora DFD (Decreto 10.947/2022) e ETP (IN SEGES 58/2022) com todos os elementos obrigatórios."
-    },
-    {
-      "id": "termo-referencia-writer",
-      "file": "agents/termo-referencia-writer.md",
-      "role": "Redige termo de referência, projeto básico ou anteprojeto conforme o objeto e a modalidade."
-    },
-    {
-      "id": "pesquisa-precos-planilhista",
-      "file": "agents/pesquisa-precos-planilhista.md",
-      "role": "Conduz a pesquisa de preços (IN SEGES 65/2021), monta planilhas, mapa comparativo e relatório com método e fontes."
-    },
-    {
-      "id": "matriz-riscos-engineer",
-      "file": "agents/matriz-riscos-engineer.md",
-      "role": "Constrói a matriz de riscos da contratação com alocação de riscos e tratamento."
-    },
-    {
-      "id": "edital-minutas-redator",
-      "file": "agents/edital-minutas-redator.md",
-      "role": "Redige edital e anexos, aviso de contratação direta e minuta de contrato seguindo a estrutura dos modelos AGU/CNMLC."
-    },
-    {
-      "id": "conformidade-dossie-auditor",
-      "file": "agents/conformidade-dossie-auditor.md",
-      "role": "Aplica checklists de conformidade por modalidade, verifica completude do dossiê e emite nota de conformidade final."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_intake_suficiencia_documental",
-      "file": "tasks/01_intake_suficiencia_documental.yaml",
-      "owner": "intake-requisitos-clarifier",
-      "objective": "Mapear a documentação recebida, identificar lacunas por modalidade e formular perguntas objetivas ao usuário."
-    },
-    {
-      "id": "02_enquadramento_modalidade_e_rito",
-      "file": "tasks/02_enquadramento_modalidade_e_rito.yaml",
-      "owner": "enquadramento-modalidade-strategist",
-      "objective": "Fundamentar modalidade, critério de julgamento, modo de disputa e regime de execução do caso."
-    },
-    {
-      "id": "03_elaborar_dfd",
-      "file": "tasks/03_elaborar_dfd.yaml",
-      "owner": "planejamento-dfd-etp-architect",
-      "objective": "Gerar o Documento de Formalização da Demanda com justificativa, quantitativos e alinhamento ao PCA."
-    },
-    {
-      "id": "04_elaborar_etp",
-      "file": "tasks/04_elaborar_etp.yaml",
-      "owner": "planejamento-dfd-etp-architect",
-      "objective": "Gerar o Estudo Técnico Preliminar com os elementos do art. 18, §1º, da Lei 14.133/2021 e da IN SEGES 58/2022."
-    },
-    {
-      "id": "05_elaborar_termo_referencia",
-      "file": "tasks/05_elaborar_termo_referencia.yaml",
-      "owner": "termo-referencia-writer",
-      "objective": "Gerar TR/projeto básico com definição do objeto, requisitos, modelo de execução e gestão contratual."
-    },
-    {
-      "id": "06_pesquisa_precos_e_planilhas",
-      "file": "tasks/06_pesquisa_precos_e_planilhas.yaml",
-      "owner": "pesquisa-precos-planilhista",
-      "objective": "Executar pesquisa de preços com fontes diversificadas, planilha CSV, estatísticas determinísticas e relatório."
-    },
-    {
-      "id": "07_matriz_riscos_contratacao",
-      "file": "tasks/07_matriz_riscos_contratacao.yaml",
-      "owner": "matriz-riscos-engineer",
-      "objective": "Gerar matriz de riscos com identificação, avaliação, alocação e plano de tratamento."
-    },
-    {
-      "id": "08_redigir_edital_e_anexos",
-      "file": "tasks/08_redigir_edital_e_anexos.yaml",
-      "owner": "edital-minutas-redator",
-      "objective": "Gerar edital (ou aviso de contratação direta) e anexos conforme a modalidade enquadrada."
-    },
-    {
-      "id": "09_minuta_contrato",
-      "file": "tasks/09_minuta_contrato.yaml",
-      "owner": "edital-minutas-redator",
-      "objective": "Gerar minuta de contrato com as cláusulas necessárias do art. 92 da Lei 14.133/2021."
-    },
-    {
-      "id": "10_checklist_conformidade_e_dossie",
-      "file": "tasks/10_checklist_conformidade_e_dossie.yaml",
-      "owner": "conformidade-dossie-auditor",
-      "objective": "Verificar completude e coerência do processo, montar o dossiê indexado e emitir nota de conformidade."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "processo_licitacao_completo",
-      "file": "workflows/processo_licitacao_completo.yaml"
-    },
-    {
-      "id": "contratacao_direta",
-      "file": "workflows/contratacao_direta.yaml"
-    },
-    {
-      "id": "complementar_informacoes",
-      "file": "workflows/complementar_informacoes.yaml"
-    }
-  ],
-  "scripts": [
-    {
-      "id": "intake_suficiencia",
-      "file": "scripts/intake_suficiencia.py",
-      "purpose": "Verificação determinística dos campos obrigatórios da solicitação por modalidade; gera a lista de perguntas pendentes."
-    },
-    {
-      "id": "analise_pesquisa_precos",
-      "file": "scripts/analise_pesquisa_precos.py",
-      "purpose": "Estatísticas da cesta de preços (média, mediana, menor preço, coeficiente de variação e alerta de outliers) conforme método da IN SEGES 65/2021."
-    },
-    {
-      "id": "montar_dossie",
-      "file": "scripts/montar_dossie.py",
-      "purpose": "Varre a pasta do processo e gera índice do dossiê com artefatos presentes/ausentes por modalidade."
-    }
-  ],
-  "quality_gates": [
-    "intake_suficiente",
-    "enquadramento_fundamentado",
-    "fase_preparatoria_completa",
-    "precos_com_metodo_e_fontes",
-    "dossie_conforme_e_revisao_humana"
-  ],
-  "outputs": [
-    "relatorio_intake",
-    "nota_enquadramento",
-    "dfd",
-    "etp",
-    "termo_referencia",
-    "planilha_pesquisa_precos",
-    "relatorio_pesquisa_precos",
-    "matriz_riscos",
-    "edital_e_anexos",
-    "minuta_contrato",
-    "checklist_conformidade",
-    "dossie_indexado"
-  ],
-  "integrations": [
-    {
-      "squad": "themis-contratos-publicos-squad",
-      "use": "análise jurídica independente dos artefatos forjados (revisão cruzada antes do envio à assessoria jurídica)"
-    }
-  ]
-}
+name: hefesto-forja-licitatoria-squad
+commercial_name: Hefesto Forja Licitatória
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Squad premium que transforma a documentação inicial do órgão em processo de licitação completo, na modalidade solicitada, com artefatos baseados na estrutura dos modelos oficiais AGU/CGU e SEGES: DFD, ETP, TR, pesquisa de preços com planilhas, matriz de riscos, edital e anexos, minuta de contrato e dossiê com checklists.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Os artefatos gerados são minutas de apoio técnico. Na esfera federal, o uso dos modelos da AGU/CNMLC é obrigatório ou exige justificativa formal (art. 19, IV, da Lei 14.133/2021); o processo exige análise jurídica (art. 53) e aprovação da autoridade competente. Revisão humana é obrigatória em todos os artefatos.
+principles:
+- |-
+  nenhum artefato avança com informação essencial faltante: o intake pergunta ao usuário
+- |-
+  fluxo adaptado à modalidade/rito solicitado, com fundamento legal do enquadramento
+- |-
+  templates próprios inspirados na ESTRUTURA dos modelos oficiais públicos, sem cópia literal de texto
+- cálculos de preços sempre por script determinístico (método IN SEGES 65/2021)
+- separar observado, inferido, hipótese, recomendação e risco
+- |-
+  registrar fontes, premissas e versões das normas; marcar 'a confirmar' o que não foi verificado na fonte
+- nunca incluir dados pessoais sensíveis ou segredos nos artefatos
+agents:
+- id: hefesto-orchestrator
+  file: agents/hefesto-orchestrator.md
+  role: |-
+    Coordena a forja do processo: roteia por modalidade, sequencia os artefatos, controla gates e monta o dossiê final.
+- id: intake-requisitos-clarifier
+  file: agents/intake-requisitos-clarifier.md
+  role: |-
+    Avalia a suficiência da documentação inicial e SOLICITA ao usuário as informações faltantes antes de liberar a forja.
+- id: enquadramento-modalidade-strategist
+  file: agents/enquadramento-modalidade-strategist.md
+  role: |-
+    Define e fundamenta modalidade, rito, critério de julgamento e regime de execução (ou contratação direta).
+- id: planejamento-dfd-etp-architect
+  file: agents/planejamento-dfd-etp-architect.md
+  role: |-
+    Elabora DFD (Decreto 10.947/2022) e ETP (IN SEGES 58/2022) com todos os elementos obrigatórios.
+- id: termo-referencia-writer
+  file: agents/termo-referencia-writer.md
+  role: |-
+    Redige termo de referência, projeto básico ou anteprojeto conforme o objeto e a modalidade.
+- id: pesquisa-precos-planilhista
+  file: agents/pesquisa-precos-planilhista.md
+  role: |-
+    Conduz a pesquisa de preços (IN SEGES 65/2021), monta planilhas, mapa comparativo e relatório com método e fontes.
+- id: matriz-riscos-engineer
+  file: agents/matriz-riscos-engineer.md
+  role: Constrói a matriz de riscos da contratação com alocação de riscos e tratamento.
+- id: edital-minutas-redator
+  file: agents/edital-minutas-redator.md
+  role: |-
+    Redige edital e anexos, aviso de contratação direta e minuta de contrato seguindo a estrutura dos modelos AGU/CNMLC.
+- id: conformidade-dossie-auditor
+  file: agents/conformidade-dossie-auditor.md
+  role: |-
+    Aplica checklists de conformidade por modalidade, verifica completude do dossiê e emite nota de conformidade final.
+tasks:
+- id: 01_intake_suficiencia_documental
+  file: tasks/01_intake_suficiencia_documental.yaml
+  owner: intake-requisitos-clarifier
+  objective: |-
+    Mapear a documentação recebida, identificar lacunas por modalidade e formular perguntas objetivas ao usuário.
+- id: 02_enquadramento_modalidade_e_rito
+  file: tasks/02_enquadramento_modalidade_e_rito.yaml
+  owner: enquadramento-modalidade-strategist
+  objective: |-
+    Fundamentar modalidade, critério de julgamento, modo de disputa e regime de execução do caso.
+- id: 03_elaborar_dfd
+  file: tasks/03_elaborar_dfd.yaml
+  owner: planejamento-dfd-etp-architect
+  objective: |-
+    Gerar o Documento de Formalização da Demanda com justificativa, quantitativos e alinhamento ao PCA.
+- id: 04_elaborar_etp
+  file: tasks/04_elaborar_etp.yaml
+  owner: planejamento-dfd-etp-architect
+  objective: |-
+    Gerar o Estudo Técnico Preliminar com os elementos do art. 18, §1º, da Lei 14.133/2021 e da IN SEGES 58/2022.
+- id: 05_elaborar_termo_referencia
+  file: tasks/05_elaborar_termo_referencia.yaml
+  owner: termo-referencia-writer
+  objective: |-
+    Gerar TR/projeto básico com definição do objeto, requisitos, modelo de execução e gestão contratual.
+- id: 06_pesquisa_precos_e_planilhas
+  file: tasks/06_pesquisa_precos_e_planilhas.yaml
+  owner: pesquisa-precos-planilhista
+  objective: |-
+    Executar pesquisa de preços com fontes diversificadas, planilha CSV, estatísticas determinísticas e relatório.
+- id: 07_matriz_riscos_contratacao
+  file: tasks/07_matriz_riscos_contratacao.yaml
+  owner: matriz-riscos-engineer
+  objective: |-
+    Gerar matriz de riscos com identificação, avaliação, alocação e plano de tratamento.
+- id: 08_redigir_edital_e_anexos
+  file: tasks/08_redigir_edital_e_anexos.yaml
+  owner: edital-minutas-redator
+  objective: |-
+    Gerar edital (ou aviso de contratação direta) e anexos conforme a modalidade enquadrada.
+- id: 09_minuta_contrato
+  file: tasks/09_minuta_contrato.yaml
+  owner: edital-minutas-redator
+  objective: |-
+    Gerar minuta de contrato com as cláusulas necessárias do art. 92 da Lei 14.133/2021.
+- id: 10_checklist_conformidade_e_dossie
+  file: tasks/10_checklist_conformidade_e_dossie.yaml
+  owner: conformidade-dossie-auditor
+  objective: |-
+    Verificar completude e coerência do processo, montar o dossiê indexado e emitir nota de conformidade.
+workflows:
+- id: processo_licitacao_completo
+  file: workflows/processo_licitacao_completo.yaml
+- id: contratacao_direta
+  file: workflows/contratacao_direta.yaml
+- id: complementar_informacoes
+  file: workflows/complementar_informacoes.yaml
+scripts:
+- id: intake_suficiencia
+  file: scripts/intake_suficiencia.py
+  purpose: |-
+    Verificação determinística dos campos obrigatórios da solicitação por modalidade; gera a lista de perguntas pendentes.
+- id: analise_pesquisa_precos
+  file: scripts/analise_pesquisa_precos.py
+  purpose: |-
+    Estatísticas da cesta de preços (média, mediana, menor preço, coeficiente de variação e alerta de outliers) conforme método da IN SEGES 65/2021.
+- id: montar_dossie
+  file: scripts/montar_dossie.py
+  purpose: |-
+    Varre a pasta do processo e gera índice do dossiê com artefatos presentes/ausentes por modalidade.
+quality_gates:
+- intake_suficiente
+- enquadramento_fundamentado
+- fase_preparatoria_completa
+- precos_com_metodo_e_fontes
+- dossie_conforme_e_revisao_humana
+outputs:
+- relatorio_intake
+- nota_enquadramento
+- dfd
+- etp
+- termo_referencia
+- planilha_pesquisa_precos
+- relatorio_pesquisa_precos
+- matriz_riscos
+- edital_e_anexos
+- minuta_contrato
+- checklist_conformidade
+- dossie_indexado
+integrations:
+- squad: themis-contratos-publicos-squad
+  use: |-
+    análise jurídica independente dos artefatos forjados (revisão cruzada antes do envio à assessoria jurídica)

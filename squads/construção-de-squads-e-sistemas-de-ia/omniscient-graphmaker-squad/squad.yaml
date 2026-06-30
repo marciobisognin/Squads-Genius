@@ -4,48 +4,49 @@ status: production-ready-optimized-architecture
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
-description: Squad OMNISCIENT v6.5 para converter ideias em blueprints quantitativos e execução multiagente otimizada com IDBALANCE, RELATION/SACP e GRAPHMAKER.
+description: |-
+  Squad OMNISCIENT v6.5 para converter ideias em blueprints quantitativos e execução multiagente otimizada com IDBALANCE, RELATION/SACP e GRAPHMAKER.
 readme_style: dark-neon-layered-architecture
 entrypoint: scripts/graphmaker.cjs
 frameworks:
-  - IDBALANCE: matrizes VHM para identidade heurística e redução de deriva
-  - RELATION: SACP para tradução de heurística qualitativa em JSON quantitativo
-  - GRAPHMAKER: DAG tático de execução com dependências explícitas
+- IDBALANCE: matrizes VHM para identidade heurística e redução de deriva
+- RELATION: SACP para tradução de heurística qualitativa em JSON quantitativo
+- GRAPHMAKER: DAG tático de execução com dependências explícitas
 optimization:
   token_governance: true
   latency_budgeting: true
   cache_strategy: state-machine + blueprint fingerprint
   max_self_healing_attempts: 3
 agents:
-  - agents/cynefin-classifier.md
-  - agents/idbalance-vhm-compiler.md
-  - agents/taleb-engine.md
-  - agents/munger-engine.md
-  - agents/cognitive-boardroom.md
-  - agents/relation-sacp-compiler.md
-  - agents/venture-synthesis-matrix.md
-  - agents/graphmaker-orchestrator.md
-  - agents/visual-axiom.md
-  - agents/neural-cloning-foundry.md
-  - agents/conversion-alchemy.md
-  - agents/frictionless-conversion.md
-  - agents/turing-architect-guild.md
-  - agents/memetic-propagation.md
-  - agents/token-latency-governor.md
+- agents/cynefin-classifier.md
+- agents/idbalance-vhm-compiler.md
+- agents/taleb-engine.md
+- agents/munger-engine.md
+- agents/cognitive-boardroom.md
+- agents/relation-sacp-compiler.md
+- agents/venture-synthesis-matrix.md
+- agents/graphmaker-orchestrator.md
+- agents/visual-axiom.md
+- agents/neural-cloning-foundry.md
+- agents/conversion-alchemy.md
+- agents/frictionless-conversion.md
+- agents/turing-architect-guild.md
+- agents/memetic-propagation.md
+- agents/token-latency-governor.md
 workflows:
-  - workflows/omniscient-v6-5-optimized-flow.yaml
+- workflows/omniscient-v6-5-optimized-flow.yaml
 tasks:
-  - tasks/01-intake-cynefin.md
-  - tasks/02-idbalance-vhm.md
-  - tasks/03-taleb-munger-stress-inversion.md
-  - tasks/04-boardroom-n-rounds.md
-  - tasks/05-relation-sacp-blueprint.md
-  - tasks/06-graphmaker-execution.md
-  - tasks/07-token-latency-governance.md
-  - tasks/08-self-healing-validation.md
+- tasks/01-intake-cynefin.md
+- tasks/02-idbalance-vhm.md
+- tasks/03-taleb-munger-stress-inversion.md
+- tasks/04-boardroom-n-rounds.md
+- tasks/05-relation-sacp-blueprint.md
+- tasks/06-graphmaker-execution.md
+- tasks/07-token-latency-governance.md
+- tasks/08-self-healing-validation.md
 artifacts:
-  - examples/v65-master-pitch.json
-  - templates/meta-blueprint-v6.5.schema.json
-  - templates/vhm.schema.json
-  - templates/sacp-contract.schema.json
-  - validation/smoke-report-v6.5.md
+- examples/v65-master-pitch.json
+- templates/meta-blueprint-v6.5.schema.json
+- templates/vhm.schema.json
+- templates/sacp-contract.schema.json
+- validation/smoke-report-v6.5.md

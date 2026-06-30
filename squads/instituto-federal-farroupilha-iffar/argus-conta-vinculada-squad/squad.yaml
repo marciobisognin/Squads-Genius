@@ -1,166 +1,148 @@
-{
-  "name": "argus-conta-vinculada-squad",
-  "commercial_name": "Árgus — Conta Vinculada",
-  "version": "1.0.0",
-  "language": "pt-BR",
-  "license": "MIT",
-  "creator": "Marcio Bisognin",
-  "instagram": "@marciobisognin",
-  "source_document": "Dossiê Normativo + Estrutura da Planilha + PRD da Conta-Depósito Vinculada (jun/2026) — docs/base_normativa.md, docs/prd_conta_vinculada.md",
-  "positioning": "Squad multiagente que automatiza a Conta-Depósito Vinculada (Anexo XII da IN SEGES/MPDG 05/2017; art. 121 da Lei 14.133/2021): extrai contracheque e relatório do FGTS Digital, calcula provisão mensal, saldo e liberações por evento (13º, férias, rescisão, encerramento), confere FGTS/INSS e gera a planilha .xlsx auditável com relatório de inconsistências — núcleo determinístico e gates humanos.",
-  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.",
-  "disclaimer": "Automação não é parecer jurídico nem contábil. Os percentuais embarcados (item 14 do Anexo XII e Submódulo 2.2) são valores de partida que DEVEM ser conferidos contra a redação vigente das normas e os Cadernos de Logística da SEGES. A multa sobre aviso prévio é parametrizável (4% atual / 5% literal) e deve ser confirmada com a Procuradoria/AGU local. HITL obrigatório na parametrização jurídica do contrato e na autorização de cada liberação; campo de responsável pela validação obrigatório em todo relatório.",
-  "design_principles": [
-    "cálculo determinístico, raciocínio por LLM: nenhum valor monetário é gerado por LLM — a engine (scripts/conta_vinculada_core.py) é Python puro testável; os agentes decidem quais regras aplicar e justificam",
-    "rastreabilidade total: cada rubrica carrega {valor, formula, percentual, fundamento_legal, fonte}",
-    "HITL nos pontos críticos: parâmetros jurídicos do contrato (multa 4/5, regime tributário, SAT/FAP) e autorização de cada liberação exigem aprovação humana registrada",
-    "schema-first: handoffs entre agentes via JSON validado (ContratoParams, TrabalhadorRecord, FgtsRecord, ProvisaoMensal, LiberacaoEvento, ConferenciaReport)",
-    "fail-closed na liberação: FGTS irregular, documentação incompleta ou justa causa BLOQUEIAM a liberação",
-    "índice temporal: distinguir competências FGTS antes/depois de 01/03/2024 (SEFIP vs FGTS Digital) e a vigência da multa 5%→4%"
-  ],
-  "agents": [
-    {
-      "id": "a1-orquestrador-argus",
-      "file": "agents/a1-orquestrador-argus.md",
-      "role": "Classifica a demanda (montagem inicial da planilha / provisão mensal / liberação por evento / conferência), monta o grafo de execução, gerencia estado, gates HITL e consolida a saída + relatório de inconsistências."
-    },
-    {
-      "id": "a2-extrator-documental",
-      "file": "agents/a2-extrator-documental.md",
-      "role": "Lê contracheques (PDF/imagem) e o relatório do FGTS Digital (e extrato SEFIP para competências < 03/2024); extrai TrabalhadorRecord e FgtsRecord normalizados, marcando confiança e campos ilegíveis para revisão."
-    },
-    {
-      "id": "a3-regras-parametros",
-      "file": "agents/a3-regras-parametros.md",
-      "role": "Resolve os parâmetros do contrato (regime tributário, SAT/RAT/FAP, jornada 40/44h, multa 4/5%) e carrega a tabela de percentuais por regime; aciona o HITL Gate 1 de parâmetros jurídicos. Emite ContratoParams."
-    },
-    {
-      "id": "a4-engine-calculo",
-      "file": "agents/a4-engine-calculo.md",
-      "role": "Opera a engine determinística (scripts/conta_vinculada_core.py): provisão mensal (13º, férias+1/3, multa, incidência 2.2), saldo acumulado e valores de liberação por evento. Nunca calcula à mão; só interpreta a engine."
-    },
-    {
-      "id": "a5-validador-conformidade",
-      "file": "agents/a5-validador-conformidade.md",
-      "role": "Confere FGTS devido (8%) vs recolhido por competência, aplica as regras de negócio de liberação (justa causa não libera; férias no mês subsequente; rescisão > 1 ano exige homologação sindical), bloqueia liberação se irregular e produz o ConferenciaReport."
-    },
-    {
-      "id": "a6-gerador-planilha",
-      "file": "agents/a6-gerador-planilha.md",
-      "role": "Materializa a planilha .xlsx multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) com memória de cálculo, e o relatório de inconsistências; aciona o HITL Gate 2 de autorização."
-    }
-  ],
-  "tasks": [
-    {
-      "id": "01_classificar_demanda_e_plano",
-      "file": "tasks/01_classificar_demanda_e_plano.yaml",
-      "owner": "a1-orquestrador-argus",
-      "objective": "Classificar a demanda e montar o plano de execução com agentes, ordem e gates HITL."
-    },
-    {
-      "id": "02_parametrizar_contrato_hitl1",
-      "file": "tasks/02_parametrizar_contrato_hitl1.yaml",
-      "owner": "a3-regras-parametros",
-      "objective": "Resolver e validar os parâmetros jurídico-tributários do contrato (multa 4/5, regime, SAT/FAP, jornada) e obter a confirmação humana (HITL Gate 1)."
-    },
-    {
-      "id": "03_extrair_documentos",
-      "file": "tasks/03_extrair_documentos.yaml",
-      "owner": "a2-extrator-documental",
-      "objective": "Extrair TrabalhadorRecord (contracheque) e FgtsRecord (FGTS Digital/SEFIP) normalizados, com confiança e marcação de campos ilegíveis."
-    },
-    {
-      "id": "04_calcular_provisao_mensal",
-      "file": "tasks/04_calcular_provisao_mensal.yaml",
-      "owner": "a4-engine-calculo",
-      "objective": "Executar a engine para preencher a provisão mensal por trabalhador (B, C, D, E e total) e o saldo acumulado, sem valor de LLM."
-    },
-    {
-      "id": "05_calcular_liberacao_evento",
-      "file": "tasks/05_calcular_liberacao_evento.yaml",
-      "owner": "a4-engine-calculo",
-      "objective": "Calcular a liberação por evento (13º por avos, férias proporcional + 1/3, rescisão com multa FGTS 40%/20% sobre o saldo do extrato)."
-    },
-    {
-      "id": "06_conferir_fgts_e_validar",
-      "file": "tasks/06_conferir_fgts_e_validar.yaml",
-      "owner": "a5-validador-conformidade",
-      "objective": "Conferir FGTS 8% (devido vs recolhido), aplicar regras de negócio e bloquear liberação irregular; emitir ConferenciaReport."
-    },
-    {
-      "id": "07_gerar_planilha_e_relatorio_hitl2",
-      "file": "tasks/07_gerar_planilha_e_relatorio_hitl2.yaml",
-      "owner": "a6-gerador-planilha",
-      "objective": "Gerar a planilha .xlsx multi-abas e o relatório de inconsistências, e obter a autorização humana da liberação (HITL Gate 2)."
-    },
-    {
-      "id": "08_atualizar_parametros_normativos",
-      "file": "tasks/08_atualizar_parametros_normativos.yaml",
-      "owner": "a3-regras-parametros",
-      "objective": "Rotina recorrente: monitorar DOU/Portal de Compras/FGTS Digital (multa 4/5, reoneração, jornada, migração SEFIP) e versionar a tabela de percentuais."
-    }
-  ],
-  "workflows": [
-    {
-      "id": "montagem_planilha_completa",
-      "file": "workflows/montagem_planilha_completa.yaml"
-    },
-    {
-      "id": "provisao_mensal",
-      "file": "workflows/provisao_mensal.yaml"
-    },
-    {
-      "id": "liberacao_evento",
-      "file": "workflows/liberacao_evento.yaml"
-    }
-  ],
-  "scripts": [
-    {
-      "id": "conta_vinculada_core",
-      "file": "scripts/conta_vinculada_core.py",
-      "purpose": "Engine determinística: provisão mensal (13º 8,33% / férias+1/3 12,10% / multa 4-5% / incidência 2.2 por SAT-FAP-regime), saldo acumulado, avos de 13º/férias, liberação por evento e multa rescisória (40%/20%). Percentuais em tabela de configuração versionada com fundamento legal."
-    },
-    {
-      "id": "validar_conta_vinculada",
-      "file": "scripts/validar_conta_vinculada.py",
-      "purpose": "Conferência determinística: CPF válido, soma de avos ≤ 12, FGTS recolhido ≥ devido por competência (8%), saldo da conta nunca negativo, status regular/irregular e regras de negócio que bloqueiam liberação (justa causa, homologação sindical). go/no-go por trabalhador e por liberação."
-    },
-    {
-      "id": "gerar_planilha_xlsx",
-      "file": "scripts/gerar_planilha_xlsx.py",
-      "purpose": "Gerador de planilha .xlsx multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) usando apenas a biblioteca padrão (zipfile/xml); fallback CSV por aba. Inclui memória de cálculo."
-    }
-  ],
-  "quality_gates": [
-    "demanda_classificada",
-    "hitl1_parametros_juridicos",
-    "provisao_sem_valor_de_llm",
-    "fgts_regular_para_liberacao",
-    "hitl2_autorizacao_liberacao"
-  ],
-  "outputs": [
-    "contrato_params",
-    "trabalhador_record",
-    "fgts_record",
-    "provisao_mensal",
-    "liberacao_evento",
-    "conferencia_report",
-    "planilha_xlsx",
-    "relatorio_inconsistencias"
-  ],
-  "roadmap": [
-    "F0 Fundação: engine conta_vinculada_core + tabela de percentuais versionada + golden tests do Caderno de Logística (item 14 do Anexo XII)",
-    "F1 MVP: extrator de contracheque + engine de provisão mensal → aba Provisão mensal (caso mais frequente)",
-    "F2 Liberações: 13º por avos, férias proporcional + 1/3 e rescisão com multa FGTS",
-    "F3 Conferência: integração FGTS Digital (Relatório por Trabalhador) + bloqueio fail-closed + aba Conferência",
-    "F4 Variantes: Simples Nacional (só FGTS 8%), jornada 40h (Decreto 12.174/2024), reembolso-creche e reoneração (Lei 14.973/2024)",
-    "F5 Robustez: parser SEFIP < 03/2024, multa rescisória por extrato e dashboard de pendências"
-  ],
-  "out_of_scope_v1": [
-    "execução transacional no SIAFI / emissão de ordem bancária",
-    "abertura da conta no banco (Termo de Cooperação Técnica) — apenas referenciada",
-    "cálculo da folha de pagamento da contratada (a planilha de custos é insumo, não produto)",
-    "contratações estaduais/municipais e o regime do Judiciário (Resolução CNJ 651/2025, só referência comparativa)",
-    "assinatura digital e tramitação processual"
-  ]
-}
+name: argus-conta-vinculada-squad
+commercial_name: Árgus — Conta Vinculada
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+source_document: |-
+  Dossiê Normativo + Estrutura da Planilha + PRD da Conta-Depósito Vinculada (jun/2026) — docs/base_normativa.md, docs/prd_conta_vinculada.md
+positioning: |-
+  Squad multiagente que automatiza a Conta-Depósito Vinculada (Anexo XII da IN SEGES/MPDG 05/2017; art. 121 da Lei 14.133/2021): extrai contracheque e relatório do FGTS Digital, calcula provisão mensal, saldo e liberações por evento (13º, férias, rescisão, encerramento), confere FGTS/INSS e gera a planilha .xlsx auditável com relatório de inconsistências — núcleo determinístico e gates humanos.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: |-
+  Automação não é parecer jurídico nem contábil. Os percentuais embarcados (item 14 do Anexo XII e Submódulo 2.2) são valores de partida que DEVEM ser conferidos contra a redação vigente das normas e os Cadernos de Logística da SEGES. A multa sobre aviso prévio é parametrizável (4% atual / 5% literal) e deve ser confirmada com a Procuradoria/AGU local. HITL obrigatório na parametrização jurídica do contrato e na autorização de cada liberação; campo de responsável pela validação obrigatório em todo relatório.
+design_principles:
+- |-
+  cálculo determinístico, raciocínio por LLM: nenhum valor monetário é gerado por LLM — a engine (scripts/conta_vinculada_core.py) é Python puro testável; os agentes decidem quais regras aplicar e justificam
+- |-
+  rastreabilidade total: cada rubrica carrega {valor, formula, percentual, fundamento_legal, fonte}
+- |-
+  HITL nos pontos críticos: parâmetros jurídicos do contrato (multa 4/5, regime tributário, SAT/FAP) e autorização de cada liberação exigem aprovação humana registrada
+- |-
+  schema-first: handoffs entre agentes via JSON validado (ContratoParams, TrabalhadorRecord, FgtsRecord, ProvisaoMensal, LiberacaoEvento, ConferenciaReport)
+- |-
+  fail-closed na liberação: FGTS irregular, documentação incompleta ou justa causa BLOQUEIAM a liberação
+- |-
+  índice temporal: distinguir competências FGTS antes/depois de 01/03/2024 (SEFIP vs FGTS Digital) e a vigência da multa 5%→4%
+agents:
+- id: a1-orquestrador-argus
+  file: agents/a1-orquestrador-argus.md
+  role: |-
+    Classifica a demanda (montagem inicial da planilha / provisão mensal / liberação por evento / conferência), monta o grafo de execução, gerencia estado, gates HITL e consolida a saída + relatório de inconsistências.
+- id: a2-extrator-documental
+  file: agents/a2-extrator-documental.md
+  role: |-
+    Lê contracheques (PDF/imagem) e o relatório do FGTS Digital (e extrato SEFIP para competências < 03/2024); extrai TrabalhadorRecord e FgtsRecord normalizados, marcando confiança e campos ilegíveis para revisão.
+- id: a3-regras-parametros
+  file: agents/a3-regras-parametros.md
+  role: |-
+    Resolve os parâmetros do contrato (regime tributário, SAT/RAT/FAP, jornada 40/44h, multa 4/5%) e carrega a tabela de percentuais por regime; aciona o HITL Gate 1 de parâmetros jurídicos. Emite ContratoParams.
+- id: a4-engine-calculo
+  file: agents/a4-engine-calculo.md
+  role: |-
+    Opera a engine determinística (scripts/conta_vinculada_core.py): provisão mensal (13º, férias+1/3, multa, incidência 2.2), saldo acumulado e valores de liberação por evento. Nunca calcula à mão; só interpreta a engine.
+- id: a5-validador-conformidade
+  file: agents/a5-validador-conformidade.md
+  role: |-
+    Confere FGTS devido (8%) vs recolhido por competência, aplica as regras de negócio de liberação (justa causa não libera; férias no mês subsequente; rescisão > 1 ano exige homologação sindical), bloqueia liberação se irregular e produz o ConferenciaReport.
+- id: a6-gerador-planilha
+  file: agents/a6-gerador-planilha.md
+  role: |-
+    Materializa a planilha .xlsx multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) com memória de cálculo, e o relatório de inconsistências; aciona o HITL Gate 2 de autorização.
+tasks:
+- id: 01_classificar_demanda_e_plano
+  file: tasks/01_classificar_demanda_e_plano.yaml
+  owner: a1-orquestrador-argus
+  objective: |-
+    Classificar a demanda e montar o plano de execução com agentes, ordem e gates HITL.
+- id: 02_parametrizar_contrato_hitl1
+  file: tasks/02_parametrizar_contrato_hitl1.yaml
+  owner: a3-regras-parametros
+  objective: |-
+    Resolver e validar os parâmetros jurídico-tributários do contrato (multa 4/5, regime, SAT/FAP, jornada) e obter a confirmação humana (HITL Gate 1).
+- id: 03_extrair_documentos
+  file: tasks/03_extrair_documentos.yaml
+  owner: a2-extrator-documental
+  objective: |-
+    Extrair TrabalhadorRecord (contracheque) e FgtsRecord (FGTS Digital/SEFIP) normalizados, com confiança e marcação de campos ilegíveis.
+- id: 04_calcular_provisao_mensal
+  file: tasks/04_calcular_provisao_mensal.yaml
+  owner: a4-engine-calculo
+  objective: |-
+    Executar a engine para preencher a provisão mensal por trabalhador (B, C, D, E e total) e o saldo acumulado, sem valor de LLM.
+- id: 05_calcular_liberacao_evento
+  file: tasks/05_calcular_liberacao_evento.yaml
+  owner: a4-engine-calculo
+  objective: |-
+    Calcular a liberação por evento (13º por avos, férias proporcional + 1/3, rescisão com multa FGTS 40%/20% sobre o saldo do extrato).
+- id: 06_conferir_fgts_e_validar
+  file: tasks/06_conferir_fgts_e_validar.yaml
+  owner: a5-validador-conformidade
+  objective: |-
+    Conferir FGTS 8% (devido vs recolhido), aplicar regras de negócio e bloquear liberação irregular; emitir ConferenciaReport.
+- id: 07_gerar_planilha_e_relatorio_hitl2
+  file: tasks/07_gerar_planilha_e_relatorio_hitl2.yaml
+  owner: a6-gerador-planilha
+  objective: |-
+    Gerar a planilha .xlsx multi-abas e o relatório de inconsistências, e obter a autorização humana da liberação (HITL Gate 2).
+- id: 08_atualizar_parametros_normativos
+  file: tasks/08_atualizar_parametros_normativos.yaml
+  owner: a3-regras-parametros
+  objective: |-
+    Rotina recorrente: monitorar DOU/Portal de Compras/FGTS Digital (multa 4/5, reoneração, jornada, migração SEFIP) e versionar a tabela de percentuais.
+workflows:
+- id: montagem_planilha_completa
+  file: workflows/montagem_planilha_completa.yaml
+- id: provisao_mensal
+  file: workflows/provisao_mensal.yaml
+- id: liberacao_evento
+  file: workflows/liberacao_evento.yaml
+scripts:
+- id: conta_vinculada_core
+  file: scripts/conta_vinculada_core.py
+  purpose: |-
+    Engine determinística: provisão mensal (13º 8,33% / férias+1/3 12,10% / multa 4-5% / incidência 2.2 por SAT-FAP-regime), saldo acumulado, avos de 13º/férias, liberação por evento e multa rescisória (40%/20%). Percentuais em tabela de configuração versionada com fundamento legal.
+- id: validar_conta_vinculada
+  file: scripts/validar_conta_vinculada.py
+  purpose: |-
+    Conferência determinística: CPF válido, soma de avos ≤ 12, FGTS recolhido ≥ devido por competência (8%), saldo da conta nunca negativo, status regular/irregular e regras de negócio que bloqueiam liberação (justa causa, homologação sindical). go/no-go por trabalhador e por liberação.
+- id: gerar_planilha_xlsx
+  file: scripts/gerar_planilha_xlsx.py
+  purpose: |-
+    Gerador de planilha .xlsx multi-abas (Cadastro, Trabalhadores, Provisão mensal, Liberações, Conferência FGTS) usando apenas a biblioteca padrão (zipfile/xml); fallback CSV por aba. Inclui memória de cálculo.
+quality_gates:
+- demanda_classificada
+- hitl1_parametros_juridicos
+- provisao_sem_valor_de_llm
+- fgts_regular_para_liberacao
+- hitl2_autorizacao_liberacao
+outputs:
+- contrato_params
+- trabalhador_record
+- fgts_record
+- provisao_mensal
+- liberacao_evento
+- conferencia_report
+- planilha_xlsx
+- relatorio_inconsistencias
+roadmap:
+- |-
+  F0 Fundação: engine conta_vinculada_core + tabela de percentuais versionada + golden tests do Caderno de Logística (item 14 do Anexo XII)
+- |-
+  F1 MVP: extrator de contracheque + engine de provisão mensal → aba Provisão mensal (caso mais frequente)
+- 'F2 Liberações: 13º por avos, férias proporcional + 1/3 e rescisão com multa FGTS'
+- |-
+  F3 Conferência: integração FGTS Digital (Relatório por Trabalhador) + bloqueio fail-closed + aba Conferência
+- |-
+  F4 Variantes: Simples Nacional (só FGTS 8%), jornada 40h (Decreto 12.174/2024), reembolso-creche e reoneração (Lei 14.973/2024)
+- |-
+  F5 Robustez: parser SEFIP < 03/2024, multa rescisória por extrato e dashboard de pendências
+out_of_scope_v1:
+- execução transacional no SIAFI / emissão de ordem bancária
+- abertura da conta no banco (Termo de Cooperação Técnica) — apenas referenciada
+- |-
+  cálculo da folha de pagamento da contratada (a planilha de custos é insumo, não produto)
+- |-
+  contratações estaduais/municipais e o regime do Judiciário (Resolução CNJ 651/2025, só referência comparativa)
+- assinatura digital e tramitação processual

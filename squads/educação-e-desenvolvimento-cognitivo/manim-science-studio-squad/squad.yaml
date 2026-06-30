@@ -4,9 +4,8 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 status: operational-prototype
-purpose: Automação editorial multiagente para produção de Reels educativos científicos
-  em PT-BR com roteiro, storyboard, código Manim, narração TTS, revisão epistêmica,
-  FFmpeg e calendário editorial.
+purpose: |-
+  Automação editorial multiagente para produção de Reels educativos científicos em PT-BR com roteiro, storyboard, código Manim, narração TTS, revisão epistêmica, FFmpeg e calendário editorial.
 source_prd: PRD.md
 agents:
 - id: scientific-scriptwriter

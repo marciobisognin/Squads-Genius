@@ -5,62 +5,65 @@ target: maeve
 profile: marcio
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
+instagram: '@marciobisognin'
 readme_style: parchment-goal-flow
 source:
   type: youtube_transcript_analysis
-  title: "Entenda essa imagem e aprenda o que quiser na vida"
-  url: "https://www.youtube.com/watch?v=IEh7qRYgpOM"
-  channel: "Eslen Delanogare"
-  duration: "18:43"
-  extraction_note: "Squad criado a partir de análise da transcrição automática em português e não redistribui a transcrição integral."
-description: >
+  title: Entenda essa imagem e aprenda o que quiser na vida
+  url: https://www.youtube.com/watch?v=IEh7qRYgpOM
+  channel: Eslen Delanogare
+  duration: '18:43'
+  extraction_note: |-
+    Squad criado a partir de análise da transcrição automática em português e não redistribui a transcrição integral.
+description: |
   Squad premium que transforma metas de estudo, prática ou mudança de comportamento em ciclos curtos de aprendizagem baseados em atenção, estímulo sustentado, repetição inteligente, recuperação ativa, feedback e consolidação neurocognitiva.
-objective: >
+objective: |
   Converter qualquer objetivo de aprendizagem em um protocolo executável de 10 a 15 minutos por dia, com foco dominante, tarefa principal, recuperação ativa, métrica mínima e revisão ética/científica.
 metadata:
   domain: neuroaprendizagem_aplicada
   safety_level: non_clinical_educational
   visual_style: parchment-goal-flow
   telegram_delivery: true
-  response_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+  response_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
 agents:
-  - id: diretor_nexo
-    file: agents/diretor-nexo.md
-    role: Orquestra entrada, risco, objetivo e sequência do squad.
-  - id: minerador_neurocognitivo
-    file: agents/minerador-neurocognitivo.md
-    role: Extrai princípios de neuroplasticidade, memória, atenção e prática do material de entrada.
-  - id: arquiteto_estimulo
-    file: agents/arquiteto-estimulo-sustentado.md
-    role: Desenha a dose de estímulo, intensidade, repetição e progressão.
-  - id: designer_recuperacao
-    file: agents/designer-recuperacao-ativa.md
-    role: Cria exercícios de evocação, explicação e transferência.
-  - id: tradutor_pratico
-    file: agents/tradutor-pratico.md
-    role: Converte teoria em tarefas concretas para estudo, idioma, concurso, habilidade ou rotina.
-  - id: analista_metricas
-    file: agents/analista-metricas.md
-    role: Define métricas simples e revisões semanais.
-  - id: guardiao_etico
-    file: agents/guardiao-etico-cientifico.md
-    role: Impede promessas clínicas, pseudociência e extrapolações indevidas.
+- id: diretor_nexo
+  file: agents/diretor-nexo.md
+  role: Orquestra entrada, risco, objetivo e sequência do squad.
+- id: minerador_neurocognitivo
+  file: agents/minerador-neurocognitivo.md
+  role: |-
+    Extrai princípios de neuroplasticidade, memória, atenção e prática do material de entrada.
+- id: arquiteto_estimulo
+  file: agents/arquiteto-estimulo-sustentado.md
+  role: Desenha a dose de estímulo, intensidade, repetição e progressão.
+- id: designer_recuperacao
+  file: agents/designer-recuperacao-ativa.md
+  role: Cria exercícios de evocação, explicação e transferência.
+- id: tradutor_pratico
+  file: agents/tradutor-pratico.md
+  role: |-
+    Converte teoria em tarefas concretas para estudo, idioma, concurso, habilidade ou rotina.
+- id: analista_metricas
+  file: agents/analista-metricas.md
+  role: Define métricas simples e revisões semanais.
+- id: guardiao_etico
+  file: agents/guardiao-etico-cientifico.md
+  role: Impede promessas clínicas, pseudociência e extrapolações indevidas.
 tasks:
-  - tasks/01-intake-meta-aprendizagem.md
-  - tasks/02-minerar-principios.md
-  - tasks/03-desenhar-microsprint.md
-  - tasks/04-gerar-plano-e-metricas.md
-  - tasks/05-validar-seguranca-e-entrega.md
+- tasks/01-intake-meta-aprendizagem.md
+- tasks/02-minerar-principios.md
+- tasks/03-desenhar-microsprint.md
+- tasks/04-gerar-plano-e-metricas.md
+- tasks/05-validar-seguranca-e-entrega.md
 workflows:
-  - workflows/nexum-cognitivo-main.yaml
+- workflows/nexum-cognitivo-main.yaml
 scripts:
-  - scripts/nexum-cognitivo.cjs
+- scripts/nexum-cognitivo.cjs
 templates:
-  - templates/intake-aprendizagem.yaml
-  - templates/protocolo-diario.md
-  - templates/plano-metricas.json
-  - templates/revisao-semanal.md
+- templates/intake-aprendizagem.yaml
+- templates/protocolo-diario.md
+- templates/plano-metricas.json
+- templates/revisao-semanal.md
 validation:
   smoke_test: scripts/smoke-test.cjs
   domain_validator: scripts/nexum-cognitivo.cjs --validate

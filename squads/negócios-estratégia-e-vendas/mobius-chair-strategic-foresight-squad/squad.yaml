@@ -1,126 +1,120 @@
 name: mobius-chair-strategic-foresight-squad
-commercial_name: "Mobius Chair — Inteligência Estratégica de Futuros"
-version: "1.0.0"
+commercial_name: Mobius Chair — Inteligência Estratégica de Futuros
+version: 1.0.0
 language: pt-BR
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Inteligência de futuros, prospectiva estratégica e planejamento de cenários"
+domain: Inteligência de futuros, prospectiva estratégica e planejamento de cenários
 visual_style: dark-neon-layered-architecture
-positioning: "Da varredura de horizontes à estratégia robusta: o squad que navega futuros incertos com rigor epistemológico e inteligência adversarial de cenários."
-objective: "Produzir inteligência estratégica de futuros de alta qualidade: varredura de megatendências STEEP, detecção de sinais fracos, mapeamento de tecnologias emergentes, construção de quatro cenários, análise de implicações estratégicas, wind-tunnel de estratégias e roadmap robusto com indicadores de alerta precoce."
-
+positioning: |-
+  Da varredura de horizontes à estratégia robusta: o squad que navega futuros incertos com rigor epistemológico e inteligência adversarial de cenários.
+objective: |-
+  Produzir inteligência estratégica de futuros de alta qualidade: varredura de megatendências STEEP, detecção de sinais fracos, mapeamento de tecnologias emergentes, construção de quatro cenários, análise de implicações estratégicas, wind-tunnel de estratégias e roadmap robusto com indicadores de alerta precoce.
 artifact_inspiration:
-  name: "Cadeira Mobius (DC Comics — Metron)"
-  description: >
-    A Cadeira Mobius é o artefato mais poderoso do universo DC Comics. Criada pelos New Gods,
-    pertence a Metron — o eterno observador que não toma partido em batalhas, mas que possui
-    acesso ilimitado ao conhecimento do passado, presente e futuro. Qualquer pergunta feita à
-    Cadeira é respondida com precisão absoluta. Este squad é o equivalente estratégico: transforma
-    incerteza em inteligência, navega futuros com rigor epistemológico e entrega clareza onde
-    outros enxergam apenas caos e complexidade.
-
-epistemological_gate: >
-  Gate obrigatório de qualidade epistemológica: distingue tendência confirmada de fato estabelecido
-  de especulação de sinal fraco. Toda afirmação deve ter grau de confiança e fonte identificada.
-  Nenhuma especulação pode ser apresentada como fato. Categorias obrigatórias:
-  Fato Estabelecido | Tendência Confirmada | Tendência Emergente | Sinal Fraco | Especulação | Wildcard.
-
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
-
+  name: Cadeira Mobius (DC Comics — Metron)
+  description: |
+    A Cadeira Mobius é o artefato mais poderoso do universo DC Comics. Criada pelos New Gods, pertence a Metron — o eterno observador que não toma partido em batalhas, mas que possui acesso ilimitado ao conhecimento do passado, presente e futuro. Qualquer pergunta feita à Cadeira é respondida com precisão absoluta. Este squad é o equivalente estratégico: transforma incerteza em inteligência, navega futuros com rigor epistemológico e entrega clareza onde outros enxergam apenas caos e complexidade.
+epistemological_gate: |
+  Gate obrigatório de qualidade epistemológica: distingue tendência confirmada de fato estabelecido de especulação de sinal fraco. Toda afirmação deve ter grau de confiança e fonte identificada. Nenhuma especulação pode ser apresentada como fato. Categorias obrigatórias: Fato Estabelecido | Tendência Confirmada | Tendência Emergente | Sinal Fraco | Especulação | Wildcard.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
 principles:
-  - "Separar sempre: observado, inferido, hipótese, sinal fraco, especulação e risco"
-  - "Todo fato precisa de fonte; toda tendência precisa de evidência; toda especulação precisa de rótulo"
-  - "Cenários são plausíveis, internamente consistentes e distintos — não são previsões"
-  - "A estratégia robusta é aquela que sobrevive a múltiplos cenários, não apenas ao mais provável"
-  - "Indicadores de alerta precoce são a ponte entre os cenários e a realidade monitorável"
-  - "Registrar fontes, decisões e premissas com data de verificação"
-  - "Nunca copiar marcas, prompts ou materiais proprietários"
-  - "O horizonte temporal deve ser explícito em cada análise"
-  - "Humano no loop nas decisões de cenários e roadmap final"
-
+- 'Separar sempre: observado, inferido, hipótese, sinal fraco, especulação e risco'
+- |-
+  Todo fato precisa de fonte; toda tendência precisa de evidência; toda especulação precisa de rótulo
+- |-
+  Cenários são plausíveis, internamente consistentes e distintos — não são previsões
+- |-
+  A estratégia robusta é aquela que sobrevive a múltiplos cenários, não apenas ao mais provável
+- |-
+  Indicadores de alerta precoce são a ponte entre os cenários e a realidade monitorável
+- Registrar fontes, decisões e premissas com data de verificação
+- Nunca copiar marcas, prompts ou materiais proprietários
+- O horizonte temporal deve ser explícito em cada análise
+- Humano no loop nas decisões de cenários e roadmap final
 architecture:
   type: multiagent-pipeline-sequential-with-gates
   coordination: orchestrated-sequential-with-parallel-scanning
   hitl_gates:
-    - "aprovação do contexto estratégico e questão focal"
-    - "validação dos eixos de incerteza crítica antes da construção dos cenários"
-    - "revisão humana das narrativas dos quatro cenários"
-    - "aprovação do roadmap robusto antes da entrega final"
-    - "sign-off final do Relatório de Inteligência de Futuros"
-
+  - aprovação do contexto estratégico e questão focal
+  - validação dos eixos de incerteza crítica antes da construção dos cenários
+  - revisão humana das narrativas dos quatro cenários
+  - aprovação do roadmap robusto antes da entrega final
+  - sign-off final do Relatório de Inteligência de Futuros
 inputs:
-  - "Nome da organização e setor de atuação"
-  - "Questão estratégica focal (ex: 'Como será o nosso setor em 2035?')"
-  - "Horizonte temporal de análise (ex: 2030, 2035, 2040)"
-  - "Escopo geográfico (global, regional, nacional)"
-  - "Estratégias atuais da organização para teste no wind-tunnel"
-  - "Restrições e premissas organizacionais"
-  - "Stakeholders relevantes para o processo"
-
+- Nome da organização e setor de atuação
+- 'Questão estratégica focal (ex: ''Como será o nosso setor em 2035?'')'
+- 'Horizonte temporal de análise (ex: 2030, 2035, 2040)'
+- Escopo geográfico (global, regional, nacional)
+- Estratégias atuais da organização para teste no wind-tunnel
+- Restrições e premissas organizacionais
+- Stakeholders relevantes para o processo
 agents:
-  - id: mobius-orchestrator
-    file: agents/mobius-orchestrator.md
-    role: "Coordenador central com gate epistemológico obrigatório — distingue tendência de fato de especulação"
-  - id: horizon-scanner
-    file: agents/horizon-scanner.md
-    role: "Varredura de megatendências STEEP (Social, Tecnológico, Econômico, Ambiental, Político)"
-  - id: weak-signal-detector
-    file: agents/weak-signal-detector.md
-    role: "Identificação de sinais fracos e wildcards em fontes de fronteira e dados emergentes"
-  - id: emerging-tech-analyst
-    file: agents/emerging-tech-analyst.md
-    role: "Mapeamento de tecnologias emergentes e análise de curva de adoção (metodologia Gartner Hype Cycle)"
-  - id: scenario-architect
-    file: agents/scenario-architect.md
-    role: "Construção de quatro cenários com lógicas narrativas distintas e consistência interna"
-  - id: strategic-implications-analyst
-    file: agents/strategic-implications-analyst.md
-    role: "Análise de implicações estratégicas por cenário para a organização específica"
-  - id: windtunnel-tester
-    file: agents/windtunnel-tester.md
-    role: "Teste de estratégias atuais contra cada cenário futuro para avaliar robustez"
-  - id: roadmap-forger
-    file: agents/roadmap-forger.md
-    role: "Design de roadmap estratégico robusto que se sustenta em múltiplos futuros plausíveis"
-  - id: early-indicator-designer
-    file: agents/early-indicator-designer.md
-    role: "Indicadores líderes para monitorar qual cenário está se materializando em tempo real"
-
+- id: mobius-orchestrator
+  file: agents/mobius-orchestrator.md
+  role: |-
+    Coordenador central com gate epistemológico obrigatório — distingue tendência de fato de especulação
+- id: horizon-scanner
+  file: agents/horizon-scanner.md
+  role: |-
+    Varredura de megatendências STEEP (Social, Tecnológico, Econômico, Ambiental, Político)
+- id: weak-signal-detector
+  file: agents/weak-signal-detector.md
+  role: |-
+    Identificação de sinais fracos e wildcards em fontes de fronteira e dados emergentes
+- id: emerging-tech-analyst
+  file: agents/emerging-tech-analyst.md
+  role: |-
+    Mapeamento de tecnologias emergentes e análise de curva de adoção (metodologia Gartner Hype Cycle)
+- id: scenario-architect
+  file: agents/scenario-architect.md
+  role: |-
+    Construção de quatro cenários com lógicas narrativas distintas e consistência interna
+- id: strategic-implications-analyst
+  file: agents/strategic-implications-analyst.md
+  role: Análise de implicações estratégicas por cenário para a organização específica
+- id: windtunnel-tester
+  file: agents/windtunnel-tester.md
+  role: Teste de estratégias atuais contra cada cenário futuro para avaliar robustez
+- id: roadmap-forger
+  file: agents/roadmap-forger.md
+  role: |-
+    Design de roadmap estratégico robusto que se sustenta em múltiplos futuros plausíveis
+- id: early-indicator-designer
+  file: agents/early-indicator-designer.md
+  role: |-
+    Indicadores líderes para monitorar qual cenário está se materializando em tempo real
 tasks:
-  - id: horizon-scanning
-    file: tasks/horizon-scanning.md
-    owner: horizon-scanner
-    objective: "Produzir relatório de megatendências STEEP com fontes, evidências e grau de confiança"
-  - id: scenario-planning
-    file: tasks/scenario-planning.md
-    owner: scenario-architect
-    objective: "Construir quatro cenários plausíveis, distintos e internamente consistentes para o horizonte definido"
-
+- id: horizon-scanning
+  file: tasks/horizon-scanning.md
+  owner: horizon-scanner
+  objective: |-
+    Produzir relatório de megatendências STEEP com fontes, evidências e grau de confiança
+- id: scenario-planning
+  file: tasks/scenario-planning.md
+  owner: scenario-architect
+  objective: |-
+    Construir quatro cenários plausíveis, distintos e internamente consistentes para o horizonte definido
 workflows:
-  - id: strategic-foresight-pipeline
-    file: workflows/strategic-foresight-pipeline.yaml
-  - id: quality-gates
-    file: workflows/quality-gates.yaml
-
+- id: strategic-foresight-pipeline
+  file: workflows/strategic-foresight-pipeline.yaml
+- id: quality-gates
+  file: workflows/quality-gates.yaml
 quality_gates:
-  - epistemologia_confirmada
-  - tendencias_com_fonte_e_confianca
-  - sinais_fracos_catalogados
-  - tecnologias_mapeadas_no_hype_cycle
-  - cenarios_distintos_e_consistentes
-  - implicacoes_por_cenario
-  - estrategias_testadas_no_windtunnel
-  - roadmap_robusto_aprovado
-  - indicadores_de_alerta_definidos
-  - aprovacao_humana_explicita
-
+- epistemologia_confirmada
+- tendencias_com_fonte_e_confianca
+- sinais_fracos_catalogados
+- tecnologias_mapeadas_no_hype_cycle
+- cenarios_distintos_e_consistentes
+- implicacoes_por_cenario
+- estrategias_testadas_no_windtunnel
+- roadmap_robusto_aprovado
+- indicadores_de_alerta_definidos
+- aprovacao_humana_explicita
 outputs:
-  - relatorio_inteligencia_de_futuros
-  - documento_quatro_cenarios
-  - resultados_wind_tunnel
-  - roadmap_estrategico
-  - dashboard_indicadores_alerta_precoce
-
-# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
+- relatorio_inteligencia_de_futuros
+- documento_quatro_cenarios
+- resultados_wind_tunnel
+- roadmap_estrategico
+- dashboard_indicadores_alerta_precoce

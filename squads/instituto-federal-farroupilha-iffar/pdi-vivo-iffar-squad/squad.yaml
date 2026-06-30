@@ -1,9 +1,7 @@
 name: pdi-vivo-iffar-squad
 title: PDI Vivo IFFar Squad
-description: Equipe multiagente institucional que transforma o Plano de Desenvolvimento
-  Institucional do IFFar em um sistema vivo de planejamento, indicadores, evidências,
-  riscos, pactos por campus, revisão e comunicação, com engine determinística e gates
-  humanos.
+description: |-
+  Equipe multiagente institucional que transforma o Plano de Desenvolvimento Institucional do IFFar em um sistema vivo de planejamento, indicadores, evidências, riscos, pactos por campus, revisão e comunicação, com engine determinística e gates humanos.
 version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
@@ -11,12 +9,10 @@ instagram: '@marciobisognin'
 institutional_context:
   institution: Instituto Federal Farroupilha
   area: Desenvolvimento Institucional / PDI
-  scope: ingestão documental, matriz operacional de metas, indicadores, evidências,
-    riscos, orçamento, pactos por campus, ciclo trimestral, revisão anual e conferência
-    bienal
-  default_output: pacote auditável com base de conhecimento, matriz de metas, dicionário
-    de indicadores, matriz de riscos, relatório trimestral, painel HTML e pacote de
-    consulta pública
+  scope: |-
+    ingestão documental, matriz operacional de metas, indicadores, evidências, riscos, orçamento, pactos por campus, ciclo trimestral, revisão anual e conferência bienal
+  default_output: |-
+    pacote auditável com base de conhecimento, matriz de metas, dicionário de indicadores, matriz de riscos, relatório trimestral, painel HTML e pacote de consulta pública
   cycles:
   - PDI 2014-2018 (longitudinal)
   - PDI 2019-2026 (histórico/referência)
@@ -27,8 +23,8 @@ metadata:
   language: pt-BR
   maturity_target: national-reference-platform
 data_policy:
-  lgpd: minimização, retenção configurável, mascaramento de dado pessoal e trilha de
-    auditoria
+  lgpd: |-
+    minimização, retenção configurável, mascaramento de dado pessoal e trilha de auditoria
   external_models: proibido enviar dados institucionais a modelos externos sem autorização
   evidence_integrity: hash SHA-256 obrigatório para fontes extraídas e evidências
   human_in_the_loop: toda publicação e repactuação exige revisão humana institucional

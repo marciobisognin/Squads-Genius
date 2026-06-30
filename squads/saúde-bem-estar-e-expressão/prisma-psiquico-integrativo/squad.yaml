@@ -6,7 +6,8 @@ creator: Marcio Bisognin
 instagram: '@marciobisognin'
 profile: premium-maeve-aios
 readme_visual_style: dark-neon-layered-architecture
-description: Squad premium de formulação psicológica assistiva, multiagente e biopsicossocial, com roteamento Cynefin, hipóteses não diagnósticas, síntese integrativa e protocolo de crise.
+description: |-
+  Squad premium de formulação psicológica assistiva, multiagente e biopsicossocial, com roteamento Cynefin, hipóteses não diagnósticas, síntese integrativa e protocolo de crise.
 status: ready_for_prompting
 ethical_scope:
   not_medical_advice: true
@@ -20,30 +21,46 @@ metadata:
   central_heuristic: redução de carga cognitiva por especialização ortogonal
   attribution_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
 agents:
-  - {id: diretor-integrativo, file: agents/diretor-integrativo.md, role: orchestrator}
-  - {id: engenheiro-comportamental, file: agents/engenheiro-comportamental.md, role: specialist}
-  - {id: arqueologo-dinamico, file: agents/arqueologo-dinamico.md, role: specialist}
-  - {id: arquiteto-neurobiologico, file: agents/arquiteto-neurobiologico.md, role: specialist}
-  - {id: dinamista-sistemico, file: agents/dinamista-sistemico.md, role: specialist}
-  - {id: fenomenologista-existencial, file: agents/fenomenologista-existencial.md, role: specialist}
-  - {id: analista-psicometrico, file: agents/analista-psicometrico.md, role: specialist}
-  - {id: guardiao-etico-crise, file: agents/guardiao-etico-crise.md, role: safety}
+- id: diretor-integrativo
+  file: agents/diretor-integrativo.md
+  role: orchestrator
+- id: engenheiro-comportamental
+  file: agents/engenheiro-comportamental.md
+  role: specialist
+- id: arqueologo-dinamico
+  file: agents/arqueologo-dinamico.md
+  role: specialist
+- id: arquiteto-neurobiologico
+  file: agents/arquiteto-neurobiologico.md
+  role: specialist
+- id: dinamista-sistemico
+  file: agents/dinamista-sistemico.md
+  role: specialist
+- id: fenomenologista-existencial
+  file: agents/fenomenologista-existencial.md
+  role: specialist
+- id: analista-psicometrico
+  file: agents/analista-psicometrico.md
+  role: specialist
+- id: guardiao-etico-crise
+  file: agents/guardiao-etico-crise.md
+  role: safety
 tasks:
-  - tasks/01-triagem-cynefin.md
-  - tasks/02-formulacao-multilente.md
-  - tasks/03-sintese-integrativa.md
-  - tasks/04-plano-intervencao-nao-clinico.md
-  - tasks/05-auditoria-etica-crise.md
+- tasks/01-triagem-cynefin.md
+- tasks/02-formulacao-multilente.md
+- tasks/03-sintese-integrativa.md
+- tasks/04-plano-intervencao-nao-clinico.md
+- tasks/05-auditoria-etica-crise.md
 workflows:
-  - workflows/formulacao-integrativa.yaml
-  - workflows/triagem-rapida.yaml
-  - workflows/protocolo-crise.yaml
+- workflows/formulacao-integrativa.yaml
+- workflows/triagem-rapida.yaml
+- workflows/protocolo-crise.yaml
 scripts:
-  - scripts/formulate_case.py
-  - scripts/run_demo.py
-  - scripts/validate_squad.py
-  - scripts/package_squad.py
+- scripts/formulate_case.py
+- scripts/run_demo.py
+- scripts/validate_squad.py
+- scripts/package_squad.py
 outputs:
-  - output/demo/formulation_report.md
-  - output/demo/formulation.json
-  - validation/quality_report.json
+- output/demo/formulation_report.md
+- output/demo/formulation.json
+- validation/quality_report.json

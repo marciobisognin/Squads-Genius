@@ -4,8 +4,9 @@ version: 1.2.0
 status: mvp2-prd-operationalized
 license: MIT
 creator: Marcio Bisognin
-instagram: "@marciobisognin"
-description: Squad multiagente para transformar relatórios pré-preenchidos em experiências premium HTML/PDF com camadas executiva visual, analítica visual e apêndice técnico auditável.
+instagram: '@marciobisognin'
+description: |-
+  Squad multiagente para transformar relatórios pré-preenchidos em experiências premium HTML/PDF com camadas executiva visual, analítica visual e apêndice técnico auditável.
 metadata:
   readme_visual_preset: dark-neon-layered-architecture
   default_pdf_format: A4 portrait
@@ -13,74 +14,74 @@ metadata:
   brd_source: references/prd/BRD_squad_design_relatorios_premium.md
   preferred_stack: HTML5 + CSS Grid/Flexbox + SVG + Python local builders
   output_contract:
-    - index.html
-    - styles.css
-    - assets when needed
-    - PDF A4 portrait or landscape
-    - visual specification
-    - QA reports
+  - index.html
+  - styles.css
+  - assets when needed
+  - PDF A4 portrait or landscape
+  - visual specification
+  - QA reports
   report_layers:
-    - executive visual layer
-    - analytical visual layer
-    - technical appendix
+  - executive visual layer
+  - analytical visual layer
+  - technical appendix
   added_layers:
-    - design contracts
-    - separated HTML builder
-    - separated PDF builder
-    - PDF validator
-    - print-safe template kit
-    - template library foundation
-    - audit evidence quality
-    - compliance reporting
-    - internal controls
-    - risk heatmap and materiality
-    - cyber/privacy assurance
-    - tax/regulatory review
-    - forensic red flags
-    - strategy coherence
-    - technology/digital controls
-    - red team review
+  - design contracts
+  - separated HTML builder
+  - separated PDF builder
+  - PDF validator
+  - print-safe template kit
+  - template library foundation
+  - audit evidence quality
+  - compliance reporting
+  - internal controls
+  - risk heatmap and materiality
+  - cyber/privacy assurance
+  - tax/regulatory review
+  - forensic red flags
+  - strategy coherence
+  - technology/digital controls
+  - red team review
 agents:
-  - audit-evidence-quality-auditor
-  - compliance-report-architect
-  - cyber-privacy-assurance-reviewer
-  - dados-e-evidencias
-  - design-system
-  - devils-advocate-red-team-reviewer
-  - empacotamento-entrega
-  - esg-sustainability-assurance-designer
-  - estrategia-narrativa
-  - forensic-red-flag-reviewer
-  - frontend-html-css-js
-  - infograficos
-  - intake-diagnostico
-  - internal-controls-matrix-builder
-  - maestro
-  - paleta-identidade
-  - partner-report-orchestrator
-  - pdf-print-engineering
-  - pesquisa-benchmark-visual
-  - qa-factual-editorial
-  - qa-visual
-  - risk-heatmap-materiality-designer
-  - strategy-coherence-reviewer
-  - tax-regulatory-report-reviewer
-  - technology-digital-controls-reviewer
-  - tipografia-hierarquia
-  - ux-html
-  - visualizacao-dados
+- audit-evidence-quality-auditor
+- compliance-report-architect
+- cyber-privacy-assurance-reviewer
+- dados-e-evidencias
+- design-system
+- devils-advocate-red-team-reviewer
+- empacotamento-entrega
+- esg-sustainability-assurance-designer
+- estrategia-narrativa
+- forensic-red-flag-reviewer
+- frontend-html-css-js
+- infograficos
+- intake-diagnostico
+- internal-controls-matrix-builder
+- maestro
+- paleta-identidade
+- partner-report-orchestrator
+- pdf-print-engineering
+- pesquisa-benchmark-visual
+- qa-factual-editorial
+- qa-visual
+- risk-heatmap-materiality-designer
+- strategy-coherence-reviewer
+- tax-regulatory-report-reviewer
+- technology-digital-controls-reviewer
+- tipografia-hierarquia
+- ux-html
+- visualizacao-dados
 workflows:
-  - premium-report-pipeline.yaml
+- premium-report-pipeline.yaml
 scripts:
-  - scripts/build_html.py
-  - scripts/build_pdf.py
-  - scripts/validate_pdf.py
-  - scripts/build_report.py
-  - scripts/validate_squad.py
-  - scripts/smoke_test.py
+- scripts/build_html.py
+- scripts/build_pdf.py
+- scripts/validate_pdf.py
+- scripts/build_report.py
+- scripts/validate_squad.py
+- scripts/smoke_test.py
 contracts:
-  - contracts/project_brief.schema.json
-  - contracts/data_profile.schema.json
-  - contracts/design_system.schema.json
-  - contracts/chart_spec.schema.json
-  - contracts/qa_report.schema.json
+- contracts/project_brief.schema.json
+- contracts/data_profile.schema.json
+- contracts/design_system.schema.json
+- contracts/chart_spec.schema.json
+- contracts/qa_report.schema.json

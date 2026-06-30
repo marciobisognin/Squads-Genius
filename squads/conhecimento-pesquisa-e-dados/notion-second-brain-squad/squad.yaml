@@ -4,21 +4,21 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
-purpose: >
+purpose: |
   Squad multi-agente para otimizacao da produtividade pessoal e profissional atraves de integracao com Notion.
 agents:
-  - captura-rapida
-  - organizador-para
-  - revisor-semanal
-  - foco-diario
-  - revisor-mensal
+- captura-rapida
+- organizador-para
+- revisor-semanal
+- foco-diario
+- revisor-mensal
 workflows:
-  - main
+- main
 tasks:
-  - task-1
-  - task-2
-  - task-3
-  - task-4
-  - task-5
+- task-1
+- task-2
+- task-3
+- task-4
+- task-5
 scripts:
-  - run.py
+- run.py

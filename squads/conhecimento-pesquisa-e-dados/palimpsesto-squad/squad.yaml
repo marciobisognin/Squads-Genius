@@ -6,142 +6,142 @@ license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
 language: pt-BR
-description: >-
-  Sistema multiagente de reconstrução contextual imersiva (Filosofia x Historia x
-  Geografia x Politica). Recebe um objeto de conhecimento historico-cultural
-  (texto sagrado, evento, personalidade, conceito, lugar) e devolve uma
-  reconstrucao verificada do mundo ao redor do objeto, narrada em segunda
-  pessoa no presente historico, sem anacronismo e com grau de certeza
-  explicito em cada afirmacao.
-baseline_architecture: OMNISCIENT v7.0 (contratos SACP, HITL gate, Cynefin entry-gate, observabilidade Langfuse)
+description: |-
+  Sistema multiagente de reconstrução contextual imersiva (Filosofia x Historia x Geografia x Politica). Recebe um objeto de conhecimento historico-cultural (texto sagrado, evento, personalidade, conceito, lugar) e devolve uma reconstrucao verificada do mundo ao redor do objeto, narrada em segunda pessoa no presente historico, sem anacronismo e com grau de certeza explicito em cada afirmacao.
+baseline_architecture: |-
+  OMNISCIENT v7.0 (contratos SACP, HITL gate, Cynefin entry-gate, observabilidade Langfuse)
 orchestrator_internal_name: O Tecelão
 principles:
-  - camada antes de conclusao (reconstruir o mundo precede interpretar o objeto)
-  - a lingua e territorio (semantica original > paráfrase)
-  - separar os tres tempos: evento, escrita/registro, descoberta/recepcao
-  - multiperspectiva obrigatoria (olhar do poder e olhar do governado)
-  - honestidade epistemica radical ("nao se sabe" e resposta de primeira classe)
-  - imersao e o ultimo passo, nunca o primeiro
-  - anti-anacronismo como reflexo
+- camada antes de conclusao (reconstruir o mundo precede interpretar o objeto)
+- a lingua e territorio (semantica original > paráfrase)
+- separar os tres tempos: evento, escrita/registro, descoberta/recepcao
+- multiperspectiva obrigatoria (olhar do poder e olhar do governado)
+- honestidade epistemica radical ("nao se sabe" e resposta de primeira classe)
+- imersao e o ultimo passo, nunca o primeiro
+- anti-anacronismo como reflexo
 agents:
-  - id: triador
-    file: agents/triador.md
-    layer: 0
-    role: Classifica o objeto de conhecimento e monta o plano de escavacao (SACP-IN).
-  - id: chronos
-    file: agents/chronos.md
-    layer: 1
-    role: Estratigrafo do tempo - separa tempo do evento, do registro e da recepcao.
-  - id: terra
-    file: agents/terra.md
-    layer: 1
-    role: Cartografo - reconstroi geografia fisica e humana como vetor de causalidade.
-  - id: verbum
-    file: agents/verbum.md
-    layer: 1
-    role: Filologo - lingua original, campo semantico e o que a traducao apaga.
-  - id: ethos
-    file: agents/ethos.md
-    layer: 1
-    role: Etnografo do cotidiano - mentalidades, vida material, historia dos Annales.
-  - id: kratos
-    file: agents/kratos.md
-    layer: 1
-    role: Analista de poder - estrutura politica, economica e interesses materiais.
-  - id: numen
-    file: agents/numen.md
-    layer: 1
-    role: Historiador das religioes - sistemas de crenca, ritual e sagrado.
-  - id: nous
-    file: agents/nous.md
-    layer: 1
-    role: Historiador das ideias - a episteme/cosmovisao que tornava o objeto dizivel.
-  - id: agon
-    file: agents/agon.md
-    layer: 2
-    role: Advogado dos vencidos - contra-perspectiva, contrafactuais e vies de fonte.
-  - id: elenchus
-    file: agents/elenchus.md
-    layer: 2
-    role: Guardiao das fontes - audita, atribui certeza, poda anacronismo e alucinacao.
-  - id: tecelao
-    file: agents/tecelao.md
-    layer: 2
-    role: Curador-editor/orquestrador - funde o dossie verificado e o grafo de certeza.
-  - id: aedo
-    file: agents/aedo.md
-    layer: 3
-    role: Imersor - narra em 2a pessoa, presente historico, apenas com material verificado.
-  - id: ponte
-    file: agents/ponte.md
-    layer: 3
-    role: Conexao com o presente - ressonancias e herancas sem anacronismo retroativo.
+- id: triador
+  file: agents/triador.md
+  layer: 0
+  role: Classifica o objeto de conhecimento e monta o plano de escavacao (SACP-IN).
+- id: chronos
+  file: agents/chronos.md
+  layer: 1
+  role: Estratigrafo do tempo - separa tempo do evento, do registro e da recepcao.
+- id: terra
+  file: agents/terra.md
+  layer: 1
+  role: Cartografo - reconstroi geografia fisica e humana como vetor de causalidade.
+- id: verbum
+  file: agents/verbum.md
+  layer: 1
+  role: Filologo - lingua original, campo semantico e o que a traducao apaga.
+- id: ethos
+  file: agents/ethos.md
+  layer: 1
+  role: Etnografo do cotidiano - mentalidades, vida material, historia dos Annales.
+- id: kratos
+  file: agents/kratos.md
+  layer: 1
+  role: Analista de poder - estrutura politica, economica e interesses materiais.
+- id: numen
+  file: agents/numen.md
+  layer: 1
+  role: Historiador das religioes - sistemas de crenca, ritual e sagrado.
+- id: nous
+  file: agents/nous.md
+  layer: 1
+  role: Historiador das ideias - a episteme/cosmovisao que tornava o objeto dizivel.
+- id: agon
+  file: agents/agon.md
+  layer: 2
+  role: Advogado dos vencidos - contra-perspectiva, contrafactuais e vies de fonte.
+- id: elenchus
+  file: agents/elenchus.md
+  layer: 2
+  role: Guardiao das fontes - audita, atribui certeza, poda anacronismo e alucinacao.
+- id: tecelao
+  file: agents/tecelao.md
+  layer: 2
+  role: Curador-editor/orquestrador - funde o dossie verificado e o grafo de certeza.
+- id: aedo
+  file: agents/aedo.md
+  layer: 3
+  role: |-
+    Imersor - narra em 2a pessoa, presente historico, apenas com material verificado.
+- id: ponte
+  file: agents/ponte.md
+  layer: 3
+  role: Conexao com o presente - ressonancias e herancas sem anacronismo retroativo.
 workflows:
-  - id: palimpsesto-pipeline
-    file: workflows/palimpsesto-pipeline.yaml
+- id: palimpsesto-pipeline
+  file: workflows/palimpsesto-pipeline.yaml
 tasks:
-  - id: 01-triagem-e-roteamento
-    file: tasks/01-triagem-e-roteamento.md
-    owner: triador
-  - id: 02-reconstrucao-camada-1
-    file: tasks/02-reconstrucao-camada-1.md
-    owner: camada-1 (paralelo)
-  - id: 03-contraperspectiva-agon
-    file: tasks/03-contraperspectiva-agon.md
-    owner: agon
-  - id: 04-verificacao-elenchus
-    file: tasks/04-verificacao-elenchus.md
-    owner: elenchus
-  - id: 05-hitl-gate-sensibilidade
-    file: tasks/05-hitl-gate-sensibilidade.md
-    owner: tecelao
-  - id: 06-curadoria-tecelao
-    file: tasks/06-curadoria-tecelao.md
-    owner: tecelao
-  - id: 07-imersao-aedo
-    file: tasks/07-imersao-aedo.md
-    owner: aedo
-  - id: 08-ponte-presente
-    file: tasks/08-ponte-presente.md
-    owner: ponte
+- id: 01-triagem-e-roteamento
+  file: tasks/01-triagem-e-roteamento.md
+  owner: triador
+- id: 02-reconstrucao-camada-1
+  file: tasks/02-reconstrucao-camada-1.md
+  owner: camada-1 (paralelo)
+- id: 03-contraperspectiva-agon
+  file: tasks/03-contraperspectiva-agon.md
+  owner: agon
+- id: 04-verificacao-elenchus
+  file: tasks/04-verificacao-elenchus.md
+  owner: elenchus
+- id: 05-hitl-gate-sensibilidade
+  file: tasks/05-hitl-gate-sensibilidade.md
+  owner: tecelao
+- id: 06-curadoria-tecelao
+  file: tasks/06-curadoria-tecelao.md
+  owner: tecelao
+- id: 07-imersao-aedo
+  file: tasks/07-imersao-aedo.md
+  owner: aedo
+- id: 08-ponte-presente
+  file: tasks/08-ponte-presente.md
+  owner: ponte
 contracts:
-  - templates/sacp-in.schema.json
-  - templates/claim.schema.json
-  - templates/verified-claim.schema.json
-  - templates/dossier.schema.json
+- templates/sacp-in.schema.json
+- templates/claim.schema.json
+- templates/verified-claim.schema.json
+- templates/dossier.schema.json
 depth_levels:
-  1: "Vislumbre - 3 camadas-chave + abertura imersiva curta (Reels/Manim)."
-  2: "Imersao (default) - todas as trilhas pertinentes + narracao completa + ponte."
-  3: "Escavacao - todas as camadas, divergencias de escolas, aparato de fontes, notas filologicas extensas."
+  1: Vislumbre - 3 camadas-chave + abertura imersiva curta (Reels/Manim).
+  2: Imersao (default) - todas as trilhas pertinentes + narracao completa + ponte.
+  3: |-
+    Escavacao - todas as camadas, divergencias de escolas, aparato de fontes, notas filologicas extensas.
 guardrails:
-  - anti_alucinacao: "AEDO so usa material verificado por ELENCHUS; detalhe sem ancoragem e marcado [recriacao atmosferica]."
-  - anti_anacronismo: "todo termo/conceito moderno passa pelo filtro de ELENCHUS."
-  - honestidade_sobre_lacunas: "nao se sabe e saida valida e visivel."
-  - religiao_viva_e_temas_sensiveis: "descricao respeitosa de perspectiva interna; HITL gate disponivel."
-  - multiperspectiva: "olhar do governado/marginal sempre considerado, via AGON."
-  - disputa_preservada: "divergencia de escolas nunca achatada em falso consenso."
+- anti_alucinacao: |-
+    AEDO so usa material verificado por ELENCHUS; detalhe sem ancoragem e marcado [recriacao atmosferica].
+- anti_anacronismo: todo termo/conceito moderno passa pelo filtro de ELENCHUS.
+- honestidade_sobre_lacunas: nao se sabe e saida valida e visivel.
+- religiao_viva_e_temas_sensiveis: descricao respeitosa de perspectiva interna; HITL
+    gate disponivel.
+- multiperspectiva: olhar do governado/marginal sempre considerado, via AGON.
+- disputa_preservada: divergencia de escolas nunca achatada em falso consenso.
 observability:
   tool: Langfuse/LangSmith
   trace: completo (custo, latencia, claims rebaixados)
 metrics:
-  - nome: imersao
-    metrica: "avaliacao humana (1-5) 'senti-me transportado'"
-    meta_v1: ">= 4.3"
-  - nome: rigor
-    metrica: "% de afirmacoes factuais com grau de certeza explicito"
-    meta_v1: "100%"
-  - nome: anti_anacronismo
-    metrica: "anacronismos detectados em auditoria por amostragem"
-    meta_v1: "< 1 a cada 20 respostas"
-  - nome: cobertura_multidisciplinar
-    metrica: "numero de camadas ativadas quando pertinentes (das 5 nucleo)"
-    meta_v1: ">= 4/5 em objetos ricos"
-  - nome: rastreabilidade
-    metrica: "% de afirmacoes de alto risco com fonte/escola apontada"
-    meta_v1: ">= 90%"
-  - nome: controle_de_profundidade
-    metrica: "usuario consegue regular extensao sem perder coerencia"
-    meta_v1: "3 niveis funcionais"
+- nome: imersao
+  metrica: avaliacao humana (1-5) 'senti-me transportado'
+  meta_v1: '>= 4.3'
+- nome: rigor
+  metrica: '% de afirmacoes factuais com grau de certeza explicito'
+  meta_v1: 100%
+- nome: anti_anacronismo
+  metrica: anacronismos detectados em auditoria por amostragem
+  meta_v1: < 1 a cada 20 respostas
+- nome: cobertura_multidisciplinar
+  metrica: numero de camadas ativadas quando pertinentes (das 5 nucleo)
+  meta_v1: '>= 4/5 em objetos ricos'
+- nome: rastreabilidade
+  metrica: '% de afirmacoes de alto risco com fonte/escola apontada'
+  meta_v1: '>= 90%'
+- nome: controle_de_profundidade
+  metrica: usuario consegue regular extensao sem perder coerencia
+  meta_v1: 3 niveis funcionais
 references:
-  - references/PRD_PALIMPSESTO.md
-required_footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- references/PRD_PALIMPSESTO.md
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

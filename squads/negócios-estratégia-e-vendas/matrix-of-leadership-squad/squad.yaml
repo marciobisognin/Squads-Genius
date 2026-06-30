@@ -1,82 +1,84 @@
 name: matrix-of-leadership-squad
-display_name: "🔷 Matrix of Leadership Squad"
-version: "1.0.0"
+display_name: 🔷 Matrix of Leadership Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Desenvolvimento de liderança executiva, coaching, avaliação 360°, comunicação de alto impacto e planejamento de sucessão"
+domain: |-
+  Desenvolvimento de liderança executiva, coaching, avaliação 360°, comunicação de alto impacto e planejamento de sucessão
 visual_style: dark-neon-layered-architecture
-objective: "Avaliar, diagnosticar e desenvolver líderes executivos com base na sabedoria acumulada da ciência da liderança — transformando dados, feedbacks e cenários reais em planos de desenvolvimento personalizados, comunicação de alto nível e prontidão sucessória comprovável."
-
+objective: |-
+  Avaliar, diagnosticar e desenvolver líderes executivos com base na sabedoria acumulada da ciência da liderança — transformando dados, feedbacks e cenários reais em planos de desenvolvimento personalizados, comunicação de alto nível e prontidão sucessória comprovável.
 artifact_inspiration:
-  name: "Matrix of Leadership (Transformers G1)"
-  description: "Cristal sagrado carregado por Optimus Prime contendo a sabedoria de todos os líderes Autobots ao longo da história. Simboliza a inteligência coletiva de gerações de liderança — este squad é o equivalente digital dessa sabedoria acumulada."
-
+  name: Matrix of Leadership (Transformers G1)
+  description: |-
+    Cristal sagrado carregado por Optimus Prime contendo a sabedoria de todos os líderes Autobots ao longo da história. Simboliza a inteligência coletiva de gerações de liderança — este squad é o equivalente digital dessa sabedoria acumulada.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
   hitl_gates:
-    - "avaliação inicial de perfil"
-    - "entrega do Relatório DNA de Liderança"
-    - "aprovação do PDI final"
-    - "revisão ética e de viés inconsciente"
-
+  - avaliação inicial de perfil
+  - entrega do Relatório DNA de Liderança
+  - aprovação do PDI final
+  - revisão ética e de viés inconsciente
 inputs:
-  - "Perfil do líder (nome, cargo, nível hierárquico, setor)"
-  - "Autoavaliação estruturada em texto livre ou formulário"
-  - "Respostas de stakeholders para síntese 360°"
-  - "Desafio ou decisão real enfrentada atualmente"
-  - "Cargo-alvo de sucessão (quando aplicável)"
-  - "Contexto organizacional e cultura da empresa"
-
+- Perfil do líder (nome, cargo, nível hierárquico, setor)
+- Autoavaliação estruturada em texto livre ou formulário
+- Respostas de stakeholders para síntese 360°
+- Desafio ou decisão real enfrentada atualmente
+- Cargo-alvo de sucessão (quando aplicável)
+- Contexto organizacional e cultura da empresa
 outputs:
-  - "Relatório DNA de Liderança (arquétipo + pontos cegos + forças)"
-  - "PDI — Plano de Desenvolvimento Individual com marcos e métricas"
-  - "Executive Communication Playbook (narrativa, storytelling, comunicação C-suite)"
-  - "Succession Readiness Score com gap analysis detalhado"
-  - "Simulação de conversa difícil com feedback estruturado"
-  - "Relatório de Revisão Ética e Liderança Inclusiva"
-
+- Relatório DNA de Liderança (arquétipo + pontos cegos + forças)
+- PDI — Plano de Desenvolvimento Individual com marcos e métricas
+- Executive Communication Playbook (narrativa, storytelling, comunicação C-suite)
+- Succession Readiness Score com gap analysis detalhado
+- Simulação de conversa difícil com feedback estruturado
+- Relatório de Revisão Ética e Liderança Inclusiva
 agents:
-  - id: matrix-orchestrator
-    file: agents/matrix-orchestrator.md
-    role: "Coordenador central do pipeline de desenvolvimento de liderança; gerencia fluxo, gates HITL e consolidação dos artefatos finais."
-  - id: leadership-archetype-assessor
-    file: agents/leadership-archetype-assessor.md
-    role: "Diagnóstico de estilo de liderança usando frameworks Situacional, Servant, Adaptativo e Transformacional."
-  - id: feedback-360-synthesizer
-    file: agents/feedback-360-synthesizer.md
-    role: "Coleta, organização e síntese de feedbacks 360° de múltiplos stakeholders com análise de padrões e pontos cegos."
-  - id: decision-intelligence-coach
-    file: agents/decision-intelligence-coach.md
-    role: "Coaching em frameworks de decisão sob pressão e incerteza — Cynefin, OODA, pré-mortem e análise de segunda ordem."
-  - id: executive-presence-director
-    file: agents/executive-presence-director.md
-    role: "Desenvolvimento de comunicação executiva, storytelling para C-suite, conselho e apresentações de alto impacto."
-  - id: difficult-conversation-simulator
-    file: agents/difficult-conversation-simulator.md
-    role: "Simulador de role-play para conversas difíceis com feedback estruturado em tempo real via IA."
-  - id: succession-readiness-mapper
-    file: agents/succession-readiness-mapper.md
-    role: "Avaliação de prontidão para o próximo papel com gap analysis, plano de aceleração e Succession Readiness Score."
-  - id: ethical-leadership-guardian
-    file: agents/ethical-leadership-guardian.md
-    role: "Revisão ética, detecção de viés inconsciente, auditoria de inclusão e governança de liderança responsável."
-
+- id: matrix-orchestrator
+  file: agents/matrix-orchestrator.md
+  role: |-
+    Coordenador central do pipeline de desenvolvimento de liderança; gerencia fluxo, gates HITL e consolidação dos artefatos finais.
+- id: leadership-archetype-assessor
+  file: agents/leadership-archetype-assessor.md
+  role: |-
+    Diagnóstico de estilo de liderança usando frameworks Situacional, Servant, Adaptativo e Transformacional.
+- id: feedback-360-synthesizer
+  file: agents/feedback-360-synthesizer.md
+  role: |-
+    Coleta, organização e síntese de feedbacks 360° de múltiplos stakeholders com análise de padrões e pontos cegos.
+- id: decision-intelligence-coach
+  file: agents/decision-intelligence-coach.md
+  role: |-
+    Coaching em frameworks de decisão sob pressão e incerteza — Cynefin, OODA, pré-mortem e análise de segunda ordem.
+- id: executive-presence-director
+  file: agents/executive-presence-director.md
+  role: |-
+    Desenvolvimento de comunicação executiva, storytelling para C-suite, conselho e apresentações de alto impacto.
+- id: difficult-conversation-simulator
+  file: agents/difficult-conversation-simulator.md
+  role: |-
+    Simulador de role-play para conversas difíceis com feedback estruturado em tempo real via IA.
+- id: succession-readiness-mapper
+  file: agents/succession-readiness-mapper.md
+  role: |-
+    Avaliação de prontidão para o próximo papel com gap analysis, plano de aceleração e Succession Readiness Score.
+- id: ethical-leadership-guardian
+  file: agents/ethical-leadership-guardian.md
+  role: |-
+    Revisão ética, detecção de viés inconsciente, auditoria de inclusão e governança de liderança responsável.
 workflows:
-  - workflows/leadership-development-pipeline.yaml
-  - workflows/quality-gates.yaml
-
+- workflows/leadership-development-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/leadership-assessment.md
-  - tasks/executive-coaching.md
-
+- tasks/leadership-assessment.md
+- tasks/executive-coaching.md
 quality_gates:
-  - "Completude do perfil de entrada antes de iniciar avaliação"
-  - "Validação humana do arquétipo de liderança identificado"
-  - "Aprovação do PDI pelo líder e seu gestor"
-  - "Revisão ética assinada antes da entrega final"
-  - "Coerência entre diagnóstico 360° e plano de desenvolvimento"
-
-footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- Completude do perfil de entrada antes de iniciar avaliação
+- Validação humana do arquétipo de liderança identificado
+- Aprovação do PDI pelo líder e seu gestor
+- Revisão ética assinada antes da entrega final
+- Coerência entre diagnóstico 360° e plano de desenvolvimento
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

@@ -1,79 +1,89 @@
 name: vector-sigma-data-forge-squad
-display_name: "⚙️ Vector Sigma Data Forge Squad"
-version: "1.0.0"
+display_name: ⚙️ Vector Sigma Data Forge Squad
+version: 1.0.0
 license: MIT
-creator: "Marcio Bisognin"
-instagram: "@marciobisognin"
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
 status: premium-ready
-domain: "Engenharia de dados, analytics, data storytelling executivo e prontidão para ML"
+domain: Engenharia de dados, analytics, data storytelling executivo e prontidão para
+  ML
 visual_style: dark-neon-layered-architecture
-objective: "Transformar dados brutos em inteligência de negócio viva: arquitetar dados, forjar pipelines, garantir qualidade, construir métricas e narrar insights que movem decisões — do esquema ao storytelling executivo."
+objective: |-
+  Transformar dados brutos em inteligência de negócio viva: arquitetar dados, forjar pipelines, garantir qualidade, construir métricas e narrar insights que movem decisões — do esquema ao storytelling executivo.
 artifact_inspiration:
-  name: "Vector Sigma (Transformers G1)"
-  description: "O supercomputador ancestral de Cybertron que concede inteligência e personalidade aos Transformers. Este squad é o equivalente para dados: transforma dados brutos em seres conscientes de negócio, prontos para mover decisões e gerar impacto."
+  name: Vector Sigma (Transformers G1)
+  description: |-
+    O supercomputador ancestral de Cybertron que concede inteligência e personalidade aos Transformers. Este squad é o equivalente para dados: transforma dados brutos em seres conscientes de negócio, prontos para mover decisões e gerar impacto.
 architecture:
   type: multiagent-graph
   coordination: dynamic-output-to-adjacent-nodes
-  governance_gate: "LGPD + Data Governance"
+  governance_gate: LGPD + Data Governance
 inputs:
-  - "Descrição do problema de negócio ou pergunta analítica"
-  - "Fontes de dados disponíveis (bancos, arquivos, APIs, SaaS)"
-  - "Esquemas existentes ou documentação técnica de dados"
-  - "Dashboards ou relatórios atuais (quando disponíveis)"
-  - "KPIs atuais e como são calculados"
-  - "Contexto de uso: BI, ML, produto data-driven ou relatório executivo"
+- Descrição do problema de negócio ou pergunta analítica
+- Fontes de dados disponíveis (bancos, arquivos, APIs, SaaS)
+- Esquemas existentes ou documentação técnica de dados
+- Dashboards ou relatórios atuais (quando disponíveis)
+- KPIs atuais e como são calculados
+- 'Contexto de uso: BI, ML, produto data-driven ou relatório executivo'
 outputs:
-  - "Data Architecture Blueprint (modelo dimensional, ERD, contratos de dados)"
-  - "Data Pipeline Design Document (ETL/ELT com boas práticas)"
-  - "Data Quality Scorecard com regras de validação"
-  - "Árvore de Métricas (Metric Tree) com North Star e métricas derivadas"
-  - "Dashboard Design System (layout, tipos de gráfico, hierarquia visual)"
-  - "Executive Data Story Report (narrativa executiva orientada a ação)"
-  - "Statistical Analysis Report"
-  - "MLOps Readiness Assessment"
+- Data Architecture Blueprint (modelo dimensional, ERD, contratos de dados)
+- Data Pipeline Design Document (ETL/ELT com boas práticas)
+- Data Quality Scorecard com regras de validação
+- Árvore de Métricas (Metric Tree) com North Star e métricas derivadas
+- Dashboard Design System (layout, tipos de gráfico, hierarquia visual)
+- Executive Data Story Report (narrativa executiva orientada a ação)
+- Statistical Analysis Report
+- MLOps Readiness Assessment
 agents:
-  - id: vector-sigma-orchestrator
-    file: agents/vector-sigma-orchestrator.md
-    role: "Coordenador central com gate de governança de dados e privacidade LGPD"
-  - id: data-architecture-designer
-    file: agents/data-architecture-designer.md
-    role: "Modelagem de dados: dimensional, ERD, data mesh, data contracts e design de domínios"
-  - id: etl-pipeline-engineer
-    file: agents/etl-pipeline-engineer.md
-    role: "Design de pipelines ETL/ELT com idempotência, linhagem, testes e padrões de orquestração"
-  - id: data-quality-sentinel
-    file: agents/data-quality-sentinel.md
-    role: "Perfis de qualidade de dados, detecção de anomalias, scorecards e documentação de linhagem"
-  - id: metric-tree-architect
-    file: agents/metric-tree-architect.md
-    role: "Design de árvore de métricas do North Star à operação, com ownership e alertas"
-  - id: sql-analyst-pro
-    file: agents/sql-analyst-pro.md
-    role: "Análise SQL avançada, EDA, otimização de queries e templates reutilizáveis"
-  - id: visualization-director
-    file: agents/visualization-director.md
-    role: "Design de dashboards com princípios Tufte/Cairo: layout, tipos de gráfico e hierarquia visual"
-  - id: narrative-data-storyteller
-    file: agents/narrative-data-storyteller.md
-    role: "Transforma análise em narrativa executiva orientada a ação com framing de impacto de negócio"
-  - id: statistical-insight-miner
-    file: agents/statistical-insight-miner.md
-    role: "Análise estatística descritiva e inferencial, hipóteses, A/B test, correlação e outliers"
-  - id: mlops-readiness-advisor
-    file: agents/mlops-readiness-advisor.md
-    role: "Avaliação de prontidão para ML em produção: pré-requisitos de dados, feature engineering e monitoramento"
+- id: vector-sigma-orchestrator
+  file: agents/vector-sigma-orchestrator.md
+  role: Coordenador central com gate de governança de dados e privacidade LGPD
+- id: data-architecture-designer
+  file: agents/data-architecture-designer.md
+  role: |-
+    Modelagem de dados: dimensional, ERD, data mesh, data contracts e design de domínios
+- id: etl-pipeline-engineer
+  file: agents/etl-pipeline-engineer.md
+  role: |-
+    Design de pipelines ETL/ELT com idempotência, linhagem, testes e padrões de orquestração
+- id: data-quality-sentinel
+  file: agents/data-quality-sentinel.md
+  role: |-
+    Perfis de qualidade de dados, detecção de anomalias, scorecards e documentação de linhagem
+- id: metric-tree-architect
+  file: agents/metric-tree-architect.md
+  role: Design de árvore de métricas do North Star à operação, com ownership e alertas
+- id: sql-analyst-pro
+  file: agents/sql-analyst-pro.md
+  role: Análise SQL avançada, EDA, otimização de queries e templates reutilizáveis
+- id: visualization-director
+  file: agents/visualization-director.md
+  role: |-
+    Design de dashboards com princípios Tufte/Cairo: layout, tipos de gráfico e hierarquia visual
+- id: narrative-data-storyteller
+  file: agents/narrative-data-storyteller.md
+  role: |-
+    Transforma análise em narrativa executiva orientada a ação com framing de impacto de negócio
+- id: statistical-insight-miner
+  file: agents/statistical-insight-miner.md
+  role: |-
+    Análise estatística descritiva e inferencial, hipóteses, A/B test, correlação e outliers
+- id: mlops-readiness-advisor
+  file: agents/mlops-readiness-advisor.md
+  role: |-
+    Avaliação de prontidão para ML em produção: pré-requisitos de dados, feature engineering e monitoramento
 workflows:
-  - workflows/data-intelligence-pipeline.yaml
-  - workflows/quality-gates.yaml
+- workflows/data-intelligence-pipeline.yaml
+- workflows/quality-gates.yaml
 tasks:
-  - tasks/data-architecture.md
-  - tasks/data-storytelling.md
+- tasks/data-architecture.md
+- tasks/data-storytelling.md
 quality_gates:
-  - "data_governance_validated"
-  - "schema_design_reviewed"
-  - "pipeline_idempotency_confirmed"
-  - "data_quality_baseline_set"
-  - "metric_tree_approved_by_business"
-  - "dashboard_ux_reviewed"
-  - "narrative_actionability_confirmed"
-footer: "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+- data_governance_validated
+- schema_design_reviewed
+- pipeline_idempotency_confirmed
+- data_quality_baseline_set
+- metric_tree_approved_by_business
+- dashboard_ux_reviewed
+- narrative_actionability_confirmed
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

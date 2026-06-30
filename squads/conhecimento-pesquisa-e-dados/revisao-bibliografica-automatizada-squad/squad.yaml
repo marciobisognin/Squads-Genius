@@ -4,21 +4,21 @@ version: 1.0.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
-purpose: >
+purpose: |
   Squad multi-agente para busca semantica, sintese de artigos, mapeamento de lacunas e formatacao ABNT.
 agents:
-  - buscador-semantico
-  - sintetizador-artigos
-  - mapeador-lacunas
-  - gerador-revisao
-  - formatador-abnt
+- buscador-semantico
+- sintetizador-artigos
+- mapeador-lacunas
+- gerador-revisao
+- formatador-abnt
 workflows:
-  - main
+- main
 tasks:
-  - task-1
-  - task-2
-  - task-3
-  - task-4
-  - task-5
+- task-1
+- task-2
+- task-3
+- task-4
+- task-5
 scripts:
-  - run.py
+- run.py
