@@ -92,6 +92,43 @@ Sequência exata, validada na prática (ex.: squad **KÊRYX** / `squad-keryx`):
    Cursor, GitHub Copilot, Windsurf, Cline/Roo, Continue.dev/Aider/Zed, ChatGPT/Gemini), contratos,
    métricas, stack, nota de IP e footer. Manter fences/`<details>`/`<div>` balanceados.
 
+## Conformidade & Validação (NOVO — 2026-06-30)
+
+Todos os squads do repositório **PASSAM em conformidade 100% (6/6 requisitos)**:
+- ✅ squad.yaml (YAML format, versionamento semver)
+- ✅ README.md (documentação obrigatória)
+- ✅ LICENSE (MIT em cada squad)
+- ✅ agents/ (diretório com agentes)
+- ✅ tasks/ (diretório com tarefas)
+- ✅ workflows/ (diretório com workflows)
+
+### Checklist antes de commit
+
+```bash
+# Local validation
+./scripts/verify-squad-compliance.sh
+
+# Auto-remediação se necessário
+python3 scripts/fix-squad-licenses.py
+python3 scripts/fix-squad-structure.py
+python3 scripts/normalize-squad-yaml.py
+```
+
+### CI/CD automático
+
+Workflow `.github/workflows/squad-conformance-check.yml` roda:
+- Validação de conformidade (6/6)
+- Parsing YAML + campos obrigatórios
+- Detecção de secrets/credenciais
+- Relatório em cada PR/push
+
+**Índices atualizados:**
+- `SQUAD_INDEX.md` — todas os 87 squads com status ✅
+- `README.md` — badges de conformidade (100%)
+- `CONFORMANCE.md` — guia completo de conformidade
+
+Documentação: [CONFORMANCE.md](CONFORMANCE.md)
+
 ### Limitações conhecidas do ambiente
 - **Release/tag do GitHub:** o MCP só tem leitura de releases (sem `create_release`) e `git push` de
   **tags** retorna **403** (credenciais com escopo do branch). Release formal fica para o usuário (UI);
