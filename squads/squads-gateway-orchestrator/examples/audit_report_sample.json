@@ -1,0 +1,129 @@
+{
+  "report_generated_at": "2026-06-30T12:34:56Z",
+  "report_period": "2026-06-20 to 2026-06-30",
+  "total_events": 847,
+  "events_by_type": {
+    "index_event": 12,
+    "search_event": 156,
+    "route_event": 623,
+    "activate_event": 45,
+    "feedback_event": 11
+  },
+  "route_event_analysis": {
+    "total_routes": 623,
+    "successful_matches": 589,
+    "gap_detections": 34,
+    "success_rate": 0.9454,
+    "average_score": 5.23,
+    "score_distribution": {
+      "0-2": 34,
+      "2-5": 156,
+      "5-8": 312,
+      "8-10": 121
+    }
+  },
+  "top_routed_squads": [
+    {
+      "squad": "maeve-carrossel-instagram-squad",
+      "routed_count": 89,
+      "success_rate": 0.9663
+    },
+    {
+      "squad": "copy-master-squad",
+      "routed_count": 78,
+      "success_rate": 0.9231
+    },
+    {
+      "squad": "design-system-squad",
+      "routed_count": 65,
+      "success_rate": 0.8923
+    }
+  ],
+  "top_queries": [
+    {
+      "query": "criar carrossel instagram",
+      "count": 45,
+      "top_match": "maeve-carrossel-instagram-squad",
+      "avg_score": 8.7
+    },
+    {
+      "query": "escrever copy produto",
+      "count": 38,
+      "top_match": "copy-master-squad",
+      "avg_score": 7.9
+    },
+    {
+      "query": "design sistema visual",
+      "count": 32,
+      "top_match": "design-system-squad",
+      "avg_score": 7.2
+    }
+  ],
+  "feedback_analysis": {
+    "total_feedback_entries": 11,
+    "success_feedback": 10,
+    "failure_feedback": 1,
+    "neutral_feedback": 0,
+    "success_rate": 0.909
+  },
+  "anomalies_detected": [],
+  "performance_metrics": {
+    "avg_route_latency_ms": 42,
+    "p95_route_latency_ms": 78,
+    "p99_route_latency_ms": 134,
+    "index_load_time_ms": 23
+  },
+  "memory_learning": {
+    "concepts_learned": 34,
+    "top_concepts": [
+      {
+        "concept": "carrossel",
+        "weight": 12.0,
+        "associated_squad": "maeve-carrossel-instagram-squad"
+      },
+      {
+        "concept": "instagram",
+        "weight": 11.0,
+        "associated_squad": "maeve-carrossel-instagram-squad"
+      },
+      {
+        "concept": "copy",
+        "weight": 9.0,
+        "associated_squad": "copy-master-squad"
+      }
+    ],
+    "squad_preferences": {
+      "maeve-carrossel-instagram-squad": {
+        "successes": 9,
+        "failures": 0,
+        "success_rate": 1.0
+      },
+      "copy-master-squad": {
+        "successes": 8,
+        "failures": 1,
+        "success_rate": 0.889
+      }
+    }
+  },
+  "recommendations": {
+    "system_health": "HEALTHY",
+    "action_items": [
+      "Monitor squad 'copy-master-squad' com 1 falha recente",
+      "Calibrar peso de 'design' (ambiguidade detectada)",
+      "Considerar novo squad para 'vídeo marketing' (gap)"
+    ],
+    "audit_summary": "Auditoria limpa. 94.5% de acurácia de roteamento. Zero anomalias. Sistema aprendeu 34 conceitos. Recomendações estão sendo refinadas com feedback de usuário."
+  },
+  "compliance_checks": {
+    "all_events_hashed": true,
+    "zero_missing_timestamps": true,
+    "zero_duplicate_hashes": true,
+    "audit_trail_immutable": true,
+    "pii_protected": true
+  },
+  "file_integrity": {
+    "log_file_size_bytes": 156234,
+    "lines_in_log": 847,
+    "integrity_status": "OK"
+  }
+}

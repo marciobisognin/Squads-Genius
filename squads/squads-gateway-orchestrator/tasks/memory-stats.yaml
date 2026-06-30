@@ -1,0 +1,85 @@
+id: memory-stats
+name: Exibir Estatísticas de Memória
+responsible_agent: feedback-recorder
+objective: Mostrar estado atual da memória aprendida (conceitos, preferências, taxa de sucesso).
+description: |
+  Lê gateway_memory.json, exibe conceitos aprendidos com pesos, preferências por squad
+  com taxa de sucesso, histórico de feedbacks e eventos de aprendizagem. Oferece
+  export de relatório de aprendizagem estruturado.
+steps:
+  - step: 1
+    name: Leitura da Memória
+    description: Carregar gateway_memory.json
+  - step: 2
+    name: Parsing
+    description: Desserializar estrutura de memória
+  - step: 3
+    name: Agregação de Conceitos
+    description: Listar concept_weights ordenados por valor
+  - step: 4
+    name: Agregação de Preferências
+    description: Calcular taxa de sucesso por squad
+  - step: 5
+    name: Agregação de Eventos
+    description: Contar feedback_history e learning_events
+  - step: 6
+    name: Formatação
+    description: Exibir em tabelas/JSON legível
+  - step: 7
+    name: Exportação Opcional
+    description: Salvar relatório se solicitado
+preconditions:
+  - memory_store_exists
+  - memory_json_valid
+  - read_permission
+postconditions:
+  - stats_displayed
+  - concepts_ranked
+  - success_rates_calculated
+input_schema:
+  type: object
+  properties:
+    memory_path:
+      type: string
+      description: Caminho da memória (default gateway_memory.json)
+    export_path:
+      type: string
+      description: Opcional - salvar relatório
+    top_n:
+      type: integer
+      description: Top-N conceitos/squads a exibir (default 10)
+output_schema:
+  type: object
+  properties:
+    memory_stats:
+      type: object
+      properties:
+        concepts_learned:
+          type: integer
+        top_concepts:
+          type: array
+          items:
+            type: object
+            properties:
+              concept:
+                type: string
+              weight:
+                type: number
+        squad_success_rates:
+          type: object
+        total_feedback_entries:
+          type: integer
+        total_learning_events:
+          type: integer
+        memory_file_size_bytes:
+          type: integer
+    report_path:
+      type: string
+      nullable: true
+success_criteria:
+  - memory_stats não vazio
+  - top_concepts ordenado por weight desc
+  - squad_success_rates calculado corretamente
+  - relatório salvo se export_path fornecido
+human_approval: false
+estimated_duration_minutes: 1
