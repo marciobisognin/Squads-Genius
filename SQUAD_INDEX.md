@@ -2,97 +2,216 @@
 
 Squads publicados no repositório `Squads-Genius`.
 
-- [Squads Gateway — Orquestrador de Descoberta e Roteamento](squads/squads-gateway-orchestrator/README.md) — `squads-gateway-orchestrator` — versão `0.1.0` — sistema vivo de indexação, busca, roteamento e ativação de squads com auditoria, aprendizagem contínua e contratos estruturados. Determinístico, sem LLM.
-- [ai-business-builder-squad](squads/ai-business-builder-squad/README.md) — `ai-business-builder-squad` — versão `1.0.0`
-- [Bigorna de Annwn — Super Sistema de Squads](squads/anvil-of-annwn-super-squad-system/README.md) — `anvil-of-annwn-super-squad-system` — versão `1.0.0` — forja AI Native para produto, oferta, MVP, validação e execução por squads
-- [apex-context-supreme](squads/apex-context-supreme/README.md) — `apex-context-supreme` — versão `1.1.0`
-- [Atlas Visual Reports Squad](squads/atlas-visual-reports-squad-v1.1.0/README.md) — `atlas-visual-reports-squad-v1.1.0` — versão `1.1.0` — relatórios premium visual-first com auditoria, compliance, risco, controles e evidência
-- [Atlas Visual Reports Squad v1.2.0](squads/atlas-visual-reports-squad-v1.2.0/README.md) — `atlas-visual-reports-squad-v1.2.0` — versão `1.2.0` — relatórios executivos premium em HTML/PDF com contratos, templates em 3 camadas, auditoria e QA visual
-- [Aurora PopRock Ballads](squads/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — versão `1.0.0` — pop rock romântico, rock balada e prompts musicais autorais
-- [Canto Memória Viva](squads/canto-memoria-viva/README.md) — `canto-memoria-viva` — versão `1.0.0` — composição musical autoral com agentes para letra, voz, arranjo e originalidade
-- [dharma-companion](squads/dharma-companion/README.md) — `dharma-companion` — versão `1.0.0`
-- [Orquestrador de Execução Durável para Squads](squads/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — versão `1.0.0` — runtime durável para workflows multiagentes com checkpoints, sinais humanos, compensações e auditoria
-- [Farol PCFP Squad](squads/farol-pcfp-squad/README.md) — `farol-pcfp-squad` — versão `1.0.0` — do edital à Planilha de Custos e Formação de Preços (Anexo VII-D, IN 05/2017 + Lei 14.133/2021) com engine determinística, validação contra jurisprudência do TCU e HITL
-- [genius-athena-strange](squads/genius-athena-strange/README.md) — `genius-athena-strange` — versão `1.0.0`
-- [germina360-squad](IFFar-Squads/squads/germina360-squad/README.md) — `germina360-squad` — versão `não informada`
-- [Harness Foundry Squad](squads/harness-foundry-squad/README.md) — `harness-foundry-squad` — versão `1.0.0` — avalia, converte e empacota squads do Squads-Genius como harnesses executáveis (CLI, MCP, Hermes) com policy default-deny e template institucional vertical:iffar
-- [Hefesto Forja Licitatória](IFFar-Squads/squads/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — versão `1.0.0` — squad premium que monta o processo de licitação completo (DFD, ETP, TR, pesquisa de preços, matriz de riscos, edital, minuta) conforme a modalidade, com intake que solicita informações faltantes
-- [instagram-carrossel-visual-pro](squads/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — versão `1.0.0`
-- [ISO 42001 AIMS Implementation Squad](squads/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — versão `5.0.0`
-- [Lumen Verbi — Squad Bíblico de IA](squads/lumen-verbi-squad-biblico/README.md) — `lumen-verbi-squad-biblico` — versão `1.0.0` — squad multiagente que personifica figuras bíblicas e historiadores para explicar a Palavra de Deus com perspectiva teológica e contexto histórico, com orquestrador MSCA, BDC e guardrails teológicos
-- [Maeve Atena Mimir](squads/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir-scienceclaw-research` — versão `1.1.0` — pesquisa científica, síntese de evidências e artigo acadêmico auditável
-- [Manim Science Studio Squad](squads/manim-science-studio-squad/README.md) — `manim-science-studio-squad` — versão `1.0.0` — estúdio multiagente para Reels científicos em PT-BR com Manim, TTS, revisão epistêmica e FFmpeg
-- [Manopla da Forja — Venture Squad](squads/manopla-da-forja-venture-squad/README.md) — `manopla-da-forja-venture-squad` — versão `1.0.0` — venture design AI Native para transformar ideias em negócios estruturados
-- [Maeve Athena-Mímir Venture Forge](squads/maeve-athena-mimir-venture-forge-squad/README.md) — `maeve-athena-mimir-venture-forge-squad` — versão `1.1.0`
-- [Maeve Carrossel Premium Instagram PT-BR](squads/maeve-carrossel-premium-instagram-ptbr/README.md) — `maeve-carrossel-premium-instagram-ptbr` — versão `1.1.0`
-- [Maeve Lumen Leitura — Squad Premium de Alfabetização Fonológica](squads/maeve-lumen-leitura-squad/README.md) — `maeve-lumen-leitura-squad` — versão `1.0.0`
-- [maeve-athena-mimir-matrix-squad](squads/maeve-athena-mimir-matrix-squad/README.md) — `maeve-athena-mimir-matrix-squad` — versão `1.0.0`
-- [maeve-fundamentos-roi-compass](squads/maeve-fundamentos-roi-compass/README.md) — `maeve-fundamentos-roi-compass` — versão `0.2.0`
-- [maeve-genius-forge-squad](squads/maeve-genius-forge-squad/README.md) — `maeve-genius-forge-squad` — versão `não informada`
-- [maeve-knowledge-graph-forge-squad](squads/maeve-knowledge-graph-forge-squad/README.md) — `maeve-knowledge-graph-forge-squad` — versão `não informada`
-- [maeve-neurocognitive-intelligence-trainer-squad](squads/maeve-neurocognitive-intelligence-trainer-squad/README.md) — `maeve-neurocognitive-intelligence-trainer-squad` — versão `1.1.0`
-- [nexum-cognitivo](squads/nexum-cognitivo/README.md) — `nexum-cognitivo` — versão `1.0.0`
-- [orbisvisum-elementos-visuais-squad](squads/orbisvisum-elementos-visuais-squad/README.md) — `orbisvisum-elementos-visuais-squad` — versão `não informada`
-- [pearson-specter-nova-legal-squad](squads/pearson-specter-nova-legal-squad/README.md) — `pearson-specter-nova-legal-squad` — versão `1.0.0`
-- [Proactive AI OS Squad](squads/proactive-ai-os-squad/README.md) — `proactive-ai-os-squad` — versão `1.0.0` — sistema agentivo para contexto, skills, workflows e automações proativas
-- [Prisma Psíquico Integrativo](squads/prisma-psiquico-integrativo/README.md) — `prisma-psiquico-integrativo` — versão `1.0.0`
-- [SQU Oráculo de Aion](squads/squ-oraculo-aion-finance-super-squad/README.md) — `squ-oraculo-aion-finance-super-squad` — versão `1.0.0` — inteligência financeira global educacional, cenários, risco e relatórios auditáveis
-- [skeptic-protocol](squads/skeptic-protocol/README.md) — `skeptic-protocol` — versão `1.0.0`
-- [Squad PCFP](IFFar-Squads/squads/squad-pcfp/README.md) — `squad-pcfp` — versão `1.0.0` — elaboração, validação e auditoria de Planilhas de Custos e Formação de Preços (Anexo VII-D, IN 05/2017) com engine determinística e HITL
-- [Themis Contratos Públicos](IFFar-Squads/squads/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — versão `1.0.0` — equipe jurídica para análise de contratos administrativos com base nas normas da CGU e dos Tribunais de Contas
-- [VetorNexo](squads/vetornexo-premium-squad/README.md) — `vetornexo-premium-squad` — versão `1.0.0`
-- [vetorviveiro-squad](IFFar-Squads/squads/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — versão `não informada`
-- [Órbita Incubadora Squad](IFFar-Squads/squads/orbita-incubadora-squad/README.md) — `orbita-incubadora-squad` — versão `1.0.0`
-
-
-
-- [Prisma Real Problem Squad](squads/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — versão `1.0.0` — diagnóstico e decomposição de problemas reais em squads operacionais
-
-- [Integra Incubadora Operations Squad](IFFar-Squads/squads/integra-incubadora-ops-squad/README.md) — `integra-incubadora-ops-squad` — versão `1.0.0` — operacionalizacao da incubadora IDNE com pipeline TRL, Lean Canvas e relatorios institucionais
-- [Notion Second Brain Squad](squads/notion-second-brain-squad/README.md) — `notion-second-brain-squad` — versão `1.0.0` — produtividade pessoal com GTD, PARA e Second Brain no Notion
-- [Guardiao Carteira Squad](squads/guardiao-carteira-squad/README.md) — `guardiao-carteira-squad` — versão `1.0.0` — gestao inteligente de investimentos e criptoativos
-- [Copo de Cafe Academico Squad](squads/copo-de-cafe-academico-squad/README.md) — `copo-de-cafe-academico-squad` — versão `1.0.0` — transformacao de artigos em conteudo didatico multimodal
-- [Mentor IA Educacao Squad](squads/mentor-ia-educacao-squad/README.md) — `mentor-ia-educacao-squad` — versão `1.0.0` — tutoria inteligente e adaptativa para educacao
-- [Copo de Cafe Podcast Squad](squads/copo-de-cafe-podcast-squad/README.md) — `copo-de-cafe-podcast-squad` — versão `1.0.0` — producao de podcast academico e disseminacao cientifica
-- [Compliance IA IFFar Squad](IFFar-Squads/squads/compliance-ia-iffar-squad/README.md) — `compliance-ia-iffar-squad` — versão `1.0.0` — conformidade e auditoria continua para o IFFar
-- [Revisao Bibliografica Automatizada Squad](squads/revisao-bibliografica-automatizada-squad/README.md) — `revisao-bibliografica-automatizada-squad` — versão `1.0.0` — producao academica em larga escala com IA
-- [Reforco Neurocognitivo Infantil Squad](squads/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — versão `1.0.0` — desenvolvimento neurocognitivo para criancas
-- [Gestor Projetos IFFar Squad](IFFar-Squads/squads/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — versão `1.0.0` — ciclo completo de projetos e contratos no IFFar
-
-- [SQU Tesouraria & Conformidade Pública](IFFar-Squads/squads/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — versão `1.0.0` — inteligência orçamentária, prestação de contas, auditoria e conformidade pública para IFs
-
-- [Farol Contratos e Licitações IFFar](IFFar-Squads/squads/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — versão `3.1.0` — inteligência em contratações públicas, DFD, PCA, ETP, TR, preços, evidências, download das atas assinadas por item e gates humanos
-- [PrismaFrame Executive Cinema Suite](IFFar-Squads/squads/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — versão `1.0.0` — materiais executivos premium, apresentações institucionais, HTML/PDF e briefing audiovisual
-
-- [VÉRTICE-OS | Artefatos Marvel](squads/vertice-os-artefatos-marvel/README.md) — `vertice-os-artefatos-marvel` — versão `2.1.0` — arquitetura interna temática multiagente com 21 agentes, contratos, gates, HITL, evidência e rollback conforme PRD de Marcio Bisognin
-- [Bússola Acadêmica IFFar](IFFar-Squads/squads/bussola-academica-iffar-squad/README.md) — `bussola-academica-iffar-squad` — versão `1.0.0` — apoio ao ciclo acadêmico do IFFar: PPC/DCN, integralização curricular, calendário e editais de matrícula, atas de conselho de classe e consistência de dados para SISTEC/Plataforma Nilo Peçanha
-- [PALIMPSESTO Squad](squads/palimpsesto-squad/README.md) — `palimpsesto-squad` — versão `1.1.0` — reconstrução contextual imersiva (filosofia, história, geografia, política) de objetos de conhecimento histórico-cultural, com contra-perspectiva, verificação de fontes e narrativa em 2ª pessoa
-- [Núcleo PRPI IFFar](IFFar-Squads/squads/nucleo-prpi-iffar-squad/README.md) — `nucleo-prpi-iffar-squad` — versão `1.0.0` — apoio à Pró-Reitoria/Diretoria de Pesquisa, Pós-Graduação e Extensão do IFFar: editais de fomento, triagem de propostas, cronograma de bolsas, produção científica e prestação de contas
-- [PDI Vivo IFFar Squad](IFFar-Squads/squads/pdi-vivo-iffar-squad/README.md) — `pdi-vivo-iffar-squad` — versão `1.0.0` — governança viva do PDI: matriz de metas, indicadores, evidências, riscos, pactos por campus, ciclo trimestral e painel, com 17 agentes SME e engine determinística
-- [PROJUR Contracts Squad](IFFar-Squads/squads/projur-contracts-squad/README.md) — `projur-contracts-squad` — versão `2.0.0` — inteligência documental em lote e ciclo de vida (CLM) de contratos, convênios e TED do IFFar: extração (com OCR), classificação, partes (CNPJ/CPF), LGPD, vínculos, vigência, conformidade e matriz/indicadores, com 22 agentes (6 SMEs jurídicos) e engine determinística; encaminha casos ao Themis/Farol/PCFP
-- [Squad Docente IFFar](IFFar-Squads/squads/squad-docente-iffar/README.md) — `squad-docente-iffar` — versão `1.0.0` — automação do trabalho docente: plano de ensino, materiais didáticos (com ponte Manim), avaliações/rubricas, adaptação AEE conforme Res. CONSUP 52/2019 e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório
-- [Universal Obsidian Knowledge Squad](squads/universal-obsidian-knowledge-squad/README.md) — `universal-obsidian-knowledge-squad` — versão `1.0.0` — squad portátil que transforma qualquer vault Obsidian em base de conhecimento pesquisável e citável (SQLite FTS5), read-only por padrão, citações verificadas, núcleo determinístico e LLM só na síntese, com adaptadores generic/maeve/hermes e operação via agente ou CLI
-- [AllSpark Talent Intelligence Squad](squads/allspark-talent-intelligence-squad/README.md) — `allspark-talent-intelligence-squad` — versão `1.0.0` — Transformar dados brutos de RH em inteligência de talentos viva: mapear competências, identificar riscos de retenção, projetar sucessão, auditar DEI…
-- [Cerebro Sales Intelligence Squad](squads/cerebro-sales-intelligence-squad/README.md) — `cerebro-sales-intelligence-squad` — versão `1.0.0` — Amplificar a inteligência de vendas da organização detectando oportunidades invisíveis ao olho humano: perfil de cliente ideal, scoring de leads com…
-- [Darkhold Competitive Intelligence Squad](squads/darkhold-competitive-intelligence-squad/README.md) — `darkhold-competitive-intelligence-squad` — versão `1.0.0` — Revelar o que os concorrentes escondem — monitorando movimentos, detectando sinais fracos de disrupção, construindo cenários adversariais e mapeando…
-- [DÉDALO — Fábrica de Ferramentas IA](squads/dedalo-fabrica-ferramentas-ia-squad/README.md) — `dedalo-fabrica-ferramentas-ia-squad` — versão `3.0.0` — meta-fábrica multi-agente que transforma vídeos, briefings, dores e processos em ferramentas digitais/IA: diagnóstico, PRD rastreável, arquitetura, protótipo e squad.yaml, com scoring determinístico em Python, red-team (ELENCHUS) e self-healing (Turing)
-- [Forge of Solus Prime — Cybersecurity Squad](squads/forge-of-solus-prime-cybersecurity-squad/README.md) — `forge-of-solus-prime-cybersecurity-squad` — versão `1.0.0` — Fortalecer a postura de segurança digital de organizações por meio de inventário de ativos, modelagem de ameaças (STRIDE/MITRE ATT&CK/Kill Chain),…
-- [Forge of Solus Prime — O Martelo dos Primes](squads/forge-of-solus-prime/README.md) — `forge-of-solus-prime` — versão `1.0.0` — meta-squad soberano que forja outros squads sob a Disciplina FORJA (autoral): recebe uma intenção em pt-BR, classifica pelo Portão de Cynefin, pesquisa e avalia instrumentos com motor determinístico (Decimal), decompõe em microtarefas contratuais (SACP), executa o Anel de 7 atos (NÓESIS→BOULḖ→DIAÍRESIS→PRÂXIS→ÉLENCHOS→KRÍSIS→ANÁMNĒSIS) com refutação, juízo independente e self-healing, e consolida aprendizado — 16 agentes Autobot, 5 estratos, 7 leis invariantes, 6 patologias controladas, fronteira determinística (LLM só emite JSON) e CLI report-only L1 com testes
-- [Matrix of Leadership Squad](squads/matrix-of-leadership-squad/README.md) — `matrix-of-leadership-squad` — versão `1.0.0` — Avaliar, diagnosticar e desenvolver líderes executivos com base na sabedoria acumulada da ciência da liderança — transformando dados, feedbacks e…
-- [Mobius Chair Strategic Foresight Squad](squads/mobius-chair-strategic-foresight-squad/README.md) — `mobius-chair-strategic-foresight-squad` — versão `1.0.0` — Da varredura de horizontes à estratégia robusta: o squad que navega futuros incertos com rigor epistemológico e inteligência adversarial de cenários.
-- [Mother Box Experience Squad](squads/mother-box-experience-squad/README.md) — `mother-box-experience-squad` — versão `1.0.0` — Abrir portais entre a voz do cliente e as decisões de negócio: mapear jornadas, sintetizar pesquisa UX, detectar fricções, projetar blueprints de…
-- [Omega Lock — Crisis Management Squad](squads/omega-lock-crisis-management-squad/README.md) — `omega-lock-crisis-management-squad` — versão `1.0.0` — Detectar, classificar e orquestrar a resposta a crises corporativas com velocidade, clareza e controle. Do sinal precoce ao pós-mortem: proteger…
-- [Soulsword Personal Branding Squad](squads/soulsword-personal-branding-squad/README.md) — `soulsword-personal-branding-squad` — versão `1.0.0` — Forjar a marca pessoal autêntica do profissional a partir da sua própria essência — diagnosticando propósito, posicionando autoridade, construindo…
-- [Vector Sigma Data Forge Squad](squads/vector-sigma-data-forge-squad/README.md) — `vector-sigma-data-forge-squad` — versão `1.0.0` — Transformar dados brutos em inteligência de negócio viva: arquitetar dados, forjar pipelines, garantir qualidade, construir métricas e narrar…
-- [SCRIPTORIUM Squad](squads/scriptorium-squad/README.md) — `scriptorium-squad` — versão `1.0.0` — produção acadêmica fim-a-fim com integridade verificável: 5 guildas / 29 agentes + 2 gates, máquina de estados de 10 estágios (LangGraph), verificação determinística de citação (4 índices), auditoria de fidelidade alegação↔fonte, anti-bajulação e dois gates de integridade não-puláveis (HITL)
-- [SCRIBA — Geração Assistida de Instrumentos Contratuais](squads/scriba-contratos-squad/README.md) — `scriba-contratos-squad` — versão `1.0.0` — geração de minuta inicial, termo aditivo, apostilamento e repactuação/reajuste para contratos administrativos federais (Lei 14.133/2021 + IN SEGES/MPDG 05/2017), com router e engine determinísticos, citação obrigatória por cláusula e HITL Gates A/B
+**Legenda de conformidade**:
+- ✅ Completo (6/6 requisitos)
+- ⚠️ Parcial (4-5/6 requisitos)
+- ❌ Incompleto (<4/6 requisitos)
 
 ---
 
-Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
-- [Prometheus Artis — Galeria dos Mestres](squads/prometheus-artis-galeria-dos-mestres/) — Supergaleria de arte multiagente para prompts visuais de nível museológico.
-- [Árgus — Conta Vinculada](IFFar-Squads/squads/argus-conta-vinculada-squad/README.md) — `argus-conta-vinculada-squad` — versão `1.0.0` — geração e manutenção automática da planilha da Conta-Depósito Vinculada (Anexo XII da IN 05/2017; art. 121 da Lei 14.133/2021): extração de contracheque e FGTS Digital, provisão mensal/saldo/liberações (13º, férias, rescisão), conferência FGTS 8% e planilha .xlsx auditável, com engine determinística (golden tests) e gates humanos
-- [Primus — Super Agente Meta-Orquestrador de Squads](squads/primus-meta-orchestrator-super-squad/README.md) — `primus-meta-orchestrator-super-squad` — versão `1.0.0` — super agente acima de todos os squads: indexa qualquer pasta de squads, gera um wiki de acesso rápido (qual agente usar para cada tarefa), roteia demandas ao melhor agente, cria agentes e squads novos quando há lacunas e mantém um sistema mental que evolui a cada interação (5 scripts determinísticos: índice, roteador, memória, scaffold e validação)
-- [KÊRYX — O Arauto](squads/squad-keryx/README.md) — `squad-keryx` — versão `1.1.0` — gerador autônomo de carrosséis educativos para Instagram com dois trilhos (A: infográfico determinístico HTML+CSS→Playwright→PNG; B: quadrinho de conhecimento com ilustração generativa gated + letterização vetorial), 12 agentes, schemas SACP, curadoria com seed/anti-repetição e gates HITL
-- [THEORÍA — Estúdio Cinematográfico de Vídeos Educacionais em Manim](squads/theoria-squad/README.md) — `theoria-squad` — versão `1.0.0` — pipeline multiagente (LangGraph StateGraph, 13 estágios, 15 agentes) que transforma uma ideia em vídeo educacional 1080p estilo 3Blue1Brown: LLM gera só JSON estruturado; timing, compilação Manim (DSL de primitivas vetadas), QA por frame e mux são Python determinístico/reproduzível, com loops de reconciliação narração↔animação e self-healing, e gates HITL (classificação e homologação estética anti-sycophancy)
-- [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/squad-arkheion/README.md) — `squad-arkheion` — versão `1.0.0` — pipeline multiagente (LangGraph StateGraph, 12 estágios, 11 agentes) que transforma um tema + tamanho de vídeo (30/60/90s) em um dossiê audiovisual estética "arquivo confidencial": cenas atômicas de 10s (CENA-10) montadas deterministicamente, dual-render em vídeo (HUD HTML/CSS+Playwright sobre footage gradeado por FFmpeg), Cânone como código (cor/geometria/fonte/timing/grade), contratos SACP, KÁNŌN (validação numérica bloqueante), ELENCHUS anti-propaganda, self-healing e 3 gates HITL
+- ✅ `6/6` [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/conteúdo-marketing-e-visual/squad-arkheion/README.md) — `ARKHEION` — v`1.0.0`
+  - Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e auditoria TCU-grade....
+
+- ✅ `6/6` [Bigorna de Annwn — Super Sistema de Squads](squads/construção-de-squads-e-sistemas-de-ia/anvil-of-annwn-super-squad-system/README.md) — `Bigorna de Annwn — Super Sistema de Squads` — v`1.0.0`
+
+- ✅ `6/6` [DÉDALO — Fábrica de Ferramentas IA](squads/construção-de-squads-e-sistemas-de-ia/dedalo-fabrica-ferramentas-ia-squad/README.md) — `DÉDALO` — v`3.0.0`
+  - Uma "fábrica de ativos de software" autônoma e auditável: de um vídeo ou processo a uma primeira ver...
+
+- ✅ `6/6` [Forge of Solus Prime — O Martelo dos Primes](squads/construção-de-squads-e-sistemas-de-ia/forge-of-solus-prime/README.md) — `Forge of Solus Prime` — v`1.0.0`
+  - Uma ordem em português entra. Um squad validado, auditável e portável sai — e o sistema fica mais in...
+
+- ✅ `6/6` [KÊRYX — O Arauto](squads/conteúdo-marketing-e-visual/squad-keryx/README.md) — `KÊRYX` — v`1.1.0`
+  - Um "arauto" autônomo que, com um pedido de uma linha, devolve um carrossel pronto-para-publicar, vis...
+
+- ✅ `6/6` [Maeve Athena-Mímir Venture Forge](squads/negócios-estratégia-e-vendas/maeve-athena-mimir-venture-forge-squad/README.md) — `Maeve Athena-Mímir Venture Forge` — v`1.1.0`
+
+- ✅ `6/6` [Maeve Carrossel Premium Instagram PT-BR](squads/conteúdo-marketing-e-visual/maeve-carrossel-premium-instagram-ptbr/README.md) — `Maeve Carrossel Premium Instagram PT-BR` — v`1.1.0`
+
+- ✅ `6/6` [Maeve Lumen Leitura — Squad Premium de Alfabetização Fonológica](squads/educação-e-desenvolvimento-cognitivo/maeve-lumen-leitura-squad/README.md) — `Maeve Lumen Leitura — Squad Premium de Alfabetização Fonológica` — v`1.0.0`
+
+- ✅ `6/6` [OrbisVisum](squads/conteúdo-marketing-e-visual/orbisvisum-elementos-visuais-squad/README.md) — `OrbisVisum` — v`1.0.0`
+
+- ✅ `6/6` [Prisma Psíquico Integrativo](squads/saúde-bem-estar-e-expressão/prisma-psiquico-integrativo/README.md) — `Prisma Psíquico Integrativo` — v`1.0.0`
+
+- ✅ `6/6` [Prisma Real Problem Squad](squads/construção-de-squads-e-sistemas-de-ia/prisma-real-problem-squad/README.md) — `Prisma Real Problem Squad` — v`1.0.0`
+
+- ✅ `6/6` [Proactive AI OS Squad](squads/construção-de-squads-e-sistemas-de-ia/proactive-ai-os-squad/README.md) — `Proactive AI OS Squad` — v`1.0.0`
+
+- ✅ `6/6` [Prometheus Artis — Galeria dos Mestres](squads/conteúdo-marketing-e-visual/prometheus-artis-galeria-dos-mestres/README.md) — `Prometheus Artis — Galeria dos Mestres` — v`1.0.0`
+
+- ✅ `6/6` [SQU Oráculo de Aion — Super Squad de Inteligência Financeira Global](squads/jurídico-risco-finanças-e-segurança/squ-oraculo-aion-finance-super-squad/README.md) — `SQU Oráculo de Aion — Super Squad de Inteligência Financeira Global` — v`1.0.0`
+
+- ✅ `6/6` [THEORÍA — Estúdio Cinematográfico de Vídeos Educacionais em Manim](squads/educação-e-desenvolvimento-cognitivo/theoria-squad/README.md) — `THEORÍA` — v`1.0.0`
+  - Da ideia ao vídeo cinematográfico em ~25 min: 13 estágios, 15 agentes, três gates humanos e dois loo...
+
+- ✅ `6/6` [VetorNexo](squads/conteúdo-marketing-e-visual/vetornexo-premium-squad/README.md) — `VetorNexo` — v`1.0.0`
+
+- ✅ `6/6` [ai-business-builder-squad](squads/negócios-estratégia-e-vendas/ai-business-builder-squad/README.md) — `ai-business-builder-squad` — v`1.0.0`
+
+- ✅ `6/6` [allspark-talent-intelligence-squad](squads/negócios-estratégia-e-vendas/allspark-talent-intelligence-squad/README.md) — `allspark-talent-intelligence-squad` — v`1.0.0`
+
+- ✅ `6/6` [apex-context-supreme](squads/construção-de-squads-e-sistemas-de-ia/apex-context-supreme/apex-context-supreme/README.md) — `apex-context-supreme` — v`1.1.0`
+
+- ✅ `6/6` [apex-context-supreme](squads/construção-de-squads-e-sistemas-de-ia/apex-context-supreme/README.md) — `apex-context-supreme` — v`1.1.0`
+
+- ✅ `6/6` [Árgus — Conta Vinculada](squads/instituto-federal-farroupilha-iffar/argus-conta-vinculada-squad/README.md) — `argus-conta-vinculada-squad` — v`1.0.0`
+  - Squad multiagente que automatiza a Conta-Depósito Vinculada (Anexo XII da IN SEGES/MPDG 05/2017; art...
+
+- ✅ `6/6` [atlas-visual-reports-squad](squads/conteúdo-marketing-e-visual/atlas-visual-reports-squad-v1.1.0/README.md) — `atlas-visual-reports-squad` — v`1.1.0`
+
+- ✅ `6/6` [atlas-visual-reports-squad](squads/conteúdo-marketing-e-visual/atlas-visual-reports-squad-v1.2.0/README.md) — `atlas-visual-reports-squad` — v`1.2.0`
+
+- ✅ `6/6` [aurora-poprock-ballads](squads/saúde-bem-estar-e-expressão/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — v`1.0.0`
+
+- ✅ `6/6` [Bússola Acadêmica IFFar](squads/instituto-federal-farroupilha-iffar/bussola-academica-iffar-squad/README.md) — `bussola-academica-iffar-squad` — v`1.0.0`
+  - Squad institucional que apoia secretarias e coordenações acadêmicas do IFFar no ciclo letivo complet...
+
+- ✅ `6/6` [canto-manto-emocional](squads/saúde-bem-estar-e-expressão/canto-manto-emocional/README.md) — `canto-manto-emocional` — v`1.0.0`
+
+- ✅ `6/6` [canto-memoria-viva](squads/saúde-bem-estar-e-expressão/canto-memoria-viva/README.md) — `canto-memoria-viva` — v`1.0.0`
+
+- ✅ `6/6` [cerebro-sales-intelligence-squad](squads/negócios-estratégia-e-vendas/cerebro-sales-intelligence-squad/README.md) — `cerebro-sales-intelligence-squad` — v`1.0.0`
+
+- ✅ `6/6` [compliance-ia-iffar-squad](squads/instituto-federal-farroupilha-iffar/compliance-ia-iffar-squad/README.md) — `compliance-ia-iffar-squad` — v`1.0.0`
+
+- ✅ `6/6` [copo-de-cafe-academico-squad](squads/educação-e-desenvolvimento-cognitivo/copo-de-cafe-academico-squad/README.md) — `copo-de-cafe-academico-squad` — v`1.0.0`
+
+- ✅ `6/6` [copo-de-cafe-podcast-squad](squads/educação-e-desenvolvimento-cognitivo/copo-de-cafe-podcast-squad/README.md) — `copo-de-cafe-podcast-squad` — v`1.0.0`
+
+- ✅ `6/6` [darkhold-competitive-intelligence-squad](squads/negócios-estratégia-e-vendas/darkhold-competitive-intelligence-squad/README.md) — `darkhold-competitive-intelligence-squad` — v`1.0.0`
+
+- ✅ `6/6` [dharma-companion](squads/saúde-bem-estar-e-expressão/dharma-companion/README.md) — `dharma-companion` — v`1.0.0`
+
+- ✅ `6/6` [durable-execution-orchestrator-squad](squads/construção-de-squads-e-sistemas-de-ia/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — v`1.0.0`
+
+- ✅ `6/6` [farol-contratos-licitacoes-iffar](squads/instituto-federal-farroupilha-iffar/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — v`3.1.0`
+
+- ✅ `6/6` [Farol PCFP — Planilha de Custos e Formação de Preços](squads/jurídico-risco-finanças-e-segurança/farol-pcfp-squad/README.md) — `farol-pcfp-squad` — v`1.0.0`
+  - Do edital à Planilha de Custos e Formação de Preços (XLSX com fórmulas vivas), com cálculo determiní...
+
+- ✅ `6/6` [forge-of-solus-prime-cybersecurity-squad](squads/jurídico-risco-finanças-e-segurança/forge-of-solus-prime-cybersecurity-squad/README.md) — `forge-of-solus-prime-cybersecurity-squad` — v`1.0.0`
+
+- ✅ `6/6` [forja-infinita-venture-squad](squads/negócios-estratégia-e-vendas/manopla-da-forja-venture-squad/README.md) — `forja-infinita-venture-squad` — v`1.1.0`
+
+- ✅ `6/6` [genius-athena-strange](squads/negócios-estratégia-e-vendas/genius-athena-strange/README.md) — `genius-athena-strange` — v`1.0.0`
+
+- ✅ `6/6` [germina360-squad](squads/instituto-federal-farroupilha-iffar/germina360-squad/README.md) — `germina360-squad` — v`1.0.0`
+
+- ✅ `6/6` [gestor-projetos-iffar-squad](squads/instituto-federal-farroupilha-iffar/gestor-projetos-iffar-squad/README.md) — `gestor-projetos-iffar-squad` — v`1.0.0`
+
+- ✅ `6/6` [guardiao-carteira-squad](squads/jurídico-risco-finanças-e-segurança/guardiao-carteira-squad/README.md) — `guardiao-carteira-squad` — v`1.0.0`
+
+- ✅ `6/6` [Harness Foundry Squad](squads/construção-de-squads-e-sistemas-de-ia/harness-foundry-squad/README.md) — `harness-foundry-squad` — v`1.0.0`
+  - Avalia, projeta e funde qualquer squad do Squads-Genius em um harness de agente executável e instalá...
+
+- ✅ `6/6` [Hefesto Forja Licitatória](squads/instituto-federal-farroupilha-iffar/hefesto-forja-licitatoria-squad/README.md) — `hefesto-forja-licitatoria-squad` — v`1.0.0`
+  - Squad premium que transforma a documentação inicial do órgão em processo de licitação completo, na m...
+
+- ✅ `6/6` [instagram-carrossel-visual-pro](squads/conteúdo-marketing-e-visual/instagram-carrossel-visual-pro/README.md) — `instagram-carrossel-visual-pro` — v`1.0.0`
+
+- ✅ `6/6` [integra-incubadora-ops-squad](squads/instituto-federal-farroupilha-iffar/integra-incubadora-ops-squad/README.md) — `integra-incubadora-ops-squad` — v`1.0.0`
+
+- ✅ `6/6` [iso-42001-aims-implementation](squads/jurídico-risco-finanças-e-segurança/iso-42001-aims-implementation/README.md) — `iso-42001-aims-implementation` — v`5.0.0`
+
+- ✅ `6/6` [Lumen Verbi - Squad Biblico de IA](squads/saúde-bem-estar-e-expressão/lumen-verbi-squad-biblico/README.md) — `lumen-verbi-squad-biblico` — v`1.0.0`
+  - Squad multiagente que personifica figuras biblicas e historiadores especializados para explicar a Pa...
+
+- ✅ `6/6` [maeve-atena-mimir](squads/conhecimento-pesquisa-e-dados/maeve-atena-mimir-scienceclaw-research/README.md) — `maeve-atena-mimir` — v`1.1.0`
+
+- ✅ `6/6` [maeve-athena-mimir-matrix-squad](squads/negócios-estratégia-e-vendas/maeve-athena-mimir-matrix-squad/README.md) — `maeve-athena-mimir-matrix-squad` — v`1.0.0`
+
+- ✅ `6/6` [maeve-fundamentos-roi-compass](squads/negócios-estratégia-e-vendas/maeve-fundamentos-roi-compass/README.md) — `maeve-fundamentos-roi-compass` — v`0.2.0`
+
+- ✅ `6/6` [Maeve Genius Forge](squads/construção-de-squads-e-sistemas-de-ia/maeve-genius-forge-squad/README.md) — `maeve-genius-forge-squad` — v`1.0.0`
+  - Da ideia ao sistema: pesquisa, design, agentes, workflows, scripts e monetização em um único pipelin...
+
+- ✅ `6/6` [Maeve Knowledge Graph Forge](squads/conhecimento-pesquisa-e-dados/maeve-knowledge-graph-forge-squad/README.md) — `maeve-knowledge-graph-forge-squad` — v`1.0.2`
+  - Transforma bases documentais em mapas vivos de conhecimento, conexões e ações práticas.
+
+- ✅ `6/6` [maeve-neurocognitive-intelligence-trainer-squad](squads/educação-e-desenvolvimento-cognitivo/maeve-neurocognitive-intelligence-trainer-squad/README.md) — `maeve-neurocognitive-intelligence-trainer-squad` — v`1.1.0`
+
+- ✅ `6/6` [manim-science-studio-squad](squads/educação-e-desenvolvimento-cognitivo/manim-science-studio-squad/README.md) — `manim-science-studio-squad` — v`1.0.0`
+
+- ✅ `6/6` [matrix-of-leadership-squad](squads/negócios-estratégia-e-vendas/matrix-of-leadership-squad/README.md) — `matrix-of-leadership-squad` — v`1.0.0`
+
+- ✅ `6/6` [mentor-ia-educacao-squad](squads/educação-e-desenvolvimento-cognitivo/mentor-ia-educacao-squad/README.md) — `mentor-ia-educacao-squad` — v`1.0.0`
+
+- ✅ `6/6` [Mobius Chair — Inteligência Estratégica de Futuros](squads/negócios-estratégia-e-vendas/mobius-chair-strategic-foresight-squad/README.md) — `mobius-chair-strategic-foresight-squad` — v`1.0.0`
+  - Da varredura de horizontes à estratégia robusta: o squad que navega futuros incertos com rigor epist...
+
+- ✅ `6/6` [mother-box-experience-squad](squads/negócios-estratégia-e-vendas/mother-box-experience-squad/README.md) — `mother-box-experience-squad` — v`1.0.0`
+
+- ✅ `6/6` [nexum-cognitivo](squads/educação-e-desenvolvimento-cognitivo/nexum-cognitivo/README.md) — `nexum-cognitivo` — v`1.0.0`
+
+- ✅ `6/6` [notion-second-brain-squad](squads/conhecimento-pesquisa-e-dados/notion-second-brain-squad/README.md) — `notion-second-brain-squad` — v`1.0.0`
+
+- ✅ `6/6` [Núcleo PRPI IFFar](squads/instituto-federal-farroupilha-iffar/nucleo-prpi-iffar-squad/README.md) — `nucleo-prpi-iffar-squad` — v`1.0.0`
+  - Squad institucional que apoia a Pró-Reitoria/Diretoria de Pesquisa, Pós-Graduação e Extensão (PRPI)...
+
+- ✅ `6/6` [omega-lock-crisis-management-squad](squads/negócios-estratégia-e-vendas/omega-lock-crisis-management-squad/README.md) — `omega-lock-crisis-management-squad` — v`1.0.0`
+
+- ✅ `6/6` [omniscient-graphmaker-squad](squads/construção-de-squads-e-sistemas-de-ia/omniscient-graphmaker-squad/README.md) — `omniscient-graphmaker-squad` — v`6.5.0`
+
+- ✅ `6/6` [PALIMPSESTO](squads/conhecimento-pesquisa-e-dados/palimpsesto-squad/README.md) — `palimpsesto-squad` — v`1.1.0`
+
+- ✅ `6/6` [pdi-vivo-iffar-squad](squads/instituto-federal-farroupilha-iffar/pdi-vivo-iffar-squad/README.md) — `pdi-vivo-iffar-squad` — v`1.0.0`
+
+- ✅ `6/6` [pearson-specter-nova-legal-squad](squads/jurídico-risco-finanças-e-segurança/pearson-specter-nova-legal-squad/README.md) — `pearson-specter-nova-legal-squad` — v`1.0.0`
+
+- ✅ `6/6` [Primus — Super Agente Meta-Orquestrador de Squads](squads/construção-de-squads-e-sistemas-de-ia/primus-meta-orchestrator-super-squad/README.md) — `primus-meta-orchestrator-super-squad` — v`1.0.0`
+  - Super agente acima de todos os squads: indexa qualquer pasta de squads, cria um wiki de acesso rápid...
+
+- ✅ `6/6` [prismaframe-executive-cinema-suite](squads/instituto-federal-farroupilha-iffar/prismaframe-executive-cinema-suite/README.md) — `prismaframe-executive-cinema-suite` — v`1.0.0`
+
+- ✅ `6/6` [PROJUR Contracts Squad](squads/instituto-federal-farroupilha-iffar/projur-contracts-squad/README.md) — `projur-contracts-squad` — v`2.0.0`
+  - Camada de inteligência documental em lote e ciclo de vida (CLM) para contratos, convênios, acordos e...
+
+- ✅ `6/6` [reforco-neurocognitivo-infantil-squad](squads/educação-e-desenvolvimento-cognitivo/reforco-neurocognitivo-infantil-squad/README.md) — `reforco-neurocognitivo-infantil-squad` — v`1.0.0`
+
+- ✅ `6/6` [revisao-bibliografica-automatizada-squad](squads/conhecimento-pesquisa-e-dados/revisao-bibliografica-automatizada-squad/README.md) — `revisao-bibliografica-automatizada-squad` — v`1.0.0`
+
+- ✅ `6/6` [SCRIBA — Geração Assistida de Instrumentos Contratuais](squads/jurídico-risco-finanças-e-segurança/scriba-contratos-squad/README.md) — `scriba-contratos-squad` — v`1.0.0`
+  - Dado um tipo de contrato, produz o instrumento pronto para assinatura (minuta inicial · termo aditiv...
+
+- ✅ `6/6` [SCRIPTORIUM](squads/conteúdo-marketing-e-visual/scriptorium-squad/README.md) — `scriptorium-squad` — v`1.0.0`
+
+- ✅ `6/6` [skeptic-protocol](squads/construção-de-squads-e-sistemas-de-ia/skeptic-protocol/README.md) — `skeptic-protocol` — v`2.1.0`
+
+- ✅ `6/6` [soulsword-personal-branding-squad](squads/conteúdo-marketing-e-visual/soulsword-personal-branding-squad/README.md) — `soulsword-personal-branding-squad` — v`1.0.0`
+
+- ✅ `6/6` [squ-tesouraria-publica-squad](squads/instituto-federal-farroupilha-iffar/squ-tesouraria-publica-squad/README.md) — `squ-tesouraria-publica-squad` — v`1.0.0`
+
+- ✅ `6/6` [squad-docente-iffar](squads/instituto-federal-farroupilha-iffar/squad-docente-iffar/README.md) — `squad-docente-iffar` — v`1.0.0`
+
+- ✅ `6/6` [Squad PCFP — Planilhas de Custos e Formação de Preços](squads/instituto-federal-farroupilha-iffar/squad-pcfp/README.md) — `squad-pcfp` — v`1.0.0`
+  - Squad multi-agente para elaboração, validação e auditoria de Planilhas de Custos e Formação de Preço...
+
+- ✅ `6/6` [squads-gateway-orchestrator](squads/squads-gateway-orchestrator/README.md) — `squads-gateway-orchestrator` — v`0.1.0`
+
+- ✅ `6/6` [Themis Contratos Públicos](squads/instituto-federal-farroupilha-iffar/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — v`1.0.0`
+  - Equipe jurídica de IA para análise de contratos administrativos da administração pública, com confor...
+
+- ✅ `6/6` [trajetoria-evidenciada-squad](squads/saúde-bem-estar-e-expressão/trajetoria-evidenciada-squad/README.md) — `trajetoria-evidenciada-squad` — v`1.0.0`
+
+- ✅ `6/6` [universal-obsidian-knowledge-squad](squads/conhecimento-pesquisa-e-dados/universal-obsidian-knowledge-squad/README.md) — `universal-obsidian-knowledge-squad` — v`1.0.0`
+  - Transforma qualquer vault Obsidian em base de conhecimento pesquisável, citável e auditável, portáve...
+
+- ✅ `6/6` [vector-sigma-data-forge-squad](squads/conhecimento-pesquisa-e-dados/vector-sigma-data-forge-squad/README.md) — `vector-sigma-data-forge-squad` — v`1.0.0`
+
+- ✅ `6/6` [vertice-os-artefatos-marvel](squads/construção-de-squads-e-sistemas-de-ia/vertice-os-artefatos-marvel/README.md) — `vertice-os-artefatos-marvel` — v`2.1.0`
+
+- ✅ `6/6` [vetorviveiro-squad](squads/instituto-federal-farroupilha-iffar/vetorviveiro-squad/README.md) — `vetorviveiro-squad` — v`1.0.0`
+
+- ✅ `6/6` [Órbita Incubadora Squad](squads/instituto-federal-farroupilha-iffar/orbita-incubadora-squad/README.md) — `Órbita Incubadora Squad` — v`1.0.0`
+
+
+---
+
+## Resumo de Conformidade
+
+| Status | Quantidade | Percentual |
+|--------|-----------|-----------|
+| ✅ Completo | 87 | 100% |
+| ⚠️ Parcial | 0 | 0% |
+| ❌ Incompleto | 0 | 0% |
+| **Total** | **87** | **100%** |
