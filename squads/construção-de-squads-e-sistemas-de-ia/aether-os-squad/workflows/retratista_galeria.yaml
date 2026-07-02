@@ -1,0 +1,48 @@
+# Retratista: constelação nativa de extração de prósopa (PRD v1.3, §18.10).
+# Persona é máscara, não juízo: modula método e voz das propostas; nenhum
+# campo de persona é lido por motor determinístico.
+schema_version: aether.workflow/v1
+id: retratista-galeria
+name: Retratista — Extração e Publicação de Prósopa
+version: 1.0.0
+description: >
+  Produz um prósopon (aether.prosopon/v1) a partir de corpus de obra pública,
+  com proveniência item a item, contraditório com evidência e publicação
+  governada na Galeria do Registry.
+stages:
+  - id: r1
+    name: Ingestão do corpus
+    policy_gate: verificação de licença e uso permitido; reservar partição de validação
+  - id: r2
+    name: Extração por camada
+    executor: retratista
+    layers: [principles, mental_models, heuristics, methods, voice]
+    rule: todo item candidato carrega o trecho-fonte (provenance)
+  - id: r3
+    name: Consolidação com proveniência
+    executor: synthesis
+    output: prosopon candidato com mapa de proveniência por item
+  - id: r4
+    name: Contraditório
+    executor: elenchus
+    rule: item sem lastro verificável no corpus é eliminado
+    blocking: true
+  - id: r5
+    name: Validação determinística
+    executor: scripts/persona_engine.py validate
+    deterministic: true
+    checks: [schema, provenance_por_item, disclosure_label, zero_atribuicao_factual]
+  - id: r6
+    name: Fidelidade de método
+    policy: concordância estrutural contra a partição reservada do corpus
+  - id: r7
+    name: Revisão humana e publicação
+    envelope: aether.approval-request/v1
+    on_approve: scripts/persona_engine.py gallery add   # status experimental
+safeguards:
+  - rotulagem obrigatória verificada na egressão (label-check)
+  - antipersonificação: assinar/datar/apresentar-se como a pessoa => policy_denied
+  - despublicação a pedido do titular do método, auditada, trilha preservada
+  - nunca usar em endosso, testemunho ou opinião atual
+lifecycle: draft -> experimental -> trusted -> deprecated
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

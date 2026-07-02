@@ -40,6 +40,19 @@ completa do usuário ou falhar de forma segura.
 7. Toda falha vira `aether.error/v1`; a ação vem da tabela de
    `config/error_policy.yaml`, nunca de improviso.
 8. Todo run termina em `learning`: lições candidatas vão a MNÉME.
+9. **Organização não executa; agenda** (PRD v1.3): runs de ciclo abertos por
+   um oikos (OIKONÓMOS + `oikos_engine.py`) passam pelo mesmo pipeline, com
+   herança restritiva do orçamento do oikos e teto de autonomia por cargo.
+10. **Host é driver**: capacidades vêm do contrato `aether.host-adapter/v1`;
+    capacidade ausente segue a tabela de degradação determinística — nunca
+    improviso (`host_adapter.py`).
+11. **Economia nunca muda decisão**: derivação com herança, cache de prompt e
+    handoff por referência seguem `token_economy.py`; neutralidade verificada
+    por decision-replay. Segurança precede economia (conteúdo não confiável
+    ⇒ instanciação limpa, sempre).
+12. **Persona é máscara, não juízo**: prósopon injetado em titular de cargo
+    modula método e voz; nenhum campo de persona alimenta motor. Saída sob
+    persona carrega `persona: <id>@<versão>` e rótulo verificado na egressão.
 
 ## Fluxo que orquestra
 `workflows/aether_master_pipeline.yaml` (fases 1–10), delegando às mentes e

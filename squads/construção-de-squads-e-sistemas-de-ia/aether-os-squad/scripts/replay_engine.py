@@ -39,6 +39,15 @@ def replay_decision(engine: str, recorded_input: dict, recorded_output: dict) ->
     elif engine == "error":
         import error_policy_engine
         fresh = error_policy_engine.classify(recorded_input)
+    elif engine == "derivation":
+        # Neutralidade da economia de tokens (PRD v1.3 §26.5, NFR-32):
+        # a decisão de derivação deve reproduzir byte a byte.
+        import token_economy
+        fresh = token_economy.derivation_decide(recorded_input)
+    elif engine == "oikos-route":
+        import oikos_engine
+        fresh = oikos_engine.route(recorded_input["manifest"],
+                                   recorded_input["item"])
     else:
         raise ValueError(f"motor desconhecido: {engine}")
     original_bytes = canonical(recorded_output)
@@ -69,7 +78,8 @@ def replay_decision(engine: str, recorded_input: dict, recorded_output: dict) ->
 def main() -> int:
     ap = argparse.ArgumentParser(description="Decision-replay AETHER")
     ap.add_argument("--engine", required=True,
-                    choices=["selection", "risk", "dispatch", "budget", "error"])
+                    choices=["selection", "risk", "dispatch", "budget", "error",
+                             "derivation", "oikos-route"])
     ap.add_argument("--input", required=True, help="entrada registrada (JSON)")
     ap.add_argument("--output", required=True, help="decisão registrada (JSON)")
     args = ap.parse_args()

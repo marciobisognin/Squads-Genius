@@ -1,0 +1,22 @@
+# Economia de tokens (PRD v1.3, §26.5) — alavancas determinísticas e NEUTRAS:
+# nenhuma pode alterar o resultado de uma decisão (verificado por replay).
+schema_version: aether.token-economy-policy/v1
+version: 1.0.0
+levers:
+  lazy_loading: Registry serve metadados; manifesto completo só do selecionado
+  directed_loading: executa-se apenas o agente/capability casado, nunca o squad inteiro
+  cacheable_prompt_layout: estável no início (manifesto, sistema, prósopon); variável no fim
+  fork_with_inheritance: subagente herda contexto quando o host declara subagent_fork
+  handoff_by_reference: envelopes SACP transportam artifact://, nunca conteúdo bruto extenso
+derivation_rules_order:
+  - host_sem_subagent_fork -> instanciacao_limpa
+  - conteudo_nao_confiavel_ou_classe_inferior -> instanciacao_limpa_sempre  # segurança precede economia
+  - contexto_acima_do_limiar -> instanciacao_limpa
+  - caso_contrario -> derivacao_com_heranca (evento registrado)
+limits:
+  inherit_threshold_tokens: 24000
+  envelope_ceiling_tokens: 2000        # NFR-31: teto por envelope SACP
+neutrality:
+  verification: decision-replay em pares com/sem cache e com/sem herança
+  on_divergence: quebra de invariante -> alerta crítico (NFR-32)
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

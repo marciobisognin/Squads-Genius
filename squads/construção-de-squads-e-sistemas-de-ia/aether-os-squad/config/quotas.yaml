@@ -10,6 +10,8 @@ scopes:
     artifact_storage_mb: {soft: 512, hard: 1024}
     child_runs_per_run: {soft: 3, hard: 5}
     child_run_max_depth: {hard: 3}
+    active_oikoi_per_tenant: {soft: 3, hard: 6}          # PRD v1.3 §17.9
+    concurrent_cycles_per_oikos: {soft: 1, hard: 2}      # runs de ciclo simultâneos
 review_loop:
   max_attempts_per_task: 3
   escalation_order: [retry_same, retry_adjusted, partial_replan, human_gate]

@@ -18,6 +18,10 @@ determinístico calcula e decide** (Seção 7 do PRD).
 | Governance Plane | `config/risk_policy.yaml` + `scripts/risk_engine.py` + gates |
 | Observability Plane | eventos `aether.event/v1` + `scripts/replay_engine.py` |
 | Forge Plane | `scripts/forge_bridge.py` + `workflows/capability_gap_forge.yaml` |
+| Organization Plane (v1.3) | `agents/oikonomos.md` + `scripts/oikos_engine.py` + `workflows/oikos_pulso_ciclo.yaml` — oikos agenda, nunca executa |
+| Persona Plane (v1.3) | `agents/retratista.md` + `scripts/persona_engine.py` + `workflows/retratista_galeria.yaml` — máscara, não juízo |
+| Host Plane (v1.3) | `scripts/host_adapter.py` + `config/host_adapters.yaml` — host é driver, degradação determinística |
+| Economy Plane (v1.3) | `scripts/token_economy.py` + `config/token_economy.yaml` — neutra, verificada por replay |
 
 ## Reprodutibilidade em dois níveis (PRD §7.6)
 
@@ -39,6 +43,8 @@ determinístico calcula e decide** (Seção 7 do PRD).
 | 7 | handoff rejeitado → dead-letter |
 | 8 | divergência de replay (incidente crítico) |
 | 9 | loop de revisão não convergiu (partial/failed) |
+| 10 | egressão de persona bloqueada (rótulo ausente / personificação) |
+| 11 | envelope SACP excede teto de tokens (usar referência) |
 
 ## Defesa em profundidade (PRD §23)
 

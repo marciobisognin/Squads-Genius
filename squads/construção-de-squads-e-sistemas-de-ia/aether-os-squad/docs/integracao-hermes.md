@@ -1,8 +1,14 @@
 # Integração com o Hermes Agent (harness)
 
-O Hermes Agent é o **runtime anfitrião**. O AETHER OS é uma capacidade
-invocável pelo Hermes via `HermesRuntimeAdapter`, sem pressupor internals do
-host (PRD §9). Este documento define o contrato de ativação.
+O Hermes Agent é o **host de referência**; qualquer outro host de agente é um
+driver atrás do contrato formal `aether.host-adapter/v1` (PRD v1.3, §9.4).
+O adaptador declara o que o host oferece — `subagent_fork`, `prompt_caching`,
+`native_sandbox`, `notification_channels`, `approval_ui`, `streaming` — e o
+núcleo nunca depende de capacidade não declarada: capacidade ausente segue a
+**tabela de degradação determinística** (`scripts/host_adapter.py
+capabilities`), nunca improviso. O contrato de referência do Hermes está em
+`examples/host_hermes.json` e `config/host_adapters.yaml`; a paridade entre
+hosts é verificada por suíte golden, não presumida (§9.5).
 
 ## Ativação no harness
 
@@ -70,6 +76,10 @@ capability_gap_forge.yaml para forjar um novo squad governado;
 | Entrega completa | SÝNTHESIS + ELENCHUS/TEKMÉRION | `run_loop.py` (critérios) |
 | Aprendizado | MNÉME (curadoria) | `memory_engine.py` (promoção humana) |
 | Squad novo | HÉPHAISTOS (spec) | `forge_bridge.py` + validate |
+| Oikos (pulso/inbox/cargos) | OIKONÓMOS (propostas) | `oikos_engine.py` (ticks, rotas, teto, ciclo de vida) |
+| Prósopon (método e voz) | RETRATISTA (extração) | `persona_engine.py` (validação, rótulo, Galeria) |
+| Capacidades do host | — | `host_adapter.py` (degradação determinística) |
+| Derivação/cache/handoff | — | `token_economy.py` (neutro; replay verifica) |
 
 ---
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

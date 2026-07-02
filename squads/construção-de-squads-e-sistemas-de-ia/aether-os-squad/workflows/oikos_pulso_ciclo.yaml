@@ -1,0 +1,57 @@
+# Oikos: pulso operacional e inbox — organização persistente (PRD v1.3, §17.5-17.9).
+# Invariante único: o oikos NÃO executa nada; agenda, contextualiza e enfileira
+# runs normais do AETHER — mesmos motores, gates, orçamento e trilha.
+schema_version: aether.workflow/v1
+id: oikos-pulso-ciclo
+name: Oikos — Pulso e Ciclo Governado
+version: 1.0.0
+description: >
+  Cada disparo do pulso (agenda cron declarativa) abre um run de ciclo pelo
+  pipeline mestre, com orçamento debitado do oikos e trilha própria. Briefings
+  do inbox passam pelo intake normal e são roteados ao cargo pelo organograma.
+triggers:
+  - type: pulse
+    engine: scripts/oikos_engine.py pulse-due   # ticks devidos, relógio injetável
+  - type: inbox
+    sources: [cli, webhook]
+stages:
+  - id: o1
+    name: Validação do manifesto
+    executor: scripts/oikos_engine.py validate
+    deterministic: true
+    checks: [schema, organograma_aciclico, rotas_existentes, teto_autonomia, politicas]
+  - id: o2
+    name: Elegibilidade do ciclo
+    executor: scripts/quota_engine.py
+    deterministic: true
+    resources: [active_oikoi_per_tenant, concurrent_cycles_per_oikos]
+    on_miss: registrar PulseTick(status=missed) + alerta — nunca silêncio
+  - id: o3
+    name: Contextualização do run de ciclo
+    executor: oikonomos
+    output: briefing contextualizado (missão, cargo, memória de cargo com TTL)
+  - id: o4
+    name: Roteamento de inbox
+    executor: scripts/oikos_engine.py route
+    deterministic: true
+    policy: >
+      intake normal (KRITÉS) antes do roteamento; sem rota ou conflito escala
+      pela cadeia de subordinação até o gate humano
+  - id: o5
+    name: Abertura do run de ciclo
+    sub_workflow: workflows/aether_master_pipeline.yaml
+    inheritance: restritiva (tenant, classe de dado, fração do orçamento do oikos)
+  - id: o6
+    name: Fechamento e memória
+    executor: scripts/memory_engine.py
+    scopes: ["oikos:<id>", "cargo:<id>"]
+    policy: memória de oikos via curadoria MNÉME; memória de cargo com TTL
+unattended:
+  rule: >
+    operação não assistida somente nos níveis de risco declarados em
+    unattended_allowed; aprovações continuam exigidas (prazo + on_expire),
+    e o oikos prossegue apenas com o que não depende delas
+lifecycle:
+  states: [draft, active, paused, archived]
+  archive: congela pulso e inbox; move memória ao plano frio; preserva trilha
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

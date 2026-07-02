@@ -1,0 +1,19 @@
+{
+  "schema_version": "aether.host-adapter/v1",
+  "host": "hermes",
+  "adapter_version": "1.0.0",
+  "invocation": "skill",
+  "capabilities": {
+    "subagent_fork": true,
+    "prompt_caching": true,
+    "native_sandbox": false,
+    "notification_channels": ["cli", "webhook"],
+    "approval_ui": true,
+    "streaming": true
+  },
+  "paths": {
+    "workspace": "~/.aether",
+    "skills": "~/.aether/skills"
+  },
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

@@ -9,7 +9,7 @@ Squads publicados no repositório `Squads-Genius`.
 
 ---
 
-- ✅ `6/6` [AETHER OS — Sistema Operacional Cognitivo de Squads](squads/construção-de-squads-e-sistemas-de-ia/aether-os-squad/README.md) — `AETHER OS` — v`1.0.0`
+- ✅ `6/6` [AETHER OS — Sistema Operacional Cognitivo de Squads e Organizações de Agentes](squads/construção-de-squads-e-sistemas-de-ia/aether-os-squad/README.md) — `AETHER OS` — v`1.1.0`
   - Orquestração autônoma e governada de squads no Hermes Agent: motores determinísticos, loop de revisã...
 
 - ✅ `6/6` [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/conteúdo-marketing-e-visual/squad-arkheion/README.md) — `ARKHEION` — v`1.0.0`

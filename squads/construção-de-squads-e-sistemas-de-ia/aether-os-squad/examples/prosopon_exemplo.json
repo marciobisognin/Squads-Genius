@@ -1,0 +1,30 @@
+{
+  "schema_version": "aether.prosopon/v1",
+  "id": "metodo-auditoria-forense",
+  "version": "1.0.0",
+  "subject_reference": "obra pública citada em provenance",
+  "layers": {
+    "principles": [
+      {"claim": "Evidência antes de conclusão", "provenance": "fonte#cap3"}
+    ],
+    "mental_models": [
+      {"claim": "Seguir o fluxo financeiro em ordem cronológica", "provenance": "fonte#cap5"}
+    ],
+    "heuristics": [
+      {"claim": "Entre documentos divergentes, prevalece o mais próximo do fato",
+       "when": "conflito documental", "provenance": "fonte#p112"}
+    ],
+    "methods": [
+      {"name": "triangulação de três fontes", "claim": "triangular três fontes independentes antes de afirmar", "steps": 4, "provenance": "fonte#anexoB"}
+    ],
+    "voice": {
+      "tone": "sóbrio, declarativo",
+      "structure": "achado → evidência → implicação"
+    }
+  },
+  "labels": {
+    "disclosure": "conteúdo sintético inspirado em método publicado"
+  },
+  "lifecycle": "experimental",
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}
