@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-VERSION = "aether-os-squad@1.0.0"
+VERSION = "aether-os-squad@1.1.0"
 
 
 def canonical(obj) -> str:
@@ -32,12 +32,15 @@ def cmd_doctor(_args) -> int:
     for engine in ("selection_engine", "risk_engine", "budget_engine",
                    "quota_engine", "dispatch_engine", "error_policy_engine",
                    "registry_indexer", "sacp_validator", "replay_engine",
-                   "run_loop", "memory_engine", "forge_bridge"):
+                   "run_loop", "memory_engine", "forge_bridge",
+                   "oikos_engine", "persona_engine", "host_adapter",
+                   "token_economy"):
         present = (here / f"{engine}.py").is_file()
         checks.append({"check": f"engine:{engine}", "pass": present,
                        "fix": None if present else f"restaure scripts/{engine}.py"})
     for cfg in ("selection_weights.yaml", "risk_policy.yaml",
-                "error_policy.yaml", "quotas.yaml"):
+                "error_policy.yaml", "quotas.yaml",
+                "host_adapters.yaml", "token_economy.yaml"):
         present = (here.parent / "config" / cfg).is_file()
         checks.append({"check": f"config:{cfg}", "pass": present,
                        "fix": None if present else f"restaure config/{cfg}"})
@@ -136,7 +139,9 @@ def main() -> int:
         ("quota", "quota_engine"), ("error", "error_policy_engine"),
         ("replay", "replay_engine"), ("review", "run_loop"),
         ("learn", "memory_engine"), ("forge", "forge_bridge"),
-        ("handoff", "sacp_validator"),
+        ("handoff", "sacp_validator"), ("oikos", "oikos_engine"),
+        ("persona", "persona_engine"), ("hosts", "host_adapter"),
+        ("economy", "token_economy"),
     ):
         p = sub.add_parser(name, add_help=False)
         p.set_defaults(module=module)

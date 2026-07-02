@@ -1,7 +1,7 @@
 name: AETHER OS
 code: aether-os-squad
-commercial_name: AETHER OS — Sistema Operacional Cognitivo de Squads
-version: 1.0.0
+commercial_name: AETHER OS — Sistema Operacional Cognitivo de Squads e Organizações de Agentes
+version: 1.1.0
 language: pt-BR
 license: MIT
 creator: Marcio Bisognin
@@ -22,8 +22,13 @@ description: |
   (ELENCHUS + TEKMÉRION), consolida a entrega com proveniência (SÝNTHESIS),
   aprende com o run (MNÉME — autoaprendizado com proveniência, TTL e curadoria)
   e, quando não existe squad adequado, forja um novo squad sob governança
-  (HÉPHAISTOS + capability_gap). Invariante: mentes propõem JSON; motores
-  determinísticos decidem valores — reproduzíveis byte a byte por replay.
+  (HÉPHAISTOS + capability_gap). Na revisão 1.3 do PRD, ganha organizações
+  persistentes (oikos: cargos, pulso, inbox e memória que vivem entre runs —
+  mas nunca executam fora deles), perfis de persona injetáveis (prósopon, com
+  proveniência item a item e salvaguardas de rotulagem/antipersonificação),
+  contrato de adaptador de host com degradação determinística e economia de
+  tokens neutra verificada por replay. Invariante: mentes propõem JSON;
+  motores determinísticos decidem valores — reproduzíveis byte a byte.
 positioning: |
   Uma intenção entra no Hermes Agent. O AETHER descobre o que a organização
   sabe fazer, decide com critério auditável quem executa, governa cada efeito,
@@ -47,6 +52,10 @@ principles:
 - 'Memória com proveniência: só lições aprovadas, com TTL e escopo, influenciam decisões automáticas'
 - 'Lacuna não se improvisa, se forja: capability_gap dispara a Forja governada, nunca uma escolha arbitrária'
 - 'Loop de revisão limitado: validating -> executing até os critérios de aceite, com teto explícito de tentativas'
+- 'Organização não executa; agenda: oikos persiste cargos, memória e pulso, mas todo trabalho acontece em runs normais'
+- 'Persona é máscara, não juízo: prósopon modula método e voz; nenhum campo de persona é lido por motor determinístico'
+- 'Economia nunca muda decisão: alavancas de tokens são neutras, com neutralidade verificada por replay'
+- 'Host é driver: capacidades declaradas por contrato de adaptador, com degradação determinística e paridade verificada'
 stack:
   runtime: Hermes Agent (host) via HermesRuntimeAdapter
   motores: Python 3.11+ stdlib, Decimal, JSON canônico (sort_keys)
@@ -91,6 +100,12 @@ agents:
 - id: hephaistos
   file: agents/hephaistos.md
   role: Forja dinâmica — especifica e cria novos squads/agentes/skills sob capability_gap.
+- id: oikonomos
+  file: agents/oikonomos.md
+  role: Administra oikoi (organizações persistentes) — pulso, inbox, cargos e memória; nunca executa fora de runs.
+- id: retratista
+  file: agents/retratista.md
+  role: Extrai prósopa (perfis de persona) de obra pública com proveniência item a item e salvaguardas.
 tasks:
 - id: normalizar-intencao
   file: tasks/01-normalizar-intencao.md
@@ -131,6 +146,15 @@ tasks:
 - id: aprender-memorizar
   file: tasks/13-aprender-memorizar.md
   desc: Extrair lições candidatas, curar com MNÉME e registrar com TTL e proveniência.
+- id: operar-oikos
+  file: tasks/14-operar-oikos.md
+  desc: Operar organização persistente — pulso abre runs de ciclo; inbox passa pelo intake normal.
+- id: extrair-prosopon
+  file: tasks/15-extrair-prosopon.md
+  desc: Extrair prósopon de obra pública (Retratista) e publicar na Galeria sob salvaguardas.
+- id: adaptar-host
+  file: tasks/16-adaptar-host.md
+  desc: Consumir capacidades do host por contrato, com degradação determinística e economia de tokens neutra.
 workflows:
 - id: aether-master-pipeline
   file: workflows/aether_master_pipeline.yaml
@@ -147,6 +171,12 @@ workflows:
 - id: ciclo-aprendizagem
   file: workflows/ciclo_aprendizagem.yaml
   desc: Avaliação pós-run, curadoria MNÉME e promoção governada de lições.
+- id: oikos-pulso-ciclo
+  file: workflows/oikos_pulso_ciclo.yaml
+  desc: Pulso e inbox do oikos abrindo runs de ciclo governados — organização que agenda, nunca executa.
+- id: retratista-galeria
+  file: workflows/retratista_galeria.yaml
+  desc: Constelação Retratista — extração de prósopon com proveniência, contraditório e publicação na Galeria.
 scripts:
 - file: scripts/aether_cli.py
   desc: CLI operacional (doctor, init, discover, plan, run, inspect, replay, forge, learn).
@@ -174,6 +204,14 @@ scripts:
   desc: Autoaprendizado — lições com proveniência, dedupe, TTL, promoção governada.
 - file: scripts/forge_bridge.py
   desc: Forja — capability_gap -> briefing + scaffold de squad novo validável.
+- file: scripts/oikos_engine.py
+  desc: Motor de oikos — valida manifesto, calcula ticks do pulso, roteia inbox, teto de autonomia, ciclo de vida.
+- file: scripts/persona_engine.py
+  desc: Motor de personas — valida prósopon, verifica rótulo na egressão, bloqueia personificação, governa a Galeria.
+- file: scripts/host_adapter.py
+  desc: Contrato de host — capacidades declaradas, degradação determinística e comparação de paridade.
+- file: scripts/token_economy.py
+  desc: Economia de tokens — regras de derivação, teto por envelope SACP, layout cacheável, telemetria neutra.
 config:
 - file: config/selection_weights.yaml
   desc: Pesos versionados do motor de seleção (nunca em prompt).
@@ -182,7 +220,11 @@ config:
 - file: config/error_policy.yaml
   desc: Tabela classe->ação do error-policy-engine.
 - file: config/quotas.yaml
-  desc: Limites de recursos por escopo (soft/hard).
+  desc: Limites de recursos por escopo (soft/hard), incluindo oikoi e ciclos.
+- file: config/host_adapters.yaml
+  desc: Adaptadores de host declarados + tabela de degradação determinística.
+- file: config/token_economy.yaml
+  desc: Alavancas de economia de tokens, limiares e política de neutralidade.
 metrics:
 - 'Reprodutibilidade de decisão: 100% (decision-replay byte a byte)'
 - 'ASR (Autonomous Success Rate): > 70% em fluxos de baixo risco maduros'

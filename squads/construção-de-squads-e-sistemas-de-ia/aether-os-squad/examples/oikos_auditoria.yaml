@@ -1,0 +1,40 @@
+# Oikos de referência do PRD v1.3 (§17.6): célula de auditoria contínua.
+schema_version: aether.oikos/v1
+id: auditoria-continua
+name: Célula de Auditoria Contínua
+version: 1.0.0
+mission: Auditar contratos ativos e reportar achados com evidência.
+org_chart:
+  - position: chefe-de-auditoria
+    reports_to: null
+    routes: [achado-critico, excecao-de-politica]
+  - position: analista-de-contratos
+    reports_to: chefe-de-auditoria
+    routes: [analise-de-contrato]
+positions:
+  - id: chefe-de-auditoria
+    mandate: Priorizar achados, decidir escalonamentos e responder pelo ciclo.
+    required_capabilities: [business-rule-validation]
+    persona: null
+    autonomy_ceiling: medium
+  - id: analista-de-contratos
+    mandate: Analisar contratos designados e propor achados com evidência.
+    required_capabilities: [contract-clause-extraction, business-rule-validation]
+    preferred_squads: [contract-audit-squad@^2]
+    persona: null
+    autonomy_ceiling: medium
+processes:
+  - id: ciclo-diario-de-auditoria
+    constellation: contract-audit@^1
+    trigger: pulse
+pulse:
+  - cron: "0 7 * * 1-5"
+    process: ciclo-diario-de-auditoria
+inbox:
+  sources: [cli, webhook]
+budget:
+  monthly_usd_cap: '300.00'
+policies:
+  default_mode: supervised
+  unattended_allowed: [low]
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

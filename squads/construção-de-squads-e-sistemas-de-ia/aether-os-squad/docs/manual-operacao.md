@@ -50,6 +50,26 @@ python3 scripts/memory_engine.py --store memory/lessons.jsonl query --scope <cap
 
 # Forja (capability_gap -> squad novo)
 python3 scripts/forge_bridge.py --gap <gap.json> --workspace <workspace-isolado>
+
+# Oikos — organizações persistentes (PRD v1.3)
+python3 scripts/oikos_engine.py validate --manifest <oikos.yaml>
+python3 scripts/oikos_engine.py pulse-due --manifest <oikos.yaml> --now <ISO>
+python3 scripts/oikos_engine.py route --manifest <oikos.yaml> --item <inbox_item.json>
+python3 scripts/oikos_engine.py autonomy --manifest <oikos.yaml> --position <cargo> --tier <tier>
+python3 scripts/oikos_engine.py transition --state active --to paused
+
+# Prósopon — personas com salvaguardas (PRD v1.3)
+python3 scripts/persona_engine.py validate --prosopon <prosopon.json>
+python3 scripts/persona_engine.py label-check --artifact <arquivo> --persona <id>
+python3 scripts/persona_engine.py gallery-add --prosopon <prosopon.json>
+python3 scripts/persona_engine.py gallery-retire --persona <id> --reason "<motivo>"
+
+# Host e economia de tokens (PRD v1.3)
+python3 scripts/host_adapter.py validate --adapter <host.json>
+python3 scripts/host_adapter.py capabilities --adapter <host.json>
+python3 scripts/token_economy.py derive --request <derivation_request.json>
+python3 scripts/token_economy.py envelope-check --payload <arquivo>
+python3 scripts/replay_engine.py --engine derivation --input <req.json> --output <decisao.json>
 ```
 
 ## Runbooks mínimos
@@ -62,6 +82,9 @@ python3 scripts/forge_bridge.py --gap <gap.json> --workspace <workspace-isolado>
 | `injection_suspected` | Quarentena do conteúdo + revisão humana; nunca reprocessar sem correção |
 | `budget_exceeded` | Pausar tarefas custosas; decisão humana para elevar teto |
 | Aprovações expirando | Executar `on_expire` declarado; revisar telemetria antifadiga |
+| Ciclo de oikos perdido (`PulseTick: missed`) | Verificar host/quota/disjuntor; ciclo perdido nunca se acumula em silêncio |
+| Egressão de persona bloqueada (exit 10) | Rótulo ausente ou personificação: corrigir artefato; personificação é evento de segurança |
+| Divergência de neutralidade (economia) | Alavanca alterou decisão: quebra de invariante; desligar alavanca e auditar |
 
 ## O que este squad NÃO faz sem gate humano
 
@@ -69,6 +92,9 @@ python3 scripts/forge_bridge.py --gap <gap.json> --workspace <workspace-isolado>
 - Promoção de lição a `approved_rule`.
 - Promoção de squad forjado a `trusted` e publicação.
 - Planejamento sob regime caótico/indefinido.
+- Publicação de prósopon na Galeria (revisão humana obrigatória).
+- Risco acima do teto de autonomia de um cargo de oikos (escala a cadeia).
+- Modo não assistido fora dos níveis declarados em `unattended_allowed`.
 
 ---
 Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

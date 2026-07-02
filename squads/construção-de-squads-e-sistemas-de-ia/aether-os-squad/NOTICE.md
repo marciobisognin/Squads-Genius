@@ -1,17 +1,22 @@
 # NOTICE
 
 **AETHER OS Squad** (`aether-os-squad`) é um squad do repositório Squads-Genius,
-construído a partir do PRD "AETHER OS v1.2 — Sistema Operacional Cognitivo para
-Orquestração Autônoma de Squads no Hermes Agent", fornecido por Marcio Bisognin.
+construído a partir do PRD "AETHER OS — Sistema Operacional Cognitivo para
+Orquestração Autônoma de Squads e Organizações de Agentes" (revisões 1.2 e 1.3),
+fornecido por Marcio Bisognin.
 
 ## Metodologia
 
 A arquitetura AETHER — Cortex, mentes sintéticas com nomenclatura epistêmica
 greco-latina (KRITÉS, BOULÉ, EKLOGÉ, ELENCHUS, TEKMÉRION, THÉMIS, MAIEUTIKÉ,
 SÝNTHESIS, MNÉME, AITÍA), motores determinísticos, protocolo SACP, Forja
-dinâmica e ciclo de aprendizagem com proveniência — é **metodologia autoral**
-descrita no PRD do produto. Nenhuma metodologia de terceiros é copiada ou
-reembalada.
+dinâmica, ciclo de aprendizagem com proveniência, organizações persistentes
+(**oikos**, οἶκος) com OIKONÓMOS, perfis de persona (**prósopon**, πρόσωπον)
+com o Retratista e a Galeria, contrato de adaptador de host e economia de
+tokens neutra — é **metodologia autoral** descrita no PRD do produto. Nenhuma
+metodologia de terceiros é copiada ou reembalada. Prósopa derivam apenas de
+obra pública e licenciável, com proveniência item a item, rotulagem
+obrigatória de conteúdo sintético e bloqueio de personificação.
 
 ## Nomenclatura
 

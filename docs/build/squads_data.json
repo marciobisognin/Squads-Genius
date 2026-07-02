@@ -133,8 +133,8 @@
   },
   {
     "id": "aether-os-squad",
-    "name": "AETHER OS — Sistema Operacional Cognitivo de Squads",
-    "tagline": "Orquestração autônoma e governada de squads no Hermes Agent: 10 mentes epistêmicas propõem em JSON, 8 motores determinísticos decidem valores, loop de revisão até a entrega completa, autoaprendizado com proveniência e Forja de novos squads sob capability_gap.",
+    "name": "AETHER OS — Sistema Operacional Cognitivo de Squads e Organizações de Agentes",
+    "tagline": "Orquestração autônoma e governada de squads no Hermes Agent: 12 mentes epistêmicas propõem em JSON, 12 motores determinísticos decidem valores, loop de revisão até a entrega completa, autoaprendizado com proveniência, Forja de novos squads sob capability_gap — e, no PRD v1.3, organizações persistentes (oikos), personas com proveniência (prósopon), contrato multi-host e economia de tokens neutra verificada por replay.",
     "color": "#6d28d9",
     "card_icon": "orchestrator",
     "agents": [
@@ -209,6 +209,18 @@
         "role": "Ferreiro",
         "desc": "Forja novos squads governados quando não existe capacidade adequada",
         "icon": "factory"
+      },
+      {
+        "name": "OIKONÓMOS",
+        "role": "Administrador",
+        "desc": "Gere oikoi (organizações persistentes): pulso, inbox, cargos e memória — nunca executa fora de runs",
+        "icon": "planner"
+      },
+      {
+        "name": "RETRATISTA",
+        "role": "Extrator de Personas",
+        "desc": "Extrai prósopa de obra pública com proveniência item a item e salvaguardas de rotulagem",
+        "icon": "designer"
       }
     ],
     "tools": [
@@ -259,6 +271,22 @@
       {
         "file": "aether_cli.py",
         "desc": "CLI operacional: doctor, init, demo, discover, select, risk, replay…"
+      },
+      {
+        "file": "oikos_engine.py",
+        "desc": "Oikos: manifesto, ticks do pulso (cron determinístico), roteamento com escalada, teto de autonomia"
+      },
+      {
+        "file": "persona_engine.py",
+        "desc": "Prósopon: validação com proveniência, rótulo na egressão, antipersonificação, Galeria"
+      },
+      {
+        "file": "host_adapter.py",
+        "desc": "Contrato de host com degradação determinística e verificação de paridade"
+      },
+      {
+        "file": "token_economy.py",
+        "desc": "Economia de tokens neutra: 4 regras de derivação, teto por envelope, layout cacheável"
       }
     ],
     "steps": [
@@ -293,11 +321,19 @@
       {
         "title": "Entrega + Aprendizado",
         "desc": "SÝNTHESIS consolida com proveniência; MNÉME cura lições com TTL"
+      },
+      {
+        "title": "Organizações Persistentes",
+        "desc": "Oikos agenda runs de ciclo (pulso/inbox) com cargos, teto de autonomia e memória em camadas"
+      },
+      {
+        "title": "Personas Governadas",
+        "desc": "Retratista extrai método e voz de obra pública; ELENCHUS depura; Galeria publica com salvaguardas"
       }
     ],
     "output": {
       "title": "Organização digital coordenada, auditável e que aprende",
-      "desc": "Resposta estruturada ao Hermes com artefatos (SHA-256), decisões de seleção/risco reproduzíveis byte a byte por replay, lições com proveniência e — quando falta capacidade — um squad novo forjado sob governança que passa na validação oficial."
+      "desc": "Resposta estruturada ao Hermes com artefatos (SHA-256), decisões reproduzíveis byte a byte por replay, lições com proveniência, organizações que operam entre runs sem burlar gates, personas rotuladas e verificadas na egressão e — quando falta capacidade — um squad novo forjado sob governança que passa na validação oficial."
     },
     "category": "Construção de Squads & Sistemas de IA",
     "links": [

@@ -1,0 +1,29 @@
+# Adaptadores de host (aether.host-adapter/v1) — PRD v1.3, §9.4/9.5.
+# Host é driver: o núcleo consome capacidades declaradas, com degradação
+# determinística por capacidade ausente. Paridade verificada por suíte golden.
+schema_version: aether.host-adapter-registry/v1
+version: 1.0.0
+reference_host: hermes
+adapters:
+  - schema_version: aether.host-adapter/v1
+    host: hermes
+    adapter_version: 1.0.0
+    invocation: skill
+    capabilities:
+      subagent_fork: true
+      prompt_caching: true
+      native_sandbox: false     # ausente: usa-se o sandbox do AETHER
+      notification_channels: [cli, webhook]
+      approval_ui: true
+      streaming: true
+    paths:
+      workspace: "~/.aether"
+      skills: "~/.aether/skills"
+degradation_table:
+  subagent_fork: derivação vira instanciação limpa; custo maior, semântica idêntica
+  prompt_caching: layout permanece; apenas sem reaproveitamento
+  native_sandbox: executor usa o sandbox próprio do AETHER
+  notification_channels: aprovações/alertas na fila do dashboard/CLI, mesmos prazos
+  approval_ui: o gate aponta para 'aether approvals' na CLI
+  streaming: resposta entregue ao final do run
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

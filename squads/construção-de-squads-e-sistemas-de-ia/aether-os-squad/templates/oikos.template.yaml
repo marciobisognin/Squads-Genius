@@ -1,0 +1,36 @@
+# Template de manifesto de oikos (aether.oikos/v1) — PRD v1.3, §17.6.
+# Invariante: o oikos não executa nada; agenda, contextualiza e enfileira runs.
+schema_version: aether.oikos/v1
+id: <slug-do-oikos>
+name: <Nome da Organização>
+version: 0.1.0
+mission: <missão em uma frase, verificável>
+org_chart:
+  - position: <cargo-raiz>
+    reports_to: null
+    routes: [<rota-1>, <rota-2>]
+  - position: <cargo-subordinado>
+    reports_to: <cargo-raiz>
+    routes: [<rota-3>]
+positions:
+  - id: <cargo-subordinado>
+    mandate: <mandato do cargo>
+    required_capabilities: [<capability-1>]
+    preferred_squads: [<squad@^1>]
+    persona: null                  # opcional: prosopon <id>@<versão> (só método e voz)
+    autonomy_ceiling: low|medium   # teto de risco sem escalar
+processes:
+  - id: <processo-recorrente>
+    constellation: <constelacao@^1>
+    trigger: pulse
+pulse:
+  - cron: "0 7 * * 1-5"            # 5 campos: min hora dia mês dia-da-semana
+    process: <processo-recorrente>
+inbox:
+  sources: [cli, webhook]
+budget:
+  monthly_usd_cap: '<valor>'
+policies:
+  default_mode: supervised
+  unattended_allowed: [low]        # não assistido nunca significa sem gates
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
