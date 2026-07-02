@@ -1,0 +1,39 @@
+# Loop de revisão da tarefa até entregar a solicitação completa (PRD §14.3).
+# Self-healing limitado e observável: validating -> executing sob teto explícito.
+schema_version: aether.workflow/v1
+id: loop-revisao-entrega
+name: Loop de Revisão até Entrega Completa
+version: 1.0.0
+description: >
+  Executa cada tarefa e valida contra os critérios de aceite; enquanto houver
+  critério não atendido e tentativas disponíveis, corrige e reexecuta. Esgotado
+  o teto, escala a humano ou finaliza como partial/failed — nunca loop infinito.
+loop:
+  state_machine: scripts/run_loop.py
+  transition: validating -> executing
+  max_attempts_per_task: ${config/quotas.yaml:review_loop.max_attempts_per_task}
+  escalation_order:
+    - retry_same            # (a) mesmos parâmetros
+    - retry_adjusted        # (b) ajuste de parâmetros
+    - partial_replan        # (c) replanejamento do sub-DAG afetado (BOULÉ)
+    - human_gate            # (d) escalonamento a gate humano
+steps:
+  - id: execute
+    action: executar tarefa selecionada (sandbox quando não confiável)
+  - id: validate
+    action: >
+      validar saída contra output_contract (schema), acceptance_criteria
+      (checks determinísticos) e, quando impacto medio+, contraditório
+      ELENCHUS resolvido
+  - id: decide
+    action: >
+      todos os critérios atendidos -> completed; critério falhou e há
+      tentativa -> registrar motivo + diff de parâmetros/plano + impacto no
+      orçamento e voltar a execute; teto esgotado -> partial ou failed com
+      aether.error/v1
+records:
+  - cada tentativa registra motivo, diff e custo (auditável)
+  - dependency_failed propaga skipped pelo DAG
+  - falha após efeitos externos dispara compensação em ordem inversa
+exit_states: [completed, partial, failed, awaiting_approval]
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,23 @@
+# Tabela classe->ação do error-policy-engine (aether.error-policy/v1).
+# Mudar uma ação é mudança auditável de software, não edição de prompt.
+schema_version: aether.error-policy/v1
+version: 1.0.0
+classes:
+  contract_violation: {retryable: false, action: block_step}
+  policy_denied: {retryable: false, action: block_and_log}
+  approval_expired: {retryable: false, action: execute_on_expire}
+  budget_exceeded: {retryable: false, action: pause_costly_and_escalate}
+  quota_exceeded: {retryable: false, action: enqueue_soft_or_refuse_hard}
+  tool_error: {retryable: true, action: retry_backoff_until_limit}
+  model_unavailable: {retryable: true, action: profile_fallback_or_pause}
+  timeout: {retryable: true, action: retry_if_idempotent_else_fail}
+  sandbox_violation: {retryable: false, action: abort_quarantine_alert}
+  integrity_error: {retryable: false, action: block_handoff_security_event}
+  injection_suspected: {retryable: false, action: quarantine_human_review}
+  dependency_failed: {retryable: false, action: propagate_skipped}
+  compensation_failed: {retryable: false, action: incident_critical_alert_human}
+  internal: {retryable: false, action: fail_safe_triage}
+retry_defaults:
+  max_attempts: 3
+  backoff_seconds: [2, 4, 8]
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

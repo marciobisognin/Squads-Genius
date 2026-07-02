@@ -132,6 +132,194 @@
     ]
   },
   {
+    "id": "aether-os-squad",
+    "name": "AETHER OS — Sistema Operacional Cognitivo de Squads",
+    "tagline": "Orquestração autônoma e governada de squads no Hermes Agent: 10 mentes epistêmicas propõem em JSON, 8 motores determinísticos decidem valores, loop de revisão até a entrega completa, autoaprendizado com proveniência e Forja de novos squads sob capability_gap.",
+    "color": "#6d28d9",
+    "card_icon": "orchestrator",
+    "agents": [
+      {
+        "name": "AETHER CORTEX",
+        "role": "Kernel",
+        "desc": "Orquestra intake → plano → seleção → execução → contraditório → entrega → aprendizado",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "KRITÉS",
+        "role": "Juiz do Intake",
+        "desc": "Classifica cada intenção por regime de complexidade (Cynefin) com gate humano",
+        "icon": "router"
+      },
+      {
+        "name": "MAIEUTIKÉ",
+        "role": "Parteira Socrática",
+        "desc": "Desambigua: perguntas mínimas + interpretações candidatas com consequências",
+        "icon": "communicator"
+      },
+      {
+        "name": "BOULÉ",
+        "role": "Conselho",
+        "desc": "Decompõe o objetivo em Task Manifest (DAG) com contratos e critérios de aceite",
+        "icon": "planner"
+      },
+      {
+        "name": "EKLOGÉ",
+        "role": "Aderência Semântica",
+        "desc": "Propõe semantic_fit 0–1; quem ordena é o motor de seleção determinístico",
+        "icon": "analyst"
+      },
+      {
+        "name": "THÉMIS",
+        "role": "Governança",
+        "desc": "Parecer não vinculante em casos-limite; o Policy Engine decide allow/deny",
+        "icon": "guardian"
+      },
+      {
+        "name": "ELENCHUS",
+        "role": "Refutador",
+        "desc": "Contraditório anti-bajulação: tenta derrubar conclusões antes da entrega",
+        "icon": "reviewer"
+      },
+      {
+        "name": "TEKMÉRION",
+        "role": "Prova",
+        "desc": "Valida lastro de toda afirmação — inclusive das objeções do refutador",
+        "icon": "auditor"
+      },
+      {
+        "name": "SÝNTHESIS",
+        "role": "Composição",
+        "desc": "Consolida entregas parciais com proveniência por afirmação",
+        "icon": "composer"
+      },
+      {
+        "name": "MNÉME",
+        "role": "Memória",
+        "desc": "Cura lições candidatas: dedupe, conflito, lastro, escopo e TTL (autoaprendizado)",
+        "icon": "scientist"
+      },
+      {
+        "name": "AITÍA",
+        "role": "Causa Raiz",
+        "desc": "Hipóteses causais pós-falha com evidência sobre a trilha do run",
+        "icon": "validator"
+      },
+      {
+        "name": "HÉPHAISTOS",
+        "role": "Ferreiro",
+        "desc": "Forja novos squads governados quando não existe capacidade adequada",
+        "icon": "factory"
+      }
+    ],
+    "tools": [
+      {
+        "file": "selection_engine.py",
+        "desc": "Seleção determinística: gates rígidos + score Decimal + capability_gap"
+      },
+      {
+        "file": "risk_engine.py",
+        "desc": "Risco: fatores → tier + escalonamento rígido → política de aprovação"
+      },
+      {
+        "file": "dispatch_engine.py",
+        "desc": "Despacho: elegibilidade, prioridade, justiça entre tenants, desempate estável"
+      },
+      {
+        "file": "budget_engine.py + quota_engine.py",
+        "desc": "Orçamento soft/hard e quotas de recursos com ledger"
+      },
+      {
+        "file": "error_policy_engine.py",
+        "desc": "Taxonomia canônica aether.error/v1 com ação determinística por classe"
+      },
+      {
+        "file": "sacp_validator.py",
+        "desc": "Handoffs SACP: schema, SHA-256, anti-injeção e dead-letter"
+      },
+      {
+        "file": "registry_indexer.py",
+        "desc": "Discovery de squads locais/Git com estados de confiança (88 indexados)"
+      },
+      {
+        "file": "run_loop.py",
+        "desc": "Máquina de estados + loop de revisão limitado até a entrega completa"
+      },
+      {
+        "file": "memory_engine.py",
+        "desc": "Autoaprendizado: lições com proveniência, TTL, dedupe e promoção governada"
+      },
+      {
+        "file": "forge_bridge.py",
+        "desc": "Forja: capability_gap → briefing + scaffold de squad novo validável"
+      },
+      {
+        "file": "replay_engine.py",
+        "desc": "Decision-replay byte a byte para auditoria contínua"
+      },
+      {
+        "file": "aether_cli.py",
+        "desc": "CLI operacional: doctor, init, demo, discover, select, risk, replay…"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Classificação de Intake",
+        "desc": "KRITÉS enquadra o pedido por regime de complexidade; gate humano quando exigido"
+      },
+      {
+        "title": "Plano em DAG",
+        "desc": "BOULÉ produz Task Manifest com contratos, riscos e critérios de aceite"
+      },
+      {
+        "title": "Descoberta + Seleção",
+        "desc": "Registry indexa squads; motor determinístico escolhe — ou emite capability_gap"
+      },
+      {
+        "title": "Risco + Política",
+        "desc": "Tier calculado em Decimal mapeia aprovação com prazo e quórum"
+      },
+      {
+        "title": "Execução Governada",
+        "desc": "Despacho determinístico sob quotas, orçamento, sandbox e erros tipados"
+      },
+      {
+        "title": "Loop de Revisão",
+        "desc": "validating → executing até cumprir todos os critérios ou falhar de forma segura"
+      },
+      {
+        "title": "Contraditório",
+        "desc": "ELENCHUS refuta; TEKMÉRION exige evidência de cada objeção"
+      },
+      {
+        "title": "Entrega + Aprendizado",
+        "desc": "SÝNTHESIS consolida com proveniência; MNÉME cura lições com TTL"
+      }
+    ],
+    "output": {
+      "title": "Organização digital coordenada, auditável e que aprende",
+      "desc": "Resposta estruturada ao Hermes com artefatos (SHA-256), decisões de seleção/risco reproduzíveis byte a byte por replay, lições com proveniência e — quando falta capacidade — um squad novo forjado sob governança que passa na validação oficial."
+    },
+    "category": "Construção de Squads & Sistemas de IA",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/squads-genius/tree/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/aether-os-squad"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/squads-genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/aether-os-squad/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/squads-genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/aether-os-squad/squad.yaml"
+      },
+      {
+        "label": "Manual",
+        "url": "https://github.com/marciobisognin/squads-genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/aether-os-squad/docs/manual-operacao.md"
+      }
+    ]
+  },
+  {
     "id": "primus-meta-orchestrator-super-squad",
     "name": "Primus — Meta-Orquestrador de Squads",
     "tagline": "Super agente acima de todos os squads: indexa qualquer pasta de squads, cria um wiki de acesso rápido, roteia cada tarefa ao agente certo, cria squads novos quando há lacunas e evolui um sistema mental a cada interação.",

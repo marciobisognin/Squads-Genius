@@ -1,0 +1,192 @@
+name: AETHER OS
+code: aether-os-squad
+commercial_name: AETHER OS — Sistema Operacional Cognitivo de Squads
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+slashPrefix: aether
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+framework: PRD AETHER OS v1.2 (arquitetura autoral)
+description: |
+  Camada cognitiva de infraestrutura executada via harness do Hermes Agent que
+  transforma uma coleção dispersa de squads em uma organização digital
+  coordenada. Recebe uma intenção em linguagem natural, classifica-a por regime
+  de complexidade (KRITÉS + gate humano), desambigua (MAIEUTIKÉ), planeja um
+  Task Manifest em DAG (BOULÉ), descobre e indexa squads locais/Git (Registry),
+  seleciona capacidades por motor determinístico (gates + score ponderado),
+  classifica risco e política por motores auditáveis, despacha e executa sob
+  quotas e orçamento, valida em loop de revisão limitado até cumprir os
+  critérios de aceite, submete conclusões a contraditório com evidência
+  (ELENCHUS + TEKMÉRION), consolida a entrega com proveniência (SÝNTHESIS),
+  aprende com o run (MNÉME — autoaprendizado com proveniência, TTL e curadoria)
+  e, quando não existe squad adequado, forja um novo squad sob governança
+  (HÉPHAISTOS + capability_gap). Invariante: mentes propõem JSON; motores
+  determinísticos decidem valores — reproduzíveis byte a byte por replay.
+positioning: |
+  Uma intenção entra no Hermes Agent. O AETHER descobre o que a organização
+  sabe fazer, decide com critério auditável quem executa, governa cada efeito,
+  revisa até entregar completo — e, se ninguém sabe fazer, forja quem saiba.
+ecosystem: OMNISCIENT
+aios:
+  minVersion: 2.1.0
+  type: squad
+domains:
+- construcao_de_squads
+- sistemas_de_ia
+- orquestracao_de_agentes
+- governanca_de_ia
+- memoria_institucional
+principles:
+- 'Determinismo onde importa: mentes propõem JSON; motores decidem valores (Decimal, versionado, testável)'
+- 'Squads antes de prompts soltos: toda capacidade é registrada, versionada e descrita por contratos'
+- 'Falha segura: incerteza, contrato inválido ou risco elevado pausam e escalam a humano'
+- 'Contraditório obrigatório: conclusões de impacto médio+ passam por ELENCHUS com evidência (TEKMÉRION)'
+- 'Falha e reversão fazem parte do plano: erros são contratos tipados (aether.error/v1); efeito nasce com compensação'
+- 'Memória com proveniência: só lições aprovadas, com TTL e escopo, influenciam decisões automáticas'
+- 'Lacuna não se improvisa, se forja: capability_gap dispara a Forja governada, nunca uma escolha arbitrária'
+- 'Loop de revisão limitado: validating -> executing até os critérios de aceite, com teto explícito de tentativas'
+stack:
+  runtime: Hermes Agent (host) via HermesRuntimeAdapter
+  motores: Python 3.11+ stdlib, Decimal, JSON canônico (sort_keys)
+  contratos: 'schemas aether.*/v1 (Pydantic v2 quando disponível; fallback dataclasses)'
+  memoria: JSONL local com proveniência, TTL e curadoria
+  observabilidade: eventos estruturados aether.event/v1 + decision-replay
+  testes: pytest (golden tests) ou execução direta dos motores via CLI
+agents:
+- id: aether-cortex
+  file: agents/aether-cortex.md
+  role: Kernel cognitivo — orquestra intake, plano, políticas, despacho, loop de revisão e entrega.
+- id: krites
+  file: agents/krites.md
+  role: Classificação de intake por regime de complexidade (Cynefin) com confiança.
+- id: maieutike
+  file: agents/maieutike.md
+  role: Desambiguação no gate de classificação — menor conjunto de perguntas + interpretações candidatas.
+- id: boule
+  file: agents/boule.md
+  role: Planejamento — decompõe o objetivo em Task Manifest (DAG) com contratos e critérios de aceite.
+- id: ekloge
+  file: agents/ekloge.md
+  role: Aderência semântica — propõe semantic_fit (0-1) com justificativa; o motor ordena.
+- id: themis
+  file: agents/themis.md
+  role: Parecer de governança em casos-limite; o Policy Engine decide allow/deny.
+- id: elenchus
+  file: agents/elenchus.md
+  role: Revisão adversarial anti-bajulação — tenta refutar conclusões antes da entrega.
+- id: tekmerion
+  file: agents/tekmerion.md
+  role: Revisão de evidências — valida lastro de afirmações e das objeções de ELENCHUS.
+- id: synthesis
+  file: agents/synthesis.md
+  role: Consolidação de entregas parciais com mapa de proveniência por afirmação.
+- id: mneme
+  file: agents/mneme.md
+  role: Curadoria de lições (autoaprendizado) — deduplicação, conflito, lastro, escopo e TTL.
+- id: aitia
+  file: agents/aitia.md
+  role: Análise de causa raiz pós-falha sobre a trilha estruturada do run.
+- id: hephaistos
+  file: agents/hephaistos.md
+  role: Forja dinâmica — especifica e cria novos squads/agentes/skills sob capability_gap.
+tasks:
+- id: normalizar-intencao
+  file: tasks/01-normalizar-intencao.md
+  desc: Converter a solicitação do Hermes em AetherIntentEnvelope com run_id.
+- id: classificar-intake
+  file: tasks/02-classificar-intake.md
+  desc: Classificar regime de complexidade e acionar gate humano quando exigido.
+- id: desambiguar-gate
+  file: tasks/03-desambiguar-gate.md
+  desc: Gerar perguntas mínimas e interpretações candidatas para decisão humana.
+- id: recuperar-contexto
+  file: tasks/04-recuperar-contexto.md
+  desc: Buscar memória aprovada, políticas e execuções similares com proveniência.
+- id: planejar-task-manifest
+  file: tasks/05-planejar-task-manifest.md
+  desc: Produzir aether.task-manifest/v1 em DAG com critérios de aceite.
+- id: descobrir-capacidades
+  file: tasks/06-descobrir-capacidades.md
+  desc: Varrer roots locais/Git, converter squad.yaml em manifesto canônico e indexar.
+- id: selecionar-deterministico
+  file: tasks/07-selecionar-deterministico.md
+  desc: Aplicar gates rígidos e score ponderado; emitir selection-decision ou capability_gap.
+- id: avaliar-risco-politica
+  file: tasks/08-avaliar-risco-politica.md
+  desc: Calcular tier de risco, mapear política de aprovação e criar approval-request.
+- id: despachar-executar
+  file: tasks/09-despachar-executar.md
+  desc: Ordenar tarefas prontas por despacho determinístico e executar sob quotas/orçamento.
+- id: revisao-adversarial
+  file: tasks/10-revisao-adversarial.md
+  desc: ELENCHUS refuta; TEKMÉRION valida evidência de cada objeção; bloquear até resolução.
+- id: sintetizar-entrega
+  file: tasks/11-sintetizar-entrega.md
+  desc: Consolidar resultados com evidências, artefatos, limitações e próximos passos.
+- id: forjar-novo-squad
+  file: tasks/12-forjar-novo-squad.md
+  desc: Sob capability_gap, gerar briefing + scaffold de squad candidato e validá-lo.
+- id: aprender-memorizar
+  file: tasks/13-aprender-memorizar.md
+  desc: Extrair lições candidatas, curar com MNÉME e registrar com TTL e proveniência.
+workflows:
+- id: aether-master-pipeline
+  file: workflows/aether_master_pipeline.yaml
+  desc: Ciclo completo intake -> plano -> seleção -> execução -> contraditório -> entrega -> aprendizado.
+- id: loop-revisao-entrega
+  file: workflows/loop_revisao_entrega.yaml
+  desc: Loop validating -> executing limitado até cumprir critérios de aceite (self-healing).
+- id: capability-gap-forge
+  file: workflows/capability_gap_forge.yaml
+  desc: Forja governada de um novo squad quando nenhum candidato passa nos gates.
+- id: descoberta-indexacao
+  file: workflows/descoberta_indexacao.yaml
+  desc: Constelação C-01 — varredura, parsing, validação e indexação de squads.
+- id: ciclo-aprendizagem
+  file: workflows/ciclo_aprendizagem.yaml
+  desc: Avaliação pós-run, curadoria MNÉME e promoção governada de lições.
+scripts:
+- file: scripts/aether_cli.py
+  desc: CLI operacional (doctor, init, discover, plan, run, inspect, replay, forge, learn).
+- file: scripts/registry_indexer.py
+  desc: Discovery de squads e manifesto canônico aether.squad/v1 com estados de confiança.
+- file: scripts/selection_engine.py
+  desc: Motor de seleção determinístico — gates + score Decimal + capability_gap.
+- file: scripts/risk_engine.py
+  desc: Motor de risco — fatores, escalonamento rígido e tier auditável.
+- file: scripts/budget_engine.py
+  desc: Motor de orçamento — enforcement soft/hard por run/tenant/capability.
+- file: scripts/quota_engine.py
+  desc: Motor de quotas — concorrência, chamadas, sandboxes, sub-runs, QuotaLedger.
+- file: scripts/dispatch_engine.py
+  desc: Motor de despacho — elegibilidade, prioridade, justiça, caminho crítico, desempate.
+- file: scripts/error_policy_engine.py
+  desc: Taxonomia canônica aether.error/v1 e tabela classe->ação versionada.
+- file: scripts/sacp_validator.py
+  desc: Validação de handoffs SACP — schema, integridade SHA-256, dead-letter.
+- file: scripts/replay_engine.py
+  desc: Decision-replay byte a byte dos motores determinísticos.
+- file: scripts/run_loop.py
+  desc: Máquina de estados do run com loop de revisão limitado até a entrega completa.
+- file: scripts/memory_engine.py
+  desc: Autoaprendizado — lições com proveniência, dedupe, TTL, promoção governada.
+- file: scripts/forge_bridge.py
+  desc: Forja — capability_gap -> briefing + scaffold de squad novo validável.
+config:
+- file: config/selection_weights.yaml
+  desc: Pesos versionados do motor de seleção (nunca em prompt).
+- file: config/risk_policy.yaml
+  desc: Pesos, limiares e regras de escalonamento do motor de risco.
+- file: config/error_policy.yaml
+  desc: Tabela classe->ação do error-policy-engine.
+- file: config/quotas.yaml
+  desc: Limites de recursos por escopo (soft/hard).
+metrics:
+- 'Reprodutibilidade de decisão: 100% (decision-replay byte a byte)'
+- 'ASR (Autonomous Success Rate): > 70% em fluxos de baixo risco maduros'
+- 'Taxa de validação: > 85% de outputs aprovados na primeira avaliação'
+- 'Taxa de refutação útil: acompanhada como saúde do contraditório'
+- 'capability_gap -> squad forjado validado: go no validate_squad.py'
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

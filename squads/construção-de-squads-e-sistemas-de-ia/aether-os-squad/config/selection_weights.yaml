@@ -1,0 +1,24 @@
+# Pesos versionados do Motor de Seleção (aether.selection-weights/v1).
+# Regra: pesos vivem em configuração versionada, nunca em prompt.
+# Retuning é mudança de software: replay comparativo + revisão humana (PRD 12.6).
+schema_version: aether.selection-weights/v1
+version: 1.0.0
+weights:
+  fit: '0.35'        # semantic_fit proposto por EKLOGÉ (0-1)
+  quality: '0.20'    # qualidade histórica (Registry/Evaluation)
+  freshness: '0.05'  # penaliza versões defasadas
+  risk: '0.20'       # penalidade do Motor de Risco
+  cost: '0.10'       # penalidade do Motor de Orçamento
+  latency: '0.10'    # penalidade de latência estimada
+gates:
+  - contract_compatibility   # output_contract casa com input_contract
+  - trust_state              # trusted (ou validated p/ planejamento)
+  - permissions_subset       # permissões requeridas ⊆ autorizadas
+  - data_residency           # classe de dado compatível
+  - health                   # saudável no último health check
+tie_break:
+  - trust_rank_desc
+  - cost_asc
+  - latency_asc
+  - id_lexicographic
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

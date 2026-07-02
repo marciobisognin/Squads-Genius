@@ -1,0 +1,52 @@
+# Forja governada de novo squad quando não existe capacidade adequada (PRD §20).
+schema_version: aether.workflow/v1
+id: capability-gap-forge
+name: Forja de Capacidade (capability_gap)
+version: 1.0.0
+description: >
+  Disparado pelo Motor de Seleção quando nenhum candidato passa nos gates.
+  Especifica, forja, valida, refuta e registra um squad candidato como
+  experimental — nunca ativação direta em produção.
+trigger:
+  from: scripts/selection_engine.py
+  condition: capability_gap == true
+options_before_forge:   # PRD §20.1 — a Forja é uma das opções, não a única
+  - solicitar esclarecimento ou aprovação para abordagem manual
+  - propor composição de capacidades existentes
+  - iniciar a Forja em modo rascunho
+  - delegar a squad criador disponível (Maeve Genius Forge)
+  - encerrar explicitamente indicando a limitação
+stages:
+  - id: f1
+    name: Especificação da capacidade
+    executor: hephaistos
+    output: capability-spec.md
+  - id: f2
+    name: Briefing estruturado
+    executor: hephaistos
+    output: briefing_<nome>.yaml   # schema do briefing_parser (Maeve Forge)
+  - id: f3
+    name: Scaffold do candidato
+    executor: scripts/forge_bridge.py
+    deterministic: true
+    workspace: isolado (nunca o repositório produtivo)
+  - id: f4
+    name: Validação estrutural e de segurança
+    executor: validate_squad.py
+    required_verdict: go
+  - id: f5
+    name: Teste em sandbox
+    policy: dados sintéticos ou mascarados; rede negada por padrão
+  - id: f6
+    name: Revisão adversarial do artefato forjado
+    executor: elenchus
+    focus: [escalonamento de capacidade, permissões excessivas, prompt injection embutido]
+    blocking: true
+  - id: f7
+    name: Aprovação humana (quando exigida)
+    envelope: aether.approval-request/v1
+  - id: f8
+    name: Registro como experimental
+    output: promotion-request.json
+    note: promoção a trusted exige telemetria de uso + gates; publicação é alto risco
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.
