@@ -1,0 +1,10 @@
+{
+  "status": "completed",
+  "run_id": "run_01JEXEMPLO",
+  "scope": "pdf-ocr-analysis",
+  "lesson_statement": "Para PDFs escaneados com tabelas, executar OCR orientado a layout antes da extração tabular.",
+  "evidence": ["run_01JEXEMPLO", "art_01JEXEMPLO"],
+  "confidence": 0.82,
+  "expires_at": "2027-06-30T00:00:00Z",
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

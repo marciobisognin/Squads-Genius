@@ -1,0 +1,52 @@
+project_name: AETHER OS Squad
+objective: >
+  Construir um sistema operacional cognitivo em formato de squad, executável via
+  harness do Hermes Agent, que descobre, seleciona, compõe e governa squads
+  existentes; classifica intake por regime de complexidade; planeja em DAG;
+  decide seleção/risco/orçamento/despacho/quotas por motores determinísticos;
+  aplica contraditório ELENCHUS; aprende com execuções (autoaprendizado com
+  proveniência) e forja novos squads quando não existe capacidade adequada
+  (capability_gap), trabalhando em loop de revisão até entregar a solicitação
+  completa do usuário.
+problem: >
+  Organizações acumulam squads, agentes e automações isoladas, sem descoberta,
+  contratos, governança, memória institucional ou decisões reproduzíveis.
+  Seleção, priorização e risco ficam ao "feeling" de um modelo, sem critério
+  auditável, e lacunas de capacidade são improvisadas em vez de forjadas sob
+  controle.
+target_audience: >
+  Operadores de negócio, arquitetos de IA, CTOs, PMs, compliance, criadores de
+  squads, SREs de plataforma e encarregados de dados (DPO) que operam portfólios
+  de squads no Hermes Agent.
+expected_outputs:
+  - Squad completo aether-os-squad (agents, tasks, workflows, scripts, config, docs, examples)
+  - Motores determinísticos: seleção, risco, orçamento, quotas, despacho, política de erros
+  - Registry/discovery de squads locais com manifesto canônico e estados de confiança
+  - Envelopes SACP com validação de integridade e dead-letter
+  - Loop de revisão (validating -> executing) limitado, até critérios de aceite
+  - Forja de novos squads a partir de capability_gap (briefing + scaffold validável)
+  - Memória de lições com proveniência, TTL e curadoria MNÉME (autoaprendizado)
+  - Decision-replay byte a byte e CLI operacional (doctor, discover, plan, run, replay)
+constraints:
+  - Local-first; stdlib Python 3.11+; sem dependências externas obrigatórias
+  - LLM só emite JSON estruturado; todo número/ordenação/risco é código determinístico
+  - Aritmética sensível em Decimal; pesos em configuração versionada, nunca em prompt
+  - Nenhum segredo em prompt, log ou artefato; footer obrigatório em todos os arquivos
+integrations:
+  - Hermes Agent (runtime anfitrião, via HermesRuntimeAdapter)
+  - Maeve Genius Forge Squad (delegação de forja quando disponível)
+  - Diretórios locais e repositórios Git autorizados como fontes de squads
+security_level: alto
+human_approval_requirements: >
+  Gate humano de classificação em regimes complexo/caótico/indefinido; aprovação
+  com prazo e quórum antes de efeitos externos de risco médio ou superior;
+  promoção de squads forjados exige validação e aprovação.
+success_metrics:
+  - validate_squad.py retorna go (0 issues)
+  - Motores reproduzem saída byte a byte em decision-replay
+  - capability_gap gera scaffold de squad que passa em validação
+  - Loop de revisão converge ou falha de forma segura dentro do limite de tentativas
+budget_limit: local-first, custo de modelo apenas nas mentes; motores custo zero
+preferred_models:
+  - local-first
+  - perfis pinados aether.model-profile/v1 (temperatura 0, seed fixa)

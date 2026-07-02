@@ -23,7 +23,7 @@ while IFS= read -r squad_yaml; do
   if [ ! -f "$squad_dir/LICENSE" ]; then
     echo "❌ $squad_name — missing LICENSE"
     has_error=1
-    ((FAIL++))
+    FAIL=$((FAIL+1))
   fi
 
   # Check for required directories
@@ -31,7 +31,7 @@ while IFS= read -r squad_yaml; do
     if [ ! -d "$squad_dir/$dir" ]; then
       echo "⚠️  $squad_name — missing $dir/ directory"
       has_error=1
-      ((WARN++))
+      WARN=$((WARN+1))
     fi
   done
 
@@ -39,12 +39,12 @@ while IFS= read -r squad_yaml; do
   if [ ! -f "$squad_dir/README.md" ]; then
     echo "⚠️  $squad_name — missing README.md"
     has_error=1
-    ((WARN++))
+    WARN=$((WARN+1))
   fi
 
   if [ $has_error -eq 0 ]; then
     echo "✅ $squad_name — PASS"
-    ((PASS++))
+    PASS=$((PASS+1))
   fi
 
 done < <(find "$REPO_ROOT" -name "squad.yaml" | sort)

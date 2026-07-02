@@ -1,0 +1,43 @@
+# Ciclo de aprendizagem com proveniência — autoaprendizado governado (PRD §21).
+schema_version: aether.workflow/v1
+id: ciclo-aprendizagem
+name: Ciclo de Aprendizagem (Autoaprendizado)
+version: 1.0.0
+description: >
+  Fecha todo run com avaliação, extração de lições candidatas, curadoria MNÉME
+  e promoção governada — a memória melhora o próximo run sem contaminar o
+  sistema com erros ou conclusões não comprovadas.
+trigger: run em estado completed | partial | failed
+stages:
+  - id: a1
+    name: Avaliação pós-run
+    executor: scripts/memory_engine.py
+    action: comparar objetivo, plano, resultado, erros, custo e tempo
+  - id: a2
+    name: Análise de causa raiz (se falha)
+    executor: aitia
+    condition: run.status == failed
+    output: aether.root-cause/v1
+  - id: a3
+    name: Extração de lição candidata
+    executor: scripts/memory_engine.py
+    output: lesson (observation | candidate_rule)
+  - id: a4
+    name: Curadoria MNÉME
+    executor: mneme
+    checks: [dedupe, conflito com regras vigentes, lastro da evidência, escopo, TTL]
+    output: aether.lesson-curation/v1
+  - id: a5
+    name: Promoção governada
+    policy: >
+      somente o fluxo humano/política promove a approved_rule; apenas regras
+      aprovadas influenciam decisões automáticas de alto impacto
+  - id: a6
+    name: Higiene de memória
+    executor: scripts/memory_engine.py
+    action: expirar TTL, revogar regras, mascarar antes de indexação semântica
+protections:
+  - sem segredos, tokens ou dados pessoais desnecessários na memória
+  - exclusão por tenant, projeto, usuário, run e artefato (LGPD §24.8)
+  - conteúdo recuperado é dado, nunca instrução de sistema
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,32 @@
+{
+  "request_id": "req_01JEXEMPLO",
+  "actor": {
+    "id": "user_operador",
+    "type": "human",
+    "roles": ["operator"],
+    "tenant_id": "tenant_default"
+  },
+  "input": {
+    "text": "A partir deste edital, gere um parecer de conformidade contratual, verifique se as cláusulas de segurança da informação são adequadas e produza um resumo executivo.",
+    "attachments": [
+      {
+        "artifact_id": "art_01JEDITAL",
+        "path": "workspace/input/edital.pdf",
+        "media_type": "application/pdf"
+      }
+    ]
+  },
+  "execution_preferences": {
+    "mode": "supervised",
+    "max_risk": "medium",
+    "allow_network": false,
+    "allow_git_write": false,
+    "preferred_model_profile": "local-first"
+  },
+  "context": {
+    "conversation_id": "conv_01JEXEMPLO",
+    "project_id": "project_alpha",
+    "locale": "pt-BR"
+  },
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

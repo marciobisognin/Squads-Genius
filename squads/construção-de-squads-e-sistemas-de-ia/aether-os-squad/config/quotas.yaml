@@ -1,0 +1,19 @@
+# Limites de recursos do Motor de Quotas (aether.quota-policy/v1).
+# soft: enfileira e registra; hard: recusa com quota_exceeded.
+schema_version: aether.quota-policy/v1
+version: 1.0.0
+scopes:
+  tenant_default:
+    concurrent_tasks: {soft: 4, hard: 8}
+    model_calls_per_minute: {soft: 30, hard: 60}
+    concurrent_sandboxes: {soft: 2, hard: 4}
+    artifact_storage_mb: {soft: 512, hard: 1024}
+    child_runs_per_run: {soft: 3, hard: 5}
+    child_run_max_depth: {hard: 3}
+review_loop:
+  max_attempts_per_task: 3
+  escalation_order: [retry_same, retry_adjusted, partial_replan, human_gate]
+budget_defaults:
+  run_max_cost_usd: '2.0'
+  soft_warning_ratio: '0.8'
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

@@ -1,0 +1,37 @@
+# Política versionada do Motor de Risco (aether.risk-policy/v1).
+schema_version: aether.risk-policy/v1
+version: 1.0.0
+factor_scales:
+  data_classification: {public: 0, internal: 1, confidential: 2, restricted: 3}
+  external_effect: {none: 0, read: 1, write: 2, irreversible: 3}
+  reversibility: {reversible: 0, compensable: 1, irreversible: 2}
+  blast_radius: {artifact: 0, project: 1, tenant: 2, cross-tenant: 3}
+  network: {deny: 0, allowlist: 1, open: 2}
+  credentials: {none: 0, scoped: 1, broad: 2}
+weights:
+  data_classification: '0.25'
+  external_effect: '0.25'
+  reversibility: '0.20'
+  blast_radius: '0.12'
+  network: '0.09'
+  credentials: '0.09'
+tier_thresholds:            # score normalizado 0-1 -> tier
+  low: '0.25'
+  medium: '0.50'
+  high: '0.75'              # acima de high => critical
+hard_escalations:
+  - rule: irreversible_effect_min_high
+    when: {external_effect: irreversible}
+    min_tier: high
+  - rule: restricted_write_min_high
+    when: {data_classification: restricted, external_effect_gte: write}
+    min_tier: high
+  - rule: broad_creds_open_network_min_high
+    when: {credentials: broad, network: open}
+    min_tier: high
+approval_matrix:            # consumidora do tier calculado (PRD 24.5)
+  low: auto
+  medium: supervised
+  high: human_approval_before_effect
+  critical: blocked_by_default
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

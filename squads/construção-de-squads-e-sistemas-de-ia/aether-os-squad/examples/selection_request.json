@@ -1,0 +1,36 @@
+{
+  "run_id": "run_01JEXEMPLO",
+  "task_id": "t2",
+  "granted_permissions": ["read_local", "write_artifact"],
+  "data_classification": "confidential",
+  "required_output_contract": "findings/v1",
+  "candidates": [
+    {
+      "id": "squad:scriba@1.4.0/task:gerar-aditivo",
+      "trust_state": "trusted",
+      "required_permissions": ["read_local", "write_artifact"],
+      "data_classes": ["public", "internal", "confidential"],
+      "output_contract": "findings/v1",
+      "healthy": true,
+      "sub_scores": {
+        "semantic_fit": "0.91",
+        "historical_quality": "0.88",
+        "version_freshness": "1.0",
+        "risk_penalty": "0.30",
+        "cost_penalty": "0.12",
+        "latency_penalty": "0.20"
+      },
+      "rationale": "Contrato compatível, alta qualidade histórica em aditivos, risco médio controlado."
+    },
+    {
+      "id": "squad:generico@0.9.0/task:gerar-doc",
+      "trust_state": "discovered",
+      "required_permissions": ["read_local"],
+      "data_classes": ["public", "internal", "confidential"],
+      "output_contract": "findings/v1",
+      "sub_scores": {}
+    }
+  ],
+  "_uso": "python3 scripts/selection_engine.py --request examples/selection_request.json",
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

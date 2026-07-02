@@ -1,0 +1,33 @@
+# Constelação C-01 — Descoberta de squads (PRD §10, §17.2). Risco: baixo.
+schema_version: aether.workflow/v1
+id: descoberta-indexacao
+name: Descoberta e Indexação de Squads
+version: 1.0.0
+description: >
+  Varredura de fontes autorizadas, parsing por adaptador, validação estrutural,
+  extração de capacidades e indexação no Registry — sem executar nenhum script
+  dos squads descobertos.
+risk_default: low
+sources:
+  - type: local
+    policy: roots explicitamente configurados
+  - type: git
+    policy: >
+      somente URLs/branches autorizados; clone raso; checkout pinado por
+      commit_sha durante a execução; scripts jamais executados antes de
+      inspeção, validação e política de confiança
+  - type: archive
+    policy: pacotes .zip/.tar.gz aprovados para importação local
+pipeline:
+  - adicionar fonte
+  - scanner de diretório ou Git
+  - localizar manifestos (squad.yaml)
+  - parser por adaptador (squad-yaml -> manifesto canônico aether.squad/v1)
+  - validação estrutural (referências, schemas, nomes)
+  - extração de capacidades e contratos
+  - análise de dependências e riscos
+  - indexação no Registry (estado de confiança + sha256 + timestamp)
+executor: scripts/registry_indexer.py
+trust_states: [discovered, parsed, validated, trusted, quarantined, deprecated]
+incremental: true   # NFR-03 — reprocessa somente o que mudou
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

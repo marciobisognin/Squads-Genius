@@ -1,0 +1,33 @@
+{
+  "schema_version": "aether.task-manifest/v1",
+  "intent_id": "intent_<ULID>",
+  "primary_goal": "<objetivo primário confirmado>",
+  "success_criteria": ["<critério verificável 1>", "<critério verificável 2>"],
+  "constraints": {
+    "data_classification": "public|internal|confidential|restricted",
+    "network_allowed": false,
+    "max_cost_usd": 2.0,
+    "deadline": null,
+    "execution_mode": "propose|supervised|autonomous|restricted"
+  },
+  "required_skills": ["<capability-1>", "<capability-2>"],
+  "tasks": [
+    {
+      "task_id": "t1",
+      "title": "<tarefa atômica>",
+      "depends_on": [],
+      "input_contract": "<schema>/v1",
+      "output_contract": "<schema>/v1",
+      "required_capabilities": ["<capability-1>"],
+      "risk": "low|medium|high|critical",
+      "acceptance_criteria": ["<check determinístico>"],
+      "retry_policy": {"max_attempts": 3, "retry_on": ["tool_error", "timeout"]},
+      "external_effect": null,
+      "compensate_with": null
+    }
+  ],
+  "approval_gates": [
+    {"gate_id": "g1", "when": "before_external_effect", "required_role": "<papel>"}
+  ],
+  "_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}
