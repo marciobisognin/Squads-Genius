@@ -8,7 +8,7 @@ creator: Marcio Bisognin
 instagram: '@marciobisognin'
 slashPrefix: aether
 required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
-framework: PRD AETHER OS v1.2 (arquitetura autoral)
+framework: PRD AETHER OS v1.3 (arquitetura autoral)
 description: |
   Camada cognitiva de infraestrutura executada via harness do Hermes Agent que
   transforma uma coleção dispersa de squads em uma organização digital
