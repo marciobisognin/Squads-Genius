@@ -5281,7 +5281,7 @@
       },
       {
         "file": "src/argos/assistant_research.py",
-        "desc": "Modo Maeve: cria perfil, consulta QD, healthcheck estadual e relatórios de pesquisa."
+        "desc": "Modo de pesquisa assistida: cria perfil, consulta QD, checa portais estaduais e gera relatórios de pesquisa."
       },
       {
         "file": "src/argos/official_sources.py",
@@ -5299,7 +5299,7 @@
     "steps": [
       {
         "title": "Assunto informado",
-        "desc": "Marcio informa o tema em linguagem natural; Maeve gera o perfil YAML."
+        "desc": "O assunto é informado em linguagem natural e convertido em perfil YAML reexecutável."
       },
       {
         "title": "Coleta/catálogo oficial",
