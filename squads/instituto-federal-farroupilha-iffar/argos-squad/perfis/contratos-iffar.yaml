@@ -1,0 +1,10 @@
+perfil:
+  nome: contratos-iffar
+  fontes: [DOU-INLABS, DOE-RS, QD-4305207]
+  secoes: [DO1, DO3]
+  termos: ["Instituto Federal Farroupilha", "IFFar", "repactuação", "conta-depósito vinculada"]
+  termos_ignorados: ["concurso público"]
+  orgaos: ["Ministério da Educação"]
+  tipos_ato: [Extrato, Portaria, Aviso, Edital]
+  janela: DIA
+  entrega: [arquivo]

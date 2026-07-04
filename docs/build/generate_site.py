@@ -22,6 +22,7 @@ REPO_BASE_URL = "https://github.com/marciobisognin/Squads-Genius/tree/main"
 # versionamento no nome da pasta).
 REPO_FOLDER_OVERRIDES = {
     "atlas-visual-reports-squad": "atlas-visual-reports-squad-v1.2.0",
+    "argos-squad": "instituto-federal-farroupilha-iffar/argos-squad",
 }
 
 

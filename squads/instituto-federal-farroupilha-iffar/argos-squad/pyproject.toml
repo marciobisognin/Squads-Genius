@@ -1,0 +1,15 @@
+[project]
+name = "argos-vigilancia-diarios"
+version = "0.2.0"
+description = "Squad ARGOS: vigilancia deterministica de diarios oficiais com relatorios por perfil de interesse"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2", "PyYAML>=6", "httpx>=0.27"]
+authors = [{ name = "Marcio Bisognin" }]
+license = { text = "MIT" }
+
+[project.scripts]
+argos = "argos.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

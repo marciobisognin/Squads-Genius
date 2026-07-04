@@ -5236,6 +5236,100 @@
     "category": "Instituto Federal Farroupilha (IFFar)"
   },
   {
+    "id": "argos-squad",
+    "name": "Squad ARGOS — Vigilância de Diários Oficiais",
+    "tagline": "Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML, trilhas oficiais, evidência verificável e relatórios Markdown/JSON para contratos, licitações e compliance institucional.",
+    "category": "Instituto Federal Farroupilha (IFFar)",
+    "color": "#0f766e",
+    "card_icon": "guardian",
+    "agents": [
+      {
+        "name": "OPHTHALMOI",
+        "role": "Olhos determinísticos",
+        "desc": "Adapters e catálogo de fontes oficiais: DOU-INLABS, Querido Diário e 27 portais estaduais.",
+        "icon": "researcher"
+      },
+      {
+        "name": "MNÉMON",
+        "role": "Memória de estado",
+        "desc": "SQLite local para idempotência, cursores, hashes e deduplicação.",
+        "icon": "guardian"
+      },
+      {
+        "name": "KANON-LEX",
+        "role": "Filtro lexical",
+        "desc": "Aplica termos, órgãos, tipos de ato e ignorados antes de qualquer LLM.",
+        "icon": "analyst"
+      },
+      {
+        "name": "TEKMÉRION",
+        "role": "Verificador de evidências",
+        "desc": "Confere URL, excerto literal e proveniência antes da composição do relatório.",
+        "icon": "auditor"
+      },
+      {
+        "name": "ANGELOS",
+        "role": "Compositor de entrega",
+        "desc": "Monta relatórios Markdown, HTML e JSON com cabeçalho de auditoria e lacunas explícitas.",
+        "icon": "communicator"
+      }
+    ],
+    "tools": [
+      {
+        "file": "src/argos/cli.py",
+        "desc": "CLI com buscar, fontes, perfil, relatorio, dlq, replay e pesquisar."
+      },
+      {
+        "file": "src/argos/assistant_research.py",
+        "desc": "Modo Maeve: cria perfil, consulta QD, healthcheck estadual e relatórios de pesquisa."
+      },
+      {
+        "file": "src/argos/official_sources.py",
+        "desc": "Catálogo nacional dos portais estaduais oficiais e allowlists."
+      },
+      {
+        "file": "src/argos/engines/kanon_lex.py",
+        "desc": "Filtro determinístico por termos e metadados."
+      },
+      {
+        "file": "tests/",
+        "desc": "Testes de contratos, gates, pesquisa assistida e evidência."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Assunto informado",
+        "desc": "Marcio informa o tema em linguagem natural; Maeve gera o perfil YAML."
+      },
+      {
+        "title": "Coleta/catálogo oficial",
+        "desc": "DOU via INLABS quando credenciado, municípios via Querido Diário e estados via catálogo oficial."
+      },
+      {
+        "title": "Filtro determinístico",
+        "desc": "Kanon-Lex reduz o corpus por termos, órgãos, seções e tipos de ato."
+      },
+      {
+        "title": "Evidência e lacunas",
+        "desc": "Tekmérion valida URLs/excertos e registra lacunas sem inventar achados."
+      },
+      {
+        "title": "Relatório de pesquisa",
+        "desc": "Entrega perfil.yaml, fontes_consultadas.json, relatorio_pesquisa.md e links_estaduais.md."
+      }
+    ],
+    "output": {
+      "title": "Pacote ARGOS de pesquisa oficial",
+      "desc": "Pasta auditável com perfil YAML, JSON técnico das fontes, relatório Markdown e links oficiais por UF."
+    },
+    "links": [
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/instituto-federal-farroupilha-iffar/argos-squad"
+      }
+    ]
+  },
+  {
     "id": "germina360-squad",
     "name": "Germina360",
     "tagline": "Conduz empresas e ideias da prospecção territorial até a graduação em incubadoras e núcleos de inovação do IFFar.",

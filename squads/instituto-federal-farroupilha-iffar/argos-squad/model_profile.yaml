@@ -1,0 +1,7 @@
+model_profile:
+  hegemon: {model: "pinado-pelo-operador", temperature: 0, json_only: true}
+  krites: {model: "pinado-pelo-operador", temperature: 0, json_only: true}
+  laconicus: {model: "pinado-pelo-operador", temperature: 0, json_only: true}
+  elenchus: {model: "pinado-pelo-operador", temperature: 0, json_only: true}
+  angelos: {model: "templates-deterministicos", temperature: 0, json_only: true}
+notes: "O protótipo local usa mentes determinísticas para smoke test; integração LLM real deve respeitar contratos Pydantic."

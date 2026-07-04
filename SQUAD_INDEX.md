@@ -10,7 +10,8 @@ Squads publicados no repositório `Squads-Genius`.
 ---
 
 - ✅ `6/6` [AETHER OS — Sistema Operacional Cognitivo de Squads e Organizações de Agentes](squads/construção-de-squads-e-sistemas-de-ia/aether-os-squad/README.md) — `AETHER OS` — v`1.1.0`
-  - Orquestração autônoma e governada de squads no Hermes Agent: motores determinísticos, loop de revisã...
+  - Uma intenção entra no Hermes Agent. O AETHER descobre o que a organização
+sabe fazer, decide com cri...
 
 - ✅ `6/6` [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/conteúdo-marketing-e-visual/squad-arkheion/README.md) — `ARKHEION` — v`1.0.0`
   - Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e auditoria TCU-grade....
@@ -56,6 +57,9 @@ Squads publicados no repositório `Squads-Genius`.
 - ✅ `6/6` [apex-context-supreme](squads/construção-de-squads-e-sistemas-de-ia/apex-context-supreme/apex-context-supreme/README.md) — `apex-context-supreme` — v`1.1.0`
 
 - ✅ `6/6` [apex-context-supreme](squads/construção-de-squads-e-sistemas-de-ia/apex-context-supreme/README.md) — `apex-context-supreme` — v`1.1.0`
+
+- ✅ `6/6` [Squad ARGOS — Vigilância de Diários Oficiais](squads/instituto-federal-farroupilha-iffar/argos-squad/README.md) — `argos-squad` — v`0.2.0`
+  - Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML,...
 
 - ✅ `6/6` [Árgus — Conta Vinculada](squads/instituto-federal-farroupilha-iffar/argus-conta-vinculada-squad/README.md) — `argus-conta-vinculada-squad` — v`1.0.0`
   - Squad multiagente que automatiza a Conta-Depósito Vinculada (Anexo XII da IN SEGES/MPDG 05/2017; art...
@@ -214,7 +218,7 @@ Squads publicados no repositório `Squads-Genius`.
 
 | Status | Quantidade | Percentual |
 |--------|-----------|-----------|
-| ✅ Completo | 87 | 100% |
+| ✅ Completo | 89 | 100% |
 | ⚠️ Parcial | 0 | 0% |
 | ❌ Incompleto | 0 | 0% |
-| **Total** | **87** | **100%** |
+| **Total** | **89** | **100%** |

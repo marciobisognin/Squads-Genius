@@ -1,0 +1,7 @@
+id: argos_daily_pipeline
+name: Pipeline diário ARGOS
+nodes: [intake_perfil, coleta_ophthalmoi, normalizacao_dedup, filtro_lexical, gate_1_deterministico, classificacao, sintese, gate_2_adversarial, agregacao, composicao, gate_3_hitl_opcional, entrega]
+failure_policy:
+  circuit_breaker: "3 falhas consecutivas por fonte suspendem fonte no run"
+  dlq: ".argos/dlq/ com payload SACP completo"
+  never_silent: true

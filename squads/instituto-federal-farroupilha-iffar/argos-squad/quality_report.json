@@ -1,0 +1,46 @@
+{
+  "status": "validated",
+  "version": "0.2.0",
+  "validated_at": "2026-07-04T12:01:10.433730-03:00",
+  "commands": [
+    {
+      "cmd": "PYTHONPATH=src python -m py_compile $(find src scripts -name *.py)",
+      "exit_code": 0,
+      "result": "ok"
+    },
+    {
+      "cmd": "PYTHONPATH=src python -m pytest -q",
+      "exit_code": 0,
+      "result": "7 passed"
+    },
+    {
+      "cmd": "PYTHONPATH=src python scripts/validate_squad.py --root .",
+      "exit_code": 0,
+      "result": {
+        "go_no_go": "go",
+        "missing": [],
+        "counts": {
+          "agents": 10,
+          "tasks": 6,
+          "workflows": 1
+        }
+      }
+    },
+    {
+      "cmd": "PYTHONPATH=src python -m argos.cli pesquisar --assunto repactuação --municipio 4305207 --size 5",
+      "exit_code": 0,
+      "result": {
+        "estaduais": 2,
+        "state_health_ok": 0,
+        "qd_ok": true,
+        "qd_total": 0,
+        "output_dir": "/data/data/com.termux/files/home/squad-factory/workspaces/argos/pesquisas/argos-maeve-2026-07-04-repactua-o"
+      }
+    }
+  ],
+  "known_limitations": [
+    "DOU em produção exige INLABS_USER/INLABS_PASSWORD; sem scraping da busca da Imprensa Nacional.",
+    "Portais estaduais estão catalogados e checados; extração granular por matéria exige homologação HITL por UF.",
+    "Links de busca assistida estaduais não são achados confirmados; são trilhas para coleta/verificação pela Maeve."
+  ]
+}

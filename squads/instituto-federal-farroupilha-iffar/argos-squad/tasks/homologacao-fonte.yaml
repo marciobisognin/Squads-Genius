@@ -1,0 +1,6 @@
+id: homologacao-fonte
+agents: ['ophtalmoi', 'tekmerion']
+retry: 2
+timeout_seconds: 600
+human_approval: true
+validation: ["schemas Pydantic com extra=forbid", "corpus_hash preservado entre handoffs", "falhas declaradas em lacunas ou DLQ"]

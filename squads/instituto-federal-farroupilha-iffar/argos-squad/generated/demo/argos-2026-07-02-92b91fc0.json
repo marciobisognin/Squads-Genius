@@ -1,0 +1,70 @@
+{
+  "classificacoes": [
+    {
+      "categoria": "Extrato de Contrato",
+      "excerto_evidencia": "EXTRATO DE CONTRATO Nº 12/2026\nContratação de serviço continuado para o Instituto Federal Farroupilha",
+      "id_canonico": "d37e8f3ae621ed15f0a5f8491a54b0c99f69ea0ca137d124f97235b832f6c363",
+      "justificativa": "Correspondência lexical determinística com o perfil contratos-iffar-f0.",
+      "relevancia": 100
+    }
+  ],
+  "estatisticas": {
+    "por_categoria": {
+      "Extrato de Contrato": 1
+    },
+    "por_fonte": {
+      "DOU-INLABS": 1
+    },
+    "por_orgao": {
+      "Ministério da Educação / Instituto Federal de Educação, Ciência e Tecnologia Farroupilha": 1
+    },
+    "por_tipo_ato": {
+      "Extrato de Contrato": 1
+    },
+    "total_corpus": 1,
+    "total_relevantes": 1
+  },
+  "publicacoes": [
+    {
+      "data_publicacao": "2026-07-02",
+      "edicao": "125",
+      "ementa": "Contratação de serviço continuado para o Instituto Federal Farroupilha.",
+      "esfera": "federal",
+      "fonte": "DOU-INLABS",
+      "hash_conteudo": "3dbc4162ed1e0962e0d48559e1baa7af2d3d2a4457780edfd09fb75baca8a9f1",
+      "id_canonico": "d37e8f3ae621ed15f0a5f8491a54b0c99f69ea0ca137d124f97235b832f6c363",
+      "identifica": "EXTRATO DE CONTRATO Nº 12/2026",
+      "orgao": "Ministério da Educação / Instituto Federal de Educação, Ciência e Tecnologia Farroupilha",
+      "pagina": "42",
+      "secao": "DO3",
+      "texto": "EXTRATO DE CONTRATO Nº 12/2026\nContratação de serviço continuado para o Instituto Federal Farroupilha.\n<p>O Instituto Federal Farroupilha - IFFar torna público o extrato de contrato referente à contratação de serviço continuado, com previsão de repactuação e conta-depósito vinculada, conforme legislação vigente.</p>",
+      "tipo_ato": "Extrato de Contrato",
+      "uf": null,
+      "url_original": "https://www.in.gov.br/web/dou/-/extrato-de-contrato-iffar-123"
+    }
+  ],
+  "run": {
+    "corpus_hash": "78aa46586b59eb5a1053e313300fbd4ab9cbcb6f6c0d89cfdd368cc46558da4a",
+    "fim": "2026-07-02",
+    "fontes_consultadas": [
+      "DOU-INLABS"
+    ],
+    "fontes_lacuna": [],
+    "inicio": "2026-07-02",
+    "lacunas": [],
+    "perfil_hash": "e971811b994e25f6e071b63617c42635d370b613d36cf790fc061ae39213689f",
+    "perfil_nome": "contratos-iffar-f0",
+    "roteamento": {
+      "caminho": "curto",
+      "motivo": "perfil declarativo validado",
+      "perfil": "contratos-iffar-f0"
+    },
+    "run_id": "argos-2026-07-02-92b91fc0"
+  },
+  "sinteses": [
+    {
+      "id_canonico": "d37e8f3ae621ed15f0a5f8491a54b0c99f69ea0ca137d124f97235b832f6c363",
+      "resumo": "Contratação de serviço continuado para o Instituto Federal Farroupilha."
+    }
+  ]
+}
