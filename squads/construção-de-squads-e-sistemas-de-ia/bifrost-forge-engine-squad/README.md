@@ -2,13 +2,13 @@
 
 # ⚡ Bifröst Forge Engine
 
-### O engine que atravessa os nove reinos — da ideia ao squad completo, com auditoria encadeada, registro vivo e determinismo provado.
+### O engine que atravessa os nove reinos — forja **squads**, **empresas** e **mentes**, com auditoria encadeada, registro vivo e determinismo provado.
 
-[![versão](https://img.shields.io/badge/versão-1.0.0-6C5CE7)](./CHANGELOG.md)
+[![versão](https://img.shields.io/badge/versão-1.1.0-6C5CE7)](./CHANGELOG.md)
 [![status](https://img.shields.io/badge/status-produção-1f9d63)](./docs/quality_gates.md)
 [![licença](https://img.shields.io/badge/licença-MIT-blue)](./LICENSE)
 [![idioma](https://img.shields.io/badge/idioma-pt--BR-0ea5e9)](./squad.yaml)
-[![agentes](https://img.shields.io/badge/agentes-11-c8871a)](#-o-conselho-de-asgard-11-agentes)
+[![agentes](https://img.shields.io/badge/agentes-13-c8871a)](#-o-conselho-de-asgard-13-agentes)
 [![determinístico](https://img.shields.io/badge/determinístico-sim-1f9d63)](#-diferenciais)
 [![auditoria](https://img.shields.io/badge/auditoria-Saga%20Ledger-101317)](#-saga-ledger)
 
@@ -26,7 +26,7 @@
 - [Metáfora do nome](#-a-metáfora)
 - [O que faz](#-o-que-faz)
 - [Diferenciais](#-diferenciais)
-- [O Conselho de Asgard (11 agentes)](#-o-conselho-de-asgard-11-agentes)
+- [O Conselho de Asgard (13 agentes)](#-o-conselho-de-asgard-13-agentes)
 - [Pipeline](#-pipeline)
 - [Saga Ledger](#-saga-ledger)
 - [Design system](#-design-system)
@@ -49,6 +49,26 @@ oferta, design system, agentes, tasks, workflows, scripts determinísticos, test
 documentação e pacote — **sem chamadas LLM externas** (`--no-llm` é o modo implementado) e com
 **reprodutibilidade provada por hash**.
 
+## 🏛️ Os três reinos (pilares)
+Como o `nirvana-os` tem empresas, squads e mind-clones, o Bifröst entrega os três — de forma
+original, determinística e auditável:
+
+| Pilar | Fábrica | Script | Metáfora |
+|---|---|---|---|
+| **Squads** | Bifröst Forge | `bifrost_forge.py` | a ponte que leva a ideia ao squad |
+| **Empresas** | Asgard Company Forge | `asgard_company_forge.py` | Frigg governa a casa de Asgard |
+| **Mentes** | Sága Mind-Keeper | `mind_clone_library.py` | Sága guarda a memória e a voz |
+
+```bash
+# Forjar uma EMPRESA (organograma + governança)
+python3 scripts/asgard_company_forge.py --briefing examples/company_briefing_valhalla_ventures.yaml --output ./empresa --overwrite --verify-determinism
+
+# Curar e injetar uma MENTE (com salvaguardas de PI)
+python3 scripts/mind_clone_library.py --library ./dna --add "Voz Institucional" --input examples/voice_sample_institucional.txt
+python3 scripts/asgard_company_forge.py --briefing empresa.yaml --output ./empresa --overwrite --mind dna/voz-institucional.yaml
+```
+Detalhes: [`docs/company_forge.md`](./docs/company_forge.md) · [`docs/mind_clone_library.md`](./docs/mind_clone_library.md).
+
 ## 🏆 Diferenciais
 | # | Diferencial | Como |
 |---|---|---|
@@ -62,7 +82,7 @@ documentação e pacote — **sem chamadas LLM externas** (`--no-llm` é o modo 
 
 Comparativo completo em [`docs/comparison_with_maeve_forge.md`](./docs/comparison_with_maeve_forge.md).
 
-## ⚔️ O Conselho de Asgard (11 agentes)
+## ⚔️ O Conselho de Asgard (13 agentes)
 | Agente | Étimo nórdico | Papel |
 |---|---|---|
 | `allfather-orchestrator` | Odin, o Pai-de-Tudo | Maestro/máquina de estados, gates, checkpoints |
@@ -76,6 +96,8 @@ Comparativo completo em [`docs/comparison_with_maeve_forge.md`](./docs/compariso
 | `heimdall-quality-sentinel` | Heimdall | Validação, rastreabilidade e determinismo |
 | `bifrost-release-herald` | A ponte Bifröst | Empacotamento e publicação |
 | `yggdrasil-registrar` | Yggdrasil, a árvore-mundo | Registro vivo, roteamento e dedup |
+| `frigg-company-architect` | Frigg, rainha de Asgard | Forja de empresas: organograma, cargos, governança |
+| `saga-mind-keeper` | Sága, deusa da memória | Biblioteca de mentes injetáveis (5 camadas) |
 
 ## 🗺️ Pipeline
 ```mermaid

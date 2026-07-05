@@ -460,7 +460,7 @@
   {
     "id": "bifrost-forge-engine-squad",
     "name": "Bifröst Forge Engine",
-    "tagline": "Engine determinístico que atravessa os nove reinos: forja um squad completo a partir de um briefing, com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil), rastreabilidade e determinismo provado por hash.",
+    "tagline": "Engine determinístico que atravessa os nove reinos e entrega três pilares: forja de SQUADS, forja de EMPRESAS (organograma e governança) e Biblioteca de MENTES (perfis de voz injetáveis) — com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e determinismo provado por hash.",
     "color": "#6C5CE7",
     "card_icon": "factory",
     "agents": [
@@ -529,6 +529,18 @@
         "role": "Roteador",
         "desc": "Registro vivo: indexa, roteia e detecta duplicatas.",
         "icon": "router"
+      },
+      {
+        "name": "Frigg Company Architect",
+        "role": "Arquiteto",
+        "desc": "Forja empresas: organograma, cargos, funcionários e governança.",
+        "icon": "architect"
+      },
+      {
+        "name": "Sága Mind-Keeper",
+        "role": "Guardião",
+        "desc": "Biblioteca de mentes: perfis de voz injetáveis com salvaguardas de PI.",
+        "icon": "guardian"
       }
     ],
     "tools": [
@@ -563,6 +575,18 @@
       {
         "file": "eitri_design.py",
         "desc": "Design system e tokens determinísticos"
+      },
+      {
+        "file": "asgard_company_forge.py",
+        "desc": "Forja de empresas: organograma, cargos e governança"
+      },
+      {
+        "file": "company_briefing.py",
+        "desc": "Schema/validação do briefing de empresa"
+      },
+      {
+        "file": "mind_clone_library.py",
+        "desc": "Biblioteca de mentes injetáveis (Sága Mind-Keeper)"
       }
     ],
     "steps": [
@@ -605,6 +629,14 @@
       {
         "title": "Publicação",
         "desc": "A Bifröst empacota e publica quando autorizado."
+      },
+      {
+        "title": "Empresa",
+        "desc": "Frigg forja organograma, cargos e governança da organização."
+      },
+      {
+        "title": "Mentes",
+        "desc": "Sága destila e injeta perfis de voz com salvaguardas de PI."
       }
     ],
     "output": {

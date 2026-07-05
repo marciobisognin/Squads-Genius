@@ -16,8 +16,8 @@ sabe fazer, decide com cri...
 - ✅ `6/6` [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/conteúdo-marketing-e-visual/squad-arkheion/README.md) — `ARKHEION` — v`1.0.0`
   - Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e auditoria TCU-grade....
 
-- ✅ `6/6` [Bifröst Forge Engine](squads/construção-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/README.md) — `bifrost-forge-engine-squad` — v`1.0.0`
-  - Engine determinístico que forja squads da ideia à publicação, com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e determinismo provado.
+- ✅ `6/6` [Bifröst Forge Engine](squads/construção-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/README.md) — `bifrost-forge-engine-squad` — v`1.1.0`
+  - Engine determinístico com três pilares — forja de squads, forja de empresas e biblioteca de mentes — com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e determinismo provado.
 
 - ✅ `6/6` [Bigorna de Annwn — Super Sistema de Squads](squads/construção-de-squads-e-sistemas-de-ia/anvil-of-annwn-super-squad-system/README.md) — `Bigorna de Annwn — Super Sistema de Squads` — v`1.0.0`
 

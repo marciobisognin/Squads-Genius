@@ -1,0 +1,17 @@
+id: 15_forge_company_org
+owner: frigg-company-architect
+objective: |-
+  Forjar organograma, cargos, funcionários e governança da empresa a partir do briefing.
+inputs:
+  - briefing de empresa
+outputs:
+  - company.yaml
+  - employees/*.md
+  - governance.md
+acceptance_criteria:
+  - organograma rastreável à missão
+  - cada funcionário com contrato
+  - determinismo verificado
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

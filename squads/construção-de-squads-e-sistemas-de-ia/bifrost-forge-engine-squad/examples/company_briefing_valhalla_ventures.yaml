@@ -1,0 +1,14 @@
+company_name: Valhalla Ventures
+mission: Ajudar fundadores a validar e escalar negócios de IA com governança
+market: Startups de IA em estágio inicial
+offer: Programa de aceleração com squads de IA sob demanda
+size: medium
+constraints:
+  - Idioma pt-BR
+integrations:
+  - GitHub
+security_level: standard
+human_approval_requirements:
+  - Aprovar contratações e investimentos
+budget_limit: null
+category: Negócios, Estratégia & Vendas

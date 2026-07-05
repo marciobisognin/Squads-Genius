@@ -3,6 +3,20 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/);
 versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.1.0] — 2026-07-05
+### Adicionado
+- **Pilar Empresas** — `asgard_company_forge.py` + `company_briefing.py`: forja de
+  organograma (direção → chefias → funcionários como agentes com contrato), governança e
+  gates, determinística e auditável (Saga Ledger próprio).
+- **Pilar Mentes** — `mind_clone_library.py`: Biblioteca de Mentes que evolui o Mímir DNA
+  para perfis de voz **injetáveis** em agentes/funcionários, com salvaguardas de PI
+  (sem n-grama verbatim; só descritores abstratos).
+- Agentes `frigg-company-architect` e `saga-mind-keeper`; tasks `15_forge_company_org` e
+  `16_curate_mind_clones`; workflow `company_forge_pipeline.yaml`.
+- Docs `company_forge.md` e `mind_clone_library.md`; exemplos de empresa e de voz; testes
+  `test_company_and_minds.py`.
+- Injeção de mente na forja de empresa via `--mind`.
+
 ## [1.0.0] — 2026-07-05
 ### Adicionado
 - Engine determinístico completo: `bifrost_forge.py` + `bifrost_orchestrator.py`.
