@@ -1,14 +1,15 @@
 name: bifrost-forge-engine-squad
 commercial_name: Bifröst Forge Engine
-version: 1.0.0
+version: 1.1.0
 language: pt-BR
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
 positioning: |-
-  Da ideia ao sistema, atravessando os nove reinos: pesquisa, oferta, design, agentes,
-  workflows, scripts e publicação em um único engine determinístico — com trilha de
-  auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e verificação de determinismo.
+  Da ideia ao sistema, atravessando os nove reinos. Três pilares num só engine
+  determinístico: forja de SQUADS, forja de EMPRESAS (organograma, cargos e governança) e
+  Biblioteca de MENTES (perfis de voz injetáveis) — com trilha de auditoria encadeada
+  (Saga Ledger), registro vivo (Yggdrasil) e verificação de determinismo.
 required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
 ip_notice: |-
   Nomenclatura baseada em mitologia nórdica de domínio público (Eddas). Não usa marcas,
@@ -75,6 +76,16 @@ agents:
   role: |-
     Yggdrasil, a árvore-mundo — registro vivo dos squads, roteamento léxico e detecção
     de duplicatas antes de forjar redundância.
+- id: frigg-company-architect
+  file: agents/frigg-company-architect.md
+  role: |-
+    Frigg, rainha de Asgard — forja de EMPRESAS: organograma, cargos, funcionários (cada
+    um um agente com contrato) e governança determinística.
+- id: saga-mind-keeper
+  file: agents/saga-mind-keeper.md
+  role: |-
+    Sága, deusa da memória — Biblioteca de Mentes: destila perfis de voz/persona em 5
+    camadas e os injeta em agentes/funcionários, com salvaguardas de PI.
 tasks:
 - id: 01_intake_and_auto_clarify
   file: tasks/01_intake_and_auto_clarify.yaml
@@ -132,6 +143,14 @@ tasks:
   file: tasks/14_verify_determinism.yaml
   owner: heimdall-quality-sentinel
   objective: Reforjar a mesma entrada e provar que a árvore de saída tem o mesmo hash.
+- id: 15_forge_company_org
+  file: tasks/15_forge_company_org.yaml
+  owner: frigg-company-architect
+  objective: Forjar organograma, cargos, funcionários e governança da empresa.
+- id: 16_curate_mind_clones
+  file: tasks/16_curate_mind_clones.yaml
+  owner: saga-mind-keeper
+  objective: Destilar, curar e injetar mentes com salvaguardas de PI.
 workflows:
 - id: full_bifrost_pipeline
   file: workflows/full_bifrost_pipeline.yaml
@@ -143,6 +162,8 @@ workflows:
   file: workflows/bifrost_publish_pipeline.yaml
 - id: campaign_dispatch
   file: workflows/campaign_dispatch.yaml
+- id: company_forge_pipeline
+  file: workflows/company_forge_pipeline.yaml
 quality_gates:
 - briefing
 - research
@@ -151,6 +172,7 @@ quality_gates:
 - scripts
 - traceability
 - determinism
+- governance
 - publication
 outputs:
 - research_report
@@ -166,4 +188,6 @@ outputs:
 - quality_report
 - saga_ledger
 - yggdrasil_registration
+- company_org
+- mind_clone_library
 - zip_package

@@ -1,0 +1,34 @@
+{
+  "id": "company_forge_pipeline",
+  "description": "Forja de empresa: do briefing de negócio ao organograma com governança, com mente opcional injetada e auditoria encadeada.",
+  "human_in_loop": true,
+  "rollback": "retornar ao último gate reprovado",
+  "audit": "Saga Ledger (JSONL + SHA256 encadeado)",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake do briefing de empresa",
+      "task": "15_forge_company_org",
+      "gate_required": true
+    },
+    {
+      "order": 2,
+      "name": "Curadoria de mentes (opcional)",
+      "task": "16_curate_mind_clones",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Validação e governança",
+      "task": "12_validate_with_heimdall",
+      "gate_required": true
+    },
+    {
+      "order": 4,
+      "name": "Verificação de determinismo",
+      "task": "14_verify_determinism",
+      "gate_required": true
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

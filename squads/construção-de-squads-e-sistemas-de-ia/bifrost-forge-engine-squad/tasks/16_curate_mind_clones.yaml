@@ -1,0 +1,16 @@
+id: 16_curate_mind_clones
+owner: saga-mind-keeper
+objective: |-
+  Destilar e curar mentes na biblioteca e injetá-las em agentes/funcionários com salvaguardas de PI.
+inputs:
+  - material público
+outputs:
+  - dna/*.yaml
+  - voice_profile injetado
+acceptance_criteria:
+  - nenhum n-grama verbatim de 4+ palavras
+  - apenas descritores abstratos
+  - biblioteca versionada
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
