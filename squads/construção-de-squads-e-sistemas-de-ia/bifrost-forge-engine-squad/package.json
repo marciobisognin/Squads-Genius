@@ -1,0 +1,13 @@
+{
+  "name": "bifrost-forge-engine-squad",
+  "version": "1.0.0",
+  "description": "Bifröst Forge Engine — engine determinístico de forja e orquestração de squads (tema nórdico de domínio público).",
+  "license": "MIT",
+  "author": "Marcio Bisognin (@marciobisognin)",
+  "keywords": ["squad", "forge", "orchestrator", "deterministic", "audit", "norse", "bifrost", "aios"],
+  "scripts": {
+    "forge": "python3 scripts/bifrost_forge.py",
+    "validate": "python3 scripts/heimdall_validate.py --root .",
+    "registry": "python3 scripts/yggdrasil_registry.py"
+  }
+}

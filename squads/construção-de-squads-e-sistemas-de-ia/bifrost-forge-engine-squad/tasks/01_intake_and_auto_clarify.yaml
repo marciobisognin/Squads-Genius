@@ -1,0 +1,15 @@
+id: 01_intake_and_auto_clarify
+owner: mimir-briefing-oracle
+objective: |-
+  Extrair objetivo, público, outputs, lacunas graduadas e hipóteses explícitas.
+inputs:
+  - briefing livre
+outputs:
+  - briefing validado
+  - lacunas por severidade
+acceptance_criteria:
+  - campos obrigatórios presentes
+  - lacunas registradas com severidade
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

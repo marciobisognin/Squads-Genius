@@ -1,0 +1,14 @@
+{
+  "id": "id_do_workflow",
+  "description": "Descrição.",
+  "human_in_loop": true,
+  "steps": [
+    {
+      "order": 1,
+      "name": "Etapa",
+      "task": "id_da_task",
+      "gate_required": true
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

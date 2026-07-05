@@ -1,0 +1,19 @@
+project_name: Atelier de Propostas de IA
+objective: Ajudar consultorias a empacotar e vender diagnósticos de IA com consistência
+problem: Consultores perdem tempo montando propostas manuais, lentas e inconsistentes
+target_audience: Consultores independentes e pequenas agências de IA
+expected_outputs:
+  - README.md
+  - agents
+  - workflows
+  - scripts
+  - proposta_comercial
+constraints:
+  - Idioma pt-BR
+integrations:
+  - GitHub
+security_level: standard
+success_metrics:
+  - Reduzir tempo de elaboração de proposta em 50%
+budget_limit: null
+category: Negócios, Estratégia & Vendas

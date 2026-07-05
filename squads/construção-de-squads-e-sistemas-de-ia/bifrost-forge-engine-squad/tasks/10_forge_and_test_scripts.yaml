@@ -1,0 +1,15 @@
+id: 10_forge_and_test_scripts
+owner: brokkr-script-smith
+objective: |-
+  Forjar scripts com logs, dry-run, tratamento de erro e teste mínimo.
+inputs:
+  - mapa determinístico vs LLM
+outputs:
+  - scripts/*.py
+  - tests/*.py
+acceptance_criteria:
+  - todo script compila
+  - teste mínimo presente
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

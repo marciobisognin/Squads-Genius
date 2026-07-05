@@ -1,0 +1,14 @@
+id: 03_map_offer_and_value
+owner: freyja-value-architect
+objective: |-
+  Converter contexto em proposta de valor, oferta mínima, público comprador e canais.
+inputs:
+  - research_report
+outputs:
+  - offer_and_value_map
+acceptance_criteria:
+  - proposta de valor clara
+  - oferta mínima definida
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

@@ -1,0 +1,23 @@
+# Template de briefing do Bifröst Forge Engine
+project_name: Nome do projeto/squad
+objective: Objetivo principal em uma frase
+problem: Problema real que justifica o squad
+target_audience: Público-alvo/usuários principais
+expected_outputs:
+  - README.md
+  - agents
+  - workflows
+  - scripts
+constraints:
+  - Idioma pt-BR
+integrations:
+  - GitHub
+security_level: standard   # low | standard | elevated | high
+human_approval_requirements:
+  - Aprovar antes de publicar
+success_metrics:
+  - Métrica verificável 1
+budget_limit: null
+preferred_models: []
+category: Construção de Squads & Sistemas de IA
+# Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.

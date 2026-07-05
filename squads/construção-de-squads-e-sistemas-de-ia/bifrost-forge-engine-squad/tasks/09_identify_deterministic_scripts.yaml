@@ -1,0 +1,15 @@
+id: 09_identify_deterministic_scripts
+owner: brokkr-script-smith
+objective: |-
+  Separar tarefas que exigem LLM das convertíveis em scripts locais.
+inputs:
+  - arquitetura
+  - tasks
+outputs:
+  - mapa determinístico vs LLM
+acceptance_criteria:
+  - justificativa por tarefa
+  - custos evitados registrados
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

@@ -1,0 +1,169 @@
+name: bifrost-forge-engine-squad
+commercial_name: Bifröst Forge Engine
+version: 1.0.0
+language: pt-BR
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+positioning: |-
+  Da ideia ao sistema, atravessando os nove reinos: pesquisa, oferta, design, agentes,
+  workflows, scripts e publicação em um único engine determinístico — com trilha de
+  auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e verificação de determinismo.
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+ip_notice: |-
+  Nomenclatura baseada em mitologia nórdica de domínio público (Eddas). Não usa marcas,
+  personagens exclusivos, roteiros, logos ou artes proprietárias de estúdios/editoras.
+principles:
+- separar observado, inferido, hipótese, recomendação e risco
+- priorizar scripts determinísticos quando não houver necessidade de LLM
+- não copiar marcas, prompts, personagens proprietários ou materiais de terceiros
+- registrar decisões, fontes e premissas em trilha auditável
+- verificar determinismo e validar antes de publicar
+agents:
+- id: allfather-orchestrator
+  file: agents/allfather-orchestrator.md
+  role: |-
+    Odin, o Pai-de-Tudo — maestro do pipeline: máquina de estados, ordem de execução,
+    gates, checkpoints resumíveis e consolidação de outputs.
+- id: mimir-briefing-oracle
+  file: agents/mimir-briefing-oracle.md
+  role: |-
+    Mímir, o poço da sabedoria — intake do briefing, auto-clarificação e mapeamento de
+    lacunas graduadas por severidade.
+- id: huginn-muninn-research-ravens
+  file: agents/huginn-muninn-research-ravens.md
+  role: |-
+    Huginn & Muninn (Pensamento & Memória) — pesquisa profunda rastreável, separando
+    fonte, fato, inferência, oportunidade e risco.
+- id: freyja-value-architect
+  file: agents/freyja-value-architect.md
+  role: |-
+    Freyja — proposta de valor, oferta mínima, precificação, monetização e documentação
+    comercial.
+- id: eitri-design-forge
+  file: agents/eitri-design-forge.md
+  role: |-
+    Eitri, o ferreiro anão — design system original, tokens determinísticos e extração
+    segura de padrões visuais.
+- id: norn-workflow-weaver
+  file: agents/norn-workflow-weaver.md
+  role: |-
+    As Nornas (Urðr, Verðandi, Skuld) — tecem tasks atômicas e workflows com gates,
+    rollback e humano-no-loop.
+- id: valkyrie-agent-marshal
+  file: agents/valkyrie-agent-marshal.md
+  role: |-
+    A Valquíria — escolhe o roster mínimo de agentes (não-redundante) com contratos de
+    entrada/saída e matriz de capacidade.
+- id: brokkr-script-smith
+  file: agents/brokkr-script-smith.md
+  role: |-
+    Brokkr, o ferreiro anão — identifica tarefas determinísticas e forja scripts
+    portáveis, testáveis e de baixo custo.
+- id: heimdall-quality-sentinel
+  file: agents/heimdall-quality-sentinel.md
+  role: |-
+    Heimdall, o vigia dos nove mundos — validação com rastreabilidade, verificação de
+    determinismo e rubrica pontuada por gate.
+- id: bifrost-release-herald
+  file: agents/bifrost-release-herald.md
+  role: |-
+    A ponte Bifröst — empacotamento, README, manifesto, commit e publicação quando
+    autorizado.
+- id: yggdrasil-registrar
+  file: agents/yggdrasil-registrar.md
+  role: |-
+    Yggdrasil, a árvore-mundo — registro vivo dos squads, roteamento léxico e detecção
+    de duplicatas antes de forjar redundância.
+tasks:
+- id: 01_intake_and_auto_clarify
+  file: tasks/01_intake_and_auto_clarify.yaml
+  owner: mimir-briefing-oracle
+  objective: Extrair objetivo, público, outputs, lacunas graduadas e hipóteses explícitas.
+- id: 02_deep_research_traceable
+  file: tasks/02_deep_research_traceable.yaml
+  owner: huginn-muninn-research-ravens
+  objective: Pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança.
+- id: 03_map_offer_and_value
+  file: tasks/03_map_offer_and_value.yaml
+  owner: freyja-value-architect
+  objective: Converter contexto em proposta de valor, oferta mínima, público comprador e canais.
+- id: 04_forge_design_system
+  file: tasks/04_forge_design_system.yaml
+  owner: eitri-design-forge
+  objective: Criar identidade original, paleta, tipografia, tokens e aplicações.
+- id: 05_extract_style_safely
+  file: tasks/05_extract_style_safely.yaml
+  owner: eitri-design-forge
+  objective: Extrair padrões de estilo de referências públicas sem copiar marca, texto ou identidade.
+- id: 06_architect_squad
+  file: tasks/06_architect_squad.yaml
+  owner: valkyrie-agent-marshal
+  objective: Definir estrutura, agentes não-redundantes, dependências e matriz de capacidade.
+- id: 07_generate_agents
+  file: tasks/07_generate_agents.yaml
+  owner: valkyrie-agent-marshal
+  objective: Gerar agentes com contratos de entrada/saída e footer obrigatório.
+- id: 08_weave_tasks_and_workflows
+  file: tasks/08_weave_tasks_and_workflows.yaml
+  owner: norn-workflow-weaver
+  objective: Gerar tasks atômicas e workflows com gates, rollback e humano-no-loop.
+- id: 09_identify_deterministic_scripts
+  file: tasks/09_identify_deterministic_scripts.yaml
+  owner: brokkr-script-smith
+  objective: Separar tarefas que exigem LLM das convertíveis em scripts locais.
+- id: 10_forge_and_test_scripts
+  file: tasks/10_forge_and_test_scripts.yaml
+  owner: brokkr-script-smith
+  objective: Forjar scripts com logs, dry-run, tratamento de erro e teste mínimo.
+- id: 11_build_docs_and_monetization
+  file: tasks/11_build_docs_and_monetization.yaml
+  owner: freyja-value-architect
+  objective: Gerar README, docs, proposta comercial, pitch e checklist de entrega.
+- id: 12_validate_with_heimdall
+  file: tasks/12_validate_with_heimdall.yaml
+  owner: heimdall-quality-sentinel
+  objective: Validar manifesto, rastreabilidade, segredos e rubrica pontuada por gate.
+- id: 13_register_in_yggdrasil
+  file: tasks/13_register_in_yggdrasil.yaml
+  owner: yggdrasil-registrar
+  objective: Checar duplicidade, indexar o squad novo e registrar rota de descoberta.
+- id: 14_verify_determinism
+  file: tasks/14_verify_determinism.yaml
+  owner: heimdall-quality-sentinel
+  objective: Reforjar a mesma entrada e provar que a árvore de saída tem o mesmo hash.
+workflows:
+- id: full_bifrost_pipeline
+  file: workflows/full_bifrost_pipeline.yaml
+- id: design_realm_only
+  file: workflows/design_realm_only.yaml
+- id: script_forge_sprint
+  file: workflows/script_forge_sprint.yaml
+- id: bifrost_publish_pipeline
+  file: workflows/bifrost_publish_pipeline.yaml
+- id: campaign_dispatch
+  file: workflows/campaign_dispatch.yaml
+quality_gates:
+- briefing
+- research
+- design
+- squad_architecture
+- scripts
+- traceability
+- determinism
+- publication
+outputs:
+- research_report
+- offer_and_value_map
+- design_system
+- agents
+- tasks
+- workflows
+- scripts
+- tests
+- README
+- monetization_pack
+- quality_report
+- saga_ledger
+- yggdrasil_registration
+- zip_package

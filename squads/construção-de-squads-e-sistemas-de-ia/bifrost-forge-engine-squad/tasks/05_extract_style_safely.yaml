@@ -1,0 +1,14 @@
+id: 05_extract_style_safely
+owner: eitri-design-forge
+objective: |-
+  Extrair padrões de estilo de referências públicas sem copiar marca, texto ou identidade.
+inputs:
+  - referências públicas
+outputs:
+  - style_patterns
+acceptance_criteria:
+  - nenhum ativo proprietário reproduzido
+  - apenas padrões abstratos
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

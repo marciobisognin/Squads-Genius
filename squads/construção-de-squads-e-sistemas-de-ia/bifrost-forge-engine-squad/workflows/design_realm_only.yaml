@@ -1,0 +1,20 @@
+{
+  "id": "design_realm_only",
+  "description": "Apenas o reino do design: forja de design system original e extração segura de estilo.",
+  "human_in_loop": false,
+  "steps": [
+    {
+      "order": 1,
+      "name": "Forja do design system",
+      "task": "04_forge_design_system",
+      "gate_required": true
+    },
+    {
+      "order": 2,
+      "name": "Extração segura de estilo",
+      "task": "05_extract_style_safely",
+      "gate_required": false
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

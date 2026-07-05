@@ -1,0 +1,14 @@
+id: 02_deep_research_traceable
+owner: huginn-muninn-research-ravens
+objective: |-
+  Produzir pesquisa com fontes, fatos, inferências, oportunidades, riscos e confiança.
+inputs:
+  - briefing validado
+outputs:
+  - research_report
+acceptance_criteria:
+  - cada afirmação com fonte ou marcada como inferência
+  - riscos e oportunidades mapeados
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

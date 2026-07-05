@@ -1,0 +1,14 @@
+id: 07_generate_agents
+owner: valkyrie-agent-marshal
+objective: |-
+  Gerar agentes com contratos de entrada/saída e footer obrigatório.
+inputs:
+  - arquitetura
+outputs:
+  - agents/*.md
+acceptance_criteria:
+  - cada agente com contrato I/O
+  - footer presente
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

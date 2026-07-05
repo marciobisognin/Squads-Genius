@@ -1,0 +1,15 @@
+id: 08_weave_tasks_and_workflows
+owner: norn-workflow-weaver
+objective: |-
+  Gerar tasks atômicas e workflows com gates, rollback e humano-no-loop.
+inputs:
+  - arquitetura
+outputs:
+  - tasks/*.yaml
+  - workflows/*.yaml
+acceptance_criteria:
+  - tasks atômicas e rastreáveis
+  - gates e rollback definidos
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

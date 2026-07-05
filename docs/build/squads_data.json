@@ -458,6 +458,180 @@
     "category": "Construção de Squads & Sistemas de IA"
   },
   {
+    "id": "bifrost-forge-engine-squad",
+    "name": "Bifröst Forge Engine",
+    "tagline": "Engine determinístico que atravessa os nove reinos: forja um squad completo a partir de um briefing, com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil), rastreabilidade e determinismo provado por hash.",
+    "color": "#6C5CE7",
+    "card_icon": "factory",
+    "agents": [
+      {
+        "name": "Allfather Orchestrator",
+        "role": "Maestro",
+        "desc": "Máquina de estados: ordem, gates, checkpoints e trilha de auditoria.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Mímir Briefing Oracle",
+        "role": "Analista",
+        "desc": "Intake e auto-clarificação com lacunas graduadas por severidade.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Huginn & Muninn Research Ravens",
+        "role": "Pesquisador",
+        "desc": "Pesquisa profunda rastreável: fonte, fato, inferência e risco.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Freyja Value Architect",
+        "role": "Estrategista",
+        "desc": "Proposta de valor, oferta, precificação e monetização.",
+        "icon": "strategist"
+      },
+      {
+        "name": "Eitri Design Forge",
+        "role": "Designer",
+        "desc": "Design system original e determinístico, sem ativos de marca.",
+        "icon": "designer"
+      },
+      {
+        "name": "Norn Workflow Weaver",
+        "role": "Arquiteto",
+        "desc": "Tece tasks e workflows com gates, rollback e humano-no-loop.",
+        "icon": "workflow"
+      },
+      {
+        "name": "Valkyrie Agent Marshal",
+        "role": "Arquiteto",
+        "desc": "Escolhe o roster não-redundante com matriz de capacidade.",
+        "icon": "architect"
+      },
+      {
+        "name": "Brokkr Script Smith",
+        "role": "Engenheiro",
+        "desc": "Forja scripts determinísticos portáveis e testados.",
+        "icon": "builder"
+      },
+      {
+        "name": "Heimdall Quality Sentinel",
+        "role": "Guardião",
+        "desc": "Validação com rastreabilidade e verificação de determinismo.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Bifröst Release Herald",
+        "role": "Publicador",
+        "desc": "Empacota, gera README e publica quando autorizado.",
+        "icon": "communicator"
+      },
+      {
+        "name": "Yggdrasil Registrar",
+        "role": "Roteador",
+        "desc": "Registro vivo: indexa, roteia e detecta duplicatas.",
+        "icon": "router"
+      }
+    ],
+    "tools": [
+      {
+        "file": "bifrost_forge.py",
+        "desc": "Executor de topo (dry-run, strict, verify-determinism)"
+      },
+      {
+        "file": "bifrost_orchestrator.py",
+        "desc": "Máquina de estados com checkpoints e Saga Ledger"
+      },
+      {
+        "file": "saga_ledger.py",
+        "desc": "Trilha de auditoria JSONL com hash SHA256 encadeado"
+      },
+      {
+        "file": "heimdall_validate.py",
+        "desc": "Validação com rastreabilidade e determinismo"
+      },
+      {
+        "file": "yggdrasil_registry.py",
+        "desc": "Índice vivo, roteamento TF·IDF e dedup"
+      },
+      {
+        "file": "mimir_dna.py",
+        "desc": "DNA de persona em 5 camadas com salvaguardas de PI"
+      },
+      {
+        "file": "runic_architect.py",
+        "desc": "Arquitetura não-redundante e matriz de capacidade"
+      },
+      {
+        "file": "eitri_design.py",
+        "desc": "Design system e tokens determinísticos"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Intake",
+        "desc": "Mímir valida o briefing e mapeia lacunas por severidade."
+      },
+      {
+        "title": "Pesquisa",
+        "desc": "Huginn & Muninn levantam fontes, fatos e riscos rastreáveis."
+      },
+      {
+        "title": "Oferta & valor",
+        "desc": "Freyja converte contexto em proposta e monetização."
+      },
+      {
+        "title": "Design system",
+        "desc": "Eitri forja identidade original derivada por hash."
+      },
+      {
+        "title": "Arquitetura",
+        "desc": "Valquíria escolhe o roster não-redundante de agentes."
+      },
+      {
+        "title": "Fluxos",
+        "desc": "As Nornas tecem tasks e workflows com gates e rollback."
+      },
+      {
+        "title": "Scripts",
+        "desc": "Brokkr forja scripts determinísticos e testes."
+      },
+      {
+        "title": "Qualidade",
+        "desc": "Heimdall valida rastreabilidade e verifica determinismo."
+      },
+      {
+        "title": "Registro",
+        "desc": "Yggdrasil checa duplicidade e indexa o squad."
+      },
+      {
+        "title": "Publicação",
+        "desc": "A Bifröst empacota e publica quando autorizado."
+      }
+    ],
+    "output": {
+      "title": "Squad completo, auditável e reprodutível",
+      "desc": "Agentes, tasks, workflows, scripts, testes, design system e documentação — com Saga Ledger encadeado, relatório de qualidade e hash de determinismo, prontos para uso ou publicação."
+    },
+    "category": "Construção de Squads & Sistemas de IA",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/squad.yaml"
+      },
+      {
+        "label": "Manual",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/constru%C3%A7%C3%A3o-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/docs/operating_manual.md"
+      }
+    ]
+  },
+  {
     "id": "maeve-genius-forge-squad",
     "name": "Maeve Genius Forge",
     "tagline": "Fábrica que transforma um briefing livre em um squad completo: pesquisa, oferta, design system, agentes, workflows, scripts e publicação.",

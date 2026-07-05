@@ -1,0 +1,15 @@
+id: 04_forge_design_system
+owner: eitri-design-forge
+objective: |-
+  Criar identidade original, paleta, tipografia, tokens e aplicações.
+inputs:
+  - briefing validado
+outputs:
+  - design_system.md
+  - design_tokens.json
+acceptance_criteria:
+  - paleta determinística
+  - sem cores/identidade de marca de terceiros
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

@@ -1,0 +1,26 @@
+{
+  "id": "bifrost_publish_pipeline",
+  "description": "Travessia da Bifröst: valida, registra no Yggdrasil, empacota e publica quando autorizado.",
+  "human_in_loop": true,
+  "steps": [
+    {
+      "order": 1,
+      "name": "Validação Heimdall",
+      "task": "12_validate_with_heimdall",
+      "gate_required": true
+    },
+    {
+      "order": 2,
+      "name": "Registry-check Yggdrasil",
+      "task": "13_register_in_yggdrasil",
+      "gate_required": true
+    },
+    {
+      "order": 3,
+      "name": "Publicação (autorizada)",
+      "task": "11_build_docs_and_monetization",
+      "gate_required": true
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

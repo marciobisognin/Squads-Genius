@@ -1,0 +1,4 @@
+# Bifröst Forge Engine — dependências mínimas.
+# O engine roda com a biblioteca padrão; PyYAML e pytest ampliam parsing e testes.
+PyYAML>=6.0
+pytest>=8.0
