@@ -1,0 +1,14 @@
+id: 14_verify_determinism
+owner: heimdall-quality-sentinel
+objective: |-
+  Reforjar a mesma entrada e provar que a árvore de saída tem o mesmo hash.
+inputs:
+  - briefing validado
+outputs:
+  - determinism_hash
+acceptance_criteria:
+  - dois hashes idênticos
+  - trilha do Saga Ledger íntegra
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

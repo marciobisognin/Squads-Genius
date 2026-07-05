@@ -1,0 +1,14 @@
+id: 13_register_in_yggdrasil
+owner: yggdrasil-registrar
+objective: |-
+  Checar duplicidade, indexar o squad novo e registrar rota de descoberta.
+inputs:
+  - squad validado
+outputs:
+  - yggdrasil_registration
+acceptance_criteria:
+  - duplicidade verificada
+  - rota registrada
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

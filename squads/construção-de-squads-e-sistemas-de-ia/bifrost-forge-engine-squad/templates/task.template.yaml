@@ -1,0 +1,13 @@
+id: id_da_task
+owner: owner-agent
+objective: |-
+  Objetivo da task.
+inputs:
+  - entrada
+outputs:
+  - saída
+acceptance_criteria:
+  - critério de aceite
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

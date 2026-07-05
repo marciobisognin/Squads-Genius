@@ -1,0 +1,26 @@
+project_name: Valhalla Knowledge Vault
+objective: Transformar anotações dispersas em uma base de conhecimento navegável e confiável
+problem: Times acumulam notas soltas e perdem contexto e decisões ao longo do tempo
+target_audience: Times de produto, pesquisa e operações que usam bases de conhecimento
+expected_outputs:
+  - README.md
+  - agents
+  - tasks
+  - workflows
+  - scripts
+  - knowledge_index
+constraints:
+  - Idioma pt-BR
+  - Sem dependências pagas obrigatórias
+integrations:
+  - GitHub
+  - Markdown
+security_level: standard
+human_approval_requirements:
+  - Aprovar taxonomia antes de indexar em massa
+success_metrics:
+  - Reduzir tempo de busca de informação em 40%
+  - 90% das notas com metadados obrigatórios
+budget_limit: null
+preferred_models: []
+category: Conhecimento, Pesquisa & Dados

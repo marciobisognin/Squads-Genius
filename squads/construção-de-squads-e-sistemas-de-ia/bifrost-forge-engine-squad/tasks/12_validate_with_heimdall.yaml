@@ -1,0 +1,16 @@
+id: 12_validate_with_heimdall
+owner: heimdall-quality-sentinel
+objective: |-
+  Validar manifesto, rastreabilidade, segredos e rubrica pontuada por gate.
+inputs:
+  - squad gerado
+outputs:
+  - quality_report.json
+  - quality_report.md
+acceptance_criteria:
+  - go/no-go calculado
+  - rastreabilidade >= 80%
+  - sem segredos
+gate_required: true
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'

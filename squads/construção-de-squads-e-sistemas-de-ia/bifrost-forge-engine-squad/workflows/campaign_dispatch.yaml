@@ -1,0 +1,29 @@
+{
+  "id": "campaign_dispatch",
+  "description": "Despacho multi-squad: orquestra vários squads forjados como um DAG de campanha (paralelismo entre reinos). Diferencial de orquestração — não apenas forjar um squad, mas coordenar times.",
+  "human_in_loop": true,
+  "pattern": "DAG",
+  "nodes": [
+    {
+      "id": "n1",
+      "squad": "<squad-a>",
+      "depends_on": []
+    },
+    {
+      "id": "n2",
+      "squad": "<squad-b>",
+      "depends_on": []
+    },
+    {
+      "id": "n3",
+      "squad": "<squad-consolidador>",
+      "depends_on": [
+        "n1",
+        "n2"
+      ]
+    }
+  ],
+  "gate": "Cada nó passa por Heimdall antes de liberar o próximo; falha em um nó faz rollback do ramo.",
+  "audit": "Saga Ledger consolida a campanha inteira com hash encadeado.",
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

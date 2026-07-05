@@ -1,0 +1,26 @@
+{
+  "id": "script_forge_sprint",
+  "description": "Sprint de automação: identifica tarefas determinísticas e forja scripts testados.",
+  "human_in_loop": false,
+  "steps": [
+    {
+      "order": 1,
+      "name": "Identificação de scripts determinísticos",
+      "task": "09_identify_deterministic_scripts",
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "name": "Forja e teste de scripts",
+      "task": "10_forge_and_test_scripts",
+      "gate_required": true
+    },
+    {
+      "order": 3,
+      "name": "Verificação de determinismo",
+      "task": "14_verify_determinism",
+      "gate_required": true
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

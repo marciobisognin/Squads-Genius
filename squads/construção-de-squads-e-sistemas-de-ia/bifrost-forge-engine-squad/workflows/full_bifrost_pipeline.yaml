@@ -1,0 +1,94 @@
+{
+  "id": "full_bifrost_pipeline",
+  "description": "Pipeline completo do Bifröst, do briefing à publicação, com auditoria e determinismo.",
+  "human_in_loop": true,
+  "rollback": "retornar ao último gate reprovado",
+  "audit": "Saga Ledger (JSONL + SHA256 encadeado)",
+  "steps": [
+    {
+      "order": 1,
+      "name": "Intake & auto-clarificação",
+      "task": "01_intake_and_auto_clarify",
+      "gate_required": true
+    },
+    {
+      "order": 2,
+      "name": "Pesquisa profunda rastreável",
+      "task": "02_deep_research_traceable",
+      "gate_required": false
+    },
+    {
+      "order": 3,
+      "name": "Mapa de oferta e valor",
+      "task": "03_map_offer_and_value",
+      "gate_required": true
+    },
+    {
+      "order": 4,
+      "name": "Forja do design system",
+      "task": "04_forge_design_system",
+      "gate_required": true
+    },
+    {
+      "order": 5,
+      "name": "Extração segura de estilo",
+      "task": "05_extract_style_safely",
+      "gate_required": false
+    },
+    {
+      "order": 6,
+      "name": "Arquitetura do squad",
+      "task": "06_architect_squad",
+      "gate_required": false
+    },
+    {
+      "order": 7,
+      "name": "Geração de agentes",
+      "task": "07_generate_agents",
+      "gate_required": false
+    },
+    {
+      "order": 8,
+      "name": "Tecelagem de tasks e workflows",
+      "task": "08_weave_tasks_and_workflows",
+      "gate_required": false
+    },
+    {
+      "order": 9,
+      "name": "Identificação de scripts determinísticos",
+      "task": "09_identify_deterministic_scripts",
+      "gate_required": false
+    },
+    {
+      "order": 10,
+      "name": "Forja e teste de scripts",
+      "task": "10_forge_and_test_scripts",
+      "gate_required": true
+    },
+    {
+      "order": 11,
+      "name": "Docs e monetização",
+      "task": "11_build_docs_and_monetization",
+      "gate_required": false
+    },
+    {
+      "order": 12,
+      "name": "Validação Heimdall (rastreabilidade)",
+      "task": "12_validate_with_heimdall",
+      "gate_required": true
+    },
+    {
+      "order": 13,
+      "name": "Registry-check Yggdrasil (dedup)",
+      "task": "13_register_in_yggdrasil",
+      "gate_required": true
+    },
+    {
+      "order": 14,
+      "name": "Verificação de determinismo",
+      "task": "14_verify_determinism",
+      "gate_required": true
+    }
+  ],
+  "footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

@@ -1,0 +1,16 @@
+id: 06_architect_squad
+owner: valkyrie-agent-marshal
+objective: |-
+  Definir estrutura, agentes não-redundantes, dependências e matriz de capacidade.
+inputs:
+  - briefing validado
+  - research_report
+outputs:
+  - arquitetura
+  - capability_matrix
+acceptance_criteria:
+  - um agente por responsabilidade exclusiva
+  - matriz sem sobreposição
+gate_required: false
+rollback: retornar ao último gate reprovado
+footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
