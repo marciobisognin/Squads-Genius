@@ -2,7 +2,7 @@ name: farol-contratos-licitacoes-iffar
 title: Farol Public Procurement Intelligence Platform
 description: |-
   Sistema auditável de inteligência para planejamento, pesquisa de preços, qualidade de especificações, previsão de demanda e governança das contratações públicas do IFFar.
-version: 3.1.0
+version: 3.2.0
 license: MIT
 creator: Marcio Bisognin
 instagram: '@marciobisognin'
@@ -45,6 +45,8 @@ agents:
   file: agents/catalog-entity-resolution-specialist.yaml
 - id: price-research-evidence-specialist
   file: agents/price-research-evidence-specialist.yaml
+- id: retail-price-triangulation-analyst
+  file: agents/retail-price-triangulation-analyst.yaml
 - id: demand-consumption-forecaster
   file: agents/demand-consumption-forecaster.yaml
 - id: procurement-risk-integrity-analyst
@@ -95,6 +97,8 @@ scripts:
 - scripts/analisar_dfd.py
 - scripts/compras_gov.py
 - scripts/enriquecer_dfd_compras_gov.py
+- scripts/vtex_catalog.py
+- scripts/enriquecer_dfd_vtex.py
 - scripts/farol_iffar.py
 - scripts/pncp_busca_termo.py
 - scripts/historico_farol.py
@@ -113,10 +117,12 @@ references:
 - references/metodologia.md
 - references/orientacoes-pesquisa-externa-preditiva.md
 - references/compras-gov-integracao.md
+- references/vtex-catalogo-integracao.md
 - references/atas-assinadas-download.md
 - references/uso-com-codex-claude-antigravity.md
 tests:
 - tests/test_farol_common.py
+- tests/test_vtex_catalog.py
 - tests/test_analisar_dfd.py
 - tests/test_pipeline.py
 - tests/test_farol_30_contracts.py

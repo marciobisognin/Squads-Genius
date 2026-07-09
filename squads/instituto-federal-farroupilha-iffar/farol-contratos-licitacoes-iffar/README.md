@@ -98,6 +98,15 @@ A integração permite consultar:
 
 Todas as chamadas têm **retry com backoff exponencial** e **cache local** (`--cache`), para que reanalisar a mesma planilha não repita consultas idênticas.
 
+## 🛒 Triangulação de varejo — API pública de catálogo VTEX
+
+Como **fonte complementar** de pesquisa de preços (IN SEGES/ME nº 65/2021, art. 5º, IV), o squad consulta o endpoint público de catálogo que toda loja VTEX expõe sem autenticação (`/api/catalog_system/pub/products/search`) — útil como *sanity check* de itens de varejo comum (material de expediente, TI, copa) contra sobrepreço ou subestimativa.
+
+- `scripts/vtex_catalog.py`: comandos `buscar`, `planilha-precos` e `verificar` (valida se um domínio é loja VTEX), com cache local, retry e respeito aos limites da API (janela de 50 itens, HTTP 206 = sucesso).
+- `scripts/enriquecer_dfd_vtex.py`: acrescenta à planilha auditada colunas-resumo de varejo (ofertas comparáveis, mínimo, mediana, melhor produto, similaridade, **confiança do match** e avaliação) e a aba **`Evidencias VTEX IN65`** — uma linha por cotação com loja, produto, SKU, vendedor, preço, disponibilidade, **URL da consulta e data/hora**, exatamente os metadados que a IN 65/2021 exige para e-commerce.
+
+**Regra anti-ruído:** alerta automático só nasce de match de **confiança alta** (similaridade ≥ 0,45 entre a descrição do DFD e o produto); matches médios viram comparação *indicativa* com revisão humana e matches baixos ficam apenas como evidência. A mediana Compras.gov permanece a **referência primária**. Detalhes em [`references/vtex-catalogo-integracao.md`](references/vtex-catalogo-integracao.md).
+
 ## 🗂️ Download das atas assinadas usadas na planilha
 
 Ao final do pacote de decisão, o squad **pergunta ao usuário** se ele deseja baixar as **atas de registro de preços assinadas** cujos preços foram usados na planilha entregue. Com a confirmação, um **novo grupo de agentes** (`signed-minutes-download-orchestrator`, `minutes-evidence-fetcher`, `minutes-page-locator`, `minutes-index-builder`) baixa os documentos, organiza **uma pasta por item** e gera um **índice HTML** que aponta, para cada item, a pasta, os arquivos e **em que página de cada documento o item e o seu valor aparecem**.
@@ -120,6 +129,7 @@ Saídas: `output/atas-assinadas/<codigo>-<slug>/` (atas por item), `index.html` 
 
 - **Planilha auditada `.xlsx`** com colunas: `Ações Necessárias`, `Nível de Risco`, `Tipos de Achado`, `Outliers Quantitativos`, `Sugestão de Decisão`, `Valor Total Estimado (R$)`.
 - Quando ativado, colunas de **Compras.gov**: registros, mediana, média, faixa mín/máx, descrição amostra, **similaridade de descrição** e avaliação do preço.
+- Quando ativada, colunas de **varejo VTEX** (fonte complementar) + aba **`Evidencias VTEX IN65`** com loja, URL e data/hora de cada cotação, e `relatorio_varejo_vtex.md` apenas com exceções.
 - **Relatório executivo `.md`** com síntese, riscos, **valor financeiro sob risco por nível**, itens críticos ranqueados por valor e próximos passos.
 - **Achados `.csv`** com evidência linha a linha, incluindo valor estimado do item.
 - **Dashboard `.html`** com cartões, gráfico SVG de distribuição de risco e ranking de achados.
@@ -222,6 +232,24 @@ python scripts/compras_gov.py sugerir-codigo --descricao "caneta esferográfica 
 
 # resumo externo para todos os códigos da planilha (com cache)
 python scripts/compras_gov.py --cache output/.cache planilha-precos "DFD.xlsx" --out output/precos
+```
+
+### Triangulação de varejo VTEX (fonte complementar IN 65/2021)
+
+```bash
+# validar se os domínios respondem como loja VTEX (configure lojas do ramo do objeto)
+python scripts/vtex_catalog.py verificar --lojas www.epocacosmeticos.com.br,www.cobasi.com.br
+
+# cotação avulsa por descrição livre
+python scripts/vtex_catalog.py buscar --descricao "shampoo anticaspa 200ml" --lojas www.epocacosmeticos.com.br
+
+# pipeline: auditoria + varejo na planilha auditada (colunas + aba de evidências)
+python scripts/enriquecer_dfd_vtex.py "DFD.xlsx" --out output/farol-varejo-vtex
+
+# empilhar o varejo sobre a planilha já enriquecida com Compras.gov
+python scripts/enriquecer_dfd_vtex.py "DFD.xlsx" \
+  --planilha-auditada output/farol-compras-gov/DFD_AUDITADA_COMPRAS_GOV.xlsx \
+  --out output/farol-varejo-vtex
 ```
 
 ## ✅ Qualidade e testes
