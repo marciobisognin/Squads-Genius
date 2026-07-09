@@ -25,6 +25,12 @@ steps:
     depends_on: [intake, precos_internos]
     tool: scripts/enriquecer_dfd_compras_gov.py
     output: benchmark_compras_gov_preco_atas_pncp_similaridade
+  - id: varejo_vtex
+    agent: retail-price-triangulation-analyst
+    depends_on: [intake, compras_gov]
+    tool: scripts/enriquecer_dfd_vtex.py
+    optional: true
+    output: triangulacao_varejo_vtex_com_evidencias_in65
   - id: base_conhecimento
     agent: edital-description-auditor
     depends_on: [descricao]
@@ -55,6 +61,7 @@ quality_gates:
   - todos os itens analisados possuem ação necessária
   - planilha auditada inclui coluna Valor Total Estimado e o relatório informa valor financeiro sob risco
   - quando Compras.gov estiver ativado, summary_compras_gov.json e relatorio_compras_gov.md existem e a similaridade de descrição acompanha cada comparação de preço
+  - quando a triangulação de varejo VTEX estiver ativada, summary_varejo_vtex.json e relatorio_varejo_vtex.md existem, cada cotação registra loja, URL e data/hora (IN 65/2021) na aba de evidências e alertas automáticos nascem apenas de matches de confiança alta
   - fila de saneamento gerada a partir do CSV de achados
   - relatório informa limitações e necessidade de revisão humana
   - achados críticos têm justificativa e recomendação

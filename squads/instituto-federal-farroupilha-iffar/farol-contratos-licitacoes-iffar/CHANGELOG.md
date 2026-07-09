@@ -1,5 +1,14 @@
 # Changelog — Farol Contratos & Licitações IFFar
 
+## 3.2.0 — Triangulação de varejo via API pública de catálogo VTEX
+
+- **Novo coletor `scripts/vtex_catalog.py`**: consulta o endpoint público de catálogo de lojas VTEX (`/api/catalog_system/pub/products/search`, sem autenticação) como **fonte complementar** de pesquisa de preços (IN SEGES/ME nº 65/2021, art. 5º, IV). Comandos `buscar`, `planilha-precos` e `verificar` (valida se o domínio é loja VTEX), com cache local, retry/backoff e respeito aos limites da API (janela de 50 itens, HTTP 206 como sucesso).
+- **Nova camada `scripts/enriquecer_dfd_vtex.py`**: acrescenta à planilha auditada colunas-resumo de varejo (ofertas comparáveis, mínimo, mediana, melhor produto, similaridade, confiança do match e avaliação) e a **aba de evidências "Evidencias VTEX IN65"** — uma linha por cotação com loja, produto, SKU, vendedor, preço, disponibilidade, **URL da consulta e data/hora**, os metadados exigidos pela IN 65/2021. Suporta `--planilha-auditada` para empilhar o varejo sobre a versão `*_AUDITADA_COMPRAS_GOV.xlsx`.
+- **Regra anti-ruído**: alerta automático de preço só nasce de match de **confiança alta** (similaridade ≥ 0,45); matches médios viram comparação indicativa com revisão humana e matches baixos ficam apenas como evidência. A mediana Compras.gov permanece a referência primária.
+- **Novo agente `retail-price-triangulation-analyst`**, passo opcional `varejo_vtex` no workflow `auditoria-dfd.yaml` (após `compras_gov`) e quality gate específico.
+- **Relatório complementar `relatorio_varejo_vtex.md`** somente com exceções, limitações da fonte (B2C, endpoint sem contrato formal de estabilidade) e recomendações de uso responsável.
+- **Referência técnica** `references/vtex-catalogo-integracao.md` e **testes offline** `tests/test_vtex_catalog.py`.
+
 ## 3.1.0 — Download das atas assinadas usadas na planilha
 
 - **Novo grupo de agentes "Atas Assinadas"**: `signed-minutes-download-orchestrator`, `minutes-evidence-fetcher`, `minutes-page-locator` e `minutes-index-builder`.
