@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARGOS PANÓPTES — Painel de Vigília</title>
+<style>
+  :root {
+    --pagina:#0d0d0d; --superficie:#1a1a19; --borda:rgba(255,255,255,.10); --grade:#2c2c2a;
+    --ink:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --azul:#3987e5; --good:#0ca30c; --warning:#fab219; --serious:#ec835a; --critical:#d03b3b;
+  }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--pagina); color:var(--ink-2); font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; padding:32px 20px 60px; }
+  main { max-width:1080px; margin:0 auto; display:grid; gap:28px; }
+  h1 { color:var(--ink); font-size:26px; letter-spacing:.5px; }
+  h1 .olho { color:var(--azul); }
+  h2 { color:var(--ink); font-size:17px; margin-bottom:4px; border-left:3px solid var(--azul); padding-left:10px; }
+  .sub { color:var(--ink-3); font-size:13px; }
+  .mono, .bloco-hash, .retif-hashes, .diff { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  header.topo { display:flex; flex-wrap:wrap; align-items:baseline; gap:14px; border-bottom:1px solid var(--grade); padding-bottom:18px; }
+  .badge { font-size:12px; font-weight:700; letter-spacing:.8px; padding:5px 12px; border-radius:999px; border:1px solid; }
+  .badge-good { color:var(--good); border-color:var(--good); }
+  .badge-warning { color:var(--warning); border-color:var(--warning); }
+  .badge-critical { color:var(--critical); border-color:var(--critical); }
+  section { background:var(--superficie); border:1px solid var(--borda); border-radius:14px; padding:22px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; background:none; border:none; padding:0; }
+  .kpi { background:var(--superficie); border:1px solid var(--borda); border-radius:14px; padding:16px 18px; display:grid; gap:2px; }
+  .kpi-label { font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--ink-3); }
+  .kpi-valor { font-size:30px; font-weight:700; color:var(--ink); }
+  .kpi.good .kpi-valor { color:var(--good); }
+  .kpi.warning .kpi-valor { color:var(--warning); }
+  .kpi.critical .kpi-valor { color:var(--critical); }
+  .kpi-detalhe { font-size:12px; color:var(--ink-3); }
+  .cadeia { display:flex; align-items:center; gap:10px; overflow-x:auto; padding:8px 2px 14px; }
+  .bloco { min-width:200px; background:var(--pagina); border:1px solid var(--grade); border-radius:10px; padding:12px 14px; display:grid; gap:3px; flex-shrink:0; }
+  .bloco:hover { border-color:var(--azul); }
+  .bloco.genesis { min-width:130px; border-style:dashed; color:var(--ink-3); }
+  .bloco-seq { font-size:11px; font-weight:700; letter-spacing:.8px; color:var(--azul); }
+  .bloco-run { font-size:13px; color:var(--ink); }
+  .bloco-meta { font-size:11px; color:var(--ink-3); }
+  .bloco-hash { font-size:11px; color:var(--ink-3); }
+  .bloco-alerta { font-size:11px; color:var(--critical); font-weight:700; }
+  .elo { color:var(--grade); font-size:18px; flex-shrink:0; }
+  .retif { border:1px solid var(--grade); border-left:3px solid var(--critical); border-radius:10px; padding:14px 16px; margin-top:12px; display:grid; gap:8px; background:var(--pagina); }
+  .retif header { display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; border:none; padding:0; }
+  .retif-id { color:var(--ink); font-weight:600; }
+  .retif-meta { font-size:12px; color:var(--ink-3); }
+  .retif-hashes { font-size:12px; color:var(--ink-3); display:flex; gap:8px; align-items:center; }
+  .seta { color:var(--serious); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .chips-rotulo { font-size:12px; color:var(--ink-3); }
+  .chip { font-size:12px; font-weight:600; padding:2px 10px; border-radius:999px; border:1px solid; }
+  .chip-del { color:var(--critical); border-color:var(--critical); }
+  .chip-add { color:var(--good); border-color:var(--good); }
+  .diff { font-size:12px; background:#111110; border:1px solid var(--grade); border-radius:8px; padding:12px; overflow-x:auto; display:grid; }
+  .diff-add { color:var(--good); }
+  .diff-del { color:var(--critical); }
+  .diff-ctx { color:var(--ink-3); }
+  .mapa { display:grid; grid-template-columns:repeat(8,minmax(44px,64px)); grid-auto-rows:44px; gap:6px; justify-content:center; padding:10px 0; }
+  .uf { border:1px solid var(--grade); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0; cursor:default; }
+  .uf:hover { border-color:var(--ink-2); }
+  .uf-sigla { font-size:12px; font-weight:700; color:var(--ink); }
+  .uf-status { font-size:10px; line-height:1; }
+  .uf.good { background:rgba(12,163,12,.12); } .uf.good .uf-status { color:var(--good); }
+  .uf.warning { background:rgba(250,178,25,.10); } .uf.warning .uf-status { color:var(--warning); }
+  .uf.serious { background:rgba(236,131,90,.10); } .uf.serious .uf-status { color:var(--serious); }
+  .uf.vigiada { border-color:var(--azul); box-shadow:0 0 0 1px var(--azul); }
+  .legenda { display:flex; flex-wrap:wrap; gap:16px; font-size:12px; color:var(--ink-3); justify-content:center; margin-top:8px; }
+  .legenda b { font-weight:400; }
+  .fontes-fixas { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .fonte-chip { font-size:12px; border:1px solid var(--grade); border-radius:999px; padding:4px 12px; color:var(--ink-2); }
+  .fonte-chip b { color:var(--ink); font-weight:600; }
+  .vazio { color:var(--ink-3); font-size:14px; padding:8px 0; }
+  code { background:#111110; border:1px solid var(--grade); border-radius:4px; padding:1px 6px; font-size:12px; }
+  footer { color:var(--ink-3); font-size:12px; text-align:center; border-top:1px solid var(--grade); padding-top:18px; }
+</style>
+</head>
+<body>
+<main>
+  <header class="topo">
+    <h1><span class="olho">👁</span> ARGOS · PANÓPTES</h1>
+    <span class="badge badge-good">✔ CADEIA ÍNTEGRA</span>
+    <span class="sub">Livro de Vigília — cadeia de custódia dos runs · referência 2026-07-03T09:05:00</span>
+  </header>
+
+  <div class="kpis"><div class="kpi "><span class="kpi-label">Selos no livro</span><span class="kpi-valor">2</span><span class="kpi-detalhe">runs seladas na cadeia</span></div><div class="kpi good"><span class="kpi-label">Cadeia de custódia</span><span class="kpi-valor">íntegra</span><span class="kpi-detalhe">cadeia íntegra do gênesis ao último selo</span></div><div class="kpi "><span class="kpi-label">Publicações vigiadas</span><span class="kpi-valor">1</span><span class="kpi-detalhe">atos com versão e hash no MNÉMON</span></div><div class="kpi critical"><span class="kpi-label">Retificações detectadas</span><span class="kpi-valor">1</span><span class="kpi-detalhe">republicações com conteúdo alterado</span></div></div>
+
+  <section>
+    <h2>Cadeia de custódia</h2>
+    <p class="sub">Cada run é selada com SHA-256 sobre o selo anterior. Verifique offline: <code>argos panoptes verificar</code></p>
+    <div class="cadeia"><div class="bloco genesis"><span class="bloco-seq">GÊNESIS</span><span class="bloco-hash">ARGOS-PANOPTES</span></div><span class="elo" aria-hidden="true">→</span><div class="bloco" title="corpus_hash 9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c9f2c"><span class="bloco-seq">SELO #1</span><span class="bloco-run">argos-2026-07-02-demo0001</span><span class="bloco-meta">2026-07-02T09:05:00 · 3/12 relevantes</span><span class="bloco-hash">selo c381afebed6e568b3e0c…</span></div><span class="elo" aria-hidden="true">→</span><div class="bloco" title="corpus_hash 3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d3e8d"><span class="bloco-seq">SELO #2</span><span class="bloco-run">argos-2026-07-03-demo0002</span><span class="bloco-meta">2026-07-03T09:05:00 · 4/14 relevantes</span><span class="bloco-hash">selo f39085c529982232ee80…</span><span class="bloco-alerta">▲ 1 retificação(ões)</span></div></div>
+  </section>
+
+  <section>
+    <h2>Radar de retificações silenciosas</h2>
+    <p class="sub">Mesmo ato oficial, conteúdo diferente entre capturas — diff literal e números alterados, sem interpretação de LLM.</p>
+    <article class="retif"><header><span class="retif-id">dou-2026-07-02-do3-ext-042</span><span class="retif-meta">DOU-INLABS · detectada em 2026-07-03T09:00:00</span></header><div class="retif-hashes"><span title="hash anterior">aaaaaaaaaaaaaaaa…</span><span class="seta">→</span><span title="hash novo">bbbbbbbbbbbbbbbb…</span></div><div class="chips"><span class="chips-rotulo">Números alterados:</span><span class="chip chip-del">− 1.234.567,89</span><span class="chip chip-del">− 12</span><span class="chip chip-add">+ 1.834.567,89</span><span class="chip chip-add">+ 18</span></div><pre class="diff"><span class="diff-ctx">--- versao_anterior</span>
+<span class="diff-ctx">+++ versao_nova</span>
+<span class="diff-ctx">@@ -1 +1 @@</span>
+<span class="diff-del">-EXTRATO DE CONTRATO Nº 42/2026. Contratada: Empresa Alfa Serviços Ltda. Valor global: R$ 1.234.567,89. Vigência: 12 meses a contar de 01/07/2026.</span>
+<span class="diff-add">+EXTRATO DE CONTRATO Nº 42/2026. Contratada: Empresa Alfa Serviços Ltda. Valor global: R$ 1.834.567,89. Vigência: 18 meses a contar de 01/07/2026.</span></pre></article>
+  </section>
+
+  <section>
+    <h2>Cobertura de fontes oficiais — 27 UFs + federal + municipal</h2>
+    <div class="fontes-fixas">
+      <span class="fonte-chip">○ <b>DOU / INLABS</b> — federal · credencial requerida</span>
+      <span class="fonte-chip">● <b>Querido Diário</b> — municipal · API ativa</span>
+    </div>
+    <div class="mapa"><div class="uf warning" style="grid-column:1;grid-row:3" title="Diário Oficial do Estado do Acre — Pesquisa assistida · https://www.diario.ac.gov.br/"><span class="uf-sigla">AC</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:8;grid-row:4" title="Diário Oficial do Estado de Alagoas — Pesquisa assistida · https://www.imprensaoficial.al.gov.br/"><span class="uf-sigla">AL</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:2;grid-row:2" title="Diário Oficial do Estado do Amazonas — Pesquisa assistida · https://diario.imprensaoficial.am.gov.br/"><span class="uf-sigla">AM</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:5;grid-row:1" title="Diário Oficial do Estado do Amapá — Pesquisa assistida · https://diofe.portal.ap.gov.br/"><span class="uf-sigla">AP</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:6;grid-row:4" title="Diário Oficial do Estado da Bahia — Pesquisa assistida · https://dool.egba.ba.gov.br/"><span class="uf-sigla">BA</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:7;grid-row:2" title="Diário Oficial do Estado do Ceará — Pesquisa assistida · https://www.ceara.gov.br/diario-oficial/"><span class="uf-sigla">CE</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:5;grid-row:4" title="Diário Oficial do Distrito Federal — Pesquisa assistida · https://www.dodf.df.gov.br/"><span class="uf-sigla">DF</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:6;grid-row:5" title="Diário Oficial do Estado do Espírito Santo — Pesquisa assistida · https://dio.es.gov.br/"><span class="uf-sigla">ES</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:4" title="Diário Oficial do Estado de Goiás — Pesquisa assistida · https://diariooficial.abc.go.gov.br/"><span class="uf-sigla">GO</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:6;grid-row:2" title="Diário Oficial do Estado do Maranhão — Pesquisa assistida · https://www.diariooficial.ma.gov.br/"><span class="uf-sigla">MA</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:5;grid-row:5" title="Diário Oficial do Estado de Minas Gerais — Pesquisa assistida · https://www.jornalminasgerais.mg.gov.br/"><span class="uf-sigla">MG</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:5" title="Diário Oficial do Estado de Mato Grosso do Sul — Pesquisa assistida · https://www.spdo.ms.gov.br/diariodoe/"><span class="uf-sigla">MS</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:3;grid-row:4" title="Diário Oficial do Estado de Mato Grosso — Pesquisa assistida · https://www.iomat.mt.gov.br/"><span class="uf-sigla">MT</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:2" title="Diário Oficial do Estado do Pará — Pesquisa assistida · https://www.ioepa.com.br/"><span class="uf-sigla">PA</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:8;grid-row:3" title="Diário Oficial do Estado da Paraíba — Pesquisa assistida · https://auniao.pb.gov.br/servicos/diario-oficial"><span class="uf-sigla">PB</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:7;grid-row:4" title="Diário Oficial do Estado de Pernambuco — Pesquisa assistida · https://www.cepe.com.br/"><span class="uf-sigla">PE</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:6;grid-row:3" title="Diário Oficial do Estado do Piauí — Pesquisa assistida · https://www.diariooficial.pi.gov.br/"><span class="uf-sigla">PI</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:7" title="Diário Oficial do Estado do Paraná — Pesquisa assistida · https://www.documentos.dioe.pr.gov.br/"><span class="uf-sigla">PR</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:5;grid-row:6" title="Diário Oficial do Estado do Rio de Janeiro — Pesquisa assistida · https://www.ioerj.com.br/"><span class="uf-sigla">RJ</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:8;grid-row:2" title="Diário Oficial do Estado do Rio Grande do Norte — Pesquisa assistida · http://diariooficial.rn.gov.br/"><span class="uf-sigla">RN</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:3;grid-row:3" title="Diário Oficial do Estado de Rondônia — Pesquisa assistida · https://diof.ro.gov.br/"><span class="uf-sigla">RO</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:3;grid-row:1" title="Diário Oficial do Estado de Roraima — Pesquisa assistida · https://www.imprensaoficial.rr.gov.br/"><span class="uf-sigla">RR</span><span class="uf-status">◐</span></div><div class="uf warning vigiada" style="grid-column:3;grid-row:9" title="Diário Oficial do Estado do Rio Grande do Sul — Pesquisa assistida · https://www.diariooficial.rs.gov.br/"><span class="uf-sigla">RS</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:8" title="Diário Oficial do Estado de Santa Catarina — Pesquisa assistida · https://portal.doe.sea.sc.gov.br/"><span class="uf-sigla">SC</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:7;grid-row:5" title="Diário Oficial do Estado de Sergipe — Pesquisa assistida · https://segrase.se.gov.br/"><span class="uf-sigla">SE</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:4;grid-row:6" title="Diário Oficial do Estado de São Paulo — Pesquisa assistida · https://www.doe.sp.gov.br/"><span class="uf-sigla">SP</span><span class="uf-status">◐</span></div><div class="uf warning" style="grid-column:5;grid-row:3" title="Diário Oficial do Estado do Tocantins — Pesquisa assistida · https://diariooficial.to.gov.br/"><span class="uf-sigla">TO</span><span class="uf-status">◐</span></div></div>
+    <div class="legenda">
+      <span><b style="color:var(--good)">●</b> API ativa</span>
+      <span><b style="color:var(--warning)">◐</b> Pesquisa assistida (homologação HITL pendente)</span>
+      <span><b style="color:var(--serious)">○</b> Credencial requerida</span>
+      <span><b style="color:var(--azul)">▢</b> UF consultada em runs seladas</span>
+    </div>
+  </section>
+
+  <footer>Squad ARGOS · módulo PANÓPTES — painel estático gerado deterministicamente, sem rede e sem dependências.<br>
+  Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.</footer>
+</main>
+</body>
+</html>

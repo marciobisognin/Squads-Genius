@@ -62,6 +62,8 @@ class RelatorioComposto(StrictModel):
     json_path: str
     corpus_hash: str
     perfil_hash: str
+    selo_seq: int | None = None
+    selo: str | None = None
 
 class EdicaoRef(StrictModel):
     fonte: str

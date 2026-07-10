@@ -13,6 +13,7 @@ from argos.minds.hegemon import rotear
 from argos.minds.krites import classificar
 from argos.minds.laconicus import sintetizar
 from argos.ophthalmoi.registry import build_adapter
+from argos.panoptes.ledger import LivroPanoptes
 from argos.report.compose import compose_report
 
 def _hash_obj(obj) -> str:
@@ -43,6 +44,7 @@ class ArgosPipeline:
         fontes_consultadas = []
         fontes_lacuna = []
         lacunas = []
+        retificacoes = []
         for fonte in perfil.fontes:
             try:
                 adapter = build_adapter(fonte, fixture_root=fixture_root)
@@ -54,7 +56,8 @@ class ArgosPipeline:
                 fontes_consultadas.append(fonte)
                 for ref in adapter.listar_edicoes(inicio, fim):
                     for pub in adapter.obter_publicacoes(ref):
-                        self.mnemon.registrar_publicacao(pub)
+                        if self.mnemon.registrar_publicacao(pub) == "retificacao":
+                            retificacoes.append(pub.id_canonico)
                         publicacoes.append(pub)
             except Exception as exc:
                 fontes_lacuna.append(fonte)
@@ -74,8 +77,12 @@ class ArgosPipeline:
             lacunas.append(f"Gate 2 reprovou {len(veredito.itens_reprovados)} item(ns); payload enviado à DLQ.")
         estatisticas = agregar(candidatos, classificacoes)
         run_id = f"argos-{data_ref.isoformat()}-{uuid4().hex[:8]}"
-        run = {"run_id": run_id, "perfil_nome": perfil.nome, "roteamento": roteamento.model_dump(mode='json'), "corpus_hash": corpus_hash, "perfil_hash": perfil_hash, "inicio": inicio.isoformat(), "fim": fim.isoformat(), "fontes_consultadas": fontes_consultadas, "fontes_lacuna": fontes_lacuna, "lacunas": lacunas}
+        run = {"run_id": run_id, "perfil_nome": perfil.nome, "roteamento": roteamento.model_dump(mode='json'), "corpus_hash": corpus_hash, "perfil_hash": perfil_hash, "inicio": inicio.isoformat(), "fim": fim.isoformat(), "fontes_consultadas": fontes_consultadas, "fontes_lacuna": fontes_lacuna, "lacunas": lacunas, "retificacoes": retificacoes}
         composed = compose_report(run, candidatos, classificacoes, sinteses, estatisticas, Path(output_dir) if output_dir else self.runtime / "runs")
+        relatorio_hash = hashlib.sha256(Path(composed.markdown_path).read_bytes()).hexdigest()
+        selo = LivroPanoptes(self.runtime).selar({"run_id": run_id, "perfil": perfil.nome, "data_ref": data_ref.isoformat(), "corpus_hash": corpus_hash, "perfil_hash": perfil_hash, "relatorio_hash": relatorio_hash, "total_corpus": len(publicacoes), "total_relevantes": len(classificacoes), "fontes_consultadas": fontes_consultadas, "retificacoes": retificacoes})
+        composed.selo_seq = selo["seq"]
+        composed.selo = selo["selo"]
         latest = self.runtime / "latest_run.json"
         latest.parent.mkdir(parents=True, exist_ok=True)
         latest.write_text(composed.model_dump_json(indent=2), encoding="utf-8")

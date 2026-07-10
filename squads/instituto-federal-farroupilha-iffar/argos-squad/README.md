@@ -6,11 +6,11 @@
 
 <p>
   <img src="https://img.shields.io/badge/status-operacional-00B894?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/vers%C3%A3o-0.2.0-6C5CE7?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/vers%C3%A3o-0.3.0-6C5CE7?style=for-the-badge" />
   <img src="https://img.shields.io/badge/domain-di%C3%A1rios%20oficiais-0984E3?style=for-the-badge" />
   <img src="https://img.shields.io/badge/institui%C3%A7%C3%A3o-IFFar-00A86B?style=for-the-badge" />
   <img src="https://img.shields.io/badge/fontes-DOU%20%2B%20DOM%20%2B%20DOE-F39C12?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/testes-pytest%207%2F7-2ECC71?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/testes-pytest%2013%2F13-2ECC71?style=for-the-badge" />
   <img src="https://img.shields.io/badge/license-MIT-6C5CE7?style=for-the-badge" />
 </p>
 
@@ -102,6 +102,7 @@ flowchart TD
 <tr><td><b>LACONICUS</b></td><td>Síntese curta e restrita ao excerto coletado.</td><td>Resumo sem fatos externos.</td></tr>
 <tr><td><b>ELENCHUS</b></td><td>Auditoria adversarial contra alucinação e excerto fabricado.</td><td>Veredito de aprovação ou veto.</td></tr>
 <tr><td><b>ANGELOS</b></td><td>Composição determinística de Markdown, HTML e JSON.</td><td>Pacote final de entrega.</td></tr>
+<tr><td><b>PANÓPTES</b></td><td>Cadeia de custódia dos runs, radar de retificações silenciosas e painel de vigília.</td><td>Selo encadeado, dossiê de retificação e painel HTML autocontido.</td></tr>
 </table>
 
 ---
@@ -126,6 +127,27 @@ Saídas em `pesquisas/<run_id>/`:
 | `fontes_consultadas.json` | Status federal, municipal e estadual em formato técnico |
 | `relatorio_pesquisa.md` | Relatório operacional de pesquisa |
 | `links_estaduais.md` | Portais e links oficiais de busca assistida por UF |
+
+---
+
+## 🏛️ PANÓPTES — quem vigia o vigilante
+
+> [!IMPORTANT]
+> Diários oficiais podem ser **republicados com conteúdo alterado** — um valor de contrato, um prazo, um CNPJ — sem que ninguém perceba. O módulo PANÓPTES inverte a pergunta clássica *"quem vigia o vigilante?"* em três camadas deterministicamente auditáveis, sem LLM e sem rede.
+
+| Camada | O que faz | Comando |
+|---|---|---|
+| **Radar de retificações silenciosas** | O MNÉMON guarda cada versão de texto capturada; quando o mesmo ato oficial reaparece com hash diferente, o PANÓPTES gera um dossiê com diff literal linha a linha e os **números que mudaram** (valores, prazos, identificadores). | `argos retificacoes listar` · `argos retificacoes diff <id>` |
+| **Livro de Vigília (cadeia de custódia)** | Todo `argos buscar` é selado num livro-razão append-only: cada selo é um SHA-256 que cobre o selo anterior, o corpus, o perfil e o hash do relatório. Alterar qualquer run passado quebra a cadeia inteira — prova verificável offline de que "no dia X, o ARGOS observou Y e entregou Z". | `argos panoptes livro` · `argos panoptes verificar` |
+| **Painel Panóptico** | Painel HTML dark **autocontido** (zero dependências, zero rede): KPIs de vigília, visualização da cadeia de selos, dossiês de retificação com diff colorido e cartograma das 27 UFs por status de fonte. | `argos panoptes painel` |
+
+Demo determinística (gera `generated/demo/panoptes/painel-panoptes.html` com uma retificação de valor contratual simulada):
+
+```bash
+PYTHONPATH=src python3 scripts/panoptes_demo.py
+```
+
+O selo de cada run (`selo_seq` + `selo`) aparece no JSON de saída do `argos buscar`, e o total de retificações entra no cabeçalho de auditoria do relatório Markdown.
 
 ---
 
@@ -179,13 +201,15 @@ PYTHONPATH=src python -m argos.cli pesquisar --assunto "Instituto Federal Farrou
 
 ## 🧪 Qualidade e validação
 
-Evidências registradas na versão 0.2.0:
+Evidências registradas na versão 0.3.0:
 
 ```text
 py_compile: ok
-pytest: 7 passed
+pytest: 13 passed
 validate_squad: go
 argos pesquisar smoke: ok
+argos panoptes verificar: cadeia íntegra (selo encadeado em cada buscar)
+panoptes_demo + painel autocontido: ok
 secret scan: no obvious secrets found
 ```
 
@@ -209,6 +233,7 @@ argos-squad/
 │   ├── engines/
 │   ├── minds/
 │   ├── ophthalmoi/
+│   ├── panoptes/
 │   └── report/
 ├── perfis/
 ├── agents/
