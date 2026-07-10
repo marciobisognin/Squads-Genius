@@ -19,9 +19,10 @@
 <div class="wrap squad-hero">
   <a class="back" href="../index.html">← voltar para a galeria</a>
   <h1><span class="badge-lg"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></span> Squad ARGOS — Vigilância de Diários Oficiais</h1>
-  <p class="tagline">Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML, trilhas oficiais, evidência verificável e relatórios Markdown/JSON para contratos, licitações e compliance institucional.</p>
+  <p class="tagline">Monitora DOU, Querido Diário municipal e portais estaduais por assunto, com perfis YAML e evidência verificável — e agora vigia o próprio vigilante: cadeia de custódia SHA-256 por run, radar de retificações silenciosas com diff dos números alterados e painel de vigília autocontido.</p>
   <div class="squad-links">
       <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/tree/main/squads/instituto-federal-farroupilha-iffar/argos-squad" target="_blank" rel="noopener">README</a>
+      <a class="squad-link" href="https://github.com/marciobisognin/Squads-Genius/tree/main/squads/instituto-federal-farroupilha-iffar/argos-squad/src/argos/panoptes" target="_blank" rel="noopener">Módulo PANÓPTES</a>
   </div>
 </div>
 
@@ -39,6 +40,8 @@
         <div><div class="role">Verificador de evidências</div><h4>TEKMÉRION</h4><p>Confere URL, excerto literal e proveniência antes da composição do relatório.</p></div></div>
       <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-communicator"/></svg></div>
         <div><div class="role">Compositor de entrega</div><h4>ANGELOS</h4><p>Monta relatórios Markdown, HTML e JSON com cabeçalho de auditoria e lacunas explícitas.</p></div></div>
+      <div class="agent-card"><div class="avatar"><svg><use href="../assets/icons/sprite.svg#icon-guardian"/></svg></div>
+        <div><div class="role">Cadeia de custódia</div><h4>PANÓPTES</h4><p>Sela cada run num livro-razão encadeado por SHA-256, transforma republicações alteradas em dossiês com diff literal e gera o painel de vigília.</p></div></div>
     </div>
   </div>
 </section>
@@ -48,6 +51,7 @@
     <h2>Ferramentas e scripts</h2>
     <div class="tools">
       <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>src/argos/cli.py</code><span>CLI com buscar, fontes, perfil, relatorio, dlq, replay e pesquisar.</span></div></div>
+      <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>src/argos/panoptes/</code><span>Livro de Vigília (ledger encadeado verificável offline), radar de retificações e painel HTML autocontido.</span></div></div>
       <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>src/argos/assistant_research.py</code><span>Modo de pesquisa assistida: cria perfil, consulta QD, checa portais estaduais e gera relatórios de pesquisa.</span></div></div>
       <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>src/argos/official_sources.py</code><span>Catálogo nacional dos portais estaduais oficiais e allowlists.</span></div></div>
       <div class="tool-card"><div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-script"/></svg></div><div><code>src/argos/engines/kanon_lex.py</code><span>Filtro determinístico por termos e metadados.</span></div></div>
@@ -66,6 +70,7 @@
       <div class="step"><div class="num">3</div><div class="body"><h4>Filtro determinístico</h4><p>Kanon-Lex reduz o corpus por termos, órgãos, seções e tipos de ato.</p></div></div>
       <div class="step"><div class="num">4</div><div class="body"><h4>Evidência e lacunas</h4><p>Tekmérion valida URLs/excertos e registra lacunas sem inventar achados.</p></div></div>
       <div class="step"><div class="num">5</div><div class="body"><h4>Relatório de pesquisa</h4><p>Entrega perfil.yaml, fontes_consultadas.json, relatorio_pesquisa.md e links_estaduais.md.</p></div></div>
+      <div class="step"><div class="num">6</div><div class="body"><h4>Selo e vigília contínua</h4><p>Cada run é selada na cadeia de custódia; retificações silenciosas viram dossiês com números alterados e o painel Panóptico consolida a vigília.</p></div></div>
     </div>
   </div>
 </section>
@@ -75,7 +80,7 @@
     <h2>Entrega final</h2>
     <div class="output-box">
       <div class="tool-icon"><svg><use href="../assets/icons/sprite.svg#icon-output"/></svg></div>
-      <div><strong>Pacote ARGOS de pesquisa oficial</strong><span>Pasta auditável com perfil YAML, JSON técnico das fontes, relatório Markdown e links oficiais por UF.</span></div>
+      <div><strong>Pacote ARGOS selado e auditável</strong><span>Relatórios Markdown/HTML/JSON com selo SHA-256 encadeado, dossiês de retificação com diff literal e painel de vigília das 27 UFs — tudo verificável offline.</span></div>
     </div>
   </div>
 </section>

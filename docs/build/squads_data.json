@@ -5444,7 +5444,7 @@
   {
     "id": "argos-squad",
     "name": "Squad ARGOS — Vigilância de Diários Oficiais",
-    "tagline": "Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML, trilhas oficiais, evidência verificável e relatórios Markdown/JSON para contratos, licitações e compliance institucional.",
+    "tagline": "Monitora DOU, Querido Diário municipal e portais estaduais por assunto, com perfis YAML e evidência verificável — e agora vigia o próprio vigilante: cadeia de custódia SHA-256 por run, radar de retificações silenciosas com diff dos números alterados e painel de vigília autocontido.",
     "category": "Instituto Federal Farroupilha (IFFar)",
     "color": "#0f766e",
     "card_icon": "guardian",
@@ -5478,12 +5478,22 @@
         "role": "Compositor de entrega",
         "desc": "Monta relatórios Markdown, HTML e JSON com cabeçalho de auditoria e lacunas explícitas.",
         "icon": "communicator"
+      },
+      {
+        "name": "PANÓPTES",
+        "role": "Cadeia de custódia",
+        "desc": "Sela cada run num livro-razão encadeado por SHA-256, transforma republicações alteradas em dossiês com diff literal e gera o painel de vigília.",
+        "icon": "guardian"
       }
     ],
     "tools": [
       {
         "file": "src/argos/cli.py",
         "desc": "CLI com buscar, fontes, perfil, relatorio, dlq, replay e pesquisar."
+      },
+      {
+        "file": "src/argos/panoptes/",
+        "desc": "Livro de Vigília (ledger encadeado verificável offline), radar de retificações e painel HTML autocontido."
       },
       {
         "file": "src/argos/assistant_research.py",
@@ -5522,16 +5532,24 @@
       {
         "title": "Relatório de pesquisa",
         "desc": "Entrega perfil.yaml, fontes_consultadas.json, relatorio_pesquisa.md e links_estaduais.md."
+      },
+      {
+        "title": "Selo e vigília contínua",
+        "desc": "Cada run é selada na cadeia de custódia; retificações silenciosas viram dossiês com números alterados e o painel Panóptico consolida a vigília."
       }
     ],
     "output": {
-      "title": "Pacote ARGOS de pesquisa oficial",
-      "desc": "Pasta auditável com perfil YAML, JSON técnico das fontes, relatório Markdown e links oficiais por UF."
+      "title": "Pacote ARGOS selado e auditável",
+      "desc": "Relatórios Markdown/HTML/JSON com selo SHA-256 encadeado, dossiês de retificação com diff literal e painel de vigília das 27 UFs — tudo verificável offline."
     },
     "links": [
       {
         "label": "README",
         "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/instituto-federal-farroupilha-iffar/argos-squad"
+      },
+      {
+        "label": "Módulo PANÓPTES",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/instituto-federal-farroupilha-iffar/argos-squad/src/argos/panoptes"
       }
     ]
   },
