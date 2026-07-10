@@ -1,7 +1,7 @@
 name: argos-squad
 commercial_name: "Squad ARGOS — Vigilância de Diários Oficiais"
 display_name: "Squad ARGOS — Vigilância de Diários Oficiais"
-version: "0.2.0"
+version: "0.3.0"
 license: MIT
 creator: "Marcio Bisognin"
 instagram: "@marciobisognin"
@@ -9,10 +9,10 @@ repository_target: "squads/instituto-federal-farroupilha-iffar/argos-squad"
 readme_style: dark-neon-layered-architecture
 purpose: "Vigilância determinística de DOU, DOEs e DOMs com perfis YAML e relatórios auditáveis."
 positioning: "Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML, trilhas oficiais, evidência verificável e relatórios para contratos, licitações e compliance institucional."
-agents: [ophtalmoi, mnemon, kanon-lex, tekmerion, statista, hegemon, krites, laconicus, elenchus, angelos]
+agents: [ophtalmoi, mnemon, kanon-lex, tekmerion, statista, hegemon, krites, laconicus, elenchus, angelos, panoptes]
 workflows: [argos_daily_pipeline]
-tasks: [intake-perfil, coleta-normalizacao, filtro-classificacao, auditoria-evidencia, agregacao-relatorio, homologacao-fonte]
-scripts: [scripts/validate_squad.py, scripts/argos_demo.py]
+tasks: [intake-perfil, coleta-normalizacao, filtro-classificacao, auditoria-evidencia, agregacao-relatorio, homologacao-fonte, vigilancia-integridade]
+scripts: [scripts/validate_squad.py, scripts/argos_demo.py, scripts/panoptes_demo.py]
 entrypoints:
   cli: "PYTHONPATH=src python -m argos.cli"
 

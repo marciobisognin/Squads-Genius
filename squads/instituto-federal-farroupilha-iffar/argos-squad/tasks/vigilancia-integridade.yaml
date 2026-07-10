@@ -1,0 +1,6 @@
+id: vigilancia-integridade
+agents: ['panoptes', 'mnemon']
+retry: 2
+timeout_seconds: 600
+human_approval: false
+validation: ["todo run selado com SHA-256 encadeado ao selo anterior", "retificação registrada com diff literal e números alterados", "cadeia verificável offline sem servidor ou rede"]

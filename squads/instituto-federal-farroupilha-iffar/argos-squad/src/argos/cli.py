@@ -3,8 +3,12 @@ import argparse, json
 from datetime import date
 from pathlib import Path
 from argos.assistant_research import run_assisted_research
+from argos.engines.mnemon import Mnemon
 from argos.graph import ArgosPipeline, load_profile
 from argos.ophthalmoi.registry import build_adapter, roster
+from argos.panoptes.ledger import LivroPanoptes
+from argos.panoptes.painel import gerar_painel
+from argos.panoptes.retificacao import relatorio_retificacoes
 
 def project_root() -> Path:
     p = Path.cwd()
@@ -58,6 +62,29 @@ def cmd_dlq(args) -> int:
     print("Reprocessamento DLQ exige revisão humana do payload SACP.")
     return 1
 
+def cmd_panoptes(args) -> int:
+    livro = LivroPanoptes(project_root() / ".argos")
+    if args.sub == "verificar":
+        veredito = livro.verificar()
+        print(json.dumps(veredito, ensure_ascii=False, indent=2))
+        return 0 if veredito["integro"] else 1
+    if args.sub == "livro":
+        for ent in livro.entradas():
+            print(f"#{ent['seq']}\t{ent['selado_em'][:19]}\t{ent['run_id']}\tselo {ent['selo'][:16]}…\tretificações: {len(ent.get('retificacoes', []))}")
+        return 0
+    print(gerar_painel(project_root(), args.output))
+    return 0
+
+def cmd_retificacoes(args) -> int:
+    mnemon = Mnemon(project_root() / ".argos" / "mnemon.sqlite")
+    dossies = relatorio_retificacoes(mnemon)
+    if args.sub == "diff":
+        dossies = [d for d in dossies if d["id_canonico"] == args.id]
+        if not dossies:
+            raise SystemExit(f"Nenhuma retificação registrada para: {args.id}")
+    print(json.dumps(dossies, ensure_ascii=False, indent=2))
+    return 0
+
 def cmd_pesquisar(args) -> int:
     root = project_root()
     municipio_ids = [x.strip() for x in (args.municipio or "").split(",") if x.strip()]
@@ -78,6 +105,8 @@ def main(argv=None) -> int:
     p_rel = sub.add_parser("relatorio"); s = p_rel.add_subparsers(dest="sub", required=True); s.add_parser("abrir"); s.add_parser("ultimo"); p_rel.set_defaults(func=cmd_relatorio)
     p_dlq = sub.add_parser("dlq"); s = p_dlq.add_subparsers(dest="sub", required=True); s.add_parser("listar"); p = s.add_parser("reprocessar"); p.add_argument("id"); p_dlq.set_defaults(func=cmd_dlq)
     p_pesq = sub.add_parser("pesquisar"); p_pesq.add_argument("--assunto", required=True); p_pesq.add_argument("--municipio", help="IDs IBGE separados por vírgula, ex.: 4305207"); p_pesq.add_argument("--ufs", help="UFs separadas por vírgula; omita para todas"); p_pesq.add_argument("--size", type=int, default=10); p_pesq.add_argument("--no-check-states", action="store_true"); p_pesq.set_defaults(func=cmd_pesquisar)
+    p_pan = sub.add_parser("panoptes"); s = p_pan.add_subparsers(dest="sub", required=True); s.add_parser("verificar"); s.add_parser("livro"); p = s.add_parser("painel"); p.add_argument("--output"); p_pan.set_defaults(func=cmd_panoptes)
+    p_ret = sub.add_parser("retificacoes"); s = p_ret.add_subparsers(dest="sub", required=True); s.add_parser("listar"); p = s.add_parser("diff"); p.add_argument("id"); p_ret.set_defaults(func=cmd_retificacoes)
     p_replay = sub.add_parser("replay"); p_replay.add_argument("run_id"); p_replay.set_defaults(func=lambda args: (print("Replay determinístico exige corpus_hash/perfil_hash armazenados em .argos/runs; use o JSON do relatório."), 0)[1])
     args = parser.parse_args(argv)
     return args.func(args)
