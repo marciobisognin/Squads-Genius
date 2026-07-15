@@ -1,0 +1,25 @@
+{
+  "valid": true,
+  "objective": "Auditar aplicação local de demonstração",
+  "assets": [
+    "http://127.0.0.1:38821"
+  ],
+  "max_band": 1,
+  "rate_limit": 2.0,
+  "steps": [
+    "scope",
+    "dns",
+    "http-baseline",
+    "public-discovery-files",
+    "soft-404-control",
+    "manual-review",
+    "report-and-retest"
+  ],
+  "prohibited_actions": [
+    "denial of service",
+    "destructive changes",
+    "credential harvesting",
+    "persistence",
+    "real data exfiltration"
+  ]
+}

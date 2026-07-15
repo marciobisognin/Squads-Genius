@@ -1,0 +1,17 @@
+{
+  "incident_id": "IR-DEMO-001",
+  "reported_at": "2026-01-01T10:00:00Z",
+  "summary": "Alerta sintético de login incomum",
+  "assets": [
+    "demo-app"
+  ],
+  "severity": "unknown",
+  "status": "identification",
+  "known_indicators": [
+    "203.0.113.10"
+  ],
+  "evidence_sources": [
+    "synthetic-auth.log"
+  ],
+  "containment_proposed": []
+}

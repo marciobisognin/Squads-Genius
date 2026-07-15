@@ -1,0 +1,19 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "secret_hits": [],
+  "dual_use_hits": [],
+  "files": 57,
+  "agents": 10,
+  "tasks": 10,
+  "smoke_test": {
+    "passed": true,
+    "artifacts": [
+      "generated/demo/triage.json",
+      "generated/demo/timeline.csv",
+      "generated/demo/iocs.json",
+      "generated/demo/incident_report.md"
+    ]
+  }
+}

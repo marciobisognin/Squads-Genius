@@ -1,0 +1,3 @@
+id,entity,claim,source_url,source_type,retrieved_at,confidence,status
+R-0001,Example Organization,The organization publishes an official documentation site.,https://example.org/docs,official,2026-01-01T10:00:00Z,high,observed
+R-0002,Example Organization,An archived page references a historical service.,https://archive.example.org/page?session=[REDACTED],archive,2026-01-01T10:05:00Z,medium,source-claim

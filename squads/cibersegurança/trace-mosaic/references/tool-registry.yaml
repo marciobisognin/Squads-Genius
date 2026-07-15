@@ -1,0 +1,187 @@
+version: 2.0.0
+generated_from: trilha-cybersec-pentest-osint.md
+rules:
+  integrated_does_not_mean_installed: true
+  unknown_context: deny-active-use
+  band_3: exact written authorization plus lab/staging and human approval
+  never:
+  - credential capture
+  - real phishing
+  - persistence
+  - exfiltration
+  - destructive action
+  - denial of service
+  - malware execution on host
+squad: trace-mosaic
+tools:
+- id: ptes
+  domain: methodology
+  kind: standard
+  environment: browser
+  reference_url: http://www.pentest-standard.org/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Metodologia; complementar com contrato/ROE.
+- id: nist-sp-800-115
+  domain: methodology
+  kind: standard
+  environment: browser
+  reference_url: https://csrc.nist.gov/pubs/sp/800/115/final
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Planejamento e execução técnica.
+- id: inteltechniques
+  domain: osint
+  kind: learning-resource
+  environment: browser
+  reference_url: https://inteltechniques.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Metodologia; respeitar ética e termos.
+- id: osint-framework
+  domain: osint
+  kind: reference
+  environment: browser
+  reference_url: https://osintframework.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Índice; validar cada serviço.
+- id: maltego
+  domain: osint
+  kind: graph-tool
+  environment: desktop
+  reference_url: https://www.maltego.com/
+  command: maltego
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Minimizar PII e revisar transforms.
+- id: spiderfoot
+  domain: osint
+  kind: automation-tool
+  environment: external-or-termux
+  reference_url: https://github.com/smicallef/spiderfoot
+  command: spiderfoot
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Ativo somente em autoauditoria/ROE.
+- id: recon-ng
+  domain: osint
+  kind: automation-tool
+  environment: external-or-termux
+  reference_url: https://github.com/lanmaster53/recon-ng
+  command: recon-ng
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Revisar módulos, fonte e termos.
+- id: theharvester
+  domain: osint
+  kind: automation-tool
+  environment: external-or-termux
+  reference_url: https://github.com/laramies/theHarvester
+  command: theHarvester
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Minimizar e-mails/PII.
+- id: amass
+  domain: osint
+  kind: automation-tool
+  environment: external-or-termux
+  reference_url: https://github.com/owasp-amass/amass
+  command: amass
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Preferir passivo; ativo exige escopo.
+- id: shodan
+  domain: osint
+  kind: internet-search
+  environment: browser-api
+  reference_url: https://www.shodan.io/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Consulta passiva; não pivotar para acesso.
+- id: censys
+  domain: osint
+  kind: internet-search
+  environment: browser-api
+  reference_url: https://censys.io/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Consulta passiva; registrar timestamp.
+- id: sherlock
+  domain: osint
+  kind: username-search
+  environment: external-or-termux
+  reference_url: https://github.com/sherlock-project/sherlock
+  command: sherlock
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Sem perseguição ou atribuição automática.
+- id: trace-labs
+  domain: osint
+  kind: training-platform
+  environment: browser
+  reference_url: https://www.tracelabs.org/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Seguir regras e proteger pessoas.
+- id: osint-dojo
+  domain: osint
+  kind: learning-resource
+  environment: browser
+  reference_url: https://www.osintdojo.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Roadmap e prática.
+- id: osintme
+  domain: osint
+  kind: learning-resource
+  environment: browser
+  reference_url: https://www.osintme.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Roadmap de Sofia Santos.
+- id: ctftime
+  domain: community
+  kind: calendar
+  environment: browser
+  reference_url: https://ctftime.org/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: CTFs autorizados.
+- id: the-hacker-news
+  domain: current-awareness
+  kind: news
+  environment: browser
+  reference_url: https://thehackernews.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Corroborar com fonte primária.
+- id: tldrsec
+  domain: current-awareness
+  kind: newsletter
+  environment: browser
+  reference_url: https://tldrsec.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Confirmar advisories.
+- id: portswigger-research
+  domain: current-awareness
+  kind: research
+  environment: browser
+  reference_url: https://portswigger.net/research
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Reproduzir somente em labs.

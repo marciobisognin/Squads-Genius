@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "fixture": "localhost",
+  "redirects_followed": false,
+  "private_asset_approval": true,
+  "artifacts": [
+    "generated/demo/evidence.json",
+    "generated/demo/report.md"
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "summary": {
+    "available": 2,
+    "missing": 6,
+    "external": 11,
+    "reference-only": 8
+  },
+  "tools": [
+    {
+      "id": "adsecurity",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "virtualbox",
+      "domain": "lab",
+      "environment": "desktop-x86",
+      "command": "VirtualBox",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "vmware",
+      "domain": "lab",
+      "environment": "desktop-x86",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "kali-linux",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": "kali",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "parrot-os",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "vulnhub",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "metasploitable",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "mitre-attack",
+      "domain": "defense",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "bloodhound",
+      "domain": "active-directory",
+      "environment": "desktop-lab",
+      "command": "bloodhound",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "ad-exploitation-cheatsheet",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "orange-pentest-mindmaps",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "crackmes-one",
+      "domain": "reverse-engineering",
+      "environment": "external-lab",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "objdump",
+      "domain": "reverse-engineering",
+      "environment": "termux",
+      "command": "objdump",
+      "status": "available",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "strings",
+      "domain": "malware-analysis",
+      "environment": "termux",
+      "command": "strings",
+      "status": "available",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "gdb",
+      "domain": "reverse-engineering",
+      "environment": "termux-optional",
+      "command": "gdb",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "radare2",
+      "domain": "reverse-engineering",
+      "environment": "termux-optional",
+      "command": "r2",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "yara",
+      "domain": "malware-analysis",
+      "environment": "termux-optional",
+      "command": "yara",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "hacktricks",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "payloads-all-the-things",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "gtfobins",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "lolbas",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "ired-team",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "exploit-db",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "rtfm",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "the-hacker-news",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "tldrsec",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "portswigger-research",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    }
+  ],
+  "note": "missing/external means integrated in the registry but not installed in this environment"
+}

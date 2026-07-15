@@ -1,0 +1,30 @@
+name: main
+mode: sequential-with-review
+steps:
+- order: 1
+  task: validar escopo e autorização
+- order: 2
+  task: inventariar superfície pública
+- order: 3
+  task: coletar evidência de baixo impacto
+- order: 4
+  task: correlacionar versões e advisories
+- order: 5
+  task: revisar falsos positivos
+- order: 6
+  task: priorizar remediação
+- order: 7
+  task: emitir relatório e reteste
+- order: 8
+  task: planejar laboratório e ferramentas
+- order: 9
+  task: mapear técnica para detecção
+gates:
+- authorization
+- privacy-and-secret-redaction
+- evidence-quality
+- safety
+- validation
+- environment-compatibility
+- curriculum-evidence
+- defensive-twin

@@ -1,0 +1,16 @@
+test_catalog_and_audit (test_capability_router.CapabilityRouterTests.test_catalog_and_audit) ... ok
+test_route_is_non_executing (test_capability_router.CapabilityRouterTests.test_route_is_non_executing) ... ok
+test_pipeline (test_smoke.TestBreachCompass.test_pipeline) ... {"incident_id": "IR-DEMO-001", "output": "/data/data/com.termux/files/usr/tmp/tmped17w3ii/triage.json"}
+{"events": 2, "output": "/data/data/com.termux/files/usr/tmp/tmped17w3ii/timeline.csv"}
+{"ip": 1, "domain": 1, "hash": 1}
+/data/data/com.termux/files/usr/tmp/tmped17w3ii/report.md
+{
+  "valid": true,
+  "missing": []
+}
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.548s
+
+OK

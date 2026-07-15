@@ -1,0 +1,4 @@
+Synthetic security log for offline tests only.
+2026-01-01 connection from 203.0.113.10 to demo.example.org blocked.
+Observed sample hash aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.
+No credentials or production data are present.

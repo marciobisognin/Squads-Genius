@@ -1,0 +1,74 @@
+{
+  "weeks": 24,
+  "hours_per_week": 8,
+  "parallel_track": "OSINT every week",
+  "phases": [
+    {
+      "name": "Fase 0 — fundamentos",
+      "start_week": 1,
+      "end_week": 4,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    },
+    {
+      "name": "Fase 1 — web",
+      "start_week": 5,
+      "end_week": 10,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    },
+    {
+      "name": "Fase 2 — redes e sistemas",
+      "start_week": 11,
+      "end_week": 16,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    },
+    {
+      "name": "Fase 3 — AD/red team em lab",
+      "start_week": 17,
+      "end_week": 20,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    },
+    {
+      "name": "Fase 4 — reversing/malware",
+      "start_week": 21,
+      "end_week": 23,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    },
+    {
+      "name": "Fase 5 — prontidão profissional",
+      "start_week": 24,
+      "end_week": 24,
+      "weekly_hours": 8,
+      "allocation": {
+        "lab_percent": 60,
+        "theory_percent": 20,
+        "report_percent": 20
+      }
+    }
+  ],
+  "completion_rule": "artifact + evidence + false-positive review + defensive twin + retest criterion"
+}

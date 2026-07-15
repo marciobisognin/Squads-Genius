@@ -1,0 +1,30 @@
+{
+  "incident_id": "IR-DEMO-001",
+  "status": "identification",
+  "severity": "unknown",
+  "summary": "Alerta sintético de login incomum",
+  "assets": [
+    "demo-app"
+  ],
+  "known_indicators": [
+    "203.0.113.10"
+  ],
+  "immediate_questions": [
+    "What happened and when?",
+    "Which assets/accounts/data may be affected?",
+    "Which evidence is volatile?",
+    "What containment is reversible?",
+    "Who must approve service-affecting action?"
+  ],
+  "preservation": [
+    "record timezone and clocks",
+    "copy logs and alerts",
+    "hash collected files",
+    "avoid reboot before volatile-evidence decision"
+  ],
+  "containment_requires_approval": true,
+  "malware_policy": "static-first; dynamic only in approved disposable isolated lab",
+  "limitations": [
+    "synthetic/offline triage; no production action executed"
+  ]
+}

@@ -9821,5 +9821,409 @@
         "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/construção-de-squads-e-sistemas-de-ia/forge-of-solus-prime/docs/manual_operacional.md"
       }
     ]
+  },
+  {
+    "id": "scope-sentinel",
+    "name": "Scope Sentinel — Pentest Autorizado e Garantia de Superfície",
+    "tagline": "Transforma escopo autorizado em coleta de baixo impacto, evidências validadas, remediação priorizada e reteste — sem exploração destrutiva.",
+    "color": "#06b6d4",
+    "card_icon": "guardian",
+    "agents": [
+      {
+        "name": "Governador de Engajamento",
+        "role": "Governança",
+        "desc": "Valida autorização, escopo, bandas e critérios de parada.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Cartógrafo de Superfície",
+        "role": "Mapeamento",
+        "desc": "Mapeia ativos e dependências públicas dentro do escopo.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Avaliador Web e Rede",
+        "role": "Avaliação",
+        "desc": "Interpreta checagens públicas de baixo impacto.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Analista de Advisories",
+        "role": "Vulnerabilidades",
+        "desc": "Correlaciona versões, faixas afetadas e pré-requisitos.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Revisor de Evidências",
+        "role": "Qualidade",
+        "desc": "Elimina falsos positivos e ruído de scanner.",
+        "icon": "reviewer"
+      },
+      {
+        "name": "Arquiteto de Remediação",
+        "role": "Remediação",
+        "desc": "Converte achados em ações e critérios de reteste.",
+        "icon": "architect"
+      },
+      {
+        "name": "Metodologista de Laboratório",
+        "role": "Laboratório",
+        "desc": "Desenha ambientes seguros e gates de competência.",
+        "icon": "planner"
+      },
+      {
+        "name": "Analista de Caminhos Empresariais",
+        "role": "Detecção",
+        "desc": "Mapeia técnicas para controles defensivos.",
+        "icon": "strategist"
+      }
+    ],
+    "tools": [
+      {
+        "file": "scopesentinel.py",
+        "desc": "CLI de planejamento, coleta, relatório e validação."
+      },
+      {
+        "file": "capability_router.py",
+        "desc": "Gate não executor: GATED_HANDOFF, PLAN_ONLY ou DENY."
+      },
+      {
+        "file": "tool-registry.yaml",
+        "desc": "Registro governado de ferramentas e referências."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Validar escopo",
+        "desc": "Confirma autorização, ativos e limites."
+      },
+      {
+        "title": "Inventariar superfície",
+        "desc": "Mapeia ativos públicos dentro do escopo."
+      },
+      {
+        "title": "Coletar evidências",
+        "desc": "Executa apenas checagens de baixo impacto."
+      },
+      {
+        "title": "Correlacionar advisories",
+        "desc": "Compara versões e pré-requisitos."
+      },
+      {
+        "title": "Revisar falsos positivos",
+        "desc": "Separa pistas automatizadas de evidências."
+      },
+      {
+        "title": "Priorizar remediação",
+        "desc": "Ordena ações por risco e impacto."
+      },
+      {
+        "title": "Emitir relatório e reteste",
+        "desc": "Entrega achados e critérios de correção."
+      },
+      {
+        "title": "Planejar laboratório",
+        "desc": "Encaminha técnicas de risco para ambiente controlado."
+      },
+      {
+        "title": "Mapear detecções",
+        "desc": "Converte aprendizados em controles defensivos."
+      }
+    ],
+    "output": {
+      "title": "Evidências, achados e remediação auditável",
+      "desc": "Evidências sanitizadas, relatório, priorização e critérios de reteste."
+    },
+    "category": "Cibersegurança",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/ciberseguran%C3%A7a/scope-sentinel"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/scope-sentinel/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/scope-sentinel/squad.yaml"
+      }
+    ]
+  },
+  {
+    "id": "trace-mosaic",
+    "name": "Trace Mosaic — OSINT Ético e Inteligência Auditável",
+    "tagline": "Converte fontes públicas em inteligência proporcional e verificável, preservando proveniência, confiança, contradições e privacidade.",
+    "color": "#8b5cf6",
+    "card_icon": "researcher",
+    "agents": [
+      {
+        "name": "Planejador de Coleta",
+        "role": "Planejamento",
+        "desc": "Define pergunta, finalidade, fontes e limites.",
+        "icon": "planner"
+      },
+      {
+        "name": "Bibliotecário de Fontes",
+        "role": "Proveniência",
+        "desc": "Registra origem e timestamp de cada evidência.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Resolvedor de Entidades",
+        "role": "Entidades",
+        "desc": "Normaliza entidades sem fundir homônimos.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Analista de Correlação",
+        "role": "Correlação",
+        "desc": "Conecta evidências com hipóteses alternativas.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Analista de Confiança",
+        "role": "Confiança",
+        "desc": "Avalia qualidade, independência e atualidade.",
+        "icon": "validator"
+      },
+      {
+        "name": "Revisor de Privacidade",
+        "role": "Privacidade",
+        "desc": "Minimiza PII e bloqueia usos indevidos.",
+        "icon": "reviewer"
+      },
+      {
+        "name": "Redator de Inteligência",
+        "role": "Síntese",
+        "desc": "Produz BLUF, matriz, grafo e próximos passos.",
+        "icon": "writer"
+      },
+      {
+        "name": "Governador de Ferramentas OSINT",
+        "role": "Governança",
+        "desc": "Classifica fontes e técnicas por risco.",
+        "icon": "guardian"
+      }
+    ],
+    "tools": [
+      {
+        "file": "tracemosaic.py",
+        "desc": "CLI para iniciar, normalizar, correlacionar e relatar."
+      },
+      {
+        "file": "capability_router.py",
+        "desc": "Gate não executor para técnicas e ambientes OSINT."
+      },
+      {
+        "file": "tool-registry.yaml",
+        "desc": "Registro de fontes e plataformas governadas."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Definir finalidade",
+        "desc": "Formula pergunta e confirma legitimidade."
+      },
+      {
+        "title": "Planejar fontes",
+        "desc": "Seleciona fontes, retenção e dados proibidos."
+      },
+      {
+        "title": "Normalizar registros",
+        "desc": "Padroniza dados e minimiza material sensível."
+      },
+      {
+        "title": "Resolver entidades",
+        "desc": "Distingue homônimos e documenta incerteza."
+      },
+      {
+        "title": "Correlacionar evidências",
+        "desc": "Monta relações e cronologias."
+      },
+      {
+        "title": "Atribuir confiança",
+        "desc": "Classifica qualidade e independência."
+      },
+      {
+        "title": "Revisar privacidade",
+        "desc": "Aplica minimização e proporcionalidade."
+      },
+      {
+        "title": "Emitir inteligência",
+        "desc": "Produz relatório auditável."
+      },
+      {
+        "title": "Governar ferramentas",
+        "desc": "Seleciona recursos compatíveis com o caso."
+      },
+      {
+        "title": "Validar proveniência",
+        "desc": "Confirma rastreabilidade antes da entrega."
+      }
+    ],
+    "output": {
+      "title": "Inteligência verificável com proveniência",
+      "desc": "Registros normalizados, grafo, matriz de evidências e relatório com confiança."
+    },
+    "category": "Cibersegurança",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/ciberseguran%C3%A7a/trace-mosaic"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/trace-mosaic/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/trace-mosaic/squad.yaml"
+      }
+    ]
+  },
+  {
+    "id": "breach-compass",
+    "name": "Breach Compass — Resposta Defensiva a Incidentes",
+    "tagline": "Guia triagem, preservação, hunting, contenção aprovada, recuperação e aprendizagem sem executar malware nem alterar produção automaticamente.",
+    "color": "#ef4444",
+    "card_icon": "failsafe",
+    "agents": [
+      {
+        "name": "Comandante de Incidente",
+        "role": "Comando",
+        "desc": "Define prioridade, decisões e comunicação.",
+        "icon": "orchestrator"
+      },
+      {
+        "name": "Custódio de Evidência",
+        "role": "Custódia",
+        "desc": "Preserva origem, tempo, hash e cadeia de custódia.",
+        "icon": "guardian"
+      },
+      {
+        "name": "Caçador de Detecção",
+        "role": "Hunting",
+        "desc": "Constrói hipóteses, timelines e queries.",
+        "icon": "researcher"
+      },
+      {
+        "name": "Especialista em Malware Estático",
+        "role": "Triagem",
+        "desc": "Faz análise estática e propõe laboratório isolado.",
+        "icon": "analyst"
+      },
+      {
+        "name": "Planejador de Contenção",
+        "role": "Contenção",
+        "desc": "Propõe ações reversíveis, aprovação e rollback.",
+        "icon": "planner"
+      },
+      {
+        "name": "Coordenador de Recuperação",
+        "role": "Recuperação",
+        "desc": "Define erradicação e restauração.",
+        "icon": "failsafe"
+      },
+      {
+        "name": "Defensor de Risco Humano",
+        "role": "Risco Humano",
+        "desc": "Converte vetores sociais em controles defensivos.",
+        "icon": "communicator"
+      },
+      {
+        "name": "Revisor de Aprendizados",
+        "role": "Melhoria",
+        "desc": "Produz causa raiz, backlog e regressões.",
+        "icon": "reviewer"
+      },
+      {
+        "name": "Analista de Engenharia Reversa",
+        "role": "Engenharia Reversa",
+        "desc": "Estrutura análise e handoff seguro.",
+        "icon": "scientist"
+      },
+      {
+        "name": "Mapeador de Detecções",
+        "role": "Detecção",
+        "desc": "Converte comportamentos em cobertura defensiva.",
+        "icon": "validator"
+      }
+    ],
+    "tools": [
+      {
+        "file": "breachcompass.py",
+        "desc": "CLI de triagem, timeline, IOCs e relatório."
+      },
+      {
+        "file": "capability_router.py",
+        "desc": "Gate não executor para técnicas defensivas."
+      },
+      {
+        "file": "tool-registry.yaml",
+        "desc": "Registro de ferramentas defensivas governadas."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Abrir incidente",
+        "desc": "Registra contexto, prioridade e relógio."
+      },
+      {
+        "title": "Preservar e delimitar",
+        "desc": "Protege evidências e define fronteiras."
+      },
+      {
+        "title": "Construir timeline",
+        "desc": "Organiza eventos e hipóteses."
+      },
+      {
+        "title": "Extrair IOCs",
+        "desc": "Extrai indicadores de dados autorizados."
+      },
+      {
+        "title": "Propor contenção",
+        "desc": "Desenha ações reversíveis com aprovação."
+      },
+      {
+        "title": "Planejar recuperação",
+        "desc": "Define erradicação e monitoramento."
+      },
+      {
+        "title": "Revisar fator humano",
+        "desc": "Transforma vetores sociais em controles."
+      },
+      {
+        "title": "Registrar aprendizados",
+        "desc": "Produz causa raiz e regressões."
+      },
+      {
+        "title": "Analisar binário",
+        "desc": "Planeja static-first e laboratório isolado."
+      },
+      {
+        "title": "Mapear detecções",
+        "desc": "Relaciona comportamentos à cobertura defensiva."
+      }
+    ],
+    "output": {
+      "title": "Pacote defensivo de resposta a incidentes",
+      "desc": "Triagem, timeline, IOCs, contenção, recuperação e relatório auditável."
+    },
+    "category": "Cibersegurança",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/marciobisognin/Squads-Genius/tree/main/squads/ciberseguran%C3%A7a/breach-compass"
+      },
+      {
+        "label": "README",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/breach-compass/README.md"
+      },
+      {
+        "label": "squad.yaml",
+        "url": "https://github.com/marciobisognin/Squads-Genius/blob/main/squads/ciberseguran%C3%A7a/breach-compass/squad.yaml"
+      }
+    ]
   }
 ]

@@ -1,0 +1,56 @@
+version: 2.0.0
+rule: Every offensive technique needs authorized context, evidence limit, defensive twin and retest. plan-only means
+  the skill may explain or prepare a lab but never execute the technique.
+squad: breach-compass
+techniques:
+- id: red-team-evasion-theory
+  phase: 3
+  squad: breach-compass
+  minimum_band: 3
+  contexts:
+  - lab
+  execution_policy: plan-only
+  defensive_twin: detection engineering and control validation
+- id: reverse-engineering
+  phase: 4
+  squad: breach-compass
+  minimum_band: 1
+  contexts:
+  - lab
+  - provided-artifact
+  execution_policy: gated
+  defensive_twin: behavioral understanding and signatures
+- id: malware-static-analysis
+  phase: 4
+  squad: breach-compass
+  minimum_band: 0
+  contexts:
+  - provided-artifact
+  - lab
+  execution_policy: gated
+  defensive_twin: IOC extraction and detection
+- id: malware-dynamic-analysis
+  phase: 4
+  squad: breach-compass
+  minimum_band: 3
+  contexts:
+  - isolated-external-lab
+  execution_policy: plan-only
+  defensive_twin: sandbox telemetry and containment
+- id: social-engineering-defense
+  phase: osint
+  squad: breach-compass
+  minimum_band: 0
+  contexts:
+  - learning
+  - authorized-tabletop
+  execution_policy: gated
+  defensive_twin: out-of-band verification and awareness
+- id: reporting-and-retest
+  phase: all
+  squad: all
+  minimum_band: 0
+  contexts:
+  - all
+  execution_policy: gated
+  defensive_twin: evidence-backed closure

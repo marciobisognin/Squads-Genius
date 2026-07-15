@@ -1,0 +1,163 @@
+{
+  "summary": {
+    "available": 0,
+    "missing": 6,
+    "external": 13,
+    "reference-only": 0
+  },
+  "tools": [
+    {
+      "id": "ptes",
+      "domain": "methodology",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "nist-sp-800-115",
+      "domain": "methodology",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "inteltechniques",
+      "domain": "osint",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "osint-framework",
+      "domain": "osint",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "maltego",
+      "domain": "osint",
+      "environment": "desktop",
+      "command": "maltego",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "spiderfoot",
+      "domain": "osint",
+      "environment": "external-or-termux",
+      "command": "spiderfoot",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "recon-ng",
+      "domain": "osint",
+      "environment": "external-or-termux",
+      "command": "recon-ng",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "theharvester",
+      "domain": "osint",
+      "environment": "external-or-termux",
+      "command": "theHarvester",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "amass",
+      "domain": "osint",
+      "environment": "external-or-termux",
+      "command": "amass",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "shodan",
+      "domain": "osint",
+      "environment": "browser-api",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "censys",
+      "domain": "osint",
+      "environment": "browser-api",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "sherlock",
+      "domain": "osint",
+      "environment": "external-or-termux",
+      "command": "sherlock",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "trace-labs",
+      "domain": "osint",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "osint-dojo",
+      "domain": "osint",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "osintme",
+      "domain": "osint",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "ctftime",
+      "domain": "community",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "the-hacker-news",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "tldrsec",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "portswigger-research",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    }
+  ],
+  "note": "missing/external means integrated in the registry but not installed in this environment"
+}

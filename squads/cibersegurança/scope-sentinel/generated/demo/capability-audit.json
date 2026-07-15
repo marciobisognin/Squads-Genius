@@ -1,0 +1,435 @@
+{
+  "summary": {
+    "available": 2,
+    "missing": 7,
+    "external": 36,
+    "reference-only": 8
+  },
+  "tools": [
+    {
+      "id": "linux-journey",
+      "domain": "foundation",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "overthewire",
+      "domain": "foundation",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "practical-networking",
+      "domain": "foundation",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "adsecurity",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "automate-boring-stuff",
+      "domain": "scripting",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "virtualbox",
+      "domain": "lab",
+      "environment": "desktop-x86",
+      "command": "VirtualBox",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "vmware",
+      "domain": "lab",
+      "environment": "desktop-x86",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "kali-linux",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": "kali",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "parrot-os",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "vulnhub",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "metasploitable",
+      "domain": "lab",
+      "environment": "desktop-vm",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "owasp-juice-shop",
+      "domain": "web",
+      "environment": "external-lab",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "portswigger-academy",
+      "domain": "web",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "owasp-top10",
+      "domain": "web",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "owasp-wstg",
+      "domain": "web",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "burp-suite",
+      "domain": "web",
+      "environment": "desktop",
+      "command": "burpsuite",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "tryhackme",
+      "domain": "network-system",
+      "environment": "browser-vpn",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "hack-the-box",
+      "domain": "network-system",
+      "environment": "browser-vpn",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "htb-academy",
+      "domain": "network-system",
+      "environment": "browser-vpn",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "offsec-proving-grounds",
+      "domain": "network-system",
+      "environment": "browser-vpn",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "ptes",
+      "domain": "methodology",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "nist-sp-800-115",
+      "domain": "methodology",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "mitre-attack",
+      "domain": "defense",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "nmap",
+      "domain": "network-system",
+      "environment": "termux",
+      "command": "nmap",
+      "status": "available",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "metasploit",
+      "domain": "network-system",
+      "environment": "external-lab",
+      "command": "msfconsole",
+      "status": "missing",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "bloodhound",
+      "domain": "active-directory",
+      "environment": "desktop-lab",
+      "command": "bloodhound",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "ad-exploitation-cheatsheet",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "orange-pentest-mindmaps",
+      "domain": "active-directory",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "pwn-college",
+      "domain": "binary",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "exploit-education",
+      "domain": "binary",
+      "environment": "desktop-lab",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "crackmes-one",
+      "domain": "reverse-engineering",
+      "environment": "external-lab",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "objdump",
+      "domain": "reverse-engineering",
+      "environment": "termux",
+      "command": "objdump",
+      "status": "available",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "gdb",
+      "domain": "reverse-engineering",
+      "environment": "termux-optional",
+      "command": "gdb",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "radare2",
+      "domain": "reverse-engineering",
+      "environment": "termux-optional",
+      "command": "r2",
+      "status": "missing",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "security-plus",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "ejpt",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "oscp-plus",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "osep",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "crto",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "bscp",
+      "domain": "certification",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "hacktricks",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "payloads-all-the-things",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "gtfobins",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "lolbas",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "ired-team",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "exploit-db",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "rtfm",
+      "domain": "dual-use-reference",
+      "environment": "browser",
+      "command": null,
+      "status": "reference-only",
+      "execution_policy": "plan-only"
+    },
+    {
+      "id": "ctftime",
+      "domain": "community",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "hackerone",
+      "domain": "bug-bounty",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "bugcrowd",
+      "domain": "bug-bounty",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "the-hacker-news",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "tldrsec",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    },
+    {
+      "id": "portswigger-research",
+      "domain": "current-awareness",
+      "environment": "browser",
+      "command": null,
+      "status": "external",
+      "execution_policy": "gated"
+    }
+  ],
+  "note": "missing/external means integrated in the registry but not installed in this environment"
+}

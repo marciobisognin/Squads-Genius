@@ -1,0 +1,101 @@
+name: breach-compass
+display_name: Breach Compass
+commercial_name: Breach Compass
+positioning: >-
+  Resposta defensiva a incidentes com preservação de evidências, hunting,
+  contenção aprovada, recuperação e aprendizagem contínua.
+version: 2.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+mission: Guiar triagem, preservação, contenção aprovada, investigação, recuperação e aprendizagem sem executar malware
+  ou alterar produção automaticamente.
+safety:
+  authorized_only: true
+  no_destructive_actions: true
+  no_credential_capture: true
+  no_malware_execution_on_host: true
+  human_approval_for_state_changes: true
+agents:
+- id: incident-commander
+  name: Comandante de Incidente
+  file: agents/incident-commander.md
+- id: evidence-custodian
+  name: Custódio de Evidência
+  file: agents/evidence-custodian.md
+- id: detection-hunter
+  name: Caçador de Detecção
+  file: agents/detection-hunter.md
+- id: malware-triage
+  name: Especialista em Malware Estático
+  file: agents/malware-triage.md
+- id: containment-planner
+  name: Planejador de Contenção
+  file: agents/containment-planner.md
+- id: recovery-coordinator
+  name: Coordenador de Recuperação
+  file: agents/recovery-coordinator.md
+- id: human-risk-defender
+  name: Defensor de Risco Humano
+  file: agents/human-risk-defender.md
+- id: lessons-reviewer
+  name: Revisor de Aprendizados
+  file: agents/lessons-reviewer.md
+- id: reverse-engineering-analyst
+  name: Analista de Engenharia Reversa
+  file: agents/reverse-engineering-analyst.md
+- id: detection-mapper
+  name: Mapeador de Detecções
+  file: agents/detection-mapper.md
+tasks:
+- id: abrir-incidente-e-registrar-relogio
+  file: tasks/01-abrir-incidente-e-registrar-relógio.md
+- id: preservar-e-delimitar
+  file: tasks/02-preservar-e-delimitar.md
+- id: construir-timeline-e-hipoteses
+  file: tasks/03-construir-timeline-e-hipóteses.md
+- id: extrair-iocs-e-lacunas
+  file: tasks/04-extrair-IOCs-e-lacunas.md
+- id: propor-contencao-com-aprovacao
+  file: tasks/05-propor-contenção-com-aprovação.md
+- id: planejar-erradicacao-e-recuperacao
+  file: tasks/06-planejar-erradicação-e-recuperação.md
+- id: revisar-fator-humano
+  file: tasks/07-revisar-fator-humano.md
+- id: registrar-aprendizados-e-regressoes
+  file: tasks/08-registrar-aprendizados-e-regressões.md
+- id: analisar-binario-em-laboratorio
+  file: tasks/09-analisar-binario-em-laboratorio.md
+- id: mapear-comportamento-e-deteccao
+  file: tasks/10-mapear-comportamento-e-deteccao.md
+workflows:
+- id: main
+  file: workflows/main.yaml
+workflow:
+  file: workflows/main.yaml
+commands:
+- triage
+- timeline
+- ioc-extract
+- report
+- validate
+- capabilities
+- tool-audit
+- learning-plan
+artifacts:
+- README.md
+- PRD.md
+- TEXTO_EXPLICATIVO_SQUAD.md
+- TEXTO_PUBLICACAO_REDES_BLOG.md
+- scripts/breachcompass.py
+- validation/smoke-test.json
+- scripts/capability_router.py
+- references/tool-registry.yaml
+- references/technique-matrix.yaml
+- references/curriculum-map.md
+- docs/operational-boundaries.md
+curriculum:
+  source: trilha-cybersec-pentest-osint.md
+  tool_registry: references/tool-registry.yaml
+  technique_matrix: references/technique-matrix.yaml
+  execution_default: gated-or-plan-only

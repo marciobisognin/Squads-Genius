@@ -16,9 +16,6 @@ sabe fazer, decide com cri...
 - ✅ `6/6` [ARKHEION — Dossiês Visuais em Vídeo (Arquivo Confidencial)](squads/conteúdo-marketing-e-visual/squad-arkheion/README.md) — `ARKHEION` — v`1.0.0`
   - Do tema ao dossiê de 60s em 6 CENA-10, com fidelidade de marca code-enforced e auditoria TCU-grade....
 
-- ✅ `6/6` [Bifröst Forge Engine](squads/construção-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/README.md) — `bifrost-forge-engine-squad` — v`1.1.0`
-  - Engine determinístico com três pilares — forja de squads, forja de empresas e biblioteca de mentes — com auditoria encadeada (Saga Ledger), registro vivo (Yggdrasil) e determinismo provado.
-
 - ✅ `6/6` [Bigorna de Annwn — Super Sistema de Squads](squads/construção-de-squads-e-sistemas-de-ia/anvil-of-annwn-super-squad-system/README.md) — `Bigorna de Annwn — Super Sistema de Squads` — v`1.0.0`
 
 - ✅ `6/6` [DÉDALO — Fábrica de Ferramentas IA](squads/construção-de-squads-e-sistemas-de-ia/dedalo-fabrica-ferramentas-ia-squad/README.md) — `DÉDALO` — v`3.0.0`
@@ -61,7 +58,7 @@ sabe fazer, decide com cri...
 
 - ✅ `6/6` [apex-context-supreme](squads/construção-de-squads-e-sistemas-de-ia/apex-context-supreme/README.md) — `apex-context-supreme` — v`1.1.0`
 
-- ✅ `6/6` [Squad ARGOS — Vigilância de Diários Oficiais](squads/instituto-federal-farroupilha-iffar/argos-squad/README.md) — `argos-squad` — v`0.2.0`
+- ✅ `6/6` [Squad ARGOS — Vigilância de Diários Oficiais](squads/instituto-federal-farroupilha-iffar/argos-squad/README.md) — `argos-squad` — v`0.3.0`
   - Monitora DOU, Querido Diário municipal e portais estaduais catalogados por assunto, com perfis YAML,...
 
 - ✅ `6/6` [Árgus — Conta Vinculada](squads/instituto-federal-farroupilha-iffar/argus-conta-vinculada-squad/README.md) — `argus-conta-vinculada-squad` — v`1.0.0`
@@ -72,6 +69,13 @@ sabe fazer, decide com cri...
 - ✅ `6/6` [atlas-visual-reports-squad](squads/conteúdo-marketing-e-visual/atlas-visual-reports-squad-v1.2.0/README.md) — `atlas-visual-reports-squad` — v`1.2.0`
 
 - ✅ `6/6` [aurora-poprock-ballads](squads/saúde-bem-estar-e-expressão/aurora-poprock-ballads/README.md) — `aurora-poprock-ballads` — v`1.0.0`
+
+- ✅ `6/6` [Bifröst Forge Engine](squads/construção-de-squads-e-sistemas-de-ia/bifrost-forge-engine-squad/README.md) — `bifrost-forge-engine-squad` — v`1.1.0`
+  - Da ideia ao sistema, atravessando os nove reinos. Três pilares num só engine
+determinístico: forja d...
+
+- ✅ `6/6` [Breach Compass](squads/cibersegurança/breach-compass/README.md) — `breach-compass` — v`2.0.0`
+  - Resposta defensiva a incidentes com preservação de evidências, hunting, contenção aprovada, recupera...
 
 - ✅ `6/6` [Bússola Acadêmica IFFar](squads/instituto-federal-farroupilha-iffar/bussola-academica-iffar-squad/README.md) — `bussola-academica-iffar-squad` — v`1.0.0`
   - Squad institucional que apoia secretarias e coordenações acadêmicas do IFFar no ciclo letivo complet...
@@ -94,7 +98,7 @@ sabe fazer, decide com cri...
 
 - ✅ `6/6` [durable-execution-orchestrator-squad](squads/construção-de-squads-e-sistemas-de-ia/durable-execution-orchestrator-squad/README.md) — `durable-execution-orchestrator-squad` — v`1.0.0`
 
-- ✅ `6/6` [farol-contratos-licitacoes-iffar](squads/instituto-federal-farroupilha-iffar/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — v`3.1.0`
+- ✅ `6/6` [farol-contratos-licitacoes-iffar](squads/instituto-federal-farroupilha-iffar/farol-contratos-licitacoes-iffar/README.md) — `farol-contratos-licitacoes-iffar` — v`3.2.0`
 
 - ✅ `6/6` [Farol PCFP — Planilha de Custos e Formação de Preços](squads/jurídico-risco-finanças-e-segurança/farol-pcfp-squad/README.md) — `farol-pcfp-squad` — v`1.0.0`
   - Do edital à Planilha de Custos e Formação de Preços (XLSX com fórmulas vivas), com cálculo determiní...
@@ -180,6 +184,9 @@ sabe fazer, decide com cri...
 
 - ✅ `6/6` [revisao-bibliografica-automatizada-squad](squads/conhecimento-pesquisa-e-dados/revisao-bibliografica-automatizada-squad/README.md) — `revisao-bibliografica-automatizada-squad` — v`1.0.0`
 
+- ✅ `6/6` [Scope Sentinel](squads/cibersegurança/scope-sentinel/README.md) — `scope-sentinel` — v`2.0.0`
+  - Pentest autorizado e garantia de superfície de ataque com escopo verificável, coleta de baixo impact...
+
 - ✅ `6/6` [SCRIBA — Geração Assistida de Instrumentos Contratuais](squads/jurídico-risco-finanças-e-segurança/scriba-contratos-squad/README.md) — `scriba-contratos-squad` — v`1.0.0`
   - Dado um tipo de contrato, produz o instrumento pronto para assinatura (minuta inicial · termo aditiv...
 
@@ -201,6 +208,9 @@ sabe fazer, decide com cri...
 - ✅ `6/6` [Themis Contratos Públicos](squads/instituto-federal-farroupilha-iffar/themis-contratos-publicos-squad/README.md) — `themis-contratos-publicos-squad` — v`1.0.0`
   - Equipe jurídica de IA para análise de contratos administrativos da administração pública, com confor...
 
+- ✅ `6/6` [Trace Mosaic](squads/cibersegurança/trace-mosaic/README.md) — `trace-mosaic` — v`2.0.0`
+  - OSINT ético com proveniência, correlação auditável, avaliação de confiança, tratamento de contradiçõ...
+
 - ✅ `6/6` [trajetoria-evidenciada-squad](squads/saúde-bem-estar-e-expressão/trajetoria-evidenciada-squad/README.md) — `trajetoria-evidenciada-squad` — v`1.0.0`
 
 - ✅ `6/6` [universal-obsidian-knowledge-squad](squads/conhecimento-pesquisa-e-dados/universal-obsidian-knowledge-squad/README.md) — `universal-obsidian-knowledge-squad` — v`1.0.0`
@@ -221,7 +231,7 @@ sabe fazer, decide com cri...
 
 | Status | Quantidade | Percentual |
 |--------|-----------|-----------|
-| ✅ Completo | 89 | 100% |
+| ✅ Completo | 93 | 100% |
 | ⚠️ Parcial | 0 | 0% |
 | ❌ Incompleto | 0 | 0% |
-| **Total** | **89** | **100%** |
+| **Total** | **93** | **100%** |

@@ -1,0 +1,16 @@
+[
+  {
+    "timestamp": "2026-01-01T09:59:30Z",
+    "source": "synthetic-auth.log",
+    "asset": "demo-app",
+    "event": "Failed login from 203.0.113.10",
+    "confidence": "high"
+  },
+  {
+    "timestamp": "2026-01-01T10:00:00Z",
+    "source": "synthetic-alert.json",
+    "asset": "demo-app",
+    "event": "Alert generated for unusual login pattern",
+    "confidence": "medium"
+  }
+]

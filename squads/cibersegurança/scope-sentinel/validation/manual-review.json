@@ -1,0 +1,32 @@
+{
+  "reviewed_at": "2026-07-15",
+  "status": "accepted-with-guardrails",
+  "items": [
+    {
+      "pattern": "credential harvesting",
+      "occurrences": [
+        "examples/demo-input.json",
+        "generated/demo/engagement.json",
+        "generated/demo/plan/plan.json",
+        "validation/unittest_output.txt"
+      ],
+      "classification": "prohibited-action label",
+      "reason": "The phrase appears only in explicit prohibition/evidence of the safety gate; there is no credential collection feature."
+    },
+    {
+      "pattern": "msfconsole",
+      "occurrences": [
+        "references/tool-registry.yaml",
+        "generated/demo/capability-audit.json"
+      ],
+      "classification": "tool inventory only",
+      "reason": "Metasploit is marked external-lab, minimum Band 3 and plan-only. The router checks availability but cannot launch it."
+    }
+  ],
+  "verified_invariants": [
+    "capability_router.py never executes tools",
+    "plan-only techniques return execution_performed=false",
+    "no secrets detected",
+    "network smoke target is localhost"
+  ]
+}
