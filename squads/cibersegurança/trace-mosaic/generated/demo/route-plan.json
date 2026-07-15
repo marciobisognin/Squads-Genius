@@ -1,0 +1,17 @@
+{
+  "technique": "osint-source-planning",
+  "squad": "trace-mosaic",
+  "context": "public",
+  "requested_band": 0,
+  "minimum_band": 0,
+  "policy": "gated",
+  "context_allowed": true,
+  "band_sufficient": true,
+  "engagement_valid": true,
+  "engagement_errors": [],
+  "eligible_for_domain_tool_handoff": true,
+  "execution_performed": false,
+  "defensive_twin": "privacy and provenance",
+  "decision": "GATED_HANDOFF",
+  "reason": "Scope is eligible for a domain tool, which must still enforce its own allowlist and safety checks."
+}

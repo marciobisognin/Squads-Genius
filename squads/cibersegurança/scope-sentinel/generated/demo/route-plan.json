@@ -1,0 +1,17 @@
+{
+  "technique": "controlled-exploit-validation",
+  "squad": "scope-sentinel",
+  "context": "lab",
+  "requested_band": 3,
+  "minimum_band": 3,
+  "policy": "plan-only",
+  "context_allowed": true,
+  "band_sufficient": true,
+  "engagement_valid": true,
+  "engagement_errors": [],
+  "eligible_for_domain_tool_handoff": false,
+  "execution_performed": false,
+  "defensive_twin": "minimum proof, detection and retest",
+  "decision": "PLAN_ONLY",
+  "reason": "This capability may design an authorized lab/checklist but never execute this technique."
+}

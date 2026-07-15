@@ -1,0 +1,3 @@
+timestamp,id,source,asset,event,confidence
+2026-01-01T09:59:30Z,E-0001,synthetic-auth.log,demo-app,Failed login from 203.0.113.10,high
+2026-01-01T10:00:00Z,E-0002,synthetic-alert.json,demo-app,Alert generated for unusual login pattern,medium

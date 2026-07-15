@@ -1,0 +1,32 @@
+name: main
+mode: sequential-with-review
+steps:
+- order: 1
+  task: abrir incidente e registrar relógio
+- order: 2
+  task: preservar e delimitar
+- order: 3
+  task: construir timeline e hipóteses
+- order: 4
+  task: extrair IOCs e lacunas
+- order: 5
+  task: propor contenção com aprovação
+- order: 6
+  task: planejar erradicação e recuperação
+- order: 7
+  task: revisar fator humano
+- order: 8
+  task: registrar aprendizados e regressões
+- order: 9
+  task: analisar binário em laboratório
+- order: 10
+  task: mapear comportamento e detecção
+gates:
+- authorization
+- privacy-and-secret-redaction
+- evidence-quality
+- safety
+- validation
+- environment-compatibility
+- curriculum-evidence
+- defensive-twin

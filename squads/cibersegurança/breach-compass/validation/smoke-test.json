@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "artifacts": [
+    "generated/demo/triage.json",
+    "generated/demo/timeline.csv",
+    "generated/demo/iocs.json",
+    "generated/demo/incident_report.md"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "nodes": [
+    {
+      "id": "claim:R-0001",
+      "type": "claim",
+      "label": "The organization publishes an official documentation site.",
+      "confidence": "high"
+    },
+    {
+      "id": "claim:R-0002",
+      "type": "claim",
+      "label": "An archived page references a historical service.",
+      "confidence": "medium"
+    },
+    {
+      "id": "entity:3850a4616af35104",
+      "type": "entity",
+      "label": "Example Organization"
+    },
+    {
+      "id": "source:0f1b90fc960bb56f",
+      "type": "source",
+      "label": "https://archive.example.org/page?session=[REDACTED]"
+    },
+    {
+      "id": "source:5ff2aec7f24e9f90",
+      "type": "source",
+      "label": "https://example.org/docs"
+    }
+  ],
+  "edges": [
+    {
+      "source": "source:5ff2aec7f24e9f90",
+      "target": "claim:R-0001",
+      "relation": "supports"
+    },
+    {
+      "source": "claim:R-0001",
+      "target": "entity:3850a4616af35104",
+      "relation": "about"
+    },
+    {
+      "source": "source:0f1b90fc960bb56f",
+      "target": "claim:R-0002",
+      "relation": "supports"
+    },
+    {
+      "source": "claim:R-0002",
+      "target": "entity:3850a4616af35104",
+      "relation": "about"
+    }
+  ],
+  "caveat": "correlation is not identity attribution"
+}

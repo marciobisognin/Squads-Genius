@@ -1,0 +1,128 @@
+version: 2.0.0
+rule: Every offensive technique needs authorized context, evidence limit, defensive twin and retest. plan-only means
+  the skill may explain or prepare a lab but never execute the technique.
+squad: scope-sentinel
+techniques:
+- id: linux-fundamentals
+  phase: 0
+  squad: scope-sentinel
+  minimum_band: 0
+  contexts:
+  - lab
+  - learning
+  execution_policy: gated
+  defensive_twin: hardening, permissions and log review
+- id: tcp-ip-analysis
+  phase: 0
+  squad: scope-sentinel
+  minimum_band: 0
+  contexts:
+  - lab
+  - learning
+  - authorized
+  execution_policy: gated
+  defensive_twin: segmentation and network monitoring
+- id: scripting-automation
+  phase: 0
+  squad: scope-sentinel
+  minimum_band: 0
+  contexts:
+  - lab
+  - learning
+  execution_policy: gated
+  defensive_twin: allowlists, timeouts and deterministic evidence
+- id: web-manual-testing
+  phase: 1
+  squad: scope-sentinel
+  minimum_band: 1
+  contexts:
+  - lab
+  - authorized
+  execution_policy: gated
+  defensive_twin: secure design and WSTG retest
+- id: web-automated-discovery
+  phase: 1
+  squad: scope-sentinel
+  minimum_band: 1
+  contexts:
+  - lab
+  - authorized
+  execution_policy: gated
+  defensive_twin: rate limits, inventory and monitoring
+- id: network-discovery
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 1
+  contexts:
+  - lab
+  - authorized
+  execution_policy: gated
+  defensive_twin: asset inventory, firewall and segmentation
+- id: vulnerability-correlation
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 1
+  contexts:
+  - public
+  - lab
+  - authorized
+  execution_policy: gated
+  defensive_twin: patching and exposure reduction
+- id: controlled-exploit-validation
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 3
+  contexts:
+  - lab
+  - authorized-staging
+  execution_policy: plan-only
+  defensive_twin: minimum proof, detection and retest
+- id: privilege-escalation-lab
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 3
+  contexts:
+  - lab
+  execution_policy: plan-only
+  defensive_twin: least privilege and configuration hardening
+- id: post-exploitation-lab
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 3
+  contexts:
+  - lab
+  execution_policy: plan-only
+  defensive_twin: EDR telemetry, segmentation and credential hygiene
+- id: ad-attack-path-analysis
+  phase: 3
+  squad: scope-sentinel
+  minimum_band: 2
+  contexts:
+  - lab
+  - authorized
+  execution_policy: plan-only
+  defensive_twin: tiering, delegation review and path remediation
+- id: binary-exploitation-lab
+  phase: 4
+  squad: scope-sentinel
+  minimum_band: 3
+  contexts:
+  - lab
+  execution_policy: plan-only
+  defensive_twin: memory safety, compiler hardening and crash triage
+- id: bug-bounty-testing
+  phase: 2
+  squad: scope-sentinel
+  minimum_band: 1
+  contexts:
+  - program-scope
+  execution_policy: gated
+  defensive_twin: responsible disclosure and retest
+- id: reporting-and-retest
+  phase: all
+  squad: all
+  minimum_band: 0
+  contexts:
+  - all
+  execution_policy: gated
+  defensive_twin: evidence-backed closure

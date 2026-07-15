@@ -1,0 +1,16 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "secret_hits": [],
+  "dual_use_hits": [],
+  "files": 56,
+  "agents": 8,
+  "tasks": 10,
+  "smoke_test": {
+    "passed": true,
+    "pipeline": "init-normalize-correlate-report",
+    "pii_policy": "minimized",
+    "unicode_entity_ids": "sha256-nfkc"
+  }
+}

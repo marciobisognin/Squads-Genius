@@ -1,0 +1,95 @@
+name: trace-mosaic
+display_name: Trace Mosaic
+commercial_name: Trace Mosaic
+positioning: >-
+  OSINT ético com proveniência, correlação auditável, avaliação de confiança,
+  tratamento de contradições e proteção de privacidade.
+version: 2.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+mission: Converter fontes públicas em inteligência verificável, proporcional e transparente, preservando proveniência,
+  confiança, contradições e privacidade.
+safety:
+  authorized_only: true
+  no_destructive_actions: true
+  no_credential_capture: true
+  no_malware_execution_on_host: true
+  human_approval_for_state_changes: true
+agents:
+- id: collection-planner
+  name: Planejador de Coleta
+  file: agents/collection-planner.md
+- id: source-librarian
+  name: Bibliotecário de Fontes
+  file: agents/source-librarian.md
+- id: entity-resolver
+  name: Resolvedor de Entidades
+  file: agents/entity-resolver.md
+- id: correlation-analyst
+  name: Analista de Correlação
+  file: agents/correlation-analyst.md
+- id: confidence-analyst
+  name: Analista de Confiança
+  file: agents/confidence-analyst.md
+- id: privacy-reviewer
+  name: Revisor de Privacidade
+  file: agents/privacy-reviewer.md
+- id: intelligence-writer
+  name: Redator de Inteligência
+  file: agents/intelligence-writer.md
+- id: osint-tool-governor
+  name: Governador de Ferramentas OSINT
+  file: agents/osint-tool-governor.md
+tasks:
+- id: definir-pergunta-e-finalidade-legitima
+  file: tasks/01-definir-pergunta-e-finalidade-legítima.md
+- id: planejar-fontes-e-limites
+  file: tasks/02-planejar-fontes-e-limites.md
+- id: normalizar-registros
+  file: tasks/03-normalizar-registros.md
+- id: resolver-entidades-e-contradicoes
+  file: tasks/04-resolver-entidades-e-contradições.md
+- id: correlacionar-evidencias
+  file: tasks/05-correlacionar-evidências.md
+- id: atribuir-confianca
+  file: tasks/06-atribuir-confiança.md
+- id: revisar-privacidade
+  file: tasks/07-revisar-privacidade.md
+- id: emitir-inteligencia-auditavel
+  file: tasks/08-emitir-inteligência-auditável.md
+- id: selecionar-ferramentas-e-fontes
+  file: tasks/09-selecionar-ferramentas-e-fontes.md
+- id: validar-proveniencia-e-privacidade
+  file: tasks/10-validar-proveniencia-e-privacidade.md
+workflows:
+- id: main
+  file: workflows/main.yaml
+workflow:
+  file: workflows/main.yaml
+commands:
+- init
+- normalize
+- correlate
+- report
+- validate
+- capabilities
+- tool-audit
+- learning-plan
+artifacts:
+- README.md
+- PRD.md
+- TEXTO_EXPLICATIVO_SQUAD.md
+- TEXTO_PUBLICACAO_REDES_BLOG.md
+- scripts/tracemosaic.py
+- validation/smoke-test.json
+- scripts/capability_router.py
+- references/tool-registry.yaml
+- references/technique-matrix.yaml
+- references/curriculum-map.md
+- docs/operational-boundaries.md
+curriculum:
+  source: trilha-cybersec-pentest-osint.md
+  tool_registry: references/tool-registry.yaml
+  technique_matrix: references/technique-matrix.yaml
+  execution_default: gated-or-plan-only

@@ -1,0 +1,92 @@
+name: scope-sentinel
+display_name: Scope Sentinel
+commercial_name: Scope Sentinel
+positioning: >-
+  Pentest autorizado e garantia de superfície de ataque com escopo verificável,
+  coleta de baixo impacto, evidências validadas, remediação e reteste.
+version: 2.0.0
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+mission: Transformar escopo autorizado em coleta de baixo impacto, achados validados, priorização e reteste sem
+  exploração destrutiva.
+safety:
+  authorized_only: true
+  no_destructive_actions: true
+  no_credential_capture: true
+  no_malware_execution_on_host: true
+  human_approval_for_state_changes: true
+agents:
+- id: engagement-governor
+  name: Governador de Engajamento
+  file: agents/engagement-governor.md
+- id: surface-cartographer
+  name: Cartógrafo de Superfície
+  file: agents/surface-cartographer.md
+- id: web-network-assessor
+  name: Avaliador Web e Rede
+  file: agents/web-network-assessor.md
+- id: advisory-analyst
+  name: Analista de Advisories
+  file: agents/advisory-analyst.md
+- id: evidence-reviewer
+  name: Revisor de Evidências
+  file: agents/evidence-reviewer.md
+- id: remediation-architect
+  name: Arquiteto de Remediação
+  file: agents/remediation-architect.md
+- id: lab-methodologist
+  name: Metodologista de Laboratório
+  file: agents/lab-methodologist.md
+- id: enterprise-path-analyst
+  name: Analista de Caminhos Empresariais
+  file: agents/enterprise-path-analyst.md
+tasks:
+- id: validar-escopo-e-autorizacao
+  file: tasks/01-validar-escopo-e-autorização.md
+- id: inventariar-superficie-publica
+  file: tasks/02-inventariar-superfície-pública.md
+- id: coletar-evidencia-de-baixo-impacto
+  file: tasks/03-coletar-evidência-de-baixo-impacto.md
+- id: correlacionar-versoes-e-advisories
+  file: tasks/04-correlacionar-versões-e-advisories.md
+- id: revisar-falsos-positivos
+  file: tasks/05-revisar-falsos-positivos.md
+- id: priorizar-remediacao
+  file: tasks/06-priorizar-remediação.md
+- id: emitir-relatorio-e-reteste
+  file: tasks/07-emitir-relatório-e-reteste.md
+- id: planejar-laboratorio-e-ferramentas
+  file: tasks/08-planejar-laboratorio-e-ferramentas.md
+- id: mapear-tecnica-para-deteccao
+  file: tasks/09-mapear-tecnica-para-deteccao.md
+workflows:
+- id: main
+  file: workflows/main.yaml
+workflow:
+  file: workflows/main.yaml
+commands:
+- plan
+- collect
+- report
+- validate
+- capabilities
+- tool-audit
+- learning-plan
+artifacts:
+- README.md
+- PRD.md
+- TEXTO_EXPLICATIVO_SQUAD.md
+- TEXTO_PUBLICACAO_REDES_BLOG.md
+- scripts/scopesentinel.py
+- validation/smoke-test.json
+- scripts/capability_router.py
+- references/tool-registry.yaml
+- references/technique-matrix.yaml
+- references/curriculum-map.md
+- docs/operational-boundaries.md
+curriculum:
+  source: trilha-cybersec-pentest-osint.md
+  tool_registry: references/tool-registry.yaml
+  technique_matrix: references/technique-matrix.yaml
+  execution_default: gated-or-plan-only

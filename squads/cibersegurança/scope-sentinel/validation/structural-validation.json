@@ -1,0 +1,51 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "dual-use terms found; manual context review required"
+  ],
+  "secret_hits": [],
+  "dual_use_hits": [
+    {
+      "file": "references/tool-registry.yaml",
+      "pattern": "(?i)msfconsole"
+    },
+    {
+      "file": "examples/demo-input.json",
+      "pattern": "(?i)credential\\s+harvest"
+    },
+    {
+      "file": "validation/unittest_output.txt",
+      "pattern": "(?i)credential\\s+harvest"
+    },
+    {
+      "file": "validation/manual-review.json",
+      "pattern": "(?i)credential\\s+harvest"
+    },
+    {
+      "file": "generated/demo/engagement.json",
+      "pattern": "(?i)credential\\s+harvest"
+    },
+    {
+      "file": "generated/demo/capability-audit.json",
+      "pattern": "(?i)msfconsole"
+    },
+    {
+      "file": "generated/demo/plan/plan.json",
+      "pattern": "(?i)credential\\s+harvest"
+    }
+  ],
+  "files": 56,
+  "agents": 8,
+  "tasks": 9,
+  "smoke_test": {
+    "passed": true,
+    "fixture": "localhost",
+    "redirects_followed": false,
+    "private_asset_approval": true,
+    "artifacts": [
+      "generated/demo/evidence.json",
+      "generated/demo/report.md"
+    ]
+  }
+}

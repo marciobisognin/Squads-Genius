@@ -1,0 +1,51 @@
+version: 2.0.0
+rule: Every offensive technique needs authorized context, evidence limit, defensive twin and retest. plan-only means
+  the skill may explain or prepare a lab but never execute the technique.
+squad: trace-mosaic
+techniques:
+- id: osint-source-planning
+  phase: osint
+  squad: trace-mosaic
+  minimum_band: 0
+  contexts:
+  - public
+  - self-audit
+  - learning
+  execution_policy: gated
+  defensive_twin: privacy and provenance
+- id: osint-entity-correlation
+  phase: osint
+  squad: trace-mosaic
+  minimum_band: 0
+  contexts:
+  - public
+  - self-audit
+  - learning
+  execution_policy: gated
+  defensive_twin: confidence and alternative hypotheses
+- id: username-investigation
+  phase: osint
+  squad: trace-mosaic
+  minimum_band: 0
+  contexts:
+  - public
+  - self-audit
+  execution_policy: gated
+  defensive_twin: identity protection and false-attribution controls
+- id: internet-exposure-search
+  phase: osint
+  squad: trace-mosaic
+  minimum_band: 0
+  contexts:
+  - public
+  - self-audit
+  execution_policy: gated
+  defensive_twin: exposure remediation and monitoring
+- id: reporting-and-retest
+  phase: all
+  squad: all
+  minimum_band: 0
+  contexts:
+  - all
+  execution_policy: gated
+  defensive_twin: evidence-backed closure

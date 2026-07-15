@@ -1,0 +1,259 @@
+version: 2.0.0
+generated_from: trilha-cybersec-pentest-osint.md
+rules:
+  integrated_does_not_mean_installed: true
+  unknown_context: deny-active-use
+  band_3: exact written authorization plus lab/staging and human approval
+  never:
+  - credential capture
+  - real phishing
+  - persistence
+  - exfiltration
+  - destructive action
+  - denial of service
+  - malware execution on host
+squad: breach-compass
+tools:
+- id: adsecurity
+  domain: active-directory
+  kind: reference
+  environment: browser
+  reference_url: https://adsecurity.org/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Referência especializada, não currículo completo.
+- id: virtualbox
+  domain: lab
+  kind: desktop-runtime
+  environment: desktop-x86
+  reference_url: https://www.virtualbox.org/
+  command: VirtualBox
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Externo; incompatível com Android/Termux nativo.
+- id: vmware
+  domain: lab
+  kind: desktop-runtime
+  environment: desktop-x86
+  reference_url: https://www.vmware.com/
+  command: null
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Externo; incompatível com Android/Termux nativo.
+- id: kali-linux
+  domain: lab
+  kind: operating-system
+  environment: desktop-vm
+  reference_url: https://www.kali.org/
+  command: kali
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Usar como VM/lab, não como prova de competência.
+- id: parrot-os
+  domain: lab
+  kind: operating-system
+  environment: desktop-vm
+  reference_url: https://www.parrotsec.org/
+  command: null
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Usar como VM/lab externo.
+- id: vulnhub
+  domain: lab
+  kind: training-platform
+  environment: desktop-vm
+  reference_url: https://www.vulnhub.com/
+  command: null
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Máquinas vulneráveis isoladas.
+- id: metasploitable
+  domain: lab
+  kind: training-target
+  environment: desktop-vm
+  reference_url: https://sourceforge.net/projects/metasploitable/
+  command: null
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Alvo vulnerável deliberado; rede isolada.
+- id: mitre-attack
+  domain: defense
+  kind: knowledge-base
+  environment: browser
+  reference_url: https://attack.mitre.org/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Mapeamento adversário; não autoriza execução.
+- id: bloodhound
+  domain: active-directory
+  kind: graph-tool
+  environment: desktop-lab
+  reference_url: https://github.com/SpecterOps/BloodHound
+  command: bloodhound
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Coleta AD exige domínio sintético ou ROE escrito.
+- id: ad-exploitation-cheatsheet
+  domain: active-directory
+  kind: reference-only
+  environment: browser
+  reference_url: https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Referência dual-use; execução bloqueada por padrão.
+- id: orange-pentest-mindmaps
+  domain: active-directory
+  kind: reference
+  environment: browser
+  reference_url: https://orange-cyberdefense.github.io/ocd-mindmaps/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Fluxos de estudo e planejamento.
+- id: crackmes-one
+  domain: reverse-engineering
+  kind: training-platform
+  environment: external-lab
+  reference_url: https://crackmes.one/
+  command: null
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Somente desafios com licença clara; abrir em VM.
+- id: objdump
+  domain: reverse-engineering
+  kind: local-cli
+  environment: termux
+  reference_url: https://sourceware.org/binutils/
+  command: objdump
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Análise estática de arquivo fornecido.
+- id: strings
+  domain: malware-analysis
+  kind: local-cli
+  environment: termux
+  reference_url: https://sourceware.org/binutils/
+  command: strings
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Saída pode conter segredos; sanitizar.
+- id: gdb
+  domain: reverse-engineering
+  kind: debugger
+  environment: termux-optional
+  reference_url: https://sourceware.org/gdb/
+  command: gdb
+  minimum_operational_band: 2
+  execution_policy: gated
+  note: Somente binários educacionais/inertes.
+- id: radare2
+  domain: reverse-engineering
+  kind: local-cli
+  environment: termux-optional
+  reference_url: https://rada.re/n/
+  command: r2
+  minimum_operational_band: 1
+  execution_policy: gated
+  note: Análise em lab.
+- id: yara
+  domain: malware-analysis
+  kind: local-cli
+  environment: termux-optional
+  reference_url: https://virustotal.github.io/yara/
+  command: yara
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Detecção estática; não executar amostra.
+- id: hacktricks
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://book.hacktricks.xyz/
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Consulta; execução nunca automática.
+- id: payloads-all-the-things
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://github.com/swisskyrepo/PayloadsAllTheThings
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Payload somente em prova exata autorizada/lab.
+- id: gtfobins
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://gtfobins.github.io/
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Escalada somente em lab/ROE.
+- id: lolbas
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://lolbas-project.github.io/
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Abuso somente em lab/ROE.
+- id: ired-team
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://www.ired.team/
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Uso operacional bloqueado.
+- id: exploit-db
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://www.exploit-db.com/
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Código público não é seguro por padrão.
+- id: rtfm
+  domain: dual-use-reference
+  kind: reference-only
+  environment: browser
+  reference_url: https://github.com/tas08007/RTFM-Red-Team-Field-Manual
+  command: null
+  minimum_operational_band: 3
+  execution_policy: plan-only
+  note: Validar e autorizar comandos.
+- id: the-hacker-news
+  domain: current-awareness
+  kind: news
+  environment: browser
+  reference_url: https://thehackernews.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Corroborar com fonte primária.
+- id: tldrsec
+  domain: current-awareness
+  kind: newsletter
+  environment: browser
+  reference_url: https://tldrsec.com/
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Confirmar advisories.
+- id: portswigger-research
+  domain: current-awareness
+  kind: research
+  environment: browser
+  reference_url: https://portswigger.net/research
+  command: null
+  minimum_operational_band: 0
+  execution_policy: gated
+  note: Reproduzir somente em labs.

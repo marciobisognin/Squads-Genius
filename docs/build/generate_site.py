@@ -23,6 +23,9 @@ REPO_BASE_URL = "https://github.com/marciobisognin/Squads-Genius/tree/main"
 REPO_FOLDER_OVERRIDES = {
     "atlas-visual-reports-squad": "atlas-visual-reports-squad-v1.2.0",
     "argos-squad": "instituto-federal-farroupilha-iffar/argos-squad",
+    "scope-sentinel": "cibersegurança/scope-sentinel",
+    "trace-mosaic": "cibersegurança/trace-mosaic",
+    "breach-compass": "cibersegurança/breach-compass",
 }
 
 
@@ -138,6 +141,7 @@ CATEGORY_ORDER = [
     "Conhecimento, Pesquisa & Dados",
     "Conteúdo, Marketing & Visual",
     "Educação & Desenvolvimento Cognitivo",
+    "Cibersegurança",
     "Jurídico, Risco, Finanças & Segurança",
     "Saúde, Bem-estar & Expressão",
     "Instituto Federal Farroupilha (IFFar)",

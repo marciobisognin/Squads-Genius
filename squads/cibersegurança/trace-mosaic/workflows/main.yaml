@@ -1,0 +1,32 @@
+name: main
+mode: sequential-with-review
+steps:
+- order: 1
+  task: definir pergunta e finalidade legítima
+- order: 2
+  task: planejar fontes e limites
+- order: 3
+  task: normalizar registros
+- order: 4
+  task: resolver entidades e contradições
+- order: 5
+  task: correlacionar evidências
+- order: 6
+  task: atribuir confiança
+- order: 7
+  task: revisar privacidade
+- order: 8
+  task: emitir inteligência auditável
+- order: 9
+  task: selecionar ferramentas e fontes
+- order: 10
+  task: validar proveniência e privacidade
+gates:
+- authorization
+- privacy-and-secret-redaction
+- evidence-quality
+- safety
+- validation
+- environment-compatibility
+- curriculum-evidence
+- defensive-twin

@@ -1,0 +1,16 @@
+{
+  "case_id": "OSINT-DEMO-001",
+  "objective": "Mapear presença pública de uma organização fictícia",
+  "legitimate_purpose": "organization self-audit",
+  "subject_type": "organization",
+  "questions": [
+    "Quais domínios e perfis oficiais estão documentados?"
+  ],
+  "collection_limits": [
+    "public sources only"
+  ],
+  "prohibited_data": [
+    "private credentials",
+    "unnecessary personal data"
+  ]
+}

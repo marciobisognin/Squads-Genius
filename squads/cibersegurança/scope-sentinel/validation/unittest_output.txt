@@ -1,0 +1,17 @@
+test_catalog_and_audit (test_capability_router.CapabilityRouterTests.test_catalog_and_audit) ... ok
+test_route_is_non_executing (test_capability_router.CapabilityRouterTests.test_route_is_non_executing) ... ok
+test_end_to_end_local_fixture (test_smoke.TestScopeSentinel.test_end_to_end_local_fixture) ... {"valid": true, "objective": "Auditar aplicação local de demonstração", "assets": ["http://127.0.0.1:34839"], "max_band": 1, "rate_limit": 2.0, "steps": ["scope", "dns", "http-baseline", "public-discovery-files", "soft-404-control", "manual-review", "report-and-retest"], "prohibited_actions": ["denial of service", "destructive changes", "credential harvesting", "persistence", "real data exfiltration"]}
+{"assets": 1, "output": "/data/data/com.termux/files/usr/tmp/tmpxwrt0wsu/evidence.json"}
+/data/data/com.termux/files/usr/tmp/tmpxwrt0wsu/report.md
+{
+  "valid": true,
+  "missing": [],
+  "agents": 8,
+  "tasks": 9
+}
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.168s
+
+OK

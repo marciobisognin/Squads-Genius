@@ -1,0 +1,20 @@
+{
+  "objective": "Auditar aplicação local de demonstração",
+  "authorization_basis": "local lab",
+  "assets": [
+    "http://127.0.0.1:38821"
+  ],
+  "allowed_bands": [
+    0,
+    1
+  ],
+  "private_asset_approval": true,
+  "request_rate_limit": 2,
+  "prohibited_actions": [
+    "denial of service",
+    "destructive changes",
+    "credential harvesting",
+    "persistence",
+    "real data exfiltration"
+  ]
+}

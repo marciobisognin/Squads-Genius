@@ -1,0 +1,19 @@
+test_catalog_and_audit (test_capability_router.CapabilityRouterTests.test_catalog_and_audit) ... ok
+test_route_is_non_executing (test_capability_router.CapabilityRouterTests.test_route_is_non_executing) ... ok
+test_pipeline (test_smoke.TestTraceMosaic.test_pipeline) ... {"valid": true, "output": "/data/data/com.termux/files/usr/tmp/tmpxdw0ko5i/case"}
+{"input": 2, "normalized": 2, "output": "/data/data/com.termux/files/usr/tmp/tmpxdw0ko5i/normalized.json"}
+{"nodes": 5, "edges": 4, "graph": "/data/data/com.termux/files/usr/tmp/tmpxdw0ko5i/graph.json", "matrix": "/data/data/com.termux/files/usr/tmp/tmpxdw0ko5i/evidence_matrix.csv"}
+/data/data/com.termux/files/usr/tmp/tmpxdw0ko5i/report.md
+{
+  "valid": true,
+  "missing": []
+}
+ok
+test_unicode_entities_do_not_collapse (test_smoke.TestTraceMosaic.test_unicode_entities_do_not_collapse) ... {"input": 2, "normalized": 2, "output": "/data/data/com.termux/files/usr/tmp/tmp0uddvb1e/normalized.json"}
+{"nodes": 6, "edges": 4, "graph": "/data/data/com.termux/files/usr/tmp/tmp0uddvb1e/graph.json", "matrix": "/data/data/com.termux/files/usr/tmp/tmp0uddvb1e/evidence_matrix.csv"}
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.200s
+
+OK

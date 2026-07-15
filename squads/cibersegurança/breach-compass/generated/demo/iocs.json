@@ -1,0 +1,21 @@
+{
+  "source_file": "demo-log.txt",
+  "source_sha256": "68889ac8d3909d1f5603ce3adcf1f4a91ff603e621e71e9eab2d3fae743dedef",
+  "indicators": {
+    "ip": [
+      "203.0.113.10"
+    ],
+    "domain": [
+      "demo.example.org"
+    ],
+    "hash": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ]
+  },
+  "counts": {
+    "ip": 1,
+    "domain": 1,
+    "hash": 1
+  },
+  "caveat": "indicators are leads; reputation and context not inferred"
+}
