@@ -1,0 +1,39 @@
+project_name: Squad Contábil Adm Pública
+objective: >-
+  Criar um sistema multiagente seguro e auditável para apoiar contadores e setoriais contábeis da Administração Pública Federal na conformidade contábil, análise das demonstrações e regularizações do Manual SIAFI.
+problem: >-
+  A análise mensal de balancetes, demonstrações, equações e inconsistências do SIAFI é fragmentada, depende de múltiplas consultas e exige rastreabilidade rigorosa. Falhas podem gerar restrições, demonstrações inadequadas e regularizações intempestivas.
+target_audience: >-
+  Contadores responsáveis por UG, órgão e órgão superior; setoriais contábeis; equipes de execução orçamentária, financeira e patrimonial; auditoria interna e gestores públicos.
+expected_outputs:
+  - matriz de achados contábeis com evidências
+  - análise de demonstrações e equações
+  - plano assistido de regularização
+  - relatório de conformidade com ou sem restrição para revisão
+  - dossiê auditável em JSON e Markdown
+constraints:
+  - não acessar nem alterar diretamente o SIAFI
+  - não emitir lançamento contábil executável ou decisão vinculante
+  - não substituir contador habilitado
+  - toda conclusão exige fonte, competência, UG e evidência
+  - toda orientação de regularização exige aprovação humana
+  - usar somente regras determinísticas explícitas e versionadas
+integrations:
+  - exportações CSV/JSON de balancete e razão
+  - relatórios CONCONTIR, CONINCONS, CONDESAUD e CONCONFREG fornecidos pelo usuário
+  - demonstrativos contábeis exportados
+security_level: high
+human_approval_requirements:
+  - enquadramento de restrição contábil
+  - procedimento de regularização
+  - declaração de conformidade
+  - uso institucional dos artefatos
+success_metrics:
+  - zero achado sem evidência rastreável
+  - zero lançamento ou comando SIAFI gerado
+  - todos os scripts determinísticos cobertos por casos-ouro
+  - validação estrutural go
+  - suíte de testes integralmente verde
+budget_limit: 0
+preferred_models:
+  - modelo principal configurado no Hermes

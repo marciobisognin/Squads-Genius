@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "finding.schema.json",
+  "title": "Achado contábil rastreável",
+  "type": "object",
+  "required": ["id", "code", "severity", "title", "object_ref", "evidence_ids", "normative_ref", "action_class", "requires_human_approval"],
+  "properties": {
+    "id": {"type": "string"},
+    "code": {"type": "string"},
+    "severity": {"enum": ["critical", "high", "medium", "low", "info"]},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "object_ref": {"type": "string"},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "normative_ref": {"type": "string"},
+    "action_class": {"type": "string"},
+    "requires_human_approval": {"const": true}
+  }
+}

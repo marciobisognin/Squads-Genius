@@ -1,0 +1,113 @@
+name: squad-contabil-adm-publica
+commercial_name: Squad Contábil Adm Pública
+version: 1.0.0
+language: pt-BR
+category: Instituto Federal Farroupilha (IFFar)
+license: MIT
+creator: Marcio Bisognin
+instagram: '@marciobisognin'
+readme_style: dark-neon-layered-architecture
+positioning: >-
+  Sistema multiagente de apoio à conformidade contábil, análise de demonstrações e regularizações na Administração Pública Federal, com engine determinística, evidência rastreável e aprovação obrigatória do contador.
+source_documents:
+  - Macrofunção SIAFI 02.03.15 — Conformidade Contábil
+  - Macrofunção SIAFI 02.03.19 — Demonstrações Contábeis
+  - Macrofunção SIAFI 02.10.06 — Manual de Regularizações Contábeis
+required_footer: 'Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin.'
+disclaimer: >-
+  O squad não acessa nem altera o SIAFI, não gera lançamentos transacionais, não registra conformidade e não substitui contador habilitado. Toda conclusão e todo plano de regularização são propostas para revisão humana contra a redação normativa vigente.
+design_principles:
+  - cálculo determinístico e auditável; nenhum valor ou achado aritmético é gerado por LLM
+  - schema-first e handoffs estruturados
+  - todo achado possui objeto, evidência, referência e severidade
+  - fail-closed na ausência de dados, fonte vigente ou aprovação humana
+  - separação entre observado, cálculo, inferência, recomendação e decisão profissional
+agents:
+  - id: a1-orquestrador-contabil
+    file: agents/a1-orquestrador-contabil.md
+    role: Classifica a demanda, monta o grafo e gerencia os gates.
+  - id: a2-curador-dados-siafi
+    file: agents/a2-curador-dados-siafi.md
+    role: Normaliza exportações e constrói o catálogo de evidências.
+  - id: a3-analista-conformidade
+    file: agents/a3-analista-conformidade.md
+    role: Aplica a lente da Macrofunção 02.03.15.
+  - id: a4-analista-demonstracoes
+    file: agents/a4-analista-demonstracoes.md
+    role: Analisa demonstrativos segundo a Macrofunção 02.03.19.
+  - id: a5-regularizador-contabil
+    file: agents/a5-regularizador-contabil.md
+    role: Propõe plano assistido sob a Macrofunção 02.10.06.
+  - id: a6-auditor-evidencias
+    file: agents/a6-auditor-evidencias.md
+    role: Audita rastreabilidade, coerência e completude.
+  - id: a7-relator-contador
+    file: agents/a7-relator-contador.md
+    role: Consolida o dossiê para validação do contador.
+tasks:
+  - id: 01_classificar_demanda
+    file: tasks/01_classificar_demanda.yaml
+    owner: a1-orquestrador-contabil
+  - id: 02_normalizar_evidencias
+    file: tasks/02_normalizar_evidencias.yaml
+    owner: a2-curador-dados-siafi
+  - id: 03_analisar_conformidade
+    file: tasks/03_analisar_conformidade.yaml
+    owner: a3-analista-conformidade
+  - id: 04_analisar_demonstracoes
+    file: tasks/04_analisar_demonstracoes.yaml
+    owner: a4-analista-demonstracoes
+  - id: 05_triagem_inconsistencias
+    file: tasks/05_triagem_inconsistencias.yaml
+    owner: a6-auditor-evidencias
+  - id: 06_propor_regularizacao_hitl
+    file: tasks/06_propor_regularizacao_hitl.yaml
+    owner: a5-regularizador-contabil
+  - id: 07_revalidar_pos_regularizacao
+    file: tasks/07_revalidar_pos_regularizacao.yaml
+    owner: a6-auditor-evidencias
+  - id: 08_emitir_relatorio_hitl
+    file: tasks/08_emitir_relatorio_hitl.yaml
+    owner: a7-relator-contador
+  - id: 09_atualizar_base_normativa
+    file: tasks/09_atualizar_base_normativa.yaml
+    owner: a3-analista-conformidade
+workflows:
+  - id: conformidade_mensal
+    file: workflows/conformidade_mensal.yaml
+  - id: regularizacao_assistida
+    file: workflows/regularizacao_assistida.yaml
+  - id: encerramento_demonstracoes
+    file: workflows/encerramento_demonstracoes.yaml
+scripts:
+  - id: contabil_core
+    file: scripts/contabil_core.py
+    purpose: Detectar inconsistências, gerar matriz, plano e relatório a partir de JSON.
+  - id: validate_squad
+    file: scripts/validate_squad.py
+    purpose: Validar estrutura, referências, Python e segurança.
+  - id: package_squad
+    file: scripts/package_squad.py
+    purpose: Empacotar e verificar o ZIP.
+schemas:
+  - schemas/case_input.schema.json
+  - schemas/finding.schema.json
+  - schemas/analysis_output.schema.json
+quality_gates:
+  - case_input_valid
+  - evidence_catalog_valid
+  - findings_traceable
+  - no_transaction_command
+  - accountant_approves_regularization
+  - accountant_approves_conclusion
+outputs:
+  - analysis.json
+  - matriz_achados.csv
+  - plano_regularizacao.md
+  - relatorio_conformidade.md
+out_of_scope_v1:
+  - acesso ou automação transacional do SIAFI
+  - escolha autônoma de situação, evento ou documento contábil
+  - assinatura, protocolo ou registro de conformidade
+  - certificação de demonstrações sem contador
+  - armazenamento de documentos reais ou dados pessoais no repositório

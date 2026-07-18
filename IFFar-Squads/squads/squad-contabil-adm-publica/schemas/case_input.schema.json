@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "case_input.schema.json",
+  "title": "Caso de análise contábil pública",
+  "type": "object",
+  "required": ["case_id", "ug", "competencia", "sources"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "ug": {"type": "string", "minLength": 1},
+    "competencia": {"type": "string", "pattern": "^[0-9]{2}/[0-9]{4}$"},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["id", "type"]}},
+    "accounts": {"type": "array", "items": {"type": "object", "required": ["code", "nature", "closing_balance"]}},
+    "equations": {"type": "array", "items": {"type": "object", "required": ["id", "left_value", "right_value"]}},
+    "statements": {"type": "object"},
+    "external_findings": {"type": "array", "items": {"type": "object"}},
+    "rules": {"type": "object"}
+  },
+  "additionalProperties": true
+}

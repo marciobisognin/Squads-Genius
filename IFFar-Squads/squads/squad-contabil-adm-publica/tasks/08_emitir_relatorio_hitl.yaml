@@ -1,0 +1,41 @@
+{
+  "id": "08_emitir_relatorio_hitl",
+  "description": "Consolidar relatório e declaração proposta para o contador.",
+  "assigned_agent": "a7-relator-contador",
+  "dependencies": [
+    "03_analisar_conformidade",
+    "04_analisar_demonstracoes",
+    "05_triagem_inconsistencias"
+  ],
+  "inputs": [
+    "assessments",
+    "findings",
+    "audit"
+  ],
+  "outputs": [
+    "analysis.json",
+    "matriz_achados.csv",
+    "plano_regularizacao.md",
+    "relatorio_conformidade.md"
+  ],
+  "validation_rules": [
+    "entrada e saída conforme schemas",
+    "todo achado possui evidência e referência",
+    "nenhuma ação transacional é gerada"
+  ],
+  "timeout": "180s",
+  "retry_policy": {
+    "max_attempts": 2,
+    "retry_on": [
+      "erro de parsing",
+      "arquivo temporariamente indisponível"
+    ],
+    "do_not_retry_on": [
+      "evidência ausente",
+      "aprovação humana negada"
+    ]
+  },
+  "human_approval": true,
+  "failure_behavior": "Bloquear a etapa, preservar evidências e emitir pendências sem fabricar dados.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

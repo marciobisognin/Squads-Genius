@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analysis_output.schema.json",
+  "title": "Resultado da análise contábil",
+  "type": "object",
+  "required": ["schema", "case_id", "ug", "competencia", "input_sha256", "conclusion_proposal", "requires_accountant_approval", "findings", "regularization_plan"],
+  "properties": {
+    "conclusion_proposal": {"enum": ["pendente_dados", "com_restricao_proposta", "com_ressalvas_para_revisao", "sem_restricao_proposta"]},
+    "final_decision": {"type": ["null", "string"]},
+    "requires_accountant_approval": {"const": true},
+    "findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
+    "regularization_plan": {"type": "array", "items": {"type": "object"}}
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "encerramento_demonstracoes",
+  "name": "Análise de demonstrativos e encerramento",
+  "entrypoint": "01_classificar_demanda",
+  "human_in_loop": true,
+  "max_iterations": 3,
+  "conditions": [
+    "demonstrativos fornecidos",
+    "competência identificada"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "task": "01_classificar_demanda",
+      "agent": "a1-orquestrador-contabil",
+      "timeout": "120s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "task": "02_normalizar_evidencias",
+      "agent": "a2-curador-dados-siafi",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "evidence_catalog_valid"
+    },
+    {
+      "order": 3,
+      "task": "04_analisar_demonstracoes",
+      "agent": "a4-analista-demonstracoes",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "demonstracoes_reconciliadas"
+    },
+    {
+      "order": 4,
+      "task": "03_analisar_conformidade",
+      "agent": "a3-analista-conformidade",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 5,
+      "task": "08_emitir_relatorio_hitl",
+      "agent": "a7-relator-contador",
+      "timeout": "180s",
+      "retries": 0,
+      "gate_required": true,
+      "gate": "contador_aprova_conclusao"
+    }
+  ],
+  "failure_paths": [
+    "demonstrativo ausente -> bloquear",
+    "desequilíbrio -> retornar para investigação",
+    "aprovação negada -> encerrar como pendente"
+  ],
+  "resume_conditions": [
+    "demonstrativo corrigido ou complementado",
+    "contador registra decisão"
+  ],
+  "success_conditions": [
+    "equilíbrios verificados",
+    "divergências explicitadas",
+    "relatório revisado por contador"
+  ]
+}

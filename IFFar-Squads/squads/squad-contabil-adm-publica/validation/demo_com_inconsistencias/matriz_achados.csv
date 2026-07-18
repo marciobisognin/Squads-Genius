@@ -1,0 +1,9 @@
+id,code,severity,title,object_ref,evidence_ids,normative_ref,action_class,status
+ACH-0001,DEMONSTRACAO_DESEQUILIBRADA,critical,Demonstração contábil desequilibrada,demonstracoes:balanco_patrimonial,DEM-ERR,Macrofunção 02.03.19 — Demonstrações Contábeis,reconciliar_demonstrativos,proposto_para_revisao
+ACH-0002,EQUACAO_DESEQUILIBRADA,high,Equação contábil desequilibrada,equacao:EQ-0042,CONCONTIR-01,Macrofunção 02.03.15 e regra/equação fornecida pelo caso,investigar_origem_equacao,proposto_para_revisao
+ACH-0003,EVIDENCIA_INSUFICIENTE,high,Evidência insuficiente,CONINCONS:INCONS-001,CONINCONS-NAO-ANEXADO,Macrofunção 02.03.15 — evidência e qualidade do registro,complementar_evidencia,proposto_para_revisao
+ACH-0004,EVIDENCIA_INSUFICIENTE,high,Evidência insuficiente,conta:1.2.3.0.0.00.00,,Macrofunção 02.03.15 — evidência e qualidade do registro,complementar_evidencia,proposto_para_revisao
+ACH-0005,SALDO_INVERTIDO,high,Saldo com sinal incompatível,conta:1.1.3.8.1.00.00,BAL-ERR,Macrofunção 02.10.06 — regularizações contábeis,investigar_saldo_invertido,proposto_para_revisao
+ACH-0006,SALDO_NAO_RECONCILIADO,high,Saldo não reconciliado,conta:1.1.3.8.1.00.00,BAL-ERR,Macrofunção 02.03.15 — qualidade dos registros contábeis,reconciliar_movimentacao,proposto_para_revisao
+ACH-0007,INCONS-001,medium,Inconsistência externa,CONINCONS:INCONS-001,CONINCONS-NAO-ANEXADO,Macrofunção 02.03.15 — item a confirmar na redação vigente,analisar_achado_externo,proposto_para_revisao
+ACH-0008,SALDO_ALONGADO,medium,Saldo acima do prazo de análise informado,conta:1.1.3.8.1.00.00,BAL-ERR,Macrofunção 02.10.06 — regularizações contábeis; parâmetro do caso,avaliar_regularizacao_saldo,proposto_para_revisao

@@ -1,0 +1,25 @@
+{
+  "schema": "contabil-publica-analysis-v1",
+  "case_id": "DEMO-SEM-RESTRICAO-001",
+  "ug": "158000",
+  "competencia": "06/2026",
+  "input_sha256": "80b5305fc5ae88e4cb54bb53b640f89a7eb5ab0d845e5206ee43cc13cecf14ab",
+  "validation_errors": [],
+  "conclusion_proposal": "sem_restricao_proposta",
+  "final_decision": null,
+  "requires_accountant_approval": true,
+  "findings": [],
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "regularization_plan": [],
+  "limits": [
+    "Não acessa nem altera o SIAFI.",
+    "Não gera comando ou lançamento contábil executável.",
+    "Conclusões são propostas para validação do contador responsável."
+  ]
+}
