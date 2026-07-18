@@ -1,0 +1,25 @@
+{
+  "status": "go",
+  "release": "1.0.0",
+  "generated_at": "2026-07-17T22:35:02-03:00",
+  "archive_name": "Squad-Contabil-Adm-Publica-v1.0.0.zip",
+  "included_validation": [
+    "release_qa_report.json",
+    "demo_sem_restricao",
+    "demo_com_inconsistencias",
+    "SQUAD-DOCTOR-REPORT.md"
+  ],
+  "excluded_transients": [
+    "__pycache__",
+    ".pytest_cache",
+    ".git",
+    ".venv",
+    "venv"
+  ],
+  "required_files": [
+    "README.md",
+    "PRD.md",
+    "squad.yaml"
+  ],
+  "note": "O checksum SHA-256 final é entregue externamente para evitar autorreferência do ZIP."
+}

@@ -1,0 +1,20 @@
+{
+  "case_id": "DEMO-SEM-RESTRICAO-001",
+  "ug": "158000",
+  "competencia": "06/2026",
+  "sources": [
+    {"id": "BAL-001", "type": "balancete", "origin": "exportacao_fornecida"},
+    {"id": "DEM-001", "type": "demonstracoes", "origin": "exportacao_fornecida"}
+  ],
+  "rules": {"balance_tolerance": "0.01"},
+  "accounts": [
+    {"code": "1.0.0.0.0.00.00", "name": "Ativo", "nature": "debit", "opening_balance": "1000.00", "debits": "500.00", "credits": "200.00", "closing_balance": "1300.00", "evidence_ids": ["BAL-001"]},
+    {"code": "2.1.0.0.0.00.00", "name": "Passivo", "nature": "credit", "opening_balance": "400.00", "debits": "100.00", "credits": "200.00", "closing_balance": "500.00", "evidence_ids": ["BAL-001"]},
+    {"code": "2.3.0.0.0.00.00", "name": "Patrimônio Líquido", "nature": "credit", "opening_balance": "600.00", "debits": "0.00", "credits": "200.00", "closing_balance": "800.00", "evidence_ids": ["BAL-001"]}
+  ],
+  "equations": [
+    {"id": "EQ-PATRIMONIAL", "left_value": "1300.00", "right_value": "1300.00", "tolerance": "0.01", "evidence_ids": ["BAL-001"]}
+  ],
+  "statements": {"assets": "1300.00", "liabilities": "500.00", "net_equity": "800.00", "evidence_ids": ["DEM-001"]},
+  "external_findings": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "07_revalidar_pos_regularizacao",
+  "description": "Reprocessar evidências após ações informadas pelo usuário.",
+  "assigned_agent": "a6-auditor-evidencias",
+  "dependencies": [
+    "06_propor_regularizacao_hitl"
+  ],
+  "inputs": [
+    "evidências pós-ação",
+    "RegularizationPlan aprovado"
+  ],
+  "outputs": [
+    "RevalidationReport"
+  ],
+  "validation_rules": [
+    "entrada e saída conforme schemas",
+    "todo achado possui evidência e referência",
+    "nenhuma ação transacional é gerada"
+  ],
+  "timeout": "180s",
+  "retry_policy": {
+    "max_attempts": 2,
+    "retry_on": [
+      "erro de parsing",
+      "arquivo temporariamente indisponível"
+    ],
+    "do_not_retry_on": [
+      "evidência ausente",
+      "aprovação humana negada"
+    ]
+  },
+  "human_approval": true,
+  "failure_behavior": "Bloquear a etapa, preservar evidências e emitir pendências sem fabricar dados.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

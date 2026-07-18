@@ -1,0 +1,35 @@
+{
+  "id": "03_analisar_conformidade",
+  "description": "Aplicar a análise de conformidade da Macrofunção 02.03.15.",
+  "assigned_agent": "a3-analista-conformidade",
+  "dependencies": [
+    "02_normalizar_evidencias"
+  ],
+  "inputs": [
+    "CaseInput",
+    "EvidenceCatalog"
+  ],
+  "outputs": [
+    "ConformityAssessment"
+  ],
+  "validation_rules": [
+    "entrada e saída conforme schemas",
+    "todo achado possui evidência e referência",
+    "nenhuma ação transacional é gerada"
+  ],
+  "timeout": "180s",
+  "retry_policy": {
+    "max_attempts": 2,
+    "retry_on": [
+      "erro de parsing",
+      "arquivo temporariamente indisponível"
+    ],
+    "do_not_retry_on": [
+      "evidência ausente",
+      "aprovação humana negada"
+    ]
+  },
+  "human_approval": false,
+  "failure_behavior": "Bloquear a etapa, preservar evidências e emitir pendências sem fabricar dados.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

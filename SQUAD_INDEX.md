@@ -200,6 +200,9 @@ determinístico: forja d...
 
 - ✅ `6/6` [squad-docente-iffar](squads/instituto-federal-farroupilha-iffar/squad-docente-iffar/README.md) — `squad-docente-iffar` — v`1.0.0`
 
+- ✅ `6/6` [Squad Contábil Adm Pública](IFFar-Squads/squads/squad-contabil-adm-publica/README.md) — `squad-contabil-adm-publica` — v`1.0.0`
+  - Apoio auditável à conformidade contábil, análise de demonstrações e regularização assistida na Administração Pública Federal, com decisão final reservada ao contador.
+
 - ✅ `6/6` [Squad PCFP — Planilhas de Custos e Formação de Preços](squads/instituto-federal-farroupilha-iffar/squad-pcfp/README.md) — `squad-pcfp` — v`1.0.0`
   - Squad multi-agente para elaboração, validação e auditoria de Planilhas de Custos e Formação de Preço...
 
@@ -231,7 +234,7 @@ determinístico: forja d...
 
 | Status | Quantidade | Percentual |
 |--------|-----------|-----------|
-| ✅ Completo | 93 | 100% |
+| ✅ Completo | 94 | 100% |
 | ⚠️ Parcial | 0 | 0% |
 | ❌ Incompleto | 0 | 0% |
-| **Total** | **93** | **100%** |
+| **Total** | **94** | **100%** |

@@ -1,0 +1,217 @@
+{
+  "schema": "contabil-publica-analysis-v1",
+  "case_id": "DEMO-COM-INCONSISTENCIAS-001",
+  "ug": "158000",
+  "competencia": "06/2026",
+  "input_sha256": "8ecd0b65cf9fe9fa2fe1dd77747377e8c49f522a315d7d6d4ffdf8a25a178734",
+  "validation_errors": [],
+  "conclusion_proposal": "com_restricao_proposta",
+  "final_decision": null,
+  "requires_accountant_approval": true,
+  "findings": [
+    {
+      "id": "ACH-0001",
+      "code": "DEMONSTRACAO_DESEQUILIBRADA",
+      "severity": "critical",
+      "title": "Demonstração contábil desequilibrada",
+      "description": "Ativo difere de passivo mais patrimônio líquido em 100.00.",
+      "object_ref": "demonstracoes:balanco_patrimonial",
+      "evidence_ids": [
+        "DEM-ERR"
+      ],
+      "normative_ref": "Macrofunção 02.03.19 — Demonstrações Contábeis",
+      "action_class": "reconciliar_demonstrativos",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0002",
+      "code": "EQUACAO_DESEQUILIBRADA",
+      "severity": "high",
+      "title": "Equação contábil desequilibrada",
+      "description": "Diferença 50.00 entre os lados da equação EQ-0042.",
+      "object_ref": "equacao:EQ-0042",
+      "evidence_ids": [
+        "CONCONTIR-01"
+      ],
+      "normative_ref": "Macrofunção 02.03.15 e regra/equação fornecida pelo caso",
+      "action_class": "investigar_origem_equacao",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0003",
+      "code": "EVIDENCIA_INSUFICIENTE",
+      "severity": "high",
+      "title": "Evidência insuficiente",
+      "description": "Evidências não localizadas: CONINCONS-NAO-ANEXADO",
+      "object_ref": "CONINCONS:INCONS-001",
+      "evidence_ids": [
+        "CONINCONS-NAO-ANEXADO"
+      ],
+      "normative_ref": "Macrofunção 02.03.15 — evidência e qualidade do registro",
+      "action_class": "complementar_evidencia",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0004",
+      "code": "EVIDENCIA_INSUFICIENTE",
+      "severity": "high",
+      "title": "Evidência insuficiente",
+      "description": "Objeto sem evidência vinculada.",
+      "object_ref": "conta:1.2.3.0.0.00.00",
+      "evidence_ids": [],
+      "normative_ref": "Macrofunção 02.03.15 — evidência e qualidade do registro",
+      "action_class": "complementar_evidencia",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0005",
+      "code": "SALDO_INVERTIDO",
+      "severity": "high",
+      "title": "Saldo com sinal incompatível",
+      "description": "A conta de natureza debit apresenta saldo -900.00.",
+      "object_ref": "conta:1.1.3.8.1.00.00",
+      "evidence_ids": [
+        "BAL-ERR"
+      ],
+      "normative_ref": "Macrofunção 02.10.06 — regularizações contábeis",
+      "action_class": "investigar_saldo_invertido",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0006",
+      "code": "SALDO_NAO_RECONCILIADO",
+      "severity": "high",
+      "title": "Saldo não reconciliado",
+      "description": "Saldo informado -900.00 difere do saldo calculado 1100.00.",
+      "object_ref": "conta:1.1.3.8.1.00.00",
+      "evidence_ids": [
+        "BAL-ERR"
+      ],
+      "normative_ref": "Macrofunção 02.03.15 — qualidade dos registros contábeis",
+      "action_class": "reconciliar_movimentacao",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0007",
+      "code": "INCONS-001",
+      "severity": "medium",
+      "title": "Inconsistência externa",
+      "description": "Registro importado de relatório fornecido pelo usuário.",
+      "object_ref": "CONINCONS:INCONS-001",
+      "evidence_ids": [
+        "CONINCONS-NAO-ANEXADO"
+      ],
+      "normative_ref": "Macrofunção 02.03.15 — item a confirmar na redação vigente",
+      "action_class": "analisar_achado_externo",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    },
+    {
+      "id": "ACH-0008",
+      "code": "SALDO_ALONGADO",
+      "severity": "medium",
+      "title": "Saldo acima do prazo de análise informado",
+      "description": "Permanência de 120 dias supera o limite parametrizado de 30 dias.",
+      "object_ref": "conta:1.1.3.8.1.00.00",
+      "evidence_ids": [
+        "BAL-ERR"
+      ],
+      "normative_ref": "Macrofunção 02.10.06 — regularizações contábeis; parâmetro do caso",
+      "action_class": "avaliar_regularizacao_saldo",
+      "requires_human_approval": true,
+      "status": "proposto_para_revisao"
+    }
+  ],
+  "severity_counts": {
+    "critical": 1,
+    "high": 5,
+    "medium": 2,
+    "low": 0,
+    "info": 0
+  },
+  "regularization_plan": [
+    {
+      "finding_id": "ACH-0001",
+      "action_class": "reconciliar_demonstrativos",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.19 — Demonstrações Contábeis",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0002",
+      "action_class": "investigar_origem_equacao",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.15 e regra/equação fornecida pelo caso",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0003",
+      "action_class": "complementar_evidencia",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.15 — evidência e qualidade do registro",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0004",
+      "action_class": "complementar_evidencia",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.15 — evidência e qualidade do registro",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0005",
+      "action_class": "investigar_saldo_invertido",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.10.06 — regularizações contábeis",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0006",
+      "action_class": "reconciliar_movimentacao",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.15 — qualidade dos registros contábeis",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0007",
+      "action_class": "analisar_achado_externo",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.03.15 — item a confirmar na redação vigente",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    },
+    {
+      "finding_id": "ACH-0008",
+      "action_class": "avaliar_regularizacao_saldo",
+      "recommended_action": "Confirmar a causa e a evidência; consultar a redação vigente da Macrofunção 02.10.06 e o procedimento específico aplicável; submeter a proposta ao contador responsável.",
+      "procedure_reference": "Macrofunção 02.10.06 — regularizações contábeis; parâmetro do caso",
+      "transaction_command": null,
+      "approval_status": "pendente_contador",
+      "execution_status": "nao_executado"
+    }
+  ],
+  "limits": [
+    "Não acessa nem altera o SIAFI.",
+    "Não gera comando ou lançamento contábil executável.",
+    "Conclusões são propostas para validação do contador responsável."
+  ]
+}

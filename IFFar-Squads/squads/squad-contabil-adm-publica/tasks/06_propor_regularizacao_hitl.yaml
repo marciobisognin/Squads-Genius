@@ -1,0 +1,35 @@
+{
+  "id": "06_propor_regularizacao_hitl",
+  "description": "Propor plano assistido sob a Macrofunção 02.10.06.",
+  "assigned_agent": "a5-regularizador-contabil",
+  "dependencies": [
+    "05_triagem_inconsistencias"
+  ],
+  "inputs": [
+    "Finding[]",
+    "redação vigente da norma"
+  ],
+  "outputs": [
+    "RegularizationPlan"
+  ],
+  "validation_rules": [
+    "entrada e saída conforme schemas",
+    "todo achado possui evidência e referência",
+    "nenhuma ação transacional é gerada"
+  ],
+  "timeout": "180s",
+  "retry_policy": {
+    "max_attempts": 2,
+    "retry_on": [
+      "erro de parsing",
+      "arquivo temporariamente indisponível"
+    ],
+    "do_not_retry_on": [
+      "evidência ausente",
+      "aprovação humana negada"
+    ]
+  },
+  "human_approval": true,
+  "failure_behavior": "Bloquear a etapa, preservar evidências e emitir pendências sem fabricar dados.",
+  "required_footer": "Licença: MIT. Criado por Marcio Bisognin. Instagram: @marciobisognin."
+}

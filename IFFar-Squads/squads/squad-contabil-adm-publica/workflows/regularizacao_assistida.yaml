@@ -1,0 +1,81 @@
+{
+  "id": "regularizacao_assistida",
+  "name": "Regularização contábil assistida",
+  "entrypoint": "01_classificar_demanda",
+  "human_in_loop": true,
+  "max_iterations": 3,
+  "conditions": [
+    "achados existentes",
+    "fonte normativa oficial disponível ou item marcado a confirmar"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "task": "01_classificar_demanda",
+      "agent": "a1-orquestrador-contabil",
+      "timeout": "120s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "task": "02_normalizar_evidencias",
+      "agent": "a2-curador-dados-siafi",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "evidence_catalog_valid"
+    },
+    {
+      "order": 3,
+      "task": "05_triagem_inconsistencias",
+      "agent": "a6-auditor-evidencias",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "findings_traceable"
+    },
+    {
+      "order": 4,
+      "task": "06_propor_regularizacao_hitl",
+      "agent": "a5-regularizador-contabil",
+      "timeout": "180s",
+      "retries": 0,
+      "gate_required": true,
+      "gate": "contador_aprova_procedimento"
+    },
+    {
+      "order": 5,
+      "task": "07_revalidar_pos_regularizacao",
+      "agent": "a6-auditor-evidencias",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "evidencia_pos_acao"
+    },
+    {
+      "order": 6,
+      "task": "08_emitir_relatorio_hitl",
+      "agent": "a7-relator-contador",
+      "timeout": "180s",
+      "retries": 0,
+      "gate_required": true,
+      "gate": "contador_aprova_conclusao"
+    }
+  ],
+  "failure_paths": [
+    "procedimento sem fonte -> marcar a_confirmar",
+    "aprovação negada -> não executar nem revalidar",
+    "evidência pós-ação ausente -> manter achado aberto"
+  ],
+  "resume_conditions": [
+    "fonte oficial confirmada",
+    "contador aprova o plano",
+    "evidência pós-ação anexada"
+  ],
+  "success_conditions": [
+    "nenhum comando SIAFI gerado",
+    "plano e revalidação rastreáveis",
+    "decisão final permanece humana"
+  ]
+}

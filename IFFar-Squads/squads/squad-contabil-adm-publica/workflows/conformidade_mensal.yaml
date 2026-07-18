@@ -1,0 +1,78 @@
+{
+  "id": "conformidade_mensal",
+  "name": "Conformidade contábil mensal",
+  "entrypoint": "01_classificar_demanda",
+  "human_in_loop": true,
+  "max_iterations": 3,
+  "conditions": [
+    "dados fornecidos pelo usuário",
+    "competência e UG identificadas"
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "task": "01_classificar_demanda",
+      "agent": "a1-orquestrador-contabil",
+      "timeout": "120s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 2,
+      "task": "02_normalizar_evidencias",
+      "agent": "a2-curador-dados-siafi",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "evidence_catalog_valid"
+    },
+    {
+      "order": 3,
+      "task": "03_analisar_conformidade",
+      "agent": "a3-analista-conformidade",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 4,
+      "task": "04_analisar_demonstracoes",
+      "agent": "a4-analista-demonstracoes",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": false
+    },
+    {
+      "order": 5,
+      "task": "05_triagem_inconsistencias",
+      "agent": "a6-auditor-evidencias",
+      "timeout": "180s",
+      "retries": 1,
+      "gate_required": true,
+      "gate": "findings_traceable"
+    },
+    {
+      "order": 6,
+      "task": "08_emitir_relatorio_hitl",
+      "agent": "a7-relator-contador",
+      "timeout": "180s",
+      "retries": 0,
+      "gate_required": true,
+      "gate": "contador_aprova_conclusao"
+    }
+  ],
+  "failure_paths": [
+    "dados incompletos -> voltar à task 02",
+    "achado sem evidência -> bloquear no gate findings_traceable",
+    "gate humano negado -> encerrar sem declaração"
+  ],
+  "resume_conditions": [
+    "nova evidência anexada",
+    "contador registra decisão"
+  ],
+  "success_conditions": [
+    "zero achado sem evidência",
+    "relatório marcado como proposta",
+    "aprovação humana registrada"
+  ]
+}
