@@ -41,7 +41,6 @@ A convenção saneada passa a ser:
 | PROJUR Contracts Squad | [`projur-contracts-squad`](./squads/projur-contracts-squad/) | Inteligência documental em lote e ciclo de vida (CLM) de contratos, convênios e TED: extração (com OCR), classificação, partes (CNPJ/CPF), LGPD, vínculos, vigência, conformidade e matriz/indicadores, com 22 agentes (6 SMEs jurídicos) e engine determinística; encaminha casos ao Themis/Farol/PCFP. |
 | Squad Docente IFFar | [`squad-docente-iffar`](./squads/squad-docente-iffar/) | Automação do trabalho docente: plano de ensino, materiais didáticos com ponte Manim, avaliações/rubricas, adaptação AEE (Res. CONSUP 52/2019) e consolidação para conselho de classe, com 9 agentes e Gate Humano obrigatório. |
 | Árgus — Conta Vinculada | [`argus-conta-vinculada-squad`](./squads/argus-conta-vinculada-squad/) | Geração e manutenção automática da planilha da Conta-Depósito Vinculada (Anexo XII da IN 05/2017; art. 121 da Lei 14.133/2021): extrai contracheque e FGTS Digital, calcula provisão mensal/saldo/liberações (13º, férias, rescisão), confere FGTS 8% e gera planilha .xlsx auditável, com engine determinística e gates humanos. Recebe insumos do Squad PCFP. |
-| Squad Contábil Adm Pública | [`squad-contabil-adm-publica`](./squads/squad-contabil-adm-publica/) | Apoio auditável à conformidade contábil, análise de demonstrações e regularização assistida na Administração Pública Federal, com engine determinística e decisão final reservada ao contador. |
 
 ## 🧭 Organização saneada
 
@@ -61,7 +60,6 @@ IFFar-Squads/
     ├── orbita-incubadora-squad/
     ├── prismaframe-executive-cinema-suite/
     ├── projur-contracts-squad/
-    ├── squad-contabil-adm-publica/
     ├── squad-docente-iffar/
     ├── squad-pcfp/
     ├── squ-tesouraria-publica-squad/
