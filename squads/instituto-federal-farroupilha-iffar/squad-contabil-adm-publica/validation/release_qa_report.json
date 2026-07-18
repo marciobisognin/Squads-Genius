@@ -1,18 +1,18 @@
 {
   "status": "go",
-  "path": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/IFFar-Squads/squads/squad-contabil-adm-publica",
+  "path": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/squads/instituto-federal-farroupilha-iffar/squad-contabil-adm-publica",
   "test_and_validator_output": "........                                                                 [100%]\n8 passed in 0.26s\n{\n  \"go_no_go\": \"go\",\n  \"issues\": [],\n  \"required_files_checked\": 15,\n  \"manifest_sections_checked\": [\n    \"agents\",\n    \"tasks\",\n    \"workflows\",\n    \"scripts\"\n  ]\n}\nSquad:     root\nProblemas: 0 (0 erro, 0 aviso)\nRelatório: /root/SQUAD-DOCTOR-REPORT.md",
   "smoke_clean": {
     "status": "ok",
     "conclusion": "sem_restricao_proposta",
     "findings": 0,
-    "output_dir": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/IFFar-Squads/squads/squad-contabil-adm-publica/validation/demo_sem_restricao"
+    "output_dir": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/squads/instituto-federal-farroupilha-iffar/squad-contabil-adm-publica/validation/demo_sem_restricao"
   },
   "smoke_inconsistent": {
     "status": "ok",
     "conclusion": "com_restricao_proposta",
     "findings": 8,
-    "output_dir": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/IFFar-Squads/squads/squad-contabil-adm-publica/validation/demo_com_inconsistencias"
+    "output_dir": "/data/data/com.termux/files/home/squad-factory/github/Squads-Genius/squads/instituto-federal-farroupilha-iffar/squad-contabil-adm-publica/validation/demo_com_inconsistencias"
   },
   "cross_audit": {
     "status": "go",
