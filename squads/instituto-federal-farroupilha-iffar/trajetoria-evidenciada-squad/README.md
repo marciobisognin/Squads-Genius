@@ -255,7 +255,7 @@ sequenceDiagram
 3. Abra a pasta:
 
 ```bash
-squads/trajetoria-evidenciada-squad
+squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad
 ```
 
 4. No chat/agente do Antigravity, use um prompt como:
@@ -282,7 +282,7 @@ Ao final, gere catálogo documental, matriz de pontuação, pasta de revisão ma
 
 ```bash
 # dentro do repositório Squads-Genius
-cd squads/trajetoria-evidenciada-squad
+cd squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad
 opencode
 ```
 
@@ -326,7 +326,7 @@ brew install --cask codex
 **Exemplo de execução:**
 
 ```bash
-cd squads/trajetoria-evidenciada-squad
+cd squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad
 codex
 ```
 
@@ -360,14 +360,14 @@ Preserve originais, crie cópias, catalogue documentos, sugira enquadramento sem
 
 > [!NOTE]
 > **O padrão de ativação é o mesmo em qualquer ferramenta:**
-> 1. **Dê contexto** ao assistente apontando os arquivos do squad (especialmente `squads/trajetoria-evidenciada-squad/squad.yaml`).
-> 2. **Peça que ele assuma a persona do orquestrador** (veja os agentes em `squads/trajetoria-evidenciada-squad/agents/`).
+> 1. **Dê contexto** ao assistente apontando os arquivos do squad (especialmente `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml`).
+> 2. **Peça que ele assuma a persona do orquestrador** (veja os agentes em `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/agents/`).
 > 3. **Conduza o fluxo** respeitando os checkpoints humanos e validando cada handoff/contrato.
 >
 > **Prompt de ativação** (copie, cole e ajuste o briefing):
 > ```text
-> Assuma a persona do orquestrador do squad (veja os agentes em `squads/trajetoria-evidenciada-squad/agents/`)
-> e conduza o fluxo definido em `squads/trajetoria-evidenciada-squad/`.
+> Assuma a persona do orquestrador do squad (veja os agentes em `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/agents/`)
+> e conduza o fluxo definido em `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/`.
 > Valide cada handoff/contrato e respeite os checkpoints humanos.
 > Meu briefing é: <descreva seu objetivo, materiais e formato de saída>.
 > ```
@@ -381,7 +381,7 @@ Preserve originais, crie cópias, catalogue documentos, sugira enquadramento sem
 # No terminal, dentro do repositório
 claude
 
-> Leia @squads/trajetoria-evidenciada-squad/squad.yaml e assuma a persona do orquestrador do squad.
+> Leia @squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml e assuma a persona do orquestrador do squad.
   Conduza o fluxo para o briefing: <...>
 ```
 - Use **`@caminho/arquivo`** para dar contexto preciso (autocompleta no prompt).
@@ -397,10 +397,10 @@ claude
 1. Abra a pasta do repositório no Cursor.
 2. No **Chat / Composer (⌘/Ctrl + I)**, referencie os arquivos com `@`:
    ```text
-   @squads/trajetoria-evidenciada-squad/squad.yaml
+   @squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml
    Assuma a persona do orquestrador e conduza o fluxo para o briefing: <...>
    ```
-3. **Persistente:** crie um `.cursorrules` na raiz apontando para `squads/trajetoria-evidenciada-squad/` como squad ativo.
+3. **Persistente:** crie um `.cursorrules` na raiz apontando para `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/` como squad ativo.
 
 </details>
 
@@ -410,7 +410,7 @@ claude
 <br>
 
 ```text
-@workspace #file:squads/trajetoria-evidenciada-squad/squad.yaml
+@workspace #file:squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml
 Assuma a persona do orquestrador deste squad e conduza o fluxo para: <...>
 ```
 Para regras persistentes, crie **`.github/copilot-instructions.md`** com o prompt de ativação.
@@ -423,7 +423,7 @@ Para regras persistentes, crie **`.github/copilot-instructions.md`** com o promp
 <br>
 
 ```text
-@squads/trajetoria-evidenciada-squad/squad.yaml
+@squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml
 Atue como o orquestrador deste squad e execute o fluxo para: <briefing>.
 ```
 Fixe as regras em **`.windsurfrules`** (raiz do projeto).
@@ -436,8 +436,8 @@ Fixe as regras em **`.windsurfrules`** (raiz do projeto).
 <br>
 
 ```text
-Leia squads/trajetoria-evidenciada-squad/squad.yaml e assuma a persona do orquestrador.
-Conduza o fluxo do squad e execute os scripts em squads/trajetoria-evidenciada-squad/scripts/ quando o passo pedir.
+Leia squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml e assuma a persona do orquestrador.
+Conduza o fluxo do squad e execute os scripts em squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/scripts/ quando o passo pedir.
 Briefing: <...>
 ```
 O Cline/Roo pode **executar os scripts** do squad e ler a saída — aprove a execução quando solicitado.
@@ -449,9 +449,9 @@ O Cline/Roo pode **executar os scripts** do squad e ler a saída — aprove a ex
 
 <br>
 
-- **Continue.dev:** use `@file` para `squads/trajetoria-evidenciada-squad/squad.yaml`; cole o prompt de ativação.
-- **Aider:** `aider squads/trajetoria-evidenciada-squad/squad.yaml` e instrua o orquestrador.
-- **ChatGPT / Gemini (sem acesso a arquivos):** copie o conteúdo de `squads/trajetoria-evidenciada-squad/squad.yaml` para o chat, cole o prompt de ativação e rode eventuais scripts localmente, colando a saída de volta.
+- **Continue.dev:** use `@file` para `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml`; cole o prompt de ativação.
+- **Aider:** `aider squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml` e instrua o orquestrador.
+- **ChatGPT / Gemini (sem acesso a arquivos):** copie o conteúdo de `squads/instituto-federal-farroupilha-iffar/trajetoria-evidenciada-squad/squad.yaml` para o chat, cole o prompt de ativação e rode eventuais scripts localmente, colando a saída de volta.
 
 </details>
 
